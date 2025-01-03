@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="255px" height="63px" viewBox="0 0 255 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Colour Logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Colour-Logo" transform="translate(-158.000000, -117.000000)">
+            <g id="Group" transform="translate(152.000000, 112.000000)">
+                <text id="graphitEdge" font-family="PTSans-Bold, PT Sans" font-size="36" font-weight="bold" letter-spacing="1.01999998">
+                    <tspan x="5.4520001" y="60" fill="#4D4D4D">graphit</tspan>
+                    <tspan x="123.688" y="60" fill="#8B0000">Edge</tspan>
+                    <tspan x="203.548" y="60" fill="#8B0000"> </tspan>
+                </text>
+                <text id="fa-pencil" font-family="FontAwesome" font-size="64" font-weight="normal" letter-spacing="-2.62400007" fill="#8B0000">
+                    <tspan x="206.883429" y="55"></tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

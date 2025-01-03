@@ -1,25 +1,33 @@
 {
-  "name": "ge-tutorial-platform",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "autoprefixer": "^10.4.20",
-    "bulma": "^1.0.3",
-    "postcss": "^8.4.49",
-    "prismjs": "^1.29.0",
-    "vite-plugin-mdx": "^3.6.1",
-    "vite-plugin-pages": "^0.32.4",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
-    "vite": "^6.0.5"
-  }
+	"name": "ge-tutorial-platform",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@emailjs/browser": "^4.4.1",
+		"@vueuse/head": "^2.0.0",
+		"autoprefixer": "^10.4.20",
+		"bulma": "^1.0.3",
+		"postcss": "^8.4.49",
+		"prismjs": "^1.29.0",
+		"remark": "^15.0.1",
+		"remark-frontmatter": "^5.0.0",
+		"remark-html": "^16.0.1",
+		"remark-parse": "^11.0.0",
+		"remark-rehype": "^11.1.1",
+		"remark-stringify": "^11.0.0",
+		"unified": "^11.0.5",
+		"vite-plugin-pages": "^0.32.4",
+		"vue": "^3.4.21",
+		"vue-router": "^4.5.0"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^5.2.1",
+		"vite": "^5.0.0"
+	}
 }

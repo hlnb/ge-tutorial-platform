@@ -1,0 +1,110 @@
+@import 'bulma/css/bulma.css';
+
+:root {
+	/* Primary Colors */
+	--color-white: #ffffff;
+	--color-alto: #d8d8d8;
+	--color-mine-shaft: #4d4d4d;
+	--color-red-berry: #8d0000;
+	--color-mahogany: #6a0808;
+	--color-tamarillo: #a21111;
+
+	/* Accent Colors */
+	--color-snow: #fff9fb;
+	--color-tea-green: #c9e4ca;
+	--color-dark-sea-green: #87bba2;
+	--color-rackley: #4b88a2;
+	--color-light-gray: #d3d4d9;
+
+	/* Additional Colors */
+	--color-ferra: #7d4f50;
+	--color-linen: #f9eae1;
+	--color-contessa: #cc8b86;
+	--color-slate-gray: #738290;
+	--color-mine-shaft-2: #444444;
+}
+:root {
+	--font-primary: 'Raleway', sans-serif;
+	--font-secondary: 'PT Sans', sans-serif;
+}
+
+body {
+	font-family: var(--font-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-primary);
+	font-weight: 700;
+}
+
+p,
+span,
+a,
+li {
+	font-family: var(--font-secondary);
+	font-weight: 400;
+}
+.button-primary {
+	background-color: var(--color-red-berry);
+	color: var(--color-white);
+	border: none;
+	padding: 0.75rem 1.5rem;
+	font-family: var(--font-primary);
+	font-size: 1rem;
+	border-radius: 0.25rem;
+	cursor: pointer;
+}
+
+.button-primary:hover {
+	background-color: var(--color-tamarillo);
+}
+
+.button-secondary {
+	background-color: var(--color-mahogany);
+	color: var(--color-white);
+}
+
+.button-secondary:hover {
+	background-color: var(--color-red-berry);
+}
+.section {
+	padding: 2rem 1rem;
+	background-color: var(--color-snow);
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+.notification {
+	padding: 1rem;
+	border-radius: 0.25rem;
+	font-family: var(--font-secondary);
+}
+
+.notification-info {
+	background-color: var(--color-rackley);
+	color: var(--color-white);
+}
+
+.notification-error {
+	background-color: var(--color-red-berry);
+	color: var(--color-white);
+}
+.highlight {
+	color: var(--color-tea-green);
+	font-weight: 700;
+	font-family: var(--font-primary);
+}
+
+.subtle-text {
+	color: var(--color-light-gray);
+	font-size: 0.875rem;
+	font-style: italic;
+}
