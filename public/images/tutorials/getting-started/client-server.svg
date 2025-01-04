@@ -1,0 +1,25 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Client (Browser) -->
+  <rect x="50" y="150" width="200" height="150" rx="10" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="150" y="200" text-anchor="middle" font-family="Arial" font-size="16" fill="#363636">Browser</text>
+  <rect x="75" y="220" width="150" height="60" rx="5" fill="white" stroke="#dbdbdb"/>
+  <text x="150" y="255" text-anchor="middle" font-family="Arial" font-size="14" fill="#4a4a4a">Web Page</text>
+
+  <!-- Server -->
+  <rect x="550" y="150" width="200" height="150" rx="10" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="650" y="200" text-anchor="middle" font-family="Arial" font-size="16" fill="#363636">Server</text>
+  <rect x="575" y="220" width="150" height="60" rx="5" fill="white" stroke="#dbdbdb"/>
+  <text x="650" y="255" text-anchor="middle" font-family="Arial" font-size="14" fill="#4a4a4a">Website Files</text>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3273dc"/>
+    </marker>
+  </defs>
+  <path d="M 260 225 C 350 225, 450 225, 540 225" fill="none" stroke="#3273dc" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="400" y="210" text-anchor="middle" font-family="Arial" font-size="14" fill="#4a4a4a">Request</text>
+  
+  <path d="M 540 275 C 450 275, 350 275, 260 275" fill="none" stroke="#3273dc" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="400" y="300" text-anchor="middle" font-family="Arial" font-size="14" fill="#4a4a4a">Response</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Process Steps -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3273dc"/>
+    </marker>
+  </defs>
+
+  <!-- Parse HTML -->
+  <rect x="50" y="100" width="150" height="100" rx="10" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="125" y="140" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#363636">Parse HTML</text>
+  <text x="125" y="170" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">Create DOM</text>
+
+  <!-- Process CSS -->
+  <rect x="250" y="100" width="150" height="100" rx="10" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="325" y="140" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#363636">Process CSS</text>
+  <text x="325" y="170" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">Apply Styles</text>
+
+  <!-- Execute JavaScript -->
+  <rect x="450" y="100" width="150" height="100" rx="10" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="525" y="140" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#363636">Execute JS</text>
+  <text x="525" y="170" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">Add Interactivity</text>
+
+  <!-- Render Page -->
+  <rect x="650" y="100" width="150" height="100" rx="10" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="725" y="140" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#363636">Render Page</text>
+  <text x="725" y="170" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">Display Result</text>
+
+  <!-- Connecting Arrows -->
+  <path d="M 200 150 L 250 150" stroke="#3273dc" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 400 150 L 450 150" stroke="#3273dc" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 600 150 L 650 150" stroke="#3273dc" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>

@@ -1,0 +1,106 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Network Panel Background -->
+  <rect x="0" y="0" width="800" height="400" fill="#202124"/>
+
+  <!-- Control Bar -->
+  <g transform="translate(0, 0)">
+    <rect x="0" y="0" width="800" height="40" fill="#292a2d"/>
+    <!-- Record Button -->
+    <circle cx="30" cy="20" r="8" fill="#ff5252"/>
+    <!-- Filter Input -->
+    <rect x="60" y="10" width="200" height="20" rx="3" fill="#3c4043"/>
+    <text x="70" y="24" fill="#9ca0a5" font-family="Arial" font-size="12">Filter</text>
+    <!-- Network Throttling -->
+    <rect x="280" y="10" width="120" height="20" rx="3" fill="#3c4043"/>
+    <text x="290" y="24" fill="#9ca0a5" font-family="Arial" font-size="12">No throttling</text>
+  </g>
+
+  <!-- Column Headers -->
+  <g transform="translate(0, 40)">
+    <rect x="0" y="0" width="800" height="30" fill="#292a2d"/>
+    <g font-family="Arial" font-size="12" fill="#ffffff">
+      <text x="20" y="20">Name</text>
+      <text x="300" y="20">Status</text>
+      <text x="380" y="20">Type</text>
+      <text x="480" y="20">Size</text>
+      <text x="580" y="20">Time</text>
+      <text x="680" y="20">Waterfall</text>
+    </g>
+  </g>
+
+  <!-- Request Rows -->
+  <g transform="translate(0, 70)">
+    <!-- HTML Request -->
+    <g>
+      <rect x="0" y="0" width="800" height="30" fill="#292a2d"/>
+      <text x="20" y="20" font-family="Arial" font-size="12" fill="#89c4f4">index.html</text>
+      <text x="300" y="20" font-family="Arial" font-size="12" fill="#a5d6a7">200</text>
+      <text x="380" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">document</text>
+      <text x="480" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">15.2 KB</text>
+      <text x="580" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">132 ms</text>
+      <!-- Waterfall Bar -->
+      <rect x="680" y="5" width="100" height="20" fill="#292a2d" stroke="#3c4043" stroke-width="1"/>
+      <rect x="680" y="5" width="60" height="20" fill="#1a73e8" fill-opacity="0.3"/>
+    </g>
+
+    <!-- CSS Request -->
+    <g transform="translate(0, 30)">
+      <rect x="0" y="0" width="800" height="30" fill="#1f1f1f"/>
+      <text x="20" y="20" font-family="Arial" font-size="12" fill="#89c4f4">styles.css</text>
+      <text x="300" y="20" font-family="Arial" font-size="12" fill="#a5d6a7">200</text>
+      <text x="380" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">stylesheet</text>
+      <text x="480" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">5.7 KB</text>
+      <text x="580" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">45 ms</text>
+      <!-- Waterfall Bar -->
+      <rect x="680" y="5" width="100" height="20" fill="#292a2d" stroke="#3c4043" stroke-width="1"/>
+      <rect x="700" y="5" width="30" height="20" fill="#1a73e8" fill-opacity="0.3"/>
+    </g>
+
+    <!-- JS Request -->
+    <g transform="translate(0, 60)">
+      <rect x="0" y="0" width="800" height="30" fill="#292a2d"/>
+      <text x="20" y="20" font-family="Arial" font-size="12" fill="#89c4f4">script.js</text>
+      <text x="300" y="20" font-family="Arial" font-size="12" fill="#a5d6a7">200</text>
+      <text x="380" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">script</text>
+      <text x="480" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">8.3 KB</text>
+      <text x="580" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">78 ms</text>
+      <!-- Waterfall Bar -->
+      <rect x="680" y="5" width="100" height="20" fill="#292a2d" stroke="#3c4043" stroke-width="1"/>
+      <rect x="720" y="5" width="40" height="20" fill="#1a73e8" fill-opacity="0.3"/>
+    </g>
+
+    <!-- Image Request -->
+    <g transform="translate(0, 90)">
+      <rect x="0" y="0" width="800" height="30" fill="#1f1f1f"/>
+      <text x="20" y="20" font-family="Arial" font-size="12" fill="#89c4f4">hero.jpg</text>
+      <text x="300" y="20" font-family="Arial" font-size="12" fill="#a5d6a7">200</text>
+      <text x="380" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">image</text>
+      <text x="480" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">245 KB</text>
+      <text x="580" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">189 ms</text>
+      <!-- Waterfall Bar -->
+      <rect x="680" y="5" width="100" height="20" fill="#292a2d" stroke="#3c4043" stroke-width="1"/>
+      <rect x="740" y="5" width="35" height="20" fill="#1a73e8" fill-opacity="0.3"/>
+    </g>
+
+    <!-- API Request -->
+    <g transform="translate(0, 120)">
+      <rect x="0" y="0" width="800" height="30" fill="#292a2d"/>
+      <text x="20" y="20" font-family="Arial" font-size="12" fill="#89c4f4">api/data</text>
+      <text x="300" y="20" font-family="Arial" font-size="12" fill="#a5d6a7">200</text>
+      <text x="380" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">fetch</text>
+      <text x="480" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">1.2 KB</text>
+      <text x="580" y="20" font-family="Arial" font-size="12" fill="#9ca0a5">156 ms</text>
+      <!-- Waterfall Bar -->
+      <rect x="680" y="5" width="100" height="20" fill="#292a2d" stroke="#3c4043" stroke-width="1"/>
+      <rect x="760" y="5" width="15" height="20" fill="#1a73e8" fill-opacity="0.3"/>
+    </g>
+  </g>
+
+  <!-- Summary Bar -->
+  <g transform="translate(0, 370)">
+    <rect x="0" y="0" width="800" height="30" fill="#292a2d"/>
+    <text x="20" y="20" font-family="Arial" font-size="12" fill="#ffffff">
+      5 requests | 275.4 KB transferred | Finish: 600 ms | DOMContentLoaded: 245 ms | Load: 589 ms
+    </text>
+  </g>
+</svg> 

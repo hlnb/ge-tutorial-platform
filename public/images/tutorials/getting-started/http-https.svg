@@ -1,0 +1,37 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- HTTP Section -->
+  <rect x="50" y="50" width="300" height="200" rx="10" fill="#fff0f0" stroke="#ff3860" stroke-width="2"/>
+  <text x="200" y="80" text-anchor="middle" font-family="Arial" font-size="20" fill="#ff3860">HTTP</text>
+  
+  <!-- HTTP Browser -->
+  <rect x="75" y="100" width="100" height="60" rx="5" fill="white" stroke="#666"/>
+  <text x="125" y="135" text-anchor="middle" font-family="Arial" font-size="12">Browser</text>
+
+  <!-- HTTP Server -->
+  <rect x="225" y="100" width="100" height="60" rx="5" fill="white" stroke="#666"/>
+  <text x="275" y="135" text-anchor="middle" font-family="Arial" font-size="12">Server</text>
+
+  <!-- HTTP Data -->
+  <path d="M175 130 L225 130" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="200" y="170" text-anchor="middle" font-family="Arial" font-size="12" fill="#ff3860">Unencrypted Data</text>
+
+  <!-- HTTPS Section -->
+  <rect x="450" y="50" width="300" height="200" rx="10" fill="#f0fff4" stroke="#23d160" stroke-width="2"/>
+  <text x="600" y="80" text-anchor="middle" font-family="Arial" font-size="20" fill="#23d160">HTTPS</text>
+
+  <!-- HTTPS Browser -->
+  <rect x="475" y="100" width="100" height="60" rx="5" fill="white" stroke="#666"/>
+  <text x="525" y="135" text-anchor="middle" font-family="Arial" font-size="12">Browser</text>
+
+  <!-- HTTPS Server -->
+  <rect x="625" y="100" width="100" height="60" rx="5" fill="white" stroke="#666"/>
+  <text x="675" y="135" text-anchor="middle" font-family="Arial" font-size="12">Server</text>
+
+  <!-- HTTPS Data -->
+  <path d="M575 130 L625 130" stroke="#23d160" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="600" y="170" text-anchor="middle" font-family="Arial" font-size="12" fill="#23d160">Encrypted Data</text>
+  
+  <!-- Lock Icon -->
+  <path d="M590 120 L610 120 L610 130 L590 130 Z" fill="#23d160"/>
+  <rect x="585" y="125" width="30" height="20" rx="2" fill="#23d160"/>
+</svg>

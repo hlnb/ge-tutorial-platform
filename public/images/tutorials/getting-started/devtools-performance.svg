@@ -1,0 +1,97 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Performance Panel Background -->
+  <rect x="0" y="0" width="800" height="400" fill="#202124"/>
+
+  <!-- Control Bar -->
+  <g transform="translate(0, 0)">
+    <rect x="0" y="0" width="800" height="40" fill="#292a2d"/>
+    <!-- Record Button -->
+    <circle cx="30" cy="20" r="8" fill="#ff5252"/>
+    <!-- Refresh Button -->
+    <path d="M70,15 A10,10 0 1,1 70,25" stroke="#9ca0a5" fill="none" stroke-width="2"/>
+    <path d="M70,25 L75,25 L70,20" stroke="#9ca0a5" fill="none" stroke-width="2"/>
+    <!-- CPU Throttling -->
+    <rect x="100" y="10" width="120" height="20" rx="3" fill="#3c4043"/>
+    <text x="110" y="24" fill="#9ca0a5" font-family="Arial" font-size="12">No throttling</text>
+  </g>
+
+  <!-- Overview Timeline -->
+  <g transform="translate(0, 50)">
+    <rect x="0" y="0" width="800" height="60" fill="#292a2d"/>
+    <!-- FPS Graph -->
+    <polyline 
+      points="0,60 100,40 200,50 300,30 400,45 500,35 600,55 700,40 800,50" 
+      stroke="#a5d6a7" 
+      fill="none" 
+      stroke-width="2"/>
+  </g>
+
+  <!-- Main Timeline -->
+  <g transform="translate(0, 120)">
+    <!-- Timeline Labels -->
+    <text x="10" y="20" fill="#ffffff" font-family="Arial" font-size="12">Main</text>
+    <text x="10" y="50" fill="#ffffff" font-family="Arial" font-size="12">Rendering</text>
+    <text x="10" y="80" fill="#ffffff" font-family="Arial" font-size="12">Scripting</text>
+    <text x="10" y="110" fill="#ffffff" font-family="Arial" font-size="12">Loading</text>
+
+    <!-- Timeline Grid -->
+    <g stroke="#3c4043" stroke-width="1">
+      <line x1="100" y1="0" x2="100" y2="130"/>
+      <line x1="200" y1="0" x2="200" y2="130"/>
+      <line x1="300" y1="0" x2="300" y2="130"/>
+      <line x1="400" y1="0" x2="400" y2="130"/>
+      <line x1="500" y1="0" x2="500" y2="130"/>
+      <line x1="600" y1="0" x2="600" y2="130"/>
+      <line x1="700" y1="0" x2="700" y2="130"/>
+    </g>
+
+    <!-- Event Blocks -->
+    <g>
+      <!-- Main Thread Events -->
+      <rect x="120" y="10" width="80" height="20" fill="#1a73e8" fill-opacity="0.6"/>
+      <rect x="250" y="10" width="120" height="20" fill="#1a73e8" fill-opacity="0.6"/>
+      <rect x="420" y="10" width="60" height="20" fill="#1a73e8" fill-opacity="0.6"/>
+      
+      <!-- Rendering Events -->
+      <rect x="150" y="40" width="100" height="20" fill="#ff5252" fill-opacity="0.6"/>
+      <rect x="300" y="40" width="80" height="20" fill="#ff5252" fill-opacity="0.6"/>
+      
+      <!-- Script Events -->
+      <rect x="200" y="70" width="150" height="20" fill="#ffd740" fill-opacity="0.6"/>
+      <rect x="400" y="70" width="90" height="20" fill="#ffd740" fill-opacity="0.6"/>
+      
+      <!-- Loading Events -->
+      <rect x="100" y="100" width="200" height="20" fill="#4fc3f7" fill-opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- CPU Usage -->
+  <g transform="translate(0, 270)">
+    <text x="10" y="20" fill="#ffffff" font-family="Arial" font-size="12">CPU Usage</text>
+    <rect x="100" y="0" width="680" height="80" fill="#292a2d"/>
+    <!-- CPU Graph -->
+    <polyline 
+      points="100,80 200,40 300,60 400,20 500,50 600,30 700,45 780,35" 
+      stroke="#ff5252" 
+      fill="none" 
+      stroke-width="2"/>
+  </g>
+
+  <!-- Time Markers -->
+  <g transform="translate(100, 360)" font-family="Arial" font-size="10" fill="#9ca0a5">
+    <text x="0" y="20">0ms</text>
+    <text x="100" y="20">200ms</text>
+    <text x="200" y="20">400ms</text>
+    <text x="300" y="20">600ms</text>
+    <text x="400" y="20">800ms</text>
+    <text x="500" y="20">1000ms</text>
+    <text x="600" y="20">1200ms</text>
+  </g>
+
+  <!-- Performance Metrics -->
+  <g transform="translate(10, 230)">
+    <text x="0" y="0" fill="#ffffff" font-family="Arial" font-size="12">
+      FPS: 60 | CPU: 45% | JS Heap: 24.3 MB | DOM Nodes: 1,234
+    </text>
+  </g>
+</svg> 

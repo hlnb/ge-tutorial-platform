@@ -1,0 +1,37 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser -->
+  <rect x="50" y="150" width="150" height="100" rx="10" fill="#f5f5f5" stroke="#363636" stroke-width="2"/>
+  <text x="125" y="200" text-anchor="middle" font-family="Arial" font-size="14">Browser</text>
+
+  <!-- DNS Resolver -->
+  <rect x="300" y="150" width="150" height="100" rx="10" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="375" y="200" text-anchor="middle" font-family="Arial" font-size="14">DNS Resolver</text>
+
+  <!-- Root Server -->
+  <rect x="550" y="50" width="150" height="80" rx="10" fill="#f0fff4" stroke="#23d160" stroke-width="2"/>
+  <text x="625" y="90" text-anchor="middle" font-family="Arial" font-size="14">Root Server</text>
+  <text x="625" y="110" text-anchor="middle" font-family="Arial" font-size="12">(.)</text>
+
+  <!-- TLD Server -->
+  <rect x="550" y="160" width="150" height="80" rx="10" fill="#f0fff4" stroke="#23d160" stroke-width="2"/>
+  <text x="625" y="200" text-anchor="middle" font-family="Arial" font-size="14">TLD Server</text>
+  <text x="625" y="220" text-anchor="middle" font-family="Arial" font-size="12">(.com)</text>
+
+  <!-- Authoritative Server -->
+  <rect x="550" y="270" width="150" height="80" rx="10" fill="#f0fff4" stroke="#23d160" stroke-width="2"/>
+  <text x="625" y="310" text-anchor="middle" font-family="Arial" font-size="14">Name Server</text>
+  <text x="625" y="330" text-anchor="middle" font-family="Arial" font-size="12">(example.com)</text>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3273dc"/>
+    </marker>
+  </defs>
+
+  <!-- Connection Lines -->
+  <path d="M200 200 L300 200" stroke="#3273dc" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M450 200 L550 90" stroke="#3273dc" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M450 200 L550 200" stroke="#3273dc" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M450 200 L550 310" stroke="#3273dc" stroke-width="2" marker-end="url(#arrowhead)"/>
+</svg>

@@ -1,0 +1,30 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Web Server -->
+  <rect x="400" y="50" width="300" height="300" rx="10" fill="#f5f5f5" stroke="#363636" stroke-width="2"/>
+  <text x="550" y="80" text-anchor="middle" font-family="Arial" font-size="20" fill="#363636">Web Server</text>
+
+  <!-- Server Components -->
+  <rect x="425" y="100" width="250" height="60" rx="5" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="550" y="135" text-anchor="middle" font-family="Arial" font-size="14">HTTP Server (Apache/Nginx)</text>
+
+  <rect x="425" y="180" width="250" height="60" rx="5" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="550" y="215" text-anchor="middle" font-family="Arial" font-size="14">Application Server</text>
+
+  <rect x="425" y="260" width="250" height="60" rx="5" fill="#f0f7ff" stroke="#3273dc" stroke-width="2"/>
+  <text x="550" y="295" text-anchor="middle" font-family="Arial" font-size="14">Database</text>
+
+  <!-- Clients -->
+  <rect x="50" y="100" width="120" height="60" rx="5" fill="#f5f5f5" stroke="#363636" stroke-width="2"/>
+  <text x="110" y="135" text-anchor="middle" font-family="Arial" font-size="12">Desktop Browser</text>
+
+  <rect x="50" y="180" width="120" height="60" rx="5" fill="#f5f5f5" stroke="#363636" stroke-width="2"/>
+  <text x="110" y="215" text-anchor="middle" font-family="Arial" font-size="12">Mobile Browser</text>
+
+  <rect x="50" y="260" width="120" height="60" rx="5" fill="#f5f5f5" stroke="#363636" stroke-width="2"/>
+  <text x="110" y="295" text-anchor="middle" font-family="Arial" font-size="12">API Client</text>
+
+  <!-- Connections -->
+  <path d="M170 130 L400 130" stroke="#3273dc" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M170 210 L400 210" stroke="#3273dc" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <path d="M170 290 L400 290" stroke="#3273dc" stroke-width="2" marker-end="url(#arrowhead)"/>
+</svg>

@@ -1,0 +1,42 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial" font-size="20" fill="#363636">Emmet Shortcuts</text>
+
+  <!-- Examples -->
+  <g transform="translate(50, 80)">
+    <!-- HTML Template -->
+    <g>
+      <rect x="0" y="0" width="700" height="80" rx="5" fill="#f5f5f5"/>
+      <text x="20" y="30" font-family="Consolas, monospace" font-size="16" fill="#569cd6">! + Tab</text>
+      <path d="M 100 25 L 150 25" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="170" y="30" font-family="Consolas, monospace" font-size="14" fill="#ce9178">&lt;!DOCTYPE html&gt;</text>
+    </g>
+
+    <!-- Class -->
+    <g transform="translate(0, 100)">
+      <rect x="0" y="0" width="700" height="80" rx="5" fill="#f5f5f5"/>
+      <text x="20" y="30" font-family="Consolas, monospace" font-size="16" fill="#569cd6">.container + Tab</text>
+      <path d="M 150 25 L 200 25" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="220" y="30" font-family="Consolas, monospace" font-size="14" fill="#ce9178">&lt;div class="container"&gt;&lt;/div&gt;</text>
+    </g>
+
+    <!-- Multiple Items -->
+    <g transform="translate(0, 200)">
+      <rect x="0" y="0" width="700" height="80" rx="5" fill="#f5f5f5"/>
+      <text x="20" y="30" font-family="Consolas, monospace" font-size="16" fill="#569cd6">ul>li*3 + Tab</text>
+      <path d="M 150 25 L 200 25" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="220" y="30" font-family="Consolas, monospace" font-size="14" fill="#ce9178">&lt;ul&gt;</text>
+      <text x="240" y="50" font-family="Consolas, monospace" font-size="14" fill="#ce9178">  &lt;li&gt;&lt;/li&gt;</text>
+      <text x="240" y="70" font-family="Consolas, monospace" font-size="14" fill="#ce9178">  &lt;li&gt;&lt;/li&gt;</text>
+      <text x="240" y="90" font-family="Consolas, monospace" font-size="14" fill="#ce9178">  &lt;li&gt;&lt;/li&gt;</text>
+      <text x="220" y="110" font-family="Consolas, monospace" font-size="14" fill="#ce9178">&lt;/ul&gt;</text>
+    </g>
+  </g>
+
+  <!-- Arrow Marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+</svg> 

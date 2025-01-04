@@ -1,0 +1,23 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- HTML -->
+  <rect x="100" y="100" width="180" height="200" rx="10" fill="#ff6b6b" fill-opacity="0.2" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="190" y="150" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#ff6b6b">HTML</text>
+  <text x="190" y="180" text-anchor="middle" font-family="Arial" font-size="14" fill="#4a4a4a">Structure</text>
+  <text x="190" y="240" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">&lt;h1&gt;Title&lt;/h1&gt;</text>
+  <text x="190" y="260" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">&lt;p&gt;Content&lt;/p&gt;</text>
+
+  <!-- CSS -->
+  <rect x="310" y="100" width="180" height="200" rx="10" fill="#3273dc" fill-opacity="0.2" stroke="#3273dc" stroke-width="2"/>
+  <text x="400" y="150" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#3273dc">CSS</text>
+  <text x="400" y="180" text-anchor="middle" font-family="Arial" font-size="14" fill="#4a4a4a">Style</text>
+  <text x="400" y="240" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">color: blue;</text>
+  <text x="400" y="260" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">font-size: 16px;</text>
+
+  <!-- JavaScript -->
+  <rect x="520" y="100" width="180" height="200" rx="10" fill="#23d160" fill-opacity="0.2" stroke="#23d160" stroke-width="2"/>
+  <text x="610" y="150" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#23d160">JavaScript</text>
+  <text x="610" y="180" text-anchor="middle" font-family="Arial" font-size="14" fill="#4a4a4a">Behavior</text>
+  <text x="610" y="240" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">onClick() {</text>
+  <text x="610" y="260" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">  alert('Hi!');</text>
+  <text x="610" y="280" text-anchor="middle" font-family="Arial" font-size="12" fill="#4a4a4a">}</text>
+</svg>

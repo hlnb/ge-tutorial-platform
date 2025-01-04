@@ -1,0 +1,64 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- DevTools Window -->
+  <rect x="50" y="50" width="700" height="400" rx="5" fill="#202124"/>
+  
+  <!-- Tab Bar -->
+  <rect x="50" y="50" width="700" height="30" rx="5" fill="#3c4043"/>
+  
+  <!-- Tabs -->
+  <g font-family="Arial" font-size="12" fill="#ffffff">
+    <rect x="60" y="55" width="80" height="20" rx="3" fill="#8ab4f8"/>
+    <text x="100" y="69" text-anchor="middle">Elements</text>
+    
+    <rect x="145" y="55" width="80" height="20" rx="3" fill="#3c4043"/>
+    <text x="185" y="69" text-anchor="middle">Console</text>
+    
+    <rect x="230" y="55" width="80" height="20" rx="3" fill="#3c4043"/>
+    <text x="270" y="69" text-anchor="middle">Network</text>
+    
+    <rect x="315" y="55" width="100" height="20" rx="3" fill="#3c4043"/>
+    <text x="365" y="69" text-anchor="middle">Performance</text>
+  </g>
+
+  <!-- Left Panel (Elements Tree) -->
+  <rect x="50" y="80" width="300" height="370" fill="#292a2d"/>
+  
+  <!-- HTML Tree -->
+  <g font-family="Consolas, monospace" font-size="12" fill="#9ca0a5">
+    <text x="60" y="100">&lt;html&gt;</text>
+    <text x="75" y="120">&lt;head&gt;...&lt;/head&gt;</text>
+    <text x="75" y="140">&lt;body&gt;</text>
+    <text x="90" y="160">&lt;header class="main-header"&gt;</text>
+    <text x="105" y="180">&lt;nav&gt;</text>
+    <text x="120" y="200">&lt;ul&gt;</text>
+    <text x="135" y="220">&lt;li&gt;Home&lt;/li&gt;</text>
+    <text x="135" y="240">&lt;li&gt;About&lt;/li&gt;</text>
+    <text x="135" y="260">&lt;li&gt;Contact&lt;/li&gt;</text>
+    <text x="120" y="280">&lt;/ul&gt;</text>
+    <text x="105" y="300">&lt;/nav&gt;</text>
+    <text x="90" y="320">&lt;/header&gt;</text>
+    <text x="75" y="340">&lt;/body&gt;</text>
+    <text x="60" y="360">&lt;/html&gt;</text>
+  </g>
+
+  <!-- Right Panel (Styles) -->
+  <rect x="350" y="80" width="400" height="370" fill="#292a2d"/>
+  
+  <!-- Styles Panel -->
+  <g font-family="Consolas, monospace" font-size="12">
+    <text x="360" y="100" fill="#9ca0a5">element.style {</text>
+    <text x="360" y="140" fill="#9ca0a5">.main-header {</text>
+    <text x="375" y="160"><tspan fill="#88c0d0">background-color</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#b48ead">#f8f9fa</tspan><tspan fill="#ffffff">;</tspan></text>
+    <text x="375" y="180"><tspan fill="#88c0d0">padding</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#b48ead">1rem</tspan><tspan fill="#ffffff">;</tspan></text>
+    <text x="375" y="200"><tspan fill="#88c0d0">box-shadow</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#b48ead">0 2px 4px rgba(0,0,0,0.1)</tspan><tspan fill="#ffffff">;</tspan></text>
+    <text x="360" y="220" fill="#9ca0a5">}</text>
+    
+    <text x="360" y="260" fill="#9ca0a5">.main-header nav {</text>
+    <text x="375" y="280"><tspan fill="#88c0d0">display</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#b48ead">flex</tspan><tspan fill="#ffffff">;</tspan></text>
+    <text x="375" y="300"><tspan fill="#88c0d0">justify-content</tspan><tspan fill="#ffffff">: </tspan><tspan fill="#b48ead">space-between</tspan><tspan fill="#ffffff">;</tspan></text>
+    <text x="360" y="320" fill="#9ca0a5">}</text>
+  </g>
+
+  <!-- Selected Element Highlight -->
+  <rect x="90" y="155" width="200" height="30" fill="#1a73e8" fill-opacity="0.2" stroke="#1a73e8" stroke-width="1"/>
+</svg> 

@@ -1,0 +1,107 @@
+@import 'bulma/css/bulma.min.css';
+
+/* Rest of our custom styles */
+.panels-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	margin: 2rem 0;
+}
+
+.panel-box {
+	padding: 1.5rem;
+	background-color: #f5f5f5;
+	border-radius: 8px;
+}
+
+.panel-box img {
+	width: 100%;
+	height: auto;
+	margin: 1rem 0;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.panel-box h3 {
+	color: var(--color-primary);
+	margin-bottom: 1rem;
+}
+
+.panel-box ul {
+	margin-top: 1rem;
+	padding-left: 1.5rem;
+}
+
+.panel-box li {
+	margin-bottom: 0.5rem;
+}
+
+.tutorial-navigation {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 4rem;
+	padding-top: 2rem;
+	border-top: 1px solid #eee;
+}
+
+.tutorial-navigation .button {
+	min-width: 150px;
+}
+
+.box.info-box {
+	background-color: #f0f7ff;
+	border-left: 4px solid #3273dc;
+}
+
+.info-box kbd {
+	background-color: #f8f9fa;
+	border: 1px solid #dee2e6;
+	border-radius: 3px;
+	padding: 2px 4px;
+	font-size: 0.9em;
+}
+
+.tutorials-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	margin: 2rem 0;
+}
+
+.tutorial-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.tutorial-card .button {
+	margin-top: auto;
+}
+
+.level-section {
+	border-left: 4px solid #eee;
+	padding-left: 2rem;
+	margin-left: 1rem;
+}
+
+.level-section .tag.is-large {
+	margin-left: -3rem;
+}
+
+/* Adjust tutorial grid for better spacing */
+.tutorials-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	margin: 2rem 0;
+}
+
+.tutorial-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.tutorial-card .tags {
+	margin-top: auto;
+}

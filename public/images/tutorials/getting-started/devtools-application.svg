@@ -1,0 +1,123 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Application Panel Background -->
+  <rect x="0" y="0" width="800" height="400" fill="#202124"/>
+
+  <!-- Left Sidebar -->
+  <g transform="translate(0, 0)">
+    <rect x="0" y="0" width="200" height="400" fill="#292a2d"/>
+    
+    <!-- Storage Tree -->
+    <g font-family="Arial" font-size="12">
+      <!-- Local Storage -->
+      <g transform="translate(10, 20)">
+        <text x="0" y="0" fill="#ffffff">▼ Local Storage</text>
+        <text x="20" y="20" fill="#9ca0a5">https://example.com</text>
+      </g>
+      
+      <!-- Session Storage -->
+      <g transform="translate(10, 60)">
+        <text x="0" y="0" fill="#ffffff">▼ Session Storage</text>
+        <text x="20" y="20" fill="#9ca0a5">https://example.com</text>
+      </g>
+      
+      <!-- IndexedDB -->
+      <g transform="translate(10, 100)">
+        <text x="0" y="0" fill="#ffffff">▼ IndexedDB</text>
+        <text x="20" y="20" fill="#9ca0a5">userDB (v1)</text>
+        <text x="40" y="40" fill="#9ca0a5">- users</text>
+        <text x="40" y="60" fill="#9ca0a5">- settings</text>
+      </g>
+      
+      <!-- Cookies -->
+      <g transform="translate(10, 180)">
+        <text x="0" y="0" fill="#ffffff">▼ Cookies</text>
+        <text x="20" y="20" fill="#9ca0a5">https://example.com</text>
+      </g>
+      
+      <!-- Cache -->
+      <g transform="translate(10, 220)">
+        <text x="0" y="0" fill="#ffffff">▼ Cache Storage</text>
+        <text x="20" y="20" fill="#9ca0a5">app-v1-cache</text>
+      </g>
+      
+      <!-- Service Workers -->
+      <g transform="translate(10, 260)">
+        <text x="0" y="0" fill="#ffffff">▼ Service Workers</text>
+        <text x="20" y="20" fill="#9ca0a5">/ (active)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Main Content Area -->
+  <g transform="translate(200, 0)">
+    <!-- Header -->
+    <rect x="0" y="0" width="600" height="40" fill="#292a2d"/>
+    <text x="20" y="25" fill="#ffffff" font-family="Arial" font-size="14">Local Storage</text>
+    
+    <!-- Storage Table -->
+    <g transform="translate(0, 40)">
+      <!-- Table Header -->
+      <rect x="0" y="0" width="600" height="30" fill="#1f1f1f"/>
+      <g font-family="Arial" font-size="12" fill="#ffffff">
+        <text x="20" y="20">Key</text>
+        <text x="300" y="20">Value</text>
+      </g>
+
+      <!-- Table Content -->
+      <g font-family="Arial" font-size="12">
+        <!-- Row 1 -->
+        <g transform="translate(0, 30)">
+          <rect x="0" y="0" width="600" height="30" fill="#292a2d"/>
+          <text x="20" y="20" fill="#89c4f4">user_preferences</text>
+          <text x="300" y="20" fill="#a5d6a7">{theme: "dark", lang: "en"}</text>
+        </g>
+        <!-- Row 2 -->
+        <g transform="translate(0, 60)">
+          <rect x="0" y="0" width="600" height="30" fill="#1f1f1f"/>
+          <text x="20" y="20" fill="#89c4f4">auth_token</text>
+          <text x="300" y="20" fill="#a5d6a7">eyJhbGciOiJIUzI1...</text>
+        </g>
+        <!-- Row 3 -->
+        <g transform="translate(0, 90)">
+          <rect x="0" y="0" width="600" height="30" fill="#292a2d"/>
+          <text x="20" y="20" fill="#89c4f4">cart_items</text>
+          <text x="300" y="20" fill="#a5d6a7">[{id: 1, qty: 2}, {id: 3, qty: 1}]</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Storage Usage -->
+    <g transform="translate(20, 200)">
+      <text x="0" y="0" fill="#ffffff" font-family="Arial" font-size="14">Storage Usage</text>
+      
+      <!-- Usage Bars -->
+      <g transform="translate(0, 20)">
+        <!-- Local Storage -->
+        <text x="0" y="20" fill="#9ca0a5" font-family="Arial" font-size="12">Local Storage</text>
+        <rect x="100" y="10" width="200" height="15" fill="#292a2d"/>
+        <rect x="100" y="10" width="120" height="15" fill="#1a73e8" fill-opacity="0.6"/>
+        <text x="310" y="20" fill="#9ca0a5" font-family="Arial" font-size="12">2.4 MB / 5 MB</text>
+        
+        <!-- Cache Storage -->
+        <text x="0" y="50" fill="#9ca0a5" font-family="Arial" font-size="12">Cache Storage</text>
+        <rect x="100" y="40" width="200" height="15" fill="#292a2d"/>
+        <rect x="100" y="40" width="160" height="15" fill="#ff5252" fill-opacity="0.6"/>
+        <text x="310" y="50" fill="#9ca0a5" font-family="Arial" font-size="12">15.8 MB / 20 MB</text>
+        
+        <!-- IndexedDB -->
+        <text x="0" y="80" fill="#9ca0a5" font-family="Arial" font-size="12">IndexedDB</text>
+        <rect x="100" y="70" width="200" height="15" fill="#292a2d"/>
+        <rect x="100" y="70" width="80" height="15" fill="#ffd740" fill-opacity="0.6"/>
+        <text x="310" y="80" fill="#9ca0a5" font-family="Arial" font-size="12">8.2 MB / 50 MB</text>
+      </g>
+    </g>
+
+    <!-- Service Worker Status -->
+    <g transform="translate(20, 320)">
+      <text x="0" y="0" fill="#ffffff" font-family="Arial" font-size="14">Service Worker Status</text>
+      <rect x="0" y="20" width="12" height="12" fill="#a5d6a7"/>
+      <text x="20" y="30" fill="#ffffff" font-family="Arial" font-size="12">Active - Controlling 3 pages</text>
+      <text x="0" y="50" fill="#9ca0a5" font-family="Arial" font-size="12">Last Updated: 2 minutes ago</text>
+    </g>
+  </g>
+</svg> 
