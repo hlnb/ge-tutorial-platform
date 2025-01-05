@@ -60,6 +60,7 @@
               <div class="tags">
                 <span class="tag is-light">8 tutorials</span>
                 <span class="tag is-light">3-4 hours</span>
+                <span class="tag is-warning">Coming Soon</span>
               </div>
             </div>
 
@@ -69,6 +70,7 @@
               <div class="tags">
                 <span class="tag is-light">10 tutorials</span>
                 <span class="tag is-light">4-5 hours</span>
+                <span class="tag is-warning">Coming Soon</span>
               </div>
             </div>
 

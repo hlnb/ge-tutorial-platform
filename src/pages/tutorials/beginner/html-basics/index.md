@@ -30,7 +30,7 @@
         </div>
 
         <div class="notification is-warning is-light">
-          <p><strong>Expected Release Date:</strong> [Insert Date]</p>
+          <p><strong>Expected Release Date:</strong> January 10, 2025</p>
           <p>Subscribe to our newsletter or follow us on social media to be notified when this content is available.</p>
         </div>
 
