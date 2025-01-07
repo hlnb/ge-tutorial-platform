@@ -1,15 +1,16 @@
 {
-	"version": 2,
-	"routes": [
+	"builds": [
 		{
-			"src": "/api/subscribe",
-			"dest": "/api/subscribe.js"
+			"src": "package.json",
+			"use": "@vercel/static-build",
+			"config": {
+				"zeroConfig": true
+			}
 		}
 	],
-	"functions": {
-		"api/subscribe.js": {
-			"memory": 1024,
-			"maxDuration": 10
+	"build": {
+		"env": {
+			"NODE_OPTIONS": "--max_old_space_size=4096"
 		}
 	}
 }
