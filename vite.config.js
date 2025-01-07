@@ -14,5 +14,16 @@ export default defineConfig({
 		outDir: 'dist',
 		assetsDir: 'assets',
 		minify: 'terser',
+		rollupOptions: {
+			external: [],
+			output: {
+				manualChunks: {
+					emailjs: ['@emailjs/browser'],
+				},
+			},
+		},
+	},
+	optimizeDeps: {
+		include: ['@emailjs/browser'],
 	},
 });
