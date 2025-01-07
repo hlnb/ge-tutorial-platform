@@ -5,9 +5,13 @@ import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from 'virtual:generated-pages';
 import 'bulma/css/bulma.min.css';
+import { inject } from '@vercel/analytics';
 
 // Initialize EmailJS with your public key
 emailjs.init('1kJQbNmfHImPDixr6'); // Replace with your actual public key
+
+// Initialize Vercel Analytics
+inject();
 
 const app = createApp(App);
 const head = createHead();
