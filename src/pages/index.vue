@@ -1,8 +1,9 @@
 <template>
-  <MainLayout>
-    <div class="main-content">
-     
-      <!-- Hero Section -->
+	<MainLayout>
+		<div class="container">
+			<section class="section">
+				<div class="content">
+       <!-- Hero Section -->
       <section class="hero is-large mb-6">
         <div class="hero-body has-text-centered">
           <h2 class="title has-text-white">{{ hero.title }}</h2>
@@ -112,13 +113,12 @@
               Everything is taught through "Rotto Rocks"—a real-world project that makes learning practical, fun, and effective.
             </p>
           </div>
-        </div>
-      </section>
-
-      <MarkdownWrapper v-if="markdownContent" :content="markdownContent" />
-    </div>
-
-  </MainLayout>
+					</div>
+				</section>
+			</div>
+		</section>
+	</MainLayout>
+	</MainLayout>
 </template>
 
 <script setup>
@@ -218,8 +218,6 @@ const features = [
     ]
   }
 ]
-
-const markdownContent = ''  // Empty string
 </script>
 
 <style>
@@ -305,3 +303,4 @@ const markdownContent = ''  // Empty string
   margin: 2rem 0;
 }
 </style>
+

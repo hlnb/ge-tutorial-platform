@@ -20,10 +20,7 @@
 		"rollup": "3.23.0",
 		"postcss": "^8.4.31",
 		"postcss-import": "^15.1.0",
-		"autoprefixer": "^10.4.16",
-		"unplugin-vue-markdown": "^0.25.2",
-		"markdown-it": "^13.0.2",
-		"markdown-it-anchor": "^8.6.7"
+		"autoprefixer": "^10.4.16"
 	},
 	"engines": {
 		"node": "18.x"

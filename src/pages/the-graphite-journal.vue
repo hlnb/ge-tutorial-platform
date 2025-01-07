@@ -1,13 +1,9 @@
----
-title: The Graphite Journal
-layout: default
-wrapperComponent: MarkdownWrapper
----
-
 <template>
-  <MainLayout>
-    <div class="main-content">
-      <div class="blog-container">
+	<MainLayout>
+		<div class="container">
+			<section class="section">
+				<div class="content">
+				<div class="blog-container">
         <h1 class="title is-2 has-text-centered mb-6">{{ frontmatter.title }}</h1>
 
         <div v-if="posts.length" class="post-list">
@@ -52,21 +48,19 @@ wrapperComponent: MarkdownWrapper
         </div>
       </div>
 
-      <MarkdownWrapper v-if="markdownContent" :content="markdownContent" />
-    </div>
-
-  </MainLayout>
+			</section>
+		</div>
+	</MainLayout>
 </template>
 
 <script setup>
-import { ref, onMounted, getCurrentInstance } from 'vue'
-import { useHead } from '@vueuse/head'
-import MainLayout from '../components/MainLayout.vue'
-import MarkdownWrapper from '../components/MarkdownWrapper.vue'
+import { ref, onMounted, getCurrentInstance } from 'vue';
+import { useHead } from '@vueuse/head';
+import MainLayout from '../components/MainLayout.vue';
 
-const modules = import.meta.glob('./posts/\*.md', { 
-  eager: true
-})
+const modules = import.meta.glob('./posts/\*.md', {
+	eager: true,
+});
 const posts = ref([])
 
 onMounted(() => {
@@ -154,6 +148,7 @@ function formatDate(date) {
 
 const markdownContent = ''
 </script>
+
 
 <style scoped>
 .blog-container {

@@ -1,21 +1,11 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import Markdown from 'unplugin-vue-markdown/vite';
 import { resolve } from 'path';
 
 export default defineConfig({
 	plugins: [
 		vue({
-			include: [/\.vue$/, /\.md$/],
-		}),
-		Markdown({
-			vueTemplate: true,
-			headEnabled: true,
-			markdownItOptions: {
-				html: true,
-				linkify: true,
-				typographer: true,
-			},
+			include: [/\.vue$/],
 		}),
 	],
 	resolve: {
