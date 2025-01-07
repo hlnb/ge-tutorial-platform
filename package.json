@@ -1,6 +1,5 @@
 {
 	"name": "ge-tutorial-platform",
-	"private": true,
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
@@ -17,13 +16,12 @@
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^4.2.3",
 		"vite": "4.3.9",
-		"rollup": "3.23.0",
-		"vite-plugin-pages": "^0.31.0"
-	},
-	"overrides": {
 		"rollup": "3.23.0"
 	},
 	"engines": {
 		"node": "18.x"
+	},
+	"overrides": {
+		"rollup": "3.23.0"
 	}
 }
