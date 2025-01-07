@@ -11,7 +11,8 @@
 		"@emailjs/browser": "^3.11.0",
 		"@vueuse/head": "^1.1.26",
 		"vue": "^3.3.4",
-		"vue-router": "^4.2.4"
+		"vue-router": "^4.2.4",
+		"bulma": "^0.9.4"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^4.2.3",
@@ -19,7 +20,10 @@
 		"rollup": "3.23.0",
 		"vite-plugin-vue-markdown": "^0.23.5",
 		"markdown-it": "^13.0.2",
-		"markdown-it-prism": "^2.3.0"
+		"markdown-it-prism": "^2.3.0",
+		"postcss": "^8.4.31",
+		"postcss-import": "^15.1.0",
+		"autoprefixer": "^10.4.16"
 	},
 	"engines": {
 		"node": "18.x"

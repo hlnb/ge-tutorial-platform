@@ -27,6 +27,10 @@ export default defineConfig({
 			'~': resolve(__dirname, 'src'),
 		},
 	},
+	css: {
+		postcss: true,
+		devSourcemap: true,
+	},
 	build: {
 		target: 'es2015',
 		outDir: 'dist',
@@ -37,8 +41,12 @@ export default defineConfig({
 			output: {
 				manualChunks: {
 					emailjs: ['@emailjs/browser'],
+					bulma: ['bulma'],
 				},
 			},
 		},
+	},
+	optimizeDeps: {
+		include: ['@emailjs/browser', 'vue-router', 'bulma'],
 	},
 });
