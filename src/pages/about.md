@@ -105,8 +105,20 @@
 </template>
 
 <script setup>
+import { useHead } from '@vueuse/head'
 import MainLayout from '../components/MainLayout.vue'
-import NewsletterSignup from '../components/NewsletterSignup.vue'
+
+const frontmatter = {
+  title: 'About GraphitEdge',
+  description: 'Learn more about GraphitEdge and our mission'
+}
+
+useHead({
+  title: frontmatter.title,
+  meta: [
+    { name: 'description', content: frontmatter.description }
+  ]
+})
 </script>
 
 <style scoped>
