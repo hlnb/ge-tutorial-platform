@@ -11,4 +11,9 @@ export default defineConfig({
 	optimizeDeps: {
 		exclude: ['@rollup/rollup-linux-x64-gnu'],
 	},
+	server: {
+		fs: {
+			strict: true,
+		},
+	},
 });
