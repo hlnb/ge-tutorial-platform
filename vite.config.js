@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import Markdown from 'vite-plugin-vue-markdown';
+import Markdown from 'unplugin-vue-markdown/vite';
 import { resolve } from 'path';
-import Prism from 'markdown-it-prism';
 
 export default defineConfig({
 	plugins: [
@@ -10,15 +9,13 @@ export default defineConfig({
 			include: [/\.vue$/, /\.md$/],
 		}),
 		Markdown({
+			vueTemplate: true,
+			headEnabled: true,
 			markdownItOptions: {
 				html: true,
 				linkify: true,
 				typographer: true,
 			},
-			markdownItSetup(md) {
-				md.use(Prism);
-			},
-			wrapperComponent: 'post-layout',
 		}),
 	],
 	resolve: {
