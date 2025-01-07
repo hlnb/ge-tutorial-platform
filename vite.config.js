@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import markdown from '@vite/plugin-vue-markdown';
+import Markdown from 'vite-plugin-vue-markdown';
 import { resolve } from 'path';
 import Prism from 'markdown-it-prism';
 
@@ -9,7 +9,7 @@ export default defineConfig({
 		vue({
 			include: [/\.vue$/, /\.md$/],
 		}),
-		markdown({
+		Markdown({
 			markdownItOptions: {
 				html: true,
 				linkify: true,
