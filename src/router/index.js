@@ -1,42 +1,44 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import NotFound from '../pages/404.vue';
 
-// Import all markdown files from pages directory
-const pages = import.meta.glob(['../pages/**/*.md', '../pages/*.md'], {
+// Import all page components
+const pages = import.meta.glob(['../pages/**/*.vue', '../pages/*.vue'], {
 	eager: true,
 });
 
-// Create routes for markdown files
-const routes = Object.entries(pages).map(([path, mod]) => {
-	// Remove '../pages/' and '.md' from path
-	let routePath = path
-		.replace('../pages/', '/')
-		.replace('.md', '')
-		// Convert /index to /
-		.replace(/\/index$/, '/');
+// Create routes for Vue components
+const routes = Object.entries(pages)
+	.map(([path, mod]) => {
+		// Remove '../pages/' and '.vue' from path
+		let routePath = path
+			.replace('../pages/', '/')
+			.replace('.vue', '')
+			// Convert /index to /
+			.replace(/\/index$/, '/');
 
-	// Ensure root path is just '/'
-	if (routePath === '/index') routePath = '/';
+		// Ensure root path is just '/'
+		if (routePath === '/index') routePath = '/';
 
-	// Handle dynamic routes for posts
-	if (path.includes('/posts/')) {
-		routePath = routePath.replace('/posts/', '/post/');
-	}
+		// Skip the 404 page as we'll add it separately
+		if (routePath === '/404') return null;
 
-	return {
-		path: routePath,
-		component: mod.default,
-		meta: {
-			layout: mod.frontmatter?.layout || 'default',
-			title: mod.frontmatter?.title,
-		},
-	};
-});
+		return {
+			path: routePath,
+			component: mod.default,
+			meta: {
+				layout: mod.default?.layout || 'default',
+				title: mod.default?.frontmatter?.title,
+				description: mod.default?.frontmatter?.description,
+			},
+		};
+	})
+	.filter(Boolean); // Remove null entries
 
-// Add a catch-all 404 route
+// Add the 404 route
 routes.push({
 	path: '/:pathMatch(.*)*',
 	name: 'NotFound',
-	component: () => import('../pages/404.md'),
+	component: NotFound,
 });
 
 const router = createRouter({
@@ -44,9 +46,12 @@ const router = createRouter({
 	routes,
 });
 
-// Optional: Log routes during development
-if (import.meta.env.DEV) {
-	console.log('Generated routes:', routes);
-}
+// Navigation guard for setting page metadata
+router.beforeEach((to, from, next) => {
+	if (to.meta.title) {
+		document.title = `${to.meta.title} - GraphitEdge`;
+	}
+	next();
+});
 
 export default router;
