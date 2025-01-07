@@ -11,6 +11,15 @@
 				<router-link class="navbar-item has-text-dark" to="/tutorials">
 					Tutorials
 				</router-link>
+				<router-link class="navbar-item has-text-dark" to="/about">
+					About
+				</router-link>
+				<router-link
+					class="navbar-item has-text-dark"
+					to="/the-graphite-journal"
+				>
+					The Graphite Journal
+				</router-link>
 				<router-link class="navbar-item has-text-dark" to="/contact">
 					Contact
 				</router-link>

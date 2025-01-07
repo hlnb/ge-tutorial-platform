@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "es2022",
+		"module": "esnext",
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"]
+		},
+		"jsx": "preserve",
+		"moduleResolution": "node",
+		"lib": ["es2022", "dom"],
+		"allowJs": true,
+		"checkJs": true
+	},
+	"exclude": ["node_modules", "dist"],
+	"include": ["src/**/*"],
+	"vueCompilerOptions": {
+		"target": 3,
+		"extensions": [".vue"]
+	}
+}

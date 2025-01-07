@@ -28,9 +28,14 @@
 					<ul class="footer-links">
 						<li><router-link to="/about">About GraphiteEdge</router-link></li>
 						<li><router-link to="/tutorials">Tutorials</router-link></li>
-						<li><router-link to="/services">Services</router-link></li>
-						<li><router-link to="/blog">Blog</router-link></li>
+						<li>
+							<router-link to="/the-graphite-journal"
+								>The Graphite Journal</router-link
+							>
+						</li>
 						<li><router-link to="/contact">Contact</router-link></li>
+						<li><router-link to="/privacy">Privacy Policy</router-link></li>
+						<li><router-link to="/terms">Terms & Conditions</router-link></li>
 					</ul>
 				</div>
 
@@ -51,16 +56,9 @@
 					<h3 class="footer-heading">Never Miss a New Tutorial!</h3>
 					<p class="mt-3">
 						Want to be the first to know when new tutorials drop? Join our
-						GraphiteEdge Insider Newsletter for:
+						GraphiteEdge Insider Newsletter.
 					</p>
-					<ul class="newsletter-benefits">
-						<li>Early access to new tutorials</li>
-						<li>Exclusive tips & tricks on web development</li>
-						<li>Updates on real-world projects like "Rotto Rocks"</li>
-					</ul>
-					<button class="button is-primary is-outlined mt-4">
-						Subscribe Now
-					</button>
+					<NewsletterSignup />
 				</div>
 			</div>
 
@@ -159,6 +157,7 @@
 
 <script setup>
 import { computed } from 'vue';
+import NewsletterSignup from './NewsletterSignup.vue';
 
 const currentYear = computed(() => new Date().getFullYear());
 </script>

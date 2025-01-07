@@ -1,0 +1,15 @@
+{
+	"version": 2,
+	"routes": [
+		{
+			"src": "/api/subscribe",
+			"dest": "/api/subscribe.js"
+		}
+	],
+	"functions": {
+		"api/subscribe.js": {
+			"memory": 1024,
+			"maxDuration": 10
+		}
+	}
+}
