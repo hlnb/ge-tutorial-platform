@@ -1,19 +1,18 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
 
 export default defineConfig({
 	plugins: [vue()],
+	resolve: {
+		alias: {
+			'@': resolve(__dirname, 'src'),
+		},
+	},
 	build: {
-		rollupOptions: {
-			external: ['@rollup/rollup-linux-x64-gnu'],
-		},
-	},
-	optimizeDeps: {
-		exclude: ['@rollup/rollup-linux-x64-gnu'],
-	},
-	server: {
-		fs: {
-			strict: true,
-		},
+		target: 'es2015',
+		outDir: 'dist',
+		assetsDir: 'assets',
+		minify: 'terser',
 	},
 });
