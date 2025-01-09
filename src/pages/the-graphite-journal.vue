@@ -107,8 +107,8 @@ onMounted(async () => {
 	position: relative;
 	background: linear-gradient(
 		to right,
-		var(--color-charcoal),
-		var(--color-graphite)
+		var(--color-mine-shaft),
+		var(--color-mine-shaft-2)
 	);
 	color: white;
 	padding: 4rem 2rem;
@@ -168,7 +168,7 @@ onMounted(async () => {
 	max-width: 600px;
 	margin: 2rem auto;
 	text-align: center;
-	color: var(--color-graphite);
+	color: var(--color-mine-shaft-2);
 }
 
 .posts-grid {
@@ -219,13 +219,13 @@ onMounted(async () => {
 .post-content h2 {
 	font-size: 1.25rem;
 	margin: 0 0 1rem;
-	color: var(--color-charcoal);
+	color: var(--color-mine-shaft);
 	line-height: 1.4;
 }
 
 .post-meta {
 	font-size: 0.875rem;
-	color: var(--color-graphite);
+	color: var(--color-mine-shaft-2);
 	margin-bottom: 1rem;
 	display: flex;
 	gap: 0.5rem;
@@ -239,7 +239,7 @@ onMounted(async () => {
 .post-excerpt {
 	font-size: 0.95rem;
 	line-height: 1.6;
-	color: var(--color-graphite);
+	color: var(--color-mine-shaft-2);
 	margin-bottom: 1.5rem;
 	flex: 1;
 }
@@ -255,7 +255,7 @@ onMounted(async () => {
 	font-size: 0.75rem;
 	padding: 0.25rem 0.75rem;
 	background: var(--color-snow);
-	color: var(--color-graphite);
+	color: var(--color-mine-shaft-2);
 	border-radius: 999px;
 	transition: background-color 0.2s ease;
 }
