@@ -1,16 +1,20 @@
 <template>
 	<MainLayout>
-		<div class="container">
-			<header class="journal-header">
+		<div class="journal-hero">
+			<div class="hero-content">
 				<h1>The Graphite Journal</h1>
-				<p class="subtitle">
-					A space for reflections, insights, and deep dives into the world of
-					web development—beyond just code. From practical tutorials to musings
-					on the web industry, this is where we explore the missing pieces of
-					web development, one post at a time.
+				<p class="hero-intro">
+					Insights and tutorials about web development, design, and building
+					digital products.
 				</p>
-			</header>
+				<div class="hero-cta">
+					<BlogSignup />
+				</div>
+			</div>
+			<div class="hero-pattern"></div>
+		</div>
 
+		<div class="journal-content">
 			<div class="posts-grid">
 				<router-link
 					v-for="post in posts"
@@ -47,6 +51,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import MainLayout from '../components/MainLayout.vue';
+import BlogSignup from '../components/BlogSignup.vue';
 
 const posts = ref([]);
 
@@ -67,26 +72,28 @@ onMounted(async () => {
 	const postPromises = Object.entries(modules).map(async ([path, module]) => {
 		const component = await module();
 		const slug = path.split('/').pop().replace('.vue', '');
-		
+
 		// Process the image path to use the imported image
 		let imagePath = component.frontmatter.image;
 		if (imagePath) {
-			const imageKey = Object.keys(images).find(key => key.includes(imagePath.split('/').pop()));
+			const imageKey = Object.keys(images).find((key) =>
+				key.includes(imagePath.split('/').pop()),
+			);
 			imagePath = imageKey ? images[imageKey].default : null;
 		}
-		
+
 		return {
 			slug,
 			frontmatter: {
 				...component.frontmatter,
-				image: imagePath
+				image: imagePath,
 			},
-			path: `/posts/${slug}`
+			path: `/posts/${slug}`,
 		};
 	});
 
 	const unsortedPosts = await Promise.all(postPromises);
-	
+
 	posts.value = unsortedPosts.sort((a, b) => {
 		const dateA = new Date(a.frontmatter.date);
 		const dateB = new Date(b.frontmatter.date);
@@ -96,10 +103,65 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.journal-hero {
+	position: relative;
+	background: linear-gradient(
+		to right,
+		var(--color-charcoal),
+		var(--color-graphite)
+	);
+	color: white;
+	padding: 4rem 2rem;
+	overflow: hidden;
+}
+
+.hero-content {
+	max-width: 800px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+	text-align: center;
+}
+
+.hero-pattern {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+	opacity: 0.1;
+	z-index: 1;
+}
+
+.hero-content h1 {
+	font-size: 3rem;
+	margin: 0 0 1.5rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.hero-intro {
+	font-size: 1.25rem;
+	max-width: 600px;
+	margin: 0 auto 2rem;
+	line-height: 1.6;
+	opacity: 0.9;
+}
+
+.hero-cta {
+	max-width: 500px;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 2rem;
+	border-radius: 12px;
+	backdrop-filter: blur(10px);
+}
+
 .journal-content {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 2rem;
+	padding: 4rem 2rem;
 }
 
 .journal-intro {
@@ -204,8 +266,24 @@ onMounted(async () => {
 }
 
 @media (max-width: 768px) {
+	.journal-hero {
+		padding: 3rem 1rem;
+	}
+
+	.hero-content h1 {
+		font-size: 2rem;
+	}
+
+	.hero-intro {
+		font-size: 1.1rem;
+	}
+
+	.hero-cta {
+		padding: 1.5rem;
+	}
+
 	.journal-content {
-		padding: 1rem;
+		padding: 2rem 1rem;
 	}
 
 	.posts-grid {
