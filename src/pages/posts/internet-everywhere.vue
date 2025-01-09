@@ -3,9 +3,16 @@
 		<div class="container">
 			<section class="section">
 				<div class="content">
-					<article class="blog-post">
+					<article class="blog-post" v-if="frontmatter">
 						<h1>{{ frontmatter.title }}</h1>
 						<div class="content">
+							<div
+								v-if="isProduction"
+								style="background: #f5f5f5; padding: 1rem; margin: 1rem 0"
+							>
+								Debug: {{ JSON.stringify(frontmatter, null, 2) }}
+							</div>
+
 							<p>
 								<em
 									>(A revised version of "Life Was Simple Once" to align with
@@ -147,6 +154,9 @@
 							</div>
 						</div>
 					</article>
+					<div v-else>
+						<p>Loading post...</p>
+					</div>
 				</div>
 			</section>
 		</div>
@@ -154,7 +164,7 @@
 </template>
 
 <script>
-// Export frontmatter as a named export
+// Export frontmatter as a const
 export const frontmatter = {
 	title:
 		'The Internet is Everywhere—But Do You Really Understand How It Works?',
@@ -166,16 +176,24 @@ export const frontmatter = {
 </script>
 
 <script setup>
+import { ref, onMounted, computed } from 'vue';
 import MainLayout from '../../components/MainLayout.vue';
 import { useHead } from '@vueuse/head';
 import BlogSignup from '../../components/BlogSignup.vue';
 
-// Make frontmatter available to the template
-const { frontmatter } = await import('./internet-everywhere.vue');
+// Create a reactive reference for frontmatter
+const postData = ref(frontmatter);
+const isProduction = computed(() => import.meta.env.PROD);
+
+onMounted(() => {
+	console.log('Component mounted');
+	console.log('Environment:', import.meta.env.MODE);
+	console.log('Frontmatter:', postData.value);
+});
 
 useHead({
-	title: frontmatter.title,
-	meta: [{ name: 'description', content: frontmatter.description }],
+	title: postData.value.title,
+	meta: [{ name: 'description', content: postData.value.description }],
 });
 </script>
 
