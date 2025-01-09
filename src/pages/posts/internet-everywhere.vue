@@ -150,20 +150,20 @@
 					</article>
 				</div>
 			</section>
+			<PostNavigation :current-path="'internet-everywhere'" />
 		</div>
 	</MainLayout>
 </template>
 
 <script>
 export const frontmatter = {
-	title:
-		'The Internet is Everywhere—But Do You Really Understand How It Works?',
-	date: '2024-03-21',
-	description:
-		'Discover the hidden layers of web development, from DNS to deployment, and learn why modern developers need to think beyond just code.',
-	tags: ['Web Development', 'DNS', 'SEO', 'Infrastructure'],
+	title: 'Internet Everywhere: A Guide to Modern Web Development',
+	date: '2025-01-14',
 	author: 'Helen Burgess',
 	image: '/images/internet-everywhere-guide.svg',
+	description:
+		'Explore how the internet has evolved and what it means for modern web development.',
+	tags: ['web development', 'internet', 'technology', 'modern web'],
 };
 </script>
 
@@ -173,6 +173,7 @@ import MainLayout from '../../components/MainLayout.vue';
 import { useHead } from '@vueuse/head';
 import BlogSignup from '../../components/BlogSignup.vue';
 import internetGuide from '../../assets/images/internet-everywhere-guide.svg';
+import PostNavigation from '../../components/PostNavigation.vue';
 
 const frontmatter = {
 	title:

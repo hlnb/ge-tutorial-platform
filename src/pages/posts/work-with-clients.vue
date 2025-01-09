@@ -235,6 +235,8 @@
 					</article>
 				</div>
 			</section>
+
+			<PostNavigation :current-path="'work-with-clients'" />
 		</div>
 	</MainLayout>
 </template>
@@ -243,7 +245,9 @@
 // Regular script to export frontmatter
 export const frontmatter = {
 	title: 'How to Work with Clients as a Web Developer: The Essential Guide',
-	date: '2024-01-07',
+	date: '2025-01-07',
+	author: 'Helen Burgess',
+	image: '/images/web-development-client-guide.svg',
 	description:
 		'Learn how to communicate effectively with clients as a web developer. Avoid scope creep, set expectations, and manage web projects smoothly.',
 	tags: [
@@ -253,8 +257,6 @@ export const frontmatter = {
 		'working with clients',
 		'web design process',
 	],
-	author: 'Helen Burgess',
-	image: '/images/web-development-client-guide.svg',
 };
 </script>
 
@@ -264,6 +266,7 @@ import MainLayout from '../../components/MainLayout.vue';
 import { useHead } from '@vueuse/head';
 import BlogSignup from '../../components/BlogSignup.vue';
 import webDevClientGuide from '../../assets/images/web-development-client-guide.svg';
+import PostNavigation from '../../components/PostNavigation.vue';
 
 const frontmatter = {
 	title: 'How to Work with Clients as a Web Developer: The Essential Guide',

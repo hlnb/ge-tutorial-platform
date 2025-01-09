@@ -5,7 +5,16 @@ export default async function handler(req, res) {
 
 	const { email, source } = req.body;
 
+	if (!email) {
+		return res.status(400).json({ message: 'Email is required' });
+	}
+
 	try {
+		// Validate environment variables
+		if (!process.env.BREVO_API_KEY) {
+			throw new Error('BREVO_API_KEY is not configured');
+		}
+
 		const listId =
 			source === 'blog'
 				? process.env.BREVO_BLOG_LIST_ID
@@ -58,7 +67,7 @@ export default async function handler(req, res) {
 				console.error('Brevo API update error:', errorData);
 				throw new Error('Failed to update subscription');
 			}
-		} else {
+		} else if (getContactResponse.status === 404) {
 			// Contact doesn't exist, create new
 			const createResponse = await fetch('https://api.brevo.com/v3/contacts', {
 				method: 'POST',
@@ -81,6 +90,8 @@ export default async function handler(req, res) {
 				console.error('Brevo API create error:', errorData);
 				throw new Error('Failed to create subscription');
 			}
+		} else {
+			throw new Error('Failed to check contact existence');
 		}
 
 		return res.status(200).json({

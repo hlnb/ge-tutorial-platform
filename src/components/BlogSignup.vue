@@ -1,62 +1,57 @@
 <template>
-	<div class="newsletter-signup">
-		<form @submit.prevent="handleSubmit" class="signup-form">
-			<div class="field">
-				<div class="control has-icons-left">
-					<input
-						v-model="email"
-						class="input"
-						:class="{ 'is-danger': error }"
-						type="email"
-						placeholder="Your email address"
-						required
-					/>
-					<span class="icon is-small is-left">
-						<i class="fas fa-envelope"></i>
-					</span>
-				</div>
-				<p v-if="error" class="help is-danger">{{ error }}</p>
-			</div>
-
+	<form @submit="handleSubmit" class="newsletter-form">
+		<div class="form-content">
+			<input
+				type="email"
+				v-model="email"
+				placeholder="Enter your email"
+				required
+				:disabled="status === 'loading' || status === 'success'"
+			/>
 			<button
 				type="submit"
-				class="button is-primary is-fullwidth"
-				:class="{ 'is-loading': loading }"
+				:disabled="status === 'loading' || status === 'success'"
 			>
-				<span>Subscribe to Blog Updates</span>
-				<span class="icon">
-					<i class="fas fa-arrow-right"></i>
+				<span v-if="status === 'idle'">
+					<i class="fa-regular fa-paper-plane"></i> Subscribe
+				</span>
+				<span v-else-if="status === 'loading'">
+					<i class="fa-solid fa-circle-notch fa-spin"></i> Subscribing...
+				</span>
+				<span v-else-if="status === 'success'">
+					<i class="fa-solid fa-check"></i> Subscribed!
+				</span>
+				<span v-else>
+					<i class="fa-solid fa-exclamation-triangle"></i> Try Again
 				</span>
 			</button>
+		</div>
 
-			<div v-if="success" class="notification is-success is-light mt-3">
-				<i class="fas fa-check-circle mr-2"></i>
-				Thanks for subscribing to our blog updates!
-			</div>
-		</form>
-	</div>
+		<div v-if="status === 'success'" class="message success">
+			<i class="fa-solid fa-check-circle"></i>
+			Thanks for subscribing! Please check your email to confirm.
+		</div>
+
+		<div v-if="status === 'error'" class="message error">
+			<i class="fa-solid fa-exclamation-circle"></i>
+			{{ errorMessage }}
+		</div>
+	</form>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
 const email = ref('');
-const loading = ref(false);
-const error = ref('');
-const success = ref(false);
+const status = ref('idle');
+const errorMessage = ref('');
 
-const handleSubmit = async () => {
-	loading.value = true;
-	error.value = '';
-	success.value = false;
+const handleSubmit = async (e) => {
+	e.preventDefault();
+	status.value = 'loading';
 
 	try {
-		console.log('Attempting to subscribe with:', {
-			email: email.value,
-			source: 'blog',
-		});
-
-		const response = await fetch('http://localhost:3000/subscribe', {
+		const response = await fetch('/api/subscribe', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -67,77 +62,97 @@ const handleSubmit = async () => {
 			}),
 		});
 
-		const data = await response.json();
-		console.log('Server response:', data);
-
-		if (response.ok) {
-			success.value = true;
-			email.value = '';
-		} else {
-			throw new Error(data.message || data.error || 'Subscription failed');
+		if (!response.ok) {
+			throw new Error('Subscription failed. Please try again.');
 		}
-	} catch (err) {
-		console.error('Subscription error:', err);
-		error.value = err.message || 'Something went wrong. Please try again.';
-	} finally {
-		loading.value = false;
+
+		const data = await response.json();
+		status.value = 'success';
+		email.value = '';
+	} catch (error) {
+		console.error('Subscription error:', error);
+		status.value = 'error';
+		errorMessage.value = 'Sorry, something went wrong. Please try again later.';
 	}
 };
 </script>
 
 <style scoped>
-.newsletter-signup {
-	max-width: 400px;
+.newsletter-form {
+	max-width: 500px;
 	margin: 0 auto;
 }
 
-.signup-form {
-	background-color: var(--color-light);
-	padding: 1.5rem;
-	border-radius: 8px;
-}
-
-.field {
+.form-content {
+	display: flex;
+	gap: 0.5rem;
 	margin-bottom: 1rem;
 }
 
-.button {
-	background-color: var(--color-dark-sea-green);
+input {
+	flex: 1;
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--color-snow);
+	border-radius: 4px;
+	font-size: 1rem;
+	background: white;
+}
+
+input:disabled {
+	background-color: var(--color-snow);
+	cursor: not-allowed;
+}
+
+button {
+	padding: 0.75rem 1.5rem;
+	background-color: var(--color-red-berry);
+	color: white;
 	border: none;
+	border-radius: 4px;
+	font-size: 1rem;
+	cursor: pointer;
 	transition: background-color 0.2s ease;
 	display: flex;
 	align-items: center;
-	justify-content: center;
 	gap: 0.5rem;
 }
 
-.button:hover {
-	background-color: var(--color-red-berry-dark);
+button:hover:not(:disabled) {
+	background-color: var(--color-red-berry-dark, #8b0000);
 }
 
-.button .icon {
-	transition: transform 0.2s ease;
+button:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
 }
 
-.button:hover .icon {
-	transform: translateX(4px);
-}
-
-.notification {
-	margin-top: 1rem;
-	padding: 0.75rem;
+.message {
+	padding: 1rem;
 	border-radius: 4px;
+	margin-top: 1rem;
 	display: flex;
 	align-items: center;
+	gap: 0.5rem;
 }
 
-.notification i {
-	color: var(--color-success);
+.success {
+	background-color: #d1fae5;
+	color: #065f46;
+}
+
+.error {
+	background-color: #fee2e2;
+	color: #991b1b;
 }
 
 @media (max-width: 768px) {
-	.signup-form {
-		padding: 1rem;
+	.form-content {
+		flex-direction: column;
+	}
+
+	button {
+		width: 100%;
+		justify-content: center;
 	}
 }
 </style>

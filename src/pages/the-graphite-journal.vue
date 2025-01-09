@@ -12,28 +12,33 @@
 			</header>
 
 			<div class="posts-grid">
-				<article v-for="post in posts" :key="post.path" class="post-card">
-					<div class="post-card-content">
-						<h2 class="post-title">
-							<router-link :to="post.path || ''">
-								{{ post.frontmatter?.title }}
-							</router-link>
-						</h2>
-						<div class="post-meta">
-							<time v-if="post.frontmatter?.date">
-								{{ formatDate(post.frontmatter.date) }}
-							</time>
-						</div>
-						<p class="post-description">
-							{{ post.frontmatter?.description }}
+				<router-link
+					v-for="post in posts"
+					:key="post.slug"
+					:to="post.path"
+					class="post-card"
+				>
+					<div class="post-image" v-if="post.frontmatter.image">
+						<img :src="post.frontmatter.image" :alt="post.frontmatter.title" />
+					</div>
+					<div class="post-content">
+						<h2>{{ post.frontmatter.title }}</h2>
+						<p class="post-meta">
+							<span class="post-date">{{
+								formatDate(post.frontmatter.date)
+							}}</span>
+							<span class="post-author" v-if="post.frontmatter.author">
+								by {{ post.frontmatter.author }}
+							</span>
 						</p>
-						<div class="post-tags" v-if="post.frontmatter?.tags?.length">
+						<p class="post-excerpt">{{ post.frontmatter.description }}</p>
+						<div class="post-tags" v-if="post.frontmatter.tags">
 							<span v-for="tag in post.frontmatter.tags" :key="tag" class="tag">
 								{{ tag }}
 							</span>
 						</div>
 					</div>
-				</article>
+				</router-link>
 			</div>
 		</div>
 	</MainLayout>
@@ -45,7 +50,6 @@ import MainLayout from '../components/MainLayout.vue';
 
 const posts = ref([]);
 
-// Add date formatter function
 const formatDate = (dateString) => {
 	const date = new Date(dateString);
 	return date.toLocaleDateString('en-AU', {
@@ -55,127 +59,127 @@ const formatDate = (dateString) => {
 	});
 };
 
+// Import all images from the src directory
+const images = import.meta.glob('../assets/images/\*.svg', { eager: true });
+
 onMounted(async () => {
-	const modules = import.meta.glob('../pages/posts/\*.vue', { eager: true });
-
-	const postData = Object.entries(modules).map(([path, module]) => {
-		// Try different ways of accessing frontmatter
-		const frontmatter =
-			module.frontmatter ||
-			module.default?.frontmatter ||
-			(typeof module.default === 'function'
-				? module.default().frontmatter
-				: undefined);
-
+	const modules = import.meta.glob('./posts/\*.vue');
+	const postPromises = Object.entries(modules).map(async ([path, module]) => {
+		const component = await module();
+		const slug = path.split('/').pop().replace('.vue', '');
+		
+		// Process the image path to use the imported image
+		let imagePath = component.frontmatter.image;
+		if (imagePath) {
+			const imageKey = Object.keys(images).find(key => key.includes(imagePath.split('/').pop()));
+			imagePath = imageKey ? images[imageKey].default : null;
+		}
+		
 		return {
-			path: path.replace('../pages', '').replace('.vue', ''),
-			frontmatter: frontmatter || {},
+			slug,
+			frontmatter: {
+				...component.frontmatter,
+				image: imagePath
+			},
+			path: `/posts/${slug}`
 		};
 	});
 
-	posts.value = postData
-		.filter((post) => post.frontmatter && post.frontmatter.title)
-		.sort((a, b) => {
-			return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
-		});
-
-	console.log('Posts loaded:', posts.value); // Debug log
+	const unsortedPosts = await Promise.all(postPromises);
+	
+	posts.value = unsortedPosts.sort((a, b) => {
+		const dateA = new Date(a.frontmatter.date);
+		const dateB = new Date(b.frontmatter.date);
+		return dateB - dateA;
+	});
 });
 </script>
 
 <style scoped>
-.container {
+.journal-content {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 2rem;
 }
 
-.journal-header {
+.journal-intro {
+	max-width: 600px;
+	margin: 2rem auto;
 	text-align: center;
-	margin-bottom: 4rem;
-	padding: 2rem 0;
-	border-bottom: 2px solid var(--color-snow);
-}
-
-.journal-header h1 {
-	font-size: 3rem;
-	color: var(--color-red-berry);
-	margin-bottom: 1rem;
-}
-
-.subtitle {
-	font-size: 1.2rem;
-	color: var(--color-mine-shaft);
-	opacity: 0.8;
+	color: var(--color-graphite);
 }
 
 .posts-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	gap: 2rem;
-	margin-top: 2rem;
+	margin-top: 3rem;
 }
 
 .post-card {
-	background: white;
-	border-radius: 12px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
-	overflow: hidden;
-	height: 100%;
 	display: flex;
 	flex-direction: column;
+	text-decoration: none;
+	color: inherit;
+	background: white;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .post-card:hover {
 	transform: translateY(-4px);
-	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+		0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.post-card-content {
+.post-image {
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	background: var(--color-snow);
+}
+
+.post-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.post-content {
 	padding: 1.5rem;
-	flex-grow: 1;
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 }
 
-.post-title {
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
-}
-
-.post-title a {
-	color: var(--color-red-berry);
-	text-decoration: none;
-}
-
-.post-title a:hover {
-	text-decoration: underline;
+.post-content h2 {
+	font-size: 1.25rem;
+	margin: 0 0 1rem;
+	color: var(--color-charcoal);
+	line-height: 1.4;
 }
 
 .post-meta {
-	font-size: 0.9rem;
-	color: #666;
+	font-size: 0.875rem;
+	color: var(--color-graphite);
 	margin-bottom: 1rem;
 	display: flex;
-	align-items: center;
-	gap: 1rem;
+	gap: 0.5rem;
 }
 
-.post-meta time {
-	background: var(--color-snow);
-	padding: 0.25rem 0.75rem;
-	border-radius: 12px;
-	font-family: monospace;
-	font-size: 0.85rem;
-	letter-spacing: 0.02em;
+.post-date::after {
+	content: '•';
+	margin-left: 0.5rem;
 }
 
-.post-description {
-	color: var(--color-mine-shaft);
-	margin-bottom: 1.5rem;
+.post-excerpt {
+	font-size: 0.95rem;
 	line-height: 1.6;
-	flex-grow: 1;
+	color: var(--color-graphite);
+	margin-bottom: 1.5rem;
+	flex: 1;
 }
 
 .post-tags {
@@ -183,38 +187,34 @@ onMounted(async () => {
 	flex-wrap: wrap;
 	gap: 0.5rem;
 	margin-top: auto;
-	padding-top: 1rem;
 }
 
 .tag {
+	font-size: 0.75rem;
+	padding: 0.25rem 0.75rem;
 	background: var(--color-snow);
-	color: var(--color-mine-shaft);
-	padding: 0.35rem 0.85rem;
-	border-radius: 20px;
-	font-size: 0.85rem;
-	font-weight: 500;
-	letter-spacing: 0.02em;
-	transition: all 0.2s ease;
-	border: 1px solid rgba(0, 0, 0, 0.05);
+	color: var(--color-graphite);
+	border-radius: 999px;
+	transition: background-color 0.2s ease;
 }
 
 .tag:hover {
 	background: var(--color-red-berry);
 	color: white;
-	transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
-	.container {
+	.journal-content {
 		padding: 1rem;
-	}
-
-	.journal-header h1 {
-		font-size: 2rem;
 	}
 
 	.posts-grid {
 		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	.post-content h2 {
+		font-size: 1.2rem;
 	}
 }
 </style>

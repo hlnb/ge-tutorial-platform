@@ -1,75 +1,54 @@
 <template>
-	<div class="newsletter-form">
-		<form @submit.prevent="handleSubmit" ref="form">
-			<div class="field">
-				<div class="control has-icons-left">
-					<input
-						class="input"
-						type="text"
-						name="name"
-						v-model="name"
-						placeholder="Your name"
-						:class="{ 'is-danger': error }"
-						required
-					/>
-					<span class="icon is-small is-left">
-						<i class="fas fa-user"></i>
-					</span>
-				</div>
-			</div>
+	<form @submit="handleSubmit" class="newsletter-form">
+		<div class="form-content">
+			<input
+				type="email"
+				v-model="email"
+				placeholder="Enter your email"
+				required
+				:disabled="status === 'loading' || status === 'success'"
+			/>
+			<button
+				type="submit"
+				:disabled="status === 'loading' || status === 'success'"
+			>
+				<span v-if="status === 'idle'">
+					<i class="fa-regular fa-paper-plane"></i> Subscribe
+				</span>
+				<span v-else-if="status === 'loading'">
+					<i class="fa-solid fa-circle-notch fa-spin"></i> Subscribing...
+				</span>
+				<span v-else-if="status === 'success'">
+					<i class="fa-solid fa-check"></i> Subscribed!
+				</span>
+				<span v-else>
+					<i class="fa-solid fa-exclamation-triangle"></i> Try Again
+				</span>
+			</button>
+		</div>
 
-			<div class="field has-addons">
-				<div class="control has-icons-left is-expanded">
-					<input
-						class="input"
-						type="email"
-						name="email"
-						v-model="email"
-						placeholder="Your email address"
-						:class="{ 'is-danger': error }"
-						required
-					/>
-					<span class="icon is-small is-left">
-						<i class="fas fa-envelope"></i>
-					</span>
-				</div>
-				<div class="control">
-					<button
-						class="button is-primary"
-						type="submit"
-						:class="{ 'is-loading': isLoading }"
-						:disabled="isLoading"
-					>
-						<span class="icon">
-							<i class="fas fa-paper-plane"></i>
-						</span>
-						<span>Subscribe</span>
-					</button>
-				</div>
-			</div>
+		<div v-if="status === 'success'" class="message success">
+			<i class="fa-solid fa-check-circle"></i>
+			Thanks for subscribing! Please check your email to confirm.
+		</div>
 
-			<p class="help is-danger" v-if="error">{{ error }}</p>
-			<div class="notification is-success is-light mt-3" v-if="successMessage">
-				<button class="delete" @click="successMessage = ''"></button>
-				{{ successMessage }}
-			</div>
-		</form>
-	</div>
+		<div v-if="status === 'error'" class="message error">
+			<i class="fa-solid fa-exclamation-circle"></i>
+			{{ errorMessage }}
+		</div>
+	</form>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
-const name = ref('');
 const email = ref('');
-const error = ref('');
-const successMessage = ref('');
-const isLoading = ref(false);
+const status = ref('idle');
+const errorMessage = ref('');
 
-const handleSubmit = async () => {
-	error.value = '';
-	successMessage.value = '';
-	isLoading.value = true;
+const handleSubmit = async (e) => {
+	e.preventDefault();
+	status.value = 'loading';
 
 	try {
 		const response = await fetch('/api/subscribe', {
@@ -79,27 +58,25 @@ const handleSubmit = async () => {
 			},
 			body: JSON.stringify({
 				email: email.value,
-				name: name.value,
+				source: 'tutorial', // This will use BREVO_TUTORIAL_LIST_ID
 			}),
 		});
 
-		const data = await response.json().catch(() => ({
-			error: 'Invalid server response',
-		}));
-
-		if (response.ok && data.success) {
-			successMessage.value = data.message;
-			name.value = '';
-			email.value = '';
-		} else {
-			throw new Error(data.error || 'Subscription failed');
+		if (!response.ok) {
+			const errorData = await response.json();
+			throw new Error(
+				errorData.message || 'Subscription failed. Please try again.',
+			);
 		}
-	} catch (e) {
-		error.value =
-			e.message || 'Sorry, something went wrong. Please try again later.';
-		console.error('Subscription Error:', e);
-	} finally {
-		isLoading.value = false;
+
+		const data = await response.json();
+		status.value = 'success';
+		email.value = '';
+	} catch (error) {
+		console.error('Subscription Error:', error);
+		status.value = 'error';
+		errorMessage.value =
+			error.message || 'Sorry, something went wrong. Please try again later.';
 	}
 };
 </script>
@@ -110,30 +87,76 @@ const handleSubmit = async () => {
 	margin: 0 auto;
 }
 
-.notification {
-	animation: fadeIn 0.3s ease-in;
+.form-content {
+	display: flex;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
 }
 
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(-10px);
+input {
+	flex: 1;
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--color-snow);
+	border-radius: 4px;
+	font-size: 1rem;
+	background: white;
+}
+
+input:disabled {
+	background-color: var(--color-snow);
+	cursor: not-allowed;
+}
+
+button {
+	padding: 0.75rem 1.5rem;
+	background-color: var(--color-red-berry);
+	color: white;
+	border: none;
+	border-radius: 4px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+button:hover:not(:disabled) {
+	background-color: var(--color-red-berry-dark, #8b0000);
+}
+
+button:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+.message {
+	padding: 1rem;
+	border-radius: 4px;
+	margin-top: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.success {
+	background-color: #d1fae5;
+	color: #065f46;
+}
+
+.error {
+	background-color: #fee2e2;
+	color: #991b1b;
+}
+
+@media (max-width: 768px) {
+	.form-content {
+		flex-direction: column;
 	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
+
+	button {
+		width: 100%;
+		justify-content: center;
 	}
-}
-
-.field.has-addons {
-	justify-content: center;
-}
-
-.control.is-expanded {
-	max-width: 300px;
-}
-
-.field:not(:last-child) {
-	margin-bottom: 0.75rem;
 }
 </style>
