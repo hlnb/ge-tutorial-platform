@@ -12,11 +12,15 @@ export default defineConfig({
 		alias: {
 			'@': resolve(__dirname, 'src'),
 			'~': resolve(__dirname, 'src'),
+			bulma: 'bulma/css/bulma.min.css',
 		},
 	},
 	css: {
 		postcss: true,
 		devSourcemap: true,
+		preprocessorOptions: {
+			// Remove any sass/scss options if they exist
+		},
 	},
 	build: {
 		target: 'es2015',
