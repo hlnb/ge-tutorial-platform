@@ -5,7 +5,7 @@
 			<div v-if="posts && posts.length" class="post-list">
 				<div v-for="post in posts" :key="post.url" class="post-item">
 					<h2>
-						<a :href="post.url">{{ post.title }}</a>
+						<router-link :to="post.url">{{ post.title }}</router-link>
 					</h2>
 					<p>{{ post.description }}</p>
 					<p class="post-date">
@@ -33,26 +33,21 @@ export default {
 		});
 
 		const posts = Object.entries(postFiles).map(([path, module]) => {
-			// Access frontmatter directly from the module
 			const frontmatter = module.frontmatter || {};
 
-			console.log('Processing path:', path);
-			console.log('Frontmatter:', frontmatter);
+			const url = '/posts/' + path.split('/').pop().replace('.vue', '');
 
 			return {
-				url: path.replace('../pages', '').replace('.vue', ''),
+				url,
 				title: frontmatter.title || 'Untitled',
 				description: frontmatter.description || '',
 				date: frontmatter.date || new Date().toISOString(),
 			};
 		});
 
-		// Sort posts by date
 		this.posts = posts.sort((a, b) => {
 			return new Date(b.date) - new Date(a.date);
 		});
-
-		console.log('Final posts:', this.posts);
 	},
 };
 </script>

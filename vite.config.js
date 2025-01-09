@@ -18,6 +18,12 @@ export default defineConfig({
 		target: 'es2015',
 		outDir: 'dist',
 		assetsDir: 'assets',
+		rollupOptions: {
+			input: {
+				main: resolve(__dirname, 'index.html'),
+				// Add any other entry points you need
+			},
+		},
 	},
 	optimizeDeps: {
 		include: ['@emailjs/browser', 'vue-router'],

@@ -161,7 +161,7 @@ import BlogSignup from '../../components/BlogSignup.vue';
 const frontmatter = {
 	title:
 		'The Internet is Everywhere—But Do You Really Understand How It Works?',
-	date: '2024-03-21',
+	date: '2025-01-09',
 	description:
 		'Discover the hidden layers of web development, from DNS to deployment, and learn why modern developers need to think beyond just code.',
 	tags: ['Web Development', 'DNS', 'SEO', 'Infrastructure'],

@@ -43,7 +43,17 @@ routes.push({
 
 const router = createRouter({
 	history: createWebHistory(),
-	routes,
+	routes: [
+		...routes,
+		{
+			path: '/posts/:id',
+			component: () => import('../pages/posts/internet-everywhere.vue'),
+		},
+		{
+			path: '/the-graphite-journal',
+			component: () => import('../pages/the-graphite-journal.vue'),
+		},
+	],
 });
 
 // Navigation guard for setting page metadata
