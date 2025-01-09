@@ -2,6 +2,11 @@
 	<div class="container">
 		<h1 class="title">The Graphite Journal</h1>
 		<div class="posts">
+			<pre style="background: #f5f5f5; padding: 1rem; margin: 1rem 0">
+				Debug Posts: {{ JSON.stringify(posts, null, 2) }}
+			</pre
+			>
+
 			<div v-if="posts && posts.length" class="post-list">
 				<div v-for="post in posts" :key="post.url" class="post-item">
 					<h2>
@@ -32,22 +37,40 @@ export default {
 			eager: true,
 		});
 
+		console.log('Found post files:', postFiles);
+
 		const posts = Object.entries(postFiles).map(([path, module]) => {
-			const frontmatter = module.frontmatter || {};
+			console.log('Processing module:', module);
+			console.log('Module frontmatter:', module.frontmatter);
+
+			const frontmatter =
+				module.frontmatter ||
+				module.default?.frontmatter ||
+				(typeof module.default === 'function'
+					? module.default().frontmatter
+					: {});
+
+			console.log('Extracted frontmatter:', frontmatter);
 
 			const url = '/posts/' + path.split('/').pop().replace('.vue', '');
 
-			return {
+			const post = {
 				url,
-				title: frontmatter.title || 'Untitled',
-				description: frontmatter.description || '',
-				date: frontmatter.date || new Date().toISOString(),
+				title: frontmatter?.title || 'Untitled',
+				description: frontmatter?.description || '',
+				date: frontmatter?.date || new Date().toISOString(),
 			};
+
+			console.log('Created post object:', post);
+
+			return post;
 		});
 
 		this.posts = posts.sort((a, b) => {
 			return new Date(b.date) - new Date(a.date);
 		});
+
+		console.log('Final sorted posts:', this.posts);
 	},
 };
 </script>
