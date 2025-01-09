@@ -118,13 +118,12 @@
 			</div>
 		</section>
 	</MainLayout>
-	</MainLayout>
 </template>
 
 <script setup>
 import { useHead } from '@vueuse/head'
 import MainLayout from '../components/MainLayout.vue'
-import MarkdownWrapper from '../components/MarkdownWrapper.vue'
+
 
 const frontmatter = {
   title: 'GraphitEdge',
