@@ -112,10 +112,12 @@
 							</li>
 						</ul>
 
-						<p>
-							💡 <strong>Pro Tip:</strong> Clients often say,
-							<em>“I just need a simple website.”</em> 🚨 This is a red flag!
-							Always clarify
+						<p class="tip">
+							<i class="fa-solid fa-lightbulb-on"></i>
+							<strong>Pro Tip:</strong> Clients often say,
+							<em>“I just need a simple website.”</em>
+							<i class="fa-sharp-duotone fa-solid fa-flag"></i> This is a red
+							flag! Always clarify
 							<strong>exactly what they mean by ‘simple’</strong>.
 						</p>
 
