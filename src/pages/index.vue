@@ -284,7 +284,6 @@ const features = [
 </script>
 
 <style>
-@import 'bulma/css/bulma.min.css';
 @import '../assets/styles/main.css';
 
 .hero {
