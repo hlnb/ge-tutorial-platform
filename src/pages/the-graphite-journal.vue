@@ -69,7 +69,7 @@ import { ref, onMounted, getCurrentInstance } from 'vue';
 import { useHead } from '@vueuse/head';
 import MainLayout from '../components/MainLayout.vue';
 
-const modules = import.meta.glob('./posts/\*.md', {
+const modules = import.meta.glob('./posts/\*.vue', {
 	eager: true,
 });
 const posts = ref([]);
@@ -103,7 +103,7 @@ onMounted(() => {
 				}
 
 				return {
-					path: path.replace('./posts/', '/posts/').replace('.md', ''),
+					path: path.replace('./posts/', '/posts/').replace('.vue', ''),
 					frontmatter: frontmatterData,
 				};
 			})
