@@ -5,9 +5,7 @@
 				<div class="hero-content">
 					<h1>{{ frontmatter.title }}</h1>
 					<div class="meta">
-						<span class="date">{{
-							new Date(frontmatter.date).toLocaleDateString()
-						}}</span>
+						<time class="date">{{ formatDate(frontmatter.date) }}</time>
 						<span class="tags" v-if="frontmatter.tags?.length">
 							Tags: {{ frontmatter.tags.join(', ') }}
 						</span>
@@ -129,21 +127,25 @@
 							increasing the budget or timeline. Here's how to avoid it:
 						</p>
 
-						<ul>
+						<ul class="feature-list">
 							<li>
-								📄 <strong>Have a clear contract.</strong> Outline what’s
-								included and what’s extra.
+								<i class="fa-solid fa-pen-to-square"></i
+								><strong>Have a clear contract.</strong> Outline what’s included
+								and what’s extra.
 							</li>
 							<li>
-								📝 <strong>Create a feature list.</strong> If something’s not on
+								<i class="fa-solid fa-clipboard-list-check"></i
+								><strong>Create a feature list.</strong> If something’s not on
 								the list, it’s a separate project.
 							</li>
 							<li>
-								💰 <strong>Use change orders.</strong> New features require a
+								<i class="fa-solid fa-traffic-light-stop"></i
+								><strong>Use change orders.</strong> New features require a
 								quote for additional work.
 							</li>
 							<li>
-								🚦 <strong>Be upfront about costs.</strong> Extra work = extra
+								<i class="fa-solid fa-sack-dollar"></i
+								><strong>Be upfront about costs.</strong> Extra work = extra
 								payment.
 							</li>
 						</ul>
@@ -177,23 +179,27 @@
 
 						<p>Some common client issues and how to handle them:</p>
 
-						<ul>
+						<ul class="feature-list">
 							<li>
-								🚩
+								<i class="fa-solid fa-flag-pennant"></i>
 								<strong>“I need this website finished in two weeks.”</strong>
-								→ Require all content upfront.
+								<i class="fa-solid fa-arrow-right"></i>Require all content
+								upfront.
 							</li>
 							<li>
-								🚩 <strong>“I’ll pay you when the website is done.”</strong> →
-								Require a 50% deposit before starting.
+								<i class="fa-solid fa-flag-pennant"></i>
+								<strong>“I’ll pay you when the website is done.”</strong>
+								<i class="fa-solid fa-arrow-right"></i> Require a 50% deposit
+								before starting.
 							</li>
 							<li>
-								🚩
+								<i class="fa-solid fa-flag-pennant"></i>
 								<strong
 									>“I don’t like how this looks. Can you just change
 									everything?”</strong
 								>
-								→ Limit revisions in your contract.
+								<i class="fa-solid fa-arrow-right"></i> Limit revisions in your
+								contract.
 							</li>
 						</ul>
 
@@ -221,7 +227,7 @@
 						<div class="cta-box">
 							<h3>Ready to learn more?</h3>
 							<p>
-								<i class="fas fa-envelope"></i> Join The Graphite Journal
+								<i class="fa-regular fa-envelope"></i> Join The Graphite Journal
 								Newsletter for web development insights.
 							</p>
 							<BlogSignup />
@@ -248,7 +254,7 @@ export const frontmatter = {
 		'web design process',
 	],
 	author: 'Helen Burgess',
-	image: '/assets/images/web-development-client-guide.svg',
+	image: '/images/web-development-client-guide.svg',
 };
 </script>
 
@@ -257,6 +263,23 @@ import { ref } from 'vue';
 import MainLayout from '../../components/MainLayout.vue';
 import { useHead } from '@vueuse/head';
 import BlogSignup from '../../components/BlogSignup.vue';
+import webDevClientGuide from '../../assets/images/web-development-client-guide.svg';
+
+const frontmatter = {
+	title: 'How to Work with Clients as a Web Developer: The Essential Guide',
+	date: '2024-01-07',
+	description:
+		'Learn how to communicate effectively with clients as a web developer. Avoid scope creep, set expectations, and manage web projects smoothly.',
+	tags: [
+		'web development',
+		'client management',
+		'freelancing',
+		'working with clients',
+		'web design process',
+	],
+	author: 'Helen Burgess',
+	image: webDevClientGuide,
+};
 
 const postData = ref(frontmatter);
 
@@ -271,6 +294,16 @@ useHead({
 			: []),
 	],
 });
+
+// Add date formatter function
+const formatDate = (dateString) => {
+	const date = new Date(dateString);
+	return date.toLocaleDateString('en-AU', {
+		day: '2-digit',
+		month: '2-digit',
+		year: 'numeric',
+	});
+};
 </script>
 
 <style scoped>
@@ -341,7 +374,7 @@ h2 {
 }
 
 .hero {
-	background-image: url('/assets/images/web-development-client-guide.svg');
+	background-image: url('../../assets/images/web-development-client-guide.svg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -407,5 +440,68 @@ h2 {
 	color: var(--color-mine-shaft, #333);
 	font-size: 1.2rem;
 	text-align: center;
+}
+
+.meta .date {
+	background: rgba(255, 255, 255, 0.2);
+	padding: 0.25rem 0.75rem;
+	border-radius: 12px;
+	font-family: monospace;
+	font-size: 0.9rem;
+	letter-spacing: 0.02em;
+}
+
+.meta .tags {
+	background: rgba(255, 255, 255, 0.2);
+	padding: 0.25rem 0.75rem;
+	border-radius: 12px;
+}
+
+.feature-list {
+	list-style: none;
+	padding: 0;
+	margin: 2rem 0;
+}
+
+.feature-list li {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.feature-list i {
+	color: var(--color-red-berry);
+	width: 20px;
+}
+
+.note,
+.tip {
+	background: var(--color-snow);
+	padding: 1rem;
+	border-radius: 8px;
+	margin: 1rem 0;
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.note i,
+.tip i {
+	color: var(--color-red-berry);
+	margin-top: 0.2rem;
+}
+
+.cta-box {
+	background: var(--color-snow);
+	padding: 2rem;
+	border-radius: 8px;
+	margin: 2rem 0;
+	text-align: center;
+}
+
+.cta-box i {
+	color: var(--color-red-berry);
+	margin-right: 0.5rem;
 }
 </style>

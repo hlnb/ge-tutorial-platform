@@ -21,7 +21,7 @@
 						</h2>
 						<div class="post-meta">
 							<time v-if="post.frontmatter?.date">
-								{{ new Date(post.frontmatter.date).toLocaleDateString() }}
+								{{ formatDate(post.frontmatter.date) }}
 							</time>
 						</div>
 						<p class="post-description">
@@ -44,6 +44,16 @@ import { ref, onMounted } from 'vue';
 import MainLayout from '../components/MainLayout.vue';
 
 const posts = ref([]);
+
+// Add date formatter function
+const formatDate = (dateString) => {
+	const date = new Date(dateString);
+	return date.toLocaleDateString('en-AU', {
+		day: '2-digit',
+		month: '2-digit',
+		year: 'numeric',
+	});
+};
 
 onMounted(async () => {
 	const modules = import.meta.glob('../pages/posts/\*.vue', { eager: true });
@@ -147,6 +157,18 @@ onMounted(async () => {
 	font-size: 0.9rem;
 	color: #666;
 	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.post-meta time {
+	background: var(--color-snow);
+	padding: 0.25rem 0.75rem;
+	border-radius: 12px;
+	font-family: monospace;
+	font-size: 0.85rem;
+	letter-spacing: 0.02em;
 }
 
 .post-description {
@@ -161,14 +183,25 @@ onMounted(async () => {
 	flex-wrap: wrap;
 	gap: 0.5rem;
 	margin-top: auto;
+	padding-top: 1rem;
 }
 
 .tag {
 	background: var(--color-snow);
 	color: var(--color-mine-shaft);
-	padding: 0.25rem 0.75rem;
-	border-radius: 16px;
+	padding: 0.35rem 0.85rem;
+	border-radius: 20px;
 	font-size: 0.85rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	transition: all 0.2s ease;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tag:hover {
+	background: var(--color-red-berry);
+	color: white;
+	transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
