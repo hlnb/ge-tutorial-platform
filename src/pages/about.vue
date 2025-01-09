@@ -188,3 +188,28 @@ useHead({
 	meta: [{ name: 'description', content: frontmatter.description }],
 });
 </script>
+<style>
+.feature-text {
+	font-size: 1.25rem;
+	margin: 1.5rem 0;
+}
+
+.checkmark-list {
+	list-style: none;
+	padding-left: 1.5rem;
+}
+
+.checkmark-list li {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.checkmark-list li::before {
+	content: '✓';
+	position: absolute;
+	left: -1.5rem;
+	color: #4caf50;
+}
+
+/* Add any other custom styles you need */
+</style>
