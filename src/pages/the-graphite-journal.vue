@@ -1,106 +1,187 @@
 <template>
-	<div class="container">
-		<h1 class="title">The Graphite Journal</h1>
-		<div class="posts">
-			<pre style="background: #f5f5f5; padding: 1rem; margin: 1rem 0">
-				Debug Posts: {{ JSON.stringify(posts, null, 2) }}
-			</pre
-			>
+	<MainLayout>
+		<div class="container">
+			<header class="journal-header">
+				<h1>The Graphite Journal</h1>
+				<p class="subtitle">
+					A space for reflections, insights, and deep dives into the world of
+					web development—beyond just code. From practical tutorials to musings
+					on the web industry, this is where we explore the missing pieces of
+					web development, one post at a time.
+				</p>
+			</header>
 
-			<div v-if="posts && posts.length" class="post-list">
-				<div v-for="post in posts" :key="post.url" class="post-item">
-					<h2>
-						<router-link :to="post.url">{{ post.title }}</router-link>
-					</h2>
-					<p>{{ post.description }}</p>
-					<p class="post-date">
-						{{ new Date(post.date).toLocaleDateString() }}
-					</p>
-				</div>
-			</div>
-			<div v-else>
-				<p>No posts found.</p>
+			<div class="posts-grid">
+				<article v-for="post in posts" :key="post.path" class="post-card">
+					<div class="post-card-content">
+						<h2 class="post-title">
+							<router-link :to="post.path || ''">
+								{{ post.frontmatter?.title }}
+							</router-link>
+						</h2>
+						<div class="post-meta">
+							<time v-if="post.frontmatter?.date">
+								{{ new Date(post.frontmatter.date).toLocaleDateString() }}
+							</time>
+						</div>
+						<p class="post-description">
+							{{ post.frontmatter?.description }}
+						</p>
+						<div class="post-tags" v-if="post.frontmatter?.tags?.length">
+							<span v-for="tag in post.frontmatter.tags" :key="tag" class="tag">
+								{{ tag }}
+							</span>
+						</div>
+					</div>
+				</article>
 			</div>
 		</div>
-	</div>
+	</MainLayout>
 </template>
 
-<script>
-export default {
-	data() {
+<script setup>
+import { ref, onMounted } from 'vue';
+import MainLayout from '../components/MainLayout.vue';
+
+const posts = ref([]);
+
+onMounted(async () => {
+	const modules = import.meta.glob('../pages/posts/\*.vue', { eager: true });
+
+	const postData = Object.entries(modules).map(([path, module]) => {
+		// Try different ways of accessing frontmatter
+		const frontmatter =
+			module.frontmatter ||
+			module.default?.frontmatter ||
+			(typeof module.default === 'function'
+				? module.default().frontmatter
+				: undefined);
+
 		return {
-			posts: [],
+			path: path.replace('../pages', '').replace('.vue', ''),
+			frontmatter: frontmatter || {},
 		};
-	},
-	async created() {
-		const postFiles = import.meta.glob('../pages/posts/\*.vue', {
-			eager: true,
+	});
+
+	posts.value = postData
+		.filter((post) => post.frontmatter && post.frontmatter.title)
+		.sort((a, b) => {
+			return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
 		});
 
-		console.log('Found post files:', postFiles);
-
-		const posts = Object.entries(postFiles).map(([path, module]) => {
-			console.log('Processing module:', module);
-			console.log('Module frontmatter:', module.frontmatter);
-
-			const frontmatter =
-				module.frontmatter ||
-				module.default?.frontmatter ||
-				(typeof module.default === 'function'
-					? module.default().frontmatter
-					: {});
-
-			console.log('Extracted frontmatter:', frontmatter);
-
-			const url = '/posts/' + path.split('/').pop().replace('.vue', '');
-
-			const post = {
-				url,
-				title: frontmatter?.title || 'Untitled',
-				description: frontmatter?.description || '',
-				date: frontmatter?.date || new Date().toISOString(),
-			};
-
-			console.log('Created post object:', post);
-
-			return post;
-		});
-
-		this.posts = posts.sort((a, b) => {
-			return new Date(b.date) - new Date(a.date);
-		});
-
-		console.log('Final sorted posts:', this.posts);
-	},
-};
+	console.log('Posts loaded:', posts.value); // Debug log
+});
 </script>
 
 <style scoped>
-.post-list {
-	margin: 2rem 0;
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
 }
 
-.post-item {
-	margin-bottom: 2rem;
-	padding: 1rem;
-	border-bottom: 1px solid #eee;
+.journal-header {
+	text-align: center;
+	margin-bottom: 4rem;
+	padding: 2rem 0;
+	border-bottom: 2px solid var(--color-snow);
 }
 
-.post-item h2 {
-	margin-bottom: 0.5rem;
+.journal-header h1 {
+	font-size: 3rem;
+	color: var(--color-red-berry);
+	margin-bottom: 1rem;
 }
 
-.post-item a {
+.subtitle {
+	font-size: 1.2rem;
+	color: var(--color-mine-shaft);
+	opacity: 0.8;
+}
+
+.posts-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
+.post-card {
+	background: white;
+	border-radius: 12px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	overflow: hidden;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.post-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.post-card-content {
+	padding: 1.5rem;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.post-title {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.post-title a {
 	color: var(--color-red-berry);
 	text-decoration: none;
 }
 
-.post-item a:hover {
+.post-title a:hover {
 	text-decoration: underline;
 }
 
-.post-date {
-	color: #666;
+.post-meta {
 	font-size: 0.9rem;
+	color: #666;
+	margin-bottom: 1rem;
+}
+
+.post-description {
+	color: var(--color-mine-shaft);
+	margin-bottom: 1.5rem;
+	line-height: 1.6;
+	flex-grow: 1;
+}
+
+.post-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: auto;
+}
+
+.tag {
+	background: var(--color-snow);
+	color: var(--color-mine-shaft);
+	padding: 0.25rem 0.75rem;
+	border-radius: 16px;
+	font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+	.container {
+		padding: 1rem;
+	}
+
+	.journal-header h1 {
+		font-size: 2rem;
+	}
+
+	.posts-grid {
+		grid-template-columns: 1fr;
+	}
 }
 </style>

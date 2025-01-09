@@ -1,0 +1,66 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f5f5f5"/>
+    
+    <!-- Open Book -->
+    <path d="M 150 150 
+             L 150 450 
+             C 150 470, 170 480, 190 480
+             L 370 480 
+             L 400 450 
+             L 430 480
+             L 610 480
+             C 630 480, 650 470, 650 450
+             L 650 150
+             C 650 130, 630 120, 610 120
+             L 430 120
+             L 400 150
+             L 370 120
+             L 190 120
+             C 170 120, 150 130, 150 150" 
+          fill="#ffffff" 
+          stroke="#333333" 
+          stroke-width="3"/>
+    
+    <!-- Book Spine -->
+    <path d="M 398 150 L 398 450" stroke="#333333" stroke-width="3"/>
+    
+    <!-- Code Symbols on Left Page -->
+    <text x="200" y="200" font-family="monospace" font-size="24" fill="#2563eb">&lt;/&gt;</text>
+    <text x="220" y="250" font-family="monospace" font-size="14" fill="#444">
+        <tspan x="220" dy="0">{</tspan>
+        <tspan x="220" dy="20">  client: true,</tspan>
+        <tspan x="220" dy="20">  success: true</tspan>
+        <tspan x="220" dy="20">}</tspan>
+    </text>
+    
+    <!-- Handshake Icon on Right Page -->
+    <path d="M 450 250 
+             C 470 230, 490 230, 510 250
+             C 530 270, 550 270, 570 250" 
+          stroke="#333333" 
+          stroke-width="3" 
+          fill="none"/>
+    
+    <!-- List Items on Right Page -->
+    <g transform="translate(450, 300)">
+        <circle cx="10" cy="0" r="4" fill="#2563eb"/>
+        <line x1="30" y1="0" x2="120" y2="0" stroke="#333333" stroke-width="2"/>
+        
+        <circle cx="10" cy="30" r="4" fill="#2563eb"/>
+        <line x1="30" y1="30" x2="120" y2="30" stroke="#333333" stroke-width="2"/>
+        
+        <circle cx="10" cy="60" r="4" fill="#2563eb"/>
+        <line x1="30" y1="60" x2="120" y2="60" stroke="#333333" stroke-width="2"/>
+    </g>
+    
+    <!-- Title -->
+    <text x="400" y="80" 
+          font-family="Arial, sans-serif" 
+          font-size="24" 
+          fill="#2563eb" 
+          text-anchor="middle" 
+          font-weight="bold">
+        Web Dev Client Guide
+    </text>
+</svg>
