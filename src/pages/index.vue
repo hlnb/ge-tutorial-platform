@@ -1,183 +1,179 @@
 <template>
-	<MainLayout>
-		<div class="container">
-			<section class="section">
-				<div class="content">
-					<!-- Hero Section -->
-					<section class="hero is-large mb-6">
-						<div class="hero-body has-text-centered">
-							<h2 class="title has-text-white">{{ hero.title }}</h2>
-							<p class="subtitle has-text-white">{{ hero.description }}</p>
-							<a href="/tutorials" class="button is-primary is-large mt-4">
-								Start Your Journey
-							</a>
-						</div>
-					</section>
+	<div class="container">
+		<section class="section">
+			<div class="content">
+				<!-- Hero Section -->
+				<section class="hero is-large mb-6">
+					<div class="hero-body has-text-centered">
+						<h2 class="title has-text-white">{{ hero.title }}</h2>
+						<p class="subtitle has-text-white">{{ hero.description }}</p>
+						<a href="/tutorials" class="button is-primary is-large mt-4">
+							Start Your Journey
+						</a>
+					</div>
+				</section>
 
-					<!-- About GraphitEdge Section -->
-					<section class="section mb-6">
-						<div class="container">
-							<h2 class="title is-3">
-								Web Development Isn't Just Code—It's a Whole Ecosystem
-							</h2>
+				<!-- About GraphitEdge Section -->
+				<section class="section mb-6">
+					<div class="container">
+						<h2 class="title is-3">
+							Web Development Isn't Just Code—It's a Whole Ecosystem
+						</h2>
 
-							<div class="content">
-								<p class="is-size-5 mb-5">
-									Most web development tutorials teach you how to write code,
-									but they leave out the bigger picture—the crucial elements
-									that make a website functional, discoverable, and successful.
-									That's where GraphiteEdge comes in.
-								</p>
-
-								<p class="is-size-5 mb-5">
-									I'm Helen Burgess, and with over 20 years in the web industry,
-									I've seen too many developers struggle not because they can't
-									code, but because they don't know the stuff no one talks
-									about—how the internet actually works, how to deploy a site,
-									how to optimize for SEO, and how to make designs translate
-									into real, effective websites.
-								</p>
-
-								<p class="is-size-5 mb-4">
-									At GraphiteEdge, I break down these missing pieces in plain
-									English, with visuals, flowcharts, and practical examples,
-									helping:
-								</p>
-
-								<ul class="benefits-list mb-5">
-									<li>
-										Beginners build confidence in understanding web development
-										beyond just syntax.
-									</li>
-									<li>
-										Self-taught developers fill in the gaps that hold them back
-										from leveling up.
-									</li>
-									<li>
-										Designers transitioning into development bridge the gap
-										between aesthetics and functionality.
-									</li>
-								</ul>
-
-								<div
-									class="mission-statement has-background-light p-5 has-text-centered"
-								>
-									<h3 class="title is-4 mb-3">Our Mission</h3>
-									<p class="is-size-5 is-italic">
-										"Web development isn't just code—demystifying the full
-										process from DNS to SEO, design to deployment."
-									</p>
-								</div>
-
-								<p class="is-size-5 mt-5">
-									If you've ever felt overwhelmed by the technical side of
-									launching and managing websites, you're in the right place.
-									Let's make web development clearer, together.
-								</p>
-
-								<h3 class="title is-4 mt-6 mb-4">
-									Learn Web Development by Building Real Projects
-								</h3>
-
-								<p class="is-size-5 mb-5">
-									At GraphiteEdge, we believe the best way to learn is by doing.
-									That's why our tutorials center around "Rotto Rocks", a
-									real-world web project inspired by Rottnest Island's beauty
-									and the Black Swan Bistro, a classic Western Australian
-									restaurant.
-								</p>
-
-								<p class="is-size-5 mb-4">
-									Through hands-on learning, you'll go beyond just writing HTML,
-									CSS, and JavaScript. You'll also understand:
-								</p>
-
-								<ul class="benefits-list mb-5">
-									<li>
-										How the internet works (domains, DNS, hosting, and
-										deployment).
-									</li>
-									<li>How to take a design and turn it into a real website.</li>
-									<li>
-										The science behind effective web pages (SEO, CTAs,
-										performance optimization).
-									</li>
-									<li>
-										How to build interactive, modern web experiences using
-										Vue.js & Bulma.
-									</li>
-								</ul>
-
-								<p class="is-size-5 mb-5">
-									No more disconnected tutorials—GraphiteEdge gives you the
-									missing pieces of web development in one structured, practical
-									learning experience.
-								</p>
-
-								<div class="tech-stack">
-									<span class="tech-badge tag is-medium">HTML</span>
-									<span class="tech-badge tag is-medium">CSS</span>
-									<span class="tech-badge tag is-medium">JavaScript</span>
-									<span class="tech-badge tag is-medium">Vue.js</span>
-									<span class="tech-badge tag is-medium">Bulma</span>
-								</div>
-							</div>
-						</div>
-					</section>
-
-					<!-- Features Section -->
-					<section class="section features mb-6">
-						<div class="container">
-							<h2 class="title is-3 has-text-centered mb-6">
-								What You'll Learn with GraphiteEdge
-							</h2>
-
-							<p class="is-size-5 has-text-centered mb-6">
-								At GraphiteEdge, our tutorials go beyond just writing code. We
-								help beginners, self-taught developers, and designers understand
-								the entire web development process by building real-world
-								projects.
+						<div class="content">
+							<p class="is-size-5 mb-5">
+								Most web development tutorials teach you how to write code, but
+								they leave out the bigger picture—the crucial elements that make
+								a website functional, discoverable, and successful. That's where
+								GraphiteEdge comes in.
 							</p>
 
-							<div class="features-grid">
-								<div
-									v-for="feature in features"
-									:key="feature.title"
-									class="feature-card"
-								>
-									<h3 class="title is-4">
-										<span class="icon-text">
-											<span class="icon">{{ feature.icon }}</span>
-											<span>{{ feature.title }}</span>
-										</span>
-									</h3>
-									<ul class="feature-list">
-										<li v-for="item in feature.items" :key="item.heading">
-											<strong>{{ item.heading }}:</strong>
-											{{ item.description }}
-										</li>
-									</ul>
-								</div>
-							</div>
+							<p class="is-size-5 mb-5">
+								I'm Helen Burgess, and with over 20 years in the web industry,
+								I've seen too many developers struggle not because they can't
+								code, but because they don't know the stuff no one talks
+								about—how the internet actually works, how to deploy a site, how
+								to optimize for SEO, and how to make designs translate into
+								real, effective websites.
+							</p>
 
-							<div class="notification is-light is-info mt-6">
-								<p class="has-text-centered mb-0">
-									<span class="icon">💡</span>
-									Everything is taught through "Rotto Rocks"—a real-world
-									project that makes learning practical, fun, and effective.
+							<p class="is-size-5 mb-4">
+								At GraphiteEdge, I break down these missing pieces in plain
+								English, with visuals, flowcharts, and practical examples,
+								helping:
+							</p>
+
+							<ul class="benefits-list mb-5">
+								<li>
+									Beginners build confidence in understanding web development
+									beyond just syntax.
+								</li>
+								<li>
+									Self-taught developers fill in the gaps that hold them back
+									from leveling up.
+								</li>
+								<li>
+									Designers transitioning into development bridge the gap
+									between aesthetics and functionality.
+								</li>
+							</ul>
+
+							<div
+								class="mission-statement has-background-light p-5 has-text-centered"
+							>
+								<h3 class="title is-4 mb-3">Our Mission</h3>
+								<p class="is-size-5 is-italic">
+									"Web development isn't just code—demystifying the full process
+									from DNS to SEO, design to deployment."
 								</p>
 							</div>
+
+							<p class="is-size-5 mt-5">
+								If you've ever felt overwhelmed by the technical side of
+								launching and managing websites, you're in the right place.
+								Let's make web development clearer, together.
+							</p>
+
+							<h3 class="title is-4 mt-6 mb-4">
+								Learn Web Development by Building Real Projects
+							</h3>
+
+							<p class="is-size-5 mb-5">
+								At GraphiteEdge, we believe the best way to learn is by doing.
+								That's why our tutorials center around "Rotto Rocks", a
+								real-world web project inspired by Rottnest Island's beauty and
+								the Black Swan Bistro, a classic Western Australian restaurant.
+							</p>
+
+							<p class="is-size-5 mb-4">
+								Through hands-on learning, you'll go beyond just writing HTML,
+								CSS, and JavaScript. You'll also understand:
+							</p>
+
+							<ul class="benefits-list mb-5">
+								<li>
+									How the internet works (domains, DNS, hosting, and
+									deployment).
+								</li>
+								<li>How to take a design and turn it into a real website.</li>
+								<li>
+									The science behind effective web pages (SEO, CTAs, performance
+									optimization).
+								</li>
+								<li>
+									How to build interactive, modern web experiences using Vue.js
+									& Bulma.
+								</li>
+							</ul>
+
+							<p class="is-size-5 mb-5">
+								No more disconnected tutorials—GraphiteEdge gives you the
+								missing pieces of web development in one structured, practical
+								learning experience.
+							</p>
+
+							<div class="tech-stack">
+								<span class="tech-badge tag is-medium">HTML</span>
+								<span class="tech-badge tag is-medium">CSS</span>
+								<span class="tech-badge tag is-medium">JavaScript</span>
+								<span class="tech-badge tag is-medium">Vue.js</span>
+								<span class="tech-badge tag is-medium">Bulma</span>
+							</div>
 						</div>
-					</section>
-				</div>
-			</section>
-		</div>
-	</MainLayout>
+					</div>
+				</section>
+
+				<!-- Features Section -->
+				<section class="section features mb-6">
+					<div class="container">
+						<h2 class="title is-3 has-text-centered mb-6">
+							What You'll Learn with GraphiteEdge
+						</h2>
+
+						<p class="is-size-5 has-text-centered mb-6">
+							At GraphiteEdge, our tutorials go beyond just writing code. We
+							help beginners, self-taught developers, and designers understand
+							the entire web development process by building real-world
+							projects.
+						</p>
+
+						<div class="features-grid">
+							<div
+								v-for="feature in features"
+								:key="feature.title"
+								class="feature-card"
+							>
+								<h3 class="title is-4">
+									<span class="icon-text">
+										<span class="icon">{{ feature.icon }}</span>
+										<span>{{ feature.title }}</span>
+									</span>
+								</h3>
+								<ul class="feature-list">
+									<li v-for="item in feature.items" :key="item.heading">
+										<strong>{{ item.heading }}:</strong>
+										{{ item.description }}
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="notification is-light is-info mt-6">
+							<p class="has-text-centered mb-0">
+								<span class="icon">💡</span>
+								Everything is taught through "Rotto Rocks"—a real-world project
+								that makes learning practical, fun, and effective.
+							</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</section>
+	</div>
 </template>
 
 <script setup>
 import { useHead } from '@vueuse/head';
-import MainLayout from '../components/MainLayout.vue';
 
 const frontmatter = {
 	title: 'GraphitEdge',

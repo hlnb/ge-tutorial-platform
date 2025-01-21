@@ -1,5 +1,5 @@
 <template>
-  <MainLayout>
+
     <div class="container section">
       <div class="content tutorial-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
@@ -175,21 +175,14 @@
         </ul>
 
         <!-- Navigation -->
-        <div class="tutorial-navigation">
-          <router-link to="/tutorials/getting-started/browser-tools" class="button is-light">
-            ← Browser Tools
-          </router-link>
-          <router-link to="/tutorials/beginner/html-basics" class="button is-primary">
-            HTML Basics →
-          </router-link>
-        </div>
+        <TutorialNavigation />
       </div>
     </div>
 
-  </MainLayout>
+
 </template>
 
 <script setup>
-import MainLayout from '../../../components/MainLayout.vue'
-import '@/assets/styles/tutorials.css'
+import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import '@/assets/styles/tutorials.css';
 </script>

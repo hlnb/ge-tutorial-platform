@@ -1,157 +1,159 @@
 <template>
-  <MainLayout>
-    <div class="container section">
-      <div class="content tutorial-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-          <ul>
-            <li><router-link to="/tutorials">Tutorials</router-link></li>
-            <li><router-link to="/tutorials/getting-started">Getting Started</router-link></li>
-            <li class="is-active"><a href="#" aria-current="page">Browser Developer Tools</a></li>
-          </ul>
-        </nav>
+	<div class="container section">
+		<div class="content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link :to="{ name: 'GettingStarted' }"
+							>Getting Started</router-link
+						>
+					</li>
+					<li class="is-active">
+						<a href="#" aria-current="page">Browser Developer Tools</a>
+					</li>
+				</ul>
+			</nav>
 
-        <div class="tutorial-meta mb-6">
-          <div class="tags">
-            <span class="tag is-info">Beginner</span>
-            <span class="tag is-light">30 minutes</span>
-            <span class="tag is-light">Tools</span>
-          </div>
-        </div>
+			<div class="tags mb-4">
+				<span class="tag is-info">Beginner</span>
+				<span class="tag is-light">30 mins</span>
+				<span class="tag is-success">Practice</span>
+				<span class="tag is-light">Tools</span>
+			</div>
 
-        <h1 class="title is-1">Browser Developer Tools</h1>
+			<h1 class="title is-1">Browser Developer Tools</h1>
 
-        <p class="mb-5">Browser Developer Tools (DevTools) are built-in tools that help you inspect, debug, and modify web pages directly in your browser. In this tutorial, we'll focus on the two most commonly used panels: Elements and Console.</p>
+			<div class="box box-info mb-6">
+				<p>
+					<strong>🎯 Goal:</strong> Learn how to use browser developer tools to
+					inspect, debug, and test web pages.
+				</p>
+			</div>
 
-        <div class="box has-background-light mb-6">
-          <strong>In this tutorial, you'll learn:</strong>
-          <ul>
-            <li>How to open DevTools</li>
-            <li>Inspect and modify HTML/CSS using the Elements panel</li>
-            <li>Use the Console for basic JavaScript debugging</li>
-          </ul>
-        </div>
+			<h2 class="title is-3">What are Browser Developer Tools?</h2>
+			<p>
+				Browser Developer Tools (DevTools) are built-in features in modern web
+				browsers that help developers inspect, debug, and optimize websites.
+				They provide essential tools for:
+			</p>
+			<ul>
+				<li>Inspecting and modifying HTML/CSS</li>
+				<li>Debugging JavaScript</li>
+				<li>Analyzing network requests</li>
+				<li>Testing responsive designs</li>
+				<li>Measuring performance</li>
+			</ul>
 
-        <h2 class="title is-3">Opening DevTools</h2>
+			<h2 class="title is-3">Opening DevTools</h2>
+			<p>There are several ways to open DevTools:</p>
+			<ul>
+				<li>
+					<strong>Right-click and Inspect:</strong> Right-click any element on a
+					webpage and select "Inspect" or "Inspect Element"
+				</li>
+				<li>
+					<strong>Keyboard shortcuts:</strong>
+					<ul>
+						<li>Windows/Linux: F12 or Ctrl + Shift + I</li>
+						<li>macOS: Cmd + Option + I</li>
+					</ul>
+				</li>
+				<li>
+					<strong>Browser menu:</strong> Access through the browser's menu
+					system (varies by browser)
+				</li>
+			</ul>
 
-        <p>There are several ways to open Chrome DevTools:</p>
-        <ul>
-          <li>Press <code>F12</code> on Windows/Linux</li>
-          <li>Press <code>Cmd + Option + I</code> on Mac</li>
-          <li>Right-click any element and select "Inspect"</li>
-          <li>Use Chrome menu → More Tools → Developer Tools</li>
-        </ul>
+			<h2 class="title is-3">Key Features</h2>
 
-        <div class="image-container">
-          <img src="/images/tutorials/getting-started/devtools-interface.svg" alt="DevTools Interface" />
-        </div>
+			<h3 class="title is-4">Elements Panel</h3>
+			<p>
+				The Elements panel shows the HTML structure and CSS styles of the
+				current page:
+			</p>
+			<ul>
+				<li>Inspect and modify HTML elements</li>
+				<li>View and edit CSS styles in real-time</li>
+				<li>See box model dimensions</li>
+				<li>Check element properties</li>
+			</ul>
 
-        <h2 class="title is-3">Working with the Elements Panel</h2>
+			<h3 class="title is-4">Console Panel</h3>
+			<p>The Console panel is useful for:</p>
+			<ul>
+				<li>Viewing JavaScript errors and warnings</li>
+				<li>Testing JavaScript code</li>
+				<li>Logging debugging information</li>
+				<li>Interacting with the page's JavaScript</li>
+			</ul>
 
-        <p>The Elements panel shows your page's HTML structure and CSS styles. This is where you'll spend most of your time when working on page layout and design.</p>
+			<h3 class="title is-4">Network Panel</h3>
+			<p>The Network panel helps you:</p>
+			<ul>
+				<li>Monitor network requests</li>
+				<li>Analyze loading performance</li>
+				<li>Debug request/response issues</li>
+				<li>Test different network conditions</li>
+			</ul>
 
-        <h3>Inspecting Elements</h3>
-        <ul>
-          <li>Click the inspect icon (🔍) in the top-left corner of DevTools</li>
-          <li>Hover over any element on the page to see its details</li>
-          <li>Click an element to select it in the Elements panel</li>
-          <li>Use the arrow keys to navigate through the HTML structure</li>
-        </ul>
+			<h3 class="title is-4">Device Toolbar</h3>
+			<p>The Device Toolbar allows you to:</p>
+			<ul>
+				<li>Test responsive designs</li>
+				<li>Simulate different screen sizes</li>
+				<li>Test mobile-specific features</li>
+			</ul>
 
-        <h3>Modifying HTML</h3>
-        <ul>
-          <li>Double-click element text to edit it</li>
-          <li>Right-click elements for more options (delete, copy, etc.)</li>
-          <li>Drag elements to reorder them</li>
-          <li>Press Enter to save changes, Esc to cancel</li>
-        </ul>
+			<h2 class="title is-3">Practice Exercise</h2>
+			<div class="box">
+				<p>Try these tasks to practice using DevTools:</p>
+				<ol>
+					<li>Open DevTools on this page</li>
+					<li>Use the Elements panel to inspect this list</li>
+					<li>Try modifying some text or styles</li>
+					<li>Open the Console and try some JavaScript commands</li>
+					<li>Use the Device Toolbar to view the page in mobile size</li>
+				</ol>
+			</div>
 
-        <h3>Working with CSS</h3>
-        <ul>
-          <li>View and edit styles in the Styles pane</li>
-          <li>Toggle CSS properties on/off using checkboxes</li>
-          <li>Click the color squares to open the color picker</li>
-          <li>Add new CSS rules using the + button</li>
-        </ul>
+			<h2 class="title is-3">Additional Resources</h2>
+			<ul>
+				<li>
+					<a
+						href="https://developer.chrome.com/docs/devtools/"
+						target="_blank"
+						rel="noopener noreferrer"
+						>Chrome DevTools Documentation</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools"
+						target="_blank"
+						rel="noopener noreferrer"
+						>MDN Web Docs: Browser Developer Tools</a
+					>
+				</li>
+			</ul>
 
-        <div class="box has-background-white-ter mb-6">
-          <strong>Try it yourself:</strong>
-          <ol>
-            <li>Right-click this page and select "Inspect"</li>
-            <li>Try to find this practice box in the Elements panel</li>
-            <li>Look at the CSS styles that make it look this way</li>
-          </ol>
-        </div>
-
-        <h2 class="title is-3">Using the Console</h2>
-
-        <p>The Console panel is your JavaScript playground and debugging tool. It's great for testing code and viewing errors.</p>
-
-        <h3>Basic Console Usage</h3>
-        <ul>
-          <li>View JavaScript errors and warnings</li>
-          <li>Test JavaScript code snippets</li>
-          <li>Log messages from your code</li>
-          <li>Interact with the page's JavaScript</li>
-        </ul>
-
-        <h3>Common Console Commands</h3>
-        <div class="code-example">
-          <pre><code>// Log a message
-
-console.log('Hello, DevTools!');
-
-// Show an error
-console.error('Something went wrong!');
-
-// Output a warning
-console.warn('Be careful!');
-
-// Test JavaScript expressions
-2 + 2
-document.title
-document.querySelector('.practice-box')</code></pre>
-
-</div>
-
-        <div class="box has-background-white-ter mb-6">
-          <strong>Console Practice:</strong>
-          <ol>
-            <li>Open the Console panel (press Esc while in Elements panel)</li>
-            <li>Try the example commands above</li>
-            <li>Look for any existing errors or warnings on this page</li>
-          </ol>
-        </div>
-
-        <h2 class="title is-3">Best Practices</h2>
-        <ul class="mb-6">
-          <li>Keep DevTools open while developing</li>
-          <li>Use the Elements panel to experiment with CSS</li>
-          <li>Check the Console for JavaScript errors</li>
-          <li>Learn keyboard shortcuts to work faster</li>
-        </ul>
-
-        <div class="box box-info mb-6">
-          <p>
-            <strong>💡 Pro Tip:</strong> You can press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (Windows/Linux) or
-            <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (Mac) to quickly open DevTools and inspect an element.
-          </p>
-        </div>
-
-        <div class="tutorial-navigation">
-          <router-link to="/tutorials/getting-started/text-editors" class="button is-light">
-            ← Text Editors
-          </router-link>
-          <router-link to="/tutorials/getting-started/domain-hosting" class="button is-primary">
-            Domain & Hosting →
-          </router-link>
-        </div>
-      </div>
-    </div>
-
-  </MainLayout>
+			<TutorialNavigation />
+		</div>
+	</div>
 </template>
 
 <script setup>
-import MainLayout from '../../../components/MainLayout.vue'
-import '@/assets/styles/tutorials.css'
+import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import { useHead } from '@vueuse/head';
+
+useHead({
+	title: 'Browser Developer Tools - GraphitEdge Tutorials',
+	meta: [
+		{
+			name: 'description',
+			content:
+				'Learn how to use browser developer tools to inspect, debug, and test web pages',
+		},
+	],
+});
 </script>

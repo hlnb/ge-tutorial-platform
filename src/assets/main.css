@@ -1,0 +1,17 @@
+/* Add these styles for consistent content width */
+.content {
+	max-width: 1344px; /* Matches Bulma's container width */
+	margin: 0 auto;
+	padding: 3rem 1.5rem;
+	width: 100%;
+}
+
+/* If you're using container class, ensure it matches */
+.container {
+	max-width: 1344px !important;
+}
+
+/* Ensure consistent box sizing */
+.box {
+	width: 100%;
+}

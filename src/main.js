@@ -2,8 +2,12 @@ import { createApp } from 'vue';
 import { createHead } from '@vueuse/head';
 import App from './App.vue';
 import router from './router';
-import '@emailjs/browser';
-import './assets/styles/global.css';
+
+// Import Bulma CSS
+import 'bulma/css/bulma.min.css';
+
+// Import any custom CSS
+import './assets/main.css';
 
 const app = createApp(App);
 const head = createHead();

@@ -13,7 +13,7 @@
 		"checkJs": true
 	},
 	"exclude": ["node_modules", "dist"],
-	"include": ["src/**/*"],
+	"include": ["src/**/*", "api/posts.js"],
 	"vueCompilerOptions": {
 		"target": 3,
 		"extensions": [".vue"]

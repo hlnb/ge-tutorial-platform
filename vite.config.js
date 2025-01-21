@@ -1,13 +1,12 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
+import path from 'path';
 
 export default defineConfig({
 	plugins: [vue()],
 	resolve: {
 		alias: {
-			'@': resolve(__dirname, 'src'),
-			'~': resolve(__dirname, 'src'),
+			'@': path.resolve(__dirname, './src'),
 		},
 	},
 	css: {
@@ -20,7 +19,7 @@ export default defineConfig({
 		assetsDir: 'assets',
 		rollupOptions: {
 			input: {
-				main: resolve(__dirname, 'index.html'),
+				main: path.resolve(__dirname, 'index.html'),
 				// Add any other entry points you need
 			},
 		},
@@ -29,6 +28,8 @@ export default defineConfig({
 		include: ['@emailjs/browser', 'vue-router'],
 	},
 	server: {
+		port: 5173,
+		strictPort: true,
 		proxy: {
 			'/api': {
 				target: 'http://localhost:3000',

@@ -76,12 +76,20 @@ li {
 	padding: 2rem 1rem;
 	background-color: var(--color-snow);
 }
-
-.container {
-	max-width: 1200px;
+.content {
+	max-width: 80vw;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
+.container {
+	max-width: 80vw !important;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+.box {
+	width: 100%;
+}
+
 .notification {
 	padding: 1rem;
 	border-radius: 0.25rem;
