@@ -44,10 +44,61 @@
 					<h3 class="footer-heading">Contact</h3>
 					<p class="footer-contact">hello@graphitedge.com.au</p>
 					<h3 class="footer-heading mt-4">Follow Us</h3>
-					<div class="social-links">
-						<a href="#" class="mr-3"><i class="fab fa-twitter"></i></a>
-						<a href="#" class="mr-3"><i class="fab fa-linkedin"></i></a>
-						<a href="#"><i class="fab fa-youtube"></i></a>
+					<div class="social-links-container">
+						<div class="social-links">
+							<div class="social-row">
+								<a
+									href="https://github.com/hlnb"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="GitHub"
+								>
+									<i class="fab fa-github"></i>
+								</a>
+								<a
+									href="https://www.linkedin.com/company/graphitedge/"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="LinkedIn"
+								>
+									<i class="fab fa-linkedin"></i>
+								</a>
+								<a
+									href="https://www.facebook.com/GraphitEdge"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Facebook"
+								>
+									<i class="fab fa-facebook"></i>
+								</a>
+							</div>
+							<div class="social-row">
+								<a
+									href="https://www.instagram.com/graphitedge_au"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Instagram"
+								>
+									<i class="fab fa-instagram"></i>
+								</a>
+								<a
+									href="https://mastodon.au/@hlnbee"
+									target="_blank"
+									rel="me noopener noreferrer"
+									aria-label="Mastodon"
+								>
+									<i class="fab fa-mastodon"></i>
+								</a>
+								<a
+									href="https://bsky.app/profile/graphitedge-au.bsky.social"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Bluesky"
+								>
+									<i class="fas fa-cloud"></i>
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -119,14 +170,44 @@
 	color: var(--color-mine-shaft-2);
 }
 
+.social-links-container {
+	display: flex;
+	justify-content: center;
+	margin: 1rem 0;
+}
+
+.social-links {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.social-row {
+	display: flex;
+	gap: 2rem;
+	justify-content: center;
+}
+
 .social-links a {
 	color: var(--color-mine-shaft-2);
 	font-size: 1.5rem;
 	transition: color 0.3s ease;
+	padding: 0.5rem;
 }
 
 .social-links a:hover {
 	color: var(--color-primary);
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 768px) {
+	.social-row {
+		gap: 1.5rem;
+	}
+
+	.social-links a {
+		font-size: 1.25rem;
+	}
 }
 
 .newsletter-benefits {
