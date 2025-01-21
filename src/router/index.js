@@ -2,24 +2,76 @@ import { createRouter, createWebHistory } from 'vue-router';
 import MainLayout from '../components/MainLayout.vue';
 import TutorialLayout from '@/layouts/TutorialLayout.vue';
 
+// Post metadata registry
+const posts = {
+	'dns-web-browsing': {
+		title: 'DNS and Web Browsing',
+		description: 'Understanding how DNS works and its role in web browsing',
+		status: 'scheduled',
+		publishDate: '2025-01-29T00:00:00Z',
+		lastUpdated: '2025-01-29T00:00:00Z',
+		author: 'Helen Burgess',
+		tags: ['DNS', 'Web', 'Networking'],
+		readingTime: '5 min',
+		series: 'Web Fundamentals',
+		seriesOrder: 1,
+		relatedPosts: ['internet-everywhere'],
+		imageUrl: '/images/posts/dns-web-browsing.svg',
+		excerpt: 'A deep dive into the Domain Name System...',
+		featured: true,
+	},
+	'internet-everywhere': {
+		title: 'Internet Everywhere',
+		description: 'The evolution of internet connectivity and its impact',
+		status: 'published',
+		publishDate: '2025-01-14T00:00:00Z',
+		lastUpdated: '2025-01-14T00:00:00Z',
+		author: 'Helen Burgess',
+		tags: ['Internet', 'Technology', 'Connectivity'],
+		readingTime: '7 min',
+		series: 'Web Fundamentals',
+		seriesOrder: 2,
+		relatedPosts: ['dns-web-browsing', 'work-with-clients'],
+		imageUrl: '/images/posts/internet-everywhere.svg',
+		excerpt: 'From dial-up to 5G, the internet has transformed...',
+		featured: false,
+	},
+	'work-with-clients': {
+		title: 'Working with Clients',
+		description: 'Best practices for client relationships in web development',
+		status: 'published',
+		publishDate: '2025-01-07T00:00:00Z',
+		lastUpdated: '2025-01-07T00:00:00Z',
+		author: 'Helen Burgess',
+		tags: ['Business', 'Web Development', 'Client Relations'],
+		readingTime: '6 min',
+		series: 'Business Skills',
+		seriesOrder: 1,
+		relatedPosts: ['internet-everywhere'],
+		imageUrl: '/images/posts/work-with-clients.svg',
+		excerpt: 'Building successful client relationships requires...',
+		featured: false,
+	},
+};
+
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 		{
 			path: '/',
-			component: MainLayout,
+			component: () => import('../layouts/MainLayout.vue'),
 			children: [
 				{
-					path: '', // default child route (home)
+					path: '',
 					name: 'home',
 					component: () => import('../pages/index.vue'),
 				},
-				// Main Navigation Routes
 				{
-					path: 'tutorials',
-					name: 'tutorials',
-					component: () => import('../pages/tutorials/index.vue'),
+					path: 'the-graphite-journal',
+					name: 'journal',
+					component: () => import('../pages/the-graphite-journal.vue'),
 				},
+				// Main Navigation Routes
 				{
 					path: 'about',
 					name: 'about',
@@ -31,11 +83,6 @@ const router = createRouter({
 					component: () => import('../pages/contact.vue'),
 				},
 				{
-					path: 'the-graphite-journal',
-					name: 'journal',
-					component: () => import('../pages/the-graphite-journal.vue'),
-				},
-				{
 					path: 'privacy',
 					name: 'privacy',
 					component: () => import('../pages/privacy.vue'),
@@ -45,11 +92,17 @@ const router = createRouter({
 					name: 'terms',
 					component: () => import('../pages/terms.vue'),
 				},
-				// Getting Started Routes
 				{
-					path: '/tutorials',
-					component: TutorialLayout,
+					path: 'tutorials',
+					component: () => import('../layouts/TutorialLayout.vue'),
 					children: [
+						{
+							path: '',
+							name: 'tutorials',
+							component: () => import('../pages/tutorials/index.vue'),
+						},
+
+						// Getting Started Routes
 						{
 							path: 'getting-started',
 							name: 'getting-started',
@@ -161,10 +214,60 @@ const router = createRouter({
 						},
 					],
 				},
+				// Posts section
+				{
+					path: 'posts',
+					children: [
+						{
+							path: 'internet-everywhere',
+							component: () => import('../pages/posts/internet-everywhere.vue'),
+							props: true,
+							beforeEnter: (to, from, next) =>
+								checkPostAccess('internet-everywhere', next),
+						},
+						{
+							path: 'work-with-clients',
+							component: () => import('../pages/posts/work-with-clients.vue'),
+							props: true,
+							beforeEnter: (to, from, next) =>
+								checkPostAccess('work-with-clients', next),
+						},
+						{
+							path: 'dns-web-browsing',
+							component: () => import('../pages/posts/dns-web-browsing.vue'),
+							props: true,
+							beforeEnter: (to, from, next) =>
+								checkPostAccess('dns-web-browsing', next),
+						},
+					],
+				},
 			],
 		},
 	],
 });
+
+// Check if post should be accessible
+function checkPostAccess(slug, next) {
+	console.log('Checking access for post:', slug);
+	const post = posts[slug];
+	if (!post) {
+		next('/'); // Redirect to home if post doesn't exist
+		return;
+	}
+
+	const now = new Date();
+	const publishDate = new Date(post.publishDate);
+
+	// Allow access if post is published or scheduled and past publish date
+	if (
+		post.status === 'published' ||
+		(post.status === 'scheduled' && now >= publishDate)
+	) {
+		next();
+	} else {
+		next('/'); // Redirect to home if post is not ready
+	}
+}
 
 // Add global navigation guard to handle errors
 router.onError((error) => {

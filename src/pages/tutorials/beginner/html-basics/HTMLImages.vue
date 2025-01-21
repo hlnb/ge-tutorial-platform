@@ -49,7 +49,7 @@
 				<ul>
 					<li>
 						<a
-							href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML"
+							href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/images_in_HTML"
 							target="_blank"
 							rel="noopener"
 						>

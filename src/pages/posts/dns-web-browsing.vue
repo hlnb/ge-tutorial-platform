@@ -6,11 +6,7 @@
 		<div class="content">
 			<!-- Hero Image Section -->
 			<div class="post-hero">
-				<img
-					src="@/assets/posts/dns-web-browsing.svg"
-					alt="DNS and Web Browsing Illustration"
-					class="hero-image"
-				/>
+				<!-- Removed img element -->
 			</div>
 
 			<h1 class="title is-1">
@@ -171,47 +167,39 @@
 </template>
 <script>
 export const frontmatter = {
-	title: 'Internet Everywhere: A Guide to Modern Web Development',
+	title: 'DNS and Web Browsing',
 	date: '2025-01-29',
-	author: 'Helen Burgess',
-	image: '/images/dns-web-browsing.svg',
-	description:
-		'Explore how the internet has evolved and what it means for modern web development.',
-	tags: ['web development', 'internet', 'technology', 'modern web'],
+	author: 'Graphitedge',
+	image: '/images/posts/dns-web-browsing.svg', // Updated path to match public directory
+	description: 'Understanding how DNS works and its role in web browsing',
+	tags: ['DNS', 'Web', 'Networking', 'Technical'],
+	status: 'scheduled',
+	readingTime: '5 min',
 };
 </script>
 <script setup>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import PostVisibility from '@/components/PostVisibility.vue';
 import SocialShare from '@/components/SocialShare.vue';
 import { useHead } from '@vueuse/head';
-import DNSWebBrowsing from '../../assets/images/dns-web-browsing.svg';
 import PostNavigation from '../../components/PostNavigation.vue';
 
 const currentUrl = computed(() => window.location.href);
 
+// Use the exported frontmatter directly
 const postMetadata = {
-	title: 'DNS and Web Browsing',
-	description: 'Understanding how DNS works and its role in web browsing',
-	publishDate: '2025-01-29T08:15:00Z', // Set your desired publish date
-	author: 'Graphitedge',
-	status: 'scheduled',
-	tags: ['DNS', 'Web', 'Networking', 'Technical'],
-	readingTime: '5 min',
+	...frontmatter,
+	publishDate: new Date(frontmatter.date).toISOString(), // Convert date to ISO string
 	lastUpdated: new Date().toISOString(),
-	image: DNSWebBrowsing,
 };
 
-// You might want to add this metadata to your page's head
 useHead({
-	title: postMetadata.title,
+	title: frontmatter.title,
 	meta: [
-		{ name: 'description', content: postMetadata.description },
-		{ property: 'og:title', content: postMetadata.title },
-		{ property: 'og:description', content: postMetadata.description },
-		...(postMetadata.image
-			? [{ property: 'og:image', content: postMetadata.image }]
-			: []),
+		{ name: 'description', content: frontmatter.description },
+		{ property: 'og:title', content: frontmatter.title },
+		{ property: 'og:description', content: frontmatter.description },
+		{ property: 'og:image', content: frontmatter.image },
 	],
 });
 </script>
@@ -221,15 +209,11 @@ useHead({
 	margin: -3rem -3rem 3rem -3rem;
 	background-color: #f5f5f5;
 	padding: 3rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.hero-image {
-	max-width: 800px;
-	width: 100%;
-	height: auto;
+	height: 400px; /* Set a specific height */
+	background-image: url('/images/posts/dns-web-browsing.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .section-icon {

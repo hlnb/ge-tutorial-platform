@@ -46,7 +46,7 @@ export const frontmatter = {
 	description: 'A brief description of your post (used for SEO and previews)',
 	tags: ['Tag1', 'Tag2'], // Add relevant tags
 	author: 'Your Name', // Optional
-	image: '/path/to/image.jpg', // Optional featured image
+	image: '/path/to/images.jpg', // Optional featured image
 };
 </script>
 

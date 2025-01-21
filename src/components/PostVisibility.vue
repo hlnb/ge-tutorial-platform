@@ -21,16 +21,31 @@ const props = defineProps({
 	},
 	status: {
 		type: String,
-		default: 'draft',
+		required: true,
 	},
 });
 
+// Let's log these values to debug
+console.log('PostVisibility props:', {
+	date: props.publishDate,
+	status: props.status,
+});
+
 const isVisible = computed(() => {
-	if (props.status === 'published') return true;
-	if (props.status === 'scheduled') {
-		return new Date(props.publishDate) <= new Date();
-	}
-	return false;
+	// Add logging here too
+	const now = new Date();
+	const publishDate = new Date(props.publishDate);
+	const isPublished = props.status === 'published';
+	const isPastPublishDate = publishDate <= now;
+
+	console.log('Visibility check:', {
+		now,
+		publishDate,
+		isPublished,
+		isPastPublishDate,
+	});
+
+	return isPublished || isPastPublishDate;
 });
 
 const formatDate = (date) => {

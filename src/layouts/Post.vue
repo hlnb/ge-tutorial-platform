@@ -1,65 +1,83 @@
 <template>
-	<article class="blog-post">
-		<h1>{{ frontmatter.title }}</h1>
-		<div class="post-meta">
-			<time :datetime="frontmatter.date">
-				{{ formatDate(frontmatter.date) }}
-			</time>
-			<span class="author" v-if="frontmatter.author">
-				by {{ frontmatter.author }}
-			</span>
-		</div>
-		<div class="content">
-			<slot />
-			<!-- This is where your markdown content will be rendered -->
-		</div>
-	</article>
+	<div class="post-layout">
+		<!-- Post-specific layout elements -->
+		<router-view v-slot="{ Component }">
+			<Suspense>
+				<component :is="Component" @update:frontmatter="updateFrontmatter" />
+			</Suspense>
+		</router-view>
+	</div>
 </template>
 
 <script setup>
-import { useHead } from '@vueuse/head'; // Make sure to install @vueuse/head
+import { ref, watch, onMounted } from 'vue';
+import { useHead } from '@vueuse/head';
 
-const props = defineProps({
-	frontmatter: {
-		type: Object,
-		required: true,
+const frontmatter = ref(null);
+const head = ref({
+	title: '',
+	meta: [],
+});
+
+const updateFrontmatter = (data) => {
+	frontmatter.value = data;
+};
+
+// Set up head configuration in setup
+const updateHead = () => {
+	if (frontmatter.value) {
+		head.value = {
+			title: `${frontmatter.value.title} | Your Site Name`,
+			meta: [
+				{
+					name: 'description',
+					content: frontmatter.value.description,
+				},
+				{
+					name: 'keywords',
+					content: frontmatter.value.keywords,
+				},
+				// Open Graph tags for social sharing
+				{
+					property: 'og:title',
+					content: frontmatter.value.title,
+				},
+				{
+					property: 'og:description',
+					content: frontmatter.value.description,
+				},
+				{
+					property: 'og:image',
+					content: frontmatter.value.image,
+				},
+				{
+					name: 'author',
+					content: frontmatter.value.author,
+				},
+			],
+		};
+	}
+};
+
+// Use head in setup context
+useHead(head);
+
+// Watch for frontmatter changes
+watch(
+	frontmatter,
+	() => {
+		updateHead();
 	},
-});
-
-// Add SEO metadata
-useHead({
-	title: `${props.frontmatter.title} | Your Site Name`,
-	meta: [
-		{
-			name: 'description',
-			content: props.frontmatter.description,
-		},
-		{
-			name: 'keywords',
-			content: props.frontmatter.keywords,
-		},
-		// Open Graph tags for social sharing
-		{
-			property: 'og:title',
-			content: props.frontmatter.title,
-		},
-		{
-			property: 'og:description',
-			content: props.frontmatter.description,
-		},
-		{
-			name: 'author',
-			content: props.frontmatter.author,
-		},
-	],
-});
+	{ immediate: true },
+);
 </script>
 
 <style scoped>
-.blog-post {
-	max-width: 800px;
+.post-layout {
+	width: 80vw;
+	max-width: 1200px;
 	margin: 0 auto;
-	padding: 2rem;
+	padding: 2rem 0;
 }
 
 .post-meta {
@@ -69,6 +87,13 @@ useHead({
 
 .post-meta time {
 	margin-right: 1rem;
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+	.post-layout {
+		width: 90vw;
+	}
 }
 
 /* Add your other styles here */
