@@ -226,14 +226,8 @@
 						</p>
 
 						<!-- Optional call-to-action section -->
-						<div class="cta-box">
-							<h3>Ready to learn more?</h3>
-							<p>
-								<i class="fa-regular fa-envelope"></i> Join The Graphite Journal
-								Newsletter for web development insights.
-							</p>
-							<BlogSignup />
-						</div>
+
+						<BlogSignup />
 					</article>
 				</div>
 			</section>

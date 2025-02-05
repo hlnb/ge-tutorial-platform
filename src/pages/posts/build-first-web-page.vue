@@ -73,31 +73,7 @@
 							Open index.html in your code editor and add the following code:
 						</p>
 
-						<Mirror lang="html"
-							><!DOCTYPE html>
-							<html lang="en">
-								<head>
-									<meta charset="UTF-8" />
-									<meta
-										name="viewport"
-										content="width=device-width, initial-scale=1.0"
-									/>
-									<title>My First Web Page</title>
-									<link rel="stylesheet" href="style.css" />
-								</head>
-								<body>
-									<header>
-										<h1>Welcome to My Website</h1>
-									</header>
-									<main>
-										<p>This is my first webpage. I'm learning HTML and CSS!</p>
-									</main>
-									<footer>
-										<p>&copy; 2025 My First Website</p>
-									</footer>
-								</body>
-							</html></Mirror
-						>
+						<CodeMirror lang="html" :code="htmlCode" />
 
 						<p>Let's break down what each main section does:</p>
 						<ul>
@@ -121,16 +97,7 @@
 							properties to define their appearance:
 						</p>
 
-						<Mirror lang="css"
-							>/* Basic reset and body styles */ body { font-family: Arial,
-							sans-serif; margin: 0; padding: 0; text-align: center;
-							background-color: #f4f4f4; } /* Header styling */ header {
-							background: #333; color: white; padding: 20px; } /* Main content
-							area styling */ main { margin: 20px; padding: 20px; background:
-							white; border-radius: 5px; } /* Footer styling */ footer {
-							margin-top: 20px; padding: 10px; background: #222; color: white;
-							}</Mirror
-						>
+						<CodeMirror lang="css" :code="cssCode" />
 
 						<h2>Understanding CSS Properties:</h2>
 						<ul>
@@ -207,14 +174,7 @@
 							Happy coding! 🎉
 						</p>
 
-						<div class="cta-box">
-							<h3>Ready to level up?</h3>
-							<p>
-								<i class="fas fa-envelope"></i> Join The Graphite Journal
-								Newsletter for web development insights beyond just code.
-							</p>
-							<BlogSignup />
-						</div>
+						<BlogSignup />
 					</article>
 				</div>
 			</section>
@@ -225,13 +185,13 @@
 
 <script>
 export const frontmatter = {
-	title: 'Building Your First Web Page: A Complete Guide',
-	date: '2025-02-21',
+	title: 'Build Your First Web Page',
+	date: '2025-02-12', // Future date for testing
 	author: 'Helen Burgess',
-	image: '/images/posts/build-first-web-page.svg',
+	image: '/images/posts/build-first-webpage.svg',
 	description:
-		'A step-by-step guide to creating your first web page, perfect for beginners starting their web development journey.',
-	tags: ['Web Development', 'HTML', 'CSS', 'Beginners'],
+		'Learn how to build your first web page from scratch with HTML and CSS.',
+	tags: ['HTML', 'CSS', 'Web Development', 'Beginners'],
 	status: 'published',
 };
 </script>
@@ -239,11 +199,17 @@ export const frontmatter = {
 <script setup>
 import PostVisibility from '@/components/PostVisibility.vue';
 import PostNavigation from '@/components/PostNavigation.vue';
+import CodeMirror from '@/components/CodeMirror.vue';
 import { ref, onMounted } from 'vue';
 import { useHead } from '@vueuse/head';
 import BlogSignup from '../../components/BlogSignup.vue';
+import { format } from 'date-fns';
 
 const postData = ref(frontmatter);
+
+const formatDate = (date) => {
+	return format(new Date(date), 'MMMM do, yyyy');
+};
 
 useHead({
 	title: postData.value.title,
@@ -255,8 +221,60 @@ useHead({
 	],
 });
 
-// Emit frontmatter to parent layout
 const emit = defineEmits(['update:frontmatter']);
+
+const htmlCode = `<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My First Web Page</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Welcome to My Website</h1>
+		</header>
+		<main>
+			<p>This is my first webpage. I'm learning HTML and CSS!</p>
+		</main>
+		<footer>
+			<p>&copy; 2025 My First Website</p>
+		</footer>
+	</body>
+</html>`;
+
+const cssCode = `/* Basic reset and body styles */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: #f4f4f4;
+}
+
+/* Header styling */
+header {
+	background: #333;
+	color: white;
+	padding: 20px;
+}
+
+/* Main content area styling */
+main {
+	margin: 20px;
+	padding: 20px;
+	background: white;
+	border-radius: 5px;
+}
+
+/* Footer styling */
+footer {
+	margin-top: 20px;
+	padding: 10px;
+	background: #222;
+	color: white;
+}`;
 
 onMounted(() => {
 	emit('update:frontmatter', frontmatter);
@@ -278,7 +296,7 @@ onMounted(() => {
 }
 
 .hero {
-	background-image: url('/images/posts/internet-everywhere-guide.svg');
+	background-image: url('/images/posts/first-webpage-guide.svg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

@@ -1,42 +1,31 @@
 <template>
-	<form @submit="handleSubmit" class="newsletter-form">
-		<div class="form-content">
-			<input
-				type="email"
-				v-model="email"
-				placeholder="Enter your email"
-				required
-				:disabled="status === 'loading' || status === 'success'"
-			/>
-			<button
-				type="submit"
-				:disabled="status === 'loading' || status === 'success'"
-			>
-				<span v-if="status === 'idle'">
-					<i class="fa-regular fa-paper-plane"></i> Subscribe
-				</span>
-				<span v-else-if="status === 'loading'">
-					<i class="fa-solid fa-circle-notch fa-spin"></i> Subscribing...
-				</span>
-				<span v-else-if="status === 'success'">
-					<i class="fa-solid fa-check"></i> Subscribed!
-				</span>
-				<span v-else>
-					<i class="fa-solid fa-exclamation-triangle"></i> Try Again
-				</span>
+	<div class="signup-cta">
+		<div class="signup-content">
+			<h3>
+				<i class="fas fa-rocket"></i> Stay Ahead of Web Development Trends
+			</h3>
+			<p>Join our newsletter and receive:</p>
+			<ul>
+				<li><i class="fas fa-check"></i> Monthly development tips & tricks</li>
+				<li><i class="fas fa-check"></i> In-depth tutorials and guides</li>
+				<li><i class="fas fa-check"></i> Early access to new content</li>
+			</ul>
+		</div>
+		<form @submit="handleSubmit" class="signup-form">
+			<div class="field">
+				<input
+					type="email"
+					v-model="email"
+					placeholder="Enter your email address"
+					required
+					class="input"
+				/>
+			</div>
+			<button type="submit" class="button">
+				<i class="fas fa-paper-plane"></i> Subscribe Now
 			</button>
-		</div>
-
-		<div v-if="status === 'success'" class="message success">
-			<i class="fa-solid fa-check-circle"></i>
-			Thanks for subscribing! Please check your email to confirm.
-		</div>
-
-		<div v-if="status === 'error'" class="message error">
-			<i class="fa-solid fa-exclamation-circle"></i>
-			{{ errorMessage }}
-		</div>
-	</form>
+		</form>
+	</div>
 </template>
 
 <script setup>
@@ -78,79 +67,110 @@ const handleSubmit = async (e) => {
 </script>
 
 <style scoped>
-.newsletter-form {
-	max-width: 500px;
-	margin: 0 auto;
+.signup-cta {
+	background: linear-gradient(135deg, var(--color-red-berry) 0%, #ff6b6b 100%);
+	border-radius: 12px;
+	padding: 2rem;
+	color: white;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	margin: 2rem 0;
 }
 
-.form-content {
-	display: flex;
-	gap: 0.5rem;
+.signup-content {
+	margin-bottom: 1.5rem;
+}
+
+.signup-content h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	color: white;
+}
+
+.signup-content p {
+	font-size: 1.1rem;
 	margin-bottom: 1rem;
 }
 
-input {
+.signup-content ul {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 1.5rem;
+}
+
+.signup-content li {
+	margin: 0.5rem 0;
+	font-size: 1rem;
+}
+
+.signup-content i {
+	margin-right: 0.5rem;
+}
+
+.signup-form {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.field {
 	flex: 1;
+	min-width: 200px;
+}
+
+.input {
+	width: 100%;
 	padding: 0.75rem 1rem;
-	border: 1px solid var(--color-snow);
-	border-radius: 4px;
-	font-size: 1rem;
-	background: white;
-}
-
-input:disabled {
-	background-color: var(--color-snow);
-	cursor: not-allowed;
-}
-
-button {
-	padding: 0.75rem 1.5rem;
-	background-color: var(--color-red-berry);
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	border-radius: 6px;
+	background: rgba(255, 255, 255, 0.1);
 	color: white;
-	border: none;
-	border-radius: 4px;
 	font-size: 1rem;
+	transition: all 0.3s ease;
+}
+
+.input::placeholder {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.input:focus {
+	outline: none;
+	background: rgba(255, 255, 255, 0.2);
+	border-color: rgba(255, 255, 255, 0.4);
+}
+
+.button {
+	padding: 0.75rem 1.5rem;
+	background: white;
+	color: var(--color-red-berry);
+	border: none;
+	border-radius: 6px;
+	font-weight: bold;
 	cursor: pointer;
-	transition: background-color 0.2s ease;
+	transition: all 0.3s ease;
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
 }
 
-button:hover:not(:disabled) {
-	background-color: var(--color-red-berry-dark, #8b0000);
+.button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-button:disabled {
-	opacity: 0.7;
-	cursor: not-allowed;
-}
-
-.message {
-	padding: 1rem;
-	border-radius: 4px;
-	margin-top: 1rem;
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-}
-
-.success {
-	background-color: #d1fae5;
-	color: #065f46;
-}
-
-.error {
-	background-color: #fee2e2;
-	color: #991b1b;
+.button i {
+	font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-	.form-content {
+	.signup-cta {
+		padding: 1.5rem;
+	}
+
+	.signup-form {
 		flex-direction: column;
 	}
 
-	button {
+	.button {
 		width: 100%;
 		justify-content: center;
 	}

@@ -132,14 +132,7 @@
 							</p>
 						</div>
 
-						<div class="cta-box">
-							<h3>Ready to level up?</h3>
-							<p>
-								<i class="fas fa-envelope"></i> Join The Graphite Journal
-								Newsletter for web development insights beyond just code.
-							</p>
-							<BlogSignup />
-						</div>
+						<BlogSignup />
 					</article>
 				</div>
 			</section>

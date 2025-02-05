@@ -52,6 +52,22 @@ const posts = {
 		excerpt: 'Building successful client relationships requires...',
 		featured: false,
 	},
+	'responsive-design': {
+		title: 'Responsive Design',
+		description: 'Understanding the principles of responsive design',
+		status: 'published',
+		publishDate: '2025-01-14T00:00:00Z',
+		lastUpdated: '2025-01-14T00:00:00Z',
+		author: 'Helen Burgess',
+		tags: ['Design', 'Web', 'Responsive'],
+		readingTime: '5 min',
+		series: 'Web Fundamentals',
+		seriesOrder: 3,
+		relatedPosts: ['dns-web-browsing', 'internet-everywhere'],
+		imageUrl: '/images/posts/responsive-design.svg',
+		excerpt: 'Responsive design is the practice of designing websites...',
+		featured: false,
+	},
 };
 
 const router = createRouter({
@@ -241,10 +257,21 @@ const router = createRouter({
 						},
 						{
 							path: 'build-first-web-page',
-							component: () => import('@/pages/posts/build-first-web-page.vue'),
+							component: () =>
+								import('../pages/posts/build-first-web-page.vue'),
+							props: true,
+							beforeEnter: (to, from, next) => {
+								console.log('Checking route access for build-first-web-page');
+								// Don't redirect, let PostVisibility handle the display
+								next();
+							},
+						},
+						{
+							path: 'responsive-design',
+							component: () => import('../pages/posts/responsive-design.vue'),
 							props: true,
 							beforeEnter: (to, from, next) =>
-								checkPostAccess('build-first-web-page', next),
+								checkPostAccess('responsive-design', next),
 						},
 					],
 				},
