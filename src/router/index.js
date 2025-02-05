@@ -239,6 +239,13 @@ const router = createRouter({
 							beforeEnter: (to, from, next) =>
 								checkPostAccess('dns-web-browsing', next),
 						},
+						{
+							path: 'build-first-web-page',
+							component: () => import('@/pages/posts/build-first-web-page.vue'),
+							props: true,
+							beforeEnter: (to, from, next) =>
+								checkPostAccess('build-first-web-page', next),
+						},
 					],
 				},
 			],

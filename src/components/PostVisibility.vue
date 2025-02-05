@@ -32,20 +32,20 @@ console.log('PostVisibility props:', {
 });
 
 const isVisible = computed(() => {
-	// Add logging here too
 	const now = new Date();
 	const publishDate = new Date(props.publishDate);
 	const isPublished = props.status === 'published';
 	const isPastPublishDate = publishDate <= now;
 
 	console.log('Visibility check:', {
-		now,
-		publishDate,
+		now: now.toISOString(),
+		publishDate: publishDate.toISOString(),
 		isPublished,
 		isPastPublishDate,
+		comparison: `${publishDate} <= ${now}`,
 	});
 
-	return isPublished || isPastPublishDate;
+	return isPublished && isPastPublishDate;
 });
 
 const formatDate = (date) => {

@@ -1,0 +1,63 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f5f7fa"/>
+  
+  <!-- Browser Window -->
+  <g transform="translate(100, 50)">
+    <!-- Browser Frame -->
+    <rect x="0" y="0" width="600" height="450" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    
+    <!-- Browser Top Bar -->
+    <rect x="0" y="0" width="600" height="40" rx="8" fill="#f1f5f9"/>
+    
+    <!-- Browser Buttons -->
+    <circle cx="25" cy="20" r="6" fill="#fc6058"/>
+    <circle cx="50" cy="20" r="6" fill="#fec02f"/>
+    <circle cx="75" cy="20" r="6" fill="#2aca3e"/>
+    
+    <!-- URL Bar -->
+    <rect x="100" y="10" width="400" height="20" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Content Area -->
+    <g transform="translate(20, 60)">
+      <!-- HTML Section -->
+      <rect x="0" y="0" width="250" height="350" rx="4" fill="#fff8f0"/>
+      <text x="20" y="30" font-family="Monaco, monospace" font-size="14" fill="#2d3748">&lt;html&gt;</text>
+      <text x="40" y="60" font-family="Monaco, monospace" font-size="14" fill="#2d3748">&lt;head&gt;</text>
+      <text x="40" y="90" font-family="Monaco, monospace" font-size="14" fill="#2d3748">&lt;/head&gt;</text>
+      <text x="40" y="120" font-family="Monaco, monospace" font-size="14" fill="#2d3748">&lt;body&gt;</text>
+      <text x="40" y="150" font-family="Monaco, monospace" font-size="14" fill="#2d3748">&lt;h1&gt;Hello&lt;/h1&gt;</text>
+      <text x="40" y="180" font-family="Monaco, monospace" font-size="14" fill="#2d3748">&lt;p&gt;Welcome&lt;/p&gt;</text>
+      <text x="40" y="300" font-family="Monaco, monospace" font-size="14" fill="#2d3748">&lt;/body&gt;</text>
+      <text x="20" y="330" font-family="Monaco, monospace" font-size="14" fill="#2d3748">&lt;/html&gt;</text>
+      
+      <!-- CSS Section -->
+      <rect x="310" y="0" width="250" height="350" rx="4" fill="#f0f9ff"/>
+      <text x="330" y="30" font-family="Monaco, monospace" font-size="14" fill="#2d3748">body {</text>
+      <text x="350" y="60" font-family="Monaco, monospace" font-size="14" fill="#2d3748">color: #333;</text>
+      <text x="350" y="90" font-family="Monaco, monospace" font-size="14" fill="#2d3748">font-size: 16px;</text>
+      <text x="330" y="120" font-family="Monaco, monospace" font-size="14" fill="#2d3748">}</text>
+      <text x="330" y="150" font-family="Monaco, monospace" font-size="14" fill="#2d3748">h1 {</text>
+      <text x="350" y="180" font-family="Monaco, monospace" font-size="14" fill="#2d3748">color: blue;</text>
+      <text x="330" y="210" font-family="Monaco, monospace" font-size="14" fill="#2d3748">}</text>
+    </g>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g transform="translate(650, 150)">
+    <!-- HTML5 Shield -->
+    <path d="M0,0 L50,0 L45,45 L25,50 L5,45 Z" fill="#e34f26"/>
+    <path d="M25,5 L25,45 L40,41 L44,5 Z" fill="#ef652a"/>
+    <text x="13" y="30" font-family="Arial, sans-serif" font-size="24" fill="#ffffff">H</text>
+  </g>
+  
+  <g transform="translate(650, 250)">
+    <!-- CSS3 Shield -->
+    <path d="M0,0 L50,0 L45,45 L25,50 L5,45 Z" fill="#264de4"/>
+    <path d="M25,5 L25,45 L40,41 L44,5 Z" fill="#2965f1"/>
+    <text x="13" y="30" font-family="Arial, sans-serif" font-size="24" fill="#ffffff">C</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="550" font-family="Arial, sans-serif" font-size="24" fill="#2d3748" text-anchor="middle">Building Your First Web Page</text>
+</svg>
