@@ -1,115 +1,68 @@
 <template>
-	<nav class="tutorial-navigation" aria-label="Tutorial Navigation">
-		<div class="box">
-			<h2 class="title is-4">
-				<i class="fas fa-book section-icon"></i> Tutorial Sections
-			</h2>
-			<div class="menu">
-				<ul class="menu-list">
-					<li>
-						<router-link
-							to="introduction"
-							:class="{ 'is-active': isActive('introduction') }"
-						>
-							Introduction
-						</router-link>
-					</li>
-					<li>
-						<router-link
-							to="html-first-page"
-							:class="{ 'is-active': isActive('html-first-page') }"
-						>
-							Your First HTML Page
-						</router-link>
-					</li>
-					<li>
-						<router-link
-							to="html-text"
-							:class="{ 'is-active': isActive('html-text') }"
-						>
-							Working with Text
-						</router-link>
-					</li>
-					<li>
-						<router-link
-							to="html-links"
-							:class="{ 'is-active': isActive('html-links') }"
-						>
-							Links & Navigation
-						</router-link>
-					</li>
-					<li>
-						<router-link
-							to="html-images"
-							:class="{ 'is-active': isActive('html-images') }"
-						>
-							Images
-						</router-link>
-					</li>
-					<li>
-						<router-link
-							to="html-doc-structure"
-							:class="{ 'is-active': isActive('html-doc-structure') }"
-						>
-							Document Structure
-						</router-link>
-					</li>
-					<li>
-						<router-link
-							to="html-forms"
-							:class="{ 'is-active': isActive('html-forms') }"
-						>
-							Forms
-						</router-link>
-					</li>
-					<li>
-						<router-link
-							to="html-emmet"
-							:class="{ 'is-active': isActive('html-emmet') }"
-						>
-							Emmet Workflow
-						</router-link>
-					</li>
-				</ul>
+	<nav class="tutorial-navigation">
+		<div class="level">
+			<div class="level-left">
+				<div class="level-item" v-if="prev">
+					<router-link :to="{ name: prev }" class="button is-light">
+						<span class="icon">
+							<i class="fas fa-arrow-left"></i>
+						</span>
+						<span>Previous</span>
+					</router-link>
+				</div>
+			</div>
+
+			<div class="level-right">
+				<div class="level-item" v-if="next">
+					<router-link :to="{ name: next }" class="button is-primary">
+						<span>Next</span>
+						<span class="icon">
+							<i class="fas fa-arrow-right"></i>
+						</span>
+					</router-link>
+				</div>
 			</div>
 		</div>
 	</nav>
 </template>
 
-<script>
-export default {
-	name: 'TutorialNavigation',
-	methods: {
-		isActive(route) {
-			return this.$route.path.includes(route);
-		},
+<script setup>
+import { useRoute } from 'vue-router';
+
+const props = defineProps({
+	prev: {
+		type: String,
+		default: null,
 	},
-};
+	next: {
+		type: String,
+		default: null,
+	},
+});
+
+const route = useRoute();
 </script>
 
 <style scoped>
 .tutorial-navigation {
-	position: sticky;
-	top: 20px;
+	margin-top: 2rem;
+	padding: 1rem 0;
+	border-top: 1px solid var(--color-border);
 }
 
-.menu-list a {
-	display: block;
-	padding: 0.5em 0.75em;
-	text-decoration: none;
-	border-radius: 4px;
+.button {
+	transition: transform 0.2s ease;
 }
 
-.menu-list a:hover {
-	background-color: #f5f5f5;
+.button:hover {
+	transform: translateX(0);
 }
 
-.menu-list a.is-active {
-	background-color: #3273dc;
-	color: white;
+.button.is-light:hover {
+	transform: translateX(-2px);
 }
 
-.section-icon {
-	margin-right: 0.5rem;
+.button.is-primary:hover {
+	transform: translateX(2px);
 }
 </style>

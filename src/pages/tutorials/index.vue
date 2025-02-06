@@ -88,13 +88,28 @@
 					</router-link>
 				</div>
 				<div class="box tutorial-card">
-					<h4 class="title is-4">CSS Basics</h4>
-					<p>Master the basics of styling and layout</p>
-					<div class="tags">
-						<span class="tag is-light">10 tutorials</span>
-						<span class="tag is-light">4-5 hours</span>
-						<span class="tag is-warning">Coming Soon</span>
-					</div>
+					<router-link
+						to="/tutorials/beginner/css-basics"
+						class="box tutorial-card"
+					>
+						<h4 class="title is-4">
+							<i class="fab fa-css css-icon"></i> CSS Basics
+						</h4>
+						<p>Master the basics of styling and layout</p>
+						<div class="tags">
+							<span class="tag is-light">10 tutorials</span>
+							<span class="tag is-light">4-5 hours</span>
+							<span class="tag is-success">Available Now</span>
+						</div>
+						<ul class="tutorial-topics mt-3">
+							<li><i class="fas fa-check"></i> Introduction to CSS</li>
+							<li><i class="fas fa-check"></i> Selectors & Properties</li>
+							<li><i class="fas fa-check"></i> Colors & Typography</li>
+							<li><i class="fas fa-check"></i> Box Model</li>
+							<li><i class="fas fa-check"></i> Layout & Flexbox</li>
+							<li><i class="fas fa-check"></i> Responsive Design</li>
+						</ul>
+					</router-link>
 				</div>
 				<div class="box tutorial-card">
 					<h4 class="title is-4">JavaScript Fundamentals</h4>
@@ -227,6 +242,10 @@
 }
 .html-icon {
 	color: #e34f26;
+}
+
+.css-icon {
+	color: #264de4;
 }
 
 .tutorial-topics {

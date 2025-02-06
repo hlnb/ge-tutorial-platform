@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainLayout from '../components/MainLayout.vue';
 import TutorialLayout from '@/layouts/TutorialLayout.vue';
+import CSSBasicsIndex from '@/pages/tutorials/beginner/css-basics/index.vue';
+import CSSBasicsIntroduction from '@/pages/tutorials/beginner/css-basics/introduction.vue';
 
 // Post metadata registry
 const posts = {
@@ -177,7 +179,7 @@ const router = createRouter({
 							name: 'html-basics-introduction',
 							component: () =>
 								import(
-									'../pages/tutorials/beginner/html-basics/introduction.vue'
+									'@/pages/tutorials/beginner/html-basics/introduction.vue'
 								),
 						},
 						{
@@ -227,6 +229,59 @@ const router = createRouter({
 							name: 'html-basics-emmet',
 							component: () =>
 								import('../pages/tutorials/beginner/html-basics/HTMLEmmet.vue'),
+						},
+						// CSS Basics Routes
+						{
+							path: 'beginner/css-basics',
+							name: 'css-basics',
+							component: CSSBasicsIndex,
+						},
+						{
+							path: 'beginner/css-basics/introduction',
+							name: 'css-basics-introduction',
+							component: CSSBasicsIntroduction,
+						},
+						{
+							path: 'beginner/css-basics/selectors',
+							name: 'css-basics-selectors',
+							component: () =>
+								import('@/pages/tutorials/beginner/css-basics/selectors.vue'),
+						},
+						{
+							path: 'beginner/css-basics/colors',
+							name: 'css-basics-colors',
+							component: () =>
+								import('@/pages/tutorials/beginner/css-basics/colors.vue'),
+						},
+						{
+							path: 'beginner/css-basics/box-model',
+							name: 'css-basics-box-model',
+							component: () =>
+								import('@/pages/tutorials/beginner/css-basics/box-model.vue'),
+						},
+						{
+							path: 'beginner/css-basics/layout',
+							name: 'css-basics-layout',
+							component: () =>
+								import('@/pages/tutorials/beginner/css-basics/layout.vue'),
+						},
+						{
+							path: 'beginner/css-basics/flexbox',
+							name: 'css-basics-flexbox',
+							component: () =>
+								import('@/pages/tutorials/beginner/css-basics/flexbox.vue'),
+						},
+						{
+							path: 'beginner/css-basics/responsive',
+							name: 'css-basics-responsive',
+							component: () =>
+								import('@/pages/tutorials/beginner/css-basics/responsive.vue'),
+						},
+						{
+							path: 'beginner/css-basics/modern',
+							name: 'css-basics-modern',
+							component: () =>
+								import('@/pages/tutorials/beginner/css-basics/modern.vue'),
 						},
 					],
 				},

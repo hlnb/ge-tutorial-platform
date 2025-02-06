@@ -11,6 +11,10 @@
 	max-width: 1344px !important;
 }
 
+.section {
+	background-color: white;
+}
+
 /* Ensure consistent box sizing */
 .box {
 	width: 100%;

@@ -3,8 +3,9 @@
 		<div class="columns">
 			<!-- Left Sidebar Navigation -->
 			<div class="column is-3">
-				<HTMLBasicsNav class="mb-4" />
-				<GetStartedNav />
+				<HTMLBasicsNav class="mb-4" v-if="route.path.includes('html-basics')" />
+				<CSSBasicsNav class="mb-4" v-if="route.path.includes('css-basics')" />
+				<GetStartedNav v-if="route.path.includes('get-started')" />
 			</div>
 
 			<!-- Main Content -->
@@ -19,6 +20,7 @@
 import { useRoute } from 'vue-router';
 import HTMLBasicsNav from '@/components/HTMLBasicsNav.vue';
 import GetStartedNav from '@/components/GetStartedNav.vue';
+import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
 
 const route = useRoute();
 </script>
