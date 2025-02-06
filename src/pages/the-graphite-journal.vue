@@ -8,7 +8,7 @@
 			</p>
 			<div class="hero-cta">
 				<p>Don't miss out on the latest insights and tutorials.</p>
-				<BlogSignup />
+				<SimpleSignup />
 			</div>
 		</div>
 		<div class="hero-pattern"></div>
@@ -76,7 +76,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { format } from 'date-fns';
-import BlogSignup from '@/components/BlogSignup.vue';
+import SimpleSignup from '@/components/SimpleSignup.vue';
 
 const publishedPosts = ref([
 	{
