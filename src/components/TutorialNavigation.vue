@@ -3,19 +3,20 @@
 		<div class="level">
 			<div class="level-left">
 				<div class="level-item" v-if="prev">
-					<router-link :to="{ name: prev }" class="button is-light">
+					<router-link :to="prev.path" class="button is-light">
 						<span class="icon">
 							<i class="fas fa-arrow-left"></i>
 						</span>
-						<span>Previous</span>
+						
+						<span>{{ prev.title }}</span>
 					</router-link>
 				</div>
 			</div>
 
 			<div class="level-right">
 				<div class="level-item" v-if="next">
-					<router-link :to="{ name: next }" class="button is-primary">
-						<span>Next</span>
+					<router-link :to="next.path" class="button is-primary">
+						<span>{{ next.title }}</span>
 						<span class="icon">
 							<i class="fas fa-arrow-right"></i>
 						</span>
@@ -31,12 +32,26 @@ import { useRoute } from 'vue-router';
 
 const props = defineProps({
 	prev: {
-		type: String,
-		default: null,
+		type: Object,
+		validator: (obj) => {
+			return (
+				obj &&
+				typeof obj.path === 'string' &&
+				typeof obj.title === 'string' &&
+				obj.path.startsWith('/tutorials/')
+			);
+		},
 	},
 	next: {
-		type: String,
-		default: null,
+		type: Object,
+		validator: (obj) => {
+			return (
+				obj &&
+				typeof obj.path === 'string' &&
+				typeof obj.title === 'string' &&
+				obj.path.startsWith('/tutorials/')
+			);
+		},
 	},
 });
 

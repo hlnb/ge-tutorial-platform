@@ -4,7 +4,8 @@
 	</div>
 </template>
 
-<script>
+<script setup>
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 import CodeMirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material-darker.css';
@@ -12,62 +13,102 @@ import 'codemirror/mode/xml/xml.js';
 import 'codemirror/mode/javascript/javascript.js';
 import 'codemirror/mode/css/css.js';
 
-export default {
-	name: 'CodeMirror',
-	props: {
-		modelValue: {
-			type: String,
-			default: '',
-		},
-		height: {
-			type: Number,
-			default: 200,
-		},
-		readonly: {
-			type: Boolean,
-			default: false,
-		},
+const props = defineProps({
+	modelValue: {
+		type: String,
+		default: '',
 	},
-	data() {
-		return {
-			editor: null,
-		};
+	height: {
+		type: [String, Number],
+		default: 'auto',
 	},
-	mounted() {
-		this.editor = CodeMirror.fromTextArea(this.$refs.textarea, {
-			mode: 'html',
-			theme: 'material-darker',
-			lineNumbers: true,
-			lineWrapping: true,
-			readOnly: this.readonly,
-			viewportMargin: Infinity,
+	readonly: {
+		type: Boolean,
+		default: false,
+	},
+	mode: {
+		type: String,
+		default: 'text/html',
+	},
+	theme: {
+		type: String,
+		default: 'default',
+	},
+});
+
+const emit = defineEmits(['update:modelValue']);
+const textarea = ref(null);
+let editor = null;
+
+// Handle scroll events with passive listeners
+const handlePassiveEvent = (event) => {
+	// Event handling logic if needed
+};
+
+onMounted(() => {
+	// Create CodeMirror instance with passive event listener options
+	const cmOptions = {
+		mode: props.mode,
+		theme: props.theme,
+		lineNumbers: true,
+		readOnly: props.readonly,
+		viewportMargin: Infinity,
+		lineWrapping: true,
+		extraKeys: { 'Ctrl-Space': 'autocomplete' },
+	};
+
+	editor = CodeMirror.fromTextArea(textarea.value, cmOptions);
+
+	// Set up the editor
+	if (props.height !== 'auto') {
+		editor.setSize(
+			null,
+			typeof props.height === 'number' ? `${props.height}px` : props.height,
+		);
+	}
+
+	// Add passive event listeners
+	const wrapper = editor.getWrapperElement();
+	['touchstart', 'touchmove', 'mousewheel', 'wheel'].forEach((event) => {
+		wrapper.addEventListener(event, handlePassiveEvent, { passive: true });
+	});
+
+	editor.setValue(props.modelValue);
+
+	editor.on('change', (cm) => {
+		emit('update:modelValue', cm.getValue());
+	});
+});
+
+onUnmounted(() => {
+	if (editor) {
+		// Clean up event listeners
+		const wrapper = editor.getWrapperElement();
+		['touchstart', 'touchmove', 'mousewheel', 'wheel'].forEach((event) => {
+			wrapper.removeEventListener(event, handlePassiveEvent);
 		});
 
-		this.editor.setValue(this.modelValue);
+		editor.toTextArea();
+	}
+});
 
-		this.editor.on('change', () => {
-			this.$emit('update:modelValue', this.editor.getValue());
-			this.$emit('change', this.editor.getValue());
-		});
-	},
-	watch: {
-		modelValue(newValue) {
-			if (this.editor && newValue !== this.editor.getValue()) {
-				this.editor.setValue(newValue);
-			}
-		},
-		height(newValue) {
-			if (this.editor) {
-				this.editor.setSize(null, newValue);
-			}
-		},
-	},
-	beforeUnmount() {
-		if (this.editor) {
-			this.editor.toTextArea();
+watch(
+	() => props.modelValue,
+	(newValue) => {
+		if (editor && newValue !== editor.getValue()) {
+			editor.setValue(newValue);
 		}
 	},
-};
+);
+
+watch(
+	() => props.height,
+	(newValue) => {
+		if (editor) {
+			editor.setSize(null, newValue);
+		}
+	},
+);
 </script>
 
 <style scoped>

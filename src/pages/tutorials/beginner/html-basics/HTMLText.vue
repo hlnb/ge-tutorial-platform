@@ -173,50 +173,51 @@
 			<div class="content mt-4">
 				<h4>Restaurant Information:</h4>
 				<pre class="has-background-grey-lighter p-3">
-Restaurant Name: The Garden Table
-Tagline: Fresh, Local, Seasonal
+Restaurant Name: Black Swan Bistro
+Tagline: Elegant Dining, Modern Australian Cuisine
 
-Description: Welcome to The Garden Table, where we celebrate the finest local ingredients 
-with creative, seasonal dishes. Our chef-driven menu changes regularly to showcase the 
-best produce from nearby farms.
+Description: Welcome to Black Swan Bistro, where we blend traditional Australian 
+flavors with modern culinary techniques. Our innovative menu showcases the finest 
+local ingredients in a sophisticated yet welcoming atmosphere.
 
-Special Announcement: Now taking bookings for our Summer Garden Party!
+Special Announcement: Join us for our Winter Degustation Series!
 
 Hours of Operation:
-Monday-Friday: 11am-10pm
-Saturday-Sunday: 9am-11pm
+Tuesday-Saturday: 5:30pm-10pm
+Sunday Lunch: 12pm-3pm
+Closed Mondays
 				</pre
 				>
 
 				<h4 class="mt-4">Menu Sections:</h4>
 				<pre class="has-background-grey-lighter p-3">
 STARTERS
-Farm Fresh Salads
-- Garden Greens (vegan)
-- Classic Caesar
-- Roasted Beet & Goat Cheese
+Small Plates
+- Sydney Rock Oysters
+- Kangaroo Carpaccio
+- Native Mushroom Bruschetta
 
-Seasonal Soups
-- Butternut Squash Bisque
-- French Onion
-- Soup of the Day
+Soups & Salads
+- Pumpkin & Macadamia Soup
+- Quinoa & Roasted Vegetable Salad
+- Grilled Prawns & Mango Salad
 
 MAIN COURSES
-From the Garden
-- Grilled Vegetable Plate
-- Wild Mushroom Risotto
-- Eggplant Parmesan
+From the Land
+- Grass-fed Beef Fillet
+- Slow-cooked Lamb Shoulder
+- Duck Breast with Native Plum
 
 From the Sea
-- Grilled Salmon
-- Seared Scallops
-- Fish of the Day
+- Barramundi Fillet
+- Tasmanian Salmon
+- Seafood Linguine
 
 DESSERTS
-House Favorites
-- Apple & Berry Crumble
-- Dark Chocolate Torte
-- Seasonal Fruit Tart
+Sweet Endings
+- Pavlova with Seasonal Fruits
+- Wattleseed Crème Brûlée
+- Dark Chocolate & Macadamia Tart
 				</pre
 				>
 			</div>
@@ -400,7 +401,6 @@ import DOMPurify from 'dompurify';
 import { useHead } from '@vueuse/head';
 import CodingOptions from '@/components/CodingOptions.vue';
 import HTMLBasicsNav from '@/components/HTMLBasicsNav.vue';
-import GetStartedNav from '@/components/GetStartedNav.vue';
 
 useHead({
 	title: 'Working with Text - HTML Basics - GraphitEdge Tutorials',

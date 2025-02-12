@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainLayout from '../components/MainLayout.vue';
 import TutorialLayout from '@/layouts/TutorialLayout.vue';
-import CSSBasicsIndex from '@/pages/tutorials/beginner/css-basics/index.vue';
-import CSSBasicsIntroduction from '@/pages/tutorials/beginner/css-basics/introduction.vue';
 
 // Post metadata registry
 const posts = {
@@ -234,12 +232,16 @@ const router = createRouter({
 						{
 							path: 'beginner/css-basics',
 							name: 'css-basics',
-							component: CSSBasicsIndex,
+							component: () =>
+								import('@/pages/tutorials/beginner/css-basics/index.vue'),
 						},
 						{
 							path: 'beginner/css-basics/introduction',
 							name: 'css-basics-introduction',
-							component: CSSBasicsIntroduction,
+							component: () =>
+								import(
+									'@/pages/tutorials/beginner/css-basics/introduction.vue'
+								),
 						},
 						{
 							path: 'beginner/css-basics/selectors',

@@ -258,12 +258,77 @@
 					</p>
 				</div>
 
+				<div class="box">
+					<h2 class="title is-3">
+						<i class="fas fa-laptop-code"></i> Getting Ready to Practice
+					</h2>
+
+					<div class="content">
+						<p>
+							Remember, you have several options to practice CSS as you learn:
+						</p>
+
+						<h3 class="title is-4">Code Editor Options</h3>
+						<ul class="practice-list">
+							<li>
+								<i class="fas fa-desktop"></i>
+								<div>
+									<strong>Local Editor:</strong> Use VS Code or your preferred
+									code editor with your practice files
+								</div>
+							</li>
+							<li>
+								<i class="fas fa-cloud"></i>
+								<div>
+									<strong>Online Editor:</strong> Use CodePen or our built-in
+									editor for quick experiments
+								</div>
+							</li>
+						</ul>
+
+						<h3 class="title is-4">Practice Methods</h3>
+						<ul class="practice-list">
+							<li>
+								<i class="fas fa-code"></i>
+								<div>
+									<strong>Follow Along:</strong> Code along with each example in
+									your editor
+								</div>
+							</li>
+							<li>
+								<i class="fas fa-pencil-alt"></i>
+								<div>
+									<strong>Take Notes:</strong> Write down key concepts and
+									create your own reference guide
+								</div>
+							</li>
+							<li>
+								<i class="fas fa-puzzle-piece"></i>
+								<div>
+									<strong>Experiment:</strong> Try modifying the examples to see
+									how changes affect the output
+								</div>
+							</li>
+						</ul>
+
+						<div class="notification is-info is-light mt-4">
+							<i class="fas fa-lightbulb"></i>
+							<strong>Learning Tip:</strong> The best way to learn CSS is
+							through hands-on practice. Try to spend at least 50% of your
+							learning time actively coding and experimenting.
+						</div>
+					</div>
+				</div>
+
 				<div class="cta-box">
 					<p>
 						Ready to practice what you've learned? Try the exercises in the next
 						section!
 					</p>
-					<TutorialNavigation :next="'css-basics-selectors'" />
+					<TutorialNavigation
+						:prev="navigationLinks.prev"
+						:next="navigationLinks.next"
+					/>
 				</div>
 			</article>
 		</section>
@@ -398,6 +463,18 @@ const goodNamingExample = ref(`.header {} /* Lowercase */
 .search-box {} /* Descriptive */
 .featured-article {} /* Clean naming */
 .site-navigation {} /* Clear purpose */`);
+
+// Update the navigation links
+const navigationLinks = {
+	prev: {
+		path: '/tutorials/beginner/css-basics',
+		title: 'CSS Basics Overview',
+	},
+	next: {
+		path: '/tutorials/beginner/css-basics/selectors',
+		title: 'CSS Selectors',
+	},
+};
 </script>
 
 <style scoped>
@@ -544,5 +621,32 @@ code {
 :deep(.preview-example p) {
 	margin: 0;
 	padding: 0;
+}
+
+.practice-list {
+	list-style: none;
+	padding-left: 0;
+	margin-top: 1rem;
+}
+
+.practice-list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	border-radius: 4px;
+	background-color: #f8f9fa;
+}
+
+.practice-list i {
+	color: #3273dc;
+	margin-top: 0.25rem;
+	width: 1.5em;
+	text-align: center;
+}
+
+.notification i {
+	margin-right: 0.5rem;
 }
 </style>
