@@ -25,9 +25,9 @@
 
 		<div class="box">
 			<h2 class="title is-4">
-				<i class="fas fa-bullseye section-icon"></i> Learning Goals
+				<i class="fas fa-graduation-cap section-icon"></i> Learning Goals
 			</h2>
-			<div class="content">
+			<div class="tutorial-card">
 				<p>After completing this tutorial, you will be able to:</p>
 				<ul>
 					<li>Add images to your web pages using the img element</li>
@@ -266,7 +266,7 @@
 				<i class="fas fa-image section-icon"></i> Semantic Image Containers
 			</h2>
 
-			<div class="content">
+			<div class="tutorial-card">
 				<p>
 					Use <code>figure</code> and <code>figcaption</code> elements to
 					provide context for your images:
@@ -295,7 +295,7 @@
 				Handling
 			</h2>
 
-			<div class="content">
+			<div class="tutorial-card">
 				<h3 class="title is-4">Loading Strategies</h3>
 				<CodeMirror
 					v-model="loadingExample"
@@ -334,7 +334,7 @@
 				and ARIA
 			</h2>
 
-			<div class="content">
+			<div class="tutorial-card">
 				<p>
 					Not all images need alternative text. Decorative images should be
 					hidden from screen readers:
@@ -378,7 +378,7 @@
 			</h2>
 			<p>Let's practice by adding images to the Black Swan Bistro website:</p>
 
-			<div class="content mt-4">
+			<div class="tutorial-card mt-4">
 				<div class="columns">
 					<div class="column is-one-third">
 						<div class="box has-background-light">
@@ -436,7 +436,7 @@
 					</details>
 				</div>
 
-				<div class="content mt-6">
+				<div class="tutorial-card mt-6">
 					<h3 class="title is-4">More Restaurant Images</h3>
 					<p>Here are more examples of how Black Swan Bistro uses images:</p>
 
@@ -490,7 +490,7 @@
 					<h3 class="title is-4">Gallery Structure Hint</h3>
 					<p>Consider organizing your gallery like this:</p>
 					<CodeMirror v-model="galleryHint" :readonly="true" :height="300" />
-					<div class="content mt-4">
+					<div class="tutorial-card mt-4">
 						<p><strong>Tips:</strong></p>
 						<ul>
 							<li>
@@ -536,13 +536,6 @@
 						Now that you can work with images, let's learn about how to
 						structure your HTML documents properly!
 					</p>
-
-					<router-link
-						:to="{ name: 'html-basics-doc-structure' }"
-						class="button is-primary mt-4"
-					>
-						Continue to Document Structure
-					</router-link>
 				</div>
 
 				<TutorialNavigation class="mt-6" />

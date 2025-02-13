@@ -5,14 +5,14 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 
 const menuItems = [
-	{ title: 'Introduction', name: 'css-basics-introduction' },
-	{ title: 'Selectors & Properties', name: 'css-basics-selectors' },
-	{ title: 'Colors & Typography', name: 'css-basics-colors' },
-	{ title: 'Box Model', name: 'css-basics-box-model' },
-	{ title: 'Layout Fundamentals', name: 'css-basics-layout' },
-	{ title: 'Flexbox Basics', name: 'css-basics-flexbox' },
-	{ title: 'Responsive Design', name: 'css-basics-responsive' },
-	{ title: 'Modern CSS Features', name: 'css-basics-modern' },
+	{ title: 'Introduction', route: { name: 'css-basics-introduction' } },
+	{ title: 'Selectors & Properties', route: { name: 'css-basics-selectors' } },
+	{ title: 'Colors & Typography', route: { name: 'css-basics-colors' } },
+	{ title: 'Box Model', route: { name: 'css-basics-box-model' } },
+	{ title: 'Layout Fundamentals', route: { name: 'css-basics-layout' } },
+	{ title: 'Flexbox Basics', route: { name: 'css-basics-flexbox' } },
+	{ title: 'Responsive Design', route: { name: 'css-basics-responsive' } },
+	{ title: 'Modern CSS Features', route: { name: 'css-basics-modern' } },
 ];
 
 const currentIndex = computed(() =>
@@ -34,7 +34,7 @@ const isCompletedRoute = (index) => index < currentIndex.value;
 			<ul class="menu-list">
 				<li v-for="(item, index) in menuItems" :key="index">
 					<router-link
-						:to="{ name: item.name }"
+						:to="item.route"
 						:class="{
 							'is-active': isCurrentRoute(item.name),
 							'is-next': isNextRoute(index),

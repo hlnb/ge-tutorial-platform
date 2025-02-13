@@ -1,9 +1,15 @@
 <script setup>
-import { onBeforeUnmount } from 'vue';
+import { ref, inject, onMounted } from 'vue';
 
-// Clean up any side effects when component unmounts
-onBeforeUnmount(() => {
-	// Any cleanup code if needed
+const pageSections = inject('pageSections');
+
+onMounted(() => {
+	pageSections.value = [
+		{ id: 'introduction', title: 'Introduction to CSS' },
+		{ id: 'how-css-works', title: 'How CSS Works' },
+		{ id: 'adding-css', title: 'Adding CSS to HTML' },
+		{ id: 'next-steps', title: 'Next Steps' },
+	];
 });
 </script>
 

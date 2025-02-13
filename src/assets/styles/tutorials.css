@@ -60,7 +60,9 @@
 	padding: 2px 4px;
 	font-size: 0.9em;
 }
-
+.tutorial-content {
+	background-color: var(--color-white);
+}
 .tutorials-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

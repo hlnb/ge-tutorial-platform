@@ -55,6 +55,10 @@ onMounted(() => {
 		viewportMargin: Infinity,
 		lineWrapping: true,
 		extraKeys: { 'Ctrl-Space': 'autocomplete' },
+		// Add passive event listener options
+		configureMouse: (cm, repeat) => ({
+			addEventOptions: { passive: true },
+		}),
 	};
 
 	editor = CodeMirror.fromTextArea(textarea.value, cmOptions);
@@ -78,6 +82,11 @@ onMounted(() => {
 	editor.on('change', (cm) => {
 		emit('update:modelValue', cm.getValue());
 	});
+
+	// Add passive event listeners for touch events
+	wrapper.addEventListener('touchstart', () => {}, { passive: true });
+	wrapper.addEventListener('touchmove', () => {}, { passive: true });
+	wrapper.addEventListener('mousewheel', () => {}, { passive: true });
 });
 
 onUnmounted(() => {

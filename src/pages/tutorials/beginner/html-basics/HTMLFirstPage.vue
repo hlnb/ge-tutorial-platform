@@ -1,6 +1,6 @@
 <template>
 	<!-- Main Content -->
-	<div class="content">
+	<div class="tutorial-content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li><router-link to="/">Home</router-link></li>

@@ -30,6 +30,7 @@
 
 body {
 	font-family: var(--font-primary);
+	background-color: var(--color-snow);
 }
 
 h1,
@@ -74,12 +75,13 @@ li {
 }
 .section {
 	padding: 2rem 1rem;
-	background-color: var(--color-snow);
+	background-color: var(--color-white);
 }
 .content {
 	max-width: 80vw;
 	margin: 0 auto;
 	padding: 0 1rem;
+	background-color: var(--color-white);
 }
 .container {
 	max-width: 80vw !important;

@@ -230,13 +230,13 @@ const router = createRouter({
 						},
 						// CSS Basics Routes
 						{
-							path: 'beginner/css-basics',
+							path: 'css-basics',
 							name: 'css-basics',
 							component: () =>
 								import('@/pages/tutorials/beginner/css-basics/index.vue'),
 						},
 						{
-							path: 'beginner/css-basics/introduction',
+							path: 'css-basics/introduction',
 							name: 'css-basics-introduction',
 							component: () =>
 								import(
@@ -244,43 +244,43 @@ const router = createRouter({
 								),
 						},
 						{
-							path: 'beginner/css-basics/selectors',
+							path: 'css-basics/selectors',
 							name: 'css-basics-selectors',
 							component: () =>
 								import('@/pages/tutorials/beginner/css-basics/selectors.vue'),
 						},
 						{
-							path: 'beginner/css-basics/colors',
+							path: 'css-basics/colors',
 							name: 'css-basics-colors',
 							component: () =>
 								import('@/pages/tutorials/beginner/css-basics/colors.vue'),
 						},
 						{
-							path: 'beginner/css-basics/box-model',
+							path: 'css-basics/box-model',
 							name: 'css-basics-box-model',
 							component: () =>
 								import('@/pages/tutorials/beginner/css-basics/box-model.vue'),
 						},
 						{
-							path: 'beginner/css-basics/layout',
+							path: 'css-basics/layout',
 							name: 'css-basics-layout',
 							component: () =>
 								import('@/pages/tutorials/beginner/css-basics/layout.vue'),
 						},
 						{
-							path: 'beginner/css-basics/flexbox',
+							path: 'css-basics/flexbox',
 							name: 'css-basics-flexbox',
 							component: () =>
 								import('@/pages/tutorials/beginner/css-basics/flexbox.vue'),
 						},
 						{
-							path: 'beginner/css-basics/responsive',
+							path: 'css-basics/responsive',
 							name: 'css-basics-responsive',
 							component: () =>
 								import('@/pages/tutorials/beginner/css-basics/responsive.vue'),
 						},
 						{
-							path: 'beginner/css-basics/modern',
+							path: 'css-basics/modern',
 							name: 'css-basics-modern',
 							component: () =>
 								import('@/pages/tutorials/beginner/css-basics/modern.vue'),

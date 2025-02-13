@@ -8,7 +8,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-	<div class="content">
+	<div class="tutorial-content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>

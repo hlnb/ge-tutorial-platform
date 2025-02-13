@@ -76,7 +76,7 @@
 					</ul>
 				</div>
 
-				<h2 class="title is-3 mt-5">What is CSS?</h2>
+				<h2 id="what-is-css" class="title is-3 mt-5">What is CSS?</h2>
 				<p>
 					CSS is a style sheet language that describes how HTML elements should
 					look on screen. It controls:
@@ -90,10 +90,74 @@
 					<li><i class="fas fa-plus-circle"></i> And much more!</li>
 				</ul>
 
-				<h2 class="title is-3 mt-5">Adding CSS to HTML</h2>
+				<h2 id="how-css-works" class="title is-3 mt-5">How CSS Works</h2>
+				<p>
+					CSS works by applying styles to HTML elements through a process called
+					the cascade. When a web browser reads your CSS, it:
+				</p>
+
+				<ol>
+					<li>Loads the HTML content first</li>
+					<li>Processes any CSS rules that match elements on the page</li>
+					<li>Applies styles according to specificity and cascade rules</li>
+					<li>Renders the final styled page</li>
+				</ol>
+
+				<div id="selectors" class="mt-4">
+					<h3 class="title is-4" id="selectors-title">Selectors</h3>
+					<p>
+						Selectors tell the browser which HTML elements should be styled.
+						They can target:
+					</p>
+					<ul>
+						<li>Element types (like paragraphs or headings)</li>
+						<li>Classes (custom groups of elements)</li>
+						<li>IDs (unique elements)</li>
+						<li>Elements in specific relationships</li>
+					</ul>
+				</div>
+
+				<div id="properties" class="mt-4">
+					<h3 class="title is-4" id="properties-title">Properties</h3>
+					<p>
+						Properties are the specific aspects of an element you want to style,
+						such as:
+					</p>
+					<ul>
+						<li>Colors and backgrounds</li>
+						<li>Text and fonts</li>
+						<li>Spacing and layout</li>
+						<li>Borders and shadows</li>
+					</ul>
+				</div>
+
+				<div id="values" class="mt-4">
+					<h3 class="title is-4" id="values-title">Values</h3>
+					<p>Values define how properties should be styled. These can be:</p>
+					<ul>
+						<li>Keywords (like 'red' or 'bold')</li>
+						<li>Numbers with units (like '16px' or '2em')</li>
+						<li>Functions (like 'rgb()' or 'calc()')</li>
+					</ul>
+				</div>
+
+				<div id="cascade" class="mt-4">
+					<h3 class="title is-4" id="cascade-title">The Cascade</h3>
+					<p>
+						The cascade determines which styles take precedence when multiple
+						rules target the same element. It considers:
+					</p>
+					<ul>
+						<li>Specificity of selectors</li>
+						<li>Source order of CSS rules</li>
+						<li>Importance (normal vs !important)</li>
+					</ul>
+				</div>
+
+				<h2 id="adding-css" class="title is-3 mt-5">Adding CSS to HTML</h2>
 				<p>There are three ways to add CSS to your HTML documents:</p>
 
-				<h3 class="subtitle is-5">1. Inline CSS</h3>
+				<h3 id="inline" class="subtitle is-5">1. Inline CSS</h3>
 				<p>Added directly to HTML elements using the style attribute:</p>
 				<div class="box">
 					<h3 class="title is-4">Inline CSS Example:</h3>
@@ -104,7 +168,7 @@
 					></div>
 				</div>
 
-				<h3 class="subtitle is-5">2. Internal CSS</h3>
+				<h3 id="internal" class="subtitle is-5">2. Internal CSS</h3>
 				<p>Added in the head section using style tags:</p>
 				<div class="box">
 					<h3 class="title is-4">Internal CSS Example:</h3>
@@ -119,7 +183,9 @@
 					></div>
 				</div>
 
-				<h3 class="subtitle is-5">3. External CSS (Recommended)</h3>
+				<h3 id="external" class="subtitle is-5">
+					3. External CSS (Recommended)
+				</h3>
 				<p>Stored in a separate .css file and linked in the HTML:</p>
 				<div class="box">
 					<h3 class="title is-4">External CSS Example:</h3>
@@ -134,7 +200,7 @@
 					></div>
 				</div>
 
-				<h2 class="title is-3 mt-5">CSS Syntax</h2>
+				<h2 id="css-syntax" class="title is-3 mt-5">CSS Syntax</h2>
 				<p>CSS rules have two main parts:</p>
 				<ol>
 					<li>Selector: What to style</li>
@@ -144,7 +210,9 @@
 					<CodeMirror v-model="syntaxExample" :height="150" :readonly="true" />
 				</div>
 
-				<h2 class="title is-3 mt-5">CSS Naming Conventions</h2>
+				<h2 id="css-naming-conventions" class="title is-3 mt-5">
+					CSS Naming Conventions
+				</h2>
 				<p>Examples of what to avoid:</p>
 				<div class="box">
 					<CodeMirror
@@ -325,10 +393,6 @@
 						Ready to practice what you've learned? Try the exercises in the next
 						section!
 					</p>
-					<TutorialNavigation
-						:prev="navigationLinks.prev"
-						:next="navigationLinks.next"
-					/>
 				</div>
 			</article>
 		</section>
@@ -342,10 +406,9 @@ export default {
 </script>
 
 <script setup>
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { format } from 'date-fns';
-import { ref, computed } from 'vue';
+import { ref, computed, inject, onMounted } from 'vue';
 import DOMPurify from 'dompurify';
 
 const frontmatter = {
@@ -475,6 +538,36 @@ const navigationLinks = {
 		title: 'CSS Selectors',
 	},
 };
+
+const pageSections = inject('pageSections');
+
+onMounted(() => {
+	pageSections.value = [
+		{ id: 'what-is-css', title: 'What is CSS?' },
+		{
+			id: 'how-css-works',
+			title: 'How CSS Works',
+			subsections: [
+				{ id: 'selectors', title: 'Selectors' },
+				{ id: 'properties', title: 'Properties' },
+				{ id: 'values', title: 'Values' },
+				{ id: 'cascade', title: 'The Cascade' },
+			],
+		},
+		{
+			id: 'adding-css',
+			title: 'Adding CSS to HTML',
+			subsections: [
+				{ id: 'external', title: 'External CSS' },
+				{ id: 'internal', title: 'Internal CSS' },
+				{ id: 'inline', title: 'Inline CSS' },
+			],
+		},
+		{ id: 'css-syntax', title: 'CSS Syntax' },
+		{ id: 'our-projects', title: 'Our Projects' },
+		{ id: 'practice', title: 'Practice Exercise' },
+	];
+});
 </script>
 
 <style scoped>

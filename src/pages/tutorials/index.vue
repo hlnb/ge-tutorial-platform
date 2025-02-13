@@ -67,49 +67,52 @@
 			</div>
 			<div class="tutorials-grid">
 				<div class="box tutorial-card">
-					<router-link to="/tutorials/html-basics" class="box tutorial-card">
-						<h4 class="title is-4">
-							<i class="fab fa-html5 html-icon"></i> HTML Basics
-						</h4>
-						<p>Learn the fundamentals of HTML structure and elements</p>
-						<div class="tags">
-							<span class="tag is-light">8 tutorials</span>
-							<span class="tag is-light">3-4 hours</span>
-							<span class="tag is-success">Available Now</span>
-						</div>
-						<ul class="tutorial-topics mt-3">
-							<li><i class="fas fa-check"></i> Introduction to HTML</li>
-							<li><i class="fas fa-check"></i> Document Structure</li>
-							<li><i class="fas fa-check"></i> Working with Text</li>
-							<li><i class="fas fa-check"></i> Links & Images</li>
-							<li><i class="fas fa-check"></i> Forms</li>
-							<li><i class="fas fa-check"></i> Emmet Workflow</li>
-						</ul>
-					</router-link>
+					<h4 class="title is-4">
+						<i class="fab fa-html5 html-icon"></i> HTML Basics
+					</h4>
+					<p>Learn the fundamentals of HTML structure and elements</p>
+					<div class="tags">
+						<span class="tag is-light">8 tutorials</span>
+						<span class="tag is-light">3-4 hours</span>
+						<span class="tag is-success">Available Now</span>
+					</div>
+					<ul class="tutorial-topics mt-3">
+						<li><i class="fas fa-check"></i> Introduction to HTML</li>
+						<li><i class="fas fa-check"></i> Document Structure</li>
+						<li><i class="fas fa-check"></i> Working with Text</li>
+						<li><i class="fas fa-check"></i> Links & Images</li>
+						<li><i class="fas fa-check"></i> Forms</li>
+						<li><i class="fas fa-check"></i> Emmet Workflow</li>
+					</ul>
+					<router-link
+						to="/tutorials/html-basics"
+						class="button is-primary is-outlined mt-3"
+						>Start Your HTML Journey</router-link
+					>
 				</div>
 				<div class="box tutorial-card">
+					<h4 class="title is-4">
+						<i class="fab fa-css css-icon"></i> CSS Basics
+					</h4>
+					<p>Master the basics of styling and layout</p>
+					<div class="tags">
+						<span class="tag is-light">10 tutorials</span>
+						<span class="tag is-light">4-5 hours</span>
+						<span class="tag is-success">Available Now</span>
+					</div>
+					<ul class="tutorial-topics mt-3">
+						<li><i class="fas fa-check"></i> Introduction to CSS</li>
+						<li><i class="fas fa-check"></i> Selectors & Properties</li>
+						<li><i class="fas fa-check"></i> Colors & Typography</li>
+						<li><i class="fas fa-check"></i> Box Model</li>
+						<li><i class="fas fa-check"></i> Layout & Flexbox</li>
+						<li><i class="fas fa-check"></i> Responsive Design</li>
+					</ul>
 					<router-link
-						to="/tutorials/beginner/css-basics"
-						class="box tutorial-card"
+						to="/tutorials/css-basics"
+						class="button is-primary is-outlined mt-3"
+						>Start Your CSS Journey</router-link
 					>
-						<h4 class="title is-4">
-							<i class="fab fa-css css-icon"></i> CSS Basics
-						</h4>
-						<p>Master the basics of styling and layout</p>
-						<div class="tags">
-							<span class="tag is-light">10 tutorials</span>
-							<span class="tag is-light">4-5 hours</span>
-							<span class="tag is-success">Available Now</span>
-						</div>
-						<ul class="tutorial-topics mt-3">
-							<li><i class="fas fa-check"></i> Introduction to CSS</li>
-							<li><i class="fas fa-check"></i> Selectors & Properties</li>
-							<li><i class="fas fa-check"></i> Colors & Typography</li>
-							<li><i class="fas fa-check"></i> Box Model</li>
-							<li><i class="fas fa-check"></i> Layout & Flexbox</li>
-							<li><i class="fas fa-check"></i> Responsive Design</li>
-						</ul>
-					</router-link>
 				</div>
 				<div class="box tutorial-card">
 					<h4 class="title is-4">JavaScript Fundamentals</h4>

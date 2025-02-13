@@ -28,9 +28,9 @@
 		<!-- 1. Learning Goals -->
 		<div class="box">
 			<h2 class="title is-4">
-				<i class="fas fa-bullseye section-icon"></i> Learning Goals
+				<i class="fas fa-graduation-cap section-icon"></i> Learning Goals
 			</h2>
-			<div class="content">
+			<div class="tutorial-card">
 				<p>After completing this tutorial, you will be able to:</p>
 				<ul>
 					<li>
@@ -358,7 +358,7 @@
 				presence:
 			</p>
 
-			<div class="content mt-4">
+			<div class="tutorial-card mt-4">
 				<h3 class="title is-4">Beyond the Basics: Advanced Metadata</h3>
 				<p>
 					Building on our previous knowledge, let's explore additional metadata
@@ -431,7 +431,7 @@
 				accessible and easier to maintain. Let's explore the key elements:
 			</p>
 
-			<div class="content mt-4">
+			<div class="tutorial-card mt-4">
 				<h3 class="title is-4">Common Semantic Elements</h3>
 				<CodeMirror v-model="semanticExample" :readonly="true" :height="200" />
 
@@ -472,7 +472,7 @@
 				layouts become even more powerful when we add CSS.
 			</p>
 
-			<div class="content">
+			<div class="tutorial-card">
 				<!-- Layout Patterns Section -->
 				<div class="notification is-info is-light mt-4">
 					<h4 class="title is-5">
@@ -1009,7 +1009,7 @@
 				to Avoid
 			</h2>
 
-			<div class="content">
+			<div class="tutorial-card">
 				<h3 class="title is-4">Document Structure Mistakes</h3>
 				<div class="columns">
 					<div class="column">
@@ -1207,7 +1207,7 @@ This is a new line
 				create a multi-page website for Rottnest Island!
 			</p>
 
-			<div class="content">
+			<div class="tutorial-card">
 				<h3 class="title is-4">Project Requirements</h3>
 				<ul>
 					<li><strong>Home Page</strong> - Welcome section, featured images</li>
@@ -1235,7 +1235,7 @@ This is a new line
 				maintain.
 			</p>
 
-			<div class="content">
+			<div class="tutorial-card">
 				<h3 class="title is-4">Basic Project Structure</h3>
 				<CodeMirror
 					v-model="fileStructure"
