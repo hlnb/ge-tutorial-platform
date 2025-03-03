@@ -1,17 +1,37 @@
 <script setup>
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import { ref, computed, inject, onMounted } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import { format } from 'date-fns';
+import { usePageSections } from '@/composables/usePageSections';
 
-const frontmatter = {
-	title: 'Flexbox Basics',
-	date: '2024-03-20',
-	author: 'Helen Burgess',
-	description: 'Master flexible box layouts with CSS Flexbox',
-	tags: ['CSS', 'Flexbox', 'Layout', 'Responsive'],
-	duration: '25 minutes',
-	difficulty: 'beginner',
-};
+const sections = [
+	{
+		id: 'flexbox-basics',
+		title: 'Flexbox Basics',
+		subsections: [
+			{ id: 'flex-container', title: 'Flex Container' },
+			{ id: 'flex-items', title: 'Flex Items' },
+		],
+	},
+	{
+		id: 'flex-properties',
+		title: 'Flex Properties',
+		subsections: [
+			{ id: 'flex-direction', title: 'Flex Direction' },
+			{ id: 'justify-content', title: 'Justify Content' },
+			{ id: 'align-items', title: 'Align Items' },
+		],
+	},
+	{
+		id: 'practical-examples',
+		title: 'Practical Examples',
+		subsections: [
+			{ id: 'navigation', title: 'Navigation Bar' },
+			{ id: 'card-layout', title: 'Card Layout' },
+		],
+	},
+];
+
+const { pageSections } = usePageSections(sections);
 </script>
 
 <template>

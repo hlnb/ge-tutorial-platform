@@ -18,10 +18,10 @@
 						<!-- Hero Image Section -->
 						<div class="post-hero">
 							<!-- Background image set in CSS -->
-							<h1 class="title is-1">
+							<h2 class="title is-1">
 								<i class="fas fa-globe section-icon"></i> Getting Started with
 								HTML and CSS: Building Your First Web Page
-							</h1>
+							</h2>
 						</div>
 						<p>
 							Want to create your own website but don't know where to start?
@@ -73,7 +73,21 @@
 							Open index.html in your code editor and add the following code:
 						</p>
 
-						<CodeMirror lang="html" :code="htmlCode" />
+						<!-- HTML Code Example -->
+						<div class="code-example">
+							<h3>HTML Structure</h3>
+							<CodeMirror
+								v-model="htmlCode"
+								:options="{
+									mode: 'xml',
+									theme: 'monokai',
+									lineNumbers: true,
+									readOnly: true,
+									lineWrapping: true,
+									viewportMargin: Infinity,
+								}"
+							/>
+						</div>
 
 						<p>Let's break down what each main section does:</p>
 						<ul>
@@ -97,7 +111,21 @@
 							properties to define their appearance:
 						</p>
 
-						<CodeMirror lang="css" :code="cssCode" />
+						<!-- CSS Code Example -->
+						<div class="code-example">
+							<h3>CSS Styling</h3>
+							<CodeMirror
+								v-model="cssCode"
+								:options="{
+									mode: 'css',
+									theme: 'monokai',
+									lineNumbers: true,
+									readOnly: true,
+									lineWrapping: true,
+									viewportMargin: Infinity,
+								}"
+							/>
+						</div>
 
 						<h2>Understanding CSS Properties:</h2>
 						<ul>
@@ -188,7 +216,7 @@ export const frontmatter = {
 	title: 'Build Your First Web Page',
 	date: '2025-02-12', // Future date for testing
 	author: 'Helen Burgess',
-	image: '/images/posts/build-first-webpage.svg',
+	image: '/images/posts/first-webpage-guide.svg',
 	description:
 		'Learn how to build your first web page from scratch with HTML and CSS.',
 	tags: ['HTML', 'CSS', 'Web Development', 'Beginners'],
@@ -223,7 +251,7 @@ useHead({
 
 const emit = defineEmits(['update:frontmatter']);
 
-const htmlCode = `<!DOCTYPE html>
+const htmlCode = ref(`<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -242,9 +270,9 @@ const htmlCode = `<!DOCTYPE html>
 			<p>&copy; 2025 My First Website</p>
 		</footer>
 	</body>
-</html>`;
+</html>`);
 
-const cssCode = `/* Basic reset and body styles */
+const cssCode = ref(`/* Basic reset and body styles */
 body {
 	font-family: Arial, sans-serif;
 	margin: 0;
@@ -274,7 +302,7 @@ footer {
 	padding: 10px;
 	background: #222;
 	color: white;
-}`;
+}`);
 
 onMounted(() => {
 	emit('update:frontmatter', frontmatter);
@@ -429,6 +457,42 @@ h2 {
 
 	.hero h1 {
 		font-size: 1.8rem;
+	}
+}
+
+.code-example {
+	margin: 2rem 0;
+	background: var(--color-alabaster);
+	border-radius: 8px;
+	padding: 1.5rem;
+}
+
+.code-example h3 {
+	color: var(--color-mine-shaft);
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+}
+
+/* Style for the CodeMirror container */
+:deep(.CodeMirror) {
+	height: auto;
+	border-radius: 4px;
+	font-family: 'Fira Code', monospace;
+	font-size: 0.9rem;
+	line-height: 1.5;
+}
+
+:deep(.CodeMirror-scroll) {
+	max-height: 400px;
+}
+
+@media (max-width: 768px) {
+	.code-example {
+		padding: 1rem;
+	}
+
+	:deep(.CodeMirror) {
+		font-size: 0.8rem;
 	}
 }
 </style>

@@ -410,6 +410,7 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import { format } from 'date-fns';
 import { ref, computed, inject, onMounted } from 'vue';
 import DOMPurify from 'dompurify';
+import { usePageSections } from '@/composables/usePageSections';
 
 const frontmatter = {
 	title: 'Introduction to CSS',
@@ -539,7 +540,34 @@ const navigationLinks = {
 	},
 };
 
-const pageSections = inject('pageSections');
+const sections = [
+	{
+		id: 'what-is-css',
+		title: 'What is CSS?',
+		subsections: [
+			{ id: 'css-purpose', title: 'Purpose of CSS' },
+			{ id: 'css-history', title: 'Brief History' },
+		],
+	},
+	{
+		id: 'how-css-works',
+		title: 'How CSS Works',
+		subsections: [
+			{ id: 'css-syntax', title: 'CSS Syntax' },
+			{ id: 'applying-css', title: 'Applying CSS to HTML' },
+		],
+	},
+	{
+		id: 'getting-started',
+		title: 'Getting Started',
+		subsections: [
+			{ id: 'tools-needed', title: 'Tools Needed' },
+			{ id: 'first-styles', title: 'Your First Styles' },
+		],
+	},
+];
+
+const { pageSections } = usePageSections(sections);
 
 onMounted(() => {
 	pageSections.value = [

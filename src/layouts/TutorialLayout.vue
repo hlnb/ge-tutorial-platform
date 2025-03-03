@@ -4,24 +4,6 @@
 		<aside class="sidebar" v-if="!isMainTutorialsPage">
 			<!-- Dynamic navigation component -->
 			<component :is="currentNav" v-if="currentNav" />
-
-			<!-- On This Page Navigation - Only show if sections exist -->
-			<div
-				v-if="pageSections && pageSections.length > 0"
-				class="box table-of-contents mt-4"
-			>
-				<h4 class="title is-5">On This Page</h4>
-				<ul class="menu-list">
-					<li v-for="section in pageSections" :key="section.id">
-						<a :href="`#${section.id}`">{{ section.title }}</a>
-						<ul v-if="section.subsections">
-							<li v-for="sub in section.subsections" :key="sub.id">
-								<a :href="`#${sub.id}`">{{ sub.title }}</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
 		</aside>
 
 		<!-- Main Content Area -->
@@ -92,7 +74,7 @@ const tutorialMap = {
 	'html-basics': {
 		prev: { path: '/tutorials/getting-started', title: 'Getting Started' },
 		next: {
-			path: '/tutorials/html-basics/first-page',
+			path: '/tutorials/html-basics/html-basics-first-page',
 			title: 'Your First HTML Page',
 		},
 	},
@@ -127,7 +109,10 @@ const tutorialMap = {
 			path: '/tutorials/html-basics/doc-structure',
 			title: 'Document Structure',
 		},
-		next: { path: '/tutorials/html-basics/emmet', title: 'Emmet Workflow' },
+		next: {
+			path: '/tutorials/html-basics/html-emmet',
+			title: 'HTML Emmet',
+		},
 	},
 	'html-basics-emmet': {
 		prev: { path: '/tutorials/html-basics/forms', title: 'Forms' },
@@ -136,7 +121,10 @@ const tutorialMap = {
 
 	// CSS Basics routes
 	'css-basics': {
-		prev: { path: '/tutorials/html-basics/emmet', title: 'Emmet Workflow' },
+		prev: {
+			path: '/tutorials/html-basics/html-emmet',
+			title: 'HTML Emmet',
+		},
 		next: {
 			path: '/tutorials/css-basics/introduction',
 			title: 'Introduction to CSS',
@@ -151,32 +139,39 @@ const tutorialMap = {
 			path: '/tutorials/css-basics/introduction',
 			title: 'Introduction to CSS',
 		},
-		next: { path: '/tutorials/css-basics/box-model', title: 'The Box Model' },
+		next: {
+			path: '/tutorials/css-basics/text-properties',
+			title: 'Text Properties',
+		},
 	},
 	'css-basics-box-model': {
 		prev: { path: '/tutorials/css-basics/selectors', title: 'CSS Selectors' },
+		next: {
+			path: '/tutorials/css-basics/text-properties',
+			title: 'Text Properties',
+		},
+	},
+	'css-basics-text-properties': {
+		prev: { path: '/tutorials/css-basics/box-model', title: 'The Box Model' },
 		next: { path: '/tutorials/css-basics/layout', title: 'Layout Basics' },
 	},
+
 	'css-basics-layout': {
 		prev: { path: '/tutorials/css-basics/box-model', title: 'The Box Model' },
 		next: {
 			path: '/tutorials/css-basics/colors',
-			title: 'Colors & Backgrounds',
+			title: 'Working with Colors',
 		},
 	},
 	'css-basics-colors': {
 		prev: { path: '/tutorials/css-basics/layout', title: 'Layout Basics' },
-		next: { path: '/tutorials/css-basics/flexbox', title: 'Flexbox' },
-	},
-	'css-basics-flexbox': {
-		prev: {
-			path: '/tutorials/css-basics/colors',
-			title: 'Colors & Backgrounds',
-		},
 		next: { path: '/tutorials/css-basics/modern', title: 'Modern CSS' },
 	},
 	'css-basics-modern': {
-		prev: { path: '/tutorials/css-basics/flexbox', title: 'Flexbox' },
+		prev: {
+			path: '/tutorials/css-basics/colors',
+			title: 'Working with Colors',
+		},
 		next: {
 			path: '/tutorials/css-basics/responsive',
 			title: 'Responsive Design',
@@ -184,7 +179,17 @@ const tutorialMap = {
 	},
 	'css-basics-responsive': {
 		prev: { path: '/tutorials/css-basics/modern', title: 'Modern CSS' },
-		next: null,
+		next: {
+			path: '/tutorials/css-basics/flexbox',
+			title: 'Flexbox',
+		},
+	},
+	'css-basics-flexbox': {
+		prev: {
+			path: '/tutorials/css-basics/responsive',
+			title: 'Responsive Design',
+		},
+		next: { path: '/tutorials', title: 'Tutorials Home' },
 	},
 };
 

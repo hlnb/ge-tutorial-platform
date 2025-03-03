@@ -1,9 +1,50 @@
 <script setup>
 import { ref, computed, inject, onMounted } from 'vue';
 import DOMPurify from 'dompurify';
+import CodeMirror from '@/components/CodeMirror.vue';
+import { usePageSections } from '@/composables/usePageSections';
 
 // Define page sections
-const pageSections = inject('pageSections', ref([]));
+const sections = [
+	{
+		id: 'basic-selectors',
+		title: 'Basic Selectors',
+		subsections: [
+			{ id: 'element-selectors', title: 'Element Selectors' },
+			{ id: 'class-selectors', title: 'Class Selectors' },
+			{ id: 'id-selectors', title: 'ID Selectors' },
+			{ id: 'universal-selector', title: 'Universal Selector' },
+		],
+	},
+	{
+		id: 'combinators',
+		title: 'Combining Selectors',
+		subsections: [
+			{ id: 'descendant-combinator', title: 'Descendant Combinator' },
+			{ id: 'child-combinator', title: 'Child Combinator' },
+		],
+	},
+	{
+		id: 'attribute-selectors',
+		title: 'Attribute Selectors',
+		subsections: [
+			{ id: 'basic-attribute', title: 'Basic Attribute Selector' },
+			{ id: 'exact-value', title: 'Exact Value Selector' },
+		],
+	},
+	{
+		id: 'pseudo-classes',
+		title: 'Pseudo-classes',
+		subsections: [
+			{ id: 'state-pseudo', title: 'State Pseudo-classes' },
+			{ id: 'structural-pseudo', title: 'Simple Structural Pseudo-classes' },
+		],
+	},
+	{ id: 'specificity', title: 'Specificity' },
+	{ id: 'practice', title: 'Practical Exercises' },
+];
+
+const { pageSections } = usePageSections(sections);
 
 onMounted(() => {
 	pageSections.value = [

@@ -36,7 +36,7 @@
 					<div class="meta">
 						<span class="tag is-light">
 							<i class="far fa-clock"></i>
-							{{ formatDate(post.publishDate) }}
+							{{ post.publishDate ? formatDate(post.publishDate) : '' }}
 						</span>
 						<span v-if="post.readingTime" class="tag is-light">
 							<i class="far fa-file-alt"></i>
@@ -55,73 +55,70 @@
 				</div>
 			</article>
 		</div>
-	</div>
 
-	<!-- Pagination -->
-	<nav class="pagination is-centered mt-6" v-if="totalPages > 1">
-		<ul class="pagination-list">
-			<li v-for="page in totalPages" :key="page">
-				<a
-					class="pagination-link"
-					:class="{ 'is-current': page === currentPage }"
-					@click="changePage(page)"
-				>
-					{{ page }}
-				</a>
-			</li>
-		</ul>
-	</nav>
+		<!-- Pagination -->
+		<nav class="pagination is-centered mt-6" v-if="totalPages > 1">
+			<ul class="pagination-list">
+				<li>
+					<a
+						class="pagination-link"
+						:class="{ 'is-disabled': currentPage === 1 }"
+						@click="currentPage > 1 && changePage(currentPage - 1)"
+					>
+						<i class="fas fa-chevron-left"></i>
+					</a>
+				</li>
+				<li v-for="page in totalPages" :key="page">
+					<a
+						class="pagination-link"
+						:class="{ 'is-current': page === currentPage }"
+						@click="changePage(page)"
+					>
+						{{ page }}
+					</a>
+				</li>
+				<li>
+					<a
+						class="pagination-link"
+						:class="{ 'is-disabled': currentPage === totalPages }"
+						@click="currentPage < totalPages && changePage(currentPage + 1)"
+					>
+						<i class="fas fa-chevron-right"></i>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import SimpleSignup from '@/components/SimpleSignup.vue';
+import { posts } from '@/router'; // Import posts from router
 
-const publishedPosts = ref([
-	{
-		title: 'DNS and Web Browsing',
-		slug: 'dns-web-browsing',
-		description: 'Understanding how DNS works and its role in web browsing',
-		publishDate: '2025-01-29T09:00:00Z',
-		readingTime: '5 min',
-		tags: ['DNS', 'Web', 'Networking', 'Technical'],
-		status: 'scheduled',
-		image: '/images/posts/dns-web-browsing.svg',
-	},
-	{
-		title:
-			'The Internet is Everywhere—But Do You Really Understand How It Works?',
-		slug: 'internet-everywhere',
-		description:
-			'Discover the hidden layers of web development, from DNS to deployment, and learn why modern developers need to think beyond just code.',
-		publishDate: '2025-01-20T09:00:00Z',
-		readingTime: '5 min',
-		tags: ['Web Development', 'DNS', 'SEO', 'Infrastructure'],
-		status: 'published',
-		image: '/images/posts/internet-everywhere-guide.svg',
-	},
-	{
-		title: 'How to Work with Clients as a Web Developer: The Essential Guide',
-		slug: 'work-with-clients',
-		description:
-			'Learn how to communicate effectively with clients as a web developer. Avoid scope creep, set expectations, and manage web projects smoothly.',
-		publishDate: '2025-01-07T09:00:00Z',
-		readingTime: '5 min',
-		tags: [
-			'web development',
-			'client management',
-			'freelancing',
-			'working with clients',
-			'web design process',
-		],
-		status: 'published',
-		image: '/images/posts/web-development-client-guide.svg',
-	},
-]);
+const publishedPosts = computed(() => {
+	return Object.entries(posts)
+		.map(([slug, post]) => ({
+			title: post.title,
+			slug,
+			description: post.description,
+			publishDate: post.date,
+			readingTime: post.readingTime,
+			tags: post.tags,
+			status: post.status,
+			image: post.imageUrl,
+		}))
+		.filter((post) => post.status === 'published')
+		.sort((a, b) => {
+			const dateA = new Date(a.publishDate);
+			const dateB = new Date(b.publishDate);
+			return dateB - dateA;
+		});
+});
 
 const currentPage = ref(1);
-const postsPerPage = 12; // 3 rows of 4 cards
+const postsPerPage = 12;
 
 const paginatedPosts = computed(() => {
 	const start = (currentPage.value - 1) * postsPerPage;
@@ -139,30 +136,38 @@ function changePage(page) {
 }
 
 function formatDate(date) {
-	return format(new Date(date), 'MMMM d, yyyy');
+	try {
+		if (!date) return '';
+		// Ensure we're working with a valid date string
+		const parsedDate =
+			typeof date === 'string' ? parseISO(date) : new Date(date);
+		return format(parsedDate, 'MMMM d, yyyy');
+	} catch (error) {
+		console.warn('Invalid date:', date);
+		return '';
+	}
 }
 
 onMounted(async () => {
 	try {
-		// Check if we're in development mode
 		if (import.meta.env.DEV) {
-			console.info('Development mode: Using static posts only');
+			console.info('Development mode: Using router posts');
 			return;
 		}
 
 		const response = await fetch('/api/posts/published');
 		if (!response.ok) {
-			console.info('API not available, using static posts');
+			console.info('API not available, using router posts');
 			return;
 		}
-		const posts = await response.json();
-		// Merge API posts with static posts, avoiding duplicates
-		const apiPosts = posts.filter(
+		const apiPosts = await response.json();
+		// Merge API posts with router posts, avoiding duplicates
+		const newPosts = apiPosts.filter(
 			(post) => !publishedPosts.value.find((p) => p.slug === post.slug),
 		);
-		publishedPosts.value = [...publishedPosts.value, ...apiPosts];
+		publishedPosts.value = [...publishedPosts.value, ...newPosts];
 	} catch (error) {
-		console.info('Using static posts only');
+		console.info('Using router posts only');
 	}
 });
 </script>
@@ -243,6 +248,50 @@ onMounted(async () => {
 @media (max-width: 768px) {
 	.articles-container {
 		width: 90vw; /* Slightly wider on mobile for better readability */
+	}
+}
+
+.pagination-list {
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+	list-style: none;
+	padding: 0;
+}
+
+.pagination-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.5rem;
+	height: 2.5rem;
+	padding: 0 0.5rem;
+	border-radius: 4px;
+	background: var(--color-alabaster);
+	color: var(--color-mine-shaft);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.pagination-link.is-current {
+	background: var(--color-red-berry);
+	color: white;
+}
+
+.pagination-link:hover:not(.is-current):not(.is-disabled) {
+	background: var(--color-silver);
+}
+
+.pagination-link.is-disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+	.pagination-link {
+		min-width: 2rem;
+		height: 2rem;
+		font-size: 0.9rem;
 	}
 }
 </style>

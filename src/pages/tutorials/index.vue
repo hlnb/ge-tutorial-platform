@@ -85,7 +85,7 @@
 						<li><i class="fas fa-check"></i> Emmet Workflow</li>
 					</ul>
 					<router-link
-						to="/tutorials/html-basics"
+						:to="{ name: 'html-basics' }"
 						class="button is-primary is-outlined mt-3"
 						>Start Your HTML Journey</router-link
 					>
