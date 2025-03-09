@@ -127,187 +127,195 @@ const routes = [
 	{
 		path: '/tutorials',
 		name: 'Tutorials',
-		component: () => import('@/pages/tutorials/index.vue'),
-	},
-
-	// Getting Started section
-	{
-		path: '/tutorials/getting-started',
-		name: 'getting-started-section',
-		component: () => import('@/layouts/TutorialLayout.vue'),
+		component: () => import('@/views/TutorialsView.vue'),
 		children: [
+			// Getting Started section
 			{
-				path: '',
-				name: 'getting-started-index',
-				component: () => import('@/pages/tutorials/getting-started/index.vue'),
+				path: 'getting-started',
+				name: 'getting-started-section',
+				component: () => import('@/layouts/TutorialLayout.vue'),
+				children: [
+					{
+						path: '',
+						name: 'getting-started-index',
+						component: () =>
+							import('@/pages/tutorials/getting-started/index.vue'),
+					},
+					{
+						path: 'how-internet-works',
+						name: 'getting-started-how-internet-works',
+						component: () =>
+							import(
+								'@/pages/tutorials/getting-started/how-internet-works.vue'
+							),
+					},
+					{
+						path: 'web-basics',
+						name: 'getting-started-web-basics',
+						component: () =>
+							import('@/pages/tutorials/getting-started/web-basics.vue'),
+					},
+					{
+						path: 'dev-environment',
+						name: 'getting-started-dev-environment',
+						component: () =>
+							import('@/pages/tutorials/getting-started/dev-environment.vue'),
+					},
+					{
+						path: 'browser-tools',
+						name: 'getting-started-browser-tools',
+						component: () =>
+							import('@/pages/tutorials/getting-started/browser-tools.vue'),
+					},
+					{
+						path: 'text-editors',
+						name: 'getting-started-text-editors',
+						component: () =>
+							import('@/pages/tutorials/getting-started/text-editors.vue'),
+					},
+					{
+						path: 'domain-hosting',
+						name: 'getting-started-domain-hosting',
+						component: () =>
+							import('@/pages/tutorials/getting-started/domain-hosting.vue'),
+					},
+				],
 			},
-			{
-				path: 'how-internet-works',
-				name: 'getting-started-how-internet-works',
-				component: () =>
-					import('@/pages/tutorials/getting-started/how-internet-works.vue'),
-			},
-			{
-				path: 'web-basics',
-				name: 'getting-started-web-basics',
-				component: () =>
-					import('@/pages/tutorials/getting-started/web-basics.vue'),
-			},
-			{
-				path: 'dev-environment',
-				name: 'getting-started-dev-environment',
-				component: () =>
-					import('@/pages/tutorials/getting-started/dev-environment.vue'),
-			},
-			{
-				path: 'browser-tools',
-				name: 'getting-started-browser-tools',
-				component: () =>
-					import('@/pages/tutorials/getting-started/browser-tools.vue'),
-			},
-			{
-				path: 'text-editors',
-				name: 'getting-started-text-editors',
-				component: () =>
-					import('@/pages/tutorials/getting-started/text-editors.vue'),
-			},
-			{
-				path: 'domain-hosting',
-				name: 'getting-started-domain-hosting',
-				component: () =>
-					import('@/pages/tutorials/getting-started/domain-hosting.vue'),
-			},
-		],
-	},
 
-	// HTML Basics section
-	{
-		path: '/tutorials/html-basics',
-		name: 'html-basics-section',
-		component: () => import('@/layouts/TutorialLayout.vue'),
-		children: [
+			// HTML Basics section
 			{
-				path: '',
-				name: 'html-basics-index',
-				component: () =>
-					import('@/pages/tutorials/beginner/html-basics/index.vue'),
+				path: 'html-basics',
+				name: 'html-basics-section',
+				component: () => import('@/layouts/TutorialLayout.vue'),
+				children: [
+					{
+						path: '',
+						name: 'html-basics-index',
+						component: () =>
+							import('@/pages/tutorials/beginner/html-basics/index.vue'),
+					},
+					{
+						path: 'introduction',
+						name: 'html-basics-introduction',
+						component: () =>
+							import('@/pages/tutorials/beginner/html-basics/introduction.vue'),
+					},
+					{
+						path: 'first-page',
+						name: 'html-basics-first-page',
+						component: () =>
+							import(
+								'@/pages/tutorials/beginner/html-basics/HTMLFirstPage.vue'
+							),
+					},
+					{
+						path: 'text',
+						name: 'html-basics-text',
+						component: () =>
+							import('@/pages/tutorials/beginner/html-basics/HTMLText.vue'),
+					},
+					{
+						path: 'links',
+						name: 'html-basics-links',
+						component: () =>
+							import('@/pages/tutorials/beginner/html-basics/HTMLLinks.vue'),
+					},
+					{
+						path: 'images',
+						name: 'html-basics-images',
+						component: () =>
+							import('@/pages/tutorials/beginner/html-basics/HTMLImages.vue'),
+					},
+					{
+						path: 'doc-structure',
+						name: 'html-basics-doc-structure',
+						component: () =>
+							import(
+								'@/pages/tutorials/beginner/html-basics/HTMLDocStructure.vue'
+							),
+					},
+					{
+						path: 'forms',
+						name: 'html-basics-forms',
+						component: () =>
+							import('@/pages/tutorials/beginner/html-basics/HTMLForms.vue'),
+					},
+					{
+						path: 'html-emmet',
+						name: 'html-basics-html-emmet',
+						component: () =>
+							import('@/pages/tutorials/beginner/html-basics/HTMLEmmet.vue'),
+					},
+				],
 			},
-			{
-				path: 'introduction',
-				name: 'html-basics-introduction',
-				component: () =>
-					import('@/pages/tutorials/beginner/html-basics/introduction.vue'),
-			},
-			{
-				path: 'first-page',
-				name: 'html-basics-first-page',
-				component: () =>
-					import('@/pages/tutorials/beginner/html-basics/HTMLFirstPage.vue'),
-			},
-			{
-				path: 'text',
-				name: 'html-basics-text',
-				component: () =>
-					import('@/pages/tutorials/beginner/html-basics/HTMLText.vue'),
-			},
-			{
-				path: 'links',
-				name: 'html-basics-links',
-				component: () =>
-					import('@/pages/tutorials/beginner/html-basics/HTMLLinks.vue'),
-			},
-			{
-				path: 'images',
-				name: 'html-basics-images',
-				component: () =>
-					import('@/pages/tutorials/beginner/html-basics/HTMLImages.vue'),
-			},
-			{
-				path: 'doc-structure',
-				name: 'html-basics-doc-structure',
-				component: () =>
-					import('@/pages/tutorials/beginner/html-basics/HTMLDocStructure.vue'),
-			},
-			{
-				path: 'forms',
-				name: 'html-basics-forms',
-				component: () =>
-					import('@/pages/tutorials/beginner/html-basics/HTMLForms.vue'),
-			},
-			{
-				path: 'html-emmet',
-				name: 'html-basics-html-emmet',
-				component: () =>
-					import('@/pages/tutorials/beginner/html-basics/HTMLEmmet.vue'),
-			},
-		],
-	},
 
-	// CSS Basics section
-	{
-		path: '/tutorials/css-basics',
-		name: 'css-basics-section',
-		component: () => import('@/layouts/TutorialLayout.vue'),
-		children: [
+			// CSS Basics section
 			{
-				path: '',
-				name: 'css-basics-index',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/index.vue'),
-			},
-			{
-				path: 'introduction',
-				name: 'css-basics-introduction',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/introduction.vue'),
-			},
-			{
-				path: 'selectors',
-				name: 'css-basics-selectors',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/selectors.vue'),
-			},
-			{
-				path: 'box-model',
-				name: 'css-basics-box-model',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/box-model.vue'),
-			},
-			{
-				path: 'text-properties',
-				name: 'css-basics-text-properties',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/text.vue'),
-			},
-			{
-				path: 'layout',
-				name: 'css-basics-layout',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/layout.vue'),
-			},
-			{
-				path: 'colors',
-				name: 'css-basics-colors',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/colors.vue'),
-			},
-			{
-				path: 'modern',
-				name: 'css-basics-modern',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/modern.vue'),
-			},
-			{
-				path: 'responsive',
-				name: 'css-basics-responsive',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/responsive.vue'),
-			},
-			{
-				path: 'flexbox',
-				name: 'css-basics-flexbox',
-				component: () =>
-					import('@/pages/tutorials/beginner/css-basics/flexbox.vue'),
+				path: 'css-basics',
+				name: 'css-basics-section',
+				component: () => import('@/layouts/TutorialLayout.vue'),
+				children: [
+					{
+						path: '',
+						name: 'css-basics-index',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/index.vue'),
+					},
+					{
+						path: 'introduction',
+						name: 'css-basics-introduction',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/introduction.vue'),
+					},
+					{
+						path: 'selectors',
+						name: 'css-basics-selectors',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/selectors.vue'),
+					},
+					{
+						path: 'box-model',
+						name: 'css-basics-box-model',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/box-model.vue'),
+					},
+					{
+						path: 'text-properties',
+						name: 'css-basics-text-properties',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/text.vue'),
+					},
+					{
+						path: 'layout',
+						name: 'css-basics-layout',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/layout.vue'),
+					},
+					{
+						path: 'colors',
+						name: 'css-basics-colors',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/colors.vue'),
+					},
+					{
+						path: 'modern',
+						name: 'css-basics-modern',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/modern.vue'),
+					},
+					{
+						path: 'responsive',
+						name: 'css-basics-responsive',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/responsive.vue'),
+					},
+					{
+						path: 'flexbox',
+						name: 'css-basics-flexbox',
+						component: () =>
+							import('@/pages/tutorials/beginner/css-basics/flexbox.vue'),
+					},
+				],
 			},
 		],
 	},

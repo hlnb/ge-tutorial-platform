@@ -437,6 +437,9 @@ provide('hasQuiz', hasQuiz);
 	max-width: 1440px;
 	margin: 0 auto;
 	padding: 2rem;
+	/* Ensure this doesn't affect the main layout */
+	position: relative;
+	z-index: 1;
 }
 
 /* Full width layout for main tutorials page */
