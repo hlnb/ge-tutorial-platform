@@ -3,258 +3,162 @@
  * Service for tracking and managing student progress through tutorials
  */
 
-// Check if progress tracking is enabled
-const isProgressTrackingEnabled = () => {
-	try {
-		const cookieSettings = JSON.parse(localStorage.getItem('cookieSettings'));
-		return cookieSettings && cookieSettings.progress === true;
-	} catch (e) {
-		console.error('Error checking progress tracking settings', e);
-		return false;
+class ProgressService {
+	constructor() {
+		this.STORAGE_KEY = 'tutorial_progress';
+		this.COOKIE_SETTINGS_KEY = 'cookieSettings';
 	}
-};
 
-// Get student progress data
-const getProgress = () => {
-	if (!isProgressTrackingEnabled()) return null;
-
-	try {
-		const progress = localStorage.getItem('studentProgress');
-		return progress
-			? JSON.parse(progress)
-			: {
-					completedTutorials: [],
-					inProgressTutorials: {},
-					quizResults: {},
-					lastVisited: null,
-			  };
-	} catch (e) {
-		console.error('Error getting progress data', e);
-		return null;
+	// Check if progress tracking is enabled
+	isProgressTrackingEnabled() {
+		try {
+			const cookieSettings = JSON.parse(
+				localStorage.getItem(this.COOKIE_SETTINGS_KEY),
+			);
+			return cookieSettings && cookieSettings.progress === true;
+		} catch (e) {
+			console.error('Error checking progress tracking status', e);
+			return false;
+		}
 	}
-};
 
-// Save student progress data
-const saveProgress = (progressData) => {
-	if (!isProgressTrackingEnabled()) return false;
+	// Get the current progress
+	getProgress() {
+		if (!this.isProgressTrackingEnabled()) return null;
 
-	try {
-		localStorage.setItem('studentProgress', JSON.stringify(progressData));
-		return true;
-	} catch (e) {
-		console.error('Error saving progress data', e);
-		return false;
+		try {
+			const progress = JSON.parse(localStorage.getItem(this.STORAGE_KEY)) || {
+				completedTutorials: [],
+				completedQuizzes: [],
+				tutorialProgress: {},
+				quizScores: {},
+			};
+			return progress;
+		} catch (e) {
+			console.error('Error getting progress', e);
+			return null;
+		}
 	}
-};
 
-// Mark a tutorial as completed
-const markTutorialCompleted = (tutorialPath) => {
-	if (!isProgressTrackingEnabled()) return false;
+	// Save progress
+	saveProgress(progress) {
+		if (!this.isProgressTrackingEnabled()) return;
 
-	try {
-		const progress = getProgress() || {
+		try {
+			localStorage.setItem(this.STORAGE_KEY, JSON.stringify(progress));
+		} catch (e) {
+			console.error('Error saving progress', e);
+		}
+	}
+
+	// Mark a tutorial as completed
+	markTutorialCompleted(tutorialPath) {
+		if (!this.isProgressTrackingEnabled()) return;
+
+		const progress = this.getProgress() || {
 			completedTutorials: [],
-			inProgressTutorials: {},
-			quizResults: {},
-			lastVisited: null,
+			completedQuizzes: [],
+			tutorialProgress: {},
+			quizScores: {},
 		};
 
-		// Add to completed tutorials if not already there
 		if (!progress.completedTutorials.includes(tutorialPath)) {
 			progress.completedTutorials.push(tutorialPath);
+			this.saveProgress(progress);
 		}
-
-		// Remove from in-progress tutorials if present
-		if (progress.inProgressTutorials[tutorialPath]) {
-			delete progress.inProgressTutorials[tutorialPath];
-		}
-
-		// Update last visited
-		progress.lastVisited = tutorialPath;
-
-		return saveProgress(progress);
-	} catch (e) {
-		console.error('Error marking tutorial as completed', e);
-		return false;
 	}
-};
 
-// Update tutorial progress (for partially completed tutorials)
-const updateTutorialProgress = (
-	tutorialPath,
-	progressPercentage,
-	lastSection,
-) => {
-	if (!isProgressTrackingEnabled()) return false;
+	// Check if a tutorial is completed
+	isTutorialCompleted(tutorialPath) {
+		const progress = this.getProgress();
+		return (
+			progress &&
+			progress.completedTutorials &&
+			progress.completedTutorials.includes(tutorialPath)
+		);
+	}
 
-	try {
-		const progress = getProgress() || {
+	// Track scroll progress for a tutorial
+	trackScrollProgress(tutorialPath, scrollPosition, totalHeight) {
+		if (!this.isProgressTrackingEnabled()) return;
+
+		const progress = this.getProgress() || {
 			completedTutorials: [],
-			inProgressTutorials: {},
-			quizResults: {},
-			lastVisited: null,
+			completedQuizzes: [],
+			tutorialProgress: {},
+			quizScores: {},
 		};
 
-		// Update in-progress tutorials
-		progress.inProgressTutorials[tutorialPath] = {
-			percentage: progressPercentage,
-			lastSection: lastSection,
-			lastUpdated: new Date().toISOString(),
-		};
-
-		// Update last visited
-		progress.lastVisited = tutorialPath;
-
-		return saveProgress(progress);
-	} catch (e) {
-		console.error('Error updating tutorial progress', e);
-		return false;
-	}
-};
-
-// Track tutorial progress based on scroll position
-const trackScrollProgress = (tutorialPath, scrollPosition, totalHeight) => {
-	if (!isProgressTrackingEnabled()) return false;
-
-	try {
-		// Calculate progress percentage based on scroll position
-		// We consider a tutorial "in progress" once the user has scrolled at least 10%
-		// and "nearly complete" when they've scrolled at least 90%
-		const scrollPercentage = Math.min(
+		// Calculate percentage (0-100)
+		const percentage = Math.min(
 			Math.round((scrollPosition / totalHeight) * 100),
 			100,
 		);
 
-		// Only update if scroll percentage is at least 10%
-		if (scrollPercentage >= 10) {
-			// Get current section from DOM (optional)
-			let currentSection = 'Introduction';
-			const headings = document.querySelectorAll('h2, h3');
-
-			if (headings.length > 0) {
-				// Find the last heading that is above the current scroll position
-				for (let i = headings.length - 1; i >= 0; i--) {
-					const heading = headings[i];
-					if (heading.getBoundingClientRect().top <= 100) {
-						currentSection = heading.textContent.trim();
-						break;
-					}
-				}
-			}
-
-			// If user has scrolled to at least 90%, we can consider it nearly complete
-			// but we'll let them manually mark it as fully complete
-			updateTutorialProgress(tutorialPath, scrollPercentage, currentSection);
-
-			return true;
+		// Only update if the new percentage is higher than the stored one
+		if (
+			!progress.tutorialProgress[tutorialPath] ||
+			percentage > progress.tutorialProgress[tutorialPath]
+		) {
+			progress.tutorialProgress[tutorialPath] = percentage;
+			this.saveProgress(progress);
 		}
-
-		return false;
-	} catch (e) {
-		console.error('Error tracking scroll progress', e);
-		return false;
 	}
-};
 
-// Save quiz results
-const saveQuizResult = (quizId, score, maxScore, answers) => {
-	if (!isProgressTrackingEnabled()) return false;
+	// Get scroll progress for a tutorial
+	getScrollProgress(tutorialPath) {
+		const progress = this.getProgress();
+		return progress &&
+			progress.tutorialProgress &&
+			progress.tutorialProgress[tutorialPath]
+			? progress.tutorialProgress[tutorialPath]
+			: 0;
+	}
 
-	try {
-		const progress = getProgress() || {
+	// Mark a quiz as completed and save the score
+	saveQuizResult(tutorialPath, score, totalQuestions) {
+		if (!this.isProgressTrackingEnabled()) return;
+
+		const progress = this.getProgress() || {
 			completedTutorials: [],
-			inProgressTutorials: {},
-			quizResults: {},
-			lastVisited: null,
+			completedQuizzes: [],
+			tutorialProgress: {},
+			quizScores: {},
 		};
 
-		// Save quiz results
-		progress.quizResults[quizId] = {
-			score,
-			maxScore,
-			percentage: (score / maxScore) * 100,
-			answers,
+		// Add to completed quizzes if not already there
+		if (!progress.completedQuizzes.includes(tutorialPath)) {
+			progress.completedQuizzes.push(tutorialPath);
+		}
+
+		// Save the score
+		progress.quizScores[tutorialPath] = {
+			score: score,
+			total: totalQuestions,
+			percentage: Math.round((score / totalQuestions) * 100),
 			completedAt: new Date().toISOString(),
 		};
 
-		return saveProgress(progress);
-	} catch (e) {
-		console.error('Error saving quiz result', e);
-		return false;
+		this.saveProgress(progress);
 	}
-};
 
-// Get recommended next tutorials based on progress
-const getRecommendedTutorials = () => {
-	if (!isProgressTrackingEnabled()) return [];
-
-	try {
-		const progress = getProgress();
-		if (!progress) return [];
-
-		// This is a placeholder - in a real implementation, you would have
-		// logic to determine which tutorials to recommend based on the
-		// student's progress, perhaps using a predefined learning path
-
-		// For now, we'll just return a simple recommendation
-		return [
-			{
-				path: '/tutorials/html-basics',
-				title: 'HTML Basics',
-				description: 'Learn the fundamentals of HTML',
-			},
-			{
-				path: '/tutorials/css-basics',
-				title: 'CSS Basics',
-				description: 'Style your web pages with CSS',
-			},
-		];
-	} catch (e) {
-		console.error('Error getting recommended tutorials', e);
-		return [];
+	// Check if a quiz is completed
+	isQuizCompleted(tutorialPath) {
+		const progress = this.getProgress();
+		return (
+			progress &&
+			progress.completedQuizzes &&
+			progress.completedQuizzes.includes(tutorialPath)
+		);
 	}
-};
 
-// Get progress summary
-const getProgressSummary = () => {
-	if (!isProgressTrackingEnabled()) return null;
-
-	try {
-		const progress = getProgress();
-		if (!progress) return null;
-
-		return {
-			completedCount: progress.completedTutorials.length,
-			inProgressCount: Object.keys(progress.inProgressTutorials).length,
-			quizCount: Object.keys(progress.quizResults).length,
-			lastVisited: progress.lastVisited,
-		};
-	} catch (e) {
-		console.error('Error getting progress summary', e);
-		return null;
+	// Get quiz score
+	getQuizScore(tutorialPath) {
+		const progress = this.getProgress();
+		return progress && progress.quizScores && progress.quizScores[tutorialPath]
+			? progress.quizScores[tutorialPath]
+			: null;
 	}
-};
+}
 
-// Clear all progress data
-const clearAllProgress = () => {
-	try {
-		localStorage.removeItem('studentProgress');
-		return true;
-	} catch (e) {
-		console.error('Error clearing progress data', e);
-		return false;
-	}
-};
-
-export default {
-	isProgressTrackingEnabled,
-	getProgress,
-	saveProgress,
-	markTutorialCompleted,
-	updateTutorialProgress,
-	trackScrollProgress,
-	saveQuizResult,
-	getRecommendedTutorials,
-	getProgressSummary,
-	clearAllProgress,
-};
+export default new ProgressService();

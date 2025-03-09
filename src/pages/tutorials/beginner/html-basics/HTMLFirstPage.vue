@@ -204,6 +204,15 @@ Best time to visit: September to May</pre
 			</p>
 		</div>
 
+		<!-- Quiz Section -->
+		<QuizComponent
+			title="HTML Basics Quiz"
+			description="Test your understanding of HTML document structure and basic elements."
+			:questions="quizQuestions"
+			:tutorial-path="route.path"
+			@quiz-completed="handleQuizCompleted"
+		/>
+
 		<!-- Tutorial Completion Section -->
 		<div class="completion-section mt-6 mb-6">
 			<h2 class="title is-3">
@@ -326,6 +335,7 @@ import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
+import QuizComponent from '@/components/QuizComponent.vue';
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');
@@ -515,6 +525,70 @@ const loadCookieSettings = () => {
 	} catch (e) {
 		console.error('Error loading cookie settings', e);
 	}
+};
+
+// Quiz questions
+const quizQuestions = [
+	{
+		text: 'What does the <!DOCTYPE html> declaration do?',
+		options: [
+			'Creates an HTML document',
+			'Tells browsers this is an HTML5 document',
+			'Defines the document title',
+			'Creates the root element',
+		],
+		correctAnswer: 1,
+		explanation:
+			'The <!DOCTYPE html> declaration tells browsers that this document is using HTML5, which helps them render the page correctly.',
+	},
+	{
+		text: 'Which element is the root element of an HTML page?',
+		options: ['<body>', '<head>', '<html>', '<main>'],
+		correctAnswer: 2,
+		explanation:
+			'The <html> element is the root element that contains all other elements on the page.',
+	},
+	{
+		text: 'Where should the charset meta tag be placed in an HTML document?',
+		options: [
+			'Anywhere in the <head> section',
+			'As the first element in the <head> section',
+			'In the <body> section',
+			'After the title tag',
+		],
+		correctAnswer: 1,
+		explanation:
+			'The charset meta tag should be the first element in the <head> section to ensure proper character encoding.',
+	},
+	{
+		text: 'What is the purpose of the viewport meta tag?',
+		options: [
+			'To set the page title',
+			'To define the character encoding',
+			'To help with mobile responsiveness',
+			'To link to external stylesheets',
+		],
+		correctAnswer: 2,
+		explanation:
+			'The viewport meta tag is crucial for responsive design on mobile devices, helping to control how the page is displayed on different screen sizes.',
+	},
+	{
+		text: 'Which tag is used for line breaks in HTML?',
+		options: ['<lb>', '<break>', '<nl>', '<br>'],
+		correctAnswer: 3,
+		explanation: 'The <br> tag is used to create a line break in HTML content.',
+	},
+];
+
+// Handle quiz completion
+const handleQuizCompleted = (result) => {
+	console.log(
+		'Quiz completed with score:',
+		result.score,
+		'out of',
+		result.total,
+	);
+	// You can add additional logic here if needed
 };
 </script>
 

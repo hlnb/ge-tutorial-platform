@@ -1,5 +1,5 @@
 <template>
-	<div class="quiz-container">
+	<div id="quiz" class="quiz-container">
 		<div class="box quiz-box" :class="{ 'is-success': quizCompleted }">
 			<h3 class="title is-4">
 				<i class="fas fa-question-circle"></i> {{ title }}
@@ -177,6 +177,7 @@
 import { ref, computed } from 'vue';
 import progressService from '@/services/ProgressService';
 
+// Define props using standard JavaScript
 const props = defineProps({
 	title: {
 		type: String,
@@ -190,7 +191,19 @@ const props = defineProps({
 	questions: {
 		type: Array,
 		required: true,
-		// Each question should have: text, options (array), correctAnswer (index), explanation (optional)
+		// Add a validator function to check question structure
+		validator: (questions) => {
+			if (!Array.isArray(questions)) return false;
+
+			return questions.every(
+				(question) =>
+					question &&
+					typeof question === 'object' &&
+					typeof question.text === 'string' &&
+					Array.isArray(question.options) &&
+					typeof question.correctAnswer === 'number',
+			);
+		},
 	},
 	tutorialPath: {
 		type: String,
@@ -198,6 +211,7 @@ const props = defineProps({
 	},
 });
 
+// Define emits using standard JavaScript
 const emit = defineEmits(['quiz-completed', 'quiz-started', 'quiz-reset']);
 
 const quizStarted = ref(false);
@@ -256,14 +270,13 @@ const finishQuiz = () => {
 	showResults.value = false;
 
 	// Save quiz completion to progress service
-	const progress = progressService.getProgress() || {};
-	if (!progress.completedQuizzes) {
-		progress.completedQuizzes = [];
-	}
-
-	if (!progress.completedQuizzes.includes(props.tutorialPath)) {
-		progress.completedQuizzes.push(props.tutorialPath);
-		progressService.saveProgress(progress);
+	if (progressService.isProgressTrackingEnabled()) {
+		// Use the saveQuizResult method to save both completion status and score
+		progressService.saveQuizResult(
+			props.tutorialPath,
+			score.value,
+			props.questions.length,
+		);
 	}
 
 	emit('quiz-completed', {

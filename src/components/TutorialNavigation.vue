@@ -1,5 +1,17 @@
 <template>
 	<div class="tutorial-navigation">
+		<!-- Quiz Indicator (if available) -->
+		<div v-if="hasQuiz && !hideQuizIndicator" class="quiz-indicator mb-4">
+			<div class="notification is-info is-light">
+				<p>
+					<i class="fas fa-question-circle"></i>
+					<strong>Quiz Available:</strong> Test your knowledge with the
+					interactive quiz at the end of this tutorial.
+				</p>
+				<a href="#quiz" class="button is-info is-small mt-2"> Jump to Quiz </a>
+			</div>
+		</div>
+
 		<!-- Tutorial Completion Component (only shown if not hidden) -->
 		<TutorialCompletion
 			v-if="!hideCompletion"
@@ -33,7 +45,7 @@
 
 <script setup>
 import { useRoute } from 'vue-router';
-import { onMounted } from 'vue';
+import { onMounted, inject } from 'vue';
 import { useRouter } from 'vue-router';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import progressService from '@/services/ProgressService';
@@ -51,10 +63,17 @@ const props = defineProps({
 		type: Boolean,
 		default: false,
 	},
+	hideQuizIndicator: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 const route = useRoute();
 const router = useRouter();
+
+// Get quiz availability from parent component
+const hasQuiz = inject('hasQuiz', false);
 
 // Handle tutorial completion
 const handleTutorialCompleted = (tutorialPath) => {
@@ -130,5 +149,9 @@ onMounted(() => {
 
 .button.is-outlined:hover {
 	transform: translateX(-2px);
+}
+
+.quiz-indicator {
+	border-left: 4px solid #3e8ed0;
 }
 </style>
