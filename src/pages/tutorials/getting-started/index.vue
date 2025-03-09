@@ -4,7 +4,9 @@
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
 					<li>
-						<router-link to="/">Home</router-link>
+						<router-link to="/"
+							><i class="fa-solid fa-house mr-2"></i> Home</router-link
+						>
 					</li>
 					<li>
 						<router-link to="/tutorials">Tutorials</router-link>

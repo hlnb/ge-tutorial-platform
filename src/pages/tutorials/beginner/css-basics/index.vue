@@ -17,6 +17,11 @@ onMounted(() => {
 	<div class="content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
+				<li>
+					<router-link to="/"
+						><i class="fa-solid fa-house mr-2"></i> Home</router-link
+					>
+				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li class="is-active">
 					<a href="#" aria-current="page">CSS Basics</a>

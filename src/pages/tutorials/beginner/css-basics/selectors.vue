@@ -129,7 +129,11 @@ defineExpose({
 	<div class="content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
-				<li><router-link to="/">Home</router-link></li>
+				<li>
+					<router-link to="/"
+						><i class="fa-solid fa-house mr-2"></i> Home</router-link
+					>
+				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
 					<router-link to="/tutorials/css-basics">CSS Basics</router-link>
