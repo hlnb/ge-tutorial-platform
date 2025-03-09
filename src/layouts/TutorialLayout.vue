@@ -28,10 +28,10 @@
 <script setup>
 import { ref, provide, watch, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { HTMLBasicsNav } from '@/components/HTMLBasicsNav.vue';
-import { GetStartedNav } from '@/components/GetStartedNav.vue';
-import { CSSBasicsNav } from '@/components/CSSBasicsNav.vue';
-import { TutorialNavigation } from '@/components/TutorialNavigation.vue';
+import HTMLBasicsNav from '@/components/HTMLBasicsNav.vue';
+import GetStartedNav from '@/components/GetStartedNav.vue';
+import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
+import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import progressService from '@/services/ProgressService';
 
 const route = useRoute();

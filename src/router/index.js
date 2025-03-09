@@ -127,7 +127,7 @@ const routes = [
 	{
 		path: '/tutorials',
 		name: 'Tutorials',
-		component: () => import('@/views/TutorialsView.vue'),
+		component: () => import('@/pages/tutorials/index.vue'),
 		children: [
 			// Getting Started section
 			{

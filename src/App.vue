@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<!-- Header should be outside router-view to appear on all pages -->
-		<header-component></header-component>
+		<NavBar></NavBar>
 
 		<!-- Main content area -->
 		<main>
@@ -9,15 +9,15 @@
 		</main>
 
 		<!-- Footer should be outside router-view to appear on all pages -->
-		<footer-component></footer-component>
+		<Footer></Footer>
 
 		<!-- Cookie consent component -->
-		<cookie-consent></cookie-consent>
+		<CookieConsent></CookieConsent>
 	</div>
 </template>
 
 <script setup>
-import Navbar from '@/components/Navbar.vue';
+import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 import CookieConsent from '@/components/CookieConsent.vue';
 
