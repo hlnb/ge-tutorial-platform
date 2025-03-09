@@ -132,9 +132,7 @@ defineExpose({
 				<li><router-link to="/">Home</router-link></li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link to="/tutorials/beginner/css-basics"
-						>CSS Basics</router-link
-					>
+					<router-link to="/tutorials/css-basics">CSS Basics</router-link>
 				</li>
 				<li class="is-active"><a href="#" aria-current="page">Selectors</a></li>
 			</ul>

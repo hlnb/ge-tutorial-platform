@@ -4,14 +4,19 @@
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
-					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/">Home</router-link>
+					</li>
+					<li>
+						<router-link to="/tutorials">Tutorials</router-link>
+					</li>
 					<li>
 						<router-link to="/tutorials/getting-started"
 							>Getting Started</router-link
 						>
 					</li>
 					<li class="is-active">
-						<a href="#" aria-current="page">Working with Text Editors</a>
+						<a href="#" aria-current="page">Text Editors</a>
 					</li>
 				</ul>
 			</nav>
@@ -19,242 +24,301 @@
 			<!-- Tutorial Metadata -->
 			<div class="tutorial-meta">
 				<div class="tags">
-					<span class="tag is-info">Beginner</span>
-					<span class="tag is-light">45 minutes</span>
-					<span class="tag is-light">Tools</span>
-					<span class="tag is-light">VS Code</span>
+					<span class="tag is-info">Getting Started</span>
+					<span class="tag is-success">Beginner</span>
 				</div>
 			</div>
 
-			<h1>Working with Text Editors</h1>
+			<h1>Text Editors</h1>
 
 			<p>
-				Visual Studio Code (VS Code) is a powerful editor that makes web
-				development easier and more efficient.
+				Learn about different text editors for web development and how to choose
+				the right one for your needs.
 			</p>
 
 			<div class="box highlight-box">
 				<strong>In this tutorial, you'll learn:</strong>
 				<ul>
-					<li>Essential VS Code features</li>
-					<li>Helpful extensions</li>
-					<li>Keyboard shortcuts</li>
-					<li>Code organization tips</li>
+					<li>Introduction to Text Editors</li>
+					<li>Types of Text Editors</li>
+					<li>Key Features to Look For</li>
+					<li>Visual Studio Code: A Closer Look</li>
+					<li>Choosing the Right Editor</li>
+					<li>Next Steps</li>
 				</ul>
 			</div>
 
-			<h2>VS Code Interface</h2>
-
-			<div class="image-container">
-				<img
-					src="/images/tutorials/getting-started/vscode-interface.svg"
-					alt="VS Code Interface"
-				/>
-			</div>
-
-			<h3>Key Areas</h3>
-			<ol>
-				<li><strong>File Explorer:</strong> Browse and manage files</li>
-				<li><strong>Editor Area:</strong> Write and edit code</li>
-				<li><strong>Activity Bar:</strong> Switch between views</li>
-				<li><strong>Status Bar:</strong> Information and settings</li>
-				<li><strong>Integrated Terminal:</strong> Run commands</li>
-			</ol>
-
-			<h2>Essential Features</h2>
-
-			<h3>1. IntelliSense</h3>
-			<ul>
-				<li>Auto-completion</li>
-				<li>Syntax highlighting</li>
-				<li>Error detection</li>
-				<li>Quick fixes</li>
-			</ul>
-
-			<h3>2. Multi-cursor Editing</h3>
-			<ul>
-				<li>Hold Alt/Option + Click for multiple cursors</li>
-				<li>Select similar words with Ctrl/Cmd + D</li>
-				<li>Edit multiple lines simultaneously</li>
-			</ul>
-
-			<h3>3. Integrated Terminal</h3>
-			<ul>
-				<li>Open: Ctrl + ` (backtick)</li>
-				<li>Run commands</li>
-				<li>View output</li>
-				<li>Multiple terminals</li>
-			</ul>
-
-			<h2>Must-Have Extensions</h2>
-
-			<div class="extensions-grid">
-				<div class="box extension-box">
-					<h3>Live Server</h3>
-					<ul>
-						<li>Real-time preview</li>
-						<li>Auto-refresh</li>
-						<li>Local development server</li>
-					</ul>
-				</div>
-
-				<div class="box extension-box">
-					<h3>HTML CSS Support</h3>
-					<ul>
-						<li>Better HTML/CSS editing</li>
-						<li>Class suggestions</li>
-						<li>Color previews</li>
-					</ul>
-				</div>
-
-				<div class="box extension-box">
-					<h3>Auto Rename Tag</h3>
-					<ul>
-						<li>Automatically rename paired HTML tags</li>
-						<li>Faster editing</li>
-						<li>Fewer errors</li>
-					</ul>
-				</div>
-			</div>
-
-			<h2>Keyboard Shortcuts</h2>
-			<div class="box highlight-box">
-				<strong>Essential Shortcuts</strong>
-				<div class="shortcuts-grid">
-					<div class="shortcut">
-						<code>Ctrl/Cmd + S</code>
-						<span>Save</span>
-					</div>
-					<div class="shortcut">
-						<code>Ctrl/Cmd + F</code>
-						<span>Find</span>
-					</div>
-					<div class="shortcut">
-						<code>Ctrl/Cmd + H</code>
-						<span>Replace</span>
-					</div>
-					<div class="shortcut">
-						<code>Ctrl + `</code>
-						<span>Toggle Terminal</span>
-					</div>
-					<div class="shortcut">
-						<code>Alt + Shift + F</code>
-						<span>Format Document</span>
-					</div>
-				</div>
-			</div>
-
-			<h2>File Organization</h2>
-
-			<h3>Workspace Setup</h3>
-			<pre><code class="language-text">project-name/
-
-├── index.html
-├── css/
-│ └── style.css
-├── js/
-│ └── script.js
-└── images/
-└── logo.png</code></pre>
-
-			<h3>Using the File Explorer</h3>
-			<ol>
-				<li>Create new files/folders</li>
-				<li>Drag and drop</li>
-				<li>Context menu options</li>
-				<li>Search files</li>
-			</ol>
-
-			<h2>Code Snippets</h2>
-
-			<p>VS Code includes helpful snippets for quick coding:</p>
-
-			<h3>1. HTML Boilerplate</h3>
-			<pre><code class="language-text">Type '!' or 'html:5'
-
-Press Tab</code></pre>
-
-			<h3>2. CSS Properties</h3>
-			<ul>
-				<li>Type property name</li>
-				<li>Choose from suggestions</li>
-			</ul>
-
-			<h3>3. Custom Snippets</h3>
-			<ul>
-				<li>File > Preferences > User Snippets</li>
-				<li>Create your own</li>
-			</ul>
-
-			<h2>Emmet Abbreviations</h2>
+			<h2 id="introduction">Introduction to Text Editors</h2>
 
 			<p>
-				VS Code includes Emmet, a powerful tool that speeds up HTML and CSS
-				writing.
+				A text editor is one of the most important tools in a web developer's
+				toolkit. It's where you'll write your code, and the right editor can
+				significantly improve your productivity and coding experience.
 			</p>
 
-			<div class="box info-box">
-				<p>
-					<strong>💡 Pro Tip:</strong> Check out the complete
-					<a
-						href="https://docs.emmet.io/cheat-sheet/"
-						target="_blank"
-						rel="noopener"
+			<h2 id="types-of-editors">Types of Text Editors</h2>
+
+			<h3>Simple Text Editors</h3>
+			<p>
+				These are basic editors that come pre-installed on most operating
+				systems:
+			</p>
+			<ul>
+				<li><strong>Notepad</strong> (Windows)</li>
+				<li><strong>TextEdit</strong> (macOS)</li>
+				<li><strong>Gedit</strong> (Linux)</li>
+			</ul>
+			<p>
+				While these can be used for coding, they lack features that make coding
+				easier and more efficient.
+			</p>
+
+			<h3>Code Editors</h3>
+			<p>
+				These are specialized text editors designed specifically for writing
+				code:
+			</p>
+			<ul>
+				<li>
+					<strong>Visual Studio Code</strong> - Free, open-source, highly
+					extensible
+				</li>
+				<li><strong>Sublime Text</strong> - Fast, lightweight, paid license</li>
+				<li><strong>Atom</strong> - Free, open-source, customizable</li>
+				<li><strong>Notepad++</strong> - Free, lightweight, Windows-only</li>
+			</ul>
+
+			<h3>Integrated Development Environments (IDEs)</h3>
+			<p>
+				These are comprehensive development tools that include a text editor
+				along with other features:
+			</p>
+			<ul>
+				<li><strong>WebStorm</strong> - Specialized for web development</li>
+				<li>
+					<strong>Visual Studio</strong> - Microsoft's full IDE (not to be
+					confused with VS Code)
+				</li>
+				<li><strong>PhpStorm</strong> - Specialized for PHP development</li>
+			</ul>
+
+			<h2 id="features">Key Features to Look For</h2>
+
+			<div class="columns is-multiline">
+				<div class="column is-6">
+					<div class="box">
+						<h4>Syntax Highlighting</h4>
+						<p>
+							Colors different parts of your code to make it more readable and
+							help identify errors.
+						</p>
+					</div>
+				</div>
+
+				<div class="column is-6">
+					<div class="box">
+						<h4>Code Completion</h4>
+						<p>Suggests code as you type, saving time and reducing errors.</p>
+					</div>
+				</div>
+
+				<div class="column is-6">
+					<div class="box">
+						<h4>Multiple Cursors</h4>
+						<p>Edit multiple parts of your code simultaneously.</p>
+					</div>
+				</div>
+
+				<div class="column is-6">
+					<div class="box">
+						<h4>Extensions/Plugins</h4>
+						<p>Add functionality to your editor to suit your specific needs.</p>
+					</div>
+				</div>
+
+				<div class="column is-6">
+					<div class="box">
+						<h4>Git Integration</h4>
+						<p>Work with version control directly from your editor.</p>
+					</div>
+				</div>
+
+				<div class="column is-6">
+					<div class="box">
+						<h4>Debugging Tools</h4>
+						<p>Find and fix errors in your code more easily.</p>
+					</div>
+				</div>
+			</div>
+
+			<h2 id="vs-code">Visual Studio Code: A Closer Look</h2>
+
+			<p>
+				Visual Studio Code (VS Code) has become one of the most popular text
+				editors for web development. Here's why:
+			</p>
+
+			<h3>Getting Started with VS Code</h3>
+			<ol>
+				<li>
+					Download and install VS Code from
+					<a href="https://code.visualstudio.com/" target="_blank"
+						>code.visualstudio.com</a
 					>
-						Emmet Cheat Sheet
-					</a>
-					for all available shortcuts.
+				</li>
+				<li>
+					Install essential extensions for web development:
+					<ul>
+						<li>Live Server</li>
+						<li>HTML CSS Support</li>
+						<li>JavaScript (ES6) code snippets</li>
+						<li>ESLint</li>
+						<li>Prettier - Code formatter</li>
+					</ul>
+				</li>
+				<li>Customize your settings to match your preferences</li>
+			</ol>
+
+			<h3>Useful Keyboard Shortcuts</h3>
+			<div class="table-container">
+				<table class="table is-bordered is-striped">
+					<thead>
+						<tr>
+							<th>Action</th>
+							<th>Windows/Linux</th>
+							<th>macOS</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Save file</td>
+							<td>Ctrl + S</td>
+							<td>Cmd + S</td>
+						</tr>
+						<tr>
+							<td>Copy line</td>
+							<td>Shift + Alt + Up/Down</td>
+							<td>Shift + Option + Up/Down</td>
+						</tr>
+						<tr>
+							<td>Multiple cursors</td>
+							<td>Ctrl + Alt + Up/Down</td>
+							<td>Cmd + Option + Up/Down</td>
+						</tr>
+						<tr>
+							<td>Find</td>
+							<td>Ctrl + F</td>
+							<td>Cmd + F</td>
+						</tr>
+						<tr>
+							<td>Replace</td>
+							<td>Ctrl + H</td>
+							<td>Cmd + Option + F</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h2 id="choosing">Choosing the Right Editor</h2>
+
+			<p>
+				The "best" text editor is subjective and depends on your specific needs
+				and preferences. Consider these factors:
+			</p>
+			<ul>
+				<li>
+					<strong>Learning curve</strong>: Some editors are more
+					beginner-friendly than others
+				</li>
+				<li>
+					<strong>Performance</strong>: Consider how the editor performs on your
+					computer
+				</li>
+				<li>
+					<strong>Features</strong>: Make sure it has the features you need
+				</li>
+				<li>
+					<strong>Community support</strong>: A large community means more
+					resources and extensions
+				</li>
+				<li>
+					<strong>Cost</strong>: Many great editors are free, but some premium
+					options offer additional features
+				</li>
+			</ul>
+
+			<div class="notification is-info is-light mt-4">
+				<p>
+					<strong>💡 Pro Tip:</strong> Don't be afraid to try different editors
+					to find the one that works best for you. Many developers switch
+					editors multiple times throughout their careers as their needs change.
 				</p>
 			</div>
 
-			<h3>Basic HTML Shortcuts</h3>
-			<div class="box code-examples">
-				<div class="example">
-					<strong>HTML Template</strong>
-					<pre><code class="language-html">! + Tab</code></pre>
-					<p>Creates complete HTML5 boilerplate</p>
-				</div>
+			<h2 id="next-steps">Next Steps</h2>
 
-				<div class="example">
-					<strong>Elements with Classes</strong>
-					<pre><code class="language-html">div.container + Tab</code></pre>
-					<p>Creates: &lt;div class="container"&gt;&lt;/div&gt;</p>
-				</div>
-
-				<div class="example">
-					<strong>Multiple Elements</strong>
-					<pre><code class="language-html">ul>li*3 + Tab</code></pre>
-					<p>Creates nested list with 3 items</p>
-				</div>
-			</div>
-
-			<div class="box highlight-box">
-				<strong>Common Emmet Patterns</strong>
-				<ul>
-					<li><code>p{text}</code> → <code>&lt;p&gt;text&lt;/p&gt;</code></li>
-					<li>
-						<code>div>p</code> →
-						<code>&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;</code>
-					</li>
-					<li>
-						<code>h1+p</code> →
-						<code>&lt;h1&gt;&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;</code>
-					</li>
-					<li>
-						<code>.item</code> →
-						<code>&lt;div class="item"&gt;&lt;/div&gt;</code>
-					</li>
-				</ul>
-			</div>
-
-			<!-- Navigation -->
-			<TutorialNavigation />
+			<p>
+				Now that you understand the importance of choosing the right text
+				editor, you're ready to move on to learning about browser development
+				tools, which will help you debug and test your web pages.
+			</p>
 		</div>
 	</div>
 </template>
 
 <script setup>
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import { usePageSections } from '@/composables/usePageSections';
+
+const frontmatter = {
+	title: 'Text Editors',
+	description:
+		'Learn about different text editors for web development and how to choose the right one for your needs.',
+	author: 'Helen Burgess',
+	date: '2024-03-20',
+	tags: ['web development', 'beginner', 'text editors'],
+};
+
+const sections = [
+	{
+		id: 'introduction',
+		title: 'Introduction to Text Editors',
+		subsections: [],
+	},
+	{
+		id: 'types-of-editors',
+		title: 'Types of Text Editors',
+		subsections: [
+			{ id: 'simple-editors', title: 'Simple Text Editors' },
+			{ id: 'code-editors', title: 'Code Editors' },
+			{ id: 'ides', title: 'Integrated Development Environments (IDEs)' },
+		],
+	},
+	{
+		id: 'features',
+		title: 'Key Features to Look For',
+		subsections: [],
+	},
+	{
+		id: 'vs-code',
+		title: 'Visual Studio Code: A Closer Look',
+		subsections: [
+			{ id: 'getting-started-vs-code', title: 'Getting Started with VS Code' },
+			{ id: 'keyboard-shortcuts', title: 'Useful Keyboard Shortcuts' },
+		],
+	},
+	{
+		id: 'choosing',
+		title: 'Choosing the Right Editor',
+		subsections: [],
+	},
+	{
+		id: 'next-steps',
+		title: 'Next Steps',
+		subsections: [],
+	},
+];
+
+const { pageSections } = usePageSections(sections);
 </script>
 
 <style scoped>
@@ -353,5 +417,13 @@ pre {
 
 .info-box a:hover {
 	color: #363636;
+}
+
+.table-container {
+	overflow-x: auto;
+}
+
+.table {
+	width: 100%;
 }
 </style>

@@ -329,10 +329,56 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, inject } from 'vue';
 import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
 import CodeMirror from '@/components/CodeMirror.vue';
+
+// Get the pageSections array from the parent component
+const pageSections = inject('pageSections');
+
+// Define the sections for this tutorial
+onMounted(() => {
+	if (pageSections) {
+		pageSections.value = [
+			{
+				id: 'introduction',
+				title: 'Introduction to HTML Forms',
+				subsections: [],
+			},
+			{
+				id: 'form-basics',
+				title: 'Form Basics',
+				subsections: [],
+			},
+			{
+				id: 'input-types',
+				title: 'Input Types',
+				subsections: [
+					{ id: 'text-inputs', title: 'Text Inputs' },
+					{ id: 'radio-checkboxes', title: 'Radio Buttons and Checkboxes' },
+					{ id: 'select-menus', title: 'Select Menus' },
+					{ id: 'other-inputs', title: 'Other Input Types' },
+				],
+			},
+			{
+				id: 'form-validation',
+				title: 'Form Validation',
+				subsections: [],
+			},
+			{
+				id: 'form-styling',
+				title: 'Form Styling',
+				subsections: [],
+			},
+			{
+				id: 'practice',
+				title: 'Practice Exercise',
+				subsections: [],
+			},
+		];
+	}
+});
 
 const basicFormExample = ref(`<form action="/submit" method="post">
   <label for="username">Username:</label>
@@ -697,6 +743,21 @@ const rottoContactForm =
 
   <button type="submit">Send Inquiry</button>
 </form>`);
+</script>
+
+<script>
+// Frontmatter for the tutorial
+export default {
+	frontmatter: {
+		title: 'HTML Forms',
+		description: 'Learn how to create interactive forms to collect user input.',
+		category: 'HTML Basics',
+		level: 'Beginner',
+		order: 7,
+		tags: ['html', 'forms', 'input', 'user interaction'],
+		lastUpdated: '2024-03-25',
+	},
+};
 </script>
 
 <style scoped>

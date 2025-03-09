@@ -3,7 +3,12 @@
 		<div class="content">
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
-					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/">Home</router-link>
+					</li>
+					<li>
+						<router-link to="/tutorials">Tutorials</router-link>
+					</li>
 					<li>
 						<router-link :to="{ name: 'GettingStarted' }"
 							>Getting Started</router-link
@@ -31,7 +36,9 @@
 				</p>
 			</div>
 
-			<h2 class="title is-3">What are Browser Developer Tools?</h2>
+			<h2 id="what-are-browser-developer-tools" class="title is-3">
+				What are Browser Developer Tools?
+			</h2>
 			<p>
 				Browser Developer Tools (DevTools) are built-in features in modern web
 				browsers that help developers inspect, debug, and optimize websites.
@@ -45,7 +52,7 @@
 				<li>Measuring performance</li>
 			</ul>
 
-			<h2 class="title is-3">Opening DevTools</h2>
+			<h2 id="opening-devtools" class="title is-3">Opening DevTools</h2>
 			<p>There are several ways to open DevTools:</p>
 			<ul>
 				<li>
@@ -65,9 +72,9 @@
 				</li>
 			</ul>
 
-			<h2 class="title is-3">Key Features</h2>
+			<h2 id="key-features" class="title is-3">Key Features</h2>
 
-			<h3 class="title is-4">Elements Panel</h3>
+			<h3 id="elements-panel" class="title is-4">Elements Panel</h3>
 			<p>
 				The Elements panel shows the HTML structure and CSS styles of the
 				current page:
@@ -79,7 +86,7 @@
 				<li>Check element properties</li>
 			</ul>
 
-			<h3 class="title is-4">Console Panel</h3>
+			<h3 id="console-panel" class="title is-4">Console Panel</h3>
 			<p>The Console panel is useful for:</p>
 			<ul>
 				<li>Viewing JavaScript errors and warnings</li>
@@ -88,7 +95,7 @@
 				<li>Interacting with the page's JavaScript</li>
 			</ul>
 
-			<h3 class="title is-4">Network Panel</h3>
+			<h3 id="network-panel" class="title is-4">Network Panel</h3>
 			<p>The Network panel helps you:</p>
 			<ul>
 				<li>Monitor network requests</li>
@@ -97,7 +104,7 @@
 				<li>Test different network conditions</li>
 			</ul>
 
-			<h3 class="title is-4">Device Toolbar</h3>
+			<h3 id="device-toolbar" class="title is-4">Device Toolbar</h3>
 			<p>The Device Toolbar allows you to:</p>
 			<ul>
 				<li>Test responsive designs</li>
@@ -105,7 +112,7 @@
 				<li>Test mobile-specific features</li>
 			</ul>
 
-			<h2 class="title is-3">Practice Exercise</h2>
+			<h2 id="practice-exercise" class="title is-3">Practice Exercise</h2>
 			<div class="box">
 				<p>Try these tasks to practice using DevTools:</p>
 				<ol>
@@ -117,7 +124,7 @@
 				</ol>
 			</div>
 
-			<h2 class="title is-3">Additional Resources</h2>
+			<h2 id="additional-resources" class="title is-3">Additional Resources</h2>
 			<ul>
 				<li>
 					<a
@@ -136,15 +143,13 @@
 					>
 				</li>
 			</ul>
-
-			<TutorialNavigation />
 		</div>
 	</div>
 </template>
 
 <script setup>
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import { useHead } from '@vueuse/head';
+import { usePageSections } from '@/composables/usePageSections';
 
 useHead({
 	title: 'Browser Developer Tools - GraphitEdge Tutorials',
@@ -156,4 +161,48 @@ useHead({
 		},
 	],
 });
+
+const frontmatter = {
+	title: 'Browser Developer Tools',
+	description:
+		'Learn how to use browser developer tools to inspect, debug, and test web pages.',
+	author: 'Helen Burgess',
+	date: '2024-03-20',
+	tags: ['web development', 'beginner', 'browser developer tools'],
+};
+
+const sections = [
+	{
+		id: 'what-are-browser-developer-tools',
+		title: 'What are Browser Developer Tools?',
+		subsections: [],
+	},
+	{
+		id: 'opening-devtools',
+		title: 'Opening DevTools',
+		subsections: [],
+	},
+	{
+		id: 'key-features',
+		title: 'Key Features',
+		subsections: [
+			{ id: 'elements-panel', title: 'Elements Panel' },
+			{ id: 'console-panel', title: 'Console Panel' },
+			{ id: 'network-panel', title: 'Network Panel' },
+			{ id: 'device-toolbar', title: 'Device Toolbar' },
+		],
+	},
+	{
+		id: 'practice-exercise',
+		title: 'Practice Exercise',
+		subsections: [],
+	},
+	{
+		id: 'additional-resources',
+		title: 'Additional Resources',
+		subsections: [],
+	},
+];
+
+const { pageSections } = usePageSections(sections);
 </script>

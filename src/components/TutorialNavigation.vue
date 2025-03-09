@@ -1,68 +1,62 @@
 <template>
-	<nav class="tutorial-navigation">
-		<div class="level">
-			<div class="level-left">
-				<div class="level-item" v-if="prev">
-					<router-link :to="prev.path" class="button is-light">
-						<span class="icon">
-							<i class="fas fa-arrow-left"></i>
-						</span>
-						
-						<span>{{ prev.title }}</span>
-					</router-link>
-				</div>
+	<div class="tutorial-navigation">
+		<div class="columns is-mobile">
+			<div class="column">
+				<router-link v-if="prev" :to="prev.path" class="button is-outlined">
+					<span class="icon">
+						<i class="fas fa-arrow-left"></i>
+					</span>
+					<span>{{ prev.title }}</span>
+				</router-link>
 			</div>
-
-			<div class="level-right">
-				<div class="level-item" v-if="next">
-					<router-link :to="next.path" class="button is-primary">
-						<span>{{ next.title }}</span>
-						<span class="icon">
-							<i class="fas fa-arrow-right"></i>
-						</span>
-					</router-link>
-				</div>
+			<div class="column has-text-right">
+				<router-link v-if="next" :to="next.path" class="button is-outlined">
+					<span>{{ next.title }}</span>
+					<span class="icon">
+						<i class="fas fa-arrow-right"></i>
+					</span>
+				</router-link>
 			</div>
 		</div>
-	</nav>
+	</div>
 </template>
 
 <script setup>
 import { useRoute } from 'vue-router';
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 const props = defineProps({
 	prev: {
 		type: Object,
-		validator: (obj) => {
-			return (
-				obj &&
-				typeof obj.path === 'string' &&
-				typeof obj.title === 'string' &&
-				obj.path.startsWith('/tutorials/')
-			);
-		},
+		default: null,
 	},
 	next: {
 		type: Object,
-		validator: (obj) => {
-			return (
-				obj &&
-				typeof obj.path === 'string' &&
-				typeof obj.title === 'string' &&
-				obj.path.startsWith('/tutorials/')
-			);
-		},
+		default: null,
 	},
 });
 
 const route = useRoute();
+const router = useRouter();
+
+onMounted(() => {
+	console.log('TutorialNavigation component mounted');
+	console.log(
+		'Available routes:',
+		router
+			.getRoutes()
+			.map((r) => r.name)
+			.filter(Boolean),
+	);
+});
 </script>
 
 <style scoped>
 .tutorial-navigation {
-	margin-top: 2rem;
-	padding: 1rem 0;
-	border-top: 1px solid var(--color-border);
+	margin-top: 3rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid #eee;
 }
 
 .button {
@@ -73,11 +67,7 @@ const route = useRoute();
 	transform: translateX(0);
 }
 
-.button.is-light:hover {
+.button.is-outlined:hover {
 	transform: translateX(-2px);
-}
-
-.button.is-primary:hover {
-	transform: translateX(2px);
 }
 </style>

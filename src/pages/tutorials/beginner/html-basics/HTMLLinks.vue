@@ -70,7 +70,9 @@
 		</div>
 
 		<div class="box">
-			<h2 class="title is-3">What Makes the Web a Web?</h2>
+			<h2 id="what-makes-the-web-a-web" class="title is-3">
+				What Makes the Web a Web?
+			</h2>
 			<p>
 				Links are what make the World Wide Web truly a "web". They allow us to
 				connect pages and resources together, creating an interconnected network
@@ -91,7 +93,7 @@
 		<CodingOptions filename="links.html" class="mt-4" />
 
 		<div class="box mt-4">
-			<h2 class="title is-3">Understanding Links</h2>
+			<h2 id="understanding-links" class="title is-3">Understanding Links</h2>
 			<p>
 				HTML links (anchor tags) allow users to navigate between pages and
 				resources. Here's the anatomy of a link:
@@ -112,7 +114,7 @@
 		</div>
 
 		<div class="box mt-4">
-			<h2 class="title is-3">Types of Links</h2>
+			<h2 id="types-of-links" class="title is-3">Types of Links</h2>
 
 			<div class="content">
 				<div class="link-types">
@@ -182,7 +184,7 @@
 		</div>
 
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="accessible-links" class="title is-3">
 				<i class="fas fa-universal-access section-icon"></i> Accessible Links
 			</h2>
 
@@ -192,7 +194,9 @@
 					effectively.
 				</p>
 
-				<h3 class="title is-4">Writing Descriptive Link Text</h3>
+				<h3 id="writing-descriptive-link-text" class="title is-4">
+					Writing Descriptive Link Text
+				</h3>
 				<div class="columns">
 					<div class="column">
 						<div class="notification is-danger is-light">
@@ -247,7 +251,9 @@
 					</ul>
 				</div>
 
-				<h3 class="title is-4 mt-5">Screen Reader Considerations</h3>
+				<h3 id="screen-reader-considerations" class="title is-4 mt-5">
+					Screen Reader Considerations
+				</h3>
 				<CodeMirror
 					v-model="screenReaderLinks"
 					:readonly="true"
@@ -258,7 +264,7 @@
 		</div>
 
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="link-states-and-styling" class="title is-3">
 				<i class="fas fa-paint-brush section-icon"></i> Link States and Styling
 			</h2>
 
@@ -269,7 +275,7 @@
 
 				<div class="columns">
 					<div class="column">
-						<h3 class="title is-4">HTML</h3>
+						<h3 id="html-link-states" class="title is-4">HTML</h3>
 						<CodeMirror
 							v-model="linkStatesHTML"
 							:readonly="true"
@@ -278,7 +284,7 @@
 						/>
 					</div>
 					<div class="column">
-						<h3 class="title is-4">CSS</h3>
+						<h3 id="css-link-states" class="title is-4">CSS</h3>
 						<CodeMirror
 							v-model="linkStatesCSS"
 							:readonly="true"
@@ -327,12 +333,14 @@
 		</div>
 
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="link-types-and-attributes" class="title is-3">
 				<i class="fas fa-link section-icon"></i> Link Types and Attributes
 			</h2>
 
 			<div class="content">
-				<h3 class="title is-4">Essential Link Attributes</h3>
+				<h3 id="essential-link-attributes" class="title is-4">
+					Essential Link Attributes
+				</h3>
 				<div class="table-container">
 					<table class="table is-bordered">
 						<thead>
@@ -376,7 +384,7 @@
 					</table>
 				</div>
 
-				<h3 class="title is-4 mt-5">Link Types</h3>
+				<h3 id="link-types" class="title is-4 mt-5">Link Types</h3>
 				<div class="columns">
 					<div class="column">
 						<div class="notification">
@@ -428,7 +436,9 @@
 					</ul>
 				</div>
 
-				<h3 class="title is-4 mt-5">Special Link Types</h3>
+				<h3 id="special-link-types" class="title is-4 mt-5">
+					Special Link Types
+				</h3>
 				<div class="columns">
 					<div class="column">
 						<h4 class="title is-5">Email Links</h4>
@@ -461,7 +471,7 @@
 				</div>
 			</div>
 			<div class="box mt-6">
-				<h2 class="title is-3">
+				<h2 id="navigation-structures" class="title is-3">
 					<i class="fas fa-sitemap section-icon"></i> Navigation Structures
 				</h2>
 
@@ -471,7 +481,7 @@
 						usability. Here are common navigation patterns:
 					</p>
 
-					<h3 class="title is-4">Primary Navigation</h3>
+					<h3 id="primary-navigation" class="title is-4">Primary Navigation</h3>
 					<CodeMirror
 						v-model="primaryNav"
 						:readonly="true"
@@ -479,7 +489,9 @@
 						language="html"
 					/>
 
-					<h3 class="title is-4 mt-5">Secondary Navigation</h3>
+					<h3 id="secondary-navigation" class="title is-4 mt-5">
+						Secondary Navigation
+					</h3>
 					<div class="columns">
 						<div class="column">
 							<h4 class="title is-5">Sidebar Navigation</h4>
@@ -528,7 +540,9 @@
 						</ul>
 					</div>
 
-					<h3 class="title is-4 mt-5">Breadcrumb Navigation</h3>
+					<h3 id="breadcrumb-navigation" class="title is-4 mt-5">
+						Breadcrumb Navigation
+					</h3>
 					<CodeMirror
 						v-model="breadcrumbNav"
 						:readonly="true"
@@ -547,7 +561,9 @@
 			</div>
 
 			<div class="box mt-6">
-				<h2 class="title is-3"><i class="fas fa-laptop-code"></i> Your Task</h2>
+				<h2 id="your-task" class="title is-3">
+					<i class="fas fa-laptop-code"></i> Your Task
+				</h2>
 				<p>
 					Create a navigation section for a restaurant website using different
 					types of links.
@@ -571,7 +587,9 @@
 			</div>
 
 			<div class="box mt-6">
-				<h2 class="title is-3"><i class="fas fa-book"></i> Further Reading</h2>
+				<h2 id="further-reading" class="title is-3">
+					<i class="fas fa-book"></i> Further Reading
+				</h2>
 				<p>
 					For more detailed information about HTML links, check out these
 					resources:
@@ -599,7 +617,9 @@
 			</div>
 
 			<div class="box mt-6">
-				<h2 class="title is-3"><i class="fas fa-forward"></i> What's Next?</h2>
+				<h2 id="whats-next" class="title is-3">
+					<i class="fas fa-forward"></i> What's Next?
+				</h2>
 				<p>
 					Now that you can create links, let's learn how to add images to make
 					your pages more engaging!
@@ -609,52 +629,89 @@
 	</div>
 </template>
 
-<script>
-import { ref, computed } from 'vue';
-import DOMPurify from 'dompurify';
+<script setup>
+import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import CodingOptions from '@/components/CodingOptions.vue';
+import DOMPurify from 'dompurify';
 
-export default {
-	name: 'html-basics-links',
-	components: {
-		CodeMirror,
-		CodingOptions,
-	},
-	setup() {
-		const linkAnatomy =
-			ref(`<a href="destination.html" target="_blank" rel="external">
+// Get the pageSections array from the parent component
+const pageSections = inject('pageSections');
+
+// Define the sections for this tutorial
+onMounted(() => {
+	if (pageSections) {
+		pageSections.value = [
+			{
+				id: 'introduction',
+				title: 'Introduction to HTML Links',
+				subsections: [],
+			},
+			{
+				id: 'basic-link-syntax',
+				title: 'Basic Link Syntax',
+				subsections: [],
+			},
+			{
+				id: 'link-attributes',
+				title: 'Link Attributes',
+				subsections: [
+					{ id: 'target-attribute', title: 'Target Attribute' },
+					{ id: 'rel-attribute', title: 'Rel Attribute' },
+				],
+			},
+			{
+				id: 'internal-links',
+				title: 'Internal Links',
+				subsections: [
+					{ id: 'page-sections', title: 'Linking to Page Sections' },
+					{ id: 'other-pages', title: 'Linking to Other Pages' },
+				],
+			},
+			{
+				id: 'email-links',
+				title: 'Email Links',
+				subsections: [],
+			},
+			{
+				id: 'practice',
+				title: 'Practice Exercise',
+				subsections: [],
+			},
+		];
+	}
+});
+
+const linkAnatomy =
+	ref(`<a href="destination.html" target="_blank" rel="external">
   Link Text
 </a>`);
 
-		const internalLink = ref(`<a href="menu.html">View Our Menu</a>`);
+const internalLink = ref(`<a href="menu.html">View Our Menu</a>`);
 
-		const externalLink = ref(`<a href="https://example.com" 
+const externalLink = ref(`<a href="https://example.com" 
    target="_blank" 
    rel="external">Visit External Site</a>`);
 
-		const emailLink = ref(`<a href="mailto:info@restaurant.com">Email Us</a>`);
+const emailLink = ref(`<a href="mailto:info@restaurant.com">Email Us</a>`);
 
-		const phoneLink = ref(
-			`<a href="tel:+61234567890">Call Us: (02) 3456 7890</a>`,
-		);
+const phoneLink = ref(`<a href="tel:+61234567890">Call Us: (02) 3456 7890</a>`);
 
-		const sectionLink = ref(`<a href="#location">Find Our Location</a>`);
+const sectionLink = ref(`<a href="#location">Find Our Location</a>`);
 
-		const practiceCode = ref(`<!-- Create your restaurant navigation here -->
+const practiceCode = ref(`<!-- Create your restaurant navigation here -->
 <nav>
   <!-- Add your navigation links -->
 </nav>`);
 
-		const sanitizedLinkPreview = computed(() =>
-			DOMPurify.sanitize(linkExample.value),
-		);
-		const sanitizedPracticePreview = computed(() =>
-			DOMPurify.sanitize(practiceCode.value),
-		);
+const sanitizedLinkPreview = computed(() =>
+	DOMPurify.sanitize(linkExample.value),
+);
+const sanitizedPracticePreview = computed(() =>
+	DOMPurify.sanitize(practiceCode.value),
+);
 
-		const internalLinks = ref(
-			`<!-- Basic internal link -->
+const internalLinks = ref(
+	`<!-- Basic internal link -->
 <a href="about.html">About Us</a>
 
 <!-- Skip navigation link -->
@@ -664,10 +721,10 @@ export default {
 
 <!-- Section link -->
 <a href="#contact">Contact Section</a>`,
-		);
+);
 
-		const externalLinks = ref(
-			`<!-- Secure external link -->
+const externalLinks = ref(
+	`<!-- Secure external link -->
 <a href="https://example.com"
    target="_blank"
    rel="noopener noreferrer"
@@ -675,10 +732,10 @@ export default {
   Example Website
   <span class="sr-only">(opens in new tab)</span>
 </a>`,
-		);
+);
 
-		const emailLinks = ref(
-			`<!-- Basic email link -->
+const emailLinks = ref(
+	`<!-- Basic email link -->
 <a href="mailto:contact@example.com">
   Email Us
 </a>
@@ -687,10 +744,10 @@ export default {
 <a href="mailto:contact@example.com?subject=Website%20Inquiry">
   Send Inquiry
 </a>`,
-		);
+);
 
-		const phoneLinks = ref(
-			`<!-- Phone link -->
+const phoneLinks = ref(
+	`<!-- Phone link -->
 <a href="tel:+61234567890">
   Call Us: (02) 3456 7890
 </a>
@@ -699,10 +756,10 @@ export default {
 <a href="sms:+61234567890">
   Text Us
 </a>`,
-		);
+);
 
-		const accessibleLinks = ref(
-			`<!-- Accessible navigation link -->
+const accessibleLinks = ref(
+	`<!-- Accessible navigation link -->
 <nav aria-label="Main navigation">
   <ul>
     <li><a href="/" aria-current="page">Home</a></li>
@@ -719,10 +776,10 @@ export default {
   Privacy Policy
   <span class="sr-only">(opens in new tab)</span>
 </a>`,
-		);
+);
 
-		const primaryNav = ref(
-			`<nav aria-label="Main navigation">
+const primaryNav = ref(
+	`<nav aria-label="Main navigation">
   <ul>
     <li><a href="/" aria-current="page">Home</a></li>
     <li><a href="/about">About</a></li>
@@ -735,10 +792,10 @@ export default {
     <li><a href="/contact">Contact</a></li>
   </ul>
 </nav>`,
-		);
+);
 
-		const sidebarNav = ref(
-			`<nav aria-label="Section navigation">
+const sidebarNav = ref(
+	`<nav aria-label="Section navigation">
   <h2>In This Section</h2>
   <ul>
     <li><a href="/services">Services Overview</a></li>
@@ -747,10 +804,10 @@ export default {
     <li><a href="/services/support">Support</a></li>
   </ul>
 </nav>`,
-		);
+);
 
-		const footerNav = ref(
-			`<footer>
+const footerNav = ref(
+	`<footer>
   <nav aria-label="Footer navigation">
     <div class="footer-links">
       <h3>Quick Links</h3>
@@ -762,30 +819,30 @@ export default {
     </div>
   </nav>
 </footer>`,
-		);
+);
 
-		const breadcrumbNav = ref(
-			`<nav aria-label="Breadcrumb">
+const breadcrumbNav = ref(
+	`<nav aria-label="Breadcrumb">
   <ol>
     <li><a href="/">Home</a></li>
     <li><a href="/services">Services</a></li>
     <li><a href="/services/web" aria-current="page">Web Design</a></li>
   </ol>
 </nav>`,
-		);
+);
 
-		const goodLinkText = ref(
-			`<p>Learn more about 
+const goodLinkText = ref(
+	`<p>Learn more about 
   <a href="quokkas.html">Rottnest Island's quokkas</a>
 </p>
 
 <a href="map.pdf">Download island trail map (PDF, 2.5MB)</a>
 
 <a href="contact.html">Contact our tour guides</a>`,
-		);
+);
 
-		const screenReaderLinks = ref(
-			`<!-- Additional context for screen readers -->
+const screenReaderLinks = ref(
+	`<!-- Additional context for screen readers -->
 <a href="menu.pdf" aria-label="Download menu (PDF, 500KB)">
   Download Menu
 </a>
@@ -804,20 +861,20 @@ export default {
   Check Weather
   <span class="sr-only">(opens in new tab)</span>
 </a>`,
-		);
+);
 
-		const linkStatesHTML = ref(
-			`<nav class="main-nav">
+const linkStatesHTML = ref(
+	`<nav class="main-nav">
   <a href="/" class="active">Home</a>
   <a href="/about">About</a>
   <a href="/contact">Contact</a>
   <a href="https://blog.example.com" 
      target="_blank">Blog</a>
 </nav>`,
-		);
+);
 
-		const linkStatesCSS = ref(
-			`/* Unvisited links */
+const linkStatesCSS = ref(
+	`/* Unvisited links */
 a:link {
   color: #0066cc;
   text-decoration: underline;
@@ -845,32 +902,21 @@ a:focus {
 a:active {
   color: #cc0000;
 }`,
-		);
+);
+</script>
 
-		return {
-			linkAnatomy,
-			internalLink,
-			externalLink,
-			emailLink,
-			phoneLink,
-			sectionLink,
-			practiceCode,
-			sanitizedLinkPreview,
-			sanitizedPracticePreview,
-			internalLinks,
-			externalLinks,
-			emailLinks,
-			phoneLinks,
-			accessibleLinks,
-			primaryNav,
-			sidebarNav,
-			footerNav,
-			breadcrumbNav,
-			goodLinkText,
-			screenReaderLinks,
-			linkStatesHTML,
-			linkStatesCSS,
-		};
+<script>
+// Frontmatter for the tutorial
+export default {
+	frontmatter: {
+		title: 'Links & Navigation',
+		description:
+			'Learn how to create links to connect pages and resources in your website.',
+		category: 'HTML Basics',
+		level: 'Beginner',
+		order: 4,
+		tags: ['html', 'links', 'navigation', 'anchors'],
+		lastUpdated: '2024-03-22',
 	},
 };
 </script>

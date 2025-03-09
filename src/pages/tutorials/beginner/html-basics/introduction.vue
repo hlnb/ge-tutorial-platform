@@ -2,6 +2,7 @@
 	<div class="tutorial-content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
+				<li><router-link to="/">Home</router-link></li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
 					<router-link :to="{ name: 'html-basics' }">HTML Basics</router-link>
@@ -51,14 +52,18 @@
 			</p>
 		</div>
 
-		<h2 class="title is-3"><i class="fas fa-info-circle"></i> What is HTML?</h2>
+		<h2 id="what-is-html" class="title is-3">
+			<i class="fas fa-info-circle"></i> What is HTML?
+		</h2>
 		<p>
 			HTML (HyperText Markup Language) is the standard markup language for
 			creating web pages. It describes the structure and content of a web page
 			using a system of tags and attributes.
 		</p>
 
-		<h2 class="title is-3"><i class="fas fa-history"></i> A Brief History</h2>
+		<h2 id="a-brief-history" class="title is-3">
+			<i class="fas fa-history"></i> A Brief History
+		</h2>
 		<p>
 			HTML was created by Sir Tim Berners-Lee in 1989 while working at CERN
 			(European Organization for Nuclear Research). He needed a way for
@@ -168,7 +173,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-3">
+		<h2 id="how-html-works-with-http" class="title is-3">
 			<i class="fas fa-exchange-alt"></i> How HTML Works with HTTP
 		</h2>
 		<p>
@@ -328,7 +333,7 @@
 			</li>
 		</ol>
 
-		<h2 class="title is-3">
+		<h2 id="basic-tools-you-need" class="title is-3">
 			<i class="fas fa-tools"></i> Basic Tools You'll Need
 		</h2>
 
@@ -372,7 +377,9 @@
 			</ul>
 		</div>
 
-		<h2 class="title is-3"><i class="fas fa-code"></i> HTML Elements</h2>
+		<h2 id="html-elements" class="title is-3">
+			<i class="fas fa-code"></i> HTML Elements
+		</h2>
 		<p>
 			HTML uses "elements" to structure content. An element typically consists
 			of:
@@ -434,7 +441,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-3">
+		<h2 id="try-it-yourself" class="title is-3">
 			<i class="fas fa-laptop-code"></i> Try It Yourself
 		</h2>
 
@@ -501,7 +508,7 @@
 		</div>
 
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="your-learning-journey" class="title is-3">
 				<i class="fas fa-project-diagram section-icon"></i> Your Learning
 				Journey
 			</h2>
@@ -574,16 +581,69 @@ import { ref, computed } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import { useHead } from '@vueuse/head';
+import { usePageSections } from '@/composables/usePageSections';
+
+const frontmatter = {
+	title: 'Introduction to HTML',
+	description: 'Learn about HTML, its history, and create your first web page',
+	author: 'Helen Burgess',
+	date: '2024-03-20',
+	tags: ['web development', 'beginner', 'html'],
+};
 
 useHead({
-	title: 'Introduction to HTML - GraphitEdge Tutorials',
-	meta: [
-		{
-			name: 'description',
-			content: 'Learn about HTML, its history, and create your first web page',
-		},
-	],
+	frontmatter,
 });
+
+const sections = [
+	{
+		id: 'introduction',
+		title: 'Introduction to HTML',
+		subsections: [],
+	},
+	{
+		id: 'what-is-html',
+		title: 'What is HTML?',
+		subsections: [],
+	},
+	{
+		id: 'a-brief-history',
+		title: 'A Brief History',
+		subsections: [],
+	},
+	{
+		id: 'how-html-works-with-http',
+		title: 'How HTML Works with HTTP',
+		subsections: [],
+	},
+	{
+		id: 'basic-tools-you-need',
+		title: 'Basic Tools You Need',
+		subsections: [],
+	},
+	{
+		id: 'html-elements',
+		title: 'HTML Elements',
+		subsections: [],
+	},
+	{
+		id: 'try-it-yourself',
+		title: 'Try It Yourself',
+		subsections: [],
+	},
+	{
+		id: 'your-learning-journey',
+		title: 'Your Learning Journey',
+		subsections: [],
+	},
+	{
+		id: 'exercises',
+		title: 'Exercises',
+		subsections: [],
+	},
+];
+
+const { pageSections } = usePageSections(sections);
 
 const elementExample = ref('<p>This is a paragraph.</p>');
 

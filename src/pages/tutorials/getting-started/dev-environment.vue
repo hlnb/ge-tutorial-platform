@@ -4,7 +4,12 @@
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
-					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/">Home</router-link>
+					</li>
+					<li>
+						<router-link to="/tutorials">Tutorials</router-link>
+					</li>
 					<li>
 						<router-link to="/tutorials/getting-started"
 							>Getting Started</router-link
@@ -33,7 +38,7 @@
 				efficiently. Let's set up the essential tools you'll need.
 			</p>
 
-			<h2>Web Browser</h2>
+			<h2 id="web-browser">Web Browser</h2>
 			<p>
 				A modern web browser is your primary tool for viewing and testing
 				websites.
@@ -61,13 +66,13 @@
 				</ul>
 			</div>
 
-			<h2>Code Editor</h2>
+			<h2 id="code-editor">Code Editor</h2>
 			<p>
 				Visual Studio Code (VS Code) is a free, powerful editor for web
 				development.
 			</p>
 
-			<h3>Installing VS Code</h3>
+			<h3 id="installing-vs-code">Installing VS Code</h3>
 			<ol>
 				<li>
 					Visit
@@ -79,7 +84,7 @@
 				<li>Install with default settings</li>
 			</ol>
 
-			<h3>Essential VS Code Extensions</h3>
+			<h3 id="essential-vs-code-extensions">Essential VS Code Extensions</h3>
 			<p>Install these extensions to enhance your coding experience:</p>
 
 			<ol>
@@ -106,17 +111,41 @@
 					</ul>
 				</li>
 			</ol>
-
-			<!-- ... continuing with the rest of your content ... -->
-
-			<!-- Navigation -->
-			<TutorialNavigation />
 		</div>
 	</div>
 </template>
 
 <script setup>
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import { usePageSections } from '@/composables/usePageSections';
+
+const frontmatter = {
+	title: 'Setting Up Your Development Environment',
+	description: 'Learn how to set up your development environment',
+	author: 'Helen Burgess',
+	date: '2024-03-20',
+	tags: ['web development', 'beginner', 'development environment'],
+};
+
+const sections = [
+	{
+		id: 'web-browser',
+		title: 'Web Browser',
+	},
+	{
+		id: 'code-editor',
+		title: 'Code Editor',
+	},
+	{
+		id: 'installing-vs-code',
+		title: 'Installing VS Code',
+	},
+	{
+		id: 'essential-vs-code-extensions',
+		title: 'Essential VS Code Extensions',
+	},
+];
+
+const { pageSections } = usePageSections(sections);
 </script>
 
 <style scoped>

@@ -544,62 +544,99 @@
 	</div>
 </template>
 
-<script>
-import { ref } from 'vue';
+<script setup>
+import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
+import DOMPurify from 'dompurify';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodingOptions from '@/components/CodingOptions.vue';
 
-export default {
-	name: 'html-basics-images',
-	components: {
-		CodeMirror,
-		TutorialNavigation,
-		CodingOptions,
-	},
-	setup() {
-		const images = {
-			basin: '/images/tutorials/html-basics/basin.jpg',
-			lighthouse: '/images/tutorials/html-basics/lighthouse.jpg',
-			quokka: '/images/tutorials/html-basics/quokka.jpg',
-			cycling: '/images/tutorials/html-basics/cycling.jpg',
-			blackSwanLogo: '/images/tutorials/html-basics/black-swan-logo.svg',
-			storefront: '/images/tutorials/html-basics/black-swan-storefront.jpg',
-			interior: '/images/tutorials/html-basics/black-swan-interior.jpg',
-			pasta: '/images/tutorials/html-basics/black-swan-pasta.jpg',
-			steak: '/images/tutorials/html-basics/black-swan-steak.jpg',
-		};
+// Get the pageSections array from the parent component
+const pageSections = inject('pageSections');
 
-		const basicImage = ref(
-			`<img src="quokka.jpg" alt="A smiling quokka on Rottnest Island" width="400">`,
-		);
+// Define the sections for this tutorial
+onMounted(() => {
+	if (pageSections) {
+		pageSections.value = [
+			{
+				id: 'introduction',
+				title: 'Introduction to HTML Images',
+				subsections: [],
+			},
+			{
+				id: 'basic-image-syntax',
+				title: 'Basic Image Syntax',
+				subsections: [],
+			},
+			{
+				id: 'image-attributes',
+				title: 'Image Attributes',
+				subsections: [
+					{ id: 'alt-attribute', title: 'Alt Attribute' },
+					{ id: 'width-height', title: 'Width and Height' },
+				],
+			},
+			{
+				id: 'image-formats',
+				title: 'Image Formats',
+				subsections: [],
+			},
+			{
+				id: 'responsive-images',
+				title: 'Responsive Images',
+				subsections: [],
+			},
+			{
+				id: 'practice',
+				title: 'Practice Exercise',
+				subsections: [],
+			},
+		];
+	}
+});
 
-		const altTextExample = ref(`<!-- Good alt text -->
+const images = {
+	basin: '/images/tutorials/html-basics/basin.jpg',
+	lighthouse: '/images/tutorials/html-basics/lighthouse.jpg',
+	quokka: '/images/tutorials/html-basics/quokka.jpg',
+	cycling: '/images/tutorials/html-basics/cycling.jpg',
+	blackSwanLogo: '/images/tutorials/html-basics/black-swan-logo.svg',
+	storefront: '/images/tutorials/html-basics/black-swan-storefront.jpg',
+	interior: '/images/tutorials/html-basics/black-swan-interior.jpg',
+	pasta: '/images/tutorials/html-basics/black-swan-pasta.jpg',
+	steak: '/images/tutorials/html-basics/black-swan-steak.jpg',
+};
+
+const basicImage = ref(
+	`<img src="quokka.jpg" alt="A smiling quokka on Rottnest Island" width="400">`,
+);
+
+const altTextExample = ref(`<!-- Good alt text -->
 <img src="beach.jpg" alt="Turquoise waters at The Basin, Rottnest Island">
 
 <!-- Decorative image -->
 <img src="divider.png" alt="" role="presentation">`);
 
-		const figureExample = ref(`<figure>
+const figureExample = ref(`<figure>
   <img src="lighthouse.jpg" 
        alt="Wadjemup Lighthouse against blue sky"
        width="600">
   <figcaption>Historic Wadjemup Lighthouse, built in 1896</figcaption>
 </figure>`);
 
-		const responsiveExample = ref(`<!-- Responsive image -->
+const responsiveExample = ref(`<!-- Responsive image -->
 <img src="panorama.jpg" 
      alt="Panoramic view of Rottnest Island"
      style="max-width: 100%; height: auto;">`);
 
-		const practiceCode = ref(`<!-- Create your Rottnest Island gallery here -->
+const practiceCode = ref(`<!-- Create your Rottnest Island gallery here -->
 <div class="gallery">
   
 </div>`);
 
-		const logoPath = ref('/images/tutorials/html-basics/black-swan-logo.svg');
+const logoPath = ref('/images/tutorials/html-basics/black-swan-logo.svg');
 
-		const restaurantHeader = ref(`<header class="site-header">
+const restaurantHeader = ref(`<header class="site-header">
   <figure class="logo">
     <img src="/images/tutorials/html-basics/black-swan-logo.svg" 
          alt="Black Swan Bistro logo" 
@@ -614,7 +651,7 @@ export default {
   </figure>
 </header>`);
 
-		const menuItems = ref(`<section class="menu-highlights">
+const menuItems = ref(`<section class="menu-highlights">
   <h2>Our Signature Dishes</h2>
   
   <div class="dishes">
@@ -640,26 +677,26 @@ export default {
   </div>
 </section>`);
 
-		const logoExercise = ref(
-			`<!-- Add the Black Swan Bistro logo here -->
+const logoExercise = ref(
+	`<!-- Add the Black Swan Bistro logo here -->
 <header>
   <!-- Logo should be 200px wide -->
   
   <h1>Black Swan Bistro</h1>
 </header>`,
-		);
+);
 
-		const logoSolution = ref(
-			`<header>
+const logoSolution = ref(
+	`<header>
   <img src="/images/tutorials/html-basics/black-swan-logo.svg" 
        alt="Black Swan Bistro logo" 
        width="200">
   <h1>Black Swan Bistro</h1>
 </header>`,
-		);
+);
 
-		const galleryHint = ref(
-			`<div class="gallery">
+const galleryHint = ref(
+	`<div class="gallery">
   <!-- Wildlife Section -->
   <div class="gallery-section">
     <h2>Wildlife</h2>
@@ -693,10 +730,10 @@ export default {
     </figure>
   </div>
 </div>`,
-		);
+);
 
-		const responsiveImage = ref(
-			`<img src="photo-800w.jpg"
+const responsiveImage = ref(
+	`<img src="photo-800w.jpg"
      srcset="photo-400w.jpg 400w,
              photo-800w.jpg 800w,
              photo-1200w.jpg 1200w"
@@ -704,10 +741,10 @@ export default {
             (max-width: 800px) 80vw,
             1200px"
      alt="A responsive image example">`,
-		);
+);
 
-		const pictureElement = ref(
-			`<picture>
+const pictureElement = ref(
+	`<picture>
   <!-- Mobile portrait crop -->
   <source media="(max-width: 600px)"
           srcset="hero-mobile.jpg">
@@ -718,10 +755,10 @@ export default {
   <img src="hero-desktop.jpg" 
        alt="Hero section banner">
 </picture>`,
-		);
+);
 
-		const loadingExample = ref(
-			`<!-- Lazy load images below the fold -->
+const loadingExample = ref(
+	`<!-- Lazy load images below the fold -->
 <img src="gallery-1.jpg"
      alt="Gallery image"
      loading="lazy"
@@ -732,17 +769,17 @@ export default {
      alt="Hero image"
      loading="eager"
      fetchpriority="high">`,
-		);
+);
 
-		const errorHandling = ref(
-			`<img src="photo.jpg"
+const errorHandling = ref(
+	`<img src="photo.jpg"
      alt="Beach sunset"
      onerror="this.src='placeholder.jpg';
               this.alt='Image failed to load'">`,
-		);
+);
 
-		const decorativeImage = ref(
-			`<!-- Decorative divider -->
+const decorativeImage = ref(
+	`<!-- Decorative divider -->
 <img src="divider.png" 
      alt="" 
      role="presentation">
@@ -752,38 +789,29 @@ export default {
   <img src="save-icon.svg" alt="">
   Save Changes
 </button>`,
-		);
+);
 
-		const backgroundImage = ref(
-			`<!-- Using CSS background -->
+const backgroundImage = ref(
+	`<!-- Using CSS background -->
 <div class="hero-section" 
      role="presentation" 
      aria-hidden="true">
   <!-- Content goes here -->
 </div>`,
-		);
+);
+</script>
 
-		return {
-			images,
-			basicImage,
-			altTextExample,
-			figureExample,
-			responsiveExample,
-			practiceCode,
-			restaurantHeader,
-			menuItems,
-			blackSwanLogo: images.blackSwanLogo,
-			logoExercise,
-			logoSolution,
-			logoPath,
-			galleryHint,
-			responsiveImage,
-			pictureElement,
-			loadingExample,
-			errorHandling,
-			decorativeImage,
-			backgroundImage,
-		};
+<script>
+// Frontmatter for the tutorial
+export default {
+	frontmatter: {
+		title: 'HTML Images',
+		description: 'Learn how to add and optimize images in your HTML documents.',
+		category: 'HTML Basics',
+		level: 'Beginner',
+		order: 5,
+		tags: ['html', 'images', 'responsive', 'web graphics'],
+		lastUpdated: '2024-03-23',
 	},
 };
 </script>

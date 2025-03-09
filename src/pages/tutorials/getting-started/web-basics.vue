@@ -4,7 +4,12 @@
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
-					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/">Home</router-link>
+					</li>
+					<li>
+						<router-link to="/tutorials">Tutorials</router-link>
+					</li>
 					<li>
 						<router-link to="/tutorials/getting-started"
 							>Getting Started</router-link
@@ -43,7 +48,7 @@
 				</ul>
 			</div>
 
-			<h2>How Websites Work</h2>
+			<h2 id="how-websites-work">How Websites Work</h2>
 
 			<p>When you visit a website, several things happen:</p>
 
@@ -77,7 +82,7 @@
 				</ul>
 			</div>
 
-			<h2>Core Web Technologies</h2>
+			<h2 id="core-web-technologies">Core Web Technologies</h2>
 
 			<p>
 				The three main technologies that power the web work together like this:
@@ -125,7 +130,7 @@ font-size: 24px;
 alert('Hello!');
 });</code></pre>
 
-			<h2>The Client-Server Model</h2>
+			<h2 id="client-server-model">The Client-Server Model</h2>
 
 			<div class="columns">
 				<div class="column">
@@ -158,7 +163,7 @@ alert('Hello!');
 				</ul>
 			</div>
 
-			<h2>How Browsers Work</h2>
+			<h2 id="browser-process">How Browsers Work</h2>
 
 			<p>Browsers process web pages in several steps:</p>
 
@@ -200,7 +205,7 @@ alert('Hello!');
 				</li>
 			</ol>
 
-			<h2>Try It Yourself</h2>
+			<h2 id="try-it-yourself">Try It Yourself</h2>
 
 			<div class="steps">
 				<div class="step-item">
@@ -242,7 +247,7 @@ alert('Hello!');
 				</ol>
 			</div>
 
-			<h2>Common Terms</h2>
+			<h2 id="common-terms">Common Terms</h2>
 			<dl class="terms-list">
 				<dt>URL</dt>
 				<dd>Web page address</dd>
@@ -255,28 +260,58 @@ alert('Hello!');
 				<dt>Hosting</dt>
 				<dd>Service that stores website files</dd>
 			</dl>
-
-			<!-- Navigation -->
-			<div class="tutorial-navigation">
-				<router-link
-					to="/tutorials/getting-started/how-internet-works"
-					class="button is-light"
-				>
-					← How the Internet Works
-				</router-link>
-				<router-link
-					to="/tutorials/getting-started/dev-environment"
-					class="button is-primary"
-				>
-					Development Environment →
-				</router-link>
-			</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
 import '@/assets/styles/tutorials.css';
+import { usePageSections } from '@/composables/usePageSections';
+
+const frontmatter = {
+	title: 'Web Basics',
+	description: 'Learn the basics of web development',
+	author: 'Helen Burgess',
+	date: '2024-03-20',
+	tags: ['web development', 'beginner', 'web basics'],
+	duration: '20 minutes',
+	difficulty: 'beginner',
+};
+
+const sections = [
+	{
+		id: 'web-basics',
+		title: 'Web Basics',
+		subsections: [
+			{
+				id: 'how-websites-work',
+				title: 'How Websites Work',
+			},
+			{
+				id: 'core-web-technologies',
+				title: 'Core Web Technologies',
+			},
+			{
+				id: 'client-server-model',
+				title: 'The Client-Server Model',
+			},
+			{
+				id: 'browser-process',
+				title: 'How Browsers Work',
+			},
+			{
+				id: 'try-it-yourself',
+				title: 'Try It Yourself',
+			},
+			{
+				id: 'common-terms',
+				title: 'Common Terms',
+			},
+		],
+	},
+];
+
+const { pageSections } = usePageSections(sections);
 </script>
 
 <style scoped>

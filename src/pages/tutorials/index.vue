@@ -85,7 +85,7 @@
 						<li><i class="fas fa-check"></i> Emmet Workflow</li>
 					</ul>
 					<router-link
-						:to="{ name: 'html-basics' }"
+						:to="{ name: 'html-basics-index' }"
 						class="button is-primary is-outlined mt-3"
 						>Start Your HTML Journey</router-link
 					>
@@ -109,7 +109,7 @@
 						<li><i class="fas fa-check"></i> Responsive Design</li>
 					</ul>
 					<router-link
-						to="/tutorials/css-basics"
+						:to="{ name: 'css-basics-index' }"
 						class="button is-primary is-outlined mt-3"
 						>Start Your CSS Journey</router-link
 					>
@@ -278,3 +278,21 @@
 	transform: translateY(-2px);
 }
 </style>
+
+<script setup>
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+onMounted(() => {
+	console.log('Tutorials index page mounted');
+	console.log(
+		'Available routes:',
+		router
+			.getRoutes()
+			.map((r) => r.name)
+			.filter(Boolean),
+	);
+});
+</script>

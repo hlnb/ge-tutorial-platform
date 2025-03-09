@@ -636,11 +636,10 @@ const navigationExample = ref(`/* Responsive Navigation */
 	<div class="content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
+				<li><router-link to="/">Home</router-link></li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link to="/tutorials/beginner/css-basics"
-						>CSS Basics</router-link
-					>
+					<router-link to="/tutorials/css-basics">CSS Basics</router-link>
 				</li>
 				<li class="is-active">
 					<a href="#" aria-current="page">Responsive Design</a>
@@ -1255,10 +1254,7 @@ const navigationExample = ref(`/* Responsive Navigation */
 						creating flexible, responsive layouts.
 					</p>
 					<p class="mt-3">
-						<a
-							href="/tutorials/beginner/css-basics/flexbox"
-							class="button is-warning"
-						>
+						<a href="/tutorials/css-basics/flexbox" class="button is-warning">
 							Continue to Flexbox →
 						</a>
 					</p>

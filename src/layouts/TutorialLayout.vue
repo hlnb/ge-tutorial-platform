@@ -4,6 +4,8 @@
 		<aside class="sidebar" v-if="!isMainTutorialsPage">
 			<!-- Dynamic navigation component -->
 			<component :is="currentNav" v-if="currentNav" />
+
+			<!-- On this page navigation is now handled by the navigation components -->
 		</aside>
 
 		<!-- Main Content Area -->
@@ -22,14 +24,15 @@
 </template>
 
 <script setup>
-import { ref, provide, watch, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, provide, watch, computed, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import HTMLBasicsNav from '@/components/HTMLBasicsNav.vue';
 import GetStartedNav from '@/components/GetStartedNav.vue';
 import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 
 const route = useRoute();
+const router = useRouter();
 const pageSections = ref([]);
 
 // Check if we're on the main tutorials page
@@ -71,10 +74,10 @@ provide('pageSections', pageSections);
 // Complete tutorial map including CSS Basics
 const tutorialMap = {
 	// HTML Basics routes
-	'html-basics': {
+	'html-basics-index': {
 		prev: { path: '/tutorials/getting-started', title: 'Getting Started' },
 		next: {
-			path: '/tutorials/html-basics/html-basics-first-page',
+			path: '/tutorials/html-basics/first-page',
 			title: 'Your First HTML Page',
 		},
 	},
@@ -114,13 +117,76 @@ const tutorialMap = {
 			title: 'HTML Emmet',
 		},
 	},
-	'html-basics-emmet': {
+	'html-basics-html-emmet': {
 		prev: { path: '/tutorials/html-basics/forms', title: 'Forms' },
 		next: { path: '/tutorials/css-basics', title: 'CSS Basics Introduction' },
 	},
 
+	// Getting Started routes
+	'getting-started-index': {
+		prev: { path: '/tutorials', title: 'Tutorials Home' },
+		next: {
+			path: '/tutorials/getting-started/how-internet-works',
+			title: 'How the Internet Works',
+		},
+	},
+	'getting-started-how-internet-works': {
+		prev: { path: '/tutorials/getting-started', title: 'Introduction' },
+		next: {
+			path: '/tutorials/getting-started/web-basics',
+			title: 'Web Basics',
+		},
+	},
+	'getting-started-web-basics': {
+		prev: {
+			path: '/tutorials/getting-started/how-internet-works',
+			title: 'How the Internet Works',
+		},
+		next: {
+			path: '/tutorials/getting-started/dev-environment',
+			title: 'Setting Up Your Environment',
+		},
+	},
+	'getting-started-dev-environment': {
+		prev: {
+			path: '/tutorials/getting-started/web-basics',
+			title: 'Web Basics',
+		},
+		next: {
+			path: '/tutorials/getting-started/text-editors',
+			title: 'Text Editors',
+		},
+	},
+	'getting-started-text-editors': {
+		prev: {
+			path: '/tutorials/getting-started/dev-environment',
+			title: 'Setting Up Your Environment',
+		},
+		next: {
+			path: '/tutorials/getting-started/browser-tools',
+			title: 'Browser Development Tools',
+		},
+	},
+	'getting-started-browser-tools': {
+		prev: {
+			path: '/tutorials/getting-started/text-editors',
+			title: 'Text Editors',
+		},
+		next: {
+			path: '/tutorials/getting-started/domain-hosting',
+			title: 'Domain Names & Web Hosting',
+		},
+	},
+	'getting-started-domain-hosting': {
+		prev: {
+			path: '/tutorials/getting-started/browser-tools',
+			title: 'Browser Development Tools',
+		},
+		next: { path: '/tutorials/html-basics', title: 'HTML Basics' },
+	},
+
 	// CSS Basics routes
-	'css-basics': {
+	'css-basics-index': {
 		prev: {
 			path: '/tutorials/html-basics/html-emmet',
 			title: 'HTML Emmet',
@@ -140,8 +206,8 @@ const tutorialMap = {
 			title: 'Introduction to CSS',
 		},
 		next: {
-			path: '/tutorials/css-basics/text-properties',
-			title: 'Text Properties',
+			path: '/tutorials/css-basics/box-model',
+			title: 'The Box Model',
 		},
 	},
 	'css-basics-box-model': {
@@ -155,9 +221,11 @@ const tutorialMap = {
 		prev: { path: '/tutorials/css-basics/box-model', title: 'The Box Model' },
 		next: { path: '/tutorials/css-basics/layout', title: 'Layout Basics' },
 	},
-
 	'css-basics-layout': {
-		prev: { path: '/tutorials/css-basics/box-model', title: 'The Box Model' },
+		prev: {
+			path: '/tutorials/css-basics/text-properties',
+			title: 'Text Properties',
+		},
 		next: {
 			path: '/tutorials/css-basics/colors',
 			title: 'Working with Colors',
@@ -194,7 +262,76 @@ const tutorialMap = {
 };
 
 const currentTutorial = computed(() => {
-	return tutorialMap[route.name] || { prev: null, next: null };
+	// Use route.path to find the matching tutorial instead of route.name
+	const pathSegments = route.path.split('/');
+	let routeKey = '';
+
+	if (pathSegments.length >= 3) {
+		// For main section pages like /tutorials/html-basics
+		if (pathSegments.length === 3) {
+			const section = pathSegments[2]; // e.g., 'html-basics'
+			routeKey = `${section}-index`; // e.g., 'html-basics-index'
+		}
+		// For subsection pages like /tutorials/html-basics/first-page
+		else if (pathSegments.length >= 4) {
+			const section = pathSegments[2]; // e.g., 'html-basics'
+			const subsection = pathSegments[3]; // e.g., 'first-page'
+			routeKey = `${section}-${subsection}`; // e.g., 'html-basics-first-page'
+		}
+	}
+
+	console.log('Current route key:', routeKey);
+	console.log('Current route name:', route.name);
+	console.log('Available tutorial map keys:', Object.keys(tutorialMap));
+
+	// Handle legacy route names
+	let legacyRouteKey = null;
+	if (route.name === 'GettingStarted') {
+		legacyRouteKey = 'getting-started-index';
+	} else if (route.name === 'HTMLBasics') {
+		legacyRouteKey = 'html-basics-index';
+	} else if (route.name === 'CSSBasics') {
+		legacyRouteKey = 'css-basics-index';
+	} else if (route.name === 'html-basics-emmet') {
+		legacyRouteKey = 'html-basics-html-emmet';
+	}
+
+	// Try to find the tutorial in this order:
+	// 1. By derived route key from path
+	// 2. By legacy route name mapping
+	// 3. By exact route name
+	// 4. Fallback to empty navigation
+	return (
+		tutorialMap[routeKey] ||
+		(legacyRouteKey && tutorialMap[legacyRouteKey]) ||
+		tutorialMap[route.name] || { prev: null, next: null }
+	);
+});
+
+// Add this after the currentNav computed property
+watch(
+	() => route.name,
+	(newName) => {
+		console.log('Route name changed to:', newName);
+		console.log(
+			'All available routes:',
+			router
+				.getRoutes()
+				.map((r) => r.name)
+				.filter(Boolean),
+		);
+	},
+	{ immediate: true },
+);
+
+// Add this after the imports
+onMounted(() => {
+	console.log('TutorialLayout mounted');
+	console.log('Current route:', route.path, route.name);
+	console.log(
+		'All routes:',
+		router.getRoutes().map((r) => ({ name: r.name, path: r.path })),
+	);
 });
 </script>
 
@@ -218,11 +355,57 @@ const currentTutorial = computed(() => {
 	top: 2rem;
 	height: fit-content;
 	align-self: start;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	max-height: calc(100vh - 4rem);
+	overflow-y: auto;
 }
 
 .main-content {
 	min-width: 0;
 	padding: 1rem;
+}
+
+/* On this page navigation */
+.on-this-page {
+	background-color: var(--color-light);
+	border-radius: 8px;
+	padding: 1.5rem;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.on-this-page-links {
+	max-height: calc(100vh - 50vh);
+	overflow-y: auto;
+	padding-right: 5px;
+}
+
+.on-this-page ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.on-this-page ul ul {
+	margin-left: 1.5rem;
+	font-size: 0.9em;
+}
+
+.on-this-page li {
+	margin: 0.5rem 0;
+}
+
+.on-this-page a {
+	color: #4a4a4a;
+	text-decoration: none;
+	display: block;
+	padding: 0.25rem 0;
+	transition: color 0.2s ease;
+}
+
+.on-this-page a:hover {
+	color: #3273dc;
 }
 
 .table-of-contents {
@@ -262,9 +445,12 @@ const currentTutorial = computed(() => {
 
 	.sidebar {
 		position: static;
+		max-height: none;
+		overflow-y: visible;
 	}
 
-	.table-of-contents {
+	.table-of-contents,
+	.on-this-page {
 		display: none;
 	}
 }

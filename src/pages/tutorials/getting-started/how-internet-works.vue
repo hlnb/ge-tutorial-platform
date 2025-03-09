@@ -4,7 +4,12 @@
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
-					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/">Home</router-link>
+					</li>
+					<li>
+						<router-link to="/tutorials">Tutorials</router-link>
+					</li>
 					<li>
 						<router-link to="/tutorials/getting-started"
 							>Getting Started</router-link

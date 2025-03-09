@@ -38,7 +38,9 @@
 			</ul>
 		</div>
 
-		<h2 class="title is-3">Basic HTML Document Structure</h2>
+		<h2 id="basic-html-document-structure" class="title is-3">
+			Basic HTML Document Structure
+		</h2>
 		<p>Every HTML page needs a basic structure. Here's the template:</p>
 
 		<div class="box">
@@ -56,7 +58,9 @@
 			<li><code>&lt;body&gt;</code> contains the visible content</li>
 		</ul>
 
-		<h2 class="title is-3">Essential Head Elements</h2>
+		<h2 id="essential-head-elements" class="title is-3">
+			Essential Head Elements
+		</h2>
 		<p>
 			The <code>&lt;head&gt;</code> section contains important information about
 			your page:
@@ -106,7 +110,9 @@
 
 		<CodingOptions filename="index.html" class="mt-4" />
 
-		<h2 class="title is-3">Project: Black Swan Bistro</h2>
+		<h2 id="project-black-swan-bistro" class="title is-3">
+			Project: Black Swan Bistro
+		</h2>
 		<p>
 			Let's create a real webpage for a Perth restaurant. Here's our content:
 		</p>
@@ -147,7 +153,9 @@
 		</div>
 
 		<div class="box is-info mt-6">
-			<h3 class="title is-4"><i class="fas fa-tasks"></i> Practice</h3>
+			<h2 id="practice" class="title is-4">
+				<i class="fas fa-tasks"></i> Practice
+			</h2>
 			<p>Create a home page for "Rotto Rocks" using this content:</p>
 
 			<div class="notification is-light mt-3">
@@ -199,31 +207,57 @@ Best time to visit: September to May</pre
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
-import { useHead } from '@vueuse/head';
 import CodingOptions from '@/components/CodingOptions.vue';
-useHead({
-	title: 'Your First HTML Page - HTML Basics - GraphitEdge Tutorials',
-	meta: [
-		{
-			name: 'description',
-			content:
-				'Learn how to create your first HTML page and build a restaurant website using basic HTML elements.',
-		},
-	],
+
+// Get the pageSections array from the parent component
+const pageSections = inject('pageSections');
+
+// Define the sections for this tutorial
+onMounted(() => {
+	if (pageSections) {
+		pageSections.value = [
+			{
+				id: 'basic-html-document-structure',
+				title: 'Basic HTML Document Structure',
+				subsections: [],
+			},
+			{
+				id: 'essential-head-elements',
+				title: 'Essential Head Elements',
+				subsections: [],
+			},
+			{
+				id: 'project-black-swan-bistro',
+				title: 'Project: Black Swan Bistro',
+				subsections: [],
+			},
+			{
+				id: 'practice',
+				title: 'Practice',
+				subsections: [],
+			},
+			{
+				id: 'whats-next',
+				title: "What's Next?",
+				subsections: [],
+			},
+		];
+	}
 });
 
 const basicTemplate = ref(`<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Page Title</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>My First Web Page</title>
 	</head>
 	<body>
-		<!-- Your content goes here -->
+		<h1>Hello, World!</h1>
+		<p>This is my first web page.</p>
 	</body>
 </html>`);
 
@@ -287,6 +321,22 @@ const sanitizedExercisePreview = computed(() =>
 
 const updateExercisePreview = () => {
 	// Preview updates automatically through computed property
+};
+</script>
+
+<script>
+// Frontmatter for the tutorial
+export default {
+	frontmatter: {
+		title: 'Your First HTML Page',
+		description:
+			'Learn how to create your first HTML page and build a restaurant website using basic HTML elements.',
+		category: 'HTML Basics',
+		level: 'Beginner',
+		order: 2,
+		tags: ['web development', 'beginner', 'html'],
+		lastUpdated: '2024-03-20',
+	},
 };
 </script>
 

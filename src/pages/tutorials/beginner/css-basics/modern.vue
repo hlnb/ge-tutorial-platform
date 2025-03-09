@@ -833,7 +833,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 					</p>
 					<p class="mt-3">
 						<a
-							href="/tutorials/beginner/css-basics/responsive"
+							href="/tutorials/css-basics/responsive"
 							class="button is-warning"
 						>
 							Continue to Responsive Design →

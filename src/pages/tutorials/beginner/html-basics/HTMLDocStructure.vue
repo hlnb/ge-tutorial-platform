@@ -1312,11 +1312,56 @@ This is a new line
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
+import DOMPurify from 'dompurify';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodingOptions from '@/components/CodingOptions.vue';
 import { basicSetup } from 'codemirror';
+
+// Get the pageSections array from the parent component
+const pageSections = inject('pageSections');
+
+// Define the sections for this tutorial
+onMounted(() => {
+	if (pageSections) {
+		pageSections.value = [
+			{
+				id: 'introduction',
+				title: 'Introduction to Document Structure',
+				subsections: [],
+			},
+			{
+				id: 'semantic-elements',
+				title: 'Semantic HTML Elements',
+				subsections: [
+					{ id: 'header', title: 'Header Element' },
+					{ id: 'nav', title: 'Navigation Element' },
+					{ id: 'main', title: 'Main Element' },
+					{ id: 'section', title: 'Section Element' },
+					{ id: 'article', title: 'Article Element' },
+					{ id: 'aside', title: 'Aside Element' },
+					{ id: 'footer', title: 'Footer Element' },
+				],
+			},
+			{
+				id: 'document-outline',
+				title: 'Document Outline',
+				subsections: [],
+			},
+			{
+				id: 'practice',
+				title: 'Practice Exercise',
+				subsections: [],
+			},
+			{
+				id: 'next-steps',
+				title: 'Next Steps',
+				subsections: [],
+			},
+		];
+	}
+});
 
 const basicStructure = ref(`<!DOCTYPE html>
 <html lang="en">
@@ -1653,6 +1698,22 @@ const correctPaths = ref(`<img src="images/logo.png" alt="Logo">
 <img src="../images/photo.jpg" alt="Photo">
 <a href="about.html">About Us</a>
 <img src="images/my-photo.jpg" alt="My photo">`);
+</script>
+
+<script>
+// Frontmatter for the tutorial
+export default {
+	frontmatter: {
+		title: 'Document Structure',
+		description:
+			'Learn how to structure your HTML documents using semantic elements.',
+		category: 'HTML Basics',
+		level: 'Beginner',
+		order: 6,
+		tags: ['html', 'semantics', 'document structure', 'accessibility'],
+		lastUpdated: '2024-03-24',
+	},
+};
 </script>
 
 <style scoped>

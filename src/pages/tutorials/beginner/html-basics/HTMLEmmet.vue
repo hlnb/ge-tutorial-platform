@@ -2,6 +2,7 @@
 	<div class="content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
+				<li><router-link to="/">Home</router-link></li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
 					<router-link :to="{ name: 'html-basics' }">HTML Basics</router-link>
@@ -346,8 +347,63 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
+import DOMPurify from 'dompurify';
+
+// Get the pageSections array from the parent component
+const pageSections = inject('pageSections');
+
+// Define the sections for this tutorial
+onMounted(() => {
+	if (pageSections) {
+		pageSections.value = [
+			{
+				id: 'introduction',
+				title: 'Introduction to Emmet',
+				subsections: [],
+			},
+			{
+				id: 'basic-syntax',
+				title: 'Basic Emmet Syntax',
+				subsections: [],
+			},
+			{
+				id: 'nesting-operators',
+				title: 'Nesting Operators',
+				subsections: [
+					{ id: 'child-operator', title: 'Child Operator (>)' },
+					{ id: 'sibling-operator', title: 'Sibling Operator (+)' },
+					{ id: 'climb-up-operator', title: 'Climb-up Operator (^)' },
+					{
+						id: 'multiplication-operator',
+						title: 'Multiplication Operator (*)',
+					},
+				],
+			},
+			{
+				id: 'attributes-ids-classes',
+				title: 'Attributes, IDs, and Classes',
+				subsections: [],
+			},
+			{
+				id: 'text-content',
+				title: 'Text Content',
+				subsections: [],
+			},
+			{
+				id: 'practice',
+				title: 'Practice Exercise',
+				subsections: [],
+			},
+			{
+				id: 'cheat-sheet',
+				title: 'Emmet Cheat Sheet',
+				subsections: [],
+			},
+		];
+	}
+});
 
 const basicExample = ref(`<!-- Type 'div' and press Tab -->
 <div></div>
@@ -398,6 +454,22 @@ const vsCodeSettings = ref(`{
     }
   }
 }`);
+</script>
+
+<script>
+// Frontmatter for the tutorial
+export default {
+	frontmatter: {
+		title: 'HTML Emmet',
+		description:
+			'Learn how to use Emmet to write HTML code faster and more efficiently.',
+		category: 'HTML Basics',
+		level: 'Beginner',
+		order: 8,
+		tags: ['html', 'emmet', 'productivity', 'coding shortcuts'],
+		lastUpdated: '2024-03-26',
+	},
+};
 </script>
 
 <style scoped>

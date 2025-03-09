@@ -4,6 +4,9 @@
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
 					<li>
+						<router-link to="/">Home</router-link>
+					</li>
+					<li>
 						<router-link to="/tutorials">Tutorials</router-link>
 					</li>
 					<li class="is-active">
@@ -167,15 +170,11 @@
 					</router-link>
 				</div>
 			</div>
-
-			<!-- Navigation -->
-			<TutorialNavigation />
 		</div>
 	</div>
 </template>
 
 <script setup>
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import '@/assets/styles/tutorials.css';
 import { useHead } from '@vueuse/head';
 
