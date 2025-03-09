@@ -448,6 +448,15 @@ const routes = [
 		name: 'html-basics-emmet',
 		redirect: { name: 'html-basics-html-emmet' },
 	},
+	// Add the student progress route
+	{
+		path: '/my-progress',
+		name: 'student-progress',
+		component: () => import('@/pages/StudentProgressPage.vue'),
+		meta: {
+			title: 'My Learning Progress',
+		},
+	},
 	// Catch-all route for 404
 	{
 		path: '/:pathMatch(.*)*',

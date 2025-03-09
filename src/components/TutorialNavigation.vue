@@ -1,22 +1,32 @@
 <template>
 	<div class="tutorial-navigation">
-		<div class="columns is-mobile">
-			<div class="column">
-				<router-link v-if="prev" :to="prev.path" class="button is-outlined">
-					<span class="icon">
-						<i class="fas fa-arrow-left"></i>
-					</span>
-					<span>{{ prev.title }}</span>
-				</router-link>
-			</div>
-			<div class="column has-text-right">
-				<router-link v-if="next" :to="next.path" class="button is-outlined">
-					<span>{{ next.title }}</span>
-					<span class="icon">
-						<i class="fas fa-arrow-right"></i>
-					</span>
-				</router-link>
-			</div>
+		<!-- Tutorial Completion Component (only shown if not hidden) -->
+		<TutorialCompletion
+			v-if="!hideCompletion"
+			@tutorial-completed="handleTutorialCompleted"
+			@tutorial-incomplete="handleTutorialIncomplete"
+		/>
+
+		<!-- Navigation Buttons -->
+		<div
+			class="navigation-buttons"
+			:class="{ 'no-completion': hideCompletion }"
+		>
+			<router-link v-if="prev" :to="prev.path" class="button is-light">
+				<span class="icon">
+					<i class="fas fa-arrow-left"></i>
+				</span>
+				<span>{{ prev.title }}</span>
+			</router-link>
+
+			<div class="spacer"></div>
+
+			<router-link v-if="next" :to="next.path" class="button is-primary">
+				<span>{{ next.title }}</span>
+				<span class="icon">
+					<i class="fas fa-arrow-right"></i>
+				</span>
+			</router-link>
 		</div>
 	</div>
 </template>
@@ -25,6 +35,8 @@
 import { useRoute } from 'vue-router';
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
+import progressService from '@/services/ProgressService';
 
 const props = defineProps({
 	prev: {
@@ -35,10 +47,29 @@ const props = defineProps({
 		type: Object,
 		default: null,
 	},
+	hideCompletion: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 const route = useRoute();
 const router = useRouter();
+
+// Handle tutorial completion
+const handleTutorialCompleted = (tutorialPath) => {
+	console.log('Tutorial completed:', tutorialPath);
+
+	// You can add additional logic here if needed
+	// For example, show a congratulations message or update UI
+};
+
+// Handle tutorial marked as incomplete
+const handleTutorialIncomplete = (tutorialPath) => {
+	console.log('Tutorial marked as incomplete:', tutorialPath);
+
+	// You can add additional logic here if needed
+};
 
 onMounted(() => {
 	console.log('TutorialNavigation component mounted');
@@ -55,8 +86,38 @@ onMounted(() => {
 <style scoped>
 .tutorial-navigation {
 	margin-top: 3rem;
-	padding-top: 1.5rem;
-	border-top: 1px solid #eee;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.navigation-buttons {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 1rem;
+	border-top: 1px solid #f0f0f0;
+}
+
+/* When completion component is hidden, remove the top border and padding */
+.navigation-buttons.no-completion {
+	padding-top: 0;
+	border-top: none;
+}
+
+.spacer {
+	flex: 1;
+}
+
+@media (max-width: 768px) {
+	.navigation-buttons {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.navigation-buttons .button {
+		width: 100%;
+	}
 }
 
 .button {

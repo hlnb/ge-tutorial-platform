@@ -23,6 +23,14 @@
 				<router-link class="navbar-item has-text-dark" to="/contact">
 					Contact
 				</router-link>
+				<div class="navbar-item">
+					<router-link to="/my-progress" class="navbar-item">
+						<span class="icon">
+							<i class="fas fa-user-graduate"></i>
+						</span>
+						<span>My Progress</span>
+					</router-link>
+				</div>
 			</div>
 		</div>
 	</nav>

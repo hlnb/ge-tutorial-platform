@@ -18,22 +18,28 @@
 			<TutorialNavigation
 				:prev="currentTutorial.prev"
 				:next="currentTutorial.next"
+				:hide-completion="shouldHideCompletion"
 			/>
 		</main>
 	</div>
 </template>
 
 <script setup>
-import { ref, provide, watch, computed, onMounted } from 'vue';
+import { ref, provide, watch, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import HTMLBasicsNav from '@/components/HTMLBasicsNav.vue';
 import GetStartedNav from '@/components/GetStartedNav.vue';
 import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import progressService from '@/services/ProgressService';
 
 const route = useRoute();
 const router = useRouter();
 const pageSections = ref([]);
+
+// Add scroll tracking variables
+const scrollThrottleTimeout = ref(null);
+const scrollThrottleDelay = 1000; // 1 second delay between scroll tracking updates
 
 // Check if we're on the main tutorials page
 const isMainTutorialsPage = computed(() => {
@@ -332,6 +338,62 @@ onMounted(() => {
 		'All routes:',
 		router.getRoutes().map((r) => ({ name: r.name, path: r.path })),
 	);
+
+	// Add scroll event listener for progress tracking
+	window.addEventListener('scroll', handleScroll);
+});
+
+// Add this before the end of the script
+onBeforeUnmount(() => {
+	// Remove scroll event listener
+	window.removeEventListener('scroll', handleScroll);
+
+	// Clear any pending throttle timeout
+	if (scrollThrottleTimeout.value) {
+		clearTimeout(scrollThrottleTimeout.value);
+	}
+});
+
+// Handle scroll event for progress tracking
+const handleScroll = () => {
+	// Skip if we're on the main tutorials page
+	if (isMainTutorialsPage.value) return;
+
+	// Throttle scroll events to avoid excessive updates
+	if (scrollThrottleTimeout.value) return;
+
+	scrollThrottleTimeout.value = setTimeout(() => {
+		// Calculate scroll position
+		const scrollPosition = window.scrollY + window.innerHeight;
+		const totalHeight = document.documentElement.scrollHeight;
+
+		// Track progress
+		progressService.trackScrollProgress(
+			route.path,
+			scrollPosition,
+			totalHeight,
+		);
+
+		// Clear timeout
+		scrollThrottleTimeout.value = null;
+	}, scrollThrottleDelay);
+};
+
+// Add this after the currentTutorial computed property
+const shouldHideCompletion = computed(() => {
+	// List of routes that have their own custom completion sections
+	const routesWithCustomCompletion = [
+		'/tutorials/html-basics/first-page',
+		'/tutorials/html-basics/text',
+		'/tutorials/html-basics/links',
+		'/tutorials/html-basics/images',
+		'/tutorials/html-basics/doc-structure',
+		'/tutorials/html-basics/forms',
+		'/tutorials/html-basics/html-emmet',
+		// Add other routes here as needed
+	];
+
+	return routesWithCustomCompletion.includes(route.path);
 });
 </script>
 
@@ -365,6 +427,13 @@ onMounted(() => {
 .main-content {
 	min-width: 0;
 	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	flex: 1;
+	margin-bottom: 2rem; /* Add margin to separate content from navigation */
 }
 
 /* On this page navigation */
