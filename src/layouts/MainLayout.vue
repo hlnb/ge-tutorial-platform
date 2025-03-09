@@ -1,32 +1,18 @@
 <template>
-	<div class="layout">
-		<Navbar />
-
-		<main class="main-content">
-			<router-view v-slot="{ Component }">
-				<Suspense>
-					<component :is="Component" />
-				</Suspense>
-			</router-view>
-		</main>
-
-		<Footer />
+	<div class="main-layout">
+		<!-- Main content only, no header or footer -->
+		<router-view></router-view>
 	</div>
 </template>
 
 <script setup>
-import Navbar from '@/components/NavBar.vue';
-import Footer from '@/components/Footer.vue';
+// Remove any imports for NavBar and Footer
 </script>
 
 <style scoped>
-.layout {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-.main-content {
-	flex: 1;
+.main-layout {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 1rem;
 }
 </style>
