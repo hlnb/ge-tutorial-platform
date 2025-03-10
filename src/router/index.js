@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import BackendProgramming from '@/pages/posts/backend-programming.vue';
+import RSSFeedService from '@/services/RSSFeedService';
 
 // Post metadata registry
 export const posts = {
@@ -123,6 +124,28 @@ export const posts = {
 };
 
 const routes = [
+	// RSS Feed route
+	{
+		path: '/rss.xml',
+		name: 'rss-feed',
+		beforeEnter: (to, from, next) => {
+			// Generate RSS feed and serve it
+			const xml = RSSFeedService.generateRSSFeed();
+
+			// Create a Blob with the XML content
+			const blob = new Blob([xml], { type: 'application/xml' });
+
+			// Create a URL for the Blob
+			const url = URL.createObjectURL(blob);
+
+			// Redirect to the URL
+			window.location.href = url;
+
+			// Don't proceed with the navigation in Vue Router
+			next(false);
+		},
+	},
+
 	// Main tutorials page
 	{
 		path: '/tutorials',

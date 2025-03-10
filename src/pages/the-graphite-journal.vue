@@ -89,6 +89,8 @@
 			</ul>
 		</nav>
 	</div>
+
+	<RSSFeedInfo class="mt-6" />
 </template>
 
 <script setup>
@@ -96,6 +98,7 @@ import { ref, onMounted, computed } from 'vue';
 import { format, parseISO } from 'date-fns';
 import SimpleSignup from '@/components/SimpleSignup.vue';
 import { posts } from '@/router'; // Import posts from router
+import RSSFeedInfo from '@/components/RSSFeedInfo.vue';
 
 const publishedPosts = computed(() => {
 	return Object.entries(posts)

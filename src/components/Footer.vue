@@ -36,6 +36,11 @@
 						<li><router-link to="/contact">Contact</router-link></li>
 						<li><router-link to="/privacy">Privacy Policy</router-link></li>
 						<li><router-link to="/terms">Terms & Conditions</router-link></li>
+						<li>
+							<a href="/rss.xml" title="RSS Feed" class="footer-rss-link">
+								<i class="fas fa-rss"></i> RSS Feed
+							</a>
+						</li>
 					</ul>
 				</div>
 
@@ -233,6 +238,23 @@
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	padding-top: 2rem;
 	color: var(--color-mine-shaft-2);
+}
+
+.footer-rss-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--color-mine-shaft-2);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.footer-rss-link:hover {
+	color: #f26522;
+}
+
+.footer-rss-link i {
+	font-size: 1rem;
 }
 </style>
 
