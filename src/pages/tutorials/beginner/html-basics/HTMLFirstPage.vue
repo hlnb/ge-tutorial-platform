@@ -329,6 +329,17 @@ Best time to visit: September to May</pre
 				</footer>
 			</div>
 		</div>
+
+		<!-- Add this at the end of the template, before the completion section -->
+		<section class="mt-6">
+			<h2 class="title is-3">Test Your Knowledge</h2>
+			<p class="mb-4">
+				Let's see how well you understand the concepts covered in this tutorial.
+				Take this quick quiz to test your knowledge!
+			</p>
+
+			<QuizComponent />
+		</section>
 	</div>
 </template>
 

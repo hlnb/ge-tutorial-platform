@@ -1,6 +1,11 @@
 <script setup>
-import { ref, computed, inject, onMounted } from 'vue';
+import { ref, computed, inject, onMounted, watch } from 'vue';
 import { usePageSections } from '@/composables/usePageSections';
+import { useRoute } from 'vue-router';
+import progressService from '@/services/ProgressService';
+import CodeMirror from '@/components/CodeMirror.vue';
+import DOMPurify from 'dompurify';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 // Define a ref for the code editor instances
 const codeEditors = ref([]);
@@ -1130,6 +1135,18 @@ body {
 				prev="css-basics-layout"
 				next="css-basics-responsive"
 			/>
+		</div>
+
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
+			<h2 class="title is-2">Congratulations!</h2>
+			<p>You've completed the tutorial. Great job!</p>
+			<div class="has-text-centered">
+				<a href="#" class="button is-primary is-large"> Return to Dashboard </a>
+			</div>
 		</div>
 	</div>
 </template>

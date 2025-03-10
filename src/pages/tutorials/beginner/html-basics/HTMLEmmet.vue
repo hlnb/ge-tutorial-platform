@@ -347,19 +347,53 @@
 				</ul>
 			</div>
 		</div>
+
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
+			<h2 class="title is-3">
+				<i class="fas fa-graduation-cap"></i> Completion
+			</h2>
+			<div class="content">
+				<p>
+					Congratulations! You've completed the Emmet tutorial. We hope you've
+					learned a lot and are excited to start using Emmet in your projects.
+				</p>
+				<div class="buttons">
+					<router-link to="/tutorials" class="button is-primary">
+						<i class="fas fa-arrow-left mr-2"></i>
+						Back to Tutorials
+					</router-link>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, inject } from 'vue';
+import { ref, computed, onMounted, inject, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { useProgressTracking } from '@/utils/progressUtils';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');
 
+// Initialize progress tracking
+const { progressEnabled, trackTutorial } = useProgressTracking();
+
+// Get the route
+const route = useRoute();
+
 // Define the sections for this tutorial
 onMounted(() => {
+	// Track this tutorial
+	trackTutorial(route.path);
+
 	if (pageSections) {
 		pageSections.value = [
 			{

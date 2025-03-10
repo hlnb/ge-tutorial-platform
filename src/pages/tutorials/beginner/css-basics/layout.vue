@@ -1,7 +1,10 @@
 <script setup>
-import { ref, computed, inject, onMounted } from 'vue';
+import { ref, computed, inject, onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 const frontmatter = {
 	title: 'Layout Basics',
@@ -1350,7 +1353,11 @@ const clearExample = ref(`/* Clear example */
 			</div>
 		</section>
 
-		<section class="summary-section box mt-6">
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
 			<h2 class="title is-3">Summary</h2>
 
 			<div class="content">
@@ -1411,7 +1418,7 @@ const clearExample = ref(`/* Clear example */
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	</div>
 </template>
 

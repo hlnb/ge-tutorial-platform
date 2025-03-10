@@ -1,7 +1,11 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed, onMounted, inject, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
+
 const frontmatter = {
 	title: 'Modern CSS',
 	description:
@@ -846,6 +850,24 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 				</div>
 			</div>
 		</section>
+
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
+			<h2 class="title is-2">Completion</h2>
+			<p>Congratulations! You've completed the Modern CSS tutorial.</p>
+			<p>
+				Your progress has been saved. You can continue to the next tutorial or
+				review the content.
+			</p>
+			<p class="mt-3">
+				<a href="/tutorials/css-basics/responsive" class="button is-warning">
+					Continue to Responsive Design →
+				</a>
+			</p>
+		</div>
 	</div>
 </template>
 

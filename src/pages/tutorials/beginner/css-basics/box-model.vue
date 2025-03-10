@@ -1,11 +1,14 @@
 <script setup>
-import { ref, computed, inject, onMounted } from 'vue';
+import { ref, computed, inject, onMounted, watch } from 'vue';
 import DOMPurify from 'dompurify';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { html } from '@codemirror/lang-html';
 import { css } from '@codemirror/lang-css';
 import { javascript } from '@codemirror/lang-javascript';
 import { usePageSections } from '@/composables/usePageSections';
+import { useRoute } from 'vue-router';
+import progressService from '@/services/ProgressService';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 const frontmatter = {
 	title: 'The Box Model',
@@ -1001,17 +1004,21 @@ border: 10px solid black;
 			</div>
 		</div>
 
-		<div class="next-tutorial-cta mt-6">
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
 			<div class="box has-text-centered">
-				<h3 class="title is-4">Ready to Style Your Text?</h3>
-				<p class="subtitle">Learn how to manipulate text properties in CSS</p>
+				<h3 class="title is-4">Congratulations!</h3>
+				<p class="subtitle">You've completed the tutorial</p>
 				<div class="content">
-					<p>In the next tutorial, you'll learn about:</p>
+					<p>You've learned about:</p>
 					<ul>
-						<li>Font families and sizes</li>
-						<li>Text alignment and decoration</li>
-						<li>Line height and letter spacing</li>
-						<li>Text color and shadows</li>
+						<li>The CSS Box Model</li>
+						<li>Padding, margins, borders, and element sizing</li>
+						<li>Box Sizing Behavior</li>
+						<li>Practical Usage</li>
 					</ul>
 				</div>
 				<router-link

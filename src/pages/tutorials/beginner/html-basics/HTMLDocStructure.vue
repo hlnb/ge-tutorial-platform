@@ -1311,23 +1311,51 @@ This is a new line
 			</div>
 		</div>
 
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
+			<h2 class="title is-3">
+				<i class="fas fa-check-circle section-icon"></i> Congratulations!
+			</h2>
+			<p>
+				You've completed the HTML Document Structure tutorial. Keep practicing
+				and you'll continue to improve your skills.
+			</p>
+		</div>
+
 		<TutorialNavigation class="mt-6" />
 	</div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, inject } from 'vue';
+import { ref, computed, onMounted, inject, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { useProgressTracking } from '@/utils/progressUtils';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodingOptions from '@/components/CodingOptions.vue';
 import { basicSetup } from 'codemirror';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
+
+// Get the route
+const route = useRoute();
+
+// Initialize progress tracking
+const { progressEnabled, trackTutorial, markCompleted, isCompleted } =
+	useProgressTracking();
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');
 
 // Define the sections for this tutorial
 onMounted(() => {
+	// Track this tutorial
+	trackTutorial(route.path);
+
+	// Set up page sections
 	if (pageSections) {
 		pageSections.value = [
 			{

@@ -8,12 +8,32 @@
 			<p class="quiz-description">{{ description }}</p>
 
 			<div v-if="!quizStarted && !quizCompleted" class="quiz-intro">
-				<button @click="startQuiz" class="button is-primary">Start Quiz</button>
+				<button
+					@click="startQuiz"
+					class="button is-primary"
+					:disabled="!quizQuestions || quizQuestions.length === 0"
+				>
+					Start Quiz
+				</button>
+				<p
+					v-if="!quizQuestions || quizQuestions.length === 0"
+					class="notification is-warning mt-3"
+				>
+					No quiz questions available for this tutorial.
+				</p>
 			</div>
 
-			<div v-if="quizStarted && !quizCompleted" class="quiz-questions">
+			<div
+				v-if="
+					quizStarted &&
+					!quizCompleted &&
+					quizQuestions &&
+					quizQuestions.length > 0
+				"
+				class="quiz-questions"
+			>
 				<div
-					v-for="(question, index) in questions"
+					v-for="(question, index) in quizQuestions"
 					:key="index"
 					class="quiz-question"
 					v-show="currentQuestionIndex === index"
@@ -77,7 +97,7 @@
 						<div class="spacer"></div>
 
 						<button
-							v-if="!showResults && index < questions.length - 1"
+							v-if="!showResults && index < quizQuestions.length - 1"
 							@click="currentQuestionIndex++"
 							class="button is-primary"
 							:disabled="selectedAnswers[index] === undefined"
@@ -86,7 +106,7 @@
 						</button>
 
 						<button
-							v-if="!showResults && index === questions.length - 1"
+							v-if="!showResults && index === quizQuestions.length - 1"
 							@click="submitQuiz"
 							class="button is-primary"
 							:disabled="selectedAnswers[index] === undefined"
@@ -95,7 +115,7 @@
 						</button>
 
 						<button
-							v-if="showResults && index < questions.length - 1"
+							v-if="showResults && index < quizQuestions.length - 1"
 							@click="currentQuestionIndex++"
 							class="button is-primary"
 						>
@@ -103,7 +123,7 @@
 						</button>
 
 						<button
-							v-if="showResults && index === questions.length - 1"
+							v-if="showResults && index === quizQuestions.length - 1"
 							@click="finishQuiz"
 							class="button is-success"
 						>
@@ -112,10 +132,13 @@
 					</div>
 				</div>
 
-				<div class="progress-indicator mt-4">
+				<div
+					v-if="quizQuestions && quizQuestions.length > 0"
+					class="progress-indicator mt-4"
+				>
 					<div class="progress-dots">
 						<span
-							v-for="(question, index) in questions"
+							v-for="(question, index) in quizQuestions"
 							:key="index"
 							class="progress-dot"
 							:class="{
@@ -133,25 +156,30 @@
 						></span>
 					</div>
 					<div class="progress-text">
-						Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}
+						Question {{ currentQuestionIndex + 1 }} of
+						{{ quizQuestions.length }}
 					</div>
 				</div>
 			</div>
 
 			<div v-if="quizCompleted" class="quiz-results">
 				<div class="result-summary">
-					<div class="score-circle">
+					<div class="score-circle" :class="getScoreClass">
 						<span class="score">{{ score }}</span>
-						<span class="total">/ {{ questions.length }}</span>
+						<span class="total"
+							>/ {{ quizQuestions ? quizQuestions.length : 0 }}</span
+						>
 					</div>
 					<p class="result-message">
-						<span v-if="score === questions.length"
+						<span v-if="quizQuestions && score === quizQuestions.length"
 							>Perfect score! Excellent work!</span
 						>
-						<span v-else-if="score >= questions.length * 0.8"
+						<span
+							v-else-if="quizQuestions && score >= quizQuestions.length * 0.8"
 							>Great job! You've mastered most of the content.</span
 						>
-						<span v-else-if="score >= questions.length * 0.6"
+						<span
+							v-else-if="quizQuestions && score >= quizQuestions.length * 0.6"
 							>Good effort! You're on the right track.</span
 						>
 						<span v-else
@@ -174,46 +202,37 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
+import { getQuizQuestionsForPath, getTutorialTitle } from '@/utils/quizUtils';
 
-// Define props using standard JavaScript
+const route = useRoute();
+
+// Define props
 const props = defineProps({
 	title: {
 		type: String,
-		default: 'Knowledge Check',
+		default: null, // Will be auto-generated if not provided
 	},
 	description: {
 		type: String,
-		default:
-			'Test your understanding of the concepts covered in this tutorial.',
+		default: null, // Will be auto-generated if not provided
 	},
 	questions: {
 		type: Array,
-		required: true,
-		// Add a validator function to check question structure
-		validator: (questions) => {
-			if (!Array.isArray(questions)) return false;
-
-			return questions.every(
-				(question) =>
-					question &&
-					typeof question === 'object' &&
-					typeof question.text === 'string' &&
-					Array.isArray(question.options) &&
-					typeof question.correctAnswer === 'number',
-			);
-		},
+		default: null, // Will be auto-loaded if not provided
 	},
 	tutorialPath: {
 		type: String,
-		required: true,
+		default: null, // Will use current route path if not provided
 	},
 });
 
-// Define emits using standard JavaScript
+// Define emits
 const emit = defineEmits(['quiz-completed', 'quiz-started', 'quiz-reset']);
 
+// State
 const quizStarted = ref(false);
 const quizCompleted = ref(false);
 const currentQuestionIndex = ref(0);
@@ -221,22 +240,59 @@ const selectedAnswers = ref([]);
 const showResults = ref(false);
 const score = ref(0);
 
+// Computed properties
+const currentPath = computed(() => props.tutorialPath || route.path);
+
+const quizTitle = computed(() => {
+	if (props.title) return props.title;
+	return `${getTutorialTitle(currentPath.value)} Quiz`;
+});
+
+const quizDescription = computed(() => {
+	if (props.description) return props.description;
+	return `Test your understanding of ${getTutorialTitle(
+		currentPath.value,
+	)} concepts.`;
+});
+
+const quizQuestions = computed(() => {
+	if (props.questions) return props.questions;
+	return getQuizQuestionsForPath(currentPath.value) || [];
+});
+
+const getScoreClass = computed(() => {
+	const percentage =
+		quizQuestions.value && quizQuestions.value.length > 0
+			? (score.value / quizQuestions.value.length) * 100
+			: 0;
+	if (percentage >= 80) return 'is-success';
+	if (percentage >= 60) return 'is-warning';
+	return 'is-danger';
+});
+
 // Check if quiz was previously completed
 const checkQuizStatus = () => {
 	const progress = progressService.getProgress();
 	if (
 		progress &&
 		progress.completedQuizzes &&
-		progress.completedQuizzes.includes(props.tutorialPath)
+		progress.completedQuizzes.includes(currentPath.value)
 	) {
 		quizCompleted.value = true;
+
+		// If we have saved quiz results, load the score
+		if (progress.quizResults && progress.quizResults[currentPath.value]) {
+			score.value = progress.quizResults[currentPath.value].score;
+		}
 	}
 };
 
 // Start the quiz
 const startQuiz = () => {
 	quizStarted.value = true;
-	selectedAnswers.value = new Array(props.questions.length);
+	selectedAnswers.value = new Array(
+		quizQuestions.value ? quizQuestions.value.length : 0,
+	);
 	emit('quiz-started');
 };
 
@@ -255,8 +311,10 @@ const submitQuiz = () => {
 
 // Calculate the score
 const calculateScore = () => {
+	if (!quizQuestions.value || quizQuestions.value.length === 0) return 0;
+
 	let correctAnswers = 0;
-	props.questions.forEach((question, index) => {
+	quizQuestions.value.forEach((question, index) => {
 		if (selectedAnswers.value[index] === question.correctAnswer) {
 			correctAnswers++;
 		}
@@ -270,18 +328,18 @@ const finishQuiz = () => {
 	showResults.value = false;
 
 	// Save quiz completion to progress service
-	if (progressService.isProgressTrackingEnabled()) {
+	if (progressService.isProgressTrackingEnabled() && quizQuestions.value) {
 		// Use the saveQuizResult method to save both completion status and score
 		progressService.saveQuizResult(
-			props.tutorialPath,
+			currentPath.value,
 			score.value,
-			props.questions.length,
+			quizQuestions.value.length,
 		);
 	}
 
 	emit('quiz-completed', {
 		score: score.value,
-		total: props.questions.length,
+		total: quizQuestions.value ? quizQuestions.value.length : 0,
 	});
 };
 
@@ -290,7 +348,9 @@ const resetQuiz = () => {
 	quizStarted.value = false;
 	quizCompleted.value = false;
 	currentQuestionIndex.value = 0;
-	selectedAnswers.value = new Array(props.questions.length);
+	selectedAnswers.value = new Array(
+		quizQuestions.value ? quizQuestions.value.length : 0,
+	);
 	showResults.value = false;
 	score.value = 0;
 	emit('quiz-reset');
@@ -304,13 +364,25 @@ const reviewAnswers = () => {
 	showResults.value = true;
 };
 
-// Check quiz status on component mount
-checkQuizStatus();
+// Watch for route changes to reset the quiz
+watch(
+	() => route.path,
+	() => {
+		resetQuiz();
+		checkQuizStatus();
+	},
+);
+
+// Lifecycle hooks
+onMounted(() => {
+	checkQuizStatus();
+});
 </script>
 
 <style scoped>
 .quiz-container {
 	margin: 2rem 0;
+	scroll-margin-top: 2rem;
 }
 
 .quiz-box {
@@ -477,14 +549,28 @@ checkQuizStatus();
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
+	background-color: #f5f5f5;
+	border: 3px solid #dbdbdb;
+}
+
+.score-circle.is-success {
 	background-color: #effaf5;
-	border: 3px solid #48c78e;
+	border-color: #48c78e;
+}
+
+.score-circle.is-warning {
+	background-color: #fffaeb;
+	border-color: #ffe08a;
+}
+
+.score-circle.is-danger {
+	background-color: #feecf0;
+	border-color: #f14668;
 }
 
 .score {
 	font-size: 2.5rem;
 	font-weight: bold;
-	color: #257953;
 	line-height: 1;
 }
 

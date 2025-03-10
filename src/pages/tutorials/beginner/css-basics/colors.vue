@@ -1,6 +1,10 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed, onMounted, inject, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
+import DOMPurify from 'dompurify';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import { usePageSections } from '@/composables/usePageSections';
 
 const frontmatter = {
@@ -1437,7 +1441,11 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 			</section>
 		</section>
 
-		<section id="summary" class="mt-6">
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
 			<h2 class="title is-2">Summary</h2>
 
 			<div class="box">
@@ -1590,7 +1598,7 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 					</p>
 				</div>
 			</div>
-		</section>
+		</div>
 	</div>
 </template>
 

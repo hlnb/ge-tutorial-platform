@@ -1,7 +1,10 @@
 <script setup>
-import { ref, computed, inject, onMounted } from 'vue';
+import { ref, computed, inject, onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 const frontmatter = {
 	title: 'Responsive Design',
@@ -1265,6 +1268,19 @@ const navigationExample = ref(`/* Responsive Navigation */
 				</div>
 			</div>
 		</section>
+
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
+			<h2 class="title is-2">Completion</h2>
+			<div class="box">
+				<h3 class="title is-4">Congratulations!</h3>
+				<p>You've completed the Responsive Design tutorial.</p>
+				<p>Your progress has been recorded. Keep up the good work!</p>
+			</div>
+		</div>
 
 		<TutorialNavigation prev="modern" next="flexbox" />
 	</div>

@@ -400,6 +400,27 @@
 				</div>
 			</article>
 		</section>
+
+		<section class="mt-6">
+			<h2 class="title is-3">Test Your Knowledge</h2>
+			<p class="mb-4">
+				Let's see how well you understand the concepts covered in this tutorial.
+				Take this quick quiz to test your knowledge!
+			</p>
+
+			<QuizComponent />
+		</section>
+
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
+			<h2 class="title is-3">
+				<i class="fas fa-check-circle"></i> Congratulations!
+			</h2>
+			<p>You've completed the CSS Basics tutorial. Great job!</p>
+		</div>
 	</div>
 </template>
 
@@ -412,9 +433,13 @@ export default {
 <script setup>
 import CodeMirror from '@/components/CodeMirror.vue';
 import { format } from 'date-fns';
-import { ref, computed, inject, onMounted } from 'vue';
+import { ref, computed, inject, onMounted, watch } from 'vue';
 import DOMPurify from 'dompurify';
 import { usePageSections } from '@/composables/usePageSections';
+import QuizComponent from '@/components/QuizComponent.vue';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import { useRoute } from 'vue-router';
+import { useProgressTracking } from '@/utils/progressUtils';
 
 const frontmatter = {
 	title: 'Introduction to CSS',
@@ -599,6 +624,15 @@ onMounted(() => {
 		{ id: 'our-projects', title: 'Our Projects' },
 		{ id: 'practice', title: 'Practice Exercise' },
 	];
+});
+
+// Initialize progress tracking
+const { progressEnabled, trackTutorial } = useProgressTracking();
+
+const route = useRoute();
+
+watch(route, () => {
+	trackTutorial(route.path);
 });
 </script>
 

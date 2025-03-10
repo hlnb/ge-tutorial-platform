@@ -33,6 +33,7 @@ import GetStartedNav from '@/components/GetStartedNav.vue';
 import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import progressService from '@/services/ProgressService';
+import { hasQuiz } from '@/utils/quizUtils';
 
 const route = useRoute();
 const router = useRouter();
@@ -408,25 +409,13 @@ const shouldHideQuizIndicator = computed(() => {
 	return routesWithCustomQuizIndicators.includes(route.path);
 });
 
-// Add this after the shouldHideQuizIndicator computed property
-const tutorialsWithQuizzes = [
-	'/tutorials/html-basics/first-page',
-	'/tutorials/html-basics/text',
-	'/tutorials/html-basics/links',
-	'/tutorials/html-basics/images',
-	'/tutorials/html-basics/doc-structure',
-	'/tutorials/html-basics/forms',
-	'/tutorials/html-basics/html-emmet',
-	// Add more tutorial paths as you add quizzes
-];
-
 // Check if current tutorial has a quiz
-const hasQuiz = computed(() => {
-	return tutorialsWithQuizzes.includes(route.path);
+const tutorialHasQuiz = computed(() => {
+	return hasQuiz(route.path);
 });
 
 // Provide this to child components
-provide('hasQuiz', hasQuiz);
+provide('hasQuiz', tutorialHasQuiz);
 </script>
 
 <style scoped>

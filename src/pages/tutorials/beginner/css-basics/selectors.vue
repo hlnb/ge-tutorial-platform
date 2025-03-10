@@ -1,8 +1,11 @@
 <script setup>
-import { ref, computed, inject, onMounted } from 'vue';
+import { ref, computed, inject, onMounted, watch } from 'vue';
 import DOMPurify from 'dompurify';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
+import { useRoute } from 'vue-router';
+import progressService from '@/services/ProgressService';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 // Define page sections
 const sections = [
@@ -1399,6 +1402,19 @@ footer {}
 				<li>Understand the relationship between HTML and CSS</li>
 				<li>Prepare for adding properties in future lessons</li>
 			</ul>
+		</div>
+
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
+			<h2 class="title is-3">Completion</h2>
+			<p>Congratulations! You've completed the CSS selectors tutorial.</p>
+			<p>
+				Feel free to explore more CSS tutorials or apply your new skills to
+				real-world projects.
+			</p>
 		</div>
 	</div>
 </template>

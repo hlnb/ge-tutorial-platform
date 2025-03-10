@@ -545,15 +545,29 @@
 				<TutorialNavigation class="mt-6" />
 			</div>
 		</div>
+
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
+		<!-- Completion Section -->
+		<div v-if="progressEnabled" class="completion-section mt-6">
+			<h2 class="title is-3">
+				<i class="fas fa-check-circle"></i> Congratulations!
+			</h2>
+			<p>You've completed the tutorial on HTML Images. Great job!</p>
+		</div>
 	</div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, inject } from 'vue';
+import { ref, computed, onMounted, inject, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodingOptions from '@/components/CodingOptions.vue';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');
