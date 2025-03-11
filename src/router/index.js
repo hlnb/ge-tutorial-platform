@@ -184,6 +184,42 @@ const projectRoutes = [
 	// Add more project routes as needed
 ];
 
+// Auth routes
+const authRoutes = [
+	{
+		path: '/auth/login',
+		name: 'login',
+		component: () => import('@/pages/auth/login.vue'),
+		meta: {
+			title: 'Login',
+			description: 'Login to track your progress',
+		},
+	},
+	{
+		path: '/auth/register',
+		name: 'register',
+		component: () => import('@/pages/auth/register.vue'),
+		meta: {
+			title: 'Register',
+			description: 'Create an account to track your progress',
+		},
+	},
+	{
+		path: '/auth/logout',
+		name: 'logout',
+		beforeEnter: (to, from, next) => {
+			// Import auth service
+			import('@/services/AuthService').then((module) => {
+				const authService = module.default;
+				// Logout user
+				authService.logout();
+				// Redirect to home
+				next('/');
+			});
+		},
+	},
+];
+
 const routes = [
 	// RSS Feed route
 	{
@@ -207,6 +243,9 @@ const routes = [
 			next(false);
 		},
 	},
+
+	// Auth routes
+	...authRoutes,
 
 	// Main tutorials page
 	{

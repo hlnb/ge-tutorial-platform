@@ -7,9 +7,5 @@
 		"env": {
 			"NODE_VERSION": "18.x"
 		}
-	},
-	"routes": [
-		{ "handle": "filesystem" },
-		{ "src": "/(.*)", "dest": "/index.html" }
-	]
+	}
 }

@@ -3,21 +3,41 @@
 		<div class="container">
 			<div class="page-header">
 				<h1 class="title is-1">
-					<i class="fas fa-user-graduate"></i> My Learning Progress
+					<i class="fas fa-chart-line"></i> My Learning Progress
 				</h1>
 				<p class="subtitle">
 					Track your journey through our tutorials and see your achievements
 				</p>
 			</div>
 
-			<div v-if="!progressEnabled" class="notification is-warning">
+			<!-- Authentication Status -->
+			<div v-if="!isAuthenticated" class="notification is-warning">
 				<p>
-					<strong>Progress tracking is disabled.</strong> Enable cookies to
-					track your progress across tutorials.
+					<i class="fas fa-exclamation-triangle mr-2"></i>
+					<strong>You are not logged in.</strong> Your progress is currently
+					stored only on this device.
 				</p>
-				<button @click="enableProgressTracking" class="button is-warning mt-2">
-					Enable Progress Tracking
-				</button>
+				<p class="mt-2">
+					<router-link to="/auth/login" class="button is-primary is-small mr-2">
+						Login
+					</router-link>
+					<router-link to="/auth/register" class="button is-info is-small">
+						Create Account
+					</router-link>
+				</p>
+			</div>
+
+			<div v-else class="notification is-success">
+				<p>
+					<i class="fas fa-check-circle mr-2"></i>
+					<strong>Welcome, {{ currentUser.name }}!</strong> Your progress is
+					being saved to your account.
+				</p>
+				<p class="mt-2">
+					<router-link to="/auth/logout" class="button is-light is-small">
+						Logout
+					</router-link>
+				</p>
 			</div>
 
 			<div v-else>
@@ -27,20 +47,26 @@
 							<div class="columns">
 								<div class="column">
 									<div class="stat-box">
-										<h3 class="title is-4">{{ completedTutorials.length }}</h3>
+										<h3 class="title is-4">{{ completedTutorials }}</h3>
 										<p class="subtitle is-6">Tutorials Completed</p>
 									</div>
 								</div>
 								<div class="column">
 									<div class="stat-box">
-										<h3 class="title is-4">{{ inProgressTutorials.length }}</h3>
-										<p class="subtitle is-6">Tutorials In Progress</p>
+										<h3 class="title is-4">{{ visitedTutorials }}</h3>
+										<p class="subtitle is-6">Tutorials Visited</p>
 									</div>
 								</div>
 								<div class="column">
 									<div class="stat-box">
-										<h3 class="title is-4">{{ completedQuizzes.length }}</h3>
+										<h3 class="title is-4">{{ completedQuizzes }}</h3>
 										<p class="subtitle is-6">Quizzes Completed</p>
+									</div>
+								</div>
+								<div class="column">
+									<div class="stat-box">
+										<h3 class="title is-4">{{ averageQuizScore }}%</h3>
+										<p class="subtitle is-6">Average Quiz Score</p>
 									</div>
 								</div>
 							</div>
@@ -51,41 +77,87 @@
 				<div class="section-progress mt-6">
 					<h2 class="title is-3">Your Progress</h2>
 
-					<div v-if="!hasProgress" class="notification is-info">
+					<div v-if="Object.keys(progressBySection).length > 0">
+						<div
+							v-for="(section, sectionKey) in progressBySection"
+							:key="sectionKey"
+							class="section-progress mb-6"
+						>
+							<h2 class="title is-3">{{ formatSectionTitle(sectionKey) }}</h2>
+
+							<div class="progress-bar-container">
+								<div
+									class="progress-bar"
+									:style="{ width: `${section.completionPercentage}%` }"
+								></div>
+								<span class="progress-text"
+									>{{ section.completionPercentage }}% Complete</span
+								>
+							</div>
+
+							<div class="box mt-4">
+								<table class="table is-fullwidth">
+									<thead>
+										<tr>
+											<th>Tutorial</th>
+											<th>Status</th>
+											<th>Last Visited</th>
+											<th>Quiz Score</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr
+											v-for="tutorial in section.tutorials"
+											:key="tutorial.path"
+										>
+											<td>
+												<router-link :to="tutorial.path">{{
+													tutorial.title
+												}}</router-link>
+											</td>
+											<td>
+												<span v-if="tutorial.completed" class="tag is-success">
+													<i class="fas fa-check mr-1"></i> Completed
+												</span>
+												<span
+													v-else-if="tutorial.visited"
+													class="tag is-warning"
+												>
+													<i class="fas fa-eye mr-1"></i> In Progress
+												</span>
+												<span v-else class="tag is-light">
+													<i class="fas fa-circle mr-1"></i> Not Started
+												</span>
+											</td>
+											<td>
+												{{
+													tutorial.lastVisited
+														? formatDate(tutorial.lastVisited)
+														: 'Never'
+												}}
+											</td>
+											<td>
+												<span v-if="tutorial.quizCompleted" class="tag is-info">
+													{{ tutorial.quizScore }}/{{
+														tutorial.quizTotalQuestions
+													}}
+												</span>
+												<span v-else class="tag is-light">Not Taken</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div v-else class="notification is-info">
 						<p>
+							<i class="fas fa-info-circle mr-2"></i>
 							You haven't started any tutorials yet.
 							<router-link to="/tutorials">Browse our tutorials</router-link> to
 							get started!
 						</p>
-					</div>
-
-					<div v-else>
-						<!-- Getting Started Section -->
-						<div class="progress-section mb-6">
-							<h3 class="title is-4">Getting Started</h3>
-							<progress-section-list
-								:tutorials="gettingStartedTutorials"
-								section-path="/tutorials/getting-started"
-							></progress-section-list>
-						</div>
-
-						<!-- HTML Basics Section -->
-						<div class="progress-section mb-6">
-							<h3 class="title is-4">HTML Basics</h3>
-							<progress-section-list
-								:tutorials="htmlBasicsTutorials"
-								section-path="/tutorials/html-basics"
-							></progress-section-list>
-						</div>
-
-						<!-- CSS Basics Section -->
-						<div class="progress-section mb-6">
-							<h3 class="title is-4">CSS Basics</h3>
-							<progress-section-list
-								:tutorials="cssBasicsTutorials"
-								section-path="/tutorials/css-basics"
-							></progress-section-list>
-						</div>
 					</div>
 				</div>
 
@@ -203,171 +275,181 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import progressService from '@/services/ProgressService';
-import ProgressSectionList from '@/components/ProgressSectionList.vue';
+import { format } from 'date-fns';
+import externalProgressService from '@/services/ExternalProgressService';
+import authService from '@/services/AuthService';
 
-// State
-const progressEnabled = ref(false);
-const showResetConfirmation = ref(false);
-const progress = ref({});
-const quizResults = ref({});
+// Authentication state
+const isAuthenticated = ref(false);
+const currentUser = ref(null);
 
-// Computed properties
-const hasProgress = computed(() => {
-	return Object.keys(progress.value).length > 0;
+// Progress data
+const progressData = ref({});
+const tutorialMetadata = ref({
+	'getting-started': {
+		title: 'Getting Started',
+		tutorials: {
+			'/tutorials/getting-started': { title: 'Introduction' },
+			'/tutorials/getting-started/how-internet-works': {
+				title: 'How the Internet Works',
+			},
+			'/tutorials/getting-started/web-basics': { title: 'Web Basics' },
+			'/tutorials/getting-started/dev-environment': {
+				title: 'Development Environment',
+			},
+			'/tutorials/getting-started/browser-tools': { title: 'Browser Tools' },
+			'/tutorials/getting-started/text-editors': { title: 'Text Editors' },
+			'/tutorials/getting-started/domain-hosting': {
+				title: 'Domain Names & Hosting',
+			},
+		},
+	},
+	'html-basics': {
+		title: 'HTML Basics',
+		tutorials: {
+			'/tutorials/html-basics': { title: 'Introduction' },
+			'/tutorials/html-basics/first-page': { title: 'Your First HTML Page' },
+			'/tutorials/html-basics/text': { title: 'Working with Text' },
+			'/tutorials/html-basics/links': { title: 'Links & Navigation' },
+			'/tutorials/html-basics/images': { title: 'Images' },
+			'/tutorials/html-basics/doc-structure': { title: 'Document Structure' },
+			'/tutorials/html-basics/forms': { title: 'Forms' },
+			'/tutorials/html-basics/html-emmet': { title: 'HTML Emmet' },
+		},
+	},
+	'css-basics': {
+		title: 'CSS Basics',
+		tutorials: {
+			'/tutorials/css-basics': { title: 'Introduction' },
+			'/tutorials/css-basics/introduction': {
+				title: 'Getting Started with CSS',
+			},
+			'/tutorials/css-basics/selectors': { title: 'CSS Selectors' },
+			'/tutorials/css-basics/box-model': { title: 'The Box Model' },
+			'/tutorials/css-basics/text-properties': { title: 'Text Properties' },
+			'/tutorials/css-basics/layout': { title: 'Layout Basics' },
+			'/tutorials/css-basics/colors': { title: 'Working with Colors' },
+			'/tutorials/css-basics/modern': { title: 'Modern CSS' },
+			'/tutorials/css-basics/responsive': { title: 'Responsive Design' },
+			'/tutorials/css-basics/flexbox': { title: 'Flexbox' },
+		},
+	},
 });
 
-const hasQuizResults = computed(() => {
-	return Object.keys(quizResults.value).length > 0;
-});
-
+// Computed properties for progress statistics
 const completedTutorials = computed(() => {
-	if (!progress.value.completedTutorials) return [];
-	return progress.value.completedTutorials;
+	return Object.values(progressData.value).filter(
+		(tutorial) => tutorial.completed,
+	).length;
 });
 
-const inProgressTutorials = computed(() => {
-	if (!progress.value.inProgressTutorials) return [];
-	const completed = new Set(completedTutorials.value);
-	return Object.keys(progress.value.tutorialProgress || {}).filter(
-		(path) => !completed.has(path) && progress.value.tutorialProgress[path] > 0,
-	);
+const visitedTutorials = computed(() => {
+	return Object.values(progressData.value).filter(
+		(tutorial) => tutorial.visited,
+	).length;
 });
 
 const completedQuizzes = computed(() => {
-	if (!progress.value.completedQuizzes) return [];
-	return progress.value.completedQuizzes;
+	return Object.values(progressData.value).filter(
+		(tutorial) => tutorial.quizCompleted,
+	).length;
 });
 
-// Filter tutorials by section
-const gettingStartedTutorials = computed(() => {
-	return filterTutorialsBySection('/tutorials/getting-started');
+const averageQuizScore = computed(() => {
+	const quizzes = Object.values(progressData.value).filter(
+		(tutorial) => tutorial.quizCompleted,
+	);
+	if (quizzes.length === 0) return 0;
+
+	const totalScore = quizzes.reduce((sum, tutorial) => {
+		return sum + (tutorial.quizScore / tutorial.quizTotalQuestions) * 100;
+	}, 0);
+
+	return Math.round(totalScore / quizzes.length);
 });
 
-const htmlBasicsTutorials = computed(() => {
-	return filterTutorialsBySection('/tutorials/html-basics');
-});
+// Computed property for progress by section
+const progressBySection = computed(() => {
+	const sections = {};
 
-const cssBasicsTutorials = computed(() => {
-	return filterTutorialsBySection('/tutorials/css-basics');
-});
+	// Initialize sections
+	Object.keys(tutorialMetadata.value).forEach((sectionKey) => {
+		const section = tutorialMetadata.value[sectionKey];
+		sections[sectionKey] = {
+			title: section.title,
+			tutorials: [],
+			completedCount: 0,
+			totalCount: Object.keys(section.tutorials).length,
+			completionPercentage: 0,
+		};
 
-// Methods
-function filterTutorialsBySection(sectionPath) {
-	const result = [];
+		// Add tutorials to section
+		Object.entries(section.tutorials).forEach(([path, metadata]) => {
+			const progress = progressData.value[path] || {};
+			const tutorial = {
+				path,
+				title: metadata.title,
+				visited: !!progress.visited,
+				completed: !!progress.completed,
+				lastVisited: progress.lastUpdated,
+				quizCompleted: !!progress.quizCompleted,
+				quizScore: progress.quizScore || 0,
+				quizTotalQuestions: progress.quizTotalQuestions || 0,
+			};
 
-	// Add completed tutorials
-	if (progress.value.completedTutorials) {
-		progress.value.completedTutorials.forEach((path) => {
-			if (path.startsWith(sectionPath)) {
-				result.push({
-					path,
-					status: 'completed',
-					progress: 100,
-				});
+			sections[sectionKey].tutorials.push(tutorial);
+
+			// Update completed count
+			if (tutorial.completed) {
+				sections[sectionKey].completedCount++;
 			}
 		});
-	}
 
-	// Add in-progress tutorials
-	if (progress.value.tutorialProgress) {
-		Object.entries(progress.value.tutorialProgress).forEach(([path, value]) => {
-			if (
-				path.startsWith(sectionPath) &&
-				!completedTutorials.value.includes(path)
-			) {
-				result.push({
-					path,
-					status: 'in-progress',
-					progress: Math.round(value * 100),
-				});
-			}
-		});
-	}
+		// Calculate completion percentage
+		sections[sectionKey].completionPercentage = Math.round(
+			(sections[sectionKey].completedCount / sections[sectionKey].totalCount) *
+				100,
+		);
+	});
 
-	return result;
-}
-
-function getTutorialTitle(path) {
-	// Extract the last part of the path
-	const parts = path.split('/');
-	const lastPart = parts[parts.length - 1];
-
-	// Convert to title case with spaces
-	return lastPart.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
-}
-
-function formatPath(path) {
-	const parts = path.split('/');
-	return parts.slice(1, -1).join(' > ');
-}
-
-function formatDate(timestamp) {
-	if (!timestamp) return 'Unknown date';
-	const date = new Date(timestamp);
-	return date.toLocaleDateString();
-}
-
-function getScorePercentage(result) {
-	return Math.round((result.score / result.total) * 100);
-}
-
-function getScoreClass(result) {
-	const percentage = getScorePercentage(result);
-	if (percentage >= 80) return 'is-success';
-	if (percentage >= 60) return 'is-warning';
-	return 'is-danger';
-}
-
-function getScoreMessage(result) {
-	const percentage = getScorePercentage(result);
-	if (percentage === 100) return 'Perfect score!';
-	if (percentage >= 80) return 'Great job!';
-	if (percentage >= 60) return 'Good effort!';
-	return 'Keep practicing!';
-}
-
-function enableProgressTracking() {
-	progressService.enableProgressTracking();
-	loadProgress();
-}
-
-function loadProgress() {
-	progressEnabled.value = progressService.isProgressTrackingEnabled();
-
-	if (progressEnabled.value) {
-		// Get progress data
-		progress.value = progressService.getProgress() || {};
-
-		// Get quiz results
-		quizResults.value = progress.value.quizResults || {};
-	}
-}
-
-function exportProgress() {
-	const dataStr = JSON.stringify(progress.value, null, 2);
-	const dataUri =
-		'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
-
-	const exportFileDefaultName = 'tutorial-progress.json';
-
-	const linkElement = document.createElement('a');
-	linkElement.setAttribute('href', dataUri);
-	linkElement.setAttribute('download', exportFileDefaultName);
-	linkElement.click();
-}
-
-function resetProgress() {
-	progressService.resetProgress();
-	progress.value = {};
-	quizResults.value = {};
-	showResetConfirmation.value = false;
-}
-
-// Lifecycle hooks
-onMounted(() => {
-	loadProgress();
+	return sections;
 });
+
+// Format date
+const formatDate = (timestamp) => {
+	return format(new Date(timestamp), 'MMM d, yyyy');
+};
+
+// Format section title
+const formatSectionTitle = (sectionKey) => {
+	return (
+		tutorialMetadata.value[sectionKey]?.title ||
+		sectionKey
+			.split('-')
+			.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+			.join(' ')
+	);
+};
+
+// Load progress data
+const loadProgressData = async () => {
+	try {
+		// Get authentication state
+		isAuthenticated.value = authService.isUserAuthenticated();
+		currentUser.value = authService.getCurrentUser();
+
+		// Initialize external progress service
+		await externalProgressService.init();
+
+		// Get all progress data
+		progressData.value = await externalProgressService.getAllProgress();
+	} catch (error) {
+		console.error('Error loading progress data:', error);
+	}
+};
+
+// Load data on mount
+onMounted(loadProgressData);
 </script>
 
 <style scoped>
@@ -432,5 +514,32 @@ onMounted(() => {
 .total {
 	font-size: 0.8rem;
 	color: #666;
+}
+
+.progress-bar-container {
+	position: relative;
+	height: 30px;
+	background-color: #f5f5f5;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+.progress-bar {
+	height: 100%;
+	background-color: #48c78e;
+	transition: width 0.5s ease;
+}
+
+.progress-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #333;
+	font-weight: bold;
+}
+
+.section-progress {
+	margin-top: 2rem;
 }
 </style>
