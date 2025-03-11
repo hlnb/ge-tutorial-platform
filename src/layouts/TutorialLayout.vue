@@ -31,6 +31,7 @@ import { useRoute, useRouter } from 'vue-router';
 import HTMLBasicsNav from '@/components/HTMLBasicsNav.vue';
 import GetStartedNav from '@/components/GetStartedNav.vue';
 import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
+import JavaScriptBasicsNav from '@/components/JavaScriptBasicsNav.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import progressService from '@/services/ProgressService';
 import { hasQuiz } from '@/utils/quizUtils';
@@ -53,6 +54,7 @@ const navComponents = {
 	HTMLBasicsNav,
 	GetStartedNav,
 	CSSBasicsNav,
+	JavaScriptBasicsNav,
 };
 
 // Determine which navigation component to show based on route
@@ -64,6 +66,8 @@ const currentNav = computed(() => {
 		return GetStartedNav;
 	} else if (path.includes('/css-basics')) {
 		return CSSBasicsNav;
+	} else if (path.includes('/javascript-basics')) {
+		return JavaScriptBasicsNav;
 	}
 	return null;
 });
@@ -266,6 +270,35 @@ const tutorialMap = {
 			title: 'Responsive Design',
 		},
 		next: { path: '/tutorials', title: 'Tutorials Home' },
+	},
+
+	// JavaScript Basics routes
+	'javascript-basics-index': {
+		prev: { path: '/tutorials/css-basics/flexbox', title: 'Flexbox' },
+		next: {
+			path: '/tutorials/beginner/javascript-basics/introduction',
+			title: 'Introduction to JavaScript',
+		},
+	},
+	'javascript-basics-introduction': {
+		prev: {
+			path: '/tutorials/beginner/javascript-basics',
+			title: 'JavaScript Basics Overview',
+		},
+		next: {
+			path: '/tutorials/beginner/javascript-basics/variables-data-types',
+			title: 'Variables and Data Types',
+		},
+	},
+	'javascript-basics-variables-data-types': {
+		prev: {
+			path: '/tutorials/beginner/javascript-basics/introduction',
+			title: 'Introduction to JavaScript',
+		},
+		next: {
+			path: '/tutorials/beginner/javascript-basics/conditionals',
+			title: 'Conditionals and Logic',
+		},
 	},
 };
 

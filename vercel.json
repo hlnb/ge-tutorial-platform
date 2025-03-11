@@ -1,14 +1,19 @@
 {
 	"version": 2,
-	"framework": "vite",
-	"buildCommand": "npm run build",
-	"outputDirectory": "dist",
-	"build": {
-		"env": {
-			"NODE_VERSION": "18.x"
+	"builds": [
+		{
+			"src": "package.json",
+			"use": "@vercel/static-build",
+			"config": {
+				"distDir": "dist"
+			}
 		}
-	},
-	"env": {
-		"VITE_REDIS_URL": "redis://default:FQ7mtgPcF9DJsNN6enyTxn8aHugs2qhK@redis-11112.c295.ap-southeast-1-1.ec2.redns.redis-cloud.com:11112"
+	],
+	"routes": [
+		{ "handle": "filesystem" },
+		{ "src": "/(.*)", "dest": "/index.html" }
+	],
+	"github": {
+		"silent": true
 	}
 }

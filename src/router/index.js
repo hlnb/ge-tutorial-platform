@@ -441,6 +441,38 @@ const routes = [
 					},
 				],
 			},
+
+			// JavaScript Basics section
+			{
+				path: 'javascript-basics',
+				name: 'javascript-basics-section',
+				component: () => import('@/layouts/TutorialLayout.vue'),
+				children: [
+					{
+						path: '',
+						name: 'javascript-basics-index',
+						component: () =>
+							import('@/pages/tutorials/beginner/javascript-basics/index.vue'),
+					},
+					{
+						path: 'introduction',
+						name: 'javascript-basics-introduction',
+						component: () =>
+							import(
+								'@/pages/tutorials/beginner/javascript-basics/introduction.vue'
+							),
+					},
+					{
+						path: 'variables-data-types',
+						name: 'javascript-basics-variables-data-types',
+						component: () =>
+							import(
+								'@/pages/tutorials/beginner/javascript-basics/variables-data-types.vue'
+							),
+					},
+					// Add more JavaScript tutorials as they are created
+				],
+			},
 		],
 	},
 
