@@ -276,27 +276,27 @@ const tutorialMap = {
 	'javascript-basics-index': {
 		prev: { path: '/tutorials/css-basics/flexbox', title: 'Flexbox' },
 		next: {
-			path: '/tutorials/beginner/javascript-basics/introduction',
+			path: '/tutorials/javascript-basics/introduction',
 			title: 'Introduction to JavaScript',
 		},
 	},
 	'javascript-basics-introduction': {
 		prev: {
-			path: '/tutorials/beginner/javascript-basics',
+			path: '/tutorials/javascript-basics',
 			title: 'JavaScript Basics Overview',
 		},
 		next: {
-			path: '/tutorials/beginner/javascript-basics/variables-data-types',
+			path: '/tutorials/javascript-basics/variables-data-types',
 			title: 'Variables and Data Types',
 		},
 	},
 	'javascript-basics-variables-data-types': {
 		prev: {
-			path: '/tutorials/beginner/javascript-basics/introduction',
+			path: '/tutorials/javascript-basics/introduction',
 			title: 'Introduction to JavaScript',
 		},
 		next: {
-			path: '/tutorials/beginner/javascript-basics/conditionals',
+			path: '/tutorials/javascript-basics/conditionals',
 			title: 'Conditionals and Logic',
 		},
 	},

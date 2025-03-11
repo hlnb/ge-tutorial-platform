@@ -470,6 +470,14 @@ const routes = [
 								'@/pages/tutorials/beginner/javascript-basics/variables-data-types.vue'
 							),
 					},
+					{
+						path: 'conditionals',
+						name: 'javascript-basics-conditionals',
+						component: () =>
+							import(
+								'@/pages/tutorials/beginner/javascript-basics/conditionals.vue'
+							),
+					},
 					// Add more JavaScript tutorials as they are created
 				],
 			},

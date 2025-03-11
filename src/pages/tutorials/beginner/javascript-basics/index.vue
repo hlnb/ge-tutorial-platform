@@ -20,7 +20,35 @@
 			<span class="tag is-success">JavaScript</span>
 		</div>
 
-		<h1 class="title is-1"><i class="fab fa-js"></i> JavaScript Basics</h1>
+		<h1 class="title is-1">
+			<span class="js-logo-container">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 630 630"
+					class="js-logo"
+				>
+					<g id="js-logo">
+						<rect
+							id="background"
+							x="0"
+							y="0"
+							width="630"
+							height="630"
+							fill="#f7df1e"
+						/>
+						<path
+							id="j"
+							d="m 165.65,526.47375 48.2125,-29.1775 C 223.16375,513.7875 231.625,527.74 251.92,527.74 c 19.45375,0 31.71875,-7.60975 31.71875,-37.21 l 0,-201.3 59.20375,0 0,202.1375 c 0,61.32 -35.94375,89.23125 -88.385,89.23125 -47.36125,0 -74.8525,-24.52875 -88.8075,-54.13"
+						/>
+						<path
+							id="s"
+							d="m 375,520.13 48.20625,-27.91125 c 12.69,20.72375 29.1825,35.9475 58.36125,35.9475 24.53125,0 40.17375,-12.26475 40.17375,-29.18125 0,-20.29875 -16.06875,-27.48875 -43.135,-39.32625 l -14.7975,-6.3475 c -42.715,-18.18125 -71.05,-41.0175 -71.05,-89.2275 0,-44.40375 33.83125,-78.2375 86.695,-78.2375 37.6375,0 64.7025,13.11125 84.15375,47.36625 l -46.09625,29.60125 c -10.15,-18.1825 -21.1425,-25.37125 -38.0575,-25.37125 -17.33875,0 -28.335,10.995 -28.335,25.37125 0,17.7625 10.99625,24.9525 36.3675,35.94875 l 14.8,6.3425 c 50.325,21.56875 78.66,43.5575 78.66,93.03375 0,53.2875 -41.86625,82.465 -98.11,82.465 -54.97625,0 -90.5,-26.2175 -107.83625,-60.47375"
+						/>
+					</g>
+				</svg>
+			</span>
+			JavaScript Basics
+		</h1>
 
 		<div class="box mb-6">
 			<h3 class="title is-4">
@@ -295,191 +323,113 @@
 		</div>
 
 		<h2 class="title is-2">What You'll Learn</h2>
-		<div class="tutorials-list">
-			<div class="card mb-4">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<span class="icon is-large">
-								<i class="fas fa-rocket fa-2x"></i>
-							</span>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">
-								<router-link
-									to="/tutorials/beginner/javascript-basics/introduction"
-								>
-									Introduction to JavaScript
-								</router-link>
-							</p>
-							<p class="subtitle is-6">
-								Learn what JavaScript is and how to add it to your web pages
-							</p>
+		<div class="tutorial-grid">
+			<div class="tutorial-card">
+				<router-link to="/tutorials/javascript-basics/introduction">
+					<div class="card">
+						<div class="card-content">
+							<h3 class="title is-4">
+								<i class="fas fa-flag"></i> Introduction
+							</h3>
+							<p>Learn what JavaScript is and how to add it to your website</p>
+							<span class="tag is-info mt-2">15 min</span>
 						</div>
 					</div>
-				</div>
+				</router-link>
 			</div>
 
-			<div class="card mb-4">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<span class="icon is-large">
-								<i class="fas fa-box fa-2x"></i>
-							</span>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">
-								<router-link
-									to="/tutorials/beginner/javascript-basics/variables-data-types"
-								>
-									Variables and Data Types
-								</router-link>
-							</p>
-							<p class="subtitle is-6">
-								Store and manipulate different types of information
-							</p>
+			<div class="tutorial-card">
+				<router-link to="/tutorials/javascript-basics/variables-data-types">
+					<div class="card">
+						<div class="card-content">
+							<h3 class="title is-4">
+								<i class="fas fa-cube"></i> Variables and Data Types
+							</h3>
+							<p>Learn how to store and work with different types of data</p>
+							<span class="tag is-info mt-2">30 min</span>
 						</div>
 					</div>
-				</div>
+				</router-link>
 			</div>
 
-			<div class="card mb-4">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<span class="icon is-large">
-								<i class="fas fa-calculator fa-2x"></i>
-							</span>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">
-								<router-link
-									to="/tutorials/beginner/javascript-basics/operators"
-								>
-									Operators and Expressions
-								</router-link>
-							</p>
-							<p class="subtitle is-6">
-								Perform calculations and combine values
-							</p>
+			<div class="tutorial-card">
+				<router-link to="/tutorials/javascript-basics/operators">
+					<div class="card">
+						<div class="card-content">
+							<h3 class="title is-4">
+								<i class="fas fa-calculator"></i> Operators
+							</h3>
+							<p>Learn about operators for math, comparison, and logic</p>
+							<span class="tag is-info mt-2">30 min</span>
 						</div>
 					</div>
-				</div>
+				</router-link>
 			</div>
 
-			<div class="card mb-4">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<span class="icon is-large">
-								<i class="fas fa-code-branch fa-2x"></i>
-							</span>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">
-								<router-link
-									to="/tutorials/beginner/javascript-basics/conditionals"
-								>
-									Conditionals and Logic
-								</router-link>
-							</p>
-							<p class="subtitle is-6">
-								Make decisions in your code based on conditions
-							</p>
+			<div class="tutorial-card">
+				<router-link to="/tutorials/javascript-basics/conditionals">
+					<div class="card">
+						<div class="card-content">
+							<h3 class="title is-4">
+								<i class="fas fa-code-branch"></i> Control Flow
+							</h3>
+							<p>Learn how to make decisions and repeat actions in your code</p>
+							<span class="tag is-info mt-2">45 min</span>
 						</div>
 					</div>
-				</div>
+				</router-link>
 			</div>
 
-			<div class="card mb-4">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<span class="icon is-large">
-								<i class="fas fa-redo fa-2x"></i>
-							</span>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">
-								<router-link to="/tutorials/beginner/javascript-basics/loops">
-									Loops
-								</router-link>
-							</p>
-							<p class="subtitle is-6">
-								Repeat actions efficiently with different types of loops
-							</p>
+			<div class="tutorial-card">
+				<router-link to="/tutorials/javascript-basics/loops">
+					<div class="card">
+						<div class="card-content">
+							<h3 class="title is-4"><i class="fas fa-redo"></i> Loops</h3>
+							<p>Repeat actions efficiently with different types of loops</p>
+							<span class="tag is-info mt-2">30 min</span>
 						</div>
 					</div>
-				</div>
+				</router-link>
 			</div>
 
-			<div class="card mb-4">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<span class="icon is-large">
-								<i class="fas fa-cogs fa-2x"></i>
-							</span>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">
-								<router-link
-									to="/tutorials/beginner/javascript-basics/functions"
-								>
-									Functions
-								</router-link>
-							</p>
-							<p class="subtitle is-6">Create reusable blocks of code</p>
+			<div class="tutorial-card">
+				<router-link to="/tutorials/javascript-basics/functions">
+					<div class="card">
+						<div class="card-content">
+							<h3 class="title is-4"><i class="fas fa-cogs"></i> Functions</h3>
+							<p>Create reusable blocks of code</p>
+							<span class="tag is-info mt-2">30 min</span>
 						</div>
 					</div>
-				</div>
+				</router-link>
 			</div>
 
-			<div class="card mb-4">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<span class="icon is-large">
-								<i class="fas fa-sitemap fa-2x"></i>
-							</span>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">
-								<router-link
-									to="/tutorials/beginner/javascript-basics/dom-manipulation"
-								>
-									DOM Manipulation
-								</router-link>
-							</p>
-							<p class="subtitle is-6">
-								Interact with HTML elements to create dynamic web pages
-							</p>
+			<div class="tutorial-card">
+				<router-link to="/tutorials/javascript-basics/dom-manipulation">
+					<div class="card">
+						<div class="card-content">
+							<h3 class="title is-4">
+								<i class="fas fa-sitemap"></i> DOM Manipulation
+							</h3>
+							<p>Interact with HTML elements to create dynamic web pages</p>
+							<span class="tag is-info mt-2">30 min</span>
 						</div>
 					</div>
-				</div>
+				</router-link>
 			</div>
 
-			<div class="card mb-4">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<span class="icon is-large">
-								<i class="fas fa-mouse-pointer fa-2x"></i>
-							</span>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">
-								<router-link to="/tutorials/beginner/javascript-basics/events">
-									Events
-								</router-link>
-							</p>
-							<p class="subtitle is-6">
-								Respond to user actions like clicks, key presses, and more
-							</p>
+			<div class="tutorial-card">
+				<router-link to="/tutorials/javascript-basics/events">
+					<div class="card">
+						<div class="card-content">
+							<h3 class="title is-4">
+								<i class="fas fa-mouse-pointer"></i> Events
+							</h3>
+							<p>Respond to user actions like clicks, key presses, and more</p>
+							<span class="tag is-info mt-2">30 min</span>
 						</div>
 					</div>
-				</div>
+				</router-link>
 			</div>
 		</div>
 
@@ -504,7 +454,7 @@
 			<p>
 				<i class="fas fa-check-circle mr-2"></i>
 				<strong>Ready to start?</strong> Begin with the
-				<router-link to="/tutorials/beginner/javascript-basics/introduction">
+				<router-link to="/tutorials/javascript-basics/introduction">
 					Introduction to JavaScript
 				</router-link>
 				tutorial to take your first steps into programming!
@@ -538,6 +488,13 @@ export default {
 </script>
 
 <style scoped>
+.js-icon {
+	color: black;
+	background-color: #f7df1e;
+	padding: 0.2rem;
+	border-radius: 0.2rem;
+}
+
 .tutorials-list .card {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
