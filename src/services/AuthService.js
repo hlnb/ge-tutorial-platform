@@ -1,10 +1,10 @@
 /**
  * Authentication Service
- * Handles user authentication using Vercel KV for storage
+ * Handles user authentication using Redis for storage
  */
 
-// Import the KV client from the Vercel SDK
-import { kv } from '@vercel/kv';
+// Import the shared Redis client
+import { getRedisClient, isRedisConnected } from './redisClient';
 import externalProgressService from './ExternalProgressService';
 
 class AuthService {
@@ -66,8 +66,24 @@ class AuthService {
 	 */
 	async register(email, password, name) {
 		try {
+			if (!isRedisConnected()) {
+				return {
+					success: false,
+					message: 'Database connection error. Please try again later.',
+				};
+			}
+
+			// Get Redis client
+			const redis = await getRedisClient();
+			if (!redis) {
+				return {
+					success: false,
+					message: 'Database connection error. Please try again later.',
+				};
+			}
+
 			// Check if user already exists
-			const existingUser = await kv.get(`user:email:${email}`);
+			const existingUser = await redis.get(`user:email:${email}`);
 			if (existingUser) {
 				return { success: false, message: 'Email already registered' };
 			}
@@ -84,9 +100,9 @@ class AuthService {
 				createdAt: Date.now(),
 			};
 
-			// Store user in KV
-			await kv.set(`user:${userId}`, user);
-			await kv.set(`user:email:${email}`, userId);
+			// Store user in Redis
+			await redis.set(`user:${userId}`, JSON.stringify(user));
+			await redis.set(`user:email:${email}`, userId);
 
 			// Remove password before storing in local storage
 			const userForStorage = { ...user };
@@ -117,17 +133,35 @@ class AuthService {
 	 */
 	async login(email, password) {
 		try {
+			if (!isRedisConnected()) {
+				return {
+					success: false,
+					message: 'Database connection error. Please try again later.',
+				};
+			}
+
+			// Get Redis client
+			const redis = await getRedisClient();
+			if (!redis) {
+				return {
+					success: false,
+					message: 'Database connection error. Please try again later.',
+				};
+			}
+
 			// Get user ID by email
-			const userId = await kv.get(`user:email:${email}`);
+			const userId = await redis.get(`user:email:${email}`);
 			if (!userId) {
 				return { success: false, message: 'Invalid email or password' };
 			}
 
 			// Get user data
-			const user = await kv.get(`user:${userId}`);
-			if (!user) {
+			const userData = await redis.get(`user:${userId}`);
+			if (!userData) {
 				return { success: false, message: 'Invalid email or password' };
 			}
+
+			const user = JSON.parse(userData);
 
 			// Check password
 			const hashedPassword = await this.hashPassword(password);

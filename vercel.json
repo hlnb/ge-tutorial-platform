@@ -7,5 +7,8 @@
 		"env": {
 			"NODE_VERSION": "18.x"
 		}
+	},
+	"env": {
+		"VITE_REDIS_URL": "redis://default:FQ7mtgPcF9DJsNN6enyTxn8aHugs2qhK@redis-11112.c295.ap-southeast-1-1.ec2.redns.redis-cloud.com:11112"
 	}
 }

@@ -7,7 +7,8 @@
 		"dev:api": "node api/server.js",
 		"dev": "concurrently \"npm run dev:vite\" \"npm run dev:api\"",
 		"build": "vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"test:redis": "node --experimental-json-modules test-redis.js"
 	},
 	"dependencies": {
 		"@codemirror/lang-html": "^6.4.9",
@@ -23,10 +24,10 @@
 		"dompurify": "^3.2.3",
 		"mongoose": "^8.9.5",
 		"node-schedule": "^2.1.1",
+		"redis": "^4.7.0",
 		"vue": "^3.3.4",
 		"vue-codemirror": "^4.0.6",
-		"vue-router": "^4.2.4",
-		"@vercel/kv": "^0.2.3"
+		"vue-router": "^4.2.4"
 	},
 	"devDependencies": {
 		"@types/dompurify": "^3.2.0",

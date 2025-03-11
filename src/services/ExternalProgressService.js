@@ -1,11 +1,10 @@
 /**
  * External Progress Service
- * Handles storing and retrieving student progress data using Vercel KV (Redis)
+ * Handles storing and retrieving student progress data using Redis
  */
 
-// Import the KV client from the Vercel SDK
-// Note: You'll need to install @vercel/kv with: npm install @vercel/kv
-import { kv } from '@vercel/kv';
+// Import the shared Redis client
+import { getRedisClient, isRedisConnected } from './redisClient';
 
 class ExternalProgressService {
 	constructor() {
@@ -19,7 +18,7 @@ class ExternalProgressService {
 	 * Initialize the service and check authentication status
 	 */
 	async init() {
-		// Check if user is authenticated (you'll need to implement your auth logic)
+		// Check if user is authenticated
 		this.userId = this.getUserId();
 		this.isAuthenticated = !!this.userId;
 
@@ -32,11 +31,9 @@ class ExternalProgressService {
 	}
 
 	/**
-	 * Get the current user ID (implement your auth logic here)
+	 * Get the current user ID
 	 */
 	getUserId() {
-		// This is a placeholder - replace with your actual auth implementation
-		// For example, you might get this from a JWT token or session cookie
 		return localStorage.getItem('ge_user_id');
 	}
 
@@ -92,15 +89,19 @@ class ExternalProgressService {
 	}
 
 	/**
-	 * Get progress data from Vercel KV
+	 * Get progress data from Redis
 	 */
 	async getRemoteProgress() {
-		if (!this.isAuthenticated) return null;
+		if (!this.isAuthenticated || !isRedisConnected()) return null;
 
 		try {
-			// Get progress data from Vercel KV
-			const progressData = await kv.get(`progress:${this.userId}`);
-			return progressData || {};
+			// Get Redis client
+			const redis = await getRedisClient();
+			if (!redis) return null;
+
+			// Get progress data from Redis
+			const progressData = await redis.get(`progress:${this.userId}`);
+			return progressData ? JSON.parse(progressData) : {};
 		} catch (error) {
 			console.error('Error getting remote progress:', error);
 			return null;
@@ -108,14 +109,20 @@ class ExternalProgressService {
 	}
 
 	/**
-	 * Save progress data to Vercel KV
+	 * Save progress data to Redis
 	 */
 	async saveRemoteProgress(progressData) {
-		if (!this.isAuthenticated) return false;
+		if (!this.isAuthenticated || !isRedisConnected()) return false;
 
 		try {
-			// Save progress data to Vercel KV with an expiration of 1 year
-			await kv.set(`progress:${this.userId}`, progressData, { ex: 31536000 });
+			// Get Redis client
+			const redis = await getRedisClient();
+			if (!redis) return false;
+
+			// Save progress data to Redis with an expiration of 1 year (in seconds)
+			await redis.set(`progress:${this.userId}`, JSON.stringify(progressData), {
+				EX: 31536000,
+			});
 			return true;
 		} catch (error) {
 			console.error('Error saving remote progress:', error);
@@ -127,7 +134,8 @@ class ExternalProgressService {
 	 * Sync local progress with remote progress
 	 */
 	async syncProgress() {
-		if (!this.isAuthenticated || this.syncInProgress) return false;
+		if (!this.isAuthenticated || this.syncInProgress || !isRedisConnected())
+			return false;
 
 		this.syncInProgress = true;
 
@@ -203,7 +211,7 @@ class ExternalProgressService {
 		this.saveLocalProgress(progressData);
 
 		// If authenticated, sync with remote
-		if (this.isAuthenticated) {
+		if (this.isAuthenticated && isRedisConnected()) {
 			this.syncProgress();
 		}
 
@@ -231,7 +239,7 @@ class ExternalProgressService {
 		this.saveLocalProgress(progressData);
 
 		// If authenticated, sync with remote
-		if (this.isAuthenticated) {
+		if (this.isAuthenticated && isRedisConnected()) {
 			this.syncProgress();
 		}
 
@@ -261,7 +269,7 @@ class ExternalProgressService {
 		this.saveLocalProgress(progressData);
 
 		// If authenticated, sync with remote
-		if (this.isAuthenticated) {
+		if (this.isAuthenticated && isRedisConnected()) {
 			this.syncProgress();
 		}
 
@@ -286,7 +294,7 @@ class ExternalProgressService {
 	 */
 	async getAllProgress() {
 		// If authenticated, sync first to get latest data
-		if (this.isAuthenticated) {
+		if (this.isAuthenticated && isRedisConnected()) {
 			await this.syncProgress();
 		}
 
