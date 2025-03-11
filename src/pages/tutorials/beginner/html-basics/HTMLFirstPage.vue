@@ -208,6 +208,9 @@ Best time to visit: September to May</pre
 			</p>
 		</div>
 
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations />
+
 		<!-- Quiz Section -->
 		<QuizComponent
 			title="HTML Basics Quiz"
@@ -351,6 +354,7 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
 import QuizComponent from '@/components/QuizComponent.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');

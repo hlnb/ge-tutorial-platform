@@ -123,11 +123,73 @@ export const posts = {
 	},
 };
 
+// Project routes
+const projectRoutes = [
+	{
+		path: '/projects',
+		name: 'projects',
+		component: () => import('@/pages/projects/index.vue'),
+		meta: {
+			title: 'Practice Projects',
+			description:
+				"Apply what you've learned with these hands-on web development projects",
+		},
+	},
+	{
+		path: '/projects/personal-profile',
+		name: 'personal-profile',
+		component: () => import('@/pages/projects/personal-profile.vue'),
+		meta: {
+			title: 'Personal Profile Page Project',
+			description:
+				'Create a simple personal profile page with basic HTML structure',
+		},
+	},
+	{
+		path: '/projects/recipe-page',
+		name: 'recipe-page',
+		component: () => import('@/pages/projects/recipe-page.vue'),
+		meta: {
+			title: 'Recipe Page Project',
+			description: 'Build a page for your favorite recipe using HTML structure',
+		},
+	},
+	{
+		path: '/projects/photo-gallery',
+		name: 'photo-gallery',
+		component: () => import('@/pages/projects/photo-gallery.vue'),
+		meta: {
+			title: 'Photo Gallery Project',
+			description: 'Build a simple photo gallery with images and captions',
+		},
+	},
+	{
+		path: '/projects/card-components',
+		name: 'card-components',
+		component: () => import('@/pages/projects/card-components.vue'),
+		meta: {
+			title: 'Card Components Project',
+			description: 'Create different card designs using the CSS box model',
+		},
+	},
+	{
+		path: '/projects/selector-challenge',
+		name: 'selector-challenge',
+		component: () => import('@/pages/projects/selector-challenge.vue'),
+		meta: {
+			title: 'CSS Selector Challenge',
+			description: 'Practice using different CSS selectors to style elements',
+		},
+	},
+	// Add more project routes as needed
+];
+
 const routes = [
 	// RSS Feed route
 	{
 		path: '/rss.xml',
 		name: 'rss-feed',
+		component: () => import('@/pages/404.vue'),
 		beforeEnter: (to, from, next) => {
 			// Generate RSS feed and serve it
 			const xml = RSSFeedService.generateRSSFeed();
@@ -488,6 +550,8 @@ const routes = [
 			title: 'My Learning Progress',
 		},
 	},
+	// Add the projects routes
+	...projectRoutes,
 	// Catch-all route for 404
 	{
 		path: '/:pathMatch(.*)*',

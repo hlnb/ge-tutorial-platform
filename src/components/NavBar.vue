@@ -11,8 +11,14 @@
 				<router-link class="navbar-item has-text-dark" to="/tutorials">
 					Tutorials
 				</router-link>
+				<router-link class="navbar-item has-text-dark" to="/projects">
+					Projects
+				</router-link>
 				<router-link class="navbar-item has-text-dark" to="/about">
 					About
+				</router-link>
+				<router-link class="navbar-item has-text-dark" to="/blog">
+					Blog
 				</router-link>
 				<router-link
 					class="navbar-item has-text-dark"

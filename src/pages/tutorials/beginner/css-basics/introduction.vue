@@ -401,6 +401,9 @@
 			</article>
 		</section>
 
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations />
+
 		<section class="mt-6">
 			<h2 class="title is-3">Test Your Knowledge</h2>
 			<p class="mb-4">
@@ -440,6 +443,7 @@ import QuizComponent from '@/components/QuizComponent.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import { useRoute } from 'vue-router';
 import { useProgressTracking } from '@/utils/progressUtils';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 const frontmatter = {
 	title: 'Introduction to CSS',

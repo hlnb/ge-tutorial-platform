@@ -348,6 +348,9 @@
 			</div>
 		</div>
 
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations />
+
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />
 
@@ -379,6 +382,7 @@ import { useProgressTracking } from '@/utils/progressUtils';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');

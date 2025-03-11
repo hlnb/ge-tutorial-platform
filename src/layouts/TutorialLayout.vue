@@ -416,6 +416,9 @@ const tutorialHasQuiz = computed(() => {
 
 // Provide this to child components
 provide('hasQuiz', tutorialHasQuiz);
+
+// Provide the current tutorial info to child components
+provide('currentTutorial', currentTutorial);
 </script>
 
 <style scoped>
