@@ -478,6 +478,30 @@ const routes = [
 								'@/pages/tutorials/beginner/javascript-basics/conditionals.vue'
 							),
 					},
+					{
+						path: 'operators',
+						name: 'javascript-basics-operators',
+						component: () =>
+							import(
+								'../pages/tutorials/beginner/javascript-basics/operators.vue'
+							),
+						meta: {
+							title: 'Operators & Expressions in JavaScript',
+							description:
+								'Learn about JavaScript operators for calculations, comparisons, and logical operations',
+						},
+					},
+					{
+						path: 'loops',
+						name: 'javascript-basics-loops',
+						component: () =>
+							import('../pages/tutorials/beginner/javascript-basics/loops.vue'),
+						meta: {
+							title: 'Loops in JavaScript',
+							description:
+								'Learn how to use loops to repeat actions and iterate through data in JavaScript',
+						},
+					},
 					// Add more JavaScript tutorials as they are created
 				],
 			},
