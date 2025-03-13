@@ -1582,9 +1582,14 @@ for (const course in menu) {
 
 <script setup>
 import { ref } from 'vue';
-import { CodeMirror } from '@/components/CodeMirror.vue';
-import { TutorialRecommendations } from '@/components/TutorialRecommendations.vue';
-import { TutorialQuiz } from '@/components/TutorialQuiz.vue';
+import * as CodeMirrorModule from '@/components/CodeMirror.vue';
+import * as TutorialRecommendationsModule from '@/components/TutorialRecommendations.vue';
+import * as TutorialQuizModule from '@/components/TutorialQuiz.vue';
+
+// Use the components with their namespace
+const CodeMirror = CodeMirrorModule.default || CodeMirrorModule.CodeMirror;
+const TutorialRecommendations = TutorialRecommendationsModule.default || TutorialRecommendationsModule.TutorialRecommendations;
+const TutorialQuiz = TutorialQuizModule.default || TutorialQuizModule.TutorialQuiz;
 
 // Toggle solution visibility
 const showSolution = ref(false);
