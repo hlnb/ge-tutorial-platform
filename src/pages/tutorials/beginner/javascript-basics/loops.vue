@@ -1582,9 +1582,9 @@ for (const course in menu) {
 
 <script setup>
 import { ref } from 'vue';
-import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import { CodeMirror } from '@/components/CodeMirror.vue';
+import { TutorialRecommendations } from '@/components/TutorialRecommendations.vue';
+import { TutorialQuiz } from '@/components/TutorialQuiz.vue';
 
 // Toggle solution visibility
 const showSolution = ref(false);
