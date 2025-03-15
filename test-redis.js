@@ -1,26 +1,40 @@
-import { getRedisClient } from './src/services/redisClient.js';
+import { getRedisClient, closeRedisConnection } from './src/services/redisClient.js';
 
 async function testRedisConnection() {
+	console.log('Testing Redis connection...');
+	
 	try {
-		console.log('Testing Redis connection...');
-		const redis = await getRedisClient();
-
-		if (redis) {
-			console.log('Successfully connected to Redis!');
-
-			// Test setting and getting a value
-			await redis.set('test-key', 'Hello from GraphiteEdge!');
-			const value = await redis.get('test-key');
-			console.log('Test value:', value);
-
-			// Clean up
-			await redis.del('test-key');
-		} else {
+		const client = await getRedisClient();
+		
+		if (!client) {
 			console.error('Failed to get Redis client');
+			process.exit(1);
 		}
+
+		// Test basic operations
+		console.log('Testing basic Redis operations...');
+		
+		// Set a test value
+		await client.set('test_key', 'test_value');
+		console.log('Successfully set test value');
+
+		// Get the test value
+		const value = await client.get('test_key');
+		console.log('Retrieved test value:', value);
+
+		// Delete the test value
+		await client.del('test_key');
+		console.log('Successfully deleted test value');
+
+		// Close the connection
+		await closeRedisConnection();
+		console.log('Redis test completed successfully');
+		process.exit(0);
 	} catch (error) {
-		console.error('Error testing Redis connection:', error);
+		console.error('Redis test failed:', error);
+		process.exit(1);
 	}
 }
 
+// Run the test
 testRedisConnection();

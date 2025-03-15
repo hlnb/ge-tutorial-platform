@@ -331,7 +331,7 @@
 				</div>
 
 				<div class="box">
-					<h2 class="title is-3">
+					<h2 id="practice"class="title is-3">
 						<i class="fas fa-laptop-code"></i> Getting Ready to Practice
 					</h2>
 
@@ -625,7 +625,6 @@ onMounted(() => {
 			],
 		},
 		{ id: 'css-syntax', title: 'CSS Syntax' },
-		{ id: 'our-projects', title: 'Our Projects' },
 		{ id: 'practice', title: 'Practice Exercise' },
 	];
 });

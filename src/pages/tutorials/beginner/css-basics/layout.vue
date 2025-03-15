@@ -24,42 +24,41 @@ const sections = [
 		subsections: [
 			{ id: 'display-property', title: 'The Display Property' },
 			{ id: 'positioning', title: 'CSS Positioning' },
-			{ id: 'float-clear', title: 'Float and Clear' },
+			{ id: 'float-and-clear', title: 'Float and Clear' },
 		],
 	},
 	{
 		id: 'layout-techniques',
 		title: 'Common Layout Techniques',
 		subsections: [
-			{ id: 'two-column', title: 'Two Column Layout' },
-			{ id: 'three-column', title: 'Three Column Layout' },
-			{ id: 'holy-grail', title: 'Holy Grail Layout' },
+			{ id: 'two-column-layout', title: 'Two Column Layout' },
+			{ id: 'holy-grail-layout', title: 'Holy Grail Layout' },
 		],
 	},
 	{
-		id: 'basic-patterns',
+		id: 'layout-patterns',
 		title: 'Basic Layout Patterns',
 		subsections: [
-			{ id: 'stack', title: 'The Stack Pattern' },
-			{ id: 'box pattern', title: 'The Box Pattern' },
-			{ id: 'center pattern', title: 'The Center Pattern' },
+			{ id: 'stack-pattern', title: 'The Stack Pattern' },
+			{ id: 'box-pattern', title: 'The Box Pattern' },
+			{ id: 'center-pattern', title: 'The Center Pattern' },
 		],
 	},
 	{
 		id: 'common-structures',
 		title: 'Common Layout Structures',
 		subsections: [
-			{ id: 'cluster pattern', title: 'The Cluster Pattern' },
-			{ id: 'sidebar pattern', title: 'The Sidebar Pattern' },
-			{ id: 'grid pattern', title: 'The Grid Pattern' },
+			{ id: 'cluster-pattern', title: 'The Cluster Pattern' },
+			{ id: 'sidebar-pattern', title: 'The Sidebar Pattern' },
+			{ id: 'grid-pattern', title: 'The Grid Pattern' },
 		],
 	},
 	{
-		id: 'exercises',
+		id: 'practical-exercises',
 		title: 'Practical Exercises',
 		subsections: [
-			{ id: 'black-swan-exercise', title: 'Black Swan Bistro Layout' },
-			{ id: 'rotto-rocks-exercise', title: 'Rotto Rocks Layout' },
+			{ id: 'black-swan-bistro', title: 'Black Swan Bistro Layout' },
+			{ id: 'rotto-rocks', title: 'Rotto Rocks Layout' },
 		],
 	},
 ];
@@ -628,8 +627,8 @@ const clearExample = ref(`/* Clear example */
 				</div>
 			</div>
 
-			<div id="positioning" class="mt-6">
-				<h3 class="title is-4">Positioning</h3>
+			<div id="positioning">
+				<h3 class="title is-4">CSS Positioning</h3>
 				<p>
 					Positioning allows you to control where elements appear on the page.
 					Understanding the relationship between parent and child positioning is
@@ -774,7 +773,7 @@ const clearExample = ref(`/* Clear example */
 				</div>
 			</div>
 
-			<div id="float-clear" class="mt-6">
+			<div id="float-and-clear">
 				<h3 class="title is-4">Float and Clear</h3>
 				<p>
 					Float moves elements to the left or right, allowing content to wrap
@@ -892,10 +891,10 @@ const clearExample = ref(`/* Clear example */
 			</div>
 		</section>
 
-		<section id="layout-techniques" class="box mt-6">
+		<section id="layout-techniques">
 			<h2 class="title is-3">Common Layout Techniques</h2>
 
-			<div id="two-column">
+			<div id="two-column-layout">
 				<h3 class="title is-4">Two Column Layout</h3>
 				<CodeMirror v-model="twoColumnExample" readonly />
 
@@ -941,7 +940,8 @@ const clearExample = ref(`/* Clear example */
 				</svg>
 			</div>
 
-			<div id="holy-grail" class="box mt-6">
+		
+			<div id="holy-grail-layout">
 				<h3 class="title is-4">Holy Grail Layout</h3>
 				<CodeMirror v-model="holyGrailExample" readonly />
 
@@ -1020,11 +1020,10 @@ const clearExample = ref(`/* Clear example */
 			</div>
 		</section>
 
-		<section id="basic-patterns" class="box mt-6">
+		<section id="layout-patterns">
 			<h2 class="title is-3">Basic Layout Patterns</h2>
 
-			<!-- The Stack -->
-			<div id="stack-pattern" class="box">
+			<div id="stack-pattern">
 				<h3 class="title is-4">The Stack Pattern</h3>
 				<p>
 					The Stack pattern creates consistent vertical spacing between
@@ -1095,8 +1094,7 @@ const clearExample = ref(`/* Clear example */
 				</svg>
 			</div>
 
-			<!-- The Box -->
-			<div id="box-pattern" class="box mt-6">
+			<div id="box-pattern">
 				<h3 class="title is-4">The Box Pattern</h3>
 				<p>
 					The Box pattern creates contained content with consistent padding and
@@ -1153,8 +1151,7 @@ const clearExample = ref(`/* Clear example */
 				</svg>
 			</div>
 
-			<!-- The Center -->
-			<div id="center-pattern" class="box mt-6">
+			<div id="center-pattern">
 				<h3 class="title is-4">The Center Pattern</h3>
 				<p>
 					The Center pattern creates horizontally centered content, commonly
@@ -1209,11 +1206,10 @@ const clearExample = ref(`/* Clear example */
 			</div>
 		</section>
 
-		<section id="common-structures" class="mt-6">
-			<h2 class="title is-3">Common Structures</h2>
+		<section id="common-structures">
+			<h2 class="title is-3">Common Layout Structures</h2>
 
-			<!-- The Cluster -->
-			<div id="cluster-pattern" class="box">
+			<div id="cluster-pattern">
 				<h3 class="title is-4">The Cluster Pattern</h3>
 				<p>
 					The Cluster pattern groups related items together, like navigation
@@ -1233,8 +1229,7 @@ const clearExample = ref(`/* Clear example */
 				</div>
 			</div>
 
-			<!-- The Sidebar -->
-			<div id="sidebar-pattern" class="box mt-6">
+			<div id="sidebar-pattern">
 				<h3 class="title is-4">The Sidebar Pattern</h3>
 				<p>
 					The Sidebar pattern creates a two-column layout with main content and
@@ -1253,9 +1248,8 @@ const clearExample = ref(`/* Clear example */
 				</div>
 			</div>
 
-			<!-- The Simple Grid -->
-			<div id="simple-grid-pattern" class="box mt-6">
-				<h3 class="title is-4">The Simple Grid Pattern</h3>
+			<div id="grid-pattern">
+				<h3 class="title is-4">The Grid Pattern</h3>
 				<p>A basic grid layout using floats and percentage widths.</p>
 
 				<div class="example-container">
@@ -1271,12 +1265,12 @@ const clearExample = ref(`/* Clear example */
 				</div>
 			</div>
 		</section>
-		<section id="exercises" class="box mt-6">
+
+		<section id="practical-exercises">
 			<h2 class="title is-3">Practical Exercises</h2>
 
-			<!-- Black Swan Exercise -->
-			<div class="box exercise">
-				<h3 class="title is-4">Exercise 1: Black Swan Bistro Layout</h3>
+			<div id="black-swan-bistro">
+				<h3 class="title is-4">Black Swan Bistro Layout</h3>
 
 				<div class="notification is-light">
 					<h4 class="title is-5">Requirements</h4>
@@ -1315,9 +1309,8 @@ const clearExample = ref(`/* Clear example */
 				</div>
 			</div>
 
-			<!-- Rotto Rocks Exercise -->
-			<div class="box exercise">
-				<h3 class="title is-4">Exercise 2: Rotto Rocks Layout</h3>
+			<div id="rotto-rocks">
+				<h3 class="title is-4">Rotto Rocks Layout</h3>
 
 				<div class="notification is-light">
 					<h4 class="title is-5">Requirements</h4>
@@ -1358,10 +1351,10 @@ const clearExample = ref(`/* Clear example */
 
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 class="title is-3">Summary</h2>
+			<h2 id="summary" class="title is-3">Summary</h2>
 
 			<div class="content">
-				<h3 class="title is-4">What We've Learned</h3>
+				<h3 id="what-we-ve-learned" class="title is-4">What We've Learned</h3>
 				<ul>
 					<li>
 						<strong>Display Properties</strong>: Understanding block, inline,
@@ -1394,7 +1387,7 @@ const clearExample = ref(`/* Clear example */
 				</ul>
 
 				<div class="next-steps mt-6">
-					<h3 class="title is-4">Where to Next?</h3>
+					<h3 id="where-to-next" class="title is-4">Where to Next?</h3>
 					<p>
 						Now that you understand how to structure and layout your web pages,
 						it's time to make them visually appealing! In the next tutorial,

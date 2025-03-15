@@ -404,7 +404,7 @@ const routes = [
 							import('@/pages/tutorials/beginner/css-basics/box-model.vue'),
 					},
 					{
-						path: 'text-properties',
+						path: 'text',
 						name: 'css-basics-text-properties',
 						component: () =>
 							import('@/pages/tutorials/beginner/css-basics/text.vue'),

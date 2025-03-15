@@ -147,45 +147,52 @@ const currentPath = computed(() => {
 });
 
 // Check if tutorial is completed
-const checkCompletionStatus = () => {
+const checkCompletionStatus = async () => {
 	if (!progressEnabled.value) return;
 
-	const progress = progressService.getProgress();
-	if (progress && progress.completedTutorials) {
-		isCompleted.value = progress.completedTutorials.includes(currentPath.value);
+	try {
+		const progress = await progressService.getProgress();
+		if (progress && progress.completedTutorials) {
+			isCompleted.value = progress.completedTutorials.includes(currentPath.value);
+		}
+	} catch (error) {
+		console.error('Error checking completion status:', error);
 	}
 };
 
 // Mark tutorial as completed
-const markAsCompleted = () => {
+const markAsCompleted = async () => {
 	if (!progressEnabled.value) {
 		openCookieSettings();
 		return;
 	}
 
-	progressService.markTutorialCompleted(currentPath.value);
-	isCompleted.value = true;
-
-	// Emit completion event
-	emit('tutorial-completed', currentPath.value);
+	try {
+		await progressService.markTutorialCompleted(currentPath.value);
+		isCompleted.value = true;
+		emit('tutorial-completed', currentPath.value);
+	} catch (error) {
+		console.error('Error marking tutorial as completed:', error);
+	}
 };
 
 // Mark tutorial as incomplete
-const markAsIncomplete = () => {
+const markAsIncomplete = async () => {
 	if (!progressEnabled.value) return;
 
-	const progress = progressService.getProgress();
-	if (progress && progress.completedTutorials) {
-		// Remove from completed tutorials
-		const index = progress.completedTutorials.indexOf(currentPath.value);
-		if (index > -1) {
-			progress.completedTutorials.splice(index, 1);
-			progressService.saveProgress(progress);
-			isCompleted.value = false;
-
-			// Emit incomplete event
-			emit('tutorial-incomplete', currentPath.value);
+	try {
+		const progress = await progressService.getProgress();
+		if (progress && progress.completedTutorials) {
+			const index = progress.completedTutorials.indexOf(currentPath.value);
+			if (index > -1) {
+				progress.completedTutorials.splice(index, 1);
+				await progressService.saveProgress(progress);
+				isCompleted.value = false;
+				emit('tutorial-incomplete', currentPath.value);
+			}
 		}
+	} catch (error) {
+		console.error('Error marking tutorial as incomplete:', error);
 	}
 };
 
@@ -215,19 +222,19 @@ const loadCookieSettings = () => {
 	}
 };
 
+// Initialize
+onMounted(async () => {
+	loadCookieSettings();
+	await checkCompletionStatus();
+});
+
 // Watch for route changes
 watch(
 	() => route.path,
-	() => {
-		checkCompletionStatus();
-	},
+	async () => {
+		await checkCompletionStatus();
+	}
 );
-
-// Initialize
-onMounted(() => {
-	loadCookieSettings();
-	checkCompletionStatus();
-});
 
 // Define emits
 const emit = defineEmits(['tutorial-completed', 'tutorial-incomplete']);

@@ -797,7 +797,7 @@ input[required] {
 			</div>
 
 			<div class="box mt-5">
-				<h3 class="title is-4">Exact Value Selector [attribute="value"]</h3>
+				<h3 id="exact-value" class="title is-4">Exact Value Selector [attribute="value"]</h3>
 				<p>Selects elements where the attribute matches an exact value.</p>
 
 				<div class="columns">
@@ -1203,7 +1203,7 @@ p:only-child {
 		</div>
 
 		<div id="practical-exercises" class="mt-6">
-			<h2 class="title is-3">Practical Exercises</h2>
+			<h2 id="practice" class="title is-3">Practical Exercises</h2>
 			<p>
 				Let's practice organizing selectors for our restaurant websites. We'll
 				focus on structuring our CSS selectors before adding properties in later

@@ -3,46 +3,56 @@
  * Service for tracking and managing student progress through tutorials
  */
 
-// Progress Service for tracking tutorial progress
-const PROGRESS_KEY = 'tutorial_progress';
+// Constants
 const COOKIE_ENABLED_KEY = 'progress_tracking_enabled';
+const API_BASE_URL = '/api/progress';
 
-// Initialize with default values
-let progressData = {
+// Default progress structure
+const defaultProgress = {
 	completedTutorials: [],
 	tutorialProgress: {},
 	completedQuizzes: [],
 	quizResults: {},
 };
 
-// Load progress from localStorage if available
-function loadProgress() {
-	if (typeof window === 'undefined') return; // Skip on server-side
-
+// Load progress from API
+async function loadProgress(userId = 'default') {
 	try {
-		const savedProgress = localStorage.getItem(PROGRESS_KEY);
-		if (savedProgress) {
-			progressData = JSON.parse(savedProgress);
+		const response = await fetch(`${API_BASE_URL}/${userId}`);
+		if (!response.ok) {
+			throw new Error('Failed to load progress');
 		}
+		const data = await response.json();
+		return data || defaultProgress;
 	} catch (error) {
 		console.error('Error loading progress:', error);
+		return defaultProgress;
 	}
 }
 
-// Save progress to localStorage
-function saveProgress() {
-	if (typeof window === 'undefined') return; // Skip on server-side
-
+// Save progress to API
+async function saveProgress(progress, userId = 'default') {
 	try {
-		localStorage.setItem(PROGRESS_KEY, JSON.stringify(progressData));
+		const response = await fetch(`${API_BASE_URL}/${userId}`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(progress),
+		});
+		if (!response.ok) {
+			throw new Error('Failed to save progress');
+		}
+		return true;
 	} catch (error) {
 		console.error('Error saving progress:', error);
+		return false;
 	}
 }
 
 // Check if progress tracking is enabled
 function isProgressTrackingEnabled() {
-	if (typeof window === 'undefined') return false; // Skip on server-side
+	if (typeof window === 'undefined') return false;
 
 	try {
 		return localStorage.getItem(COOKIE_ENABLED_KEY) === 'true';
@@ -54,11 +64,10 @@ function isProgressTrackingEnabled() {
 
 // Enable progress tracking
 function enableProgressTracking() {
-	if (typeof window === 'undefined') return; // Skip on server-side
+	if (typeof window === 'undefined') return;
 
 	try {
 		localStorage.setItem(COOKIE_ENABLED_KEY, 'true');
-		loadProgress(); // Reload progress after enabling
 	} catch (error) {
 		console.error('Error enabling progress tracking:', error);
 	}
@@ -66,7 +75,7 @@ function enableProgressTracking() {
 
 // Disable progress tracking
 function disableProgressTracking() {
-	if (typeof window === 'undefined') return; // Skip on server-side
+	if (typeof window === 'undefined') return;
 
 	try {
 		localStorage.setItem(COOKIE_ENABLED_KEY, 'false');
@@ -75,133 +84,140 @@ function disableProgressTracking() {
 	}
 }
 
-// Mark a tutorial as completed
-function markTutorialCompleted(tutorialPath) {
-	if (!isProgressTrackingEnabled() || !tutorialPath) return;
+// Get current progress
+async function getProgress(userId = 'default') {
+	if (!isProgressTrackingEnabled()) return null;
+	return await loadProgress(userId);
+}
 
-	// Initialize if needed
-	if (!progressData.completedTutorials) {
-		progressData.completedTutorials = [];
-	}
+// Mark tutorial as completed
+async function markTutorialCompleted(tutorialPath, userId = 'default') {
+	if (!isProgressTrackingEnabled()) return false;
 
-	// Add to completed tutorials if not already there
-	if (!progressData.completedTutorials.includes(tutorialPath)) {
-		progressData.completedTutorials.push(tutorialPath);
-		saveProgress();
+	try {
+		const progress = await loadProgress(userId);
+		if (!progress.completedTutorials.includes(tutorialPath)) {
+			progress.completedTutorials.push(tutorialPath);
+			await saveProgress(progress, userId);
+		}
+		return true;
+	} catch (error) {
+		console.error('Error marking tutorial as completed:', error);
+		return false;
 	}
 }
 
-// Mark a tutorial as incomplete
-function markTutorialIncomplete(tutorialPath) {
-	if (!isProgressTrackingEnabled() || !tutorialPath) return;
+// Update tutorial progress
+async function updateTutorialProgress(tutorialPath, progressData, userId = 'default') {
+	if (!isProgressTrackingEnabled()) return false;
 
-	// Initialize if needed
-	if (!progressData.completedTutorials) {
-		progressData.completedTutorials = [];
-		return;
-	}
-
-	// Remove from completed tutorials
-	const index = progressData.completedTutorials.indexOf(tutorialPath);
-	if (index !== -1) {
-		progressData.completedTutorials.splice(index, 1);
-		saveProgress();
-	}
-}
-
-// Check if a tutorial is completed
-function isTutorialCompleted(tutorialPath) {
-	if (!isProgressTrackingEnabled() || !tutorialPath) return false;
-
-	return (
-		progressData.completedTutorials &&
-		progressData.completedTutorials.includes(tutorialPath)
-	);
-}
-
-// Track scroll progress for a tutorial
-function trackScrollProgress(tutorialPath, scrollPosition, totalHeight) {
-	if (!isProgressTrackingEnabled() || !tutorialPath) return;
-
-	// Skip if already completed
-	if (isTutorialCompleted(tutorialPath)) return;
-
-	// Calculate progress percentage (0 to 1)
-	const progress = Math.min(scrollPosition / totalHeight, 1);
-
-	// Initialize if needed
-	if (!progressData.tutorialProgress) {
-		progressData.tutorialProgress = {};
-	}
-
-	// Only update if new progress is higher
-	if (
-		!progressData.tutorialProgress[tutorialPath] ||
-		progress > progressData.tutorialProgress[tutorialPath]
-	) {
-		progressData.tutorialProgress[tutorialPath] = progress;
-		saveProgress();
+	try {
+		const progress = await loadProgress(userId);
+		progress.tutorialProgress[tutorialPath] = {
+			...progressData,
+			lastUpdated: new Date().toISOString()
+		};
+		await saveProgress(progress, userId);
+		return true;
+	} catch (error) {
+		console.error('Error updating tutorial progress:', error);
+		return false;
 	}
 }
 
 // Save quiz result
-function saveQuizResult(tutorialPath, score, total) {
+async function saveQuizResult(quizId, result, userId = 'default') {
+	if (!isProgressTrackingEnabled()) return false;
+
+	try {
+		const progress = await loadProgress(userId);
+		progress.quizResults[quizId] = {
+			...result,
+			completedAt: new Date().toISOString()
+		};
+		if (result.passed && !progress.completedQuizzes.includes(quizId)) {
+			progress.completedQuizzes.push(quizId);
+		}
+		await saveProgress(progress, userId);
+		return true;
+	} catch (error) {
+		console.error('Error saving quiz result:', error);
+		return false;
+	}
+}
+
+// Clear all progress
+async function clearAllProgress(userId = 'default') {
+	try {
+		const response = await fetch(`${API_BASE_URL}/${userId}`, {
+			method: 'DELETE',
+		});
+		if (!response.ok) {
+			throw new Error('Failed to clear progress');
+		}
+		return true;
+	} catch (error) {
+		console.error('Error clearing progress:', error);
+		return false;
+	}
+}
+
+// Get progress summary
+async function getProgressSummary(userId = 'default') {
+	try {
+		const progress = await loadProgress(userId);
+		return {
+			completedCount: progress.completedTutorials.length,
+			inProgressCount: Object.keys(progress.tutorialProgress).length,
+			quizCount: progress.completedQuizzes.length
+		};
+	} catch (error) {
+		console.error('Error getting progress summary:', error);
+		return {
+			completedCount: 0,
+			inProgressCount: 0,
+			quizCount: 0
+		};
+	}
+}
+
+// Track scroll progress for a tutorial
+async function trackScrollProgress(tutorialPath, scrollPosition, totalHeight, userId = 'default') {
 	if (!isProgressTrackingEnabled() || !tutorialPath) return;
 
-	// Initialize if needed
-	if (!progressData.completedQuizzes) {
-		progressData.completedQuizzes = [];
+	try {
+		// Skip if already completed
+		const progress = await loadProgress(userId);
+		if (progress.completedTutorials.includes(tutorialPath)) return;
+
+		// Calculate progress percentage (0 to 1)
+		const progressPercentage = Math.min(scrollPosition / totalHeight, 1);
+
+		// Update tutorial progress
+		await updateTutorialProgress(tutorialPath, {
+			percentage: Math.round(progressPercentage * 100),
+			lastSection: 'scrolled',
+			scrollPosition: scrollPosition,
+			totalHeight: totalHeight
+		}, userId);
+
+		return true;
+	} catch (error) {
+		console.error('Error tracking scroll progress:', error);
+		return false;
 	}
-
-	if (!progressData.quizResults) {
-		progressData.quizResults = {};
-	}
-
-	// Add to completed quizzes if not already there
-	if (!progressData.completedQuizzes.includes(tutorialPath)) {
-		progressData.completedQuizzes.push(tutorialPath);
-	}
-
-	// Save the quiz result with timestamp
-	progressData.quizResults[tutorialPath] = {
-		score,
-		total,
-		completedAt: new Date().toISOString(),
-	};
-
-	saveProgress();
 }
 
-// Get all progress data
-function getProgress() {
-	if (!isProgressTrackingEnabled()) return null;
-	return progressData;
-}
-
-// Reset all progress
-function resetProgress() {
-	progressData = {
-		completedTutorials: [],
-		tutorialProgress: {},
-		completedQuizzes: [],
-		quizResults: {},
-	};
-	saveProgress();
-}
-
-// Initialize on load
-loadProgress();
-
-// Export the service
+// Export all functions
 export default {
 	isProgressTrackingEnabled,
 	enableProgressTracking,
 	disableProgressTracking,
-	markTutorialCompleted,
-	markTutorialIncomplete,
-	isTutorialCompleted,
-	trackScrollProgress,
-	saveQuizResult,
 	getProgress,
-	resetProgress,
+	markTutorialCompleted,
+	updateTutorialProgress,
+	saveQuizResult,
+	clearAllProgress,
+	getProgressSummary,
+	trackScrollProgress
 };

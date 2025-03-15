@@ -11,33 +11,52 @@ const { pageSections, hasPageSections } = usePageNavigation();
 // Inject pageSections from the current tutorial
 const pageSectionsInject = inject('pageSections', ref([]));
 
-const tutorials = [
+// Single source of truth for navigation items
+const navItems = [
 	{
 		path: '/tutorials/css-basics/introduction',
 		title: 'Introduction to CSS',
 	},
-	{ path: '/tutorials/css-basics/selectors', title: 'CSS Selectors' },
-	{ path: '/tutorials/css-basics/box-model', title: 'The Box Model' },
-	{ path: '/tutorials/css-basics/text-properties', title: 'Typography & Text' },
-	{ path: '/tutorials/css-basics/layout', title: 'Layout Basics' },
+	{
+		path: '/tutorials/css-basics/selectors',
+		title: 'CSS Selectors',
+	},
+	{
+		path: '/tutorials/css-basics/box-model',
+		title: 'The Box Model',
+	},
+	{
+		path: '/tutorials/css-basics/text',
+		title: 'Typography & Text',
+	},
+	{
+		path: '/tutorials/css-basics/layout',
+		title: 'Layout Basics',
+	},
 	{
 		path: '/tutorials/css-basics/colors',
 		title: 'Working with Colors',
 	},
-	{ path: '/tutorials/css-basics/modern', title: 'Modern CSS' },
-	{ path: '/tutorials/css-basics/responsive', title: 'Responsive Design' },
-
-	{ path: '/tutorials/css-basics/flexbox', title: 'Flexbox' },
-
-	// ... other tutorials
+	{
+		path: '/tutorials/css-basics/modern',
+		title: 'Modern CSS',
+	},
+	{
+		path: '/tutorials/css-basics/responsive',
+		title: 'Responsive Design',
+	},
+	{
+		path: '/tutorials/css-basics/flexbox',
+		title: 'Flexbox',
+	},
 ];
 
 const currentIndex = computed(() =>
-	tutorials.findIndex((tutorial) => isCurrentPath(tutorial.path)),
+	navItems.findIndex((item) => isCurrentPath(item.path)),
 );
 
 const isAnyTutorialActive = computed(() =>
-	tutorials.some((tutorial) => isCurrentPath(tutorial.path)),
+	navItems.some((item) => isCurrentPath(item.path)),
 );
 
 function isCurrentPath(path) {
@@ -90,19 +109,6 @@ function isSubsectionOpen(id) {
 function isActive(path) {
 	return route.path === path;
 }
-
-// Navigation items for CSS Basics
-const navItems = [
-	{ path: '/tutorials/css-basics/introduction', title: 'Introduction to CSS' },
-	{ path: '/tutorials/css-basics/selectors', title: 'CSS Selectors' },
-	{ path: '/tutorials/css-basics/box-model', title: 'The Box Model' },
-	{ path: '/tutorials/css-basics/text-properties', title: 'Typography & Text' },
-	{ path: '/tutorials/css-basics/layout', title: 'Layout Basics' },
-	{ path: '/tutorials/css-basics/colors', title: 'Working with Colors' },
-	{ path: '/tutorials/css-basics/modern', title: 'Modern CSS' },
-	{ path: '/tutorials/css-basics/responsive', title: 'Responsive Design' },
-	{ path: '/tutorials/css-basics/flexbox', title: 'Flexbox' },
-];
 </script>
 
 <template>

@@ -938,11 +938,11 @@ const rottoContentStyles = ref(`/* Content sections */
 		</div>
 
 		<div id="basic-text" class="mt-6">
-			<h2 class="title is-3">Basic Text Properties</h2>
+			<h2 id="basic-text-properties" class="title is-3">Basic Text Properties</h2>
 			<p>Master the fundamental properties for styling text in CSS.</p>
 
-			<div id="font-family" class="box mt-4">
-				<h3 class="title is-4">Font Family</h3>
+			<div class="box mt-4">
+				<h3 id="font-family" class="title is-4">Font Family</h3>
 				<div class="typography-context mb-4">
 					<div class="notification is-light">
 						<h4 class="title is-6">Historical Context</h4>
@@ -2065,12 +2065,12 @@ const rottoContentStyles = ref(`/* Content sections */
 				</div>
 			</section>
 			<section id="exercises" class="mt-6">
-				<h2 class="title is-3">Practical Exercises</h2>
+				<h2 id="practical-exercises" class="title is-3">Practical Exercises</h2>
 
 				<div class="exercise-container">
 					<!-- Black Swan Exercise -->
 					<div class="box exercise">
-						<h3 class="title is-4">Exercise 1: Black Swan Bistro Typography</h3>
+						<h3 id="black-swan-exercise" class="title is-4">Exercise 1: Black Swan Bistro Typography</h3>
 
 						<div class="notification is-light">
 							<h4 class="title is-5">Requirements</h4>
@@ -2119,7 +2119,7 @@ const rottoContentStyles = ref(`/* Content sections */
 
 					<!-- Rotto Rocks Exercise -->
 					<div class="box exercise">
-						<h3 class="title is-4">
+						<h3 id="rotto-rocks-exercise" class="title is-4">
 							Exercise 2: Rotto Rocks Content Hierarchy
 						</h3>
 

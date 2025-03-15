@@ -401,33 +401,18 @@ const cookieSettings = ref({
 });
 
 // Load progress data
-onMounted(async () => {
-	// Simulate loading delay
-	setTimeout(() => {
-		loadProgressData();
-		loading.value = false;
-	}, 500);
-
-	// Load cookie settings
-	try {
-		const storedSettings = JSON.parse(localStorage.getItem('cookieSettings'));
-		if (storedSettings) {
-			cookieSettings.value = { ...cookieSettings.value, ...storedSettings };
-		}
-	} catch (e) {
-		console.error('Error loading cookie settings', e);
-	}
-});
-
-// Load progress data
-const loadProgressData = () => {
+const loadProgressData = async () => {
 	if (!progressService.isProgressTrackingEnabled()) return;
 
-	const progressData = progressService.getProgress();
-	if (progressData) {
-		progress.value = progressData;
-		summary.value = progressService.getProgressSummary();
-		recommendations.value = progressService.getRecommendedTutorials();
+	try {
+		const progressData = await progressService.getProgress();
+		if (progressData) {
+			progress.value = progressData;
+			const summaryData = await progressService.getProgressSummary();
+			summary.value = summaryData;
+		}
+	} catch (error) {
+		console.error('Error loading progress data:', error);
 	}
 };
 
@@ -527,21 +512,25 @@ const confirmClearProgress = () => {
 };
 
 // Clear progress
-const clearProgress = () => {
-	progressService.clearAllProgress();
-	progress.value = {
-		completedTutorials: [],
-		inProgressTutorials: {},
-		quizResults: {},
-		lastVisited: null,
-	};
-	summary.value = {
-		completedCount: 0,
-		inProgressCount: 0,
-		quizCount: 0,
-	};
-	recommendations.value = [];
-	showClearConfirmation.value = false;
+const clearProgress = async () => {
+	try {
+		await progressService.clearAllProgress();
+		progress.value = {
+			completedTutorials: [],
+			inProgressTutorials: {},
+			quizResults: {},
+			lastVisited: null,
+		};
+		summary.value = {
+			completedCount: 0,
+			inProgressCount: 0,
+			quizCount: 0,
+		};
+		recommendations.value = [];
+		showClearConfirmation.value = false;
+	} catch (error) {
+		console.error('Error clearing progress:', error);
+	}
 };
 
 // View quiz details
@@ -566,6 +555,24 @@ const saveCookieSettings = () => {
 		loadProgressData();
 	}
 };
+
+// Load progress data on mount
+onMounted(async () => {
+	// Load cookie settings
+	try {
+		const storedSettings = JSON.parse(localStorage.getItem('cookieSettings'));
+		if (storedSettings) {
+			cookieSettings.value = { ...cookieSettings.value, ...storedSettings };
+		}
+	} catch (e) {
+		console.error('Error loading cookie settings:', e);
+	}
+
+	// Load progress data with a loading state
+	loading.value = true;
+	await loadProgressData();
+	loading.value = false;
+});
 </script>
 
 <style scoped>
