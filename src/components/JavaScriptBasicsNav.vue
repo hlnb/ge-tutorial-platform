@@ -1,7 +1,7 @@
 <template>
-	<div class="sidebar-nav">
-		<div class="sidebar-header">
-			<div class="js-logo-container">
+	<div class="tutorial-nav">
+			<h3 class="title is-5">
+			<span class="js-logo-container">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 630 630"
@@ -17,14 +17,12 @@
 						fill="#000000"
 					/>
 				</svg>
-			</div>
-			<h3 class="title is-5">JavaScript Basics</h3>
-		</div>
+			</span>
+		JavaScript Basics</h3>
 
-		<div class="sidebar-menu">
-			<aside class="menu">
-				<p class="menu-label">JavaScript Basics</p>
-				<ul class="menu-list">
+
+			<aside class="menu tutorial-nav">
+					<ul class="menu-list">
 					<li>
 						<router-link to="/tutorials/javascript-basics/">
 							<i class="fas fa-home"></i> Overview
@@ -80,8 +78,7 @@
 					</router-link>
 				</div>
 			</aside>
-		</div>
-	</div>
+</div>
 </template>
 
 <script setup>
@@ -89,18 +86,12 @@
 </script>
 
 <style scoped>
-.sidebar-nav {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	background-color: #f0f8ff;
-}
 
-.sidebar-header {
-	display: flex;
-	align-items: center;
-	padding: 1rem;
-	border-bottom: 1px solid #dbdbdb;
+.tutorial-nav {
+	padding: 1.5rem;
+	background-color: white;
+	border-radius: 6px;
+	box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
 }
 
 .js-logo-container {
@@ -120,51 +111,30 @@
 	display: block;
 }
 
-.sidebar-header h3 {
-	margin: 0;
-}
-
-.sidebar-menu {
-	flex-grow: 1;
-	overflow-y: auto;
-	padding: 1rem 0;
-}
-
-.menu-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.menu-list li {
-	margin-bottom: 0.5rem;
-}
 
 .menu-list a {
-	display: flex;
-	align-items: center;
-	padding: 0.75rem 1rem;
-	color: #4a4a4a;
-	text-decoration: none;
 	border-radius: 4px;
-	transition: background-color 0.2s ease;
+	padding: 0.75rem 1rem;
+	margin-bottom: 0.5rem;
+	color: #4a4a4a;
+	transition: all 0.2s ease;
 }
 
 .menu-list a:hover {
 	background-color: #f5f5f5;
 }
 
-.menu-list a.router-link-active {
-	background-color: #f0f8ff;
-	color: #3273dc;
-	font-weight: bold;
+.menu-list a.is-active {
+	background-color: #f0db4f;
+	color: white;
+	font-weight: 600;
 }
 
-.menu-list a i {
-	margin-right: 0.5rem;
-	width: 20px;
-	text-align: center;
+.menu-list a.is-next {
+	background-color: #fff5f2;
+	border-left: 3px solid #f0db4f;
 }
+
 
 .sidebar-footer {
 	padding: 1rem;

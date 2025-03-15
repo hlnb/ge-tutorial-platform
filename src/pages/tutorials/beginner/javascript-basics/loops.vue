@@ -618,8 +618,8 @@
 			<h3 class="title is-4">
 				<i class="fas fa-lightbulb"></i> Common For Loop Patterns
 			</h3>
-			<div class="columns">
-				<div class="column">
+			<div class="columns is-mobile is-multiline">
+				<div class="column is-12-mobile is-6-tablet">
 					<h4 class="title is-5">Looping Through Arrays</h4>
 					<CodeMirror
 						:code="forLoopArrayExample"
@@ -628,7 +628,7 @@
 						:read-only="true"
 					/>
 				</div>
-				<div class="column">
+				<div class="column is-12-mobile is-6-tablet">
 					<h4 class="title is-5">Counting Backwards</h4>
 					<CodeMirror
 						:code="forLoopBackwardsExample"
@@ -638,8 +638,8 @@
 					/>
 				</div>
 			</div>
-			<div class="columns mt-4">
-				<div class="column">
+			<div class="columns is-mobile is-multiline mt-4">
+				<div class="column is-12-mobile is-6-tablet">
 					<h4 class="title is-5">Skipping Iterations</h4>
 					<CodeMirror
 						:code="forLoopSkipExample"
@@ -648,7 +648,7 @@
 						:read-only="true"
 					/>
 				</div>
-				<div class="column">
+				<div class="column is-12-mobile is-6-tablet">
 					<h4 class="title is-5">Nested Loops</h4>
 					<CodeMirror
 						:code="forLoopNestedExample"

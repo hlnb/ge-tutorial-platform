@@ -173,6 +173,11 @@ const navItems = [
 				</div>
 			</li>
 		</ul>
+
+		<div class="sidebar-footer">
+			<router-link to="/my-progress" class="sidebar-link">My Progress</router-link>
+			<router-link to="/tutorials" class="sidebar-link">All Tutorials</router-link>
+		</div>
 	</div>
 </template>
 
@@ -373,5 +378,26 @@ const navItems = [
 /* Ensure the active page's "On This Page" section is visible */
 .is-active + .page-sections {
 	display: block;
+}
+
+.sidebar-footer {
+	margin-top: auto;
+	padding: 1rem;
+	border-top: 1px solid #dbdbdb;
+}
+
+.sidebar-link {
+	display: block;
+	margin-bottom: 0.5rem;
+	color: #3273dc;
+	text-decoration: none;
+}
+
+.sidebar-link:hover {
+	color: #363636;
+}
+
+.sidebar-link.router-link-active {
+	color: #f0db4f;
 }
 </style>
