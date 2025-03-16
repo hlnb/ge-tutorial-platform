@@ -252,7 +252,7 @@ const quizDescription = computed(() => {
 	if (props.description) return props.description;
 	return `Test your understanding of ${getTutorialTitle(
 		currentPath.value,
-	)} concepts.`;
+)} concepts.`;
 });
 
 const quizQuestions = computed(() => {
@@ -271,17 +271,11 @@ const getScoreClass = computed(() => {
 });
 
 // Check if quiz was previously completed
-const checkQuizStatus = () => {
-	const progress = progressService.getProgress();
-	if (
-		progress &&
-		progress.completedQuizzes &&
-		progress.completedQuizzes.includes(currentPath.value)
-	) {
+const checkQuizStatus = async () => {
+	const progress = await progressService.getProgress();
+	if (progress?.completedQuizzes?.includes(currentPath.value)) {
 		quizCompleted.value = true;
-
-		// If we have saved quiz results, load the score
-		if (progress.quizResults && progress.quizResults[currentPath.value]) {
+		if (progress?.quizResults?.[currentPath.value]?.score) {
 			score.value = progress.quizResults[currentPath.value].score;
 		}
 	}
@@ -329,11 +323,10 @@ const finishQuiz = () => {
 
 	// Save quiz completion to progress service
 	if (progressService.isProgressTrackingEnabled() && quizQuestions.value) {
-		// Use the saveQuizResult method to save both completion status and score
 		progressService.saveQuizResult(
 			currentPath.value,
-			score.value,
-			quizQuestions.value.length,
+			String(score.value),
+			String(quizQuestions.value.length)
 		);
 	}
 
@@ -377,6 +370,12 @@ watch(
 onMounted(() => {
 	checkQuizStatus();
 });
+</script>
+
+<script>
+export default {
+	name: 'QuizComponent'
+}
 </script>
 
 <style scoped>

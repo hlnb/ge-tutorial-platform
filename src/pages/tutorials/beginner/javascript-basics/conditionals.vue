@@ -86,14 +86,14 @@
 			</ul>
 		</div>
 
-		<h2 class="title is-2">Conditions with If Statements</h2>
+		<h2 class="title is-2" id="if-statements">Conditions with If Statements</h2>
 		<p>
 			Conditions allow your code to make decisions based on different
 			situations. Think of them as forks in a road - your code can take
 			different paths depending on certain conditions.
 		</p>
 
-		<h3 class="title is-4">Basic If Statement</h3>
+		<h3 class="title is-4" id="basic-if">Basic If Statement</h3>
 		<p>
 			The simplest form of a condition. If the condition is true, the code
 			inside the curly braces will run:
@@ -106,7 +106,7 @@
 			:read-only="true"
 		/>
 
-		<h3 class="title is-4">If-Else Statement</h3>
+		<h3 class="title is-4" id="if-else">If-Else Statement</h3>
 		<p>
 			This adds an alternative path. If the condition is true, the first block
 			runs; otherwise, the else block runs:
@@ -119,7 +119,7 @@
 			:read-only="true"
 		/>
 
-		<h3 class="title is-4">If-Else If-Else</h3>
+		<h3 class="title is-4" id="else-if">If-Else If-Else</h3>
 		<p>
 			For multiple conditions, you can chain them together. The code checks each
 			condition in order until one is true:
@@ -225,7 +225,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2">Switch Statements</h2>
+		<h2 class="title is-2" id="switch-statements">Switch Statements</h2>
 		<p>
 			Switch statements are useful when you have multiple possible values for a
 			single variable. They're cleaner than writing many if/else statements:
@@ -249,7 +249,105 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2">Practice Exercise: Menu Availability Checker</h2>
+		<h3 class="title is-4" id="switch-syntax">Switch Syntax</h3>
+		<p>
+			Switch statements are useful when you have multiple possible values for a
+			single variable. They're cleaner than writing many if/else statements:
+		</p>
+
+		<CodeMirror
+			:code="switchCode"
+			:value="switchCode"
+			language="javascript"
+			:read-only="true"
+		/>
+
+		<h3 class="title is-4" id="case-break">Case and Break</h3>
+		<p>
+			Don't forget the <code>break</code> statement after each case! Without
+			it, the code will "fall through" and continue executing the next cases,
+			which is rarely what you want.
+		</p>
+
+		<h2 class="title is-2" id="ternary-operator">Ternary Operator</h2>
+		<p>
+			Switch statements are useful when you have multiple possible values for a
+			single variable. They're cleaner than writing many if/else statements:
+		</p>
+
+		<CodeMirror
+			:code="switchCode"
+			:value="switchCode"
+			language="javascript"
+			:read-only="true"
+		/>
+
+		<h3 class="title is-4" id="ternary-syntax">Ternary Syntax</h3>
+		<p>
+			Switch statements are useful when you have multiple possible values for a
+			single variable. They're cleaner than writing many if/else statements:
+		</p>
+
+		<CodeMirror
+			:code="switchCode"
+			:value="switchCode"
+			language="javascript"
+			:read-only="true"
+		/>
+
+		<h3 class="title is-4" id="nested-ternary">Nested Ternary</h3>
+		<p>
+			Switch statements are useful when you have multiple possible values for a
+			single variable. They're cleaner than writing many if/else statements:
+		</p>
+
+		<CodeMirror
+			:code="switchCode"
+			:value="switchCode"
+			language="javascript"
+			:read-only="true"
+		/>
+
+		<h2 class="title is-2" id="truthy-falsy">Truthy and Falsy</h2>
+		<p>
+			Switch statements are useful when you have multiple possible values for a
+			single variable. They're cleaner than writing many if/else statements:
+		</p>
+
+		<CodeMirror
+			:code="switchCode"
+			:value="switchCode"
+			language="javascript"
+			:read-only="true"
+		/>
+
+		<h3 class="title is-4" id="falsy-values">Falsy Values</h3>
+		<p>
+			Switch statements are useful when you have multiple possible values for a
+			single variable. They're cleaner than writing many if/else statements:
+		</p>
+
+		<CodeMirror
+			:code="switchCode"
+			:value="switchCode"
+			language="javascript"
+			:read-only="true"
+		/>
+
+		<h3 class="title is-4" id="truthy-values">Truthy Values</h3>
+		<p>
+			Switch statements are useful when you have multiple possible values for a
+			single variable. They're cleaner than writing many if/else statements:
+		</p>
+
+		<CodeMirror
+			:code="switchCode"
+			:value="switchCode"
+			language="javascript"
+			:read-only="true"
+		/>
+
+		<h2 class="title is-2" id="practice">Practice Exercises</h2>
 
 		<div class="box tip-box mb-6">
 			<h3 class="title is-4"><i class="fas fa-cog"></i> Setup</h3>
@@ -359,54 +457,6 @@
 			</div>
 		</div>
 
-		<h2 class="title is-2">Interactive Resources</h2>
-		<div class="box tip-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-external-link-alt"></i> Practice More
-			</h3>
-			<ul>
-				<li>
-					<a
-						href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
-						target="_blank"
-					>
-						MDN: Control Flow
-					</a>
-				</li>
-				<li>
-					<a href="https://javascript.info/logical-operators" target="_blank">
-						JavaScript.info: Logical Operators
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-control-flow"
-						target="_blank"
-					>
-						Codecademy: Control Flow
-					</a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="notification is-success is-light mt-6">
-			<p>
-				<i class="fas fa-check-circle mr-2"></i>
-				<strong>What's Next?</strong> In the next tutorial, we'll dive deeper
-				into loops in JavaScript - exploring different types of loops and
-				advanced techniques for repeating actions efficiently.
-			</p>
-			<div class="mt-4">
-				<router-link
-					to="/tutorials/javascript-basics/loops"
-					class="button is-success"
-				>
-					Continue to Loops
-					<i class="fas fa-arrow-right ml-2"></i>
-				</router-link>
-			</div>
-		</div>
-
 		<!-- Quiz section -->
 		<TutorialQuiz />
 
@@ -420,6 +470,7 @@ import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import { usePageSections } from '@/composables/usePageSections';
 
 // Toggle solution visibility
 const showSolution = ref(false);
@@ -604,6 +655,50 @@ console.log('Available items:', getAvailableItems());
 console.log('Seafood items:', getItemsByCategory('Seafood'));
 console.log('Items $15-$25:', getItemsByPriceRange(15, 25));
 console.log('Low stock items:', getLowStockItems(3));`;
+
+const sections = [
+  {
+    id: 'if-statements',
+    title: 'if Statements',
+    subsections: [
+      { id: 'basic-if', title: 'Basic if Statement' },
+      { id: 'if-else', title: 'if...else Statement' },
+      { id: 'else-if', title: 'else if Clauses' }
+    ]
+  },
+  {
+    id: 'switch-statements',
+    title: 'switch Statements',
+    subsections: [
+      { id: 'switch-syntax', title: 'switch Syntax' },
+      { id: 'case-break', title: 'case and break' },
+      { id: 'default-case', title: 'default Case' }
+    ]
+  },
+  {
+    id: 'ternary-operator',
+    title: 'Ternary Operator',
+    subsections: [
+      { id: 'ternary-syntax', title: 'Ternary Syntax' },
+      { id: 'nested-ternary', title: 'Nested Ternary' }
+    ]
+  },
+  {
+    id: 'truthy-falsy',
+    title: 'Truthy and Falsy',
+    subsections: [
+      { id: 'falsy-values', title: 'Falsy Values' },
+      { id: 'truthy-values', title: 'Truthy Values' }
+    ]
+  },
+  {
+    id: 'practice',
+    title: 'Practice Exercises',
+    subsections: []
+  }
+];
+
+const { pageSections } = usePageSections(sections);
 </script>
 
 <script>

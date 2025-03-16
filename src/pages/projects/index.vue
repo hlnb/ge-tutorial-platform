@@ -160,6 +160,87 @@
 			</div>
 		</section>
 
+		<!-- JavaScript Projects -->
+		<section class="project-category">
+			<h2 class="title is-2">
+				<i class="fab fa-js"></i> JavaScript Projects
+			</h2>
+
+			<div class="columns is-multiline">
+				<!-- Calculator App Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Calculator App</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">60 minutes</span>
+							</p>
+							<div class="content">
+								Build a basic calculator with arithmetic operators. Practice JavaScript operators, functions, and DOM manipulation.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'calculator' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+
+				<!-- Todo List Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Todo List</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">90 minutes</span>
+							</p>
+							<div class="content">
+								Build a todo list with array iteration. Practice working with arrays, loops, and DOM manipulation.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'todo-list' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+
+				<!-- Quiz Game Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Quiz Game</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">90 minutes</span>
+							</p>
+							<div class="content">
+								Build a quiz with conditional logic. Practice working with conditionals, arrays, and user interaction.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'quiz-game' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<section class="mt-6">
 			<h2 class="title is-3">
 				<i class="fas fa-graduation-cap"></i> Learning Path

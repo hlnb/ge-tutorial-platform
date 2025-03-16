@@ -68,6 +68,12 @@ const handleQuizCompleted = (result) => {
 };
 </script>
 
+<script>
+export default {
+	name: 'TutorialQuiz'
+}
+</script>
+
 <style scoped>
 .tutorial-quiz {
 	margin-bottom: 3rem;

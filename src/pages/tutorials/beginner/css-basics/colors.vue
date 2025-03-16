@@ -59,6 +59,13 @@ const sections = [
 			{ id: 'brand-colors', title: 'Working with Brand Colors' },
 		],
 	},
+	{id: 'practical-exercises',
+		title: 'Practical Exercises',
+		subsections: [
+			{ id: 'black-swan-bistro', title: 'Black Swan Bistro' },
+			{ id: 'rotto-rocks', title: 'Rotto Rocks' },
+		],
+	},
 ];
 
 const { pageSections } = usePageSections(sections);
@@ -986,7 +993,7 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 			</section>
 		</section>
 
-		<section id="exercises" class="mt-6">
+		<section id="practical-exercises" class="mt-6">
 			<h2 class="title is-2">Practical Exercises</h2>
 			<p>
 				Let's apply what we've learned about colors to our example websites.

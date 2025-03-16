@@ -213,7 +213,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2">Arithmetic Operators</h2>
+		<h2 class="title is-2" id="arithmetic-operators">Arithmetic Operators</h2>
 		<p>
 			Arithmetic operators perform mathematical calculations on numbers. They're
 			essential for any calculations in your code.
@@ -869,7 +869,7 @@ function safeDivide(numerator, denominator) {
 			</div>
 		</div>
 
-		<h2 class="title is-2">Comparison Operators</h2>
+		<h2 class="title is-2" id="comparison-operators">Comparison Operators</h2>
 		<p>
 			Comparison operators compare two values and return a boolean result (true
 			or false). They're essential for making decisions in your code.
@@ -1285,10 +1285,10 @@ function safeDivide(numerator, denominator) {
 			</p>
 		</div>
 
-		<h2 class="title is-2">Logical Operators</h2>
+		<h2 class="title is-2" id="logical-operators">Logical Operators</h2>
 		<p>
 			Logical operators combine multiple conditions and return a boolean result.
-			They're used to make complex decisions based on multiple factors.
+			 They're used to make complex decisions based on multiple factors.
 		</p>
 
 		<div class="table-container">
@@ -2004,7 +2004,7 @@ function safeDivide(numerator, denominator) {
 			</div>
 		</div>
 
-		<h2 class="title is-2">Assignment Operators</h2>
+		<h2 class="title is-2" id="assignment-operators">Assignment Operators</h2>
 		<p>
 			Assignment operators assign values to variables. They're used to set or
 			update variable values.
@@ -2550,81 +2550,7 @@ function safeDivide(numerator, denominator) {
 			</p>
 		</div>
 
-		<h2 class="title is-2">Expressions in JavaScript</h2>
-		<p>
-			An expression is a combination of values, variables, and operators that
-			evaluates to a single value. Think of expressions as complete phrases in
-			the JavaScript language.
-		</p>
-
-		<h3 class="title is-4">Types of Expressions</h3>
-		<div class="columns">
-			<div class="column">
-				<div class="box">
-					<h4 class="title is-5">Arithmetic Expressions</h4>
-					<p>Evaluate to a number</p>
-					<CodeMirror
-						:code="arithmeticExpressionExample"
-						:value="arithmeticExpressionExample"
-						language="javascript"
-						:read-only="true"
-					/>
-				</div>
-			</div>
-			<div class="column">
-				<div class="box">
-					<h4 class="title is-5">String Expressions</h4>
-					<p>Evaluate to a text string</p>
-					<CodeMirror
-						:code="stringExpressionExample"
-						:value="stringExpressionExample"
-						language="javascript"
-						:read-only="true"
-					/>
-				</div>
-			</div>
-		</div>
-		<div class="columns">
-			<div class="column">
-				<div class="box">
-					<h4 class="title is-5">Logical Expressions</h4>
-					<p>Evaluate to true or false</p>
-					<CodeMirror
-						:code="logicalExpressionExample"
-						:value="logicalExpressionExample"
-						language="javascript"
-						:read-only="true"
-					/>
-				</div>
-			</div>
-			<div class="column">
-				<div class="box">
-					<h4 class="title is-5">Assignment Expressions</h4>
-					<p>Assign a value to a variable</p>
-					<CodeMirror
-						:code="assignmentExpressionExample"
-						:value="assignmentExpressionExample"
-						language="javascript"
-						:read-only="true"
-					/>
-				</div>
-			</div>
-		</div>
-
-		<h3 class="title is-4">Complex Expressions</h3>
-		<p>
-			You can combine multiple operators to create complex expressions.
-			JavaScript evaluates these expressions according to operator precedence
-			(the order of operations).
-		</p>
-		<CodeMirror
-			:code="complexExpressionExample"
-			:value="complexExpressionExample"
-			language="javascript"
-			:read-only="true"
-		/>
-
-		<h2 class="title is-2">Practice Exercise: Restaurant Calculator</h2>
+		<h2 class="title is-2" id="practice">Practice Exercises</h2>
 		<p>
 			Let's put everything together by creating a simple restaurant bill
 			calculator:
@@ -2699,54 +2625,6 @@ function safeDivide(numerator, denominator) {
 			</div>
 		</div>
 
-		<h2 class="title is-2">Interactive Resources</h2>
-		<div class="box tip-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-external-link-alt"></i> Practice More
-			</h3>
-			<ul>
-				<li>
-					<a
-						href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators"
-						target="_blank"
-					>
-						MDN: Expressions and Operators
-					</a>
-				</li>
-				<li>
-					<a href="https://javascript.info/operators" target="_blank">
-						JavaScript.info: Operators
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#basic-javascript"
-						target="_blank"
-					>
-						freeCodeCamp: Basic JavaScript
-					</a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="notification is-success is-light mt-6">
-			<p>
-				<i class="fas fa-check-circle mr-2"></i>
-				<strong>What's Next?</strong> In the next tutorial, we'll learn about
-				control flow in JavaScript - how to make decisions and repeat actions in
-				your code.
-			</p>
-			<div class="mt-3">
-				<router-link
-					to="/tutorials/javascript-basics/conditionals"
-					class="button is-success"
-				>
-					Continue to Control Flow
-					<i class="fas fa-arrow-right ml-2"></i>
-				</router-link>
-			</div>
-		</div>
-
 		<!-- Quiz section -->
 		<TutorialQuiz />
 
@@ -2760,6 +2638,51 @@ import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import { usePageSections } from '@/composables/usePageSections';
+
+const sections = [
+  {
+    id: 'arithmetic-operators',
+    title: 'Arithmetic Operators',
+    subsections: [
+      { id: 'basic-arithmetic', title: 'Basic Arithmetic' },
+      { id: 'increment-decrement', title: 'Increment and Decrement' },
+      { id: 'operator-precedence', title: 'Operator Precedence' }
+    ]
+  },
+  {
+    id: 'comparison-operators',
+    title: 'Comparison Operators',
+    subsections: [
+      { id: 'equality-operators', title: 'Equality Operators' },
+      { id: 'relational-operators', title: 'Relational Operators' },
+      { id: 'strict-vs-loose', title: 'Strict vs Loose Equality' }
+    ]
+  },
+  {
+    id: 'logical-operators',
+    title: 'Logical Operators',
+    subsections: [
+      { id: 'and-or-not', title: 'AND, OR, NOT' },
+      { id: 'short-circuit', title: 'Short-circuit Evaluation' }
+    ]
+  },
+  {
+    id: 'assignment-operators',
+    title: 'Assignment Operators',
+    subsections: [
+      { id: 'basic-assignment', title: 'Basic Assignment' },
+      { id: 'compound-assignment', title: 'Compound Assignment' }
+    ]
+  },
+  {
+    id: 'practice',
+    title: 'Practice Exercises',
+    subsections: []
+  }
+];
+
+const { pageSections } = usePageSections(sections);
 
 // Toggle solution visibility
 const showSolution = ref(false);

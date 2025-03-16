@@ -187,6 +187,12 @@ const practiceProjects = computed(
 const resources = computed(() => recommendations.value.resources || []);
 </script>
 
+<script>
+export default {
+	name: 'TutorialRecommendations',
+};
+</script>
+
 <style scoped>
 .tutorial-recommendations {
 	margin-top: 3rem;

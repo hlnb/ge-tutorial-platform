@@ -181,6 +181,33 @@ const projectRoutes = [
 			description: 'Practice using different CSS selectors to style elements',
 		},
 	},
+	{
+		path: '/projects/calculator',
+		name: 'calculator',
+		component: () => import('@/pages/projects/calculator.vue'),
+		meta: {
+			title: 'Calculator App Project',
+			description: 'Build a basic calculator with arithmetic operators',
+		},
+	},
+	{
+		path: '/projects/todo-list',
+		name: 'todo-list',
+		component: () => import('@/pages/projects/todo-list.vue'),
+		meta: {
+			title: 'Todo List Project',
+			description: 'Build a todo list with array iteration',
+		},
+	},
+	{
+		path: '/projects/quiz-game',
+		name: 'quiz-game',
+		component: () => import('@/pages/projects/quiz-game.vue'),
+		meta: {
+			title: 'Quiz Game Project',
+			description: 'Build an interactive quiz game with JavaScript',
+		},
+	},
 	// Add more project routes as needed
 ];
 
@@ -500,6 +527,16 @@ const routes = [
 							title: 'Loops in JavaScript',
 							description:
 								'Learn how to use loops to repeat actions and iterate through data in JavaScript',
+						},
+					},
+					{
+						path: 'functions',
+						name: 'javascript-basics-functions',
+						component: () =>
+							import('../pages/tutorials/beginner/javascript-basics/functions.vue'),
+						meta: {
+							title: 'Functions in JavaScript',
+							description: 'Learn how to create and use functions in JavaScript to write reusable code',
 						},
 					},
 					// Add more JavaScript tutorials as they are created

@@ -5,6 +5,7 @@
 
 import { htmlBasicsQuizzes } from '@/data/quizzes/html-basics';
 import { cssBasicsQuizzes } from '@/data/quizzes/css-basics';
+import jsBasicsQuizzes from '@/data/quizzes/javascript-basics';
 
 // Add JavaScript Basics quizzes
 const javascriptBasicsQuizzes = {
@@ -86,12 +87,15 @@ export function getQuizQuestions(section, tutorial) {
 		case 'css-basics':
 			quizCollection = cssBasicsQuizzes;
 			break;
+		case 'javascript-basics':
+			quizCollection = jsBasicsQuizzes;
+			break;
 		default:
 			return [];
 	}
 
 	// Return the questions for the specific tutorial or an empty array if not found
-	return quizCollection[tutorial] || [];
+	return quizCollection[tutorial]?.questions || [];
 }
 
 /**
@@ -125,6 +129,7 @@ export function getQuizQuestionsForPath(path) {
 
 	// Extract section and tutorial from path
 	const pathParts = path.split('/').filter(Boolean);
+	console.log('Path parts:', pathParts);
 
 	if (pathParts.length < 3) return [];
 
@@ -133,24 +138,27 @@ export function getQuizQuestionsForPath(path) {
 
 	// Check if the path includes 'beginner' segment
 	if (pathParts.includes('beginner')) {
-		// Format: /tutorials/beginner/html-basics/first-page
+		// Format: /tutorials/beginner/javascript-basics/functions
 		const beginnerIndex = pathParts.indexOf('beginner');
+		console.log('Beginner index:', beginnerIndex);
 		if (beginnerIndex + 2 >= pathParts.length) return [];
 
-		section = pathParts[beginnerIndex + 1]; // e.g., 'html-basics'
-		tutorial = pathParts[beginnerIndex + 2]; // e.g., 'first-page'
+		section = pathParts[beginnerIndex + 1]; // e.g., 'javascript-basics'
+		tutorial = pathParts[beginnerIndex + 2]; // e.g., 'functions'
 	} else {
-		// Format: /tutorials/html-basics/first-page
-		section = pathParts[1]; // e.g., 'html-basics'
-		tutorial = pathParts[2]; // e.g., 'first-page'
+		// Format: /tutorials/javascript-basics/functions
+		section = pathParts[1]; // e.g., 'javascript-basics'
+		tutorial = pathParts[2]; // e.g., 'functions'
 	}
 
-	console.log(
-		`Looking for quiz questions for section: ${section}, tutorial: ${tutorial}`,
-	);
+	console.log('Extracted section:', section);
+	console.log('Extracted tutorial:', tutorial);
+	console.log('Quiz collection:', jsBasicsQuizzes);
 
 	// Return quiz questions
-	return getQuizQuestions(section, tutorial);
+	const questions = jsBasicsQuizzes[tutorial]?.questions || [];
+	console.log('Found questions:', questions);
+	return questions;
 }
 
 /**

@@ -67,6 +67,12 @@ onMounted(() => {
 });
 </script>
 
+<script>
+export default {
+	name: 'CodeMirror',
+};
+</script>
+
 <style>
 .codemirror-container {
 	margin: 1rem 0;

@@ -93,7 +93,6 @@
 				and
 				<router-link to="/tutorials/javascript-basics/conditionals"
 					>Control Flow</router-link
-				>
 				tutorials first.
 			</p>
 		</div>
@@ -243,7 +242,7 @@
 		</div>
 
 		<!-- For Loop Section -->
-		<h2 class="title is-2">The for Loop</h2>
+		<h2 class="title is-2" id="for-loops">The for Loop</h2>
 		<p>
 			The <code>for</code> loop is the most commonly used loop in JavaScript.
 			It's ideal when you know exactly how many times you want to execute a
@@ -696,7 +695,7 @@ for (let i = 0; i <= menu.length; i++) {
 		</div>
 
 		<!-- For...of Loop Section -->
-		<h2 class="title is-2">The for...of Loop</h2>
+		<h2 class="title is-2" id="for-of-in">for...of and for...in Loops</h2>
 		<p>
 			The <code>for...of</code> loop is a modern JavaScript feature that
 			provides a simpler way to iterate over iterable objects like arrays,
@@ -704,7 +703,7 @@ for (let i = 0; i <= menu.length; i++) {
 			directly without worrying about indices.
 		</p>
 
-		<h3 class="title is-4">Syntax</h3>
+		<h3 class="title is-4" id="for-of">for...of Loop</h3>
 		<CodeMirror
 			:code="forOfLoopSyntax"
 			:value="forOfLoopSyntax"
@@ -943,14 +942,7 @@ for (const order of orders) {
 		</div>
 
 		<!-- For...in Loop Section -->
-		<h2 class="title is-2">The for...in Loop</h2>
-		<p>
-			The <code>for...in</code> loop iterates over the enumerable properties
-			(keys) of an object. It's particularly useful for working with objects
-			when you need to access both the keys and their corresponding values.
-		</p>
-
-		<h3 class="title is-4">Syntax</h3>
+		<h3 class="title is-4" id="for-in">for...in Loop</h3>
 		<CodeMirror
 			:code="forInLoopSyntax"
 			:value="forInLoopSyntax"
@@ -1131,7 +1123,7 @@ for (const course in menu) {
 		</div>
 
 		<!-- Break and Continue Section -->
-		<h2 class="title is-2">Controlling Loops: break and continue</h2>
+		<h2 class="title is-2" id="loop-control">Loop Control</h2>
 		<p>
 			JavaScript provides two special statements to control the flow of loops:
 			<code>break</code> and <code>continue</code>. These statements allow you
@@ -1140,9 +1132,7 @@ for (const course in menu) {
 
 		<!-- Break statement section -->
 		<div class="box highlight-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-stop-circle"></i> The break Statement
-			</h3>
+			<h3 class="title is-4" id="break">The break Statement</h3>
 			<p>
 				The <code>break</code> statement terminates the current loop and
 				transfers control to the statement following the loop.
@@ -1244,9 +1234,7 @@ for (const course in menu) {
 
 		<!-- Continue statement section -->
 		<div class="box highlight-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-fast-forward"></i> The continue Statement
-			</h3>
+			<h3 class="title is-4" id="continue">The continue Statement</h3>
 			<p>
 				The <code>continue</code> statement skips the current iteration and
 				proceeds to the next iteration of the loop.
@@ -1443,7 +1431,7 @@ for (const course in menu) {
 		</div>
 
 		<!-- Practice Exercise -->
-		<h2 class="title is-2">Practice Exercise: Restaurant Order System</h2>
+		<h2 class="title is-2" id="practice">Practice Exercises: Restaurant Order System</h2>
 		<p>
 			Let's put everything together by creating a simple restaurant order
 			processing system:
@@ -1524,52 +1512,124 @@ for (const course in menu) {
 			</div>
 		</div>
 
-		<h2 class="title is-2">Interactive Resources</h2>
-		<div class="box tip-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-external-link-alt"></i> Practice More
-			</h3>
+		<h2 class="title is-2">Recommended Next Steps</h2>
+		
+		<div class="box">
+			<h3 class="title is-4">Continue Learning</h3>
+			<p>Ready to learn more? Here's what you can explore next:</p>
 			<ul>
 				<li>
-					<a
-						href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
-						target="_blank"
-					>
-						MDN: Loops and Iteration
-					</a>
+					<router-link to="/tutorials/javascript-basics/functions" class="is-link">
+						<i class="fas fa-arrow-right"></i> Functions Tutorial
+					</router-link>
+					- Learn to create reusable code blocks
 				</li>
 				<li>
-					<a href="https://javascript.info/while-for" target="_blank">
-						JavaScript.info: Loops
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#basic-javascript"
-						target="_blank"
-					>
-						freeCodeCamp: Basic JavaScript
-					</a>
+					<router-link to="/tutorials/javascript-basics/arrays" class="is-link">
+						<i class="fas fa-arrow-right"></i> Arrays Tutorial
+					</router-link>
+					- Master working with collections of data
 				</li>
 			</ul>
 		</div>
 
-		<div class="notification is-success is-light mt-6">
-			<p>
-				<i class="fas fa-check-circle mr-2"></i>
-				<strong>What's Next?</strong> In the next tutorial, we'll learn about
-				functions in JavaScript - how to create reusable blocks of code to
-				organize your programs.
-			</p>
-			<div class="mt-3">
-				<router-link
-					to="/tutorials/javascript-basics/functions"
-					class="button is-success"
-				>
-					Continue to Functions
-					<i class="fas fa-arrow-right ml-2"></i>
-				</router-link>
+		<div class="box">
+			<h3 class="title is-4">Related Topics</h3>
+			<ul>
+				<li>
+					<router-link to="/tutorials/javascript-basics/objects" class="is-link">
+						<i class="fas fa-cube"></i> Objects and Iteration
+					</router-link>
+					- Learn to loop through object properties
+				</li>
+				<li>
+					<router-link to="/tutorials/javascript-basics/array-methods" class="is-link">
+						<i class="fas fa-tools"></i> Array Methods
+					</router-link>
+					- Discover alternatives to traditional loops
+				</li>
+			</ul>
+		</div>
+
+		<div class="box">
+			<h3 class="title is-4">Practical Projects</h3>
+			<div class="columns is-multiline">
+				<div class="column is-6">
+					<div class="card">
+						<div class="card-content">
+							<h4 class="title is-5">Todo List</h4>
+							<p>Build a todo list application that:</p>
+							<ul>
+								<li>Displays all tasks</li>
+								<li>Filters completed/active tasks</li>
+								<li>Allows bulk actions</li>
+								<li>Sorts tasks by priority</li>
+							</ul>
+							<a href="/projects/javascript/todo-list" class="button is-primary mt-4">
+								Start Project
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="column is-6">
+					<div class="card">
+						<div class="card-content">
+							<h4 class="title is-5">Image Gallery</h4>
+							<p>Create an image gallery that:</p>
+							<ul>
+								<li>Shows image thumbnails</li>
+								<li>Implements slideshow</li>
+								<li>Has navigation controls</li>
+								<li>Supports keyboard shortcuts</li>
+							</ul>
+							<a href="/projects/javascript/image-gallery" class="button is-primary mt-4">
+								Start Project
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="column is-6">
+					<div class="card">
+						<div class="card-content">
+							<h4 class="title is-5">Data Table</h4>
+							<p>Develop a data table that:</p>
+							<ul>
+								<li>Displays tabular data</li>
+								<li>Supports sorting</li>
+								<li>Implements filtering</li>
+								<li>Has pagination</li>
+							</ul>
+							<a href="/projects/javascript/data-table" class="button is-primary mt-4">
+								Start Project
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
+		</div>
+
+		<div class="box">
+			<h3 class="title is-4">Additional Resources</h3>
+			<ul>
+				<li>
+					<a href="https://javascript.info/while-for" target="_blank" rel="noopener">
+						<i class="fas fa-external-link-alt"></i> JavaScript.info: Loops
+					</a>
+					- Comprehensive guide to all types of loops
+				</li>
+				<li>
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" target="_blank" rel="noopener">
+						<i class="fas fa-external-link-alt"></i> MDN: Loops and Iteration
+					</a>
+					- Complete reference for JavaScript loops
+				</li>
+				<li>
+					<a href="https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-loops" target="_blank" rel="noopener">
+						<i class="fas fa-external-link-alt"></i> Codecademy: JavaScript Loops
+					</a>
+					- Interactive exercises on loops
+				</li>
+			</ul>
 		</div>
 
 		<!-- Quiz section -->
@@ -1582,14 +1642,52 @@ for (const course in menu) {
 
 <script setup>
 import { ref } from 'vue';
-import * as CodeMirrorModule from '@/components/CodeMirror.vue';
-import * as TutorialRecommendationsModule from '@/components/TutorialRecommendations.vue';
-import * as TutorialQuizModule from '@/components/TutorialQuiz.vue';
+import CodeMirror from '@/components/CodeMirror.vue';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import { usePageSections } from '@/composables/usePageSections';
 
-// Use the components with their namespace
-const CodeMirror = CodeMirrorModule.default || CodeMirrorModule.CodeMirror;
-const TutorialRecommendations = TutorialRecommendationsModule.default || TutorialRecommendationsModule.TutorialRecommendations;
-const TutorialQuiz = TutorialQuizModule.default || TutorialQuizModule.TutorialQuiz;
+const sections = [
+  {
+    id: 'for-loops',
+    title: 'for Loops',
+    subsections: [
+      { id: 'basic-for', title: 'Basic for Loop' },
+      { id: 'nested-for', title: 'Nested for Loops' },
+      { id: 'for-arrays', title: 'Looping Through Arrays' }
+    ]
+  },
+  {
+    id: 'while-loops',
+    title: 'while Loops',
+    subsections: [
+      { id: 'while-syntax', title: 'while Loop Syntax' },
+      { id: 'do-while', title: 'do...while Loop' }
+    ]
+  },
+  {
+    id: 'for-of-in',
+    title: 'for...of and for...in',
+    subsections: [
+      { id: 'for-of', title: 'for...of Loop' },
+      { id: 'for-in', title: 'for...in Loop' }
+    ]
+  },
+  {
+    id: 'loop-control',
+    title: 'Loop Control',
+    subsections: [
+      { id: 'break', title: 'break Statement' },
+      { id: 'continue', title: 'continue Statement' }
+    ]
+  },
+  {
+    id: 'practice',
+    title: 'Practice Exercises',
+    subsections: []
+  }
+];
+
+const { pageSections } = usePageSections(sections);
 
 // Toggle solution visibility
 const showSolution = ref(false);

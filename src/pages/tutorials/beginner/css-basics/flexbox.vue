@@ -9,6 +9,7 @@ import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 // Define a ref for the code editor instances
 const codeEditors = ref([]);
+const progressEnabled = ref(true);
 
 const frontmatter = {
 	title: 'CSS Flexbox',
@@ -645,7 +646,7 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 				</ul>
 			</section>
 
-			<section id="practical-application" class="mb-6">
+			<section id="flexbox-in-practice" class="mb-6">
 				<h2 class="title is-2">
 					Practical Application: Site-Wide Flexbox Implementation
 				</h2>
@@ -658,7 +659,7 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 				</p>
 
 				<div class="mb-5">
-					<h3 class="title is-3">The Black Swan Bistro Style Guide</h3>
+					<h3 id="bistro-style-guide" class="title is-3">The Black Swan Bistro Style Guide</h3>
 					<p>
 						For The Black Swan Bistro restaurant site, we'll use Flexbox to
 						create an elegant, appetizing layout that showcases the restaurant's
@@ -833,7 +834,7 @@ main {
 				</div>
 
 				<div class="mb-5">
-					<h3 class="title is-3">Rotto Rocks Tourist Site Style Guide</h3>
+					<h3 id="rotto-rocks-style-guide" class="title is-3">Rotto Rocks Tourist Site Style Guide</h3>
 					<p>
 						For the Rotto Rocks tourist information site, we'll use Flexbox to
 						create a vibrant, informative layout that showcases the beauty and
@@ -841,7 +842,7 @@ main {
 					</p>
 
 					<div class="box">
-						<h4 class="title is-4">Layout Structure</h4>
+						<h4 id="layout-structure" class="title is-4">Layout Structure</h4>
 						<pre class="language-css"><code>/* Main Layout Structure */
 body {
   display: flex;
@@ -888,7 +889,7 @@ body {
   }
 }</code></pre>
 
-						<h4 class="title is-4 mt-4">Attraction Cards</h4>
+						<h4 id="attraction-cards" class="title is-4 mt-4">Attraction Cards</h4>
 						<pre class="language-css"><code>/* Attraction Cards */
 .attractions-list {
   display: flex;
@@ -1130,11 +1131,6 @@ body {
 					</a>
 				</div>
 			</section>
-
-			<TutorialNavigation
-				prev="css-basics-layout"
-				next="css-basics-responsive"
-			/>
 		</div>
 
 		<!-- Add quiz before the completion section -->

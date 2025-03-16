@@ -6,6 +6,8 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
+const progressEnabled = ref(true);
+
 const frontmatter = {
 	title: 'Modern CSS',
 	description:
@@ -504,7 +506,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 			<div class="box">
 				<h3 class="title is-4">Understanding CSS Functions</h3>
 
-				<section class="function-explanation">
+				<section id="calc" class="function-explanation">
 					<h4 class="title is-5">calc()</h4>
 					<p>
 						The <code>calc()</code> function performs calculations to determine
@@ -521,7 +523,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 					</div>
 				</section>
 
-				<section class="function-explanation mt-5">
+				<section id="clamp" class="function-explanation mt-5">
 					<h4 class="title is-5">clamp()</h4>
 					<p>
 						The <code>clamp()</code> function takes three values: minimum,
@@ -538,24 +540,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 					</div>
 				</section>
 
-				<section class="function-explanation mt-5">
-					<h4 class="title is-5">min() and max()</h4>
-					<p>
-						These functions select the smallest or largest value from a set of
-						comma-separated expressions:
-					</p>
-					<ul>
-						<li><code>min()</code> - Chooses the smallest value</li>
-						<li><code>max()</code> - Chooses the largest value</li>
-						<li>Useful for responsive constraints</li>
-					</ul>
-					<CodeMirror v-model="minMaxExample" readonly />
-					<div class="demo-card min-demo mt-3">
-						min() Demo: padding: min(2rem, 5vw)
-					</div>
-				</section>
-
-				<section class="function-explanation mt-5">
+				<section id="minmax" class="function-explanation mt-5">
 					<h4 class="title is-5">minmax() for Grid</h4>
 					<p>
 						Used specifically in Grid layouts, <code>minmax()</code> sets a size
@@ -589,18 +574,8 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 					<p>CSS functions become even more powerful when combined:</p>
 					<CodeMirror v-model="combinedFunctionsExample" readonly />
 				</div>
-			</div>
-		</section>
 
-		<section id="css-functions">
-			<h2 class="title is-2">CSS Functions</h2>
-			<p>
-				Modern CSS provides powerful built-in functions that help with
-				calculations, transformations, and dynamic values.
-			</p>
-
-			<div class="box">
-				<h3 class="title is-4">Practical Examples</h3>
+				<h3 class="title is-4 mt-5">Practical Examples</h3>
 				<CodeMirror v-model="functionExamplesCode" readonly />
 
 				<div class="notification is-warning is-light mt-4">
@@ -625,7 +600,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 				<CodeMirror v-model="viewportUnitsExample" readonly />
 
 				<div class="notification is-info is-light mt-4">
-					<h4 class="title is-5">New Viewport Units</h4>
+					<h4 id="viewport" class="title is-5">New Viewport Units</h4>
 					<p>
 						Modern browsers now support small (s) and large (l) viewport units:
 					</p>
@@ -653,7 +628,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 			</div>
 
 			<div class="box mt-4">
-				<h3 class="title is-4">Modern Relative Units</h3>
+				<h3 id="relative" class="title is-4">Modern Relative Units</h3>
 				<p>Units that provide better control over sizing:</p>
 				<CodeMirror v-model="relativeUnitsExample" readonly />
 			</div>
@@ -670,17 +645,17 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 				<h3 class="title is-4">Understanding Logical Properties</h3>
 				<div class="columns">
 					<div class="column">
-						<h4 class="title is-5">Physical Properties (Old Way)</h4>
+						<h4 id="physical" class="title is-5">Physical Properties (Old Way)</h4>
 						<CodeMirror v-model="physicalPropertiesExample" readonly />
 					</div>
 					<div class="column">
-						<h4 class="title is-5">Logical Properties (Modern Way)</h4>
+						<h4 id="logical" class="title is-5">Logical Properties (Modern Way)</h4>
 						<CodeMirror v-model="logicalPropertiesExample" readonly />
 					</div>
 				</div>
 
 				<div class="notification is-info is-light mt-4">
-					<h4 class="title is-5">Key Concepts:</h4>
+					<h4 id="key-concepts" class="title is-5">Key Concepts:</h4>
 					<ul>
 						<li>
 							<strong>Block</strong> - The direction blocks are stacked in
@@ -697,7 +672,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 			</div>
 
 			<div class="box mt-4">
-				<h3 class="title is-4">Common Logical Properties</h3>
+				<h3 id="common" class="title is-4">Common Logical Properties</h3>
 				<CodeMirror v-model="commonLogicalExample" readonly />
 
 				<div class="logical-demo mt-4">
@@ -707,7 +682,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 			</div>
 
 			<div class="box mt-4">
-				<h3 class="title is-4">Practical Examples</h3>
+				<h3 id="practical" class="title is-4">Practical Examples</h3>
 				<CodeMirror v-model="logicalPracticalExample" readonly />
 
 				<div class="notification is-warning is-light mt-4">
@@ -832,7 +807,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 				</ul>
 
 				<div class="notification is-warning is-light mt-4">
-					<h4 class="title is-5">Next Steps</h4>
+					<h4 id="next-steps" class="title is-5">Next Steps</h4>
 					<p>
 						Now that you understand modern CSS features, you're ready to learn
 						about responsive design! These modern tools will help you create
@@ -856,7 +831,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 class="title is-2">Completion</h2>
+			<h2 id="completion" class="title is-2">Completion</h2>
 			<p>Congratulations! You've completed the Modern CSS tutorial.</p>
 			<p>
 				Your progress has been saved. You can continue to the next tutorial or

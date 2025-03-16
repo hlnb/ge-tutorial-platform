@@ -393,4 +393,229 @@ const tutorialRecommendations = {
 		},
 		// Add more CSS tutorials as needed
 	},
+	'javascript-basics': {
+		'introduction': {
+			nextTutorial: {
+				path: '/tutorials/javascript-basics/variables-data-types',
+				title: 'Variables and Data Types',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/web-basics',
+					title: 'Web Basics',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Hello World App',
+					description: 'Create a simple interactive greeting application',
+					tags: ['JavaScript', 'Beginner', 'DOM'],
+					path: '/projects/hello-world-js',
+				},
+				{
+					title: 'Number Game',
+					description: 'Build a number guessing game with basic JavaScript',
+					tags: ['JavaScript', 'Beginner', 'Logic'],
+					path: '/projects/number-game',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Getting started with JavaScript',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript',
+					description: 'Comprehensive guide to JavaScript basics',
+				},
+				{
+					title: 'JavaScript.info',
+					url: 'https://javascript.info/intro',
+					description: 'Modern JavaScript Tutorial',
+				},
+			],
+		},
+		'variables-data-types': {
+			nextTutorial: {
+				path: '/tutorials/javascript-basics/operators',
+				title: 'Operators',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/javascript-basics/introduction',
+					title: 'Introduction to JavaScript',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Temperature Converter',
+					description: 'Create a temperature conversion tool',
+					tags: ['JavaScript', 'Variables', 'Math'],
+					path: '/projects/temp-converter',
+				},
+				{
+					title: 'User Profile',
+					description: 'Build a dynamic user profile with different data types',
+					tags: ['JavaScript', 'Data Types', 'DOM'],
+					path: '/projects/user-profile',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: JavaScript data types and data structures',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures',
+					description: 'Deep dive into JavaScript data types',
+				},
+			],
+		},
+		'operators': {
+			nextTutorial: {
+				path: '/tutorials/javascript-basics/conditionals',
+				title: 'Control Flow',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/javascript-basics/functions',
+					title: 'JavaScript Functions',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Calculator App',
+					description: 'Build a basic calculator with arithmetic operators',
+					tags: ['JavaScript', 'Operators', 'Math'],
+					path: '/projects/calculator',
+				},
+				{
+					title: 'Grade Calculator',
+					description: 'Create a tool to calculate final grades',
+					tags: ['JavaScript', 'Operators', 'Logic'],
+					path: '/projects/grade-calc',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Expressions and operators',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators',
+					description: 'Complete guide to JavaScript operators',
+				},
+			],
+		},
+		'conditionals': {
+			nextTutorial: {
+				path: '/tutorials/javascript-basics/loops',
+				title: 'Loops',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/javascript-basics/operators',
+					title: 'Operators',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Password Validator',
+					description: 'Create a tool to validate password strength',
+					tags: ['JavaScript', 'Conditionals', 'Logic'],
+					path: '/projects/password-validator',
+				},
+				{
+					title: 'Quiz Game',
+					description: 'Build a quiz with conditional logic',
+					tags: ['JavaScript', 'Conditionals', 'DOM'],
+					path: '/projects/quiz-game',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Making decisions in your code',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals',
+					description: 'Guide to conditional statements in JavaScript',
+				},
+			],
+		},
+		'loops': {
+			nextTutorial: {
+				path: '/tutorials/javascript-basics/functions',
+				title: 'Functions',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/javascript-basics/arrays',
+					title: 'Working with Arrays',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Todo List',
+					description: 'Build a todo list with array iteration',
+					tags: ['JavaScript', 'Loops', 'Arrays'],
+					path: '/projects/todo-list',
+				},
+				{
+					title: 'Image Gallery',
+					description: 'Create an image gallery with dynamic content',
+					tags: ['JavaScript', 'Loops', 'DOM'],
+					path: '/projects/image-gallery',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Loops and iteration',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration',
+					description: 'Complete guide to JavaScript loops',
+				},
+			],
+		},
+		'functions': {
+			nextTutorial: {
+				path: '/tutorials/javascript-basics/arrays',
+				title: 'JavaScript Arrays',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/javascript-basics/variables',
+					title: 'Variables & Data Types',
+				},
+				{
+					path: '/tutorials/javascript-basics/objects',
+					title: 'JavaScript Objects',
+				}
+			],
+			practiceProjects: [
+				{
+					title: 'Calculator',
+					description: 'Build a calculator using functions for each operation',
+					tags: ['JavaScript', 'Functions', 'DOM Events'],
+					path: '/projects/calculator',
+				},
+				{
+					title: 'Todo List',
+					description: 'Create a todo list app using functions to manage tasks',
+					tags: ['JavaScript', 'Functions', 'Arrays'],
+					path: '/projects/todo-list',
+				},
+				{
+					title: 'Quiz Game',
+					description: 'Develop a quiz game with functions for game logic',
+					tags: ['JavaScript', 'Functions', 'Logic'],
+					path: '/projects/quiz-game',
+				}
+			],
+			resources: [
+				{
+					title: 'MDN: Functions Guide',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions',
+					description: 'Comprehensive guide to JavaScript functions',
+				},
+				{
+					title: 'JavaScript.info: Functions',
+					url: 'https://javascript.info/function-basics',
+					description: 'In-depth tutorial on JavaScript functions',
+				},
+				{
+					title: 'MDN: Arrow Functions',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions',
+					description: 'Guide to arrow function syntax and usage',
+				}
+			]
+		},
+	},
 };

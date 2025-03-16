@@ -410,8 +410,6 @@
 				Let's see how well you understand the concepts covered in this tutorial.
 				Take this quick quiz to test your knowledge!
 			</p>
-
-			<QuizComponent />
 		</section>
 
 		<!-- Add quiz before the completion section -->
@@ -439,7 +437,6 @@ import { format } from 'date-fns';
 import { ref, computed, inject, onMounted, watch } from 'vue';
 import DOMPurify from 'dompurify';
 import { usePageSections } from '@/composables/usePageSections';
-import QuizComponent from '@/components/QuizComponent.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import { useRoute } from 'vue-router';
 import { useProgressTracking } from '@/utils/progressUtils';

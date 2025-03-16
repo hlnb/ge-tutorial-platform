@@ -23,50 +23,38 @@
 
 			<aside class="menu tutorial-nav">
 					<ul class="menu-list">
-					<li>
-						<router-link to="/tutorials/javascript-basics/">
-							<i class="fas fa-home"></i> Overview
+					<li v-for="item in navItems" :key="item.path">
+						<router-link :to="item.path" :class="{ 'is-active': isActive(item.path) }">
+							<i :class="['fas', item.icon]"></i> {{ item.title }}
 						</router-link>
-					</li>
-					<li>
-						<router-link to="/tutorials/javascript-basics/introduction">
-							<i class="fas fa-flag"></i> Introduction
-						</router-link>
-					</li>
-					<li>
-						<router-link to="/tutorials/javascript-basics/variables-data-types">
-							<i class="fas fa-cube"></i> Variables & Data Types
-						</router-link>
-					</li>
-					<li>
-						<router-link to="/tutorials/javascript-basics/operators">
-							<i class="fas fa-calculator"></i> Operators & Expressions
-						</router-link>
-					</li>
-					<li>
-						<router-link to="/tutorials/javascript-basics/conditionals">
-							<i class="fas fa-code-branch"></i> Control Flow
-						</router-link>
-					</li>
-					<li>
-						<router-link to="/tutorials/javascript-basics/loops">
-							<i class="fas fa-sync"></i> Loops
-						</router-link>
-					</li>
-					<li>
-						<router-link to="/tutorials/javascript-basics/functions">
-							<i class="fas fa-cogs"></i> Functions
-						</router-link>
-					</li>
-					<li>
-						<router-link to="/tutorials/javascript-basics/dom">
-							<i class="fas fa-sitemap"></i> DOM Manipulation
-						</router-link>
-					</li>
-					<li>
-						<router-link to="/tutorials/javascript-basics/events">
-							<i class="fas fa-bolt"></i> Events
-						</router-link>
+
+						<!-- On this page navigation - only shown under the active page -->
+						<div v-if="isActive(item.path) && hasPageSections" class="page-sections mt-2">
+							<div class="page-sections-header">
+								<h4 class="title is-6">On This Page</h4>
+								<span class="icon">
+									<i class="fas fa-chevron-up"></i>
+								</span>
+							</div>
+							<ul class="menu-list page-sections-list">
+								<li v-for="section in pageSections" :key="section.id">
+									<!-- Topic section header -->
+									<div class="section-header">
+										<a :href="`#${section.id}`" @click="scrollToSection(section.id)">{{ section.title }}</a>
+										<span v-if="section.subsections && section.subsections.length" class="icon toggle-icon" @click="toggleSubsection(section.id)">
+											<i class="fas" :class="isSubsectionOpen(section.id) ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+										</span>
+									</div>
+
+									<!-- Subsections -->
+									<ul v-if="section.subsections && section.subsections.length" :style="{ display: isSubsectionOpen(section.id) ? 'block' : 'none' }">
+										<li v-for="subsection in section.subsections" :key="subsection.id">
+											<a :href="`#${subsection.id}`" @click="scrollToSection(subsection.id)">{{ subsection.title }}</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
 					</li>
 				</ul>
 				<div class="sidebar-footer">
@@ -82,7 +70,59 @@
 </template>
 
 <script setup>
-// No special setup needed
+import { ref, computed, inject, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { usePageNavigation } from '@/composables/usePageNavigation';
+
+const route = useRoute();
+const isMainExpanded = ref(true);
+const expandedSections = ref(new Set()); // Track expanded sections
+const { pageSections, hasPageSections } = usePageNavigation();
+
+// Inject pageSections from the current tutorial
+const pageSectionsInject = inject('pageSections', ref([]));
+
+// Single source of truth for navigation items
+const navItems = [
+	{ path: '/tutorials/javascript-basics/', title: 'Overview', icon: 'fa-home' },
+	{ path: '/tutorials/javascript-basics/introduction', title: 'Introduction', icon: 'fa-flag' },
+	{ path: '/tutorials/javascript-basics/variables-data-types', title: 'Variables & Data Types', icon: 'fa-cube' },
+	{ path: '/tutorials/javascript-basics/operators', title: 'Operators & Expressions', icon: 'fa-calculator' },
+	{ path: '/tutorials/javascript-basics/conditionals', title: 'Control Flow', icon: 'fa-code-branch' },
+	{ path: '/tutorials/javascript-basics/loops', title: 'Loops', icon: 'fa-sync' },
+	{ path: '/tutorials/javascript-basics/functions', title: 'Functions', icon: 'fa-cogs' },
+	{ path: '/tutorials/javascript-basics/dom', title: 'DOM Manipulation', icon: 'fa-sitemap' },
+	{ path: '/tutorials/javascript-basics/events', title: 'Events', icon: 'fa-bolt' }
+];
+
+function isCurrentPath(path) {
+	return route.path === path;
+}
+
+function isActive(path) {
+	return route.path === path;
+}
+
+// Track which subsections are open
+const openSubsections = ref({});
+
+// Toggle subsection visibility
+function toggleSubsection(id) {
+	openSubsections.value[id] = !openSubsections.value[id];
+}
+
+// Check if subsection is open
+function isSubsectionOpen(id) {
+	return !!openSubsections.value[id];
+}
+
+// Scroll to section
+function scrollToSection(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 </script>
 
 <style scoped>
@@ -126,7 +166,7 @@
 
 .menu-list a.is-active {
 	background-color: #f0db4f;
-	color: white;
+	color: black;
 	font-weight: 600;
 }
 
@@ -144,5 +184,47 @@
 .sidebar-footer .buttons {
 	display: flex;
 	justify-content: space-between;
+}
+
+/* Page Sections Styling */
+.page-sections {
+	border-top: 1px solid #f5f5f5;
+	margin-top: 1.5rem;
+	padding-top: 1rem;
+}
+
+.page-sections-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	padding: 0.5rem 0;
+}
+
+.page-sections-header:hover {
+	color: #f0db4f;
+}
+
+.page-sections-list {
+	margin-top: 0.5rem;
+	transition: all 0.3s ease;
+	max-height: 300px;
+	overflow-y: auto;
+	padding-right: 5px;
+}
+
+.section-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.toggle-icon {
+	cursor: pointer;
+	padding: 0.25rem;
+}
+
+.toggle-icon:hover {
+	color: #f0db4f;
 }
 </style>

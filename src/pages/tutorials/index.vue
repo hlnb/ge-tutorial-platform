@@ -116,12 +116,27 @@
 					>
 				</div>
 				<div class="box tutorial-card">
-					<h4 class="title is-4">JavaScript Fundamentals</h4>
-					<p>Introduction to programming with JavaScript</p>
+					<h4 class="title is-4">
+						<i class="fab fa-js javascript-icon"></i> JavaScript Basics
+					</h4>
+					<p>Learn interactive web programming with JavaScript</p>
 					<div class="tags">
-						<span class="tag is-light">12 tutorials</span>
-						<span class="tag is-light">6-8 hours</span>
+						<span class="tag is-light">5 tutorials</span>
+						<span class="tag is-light">4-5 hours</span>
+						<span class="tag is-success">Available Now</span>
 					</div>
+					<ul class="tutorial-topics mt-3">
+						<li><i class="fas fa-check"></i> Introduction to JavaScript</li>
+						<li><i class="fas fa-check"></i> Variables & Data Types</li>
+						<li><i class="fas fa-check"></i> Operators & Expressions</li>
+						<li><i class="fas fa-check"></i> Conditionals</li>
+						<li><i class="fas fa-check"></i> Loops</li>
+					</ul>
+					<router-link
+						:to="{ name: 'javascript-basics-index' }"
+						class="button is-primary is-outlined mt-3"
+						>Start Your JavaScript Journey</router-link
+					>
 				</div>
 			</div>
 		</div>
@@ -279,6 +294,10 @@ onMounted(() => {
 
 .css-icon {
 	color: #264de4;
+}
+
+.javascript-icon {
+	color: #f0db4f;
 }
 
 .tutorial-topics {

@@ -2,6 +2,7 @@
 import { ref, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 // Define frontmatter
 const frontmatter = {
@@ -2168,6 +2169,10 @@ const rottoContentStyles = ref(`/* Content sections */
 				</div>
 			</section>
 		</div>
+
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
+
 		<TutorialNavigation prev="css-basics-box-model" next="css-basics-layout" />
 	</div>
 </template>

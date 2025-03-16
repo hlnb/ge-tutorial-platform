@@ -181,8 +181,12 @@ function isActive(path) {
 		</ul>
 
 		<div class="sidebar-footer">
-			<router-link to="/my-progress" class="sidebar-link">My Progress</router-link>
-			<router-link to="/tutorials" class="sidebar-link">All Tutorials</router-link>
+			<router-link to="/tutorials" class="button is-small is-fullwidth">
+				<i class="fas fa-arrow-left"></i> All Tutorials
+			</router-link>
+			<router-link to="/progress" class="button is-small is-fullwidth mt-2">
+				<i class="fas fa-chart-line"></i> My Progress
+			</router-link>
 		</div>
 	</div>
 </template>
@@ -387,23 +391,17 @@ function isActive(path) {
 }
 
 .sidebar-footer {
-	margin-top: auto;
 	padding: 1rem;
 	border-top: 1px solid #dbdbdb;
 }
 
-.sidebar-link {
-	display: block;
-	margin-bottom: 0.5rem;
-	color: #3273dc;
-	text-decoration: none;
+.sidebar-footer .button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.sidebar-link:hover {
-	color: #363636;
-}
-
-.sidebar-link.router-link-active {
-	color: #f0db4f;
+.sidebar-footer .button i {
+	margin-right: 0.5rem;
 }
 </style>

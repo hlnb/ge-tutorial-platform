@@ -148,7 +148,7 @@ export const cssBasicsQuizzes = {
 	],
 
 	// Text Properties quiz
-	'text-properties': [
+	'text': [
 		{
 			text: 'Which CSS property is used to change the font of an element?',
 			options: ['font-style', 'text-font', 'font-family', 'font-type'],

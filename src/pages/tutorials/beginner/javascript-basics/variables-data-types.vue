@@ -70,7 +70,7 @@
 			</ul>
 		</div>
 
-		<h2 class="title is-2">Declaring Variables</h2>
+		<h2 class="title is-2" id="variables">Declaring Variables</h2>
 		<p>
 			Variables are like containers that store data. Think of them as labeled
 			boxes where you can put different types of information.
@@ -94,7 +94,7 @@
 			</p>
 		</div>
 
-		<h3 class="title is-4">Try in Console:</h3>
+		<h3 class="title is-4" id="declaring-variables">Variable Declaration</h3>
 		<CodeMirror
 			:code="tryInConsoleCode"
 			:value="tryInConsoleCode"
@@ -118,6 +118,7 @@
 			</div>
 		</div>
 
+		<h2 class="title is-2" id="data-types">Data Types</h2>
 		<h2 class="title is-2">Data Types</h2>
 		<p>
 			JavaScript has several built-in data types. Let's explore them using a
@@ -290,54 +291,6 @@
 			</div>
 		</div>
 
-		<h2 class="title is-2">Interactive Resources</h2>
-		<div class="box tip-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-external-link-alt"></i> Practice More
-			</h3>
-			<ul>
-				<li>
-					<a
-						href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables"
-						target="_blank"
-					>
-						MDN: JavaScript Variables
-					</a>
-				</li>
-				<li>
-					<a href="https://javascript.info/variables" target="_blank">
-						JavaScript.info: Variables
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#basic-javascript"
-						target="_blank"
-					>
-						freeCodeCamp: Basic JavaScript
-					</a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="notification is-success is-light mt-6">
-			<p>
-				<i class="fas fa-check-circle mr-2"></i>
-				<strong>What's Next?</strong> In the next tutorial, we'll learn about
-				operators in JavaScript - how to perform calculations, compare values,
-				and combine conditions.
-			</p>
-			<div class="mt-3">
-				<router-link
-					to="/tutorials/javascript-basics/operators"
-					class="button is-success"
-				>
-					Continue to Operators & Expressions
-					<i class="fas fa-arrow-right ml-2"></i>
-				</router-link>
-			</div>
-		</div>
-
 		<!-- Quiz section -->
 		<TutorialQuiz />
 
@@ -351,6 +304,7 @@ import { ref, onMounted } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import { usePageSections } from '@/composables/usePageSections';
 
 // Toggle solution visibility
 const showSolution = ref(false);
@@ -502,6 +456,44 @@ function listAvailableItems() {
 // Test the functions
 console.log('Total menu value: $' + calculateMenuValue());
 console.log('Available items:', listAvailableItems());`;
+
+const sections = [
+  {
+    id: 'variables',
+    title: 'Variables',
+    subsections: [
+      { id: 'declaring-variables', title: 'Declaring Variables' },
+      { id: 'variable-naming', title: 'Variable Naming Rules' },
+      { id: 'var-let-const', title: 'var, let, and const' }
+    ]
+  },
+  {
+    id: 'data-types',
+    title: 'Data Types',
+    subsections: [
+      { id: 'primitive-types', title: 'Primitive Types' },
+      { id: 'numbers', title: 'Numbers' },
+      { id: 'strings', title: 'Strings' },
+      { id: 'booleans', title: 'Booleans' },
+      { id: 'null-undefined', title: 'null and undefined' }
+    ]
+  },
+  {
+    id: 'type-conversion',
+    title: 'Type Conversion',
+    subsections: [
+      { id: 'implicit-conversion', title: 'Implicit Conversion' },
+      { id: 'explicit-conversion', title: 'Explicit Conversion' }
+    ]
+  },
+  {
+    id: 'practice',
+    title: 'Practice Exercises',
+    subsections: []
+  }
+];
+
+const { pageSections } = usePageSections(sections);
 </script>
 
 <script>

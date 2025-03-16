@@ -77,7 +77,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2">What is JavaScript?</h2>
+		<h2 class="title is-2" id="what-is-javascript">What is JavaScript?</h2>
 		<p>
 			JavaScript is the programming language that makes websites interactive.
 			It's like giving instructions to your website so it can respond to what
@@ -115,14 +115,14 @@
 			</div>
 		</div>
 
-		<h2 class="title is-2 mt-6">Adding JavaScript to HTML</h2>
+		<h2 class="title is-2 mt-6" id="adding-javascript">Adding JavaScript to HTML</h2>
 		<p>
 			There are three ways to add JavaScript to your webpage. Think of these
 			like different ways to attach an instruction manual to a product:
 		</p>
 
 		<div class="box">
-			<h3 class="title is-4">1. Inline JavaScript</h3>
+			<h3 class="title is-4" id="inline-javascript">1. Inline JavaScript</h3>
 			<p>
 				This is like writing instructions directly on a button. It's quick but
 				gets messy for complex instructions.
@@ -144,7 +144,7 @@
 		</div>
 
 		<div class="box">
-			<h3 class="title is-4">2. Internal JavaScript</h3>
+			<h3 class="title is-4" id="internal-javascript">2. Internal JavaScript</h3>
 			<p>
 				This is like including an instruction manual inside the product box. All
 				the instructions are in one place within your HTML file.
@@ -161,7 +161,7 @@
 		</div>
 
 		<div class="box">
-			<h3 class="title is-4">3. External JavaScript (Recommended)</h3>
+			<h3 class="title is-4" id="external-javascript">3. External JavaScript (Recommended)</h3>
 			<p>
 				This is like having a separate instruction manual that comes with the
 				product. It keeps your HTML clean and your JavaScript organized in its
@@ -197,7 +197,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2 mt-6">Using the Console</h2>
+		<h2 class="title is-2 mt-6" id="developer-tools">Using the Console</h2>
 		<p>
 			The browser console is like a backstage pass to your website. It lets you
 			see what's happening behind the scenes and try out JavaScript code
@@ -205,7 +205,7 @@
 		</p>
 
 		<div class="box">
-			<h3 class="title is-4">Opening the Console</h3>
+			<h3 class="title is-4" id="console">Opening the Console</h3>
 			<p>To open your browser's DevTools:</p>
 			<ul>
 				<li>
@@ -450,7 +450,7 @@
 			</ul>
 		</div>
 
-		<h2 class="title is-2 mt-6">Interactive Resources</h2>
+		<h2 class="title is-2 mt-6" id="next-steps">Interactive Resources</h2>
 		<div class="box">
 			<h3 class="title is-4">Practice More</h3>
 			<ul>
@@ -506,6 +506,39 @@ import { ref, onMounted } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import { usePageSections } from '@/composables/usePageSections';
+
+const sections = [
+	{
+		id: 'what-is-javascript',
+		title: 'What is JavaScript?',
+		subsections: []
+	},
+	{
+		id: 'adding-javascript',
+		title: 'Adding JavaScript to Your Page',
+		subsections: [
+			{ id: 'inline-javascript', title: 'Inline JavaScript' },
+			{ id: 'internal-javascript', title: 'Internal JavaScript' },
+			{ id: 'external-javascript', title: 'External JavaScript' }
+		]
+	},
+	{
+		id: 'developer-tools',
+		title: 'Developer Tools',
+		subsections: [
+			{ id: 'console', title: 'The Console' },
+			{ id: 'debugging', title: 'Debugging' }
+		]
+	},
+	{
+		id: 'next-steps',
+		title: 'Next Steps',
+		subsections: []
+	}
+];
+
+const { pageSections } = usePageSections(sections);
 
 // Code examples
 const inlineJsExample = ref(
