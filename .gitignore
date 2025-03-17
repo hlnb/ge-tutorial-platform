@@ -28,4 +28,6 @@ dist-ssr
 .env.*.local
 posts/*.*
 \#\# SpecStory.md
+\#\#*.md
 /.specstory
+
