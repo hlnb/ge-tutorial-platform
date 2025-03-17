@@ -173,68 +173,19 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 // Code examples
-const htmlStructure = ref('<!DOCTYPE html>\n' +
-// ... rest of the code stays the same ...
+const htmlStructure = ref(`<!DOCTYPE html>
+<div class="calculator">
+  <input type="text" id="result" readonly>
+  <div class="buttons">
+    <!-- Add your calculator buttons here -->
+  </div>
+</div>`)
 
-const cssStyles = ref(`.calculator {
+const cssStyles = ref(`
+.calculator {
   width: 300px;
-  margin: 50px auto;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.display {
-  margin-bottom: 10px;
-}
-
-#result {
-  width: 100%;
-  height: 40px;
-  font-size: 24px;
-  text-align: right;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-}
-
-button {
-  padding: 15px;
-  font-size: 18px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  background: #f9f9f9;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #eee;
-}
-
-.operator {
-  background: #f0f0f0;
-}
-
-.equals {
-  background: #4CAF50;
-  color: white;
-}
-
-.clear {
-  background: #ff9800;
-  color: white;
-}
-
-.zero {
-  grid-column: span 2;
-}`);
+  /* Add your CSS styles here */
+}`)
 
 const jsLogic = ref(`// Get DOM elements
 const display = document.getElementById('result');
