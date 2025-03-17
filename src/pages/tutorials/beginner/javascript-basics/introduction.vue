@@ -23,6 +23,7 @@
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">45 minutes</span>
 			<span class="tag is-success">JavaScript</span>
+			<span class="tag is-success">Level 1</span>
 		</div>
 
 		<h1 class="title is-1">
@@ -52,49 +53,113 @@
 					</g>
 				</svg>
 			</span>
-			Introduction to JavaScript
+			Foundation: Getting Started
 		</h1>
 
-		<div class="box mb-6">
+		<!-- Enhanced Learning Objectives -->
+		<div class="box highlight-box mb-6">
 			<h3 class="title is-4">
 				<i class="fas fa-graduation-cap"></i> Learning Objectives
 			</h3>
+			<p>After completing this introduction, you'll be able to:</p>
 			<ul>
-				<li>What JavaScript is and why we use it</li>
-				<li>How to add JavaScript to HTML</li>
-				<li>Using the browser console</li>
-				<li>Basic DOM manipulation</li>
-				<li>Simple conditions</li>
+				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand what JavaScript is and its role in web development</li>
+				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Add JavaScript to HTML pages using three different methods</li>
+				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Use the browser's developer console for debugging and testing</li>
+				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Write your first JavaScript statements</li>
+				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand basic JavaScript concepts and syntax</li>
 			</ul>
 		</div>
 
+		<!-- Prerequisites Check -->
+		<div class="box prerequisite-box mb-6">
+			<h3 class="title is-4">
+				<i class="fas fa-clipboard-check"></i> Before You Start
+			</h3>
+			<p>To get the most out of this tutorial, you should be familiar with:</p>
+			<ul>
+				<li>
+					<i class="fab fa-html5 has-text-danger mr-2"></i>
+					Basic HTML - <router-link to="/tutorials/html-basics">Review HTML Basics</router-link>
+				</li>
+				<li>
+					<i class="fab fa-css3-alt has-text-info mr-2"></i>
+					Basic CSS - <router-link to="/tutorials/css-basics">Review CSS Basics</router-link>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Engaging Introduction -->
 		<div class="notification is-info is-light">
 			<p>
 				<i class="fas fa-lightbulb mr-2"></i>
-				<strong>Think of it this way:</strong> If a website were a car, HTML
-				would be the frame and body, CSS would be the paint and interior, and
-				JavaScript would be the engine and controls that make it actually work!
+				<strong>Think of it this way:</strong> If a website were a car, HTML would be the frame and body, CSS would be the paint and interior, and JavaScript would be the engine and controls that make it actually work!
 			</p>
 		</div>
 
 		<h2 class="title is-2" id="what-is-javascript">What is JavaScript?</h2>
 		<p>
-			JavaScript is the programming language that makes websites interactive.
-			It's like giving instructions to your website so it can respond to what
-			users do.
+			JavaScript is the programming language that brings websites to life. It's the technology that transforms static web pages into interactive applications that respond to user actions in real-time.
 		</p>
 
+		<!-- Interactive Example -->
+		<div class="box interactive-demo mb-6">
+			<h3 class="title is-4">
+				<i class="fas fa-hand-pointer"></i> Try It Yourself
+			</h3>
+			<p>These examples demonstrate the core concepts we just learned about JavaScript:</p>
+			
+			<div class="content mb-4">
+				<ul>
+					<li><strong>Event Handling:</strong> Each button responds to click events</li>
+					<li><strong>DOM Manipulation:</strong> Messages appear and update dynamically</li>
+					<li><strong>Variables:</strong> We track the number of clicks</li>
+					<li><strong>Dynamic Styling:</strong> Colors change based on JavaScript code</li>
+				</ul>
+			</div>
+
+			<div class="has-text-centered">
+				<div class="buttons is-centered mb-4">
+					<button class="button is-primary" @click="showInteractiveDemo">
+						<i class="fas fa-magic mr-2"></i>Show Message
+					</button>
+					<button class="button is-info" @click="changeColors">
+						<i class="fas fa-palette mr-2"></i>Change Colors
+					</button>
+					<button class="button is-success" @click="countClicks">
+						<i class="fas fa-plus mr-2"></i>Count Clicks (<span>{{ clickCount }}</span>)
+					</button>
+				</div>
+				<div v-if="demoMessage" :class="['notification', messageColor]">
+					<p class="has-text-weight-bold">{{ demoMessage }}</p>
+				</div>
+			</div>
+
+			<div class="mt-4">
+				<p class="is-size-7">
+					<i class="fas fa-info-circle mr-1"></i>
+					<strong>Pro Tip:</strong> Open your browser's Developer Tools (F12) and check the Console tab. 
+					You'll see how JavaScript can log information while your code runs!
+				</p>
+			</div>
+		</div>
+
+		<!-- Real-world Applications -->
 		<div class="columns">
 			<div class="column">
 				<div class="card">
 					<div class="card-content">
-						<h4 class="title is-5">JavaScript lets websites:</h4>
+						<h4 class="title is-5">
+							<i class="fas fa-cogs mr-2"></i>
+							JavaScript Powers:
+						</h4>
 						<ul>
-							<li>Respond when you click buttons</li>
-							<li>Update information without reloading the page</li>
-							<li>Remember things about you (like items in a shopping cart)</li>
-							<li>Show or hide elements based on what you do</li>
-							<li>Communicate with servers to get new information</li>
+							<li>Interactive user interfaces</li>
+							<li>Real-time data updates</li>
+							<li>Form validation and processing</li>
+							<li>Dynamic content loading</li>
+							<li>Browser-based games</li>
+							<li>Complex animations</li>
 						</ul>
 					</div>
 				</div>
@@ -102,13 +167,17 @@
 			<div class="column">
 				<div class="card">
 					<div class="card-content">
-						<h4 class="title is-5">Real-world examples:</h4>
+						<h4 class="title is-5">
+							<i class="fas fa-globe mr-2"></i>
+							Real-world Examples:
+						</h4>
 						<ul>
-							<li>Social media feeds that load new posts as you scroll</li>
-							<li>Maps that let you zoom and drag to explore</li>
-							<li>Forms that check if your password is strong enough</li>
-							<li>Games you can play right in your browser</li>
-							<li>Shopping carts that update totals instantly</li>
+							<li>Social media feeds that update automatically</li>
+							<li>Interactive maps with real-time navigation</li>
+							<li>Password strength checkers</li>
+							<li>Shopping carts with instant price updates</li>
+							<li>Chat applications</li>
+							<li>Browser-based code editors</li>
 						</ul>
 					</div>
 				</div>
@@ -117,61 +186,65 @@
 
 		<h2 class="title is-2 mt-6" id="adding-javascript">Adding JavaScript to HTML</h2>
 		<p>
-			There are three ways to add JavaScript to your webpage. Think of these
-			like different ways to attach an instruction manual to a product:
+			There are three ways to add JavaScript to your webpage. Let's explore each method with practical examples:
 		</p>
 
+		<!-- Method 1: Inline JavaScript -->
 		<div class="box">
-			<h3 class="title is-4" id="inline-javascript">1. Inline JavaScript</h3>
+			<h3 class="title is-4" id="inline-javascript">
+				<i class="fas fa-code mr-2"></i>
+				1. Inline JavaScript
+			</h3>
 			<p>
-				This is like writing instructions directly on a button. It's quick but
-				gets messy for complex instructions.
+				Inline JavaScript is written directly in HTML elements. While it's quick for simple interactions, it's not recommended for larger applications.
 			</p>
 			<div class="codemirror-wrapper">
 				<CodeMirror
 					v-model="inlineJsExample"
 					:code="inlineJsExample"
-					:value="inlineJsExample"
 					language="html"
 					:read-only="true"
 				/>
 			</div>
 			<div class="mt-3">
-				<button class="button" @click="showInlineAlert">
-					Try it: Click me
+				<button class="button is-info" @click="showInlineAlert">
+					Try it: Click me!
 				</button>
 			</div>
 		</div>
 
+		<!-- Method 2: Internal JavaScript -->
 		<div class="box">
-			<h3 class="title is-4" id="internal-javascript">2. Internal JavaScript</h3>
+			<h3 class="title is-4" id="internal-javascript">
+				<i class="fas fa-file-code mr-2"></i>
+				2. Internal JavaScript
+			</h3>
 			<p>
-				This is like including an instruction manual inside the product box. All
-				the instructions are in one place within your HTML file.
+				Internal JavaScript is placed within a <code>&lt;script&gt;</code> tag in your HTML file. It's useful for page-specific scripts.
 			</p>
 			<div class="codemirror-wrapper">
 				<CodeMirror
 					v-model="internalJsExample"
 					:code="internalJsExample"
-					:value="internalJsExample"
 					language="html"
 					:read-only="true"
 				/>
 			</div>
 		</div>
 
+		<!-- Method 3: External JavaScript -->
 		<div class="box">
-			<h3 class="title is-4" id="external-javascript">3. External JavaScript (Recommended)</h3>
+			<h3 class="title is-4" id="external-javascript">
+				<i class="fas fa-external-link-alt mr-2"></i>
+				3. External JavaScript (Recommended)
+			</h3>
 			<p>
-				This is like having a separate instruction manual that comes with the
-				product. It keeps your HTML clean and your JavaScript organized in its
-				own file.
+				External JavaScript is stored in separate files and linked to your HTML. This is the preferred method for better organization and maintenance.
 			</p>
 			<div class="codemirror-wrapper">
 				<CodeMirror
 					v-model="externalJsExample"
 					:code="externalJsExample"
-					:value="externalJsExample"
 					language="html"
 					:read-only="true"
 				/>
@@ -181,624 +254,144 @@
 				<CodeMirror
 					v-model="externalJsFileExample"
 					:code="externalJsFileExample"
-					:value="externalJsFileExample"
 					language="javascript"
 					:read-only="true"
 				/>
 			</div>
 		</div>
 
+		<!-- Best Practices -->
 		<div class="notification is-warning is-light">
 			<p>
 				<i class="fas fa-exclamation-triangle mr-2"></i>
-				<strong>Best Practice:</strong> External JavaScript is usually the best
-				choice for real projects. It keeps your code organized and makes it
-				easier to maintain.
+				<strong>Best Practice:</strong> Use external JavaScript files for:
 			</p>
-		</div>
-
-		<h2 class="title is-2 mt-6" id="developer-tools">Using the Console</h2>
-		<p>
-			The browser console is like a backstage pass to your website. It lets you
-			see what's happening behind the scenes and try out JavaScript code
-			directly.
-		</p>
-
-		<div class="box">
-			<h3 class="title is-4" id="console">Opening the Console</h3>
-			<p>To open your browser's DevTools:</p>
 			<ul>
-				<li>
-					<strong>Windows/Linux:</strong> Press <kbd>F12</kbd> or
-					<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
-				</li>
-				<li>
-					<strong>Mac:</strong> Press <kbd>Cmd</kbd> + <kbd>Option</kbd> +
-					<kbd>I</kbd>
-				</li>
-			</ul>
-			<p>Then click on the "Console" tab.</p>
-		</div>
-
-		<div class="box">
-			<h3 class="title is-4">Try These Commands</h3>
-			<p>Type these commands in your browser's console to see what happens:</p>
-			<div class="codemirror-wrapper">
-				<CodeMirror
-					:code="consoleExamples"
-					:value="consoleExamples"
-					language="javascript"
-					:read-only="true"
-				/>
-			</div>
-			<div class="mt-3">
-				<button class="button is-info" @click="runConsoleExample">
-					Run in Console
-				</button>
-				<div v-if="consoleOutput" class="console-output mt-3">
-					<div
-						v-for="(line, index) in consoleOutput"
-						:key="index"
-						class="console-line"
-					>
-						<span v-if="line.type === 'input'" class="console-input">
-							> {{ line.text }}
-						</span>
-						<span
-							v-else-if="line.type === 'output'"
-							class="console-output-text"
-						>
-							{{ line.text }}
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<h2 class="title is-2 mt-6">Working with the DOM</h2>
-		<p>
-			The DOM (Document Object Model) is like a family tree for your webpage. It
-			represents every element on your page as objects that JavaScript can
-			interact with.
-		</p>
-		<p>
-			Think of it like this: The DOM is a map of your webpage that JavaScript
-			can read and modify.
-		</p>
-
-		<div class="box">
-			<h3 class="title is-4">1. Finding Elements</h3>
-			<p>
-				Before you can change something on your page, you need to find it first.
-				This is like looking up someone's address before you can send them a
-				letter.
-			</p>
-			<div class="codemirror-wrapper">
-				<CodeMirror
-					:code="findElementExample"
-					:value="findElementExample"
-					language="javascript"
-					:read-only="true"
-				/>
-			</div>
-		</div>
-
-		<div class="box">
-			<h3 class="title is-4">2. Changing Content</h3>
-			<p>
-				Once you've found an element, you can change what it says. This is like
-				erasing a message on a whiteboard and writing a new one.
-			</p>
-			<div class="codemirror-wrapper">
-				<CodeMirror
-					:code="changeContentExample"
-					:value="changeContentExample"
-					language="javascript"
-					:read-only="true"
-				/>
-			</div>
-			<div class="mt-3 demo-area">
-				<p id="message-demo">Original message</p>
-				<button class="button is-primary" @click="changeMessage">
-					Change Message
-				</button>
-			</div>
-		</div>
-
-		<h2 class="title is-2 mt-6">Simple Conditions</h2>
-		<p>
-			Conditions in JavaScript are like forks in a road - they let your code
-			take different paths based on certain situations.
-		</p>
-
-		<div class="box">
-			<h3 class="title is-4">Basic if/else Structure</h3>
-			<p>Think of an if/else statement like a bouncer at a club:</p>
-			<div class="codemirror-wrapper">
-				<CodeMirror
-					:code="conditionExample"
-					:value="conditionExample"
-					language="javascript"
-					:read-only="true"
-				/>
-			</div>
-			<div class="mt-3">
-				<div class="field has-addons">
-					<div class="control">
-						<input
-							v-model="ageInput"
-							class="input"
-							type="number"
-							placeholder="Enter your age"
-						/>
-					</div>
-					<div class="control">
-						<button class="button is-info" @click="checkAge">Check Age</button>
-					</div>
-				</div>
-				<p v-if="ageResult" class="mt-2" :class="ageResult.color">
-					{{ ageResult.message }}
-				</p>
-			</div>
-		</div>
-
-		<h2 class="title is-2 mt-6">Simple Practice Exercise</h2>
-		<p>
-			Let's try a basic counter. This is like a simple clicker game where you
-			press a button and see a number go up.
-		</p>
-
-		<div class="box">
-			<h3 class="title is-4">Counter Example</h3>
-			<div class="columns">
-				<div class="column">
-					<h4 class="title is-5">HTML:</h4>
-					<div class="codemirror-wrapper">
-						<CodeMirror
-							:code="counterHtmlExample"
-							:value="counterHtmlExample"
-							language="html"
-							:read-only="true"
-						/>
-					</div>
-				</div>
-				<div class="column">
-					<h4 class="title is-5">JavaScript:</h4>
-					<div class="codemirror-wrapper">
-						<CodeMirror
-							:code="counterJsExample"
-							:value="counterJsExample"
-							language="javascript"
-							:read-only="true"
-						/>
-					</div>
-				</div>
-			</div>
-			<div class="mt-3 demo-area has-text-centered">
-				<p id="counter-demo" class="title is-1">0</p>
-				<button class="button is-primary" @click="incrementCounter">
-					Add One
-				</button>
-			</div>
-		</div>
-
-		<div class="box">
-			<h3 class="title is-4">Challenge: Menu Item Toggle</h3>
-			<p>
-				Let's create a button that toggles whether a menu item is available or
-				sold out. This is like a light switch that you can flip back and forth.
-			</p>
-			<div class="columns">
-				<div class="column">
-					<h4 class="title is-5">HTML:</h4>
-					<div class="codemirror-wrapper">
-						<CodeMirror
-							:code="toggleHtmlExample"
-							:value="toggleHtmlExample"
-							language="html"
-							:read-only="true"
-						/>
-					</div>
-				</div>
-				<div class="column">
-					<h4 class="title is-5">JavaScript:</h4>
-					<div class="codemirror-wrapper">
-						<CodeMirror
-							:code="toggleJsExample"
-							:value="toggleJsExample"
-							language="javascript"
-							:read-only="true"
-						/>
-					</div>
-				</div>
-			</div>
-			<div class="mt-3 demo-area">
-				<div class="menu-item-demo">
-					<h3>Grilled Salmon</h3>
-					<p>Fresh Atlantic salmon with herbs</p>
-					<p id="availability-demo" :class="availabilityClass">Available</p>
-					<button class="button is-primary" @click="toggleAvailability">
-						Toggle Availability
-					</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="notification is-danger is-light mt-6">
-			<h3 class="title is-4">
-				<i class="fas fa-exclamation-triangle"></i> Common Mistakes
-			</h3>
-			<ul>
-				<li>
-					<strong>Forgetting to link the JavaScript file</strong> - Make sure
-					your script tag has the correct path
-				</li>
-				<li>
-					<strong>Missing semicolons</strong> - While JavaScript can sometimes
-					work without them, it's good practice to end statements with
-					semicolons
-				</li>
-				<li>
-					<strong>Case sensitivity</strong> - JavaScript is case-sensitive, so
-					<code>getElementById</code> is not the same as
-					<code>getElementByID</code>
-				</li>
-				<li>
-					<strong>Confusing = and ===</strong> - Single equals (=) assigns
-					values, triple equals (===) compares values
-				</li>
+				<li>Better code organization</li>
+				<li>Easier maintenance</li>
+				<li>Improved caching</li>
+				<li>Better collaboration in team projects</li>
 			</ul>
 		</div>
 
-		<h2 class="title is-2 mt-6" id="next-steps">Interactive Resources</h2>
-		<div class="box">
-			<h3 class="title is-4">Practice More</h3>
-			<ul>
-				<li>
-					<a href="https://console.learn.co" target="_blank"
-						>JavaScript Console Practice</a
-					>
-					- Try JavaScript in an online console
-				</li>
-				<li>
-					<a href="https://javascript.info" target="_blank">JavaScript.info</a>
-					- Comprehensive JavaScript guide
-				</li>
-				<li>
-					<a
-						href="https://www.codecademy.com/learn/introduction-to-javascript"
-						target="_blank"
-						>Codecademy's JavaScript Course</a
-					>
-					- Interactive JavaScript lessons
-				</li>
-			</ul>
-		</div>
-
-		<div class="notification is-success is-light mt-6">
-			<p>
-				<i class="fas fa-check-circle mr-2"></i>
-				<strong>What's Next?</strong> In the next tutorial, we'll learn about
-				variables and data types in JavaScript - the building blocks for storing
-				and working with information.
-			</p>
-			<div class="mt-3">
-				<router-link
-					to="/tutorials/javascript-basics/variables-data-types"
-					class="button is-success"
-				>
-					Continue to Variables and Data Types
-					<i class="fas fa-arrow-right ml-2"></i>
-				</router-link>
-			</div>
-		</div>
-
-		<!-- Recommendations for next steps -->
-		<TutorialRecommendations />
-
-		<!-- Quiz Section -->
+		<!-- Tutorial Quiz -->
 		<TutorialQuiz />
+
+		<!-- Tutorial Recommendations -->
+		<TutorialRecommendations />
 	</div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
-import { usePageSections } from '@/composables/usePageSections';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import { useProgressTracking } from '@/utils/progressUtils';
 
-const sections = [
-	{
-		id: 'what-is-javascript',
-		title: 'What is JavaScript?',
-		subsections: []
-	},
-	{
-		id: 'adding-javascript',
-		title: 'Adding JavaScript to Your Page',
-		subsections: [
-			{ id: 'inline-javascript', title: 'Inline JavaScript' },
-			{ id: 'internal-javascript', title: 'Internal JavaScript' },
-			{ id: 'external-javascript', title: 'External JavaScript' }
-		]
-	},
-	{
-		id: 'developer-tools',
-		title: 'Developer Tools',
-		subsections: [
-			{ id: 'console', title: 'The Console' },
-			{ id: 'debugging', title: 'Debugging' }
-		]
-	},
-	{
-		id: 'next-steps',
-		title: 'Next Steps',
-		subsections: []
-	}
-];
+// Initialize progress tracking
+const { trackTutorial, saveQuizResult } = useProgressTracking();
 
-const { pageSections } = usePageSections(sections);
+// Interactive demo
+const demoMessage = ref('');
+const messageColor = ref('is-primary');
+const clickCount = ref(0);
+
+// Track tutorial on mount
+onMounted(() => {
+	trackTutorial('/tutorials/beginner/javascript-basics/introduction');
+});
+
+const showInteractiveDemo = () => {
+	console.log('Showing welcome message...');
+	demoMessage.value = 'Hello! This message was created by JavaScript!';
+	messageColor.value = 'is-primary';
+	
+	console.log('Setting up timeout for message change...');
+	setTimeout(() => {
+		console.log('Changing message after delay');
+		demoMessage.value = 'I can even change automatically after a delay!';
+		messageColor.value = 'is-info';
+	}, 2000);
+};
+
+const changeColors = () => {
+	const colors = ['is-primary', 'is-info', 'is-success', 'is-warning', 'is-danger'];
+	const currentIndex = colors.indexOf(messageColor.value);
+	const nextIndex = (currentIndex + 1) % colors.length;
+	
+	console.log(`Changing color from ${colors[currentIndex]} to ${colors[nextIndex]}`);
+	messageColor.value = colors[nextIndex];
+	demoMessage.value = 'JavaScript can change styles dynamically!';
+};
+
+const countClicks = () => {
+	clickCount.value += 1;
+	console.log(`Button clicked ${clickCount.value} time(s)`);
+	demoMessage.value = `You've clicked the button ${clickCount.value} time${clickCount.value === 1 ? '' : 's'}!`;
+	messageColor.value = 'is-success';
+};
 
 // Code examples
-const inlineJsExample = ref(
-	`<button onclick="alert('Hello!')">Click me</button>`,
-);
-const internalJsExample = ref(`<script>
-  function sayHello() {
-    alert('Hello from internal JavaScript!');
-  }
-<\/script>
+const inlineJsExample = '<button onclick="alert(\'Hello from inline JavaScript!\')">Click me</button>';
 
-<button onclick="sayHello()">Say Hello</button>`);
-const externalJsExample = ref(`<!-- In your HTML file -->
-<script src="script.js"><\/script>
+const internalJsExample = `<!DOCTYPE html>
+<html>
+<head>
+    <title>Internal JavaScript Example</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+    <script>
+        document.getElementById('myButton').addEventListener('click', function() {
+            alert('Hello from internal JavaScript!');
+        });
+    <\/script>
+</body>
+</html>`;
 
-<button onclick="sayHello()">Say Hello</button>`);
-const externalJsFileExample = ref(`// In script.js
-function sayHello() {
-  alert('Hello from external JavaScript!');
-}`);
+const externalJsExample = `<!DOCTYPE html>
+<html>
+<head>
+    <title>External JavaScript Example</title>
+    <script src="script.js" defer><\/script>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+</body>
+</html>`;
 
-const consoleExamples = ref(`// Output text
-console.log('Hello, World!');
+const externalJsFileExample = `// script.js
+document.getElementById('myButton').addEventListener('click', function() {
+    alert('Hello from external JavaScript!');
+});`;
 
-// Simple math
-console.log(2 + 2);
-
-// Check data type
-console.log(typeof 'JavaScript');
-
-// Test a condition
-console.log(5 > 3); // true
-console.log(5 < 3); // false`);
-
-const findElementExample = ref(`// Get element by ID
-const element = document.getElementById('myElement');
-
-// Check what we found
-console.log(element);`);
-
-const changeContentExample = ref(`// Get the element
-const message = document.getElementById('message');
-
-// Change its text
-message.textContent = 'New message';
-
-// Check the result
-console.log(message.textContent);`);
-
-const conditionExample = ref(`// Basic if/else structure
-const age = 18;
-
-if (age >= 18) {
-  console.log('Adult');
-} else {
-  console.log('Minor');
-}`);
-
-const counterHtmlExample = ref(`<div>
-  <p id="counter">0</p>
-  <button onclick="increment()">Add One</button>
-</div>`);
-
-const counterJsExample = ref(`function increment() {
-  // Get the counter element
-  const counterElement = document.getElementById('counter');
-
-  // Get current value and convert to number
-  const currentValue = Number(counterElement.textContent);
-
-  // Add one
-  const newValue = currentValue + 1;
-
-  // Update the display
-  counterElement.textContent = newValue;
-}`);
-
-const toggleHtmlExample = ref(`<div class="menu-item">
-  <h3>Grilled Salmon</h3>
-  <p>Fresh Atlantic salmon with herbs</p>
-  <p id="availability">Available</p>
-  <button onclick="toggleAvailability()">Toggle Availability</button>
-</div>`);
-
-const toggleJsExample = ref(`function toggleAvailability() {
-  // Get the element
-  const availabilityElement = document.getElementById('availability');
-
-  // If it's "Available", change to "Sold Out"
-  if (availabilityElement.textContent === 'Available') {
-    availabilityElement.textContent = 'Sold Out';
-    availabilityElement.style.color = 'red';
-  } else {
-    // Otherwise, change to "Available"
-    availabilityElement.textContent = 'Available';
-    availabilityElement.style.color = 'green';
-  }
-}`);
-
-// Interactive demo functionality
-const consoleOutput = ref([]);
-const ageInput = ref('');
-const ageResult = ref(null);
-const counterValue = ref(0);
-const availabilityStatus = ref('Available');
-const availabilityClass = ref('has-text-success');
-
-// Show alert for inline JS example
+// Example functions
 const showInlineAlert = () => {
-	alert('Hello!');
+	alert('Hello from inline JavaScript!');
 };
-
-// Run console examples
-const runConsoleExample = () => {
-	consoleOutput.value = [];
-
-	// Split the example into lines
-	const lines = consoleExamples.value
-		.split('\n')
-		.filter((line) => line.trim() && !line.startsWith('//'));
-
-	// Process each line
-	lines.forEach((line) => {
-		consoleOutput.value.push({ type: 'input', text: line.trim() });
-
-		try {
-			// Safely evaluate the line
-			const result = new Function(`return ${line.trim()}`)();
-			consoleOutput.value.push({ type: 'output', text: result });
-		} catch (error) {
-			consoleOutput.value.push({
-				type: 'output',
-				text: `Error: ${error.message}`,
-			});
-		}
-	});
-};
-
-// Change message demo
-const changeMessage = () => {
-	const message = document.getElementById('message-demo');
-	message.textContent = 'Message changed!';
-};
-
-// Check age demo
-const checkAge = () => {
-	const age = Number(ageInput.value);
-
-	if (isNaN(age)) {
-		ageResult.value = {
-			message: 'Please enter a valid age',
-			color: 'has-text-danger',
-		};
-	} else if (age >= 18) {
-		ageResult.value = { message: 'Adult', color: 'has-text-success' };
-	} else {
-		ageResult.value = { message: 'Minor', color: 'has-text-warning' };
-	}
-};
-
-// Increment counter demo
-const incrementCounter = () => {
-	const counterElement = document.getElementById('counter-demo');
-	counterValue.value += 1;
-	counterElement.textContent = String(counterValue.value);
-};
-
-// Toggle availability demo
-const toggleAvailability = () => {
-	const availabilityElement = document.getElementById('availability-demo');
-
-	if (availabilityStatus.value === 'Available') {
-		availabilityStatus.value = 'Sold Out';
-		availabilityClass.value = 'has-text-danger';
-		availabilityElement.textContent = 'Sold Out';
-	} else {
-		availabilityStatus.value = 'Available';
-		availabilityClass.value = 'has-text-success';
-		availabilityElement.textContent = 'Available';
-	}
-};
-
-// Initialize demo elements
-onMounted(() => {
-	// Set initial counter value
-	const counterElement = document.getElementById('counter-demo');
-	if (counterElement) {
-		counterElement.textContent = String(counterValue.value);
-	}
-});
 </script>
 
 <script>
 // Frontmatter for the tutorial
 export default {
 	frontmatter: {
-		title: 'Introduction to JavaScript',
+		title: 'Foundations-Getting Started',
 		description: 'Get started with JavaScript programming',
 		category: 'JavaScript Basics',
 		level: 'Beginner',
 		order: 1,
-		tags: ['javascript', 'basics', 'web development'],
+		tags: ['javascript', 'basics', 'foundations', 'web development'],
 		lastUpdated: '2023-10-15',
 	},
 };
 </script>
 
 <style scoped>
-.codemirror-wrapper {
-	border: 1px solid #dbdbdb;
-	border-radius: 4px;
-	overflow: hidden;
-	margin-top: 1rem;
-}
-
-kbd {
-	background-color: #f5f5f5;
-	border: 1px solid #dbdbdb;
-	border-radius: 4px;
-	padding: 0.2rem 0.4rem;
-	font-size: 0.9em;
-}
-
-.console-output {
-	background-color: #2d2d2d;
-	color: #fff;
-	padding: 1rem;
-	border-radius: 4px;
-	font-family: monospace;
-}
-
-.console-input {
-	color: #64b5f6;
-}
-
-.console-output-text {
-	color: #a5d6a7;
-}
-
-.demo-area {
-	background-color: #f5f5f5;
-	padding: 1.5rem;
-	border-radius: 4px;
-}
-
-.menu-item-demo {
-	background-color: white;
-	padding: 1.5rem;
-	border-radius: 4px;
-	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-}
-
-.menu-item-demo h3 {
-	margin-bottom: 0.5rem;
-}
-
 .js-logo-container {
 	display: inline-block;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	margin-right: 10px;
 	vertical-align: middle;
 }
@@ -808,27 +401,29 @@ kbd {
 	height: 100%;
 }
 
-.js-icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #f7df1e;
-	color: black;
-	width: 1.5em;
-	height: 1.5em;
+.highlight-box {
+	background-color: #fafafa;
+	border-left: 4px solid #f7df1e;
+}
+
+.prerequisite-box {
+	background-color: #f8f9fa;
+	border-left: 4px solid #3273dc;
+}
+
+.interactive-demo {
+	background-color: #f0f8ff;
+	border-left: 4px solid #00d1b2;
+}
+
+.quiz-box {
+	background-color: #fff3e0;
+	border-left: 4px solid #ff9800;
+}
+
+.codemirror-wrapper {
+	margin: 1rem 0;
 	border-radius: 4px;
-	margin-right: 0.3em;
-}
-
-.has-text-success {
-	color: #48c774 !important;
-}
-
-.has-text-danger {
-	color: #f14668 !important;
-}
-
-.has-text-warning {
-	color: #ffdd57 !important;
+	overflow: hidden;
 }
 </style>

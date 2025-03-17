@@ -451,10 +451,10 @@ const tutorialRecommendations = {
 					path: '/projects/temp-converter',
 				},
 				{
-					title: 'User Profile',
-					description: 'Build a dynamic user profile with different data types',
-					tags: ['JavaScript', 'Data Types', 'DOM'],
-					path: '/projects/user-profile',
+					title: 'Message Board Data Planning',
+					description: 'Plan and declare variables for a message board system, practicing with strings, arrays, objects, and different data types.',
+					tags: ['variables', 'data types', 'planning'],
+					path: '/projects/interactive-demo',
 				},
 			],
 			resources: [
@@ -511,13 +511,13 @@ const tutorialRecommendations = {
 			],
 			practiceProjects: [
 				{
-					title: 'Password Validator',
-					description: 'Create a tool to validate password strength',
-					tags: ['JavaScript', 'Conditionals', 'Logic'],
-					path: '/projects/password-validator',
+					title: 'Number Guessing Game',
+					description: 'Create an interactive number guessing game that uses conditionals to provide feedback to the player. Practice if statements, comparisons, and logical operators while building a fun game.',
+					tags: ['conditionals', 'comparison operators', 'user input'],
+					path: '/projects/number-guessing-game',
 				},
 				{
-					title: 'Quiz Game',
+					title: 'Quiz Game',	
 					description: 'Build a quiz with conditional logic',
 					tags: ['JavaScript', 'Conditionals', 'DOM'],
 					path: '/projects/quiz-game',
@@ -550,10 +550,10 @@ const tutorialRecommendations = {
 					path: '/projects/todo-list',
 				},
 				{
-					title: 'Image Gallery',
+					title: 'Photo Gallery',
 					description: 'Create an image gallery with dynamic content',
 					tags: ['JavaScript', 'Loops', 'DOM'],
-					path: '/projects/image-gallery',
+					path: '/projects/photo-gallery',
 				},
 			],
 			resources: [
@@ -617,5 +617,23 @@ const tutorialRecommendations = {
 				}
 			]
 		},
+	},
+};
+
+export const projects = {
+	'variables-data-types': {
+		title: 'Message Board Data Planning',
+		description: 'Plan and declare variables for a message board system, practicing with strings, arrays, objects, and different data types.',
+		tags: ['variables', 'data types', 'planning'],
+		difficulty: 'Beginner',
+		time: '30 minutes'
+	},
+	'conditionals': {
+		title: 'Number Guessing Game',
+		description: 'Create an interactive number guessing game that uses conditionals to provide feedback to the player. Practice if statements, comparisons, and logical operators while building a fun game.',
+		tags: ['conditionals', 'comparison operators', 'user input'],
+		difficulty: 'Beginner',
+		time: '45 minutes',
+		prerequisites: ['variables-data-types']
 	},
 };

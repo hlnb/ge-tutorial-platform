@@ -23,10 +23,11 @@
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">45 minutes</span>
 			<span class="tag is-success">JavaScript</span>
+			<span class="tag is-success">Level 2</span>
 		</div>
 
 		<h1 class="title is-1">
-			<span class="js-logo-container">
+			<span class="js-logo-container" >
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 630 630"
@@ -63,41 +64,58 @@
 				<i class="fas fa-lightbulb"></i> In this tutorial, you'll learn:
 			</h3>
 			<ul>
-				<li>How to declare variables</li>
-				<li>Different types of data</li>
-				<li>Working with strings and numbers</li>
-				<li>Basic arrays and objects</li>
+				<li>How to declare and use variables effectively</li>
+				<li>Understanding different data types in JavaScript</li>
+				<li>Working with strings, numbers, and other primitive types</li>
+				<li>Using arrays and objects to organize data</li>
+				<li>Best practices for variable naming and usage</li>
+				<li>Common pitfalls and how to avoid them</li>
 			</ul>
 		</div>
 
-		<h2 class="title is-2" id="variables">Declaring Variables</h2>
-		<p>
-			Variables are like containers that store data. Think of them as labeled
-			boxes where you can put different types of information.
-		</p>
-		<p>There are three ways to declare variables in JavaScript:</p>
-
-		<CodeMirror
-			:code="declaringVariablesCode"
-			:value="declaringVariablesCode"
-			language="javascript"
-			:read-only="true"
-		/>
-
 		<div class="notification is-info is-light">
 			<p>
-				<i class="fas fa-info-circle mr-2"></i>
-				<strong>Real-world analogy:</strong> Think of variables like name tags.
-				The <code>let</code> keyword creates a name tag that can be moved to
-				different people (values can change). The <code>const</code> keyword
-				creates a permanent name tag that can't be moved (values can't change).
+				<i class="fas fa-code mr-2"></i>
+				<strong>Interactive Learning:</strong> This tutorial includes live examples that you can try in your browser's console. 
+				Press F12 or right-click and select "Inspect" to open the Developer Tools.
 			</p>
 		</div>
 
-		<h3 class="title is-4" id="declaring-variables">Variable Declaration</h3>
+		<h2 class="title is-2" id="variables">Understanding Variables</h2>
+		<p>
+			Think of variables as labeled containers that store different types of information in your program. Just like a restaurant uses different containers to store ingredients, we use variables to store data.
+		</p>
+
+		<div class="columns">
+			<div class="column">
+				<div class="box">
+					<h4 class="title is-5">Real-world Analogy</h4>
+					<p>Imagine you're managing a restaurant:</p>
+					<ul>
+						<li><code>let</code> is like a whiteboard - you can erase and update the content</li>
+						<li><code>const</code> is like a permanent sign - once written, it can't be changed</li>
+						<li>Variable names are like labels on containers - they should be descriptive</li>
+					</ul>
+				</div>
+			</div>
+			<div class="column">
+				<div class="box">
+					<h4 class="title is-5">Best Practices</h4>
+					<ul>
+						<li>Use <code>const</code> by default</li>
+						<li>Use <code>let</code> when you need to reassign values</li>
+						<li>Avoid using <code>var</code> (it's outdated)</li>
+						<li>Choose descriptive variable names</li>
+						<li>Use camelCase for variable names</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<h3 class="title is-4">Variable Declaration Examples</h3>
 		<CodeMirror
-			:code="tryInConsoleCode"
-			:value="tryInConsoleCode"
+			:code="declaringVariablesCode"
+			:value="declaringVariablesCode"
 			language="javascript"
 			:read-only="true"
 		/>
@@ -106,394 +124,387 @@
 			<h3 class="title is-4">
 				<i class="fas fa-laptop-code"></i> Try It Yourself
 			</h3>
-			<p>
-				Open your browser's console (press F12 or right-click and select
-				"Inspect" then go to "Console") and try the examples above. Then try
-				creating your own variables!
-			</p>
+			<p>Open your browser's console and try these examples:</p>
 			<div class="buttons">
-				<button class="button is-primary" @click="openConsole">
-					<i class="fas fa-terminal mr-2"></i> Open Console
+				<button class="button is-primary" @click="runVariableExample">
+					<i class="fas fa-play mr-2"></i>Run Example
 				</button>
+				<button class="button is-info" @click="openConsole">
+					<i class="fas fa-terminal mr-2"></i>Open Console
+				</button>
+			</div>
+			<div class="notification is-light mt-3">
+				<p><strong>Pro Tip:</strong> Watch the console output to see how variables behave!</p>
 			</div>
 		</div>
 
-		<h2 class="title is-2" id="data-types">Data Types</h2>
-		<h2 class="title is-2">Data Types</h2>
+		<h2 class="title is-2" id="data-types">JavaScript Data Types</h2>
 		<p>
-			JavaScript has several built-in data types. Let's explore them using a
-			restaurant theme:
+			JavaScript has several built-in data types that help us work with different kinds of information. Let's explore each one with practical examples from a restaurant management system.
 		</p>
 
-		<h3 class="title is-4">1. Strings</h3>
-		<p>
-			Strings are text data enclosed in quotes. They're perfect for storing
-			names, descriptions, and other text information.
-		</p>
-
-		<CodeMirror
-			:code="stringsCode"
-			:value="stringsCode"
-			language="javascript"
-			:read-only="true"
-		/>
-
-		<div class="notification is-info is-light">
-			<p>
-				<i class="fas fa-info-circle mr-2"></i>
-				<strong>Tip:</strong> Template literals (using backticks) allow you to
-				embed variables directly in your strings using
-				<code>${variable}</code> syntax.
-			</p>
-		</div>
-
-		<h3 class="title is-4">2. Numbers</h3>
-		<p>JavaScript uses a single number type for both integers and decimals.</p>
-
-		<CodeMirror
-			:code="numbersCode"
-			:value="numbersCode"
-			language="javascript"
-			:read-only="true"
-		/>
-
-		<h3 class="title is-4">3. Booleans</h3>
-		<p>
-			Booleans are simple true or false values. They're useful for tracking
-			states like availability or options.
-		</p>
-
-		<CodeMirror
-			:code="booleansCode"
-			:value="booleansCode"
-			language="javascript"
-			:read-only="true"
-		/>
-
-		<h3 class="title is-4">4. Arrays</h3>
-		<p>
-			Arrays are ordered lists of values. They're perfect for storing
-			collections of related items.
-		</p>
-
-		<CodeMirror
-			:code="arraysCode"
-			:value="arraysCode"
-			language="javascript"
-			:read-only="true"
-		/>
-
-		<div class="notification is-info is-light">
-			<p>
-				<i class="fas fa-info-circle mr-2"></i>
-				<strong>Remember:</strong> Array indexes start at 0, not 1. So the first
-				item is at position 0.
-			</p>
-		</div>
-
-		<h3 class="title is-4">5. Objects</h3>
-		<p>
-			Objects are collections of related data stored as key-value pairs. They're
-			ideal for representing complex entities.
-		</p>
-
-		<CodeMirror
-			:code="objectsCode"
-			:value="objectsCode"
-			language="javascript"
-			:read-only="true"
-		/>
-
-		<h2 class="title is-2">Practice Exercise: Menu Item Creator</h2>
-
-		<div class="box tip-box mb-6">
-			<h3 class="title is-4"><i class="fas fa-cog"></i> Setup</h3>
-			<p>You can practice these exercises in two ways:</p>
-			<ol>
-				<li>
-					<strong>Browser Console:</strong>
-					<ul>
-						<li>Open your browser's DevTools (F12 or Cmd+Option+I)</li>
-						<li>Go to the Console tab</li>
-						<li>Type or paste the code directly</li>
-					</ul>
-				</li>
-				<li>
-					<strong>HTML File:</strong>
-					<ul>
-						<li>Create a new file called <code>practice.html</code></li>
-						<li>Add this basic structure:</li>
-					</ul>
-				</li>
-			</ol>
-
-			<CodeMirror
-				:code="htmlSetupCode"
-				:value="htmlSetupCode"
-				language="html"
-				:read-only="true"
-			/>
-		</div>
-
-		<h2 class="title is-2">Challenge: Black Swan Bistro Menu Manager</h2>
-		<p>
-			Let's put everything together by creating a program to manage menu items
-			for a restaurant:
-		</p>
-
-		<h3 class="title is-4">Step 1: Create Menu Items</h3>
-		<CodeMirror
-			:code="step1Code"
-			:value="step1Code"
-			language="javascript"
-			:read-only="true"
-		/>
-
-		<h3 class="title is-4">Step 2: Create Menu Array</h3>
-		<CodeMirror
-			:code="step2Code"
-			:value="step2Code"
-			language="javascript"
-			:read-only="true"
-		/>
-
-		<h3 class="title is-4">Step 3: Menu Functions</h3>
-		<CodeMirror
-			:code="step3Code"
-			:value="step3Code"
-			language="javascript"
-			:read-only="true"
-		/>
-
-		<div class="box tip-box mb-6">
-			<h3 class="title is-4"><i class="fas fa-lightbulb"></i> Hints</h3>
-			<ul>
-				<li>Use array methods like <code>push()</code> to add items</li>
-				<li>Use dot notation to access object properties</li>
-				<li>Remember to check data types with <code>typeof</code></li>
-			</ul>
-		</div>
-
-		<div class="box solution-box mb-6">
-			<h3 class="title is-4"><i class="fas fa-check-circle"></i> Solution</h3>
-			<p>
-				<button class="button is-info" @click="toggleSolution">
-					{{ showSolution ? 'Hide Solution' : 'Show Solution' }}
-				</button>
-			</p>
-			<div v-if="showSolution">
+		<div class="data-types-grid">
+			<div class="box">
+				<h3 class="title is-4">1. Strings</h3>
+				<p>Text data enclosed in quotes. Perfect for names, descriptions, and messages.</p>
 				<CodeMirror
-					:code="solutionCode"
-					:value="solutionCode"
+					:code="stringsCode"
+					:value="stringsCode"
 					language="javascript"
 					:read-only="true"
 				/>
+				<button class="button is-small is-primary mt-3" @click="runStringExample">
+					Try String Example
+				</button>
 			</div>
+
+			<div class="box">
+				<h3 class="title is-4">2. Numbers</h3>
+				<p>Used for prices, quantities, calculations, and any numeric data.</p>
+				<CodeMirror
+					:code="numbersCode"
+					:value="numbersCode"
+					language="javascript"
+					:read-only="true"
+				/>
+				<button class="button is-small is-primary mt-3" @click="runNumberExample">
+					Try Number Example
+				</button>
+			</div>
+
+			<div class="box">
+				<h3 class="title is-4">3. Booleans</h3>
+				<p>True/false values for tracking states and making decisions.</p>
+				<CodeMirror
+					:code="booleansCode"
+					:value="booleansCode"
+					language="javascript"
+					:read-only="true"
+				/>
+				<button class="button is-small is-primary mt-3" @click="runBooleanExample">
+					Try Boolean Example
+				</button>
+			</div>
+
+			<div class="box">
+				<h3 class="title is-4">4. Arrays</h3>
+				<p>Ordered lists of items, perfect for menus, orders, or any collection.</p>
+				<CodeMirror
+					:code="arraysCode"
+					:value="arraysCode"
+					language="javascript"
+					:read-only="true"
+				/>
+				<button class="button is-small is-primary mt-3" @click="runArrayExample">
+					Try Array Example
+				</button>
+			</div>
+
+			<div class="box">
+				<h3 class="title is-4">5. Objects</h3>
+				<p>Complex data with properties, ideal for representing menu items, orders, etc.</p>
+				<CodeMirror
+					:code="objectsCode"
+					:value="objectsCode"
+					language="javascript"
+					:read-only="true"
+				/>
+				<button class="button is-small is-primary mt-3" @click="runObjectExample">
+					Try Object Example
+				</button>
+			</div>
+		</div>
+
+		<div class="notification is-warning is-light mt-6">
+			<p>
+				<i class="fas fa-exclamation-triangle mr-2"></i>
+				<strong>Common Pitfalls to Avoid:</strong>
+			</p>
+			<ul>
+				<li>Don't forget to declare variables before using them</li>
+				<li>Be careful with type coercion (mixing different data types)</li>
+				<li>Remember that arrays are zero-indexed</li>
+				<li>Watch out for null vs undefined</li>
+			</ul>
+		</div>
+
+		<h2 class="title is-2">Interactive Practice: Restaurant Menu System</h2>
+		<p>Let's put everything together by creating a simple restaurant menu system:</p>
+
+		<div class="box practice-box">
+			<h3 class="title is-4">Step 1: Create Menu Items</h3>
+			<p>First, let's create variables for different menu items:</p>
+			<CodeMirror
+				:code="practiceStep1Code"
+				:value="practiceStep1Code"
+				language="javascript"
+				:read-only="true"
+			/>
+			<button class="button is-primary mt-3" @click="runPracticeStep1">
+				Try Step 1
+			</button>
+		</div>
+
+		<div class="box practice-box">
+			<h3 class="title is-4">Step 2: Work with Arrays</h3>
+			<p>Now, let's organize our menu items in an array:</p>
+			<CodeMirror
+				:code="practiceStep2Code"
+				:value="practiceStep2Code"
+				language="javascript"
+				:read-only="true"
+			/>
+			<button class="button is-primary mt-3" @click="runPracticeStep2">
+				Try Step 2
+			</button>
+		</div>
+
+		<div class="box practice-box">
+			<h3 class="title is-4">Step 3: Create an Order Object</h3>
+			<p>Finally, let's create an object to represent a customer's order:</p>
+			<CodeMirror
+				:code="practiceStep3Code"
+				:value="practiceStep3Code"
+				language="javascript"
+				:read-only="true"
+			/>
+			<button class="button is-primary mt-3" @click="runPracticeStep3">
+				Try Step 3
+			</button>
+		</div>
+
+		<div class="notification is-success is-light mt-6">
+			<p>
+				<i class="fas fa-check-circle mr-2"></i>
+				<strong>Key Takeaways:</strong>
+			</p>
+			<ul>
+				<li>Variables are containers for storing data</li>
+				<li>Use the right data type for your needs</li>
+				<li>Arrays and objects help organize related data</li>
+				<li>Practice with real-world examples helps understanding</li>
+			</ul>
 		</div>
 
 		<!-- Quiz section -->
 		<TutorialQuiz />
 
-		<!-- Recommendations for next steps -->
+		<!-- Tutorial Recommendations -->
 		<TutorialRecommendations />
 	</div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
-import { usePageSections } from '@/composables/usePageSections';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
-// Toggle solution visibility
-const showSolution = ref(false);
-const toggleSolution = () => {
-	showSolution.value = !showSolution.value;
-};
+// Updated code examples with more practical scenarios
+const declaringVariablesCode = `// Menu item using let (value can change)
+let specialOfTheDay = 'Grilled Salmon';
+specialOfTheDay = 'Beef Steak'; // Can be reassigned
 
-// Open console function
-const openConsole = () => {
-	console.log('Try creating variables here!');
-	console.log('Example: let myName = "Your Name";');
-	console.log('Then type myName and press Enter to see the value');
-	alert('Console opened! Look for the console tab in developer tools.');
-};
+// Fixed price using const (value cannot change)
+const taxRate = 0.08;
+// taxRate = 0.09; // This would cause an error
 
-// Code examples
-const declaringVariablesCode = `let name = 'Black Swan Bistro'; // Can be changed later
-const price = 19.99; // Cannot be changed
-var oldWay = 'Not recommended'; // Old way, avoid using`;
+// Menu categories using const array
+const menuCategories = ['Appetizers', 'Main Course', 'Desserts'];
+menuCategories.push('Drinks'); // Can modify array, but not reassign`;
 
-const tryInConsoleCode = `let restaurant = 'Black Swan';
-console.log(restaurant); // Black Swan
+const stringsCode = `// Basic string creation
+let dishName = 'Grilled Salmon';
+let description = "Fresh Atlantic salmon with herbs";
 
-restaurant = 'Black Swan Bistro';
-console.log(restaurant); // Black Swan Bistro
-
-const tax = 0.1;
-// This will cause an error:
-// tax = 0.2;    // Cannot reassign a constant`;
-
-const stringsCode = `let dishName = 'Grilled Salmon';
-let description = 'Fresh Atlantic salmon';
-let special = \`Today's special: \${dishName}\`; // Template literal
+// Template literals for dynamic strings
+let price = 24.99;
+let menuItem = \`\${dishName} - $\${price}\`;
 
 // String methods
-console.log(dishName.length); // 13
-console.log(dishName.toUpperCase()); // GRILLED SALMON
-console.log(description.toLowerCase()); // fresh atlantic salmon`;
+console.log(dishName.toUpperCase());
+console.log(description.length);
+console.log(menuItem.includes('Salmon'));`;
 
-const numbersCode = `let price = 24.99;
+const numbersCode = `// Basic numbers
+let price = 24.99;
 let quantity = 2;
-let total = price * quantity;
 
-console.log(total); // 49.98
-console.log(Math.round(total)); // 50`;
+// Calculations
+let subtotal = price * quantity;
+let tax = subtotal * 0.08;
+let total = subtotal + tax;
 
-const booleansCode = `let isAvailable = true;
+// Number methods
+console.log(total.toFixed(2)); // Format to 2 decimal places
+console.log(Math.round(total)); // Round to nearest integer`;
+
+const booleansCode = `// Menu item availability
+let isAvailable = true;
 let isVegetarian = false;
 
-console.log(isAvailable); // true
-console.log(!isAvailable); // false`;
+// Logical operations
+let canServe = isAvailable && !isVegetarian;
 
-const arraysCode = `let menuItems = ['Salmon', 'Steak', 'Pasta'];
-let prices = [24.99, 29.99, 19.99];
-
-console.log(menuItems[0]); // Salmon
-console.log(menuItems.length); // 3
-menuItems.push('Salad'); // Add new item`;
-
-const objectsCode = `let menuItem = {
-  name: 'Grilled Salmon',
-  price: 24.99,
-  isAvailable: true,
-  ingredients: ['salmon', 'herbs', 'lemon']
-};
-
-console.log(menuItem.name); // Grilled Salmon
-console.log(menuItem.price); // 24.99`;
-
-const htmlSetupCode = `<!DOCTYPE html>
-<html>
-  <head>
-    <title>JavaScript Practice</title>
-  </head>
-  <body>
-    <h1>Check the console for results</h1>
-
-    <script>
-      // Your practice code goes here
-    <\/script>
-  </body>
-</html>`;
-
-const step1Code = `// Create variables for different menu items
-let dish1 = {
-  name: 'Grilled Salmon',
-  price: 24.99,
-  isAvailable: true,
-  ingredients: ['salmon', 'herbs', 'lemon']
-};
-
-// Your turn: Create dish2 and dish3`;
-
-const step2Code = `// Create an array of menu items
-let menu = [dish1];
-
-// Your turn: Add dish2 and dish3 to the menu array`;
-
-const step3Code = `// Calculate total value of menu
-function calculateMenuValue() {
-  // Your code here: Add up all item prices
-}
-
-// List available items
-function listAvailableItems() {
-  // Your code here: Show only available items
+// Boolean in conditions
+if (isAvailable) {
+    console.log('Ready to serve!');
+} else {
+    console.log('Item not available.');
 }`;
 
-const solutionCode = `// Create menu items
-let dish1 = {
-  name: 'Grilled Salmon',
-  price: 24.99,
-  isAvailable: true,
-  ingredients: ['salmon', 'herbs', 'lemon']
+const arraysCode = `// Menu items array
+let menuItems = ['Salmon', 'Steak', 'Pasta'];
+let prices = [24.99, 29.99, 19.99];
+
+// Array methods
+menuItems.push('Salad');           // Add item
+console.log(menuItems.length);     // Get length
+console.log(menuItems.includes('Steak')); // Check if exists
+console.log(menuItems.join(', ')); // Convert to string`;
+
+const objectsCode = `// Menu item object
+let menuItem = {
+    name: 'Grilled Salmon',
+    price: 24.99,
+    ingredients: ['salmon', 'herbs', 'lemon'],
+    isAvailable: true,
+    nutrition: {
+        calories: 450,
+        protein: '30g',
+        fat: '22g'
+    }
 };
 
-let dish2 = {
-  name: 'Beef Steak',
-  price: 29.99,
-  isAvailable: true,
-  ingredients: ['beef', 'garlic', 'butter']
+// Accessing object properties
+console.log(menuItem.name);        // Dot notation
+console.log(menuItem['price']);    // Bracket notation
+console.log(menuItem.nutrition.calories); // Nested objects`;
+
+const practiceStep1Code = `// Create menu items with different data types
+const item1 = {
+    name: 'Grilled Salmon',
+    price: 24.99,
+    isAvailable: true,
+    ingredients: ['salmon', 'herbs', 'lemon']
 };
 
-let dish3 = {
-  name: 'Pasta Primavera',
-  price: 19.99,
-  isAvailable: false,
-  ingredients: ['pasta', 'vegetables', 'olive oil']
+const item2 = {
+    name: 'Beef Steak',
+    price: 29.99,
+    isAvailable: true,
+    ingredients: ['beef', 'garlic', 'butter']
 };
 
-// Create menu array
-let menu = [dish1, dish2, dish3];
+console.log('Menu Items Created:', item1, item2);`;
 
-// Calculate total value
-function calculateMenuValue() {
-  let total = 0;
-  for (let dish of menu) {
-    total += dish.price;
-  }
-  return total;
-}
+const practiceStep2Code = `// Create and manipulate menu array
+const menu = [item1, item2];
 
-// List available items
-function listAvailableItems() {
-  let available = menu.filter(dish => dish.isAvailable);
-  return available.map(dish => dish.name);
-}
+// Add a new item
+menu.push({
+    name: 'Vegetable Pasta',
+    price: 18.99,
+    isAvailable: true,
+    ingredients: ['pasta', 'vegetables', 'olive oil']
+});
 
-// Test the functions
-console.log('Total menu value: $' + calculateMenuValue());
-console.log('Available items:', listAvailableItems());`;
+// List all menu items
+menu.forEach(item => {
+    console.log(\`\${item.name} - $\${item.price}\`);
+});`;
 
-const sections = [
-  {
-    id: 'variables',
-    title: 'Variables',
-    subsections: [
-      { id: 'declaring-variables', title: 'Declaring Variables' },
-      { id: 'variable-naming', title: 'Variable Naming Rules' },
-      { id: 'var-let-const', title: 'var, let, and const' }
-    ]
-  },
-  {
-    id: 'data-types',
-    title: 'Data Types',
-    subsections: [
-      { id: 'primitive-types', title: 'Primitive Types' },
-      { id: 'numbers', title: 'Numbers' },
-      { id: 'strings', title: 'Strings' },
-      { id: 'booleans', title: 'Booleans' },
-      { id: 'null-undefined', title: 'null and undefined' }
-    ]
-  },
-  {
-    id: 'type-conversion',
-    title: 'Type Conversion',
-    subsections: [
-      { id: 'implicit-conversion', title: 'Implicit Conversion' },
-      { id: 'explicit-conversion', title: 'Explicit Conversion' }
-    ]
-  },
-  {
-    id: 'practice',
-    title: 'Practice Exercises',
-    subsections: []
-  }
-];
+const practiceStep3Code = `// Create an order object
+const order = {
+    tableNumber: 5,
+    items: [item1, item2],
+    calculateTotal() {
+        return this.items.reduce((total, item) => total + item.price, 0);
+    },
+    status: 'pending',
+    timestamp: new Date()
+};
 
-const { pageSections } = usePageSections(sections);
+// Display order details
+console.log('Order Details:', order);
+console.log('Total: $' + order.calculateTotal().toFixed(2));`;
+
+// Interactive example functions
+const runVariableExample = () => {
+    console.clear();
+    console.log('Running Variable Examples...');
+    let specialOfTheDay = 'Grilled Salmon';
+    console.log('Initial special:', specialOfTheDay);
+    
+    specialOfTheDay = 'Beef Steak';
+    console.log('Updated special:', specialOfTheDay);
+    
+    const taxRate = 0.08;
+    console.log('Tax rate:', taxRate);
+    
+    try {
+        // @ts-ignore
+        taxRate = 0.09;
+    } catch (e) {
+        console.log('Cannot change const variable!');
+    }
+};
+
+const runStringExample = () => {
+    console.clear();
+    console.log('Running String Examples...');
+    eval(stringsCode);
+};
+
+const runNumberExample = () => {
+    console.clear();
+    console.log('Running Number Examples...');
+    eval(numbersCode);
+};
+
+const runBooleanExample = () => {
+    console.clear();
+    console.log('Running Boolean Examples...');
+    eval(booleansCode);
+};
+
+const runArrayExample = () => {
+    console.clear();
+    console.log('Running Array Examples...');
+    eval(arraysCode);
+};
+
+const runObjectExample = () => {
+    console.clear();
+    console.log('Running Object Examples...');
+    eval(objectsCode);
+};
+
+const runPracticeStep1 = () => {
+    console.clear();
+    console.log('Running Practice Step 1...');
+    eval(practiceStep1Code);
+};
+
+const runPracticeStep2 = () => {
+    console.clear();
+    console.log('Running Practice Step 2...');
+    eval(practiceStep1Code + practiceStep2Code);
+};
+
+const runPracticeStep3 = () => {
+    console.clear();
+    console.log('Running Practice Step 3...');
+    eval(practiceStep1Code + practiceStep2Code + practiceStep3Code);
+};
+
+const openConsole = () => {
+    console.clear();
+    console.log('Welcome to the Interactive JavaScript Console!');
+    console.log('Try creating your own variables and experimenting with different data types.');
+    console.log('Example: let myName = "Your Name";');
+    alert('Console opened! Look for the console tab in developer tools (F12).');
+};
 </script>
 
 <script>
@@ -505,13 +516,26 @@ export default {
 		category: 'JavaScript',
 		level: 'Beginner',
 		order: 2,
-		tags: ['javascript', 'variables', 'data types'],
+		tags: ['javascript', 'building blocks', 'variables', 'data types'],
 		lastUpdated: '2023-10-15',
 	},
 };
 </script>
 
 <style scoped>
+.js-logo-container {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+.js-logo {
+	width: 100%;
+	height: 100%;
+}
+
 .highlight-box {
 	background-color: #f0f8ff;
 	border-left: 5px solid #3273dc;
@@ -522,52 +546,42 @@ export default {
 	border-left: 5px solid #48c774;
 }
 
-.tip-box {
+.practice-box {
 	background-color: #fff5eb;
 	border-left: 5px solid #ffdd57;
 }
 
-.solution-box {
+.next-steps-box {
 	background-color: #f5f5f5;
 	border-left: 5px solid #363636;
 }
 
-.js-logo-container {
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	margin-right: 10px;
-	vertical-align: middle;
+.data-types-grid {
+	display: grid;
+	gap: 1.5rem;
+	margin: 2rem 0;
+	max-width: 100%;
 }
 
-.js-logo {
-	width: 100%;
+.data-types-grid .box {
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	max-width: 500px;
+	margin: 0 auto;
 }
 
-.js-icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #f7df1e;
-	color: black;
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 4px;
-	margin-right: 0.3em;
+.data-types-grid .box :deep(.cm-editor) {
+	max-width: 100%;
+	overflow-x: auto;
 }
 
-.box h3 {
-	margin-bottom: 1rem;
+.data-types-grid .box :deep(.cm-scroller) {
+	overflow-x: auto;
 }
 
-.box ul,
-.box ol {
-	margin-left: 1.5rem;
-}
-
-.notification {
-	margin: 1.5rem 0;
+.data-types-grid .box button {
+	margin-top: auto;
 }
 
 .button {
@@ -577,5 +591,23 @@ export default {
 .button:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 769px) {
+	.data-types-grid {
+		grid-template-columns: repeat(2, 50%);
+		gap: 2rem;
+	}
+
+	.data-types-grid .box {
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.data-types-grid .box {
+		width: 100%;
+		margin: 0 auto;
+	}
 }
 </style>

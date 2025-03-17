@@ -38,7 +38,7 @@
 					class="quiz-question"
 					v-show="currentQuestionIndex === index"
 				>
-					<p class="question-text">{{ index + 1 }}. {{ question.text }}</p>
+					<p class="question-text">{{ index + 1 }}. {{ question.question }}</p>
 
 					<div class="options">
 						<div

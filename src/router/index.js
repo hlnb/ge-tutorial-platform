@@ -208,6 +208,60 @@ const projectRoutes = [
 			description: 'Build an interactive quiz game with JavaScript',
 		},
 	},
+	{
+		path: '/projects/hello-world',
+		name: 'hello-world',
+		component: () => import('@/pages/projects/hello-world.vue'),
+		meta: {
+			title: 'Hello World App Project',
+			description: 'Create a simple interactive greeting application',
+		},
+	},
+	{
+		path: '/projects/number-game',
+		name: 'number-game',
+		component: () => import('@/pages/projects/number-game.vue'),
+		meta: {
+			title: 'Number Guessing Game Project',
+			description: 'Build a number guessing game with basic JavaScript',
+		},
+	},
+	{
+		path: '/projects/interactive-demo',
+		name: 'interactive-demo',
+		component: () => import('@/pages/projects/interactive-demo.vue'),
+		meta: {
+			title: 'Interactive Message Board Project',
+			description: 'Build an interactive message board with dynamic content',
+		},
+	},
+	{
+		path: '/projects/color-switcher',
+		name: 'color-switcher',
+		component: () => import('@/pages/projects/color-switcher.vue'),
+		meta: {
+			title: 'Dynamic Color Switcher Project',
+			description: 'Create a color switcher with dynamic updates',
+		},
+	},
+	{
+		path: '/projects/grade-calculator',
+		name: 'grade-calculator',
+		component: () => import('@/pages/projects/grade-calculator.vue'),
+		meta: {
+			title: 'Grade Calculator Project',
+			description: 'Build a calculator that computes final grades based on weighted assignments',
+		},
+	},
+	{
+		path: '/projects/temp-converter',
+		name: 'temperature-converter',
+		component: () => import('@/pages/projects/temperature-converter.vue'),
+		meta: {
+			title: 'Temperature Converter Project',
+			description: 'Build a temperature converter that handles different units and real-time updates',
+		},
+	},
 	// Add more project routes as needed
 ];
 
@@ -234,15 +288,11 @@ const authRoutes = [
 	{
 		path: '/auth/logout',
 		name: 'logout',
-		beforeEnter: (to, from, next) => {
-			// Import auth service
-			import('@/services/AuthService').then((module) => {
-				const authService = module.default;
-				// Logout user
-				authService.logout();
-				// Redirect to home
-				next('/');
-			});
+		redirect: '/',
+		beforeEnter: async (to, from, next) => {
+			const { default: authService } = await import('@/services/AuthService');
+			await authService.logout();
+			next();
 		},
 	},
 ];

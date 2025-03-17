@@ -23,7 +23,7 @@ const route = useRoute();
 const quizAvailable = ref(true);
 
 // Initialize progress tracking
-const { trackTutorial } = useProgressTracking();
+const { saveQuizResult } = useProgressTracking();
 
 const props = defineProps({
 	title: {
@@ -57,13 +57,14 @@ const currentPath = computed(() => props.tutorialPath || route.path);
 // Check if quiz is available for this tutorial
 onMounted(() => {
 	quizAvailable.value = hasQuiz(currentPath.value);
-
-	// Track this tutorial
-	trackTutorial(currentPath.value);
 });
 
 // Handle quiz completion
 const handleQuizCompleted = (result) => {
+	// Save quiz result
+	if (result) {
+		saveQuizResult(currentPath.value, result.score, result.total);
+	}
 	emit('quiz-completed', result);
 };
 </script>

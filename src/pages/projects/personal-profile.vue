@@ -220,7 +220,7 @@
 		</section>
 
 		<!-- Recommendations for next projects -->
-		<TutorialRecommendations />
+
 	</div>
 </template>
 

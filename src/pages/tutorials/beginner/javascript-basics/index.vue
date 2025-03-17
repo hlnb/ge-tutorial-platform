@@ -322,114 +322,188 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2">What You'll Learn</h2>
-		<div class="tutorial-grid">
-			<div class="tutorial-card">
-				<router-link to="/tutorials/javascript-basics/introduction">
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4">
-								<i class="fas fa-flag"></i> Introduction
-							</h3>
-							<p>Learn what JavaScript is and how to add it to your website</p>
-							<span class="tag is-info mt-2">15 min</span>
+		<div class="tutorial-structure">
+			<!-- Quick Start Section -->
+			<div class="box quick-start">
+				<h2 class="title is-3">
+					<i class="fas fa-rocket"></i> Quick Start
+				</h2>
+				<div class="columns">
+					<div class="column">
+						<div class="card">
+							<div class="card-content">
+								<h4 class="title is-5">How to Use This Tutorial</h4>
+								<ul>
+									<li>Each section builds on previous knowledge</li>
+									<li>Practice with interactive examples</li>
+									<li>Complete challenges to reinforce learning</li>
+									<li>Build mini-projects to apply skills</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</router-link>
+					<div class="column">
+						<div class="card">
+							<div class="card-content">
+								<h4 class="title is-5">What You'll Need</h4>
+								<ul>
+									<li>A modern web browser</li>
+									<li>No previous coding experience required</li>
+									<li>About 30 minutes per section</li>
+									<li>Willingness to experiment and learn</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
-			<div class="tutorial-card">
-				<router-link to="/tutorials/javascript-basics/variables-data-types">
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4">
-								<i class="fas fa-cube"></i> Variables and Data Types
-							</h3>
-							<p>Learn how to store and work with different types of data</p>
-							<span class="tag is-info mt-2">30 min</span>
+			<!-- Learning Path -->
+			<div class="learning-path">
+				<h2 class="title is-2">
+					<i class="fas fa-map-signs"></i> Learning Path
+				</h2>
+				
+				<!-- Level 1: Foundations -->
+				<div class="level-section">
+					<h3 class="title is-3">Level 1: Foundations</h3>
+					<div class="path-item">
+						<router-link to="javascript-basics/introduction" class="box" :class="{ 'is-completed': isSectionCompleted('introduction') }">
+							<h4 class="title is-4">
+								<i class="fas fa-flag-checkered"></i> Getting Started
+								<span v-if="isSectionCompleted('introduction')" class="icon has-text-success">
+									<i class="fas fa-check-circle"></i>
+								</span>
+							</h4>
+							<p>Learn what JavaScript is and how it powers the modern web.</p>
+							<div class="tags">
+								<span class="tag is-success">Beginner Friendly</span>
+								<span class="tag is-info">15 minutes</span>
+							</div>
+						</router-link>
+					</div>
+				</div>
+
+				<!-- Level 2: Basic Building Blocks -->
+				<div class="level-section">
+					<h3 class="title is-3">Level 2: Basic Building Blocks</h3>
+					<div class="path-item">
+						<router-link to="javascript-basics/variables-data-types" class="box" :class="{ 'is-completed': isSectionCompleted('variables-data-types') }">
+							<h4 class="title is-4">
+								<i class="fas fa-cube"></i> Variables & Data Types
+								<span v-if="isSectionCompleted('variables-data-types')" class="icon has-text-success">
+									<i class="fas fa-check-circle"></i>
+								</span>
+							</h4>
+							<p>Store and work with different types of data in JavaScript.</p>
+							<div class="tags">
+								<span class="tag is-warning">Core Concept</span>
+								<span class="tag is-info">30 minutes</span>
+							</div>
+						</router-link>
+					</div>
+				</div>
+
+				<!-- Level 3: Operations & Logic -->
+				<div class="level-section">
+					<h3 class="title is-3">Level 3: Operations & Logic</h3>
+					<div class="columns">
+						<div class="column">
+							<router-link to="javascript-basics/operators" class="box" :class="{ 'is-completed': isSectionCompleted('operators') }">
+								<h4 class="title is-4">
+									<i class="fas fa-calculator"></i> Operators
+									<span v-if="isSectionCompleted('operators')" class="icon has-text-success">
+										<i class="fas fa-check-circle"></i>
+									</span>
+								</h4>
+								<p>Perform calculations and combine values.</p>
+								<div class="tags">
+									<span class="tag is-warning">Core Concept</span>
+									<span class="tag is-info">30 minutes</span>
+								</div>
+							</router-link>
+						</div>
+						<div class="column">
+							<router-link to="javascript-basics/conditionals" class="box" :class="{ 'is-completed': isSectionCompleted('conditionals') }">
+								<h4 class="title is-4">
+									<i class="fas fa-code-branch"></i> Conditionals
+									<span v-if="isSectionCompleted('conditionals')" class="icon has-text-success">
+										<i class="fas fa-check-circle"></i>
+									</span>
+								</h4>
+								<p>Make decisions in your code.</p>
+								<div class="tags">
+									<span class="tag is-warning">Core Concept</span>
+									<span class="tag is-info">45 minutes</span>
+								</div>
+							</router-link>
 						</div>
 					</div>
-				</router-link>
+				</div>
+
+				<!-- Level 4: Repetition & Functions -->
+				<div class="level-section">
+					<h3 class="title is-3">Level 4: Repetition & Functions</h3>
+					<div class="columns">
+						<div class="column">
+							<router-link to="javascript-basics/loops" class="box" :class="{ 'is-completed': isSectionCompleted('loops') }">
+								<h4 class="title is-4">
+									<i class="fas fa-redo"></i> Loops
+									<span v-if="isSectionCompleted('loops')" class="icon has-text-success">
+										<i class="fas fa-check-circle"></i>
+									</span>
+								</h4>
+								<p>Repeat actions efficiently.</p>
+								<div class="tags">
+									<span class="tag is-warning">Core Concept</span>
+									<span class="tag is-info">45 minutes</span>
+								</div>
+							</router-link>
+						</div>
+						<div class="column">
+							<router-link to="javascript-basics/functions" class="box" :class="{ 'is-completed': isSectionCompleted('functions') }">
+								<h4 class="title is-4">
+									<i class="fas fa-box"></i> Functions
+									<span v-if="isSectionCompleted('functions')" class="icon has-text-success">
+										<i class="fas fa-check-circle"></i>
+									</span>
+								</h4>
+								<p>Create reusable blocks of code.</p>
+								<div class="tags">
+									<span class="tag is-warning">Core Concept</span>
+									<span class="tag is-info">60 minutes</span>
+								</div>
+							</router-link>
+						</div>
+					</div>
+				</div>
 			</div>
 
-			<div class="tutorial-card">
-				<router-link to="/tutorials/javascript-basics/operators">
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4">
-								<i class="fas fa-calculator"></i> Operators
-							</h3>
-							<p>Learn about operators for math, comparison, and logic</p>
-							<span class="tag is-info mt-2">30 min</span>
-						</div>
-					</div>
-				</router-link>
-			</div>
-
-			<div class="tutorial-card">
-				<router-link to="/tutorials/javascript-basics/conditionals">
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4">
-								<i class="fas fa-code-branch"></i> Control Flow
-							</h3>
-							<p>Learn how to make decisions and repeat actions in your code</p>
-							<span class="tag is-info mt-2">45 min</span>
-						</div>
-					</div>
-				</router-link>
-			</div>
-
-			<div class="tutorial-card">
-				<router-link to="/tutorials/javascript-basics/loops">
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4"><i class="fas fa-redo"></i> Loops</h3>
-							<p>Repeat actions efficiently with different types of loops</p>
-							<span class="tag is-info mt-2">30 min</span>
-						</div>
-					</div>
-				</router-link>
-			</div>
-
-			<div class="tutorial-card">
-				<router-link to="/tutorials/javascript-basics/functions">
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4"><i class="fas fa-cogs"></i> Functions</h3>
-							<p>Create reusable blocks of code</p>
-							<span class="tag is-info mt-2">30 min</span>
-						</div>
-					</div>
-				</router-link>
-			</div>
-
-			<div class="tutorial-card">
-				<router-link to="/tutorials/javascript-basics/dom-manipulation">
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4">
-								<i class="fas fa-sitemap"></i> DOM Manipulation
-							</h3>
-							<p>Interact with HTML elements to create dynamic web pages</p>
-							<span class="tag is-info mt-2">30 min</span>
-						</div>
-					</div>
-				</router-link>
-			</div>
-
-			<div class="tutorial-card">
-				<router-link to="/tutorials/javascript-basics/events">
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4">
-								<i class="fas fa-mouse-pointer"></i> Events
-							</h3>
-							<p>Respond to user actions like clicks, key presses, and more</p>
-							<span class="tag is-info mt-2">30 min</span>
-						</div>
-					</div>
-				</router-link>
+			<!-- Progress Tracking -->
+			<div class="progress-section box">
+				<h2 class="title is-3">
+					<i class="fas fa-chart-line"></i> Your Progress
+				</h2>
+				<progress class="progress is-success" :value="completedSections" :max="totalSections">
+					{{ progressPercentage }}%
+				</progress>
+				<p class="has-text-centered">
+					{{ completedSections }} of {{ totalSections }} sections completed ({{ progressPercentage }}%)
+				</p>
+				<div class="mt-4" v-if="completedSections < totalSections">
+					<p class="has-text-centered">
+						<strong>Next up:</strong> 
+						<span v-if="nextSection" class="tag is-primary is-medium">
+							{{ nextSection.name }}
+						</span>
+					</p>
+				</div>
+				<div class="mt-4" v-else>
+					<p class="has-text-centered has-text-success">
+						<i class="fas fa-trophy"></i>
+						<strong>Congratulations!</strong> You've completed all sections!
+					</p>
+				</div>
 			</div>
 		</div>
 
@@ -460,39 +534,194 @@
 				tutorial to take your first steps into programming!
 			</p>
 		</div>
-
-		<!-- Recommendations for next steps -->
-		<TutorialRecommendations />
 	</div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import { ref, onMounted, computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+// Tutorial sections in order
+const tutorialSections = [
+	{ id: 'introduction', name: 'Introduction', path: '/tutorials/javascript-basics/introduction' },
+	{ id: 'variables-data-types', name: 'Variables & Data Types', path: '/tutorials/javascript-basics/variables-data-types' },
+	{ id: 'operators', name: 'Operators', path: '/tutorials/javascript-basics/operators' },
+	{ id: 'conditionals', name: 'Conditionals', path: '/tutorials/javascript-basics/conditionals' },
+	{ id: 'loops', name: 'Loops', path: '/tutorials/javascript-basics/loops' },
+	{ id: 'functions', name: 'Functions', path: '/tutorials/javascript-basics/functions' }
+];
+
+const totalSections = tutorialSections.length;
+const completedSections = ref(0);
+const route = useRoute();
+
+// Check all possible localStorage keys to help debug
+const debugLocalStorage = () => {
+	console.log('All localStorage keys:');
+	for (let i = 0; i < localStorage.length; i++) {
+		const key = localStorage.key(i);
+		console.log(`${key}:`, localStorage.getItem(key));
+	}
+};
+
+// Load progress from localStorage
+const loadProgress = () => {
+	try {
+		debugLocalStorage();
+		
+		// Get cookie consent and settings
+		const consent = localStorage.getItem('cookieConsent');
+		const settingsStr = localStorage.getItem('cookieSettings');
+		
+		console.log('Cookie Consent:', consent);
+		console.log('Cookie Settings:', settingsStr);
+		
+		// Check if progress tracking should be enabled
+		const isTrackingEnabled = () => {
+			try {
+				if (consent !== 'true') return false;
+				
+				const settings = JSON.parse(settingsStr);
+				const isEnabled = settings && settings.progress === true;
+				console.log('Progress tracking enabled:', isEnabled);
+				return isEnabled;
+			} catch (error) {
+				console.error('Error parsing cookie settings:', error);
+				return false;
+			}
+		};
+
+		if (!isTrackingEnabled()) {
+			console.warn('Progress tracking is disabled.');
+			return { completed: [], lastVisited: null };
+		}
+
+		const savedProgress = localStorage.getItem('js-basics-progress');
+		if (savedProgress) {
+			const progress = JSON.parse(savedProgress);
+			completedSections.value = progress.completed.length;
+			console.log('Loaded progress:', progress);
+			return progress;
+		}
+	} catch (error) {
+		console.error('Error loading progress:', error);
+		console.error('Error details:', {
+			message: error.message,
+			stack: error.stack
+		});
+	}
+	return { completed: [], lastVisited: null };
+};
+
+// Save progress to localStorage
+const saveProgress = (progress) => {
+	try {
+		const consent = localStorage.getItem('cookieConsent');
+		const settingsStr = localStorage.getItem('cookieSettings');
+		
+		// Check if progress tracking should be enabled
+		const isTrackingEnabled = () => {
+			try {
+				if (consent !== 'true') return false;
+				
+				const settings = JSON.parse(settingsStr);
+				return settings && settings.progress === true;
+			} catch {
+				return false;
+			}
+		};
+
+		if (!isTrackingEnabled()) {
+			console.warn('Cannot save progress: tracking is disabled');
+			return;
+		}
+
+		localStorage.setItem('js-basics-progress', JSON.stringify(progress));
+		console.log('Saved progress:', progress);
+	} catch (error) {
+		console.error('Error saving progress:', error);
+	}
+};
+
+// Check if a section is completed
+const isSectionCompleted = (sectionId) => {
+	const progress = loadProgress();
+	return progress.completed.includes(sectionId);
+};
+
+// Mark a section as completed
+const markSectionCompleted = (sectionId) => {
+	const progress = loadProgress();
+	if (!progress.completed.includes(sectionId)) {
+		progress.completed.push(sectionId);
+		completedSections.value = progress.completed.length;
+		saveProgress(progress);
+	}
+};
+
+// Computed properties
+const progressPercentage = computed(() => {
+	return Math.round((completedSections.value / totalSections) * 100);
+});
+
+const currentProgress = computed(() => {
+	return {
+		completed: completedSections.value,
+		total: totalSections,
+		percentage: progressPercentage.value
+	};
+});
+
+const nextSection = computed(() => {
+	const progress = loadProgress();
+	const nextUncompletedSection = tutorialSections.find(section => 
+		!progress.completed.includes(section.id)
+	);
+	return nextUncompletedSection;
+});
+
+// Initialize progress on component mount
+onMounted(() => {
+	const progress = loadProgress();
+	completedSections.value = progress.completed.length;
+	
+	// Update last visited section
+	const currentSection = route.path.split('/').pop();
+	if (currentSection) {
+		progress.lastVisited = currentSection;
+		saveProgress(progress);
+	}
+});
 </script>
 
 <script>
 // Frontmatter for the tutorial
 export default {
+	name: 'JavaScriptBasics',
 	frontmatter: {
 		title: 'JavaScript Basics',
-		description:
-			'Learn the fundamentals of JavaScript programming for beginners',
+		description: 'Learn the fundamentals of JavaScript programming for beginners',
 		category: 'JavaScript',
 		level: 'Beginner',
 		order: 1,
 		tags: ['javascript', 'programming', 'web development'],
 		lastUpdated: '2023-10-15',
-	},
+	}
 };
 </script>
 
 <style scoped>
-.js-icon {
-	color: black;
-	background-color: #f7df1e;
-	padding: 0.2rem;
-	border-radius: 0.2rem;
+.js-logo-container {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+.js-logo {
+	width: 100%;
+	height: 100%;
 }
 
 .tutorials-list .card {
@@ -550,5 +779,56 @@ export default {
 		transform: translateY(-20px);
 		opacity: 0;
 	}
+}
+
+.level-section {
+	margin-bottom: 2rem;
+	padding: 1rem;
+	border-radius: 8px;
+	background-color: #f5f5f5;
+}
+
+.path-item {
+	margin-bottom: 1rem;
+}
+
+.path-item .box {
+	transition: transform 0.2s;
+}
+
+.path-item .box:hover {
+	transform: translateY(-5px);
+}
+
+.progress-section {
+	margin-top: 3rem;
+}
+
+.is-completed {
+	border-left: 4px solid #48c774;
+	background-color: #f0fdf4;
+}
+
+.is-completed:hover {
+	background-color: #e1fae5;
+}
+
+.progress-section {
+	background-color: white;
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+	height: 1.5rem;
+	margin: 1rem 0;
+}
+
+.next-section {
+	margin-top: 1rem;
+	padding: 1rem;
+	background-color: #f5f5f5;
+	border-radius: 4px;
 }
 </style>

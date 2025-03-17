@@ -85,14 +85,13 @@ const pageSectionsInject = inject('pageSections', ref([]));
 // Single source of truth for navigation items
 const navItems = [
 	{ path: '/tutorials/javascript-basics/', title: 'Overview', icon: 'fa-home' },
-	{ path: '/tutorials/javascript-basics/introduction', title: 'Introduction', icon: 'fa-flag' },
+	{ path: '/tutorials/javascript-basics/introduction', title: 'Getting  Started', icon: 'fa-flag' },
 	{ path: '/tutorials/javascript-basics/variables-data-types', title: 'Variables & Data Types', icon: 'fa-cube' },
 	{ path: '/tutorials/javascript-basics/operators', title: 'Operators & Expressions', icon: 'fa-calculator' },
 	{ path: '/tutorials/javascript-basics/conditionals', title: 'Control Flow', icon: 'fa-code-branch' },
 	{ path: '/tutorials/javascript-basics/loops', title: 'Loops', icon: 'fa-sync' },
 	{ path: '/tutorials/javascript-basics/functions', title: 'Functions', icon: 'fa-cogs' },
-	{ path: '/tutorials/javascript-basics/dom', title: 'DOM Manipulation', icon: 'fa-sitemap' },
-	{ path: '/tutorials/javascript-basics/events', title: 'Events', icon: 'fa-bolt' }
+
 ];
 
 function isCurrentPath(path) {

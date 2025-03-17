@@ -181,6 +181,61 @@ export default {
         ],
         correctAnswer: 1,
         explanation: "A do...while loop always executes its code block at least once before checking the condition."
+      },
+      {
+        question: "When should you use a for...in loop?",
+        options: [
+          "For iterating over array indices",
+          "For iterating over object properties",
+          "For counting numbers",
+          "For string manipulation"
+        ],
+        correctAnswer: 1,
+        explanation: "The for...in loop is designed to iterate over the enumerable properties of an object."
+      },
+      {
+        question: "What does the continue statement do in a loop?",
+        options: [
+          "Exits the loop completely",
+          "Pauses the loop for a moment",
+          "Skips to the next iteration",
+          "Restarts the loop from the beginning"
+        ],
+        correctAnswer: 2,
+        explanation: "The continue statement skips the rest of the current iteration and moves to the next one."
+      },
+      {
+        question: "Which type of loop would be best for processing user input until they type 'quit'?",
+        options: [
+          "for loop",
+          "for...of loop",
+          "while loop",
+          "for...in loop"
+        ],
+        correctAnswer: 2,
+        explanation: "A while loop is ideal when you don't know how many iterations will be needed, like waiting for specific user input."
+      },
+      {
+        question: "What is the purpose of the break statement in a loop?",
+        options: [
+          "To exit the loop immediately",
+          "To skip the current iteration",
+          "To pause the loop execution",
+          "To reset the loop counter"
+        ],
+        correctAnswer: 0,
+        explanation: "The break statement immediately terminates the loop and continues with the code after the loop."
+      },
+      {
+        question: "Which loop type is best when you know the exact number of iterations needed?",
+        options: [
+          "while loop",
+          "for loop",
+          "do...while loop",
+          "for...in loop"
+        ],
+        correctAnswer: 1,
+        explanation: "The for loop is ideal when you know exactly how many times you need to iterate, as it combines initialization, condition, and increment in one line."
       }
     ]
   },

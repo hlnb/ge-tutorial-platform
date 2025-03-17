@@ -9,7 +9,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link to="/tutorials/javascript-basics">
+					<router-link to="/tutorials/beginner/javascript-basics">
 						JavaScript Basics
 					</router-link>
 				</li>
@@ -23,6 +23,7 @@
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">30 minutes</span>
 			<span class="tag is-success">JavaScript</span>
+			<span class="tag is-success">Level 3</span>
 		</div>
 
 		<h1 class="title is-1">
@@ -77,7 +78,7 @@
 				<i class="fas fa-info-circle mr-2"></i>
 				<strong>Prerequisites:</strong> Before starting this tutorial, we
 				recommend completing the
-				<router-link to="/tutorials/javascript-basics/variables-data-types"
+				<router-link to="/tutorials/beginner/javascript-basics/variables-data-types"
 					>Variables & Data Types</router-link
 				>
 				tutorial to understand the concepts used here.
@@ -852,20 +853,57 @@ function safeDivide(numerator, denominator) {
 
 		<h3 class="title is-4">Try It Yourself</h3>
 		<div class="box try-it-box">
-			<p>
-				Open your browser's console (F12 or right-click → Inspect → Console) and
-				try these calculations:
+			<p class="mb-4">
+				Let's practice using operators with some real-world examples. Open your browser's console
+				(F12 or right-click → Inspect → Console) and try these calculations:
 			</p>
-			<CodeMirror
-				:code="tryArithmeticExamples"
-				:value="tryArithmeticExamples"
-				language="javascript"
-				:read-only="true"
-			/>
-			<div class="mt-3">
-				<button class="button is-primary" @click="openConsole">
-					<i class="fas fa-terminal mr-2"></i> Open Console
-				</button>
+			
+			<div class="code-examples-container">
+				<div class="code-panel">
+					<div class="card">
+						<div class="card-content">
+							<h5 class="title is-5">Restaurant Bill Calculator</h5>
+							<div class="code-container">
+								<CodeMirror
+									:code="restaurantExample"
+									:value="restaurantExample"
+									language="javascript"
+									:read-only="true"
+								/>
+							</div>
+							<button class="button is-primary mt-3" @click="runRestaurantExample">
+								<i class="fas fa-play mr-2"></i> Run Example
+							</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="code-panel">
+					<div class="card">
+						<div class="card-content">
+							<h5 class="title is-5">Tip Calculator</h5>
+							<div class="code-container">
+								<CodeMirror
+									:code="tipExample"
+									:value="tipExample"
+									language="javascript"
+									:read-only="true"
+								/>
+							</div>
+							<button class="button is-primary mt-3" @click="runTipExample">
+								<i class="fas fa-play mr-2"></i> Run Example
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="notification is-info is-light mt-4">
+				<p>
+					<i class="fas fa-lightbulb mr-2"></i>
+					<strong>Pro Tip:</strong> Use the console to experiment with different values
+					and operators. Try modifying the examples above with your own numbers!
+				</p>
 			</div>
 		</div>
 
@@ -2552,9 +2590,106 @@ function safeDivide(numerator, denominator) {
 
 		<h2 class="title is-2" id="practice">Practice Exercises</h2>
 		<p>
-			Let's put everything together by creating a simple restaurant bill
-			calculator:
+			Let's practice using operators with real-world scenarios from our restaurant theme:
 		</p>
+
+		<div class="columns is-multiline">
+			<div class="column is-half">
+				<div class="card">
+					<div class="card-content">
+						<h3 class="title is-4">Exercise 1: Menu Price Calculator</h3>
+						<p class="mb-4">Calculate the total price for a customer's order:</p>
+						<CodeMirror
+							:code="menuPriceExample"
+							:value="menuPriceExample"
+							language="javascript"
+							:read-only="true"
+						/>
+						<button class="button is-primary mt-3" @click="runMenuPriceExample">
+							<i class="fas fa-play mr-2"></i> Try It
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="column is-half">
+				<div class="card">
+					<div class="card-content">
+						<h3 class="title is-4">Exercise 2: Table Assignment</h3>
+						<p class="mb-4">Use the modulus operator to assign tables to parties:</p>
+						<CodeMirror
+							:code="tableAssignmentExample"
+							:value="tableAssignmentExample"
+							language="javascript"
+							:read-only="true"
+						/>
+						<button class="button is-primary mt-3" @click="runTableAssignmentExample">
+							<i class="fas fa-play mr-2"></i> Try It
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="column is-half">
+				<div class="card">
+					<div class="card-content">
+						<h3 class="title is-4">Exercise 3: Discount Calculator</h3>
+						<p class="mb-4">Calculate discounts based on conditions:</p>
+						<CodeMirror
+							:code="discountExample"
+							:value="discountExample"
+							language="javascript"
+							:read-only="true"
+						/>
+						<button class="button is-primary mt-3" @click="runDiscountExample">
+							<i class="fas fa-play mr-2"></i> Try It
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="column is-half">
+				<div class="card">
+					<div class="card-content">
+						<h3 class="title is-4">Exercise 4: Split Bill Calculator</h3>
+						<p class="mb-4">Calculate individual shares when splitting the bill:</p>
+						<CodeMirror
+							:code="splitBillExample"
+							:value="splitBillExample"
+							language="javascript"
+							:read-only="true"
+						/>
+						<button class="button is-primary mt-3" @click="runSplitBillExample">
+							<i class="fas fa-play mr-2"></i> Try It
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="notification is-info is-light mt-4">
+			<p>
+				<i class="fas fa-lightbulb mr-2"></i>
+				<strong>Pro Tips:</strong>
+			</p>
+			<ul>
+				<li>Use the browser's console to experiment with different values</li>
+				<li>Try combining different operators to solve more complex problems</li>
+				<li>Pay attention to operator precedence when combining operations</li>
+				<li>Use parentheses to make your calculations clearer</li>
+			</ul>
+		</div>
+
+		<div class="box tip-box mt-6">
+			<h3 class="title is-4"><i class="fas fa-graduation-cap"></i> Challenge Yourself</h3>
+			<p>Try these additional challenges to test your understanding:</p>
+			<ol>
+				<li>Calculate the average bill amount for a table of customers</li>
+				<li>Determine if a reservation time falls within operating hours</li>
+				<li>Calculate the most efficient table arrangement for a large party</li>
+				<li>Implement a loyalty points system using arithmetic operators</li>
+			</ol>
+		</div>
 
 		<div class="box tip-box mb-6">
 			<h3 class="title is-4"><i class="fas fa-cog"></i> Setup</h3>
@@ -2690,12 +2825,112 @@ const toggleSolution = () => {
 	showSolution.value = !showSolution.value;
 };
 
-// Open console function
-const openConsole = () => {
-	console.log('Try JavaScript operators here!');
-	console.log('Example: 5 + 10 * 2');
-	console.log('Then press Enter to see the result');
-	alert('Console opened! Look for the console tab in developer tools.');
+// Interactive example methods
+const runRestaurantExample = () => {
+	console.clear();
+	console.log('Running Restaurant Bill Calculator Example:');
+	console.log('----------------------------------------');
+	
+	let bill = 50;
+	let taxRate = 0.08;
+	let tipRate = 0.15;
+	
+	let taxAmount = bill * taxRate;
+	let tipAmount = bill * tipRate;
+	let total = bill + taxAmount + tipAmount;
+	
+	console.log('Subtotal: $' + bill.toFixed(2));
+	console.log('Tax (8%): $' + taxAmount.toFixed(2));
+	console.log('Tip (15%): $' + tipAmount.toFixed(2));
+	console.log('Total: $' + total.toFixed(2));
+	
+	alert('Check the console to see the results!');
+};
+
+const runTipExample = () => {
+	console.clear();
+	console.log('Running Tip Calculator Example:');
+	console.log('-----------------------------');
+	
+	let bill = 50;
+	let tipRate = 0.15;
+	let tipAmount = bill * tipRate;
+	
+	console.log('Bill: $' + bill.toFixed(2));
+	console.log('Tip (15%): $' + tipAmount.toFixed(2));
+	console.log('Total: $' + (bill + tipAmount).toFixed(2));
+	
+	alert('Check the console to see the results!');
+};
+
+const runMenuPriceExample = () => {
+	console.clear();
+	console.log('Running Menu Price Calculator Example:');
+	console.log('-----------------------------------');
+	
+	let salmonPrice = 24.99;
+	let steakPrice = 29.99;
+	let pastaPrice = 18.99;
+	
+	let total = (salmonPrice * 2) + pastaPrice;
+	
+	console.log('Salmon Price: $' + salmonPrice.toFixed(2));
+	console.log('Steak Price: $' + steakPrice.toFixed(2));
+	console.log('Pasta Price: $' + pastaPrice.toFixed(2));
+	console.log('Total for 2 salmon dishes and 1 pasta: $' + total.toFixed(2));
+	
+	alert('Check the console to see the results!');
+};
+
+const runTableAssignmentExample = () => {
+	console.clear();
+	console.log('Running Table Assignment Example:');
+	console.log('-------------------------------');
+	
+	let partySize = 7;
+	let tableSize = 4;
+	let tableAssignment = partySize % tableSize;
+	tableAssignment = tableAssignment === 0 ? tableSize : tableAssignment;
+	
+	console.log('Party Size: ' + partySize);
+	console.log('Table Size: ' + tableSize);
+	console.log('Assigned to table: ' + tableAssignment);
+	
+	alert('Check the console to see the results!');
+};
+
+const runDiscountExample = () => {
+	console.clear();
+	console.log('Running Discount Calculator Example:');
+	console.log('----------------------------------');
+	
+	let subtotal = 120;
+	let discountRate = 0.10;
+	let discountAmount = subtotal * discountRate;
+	let total = subtotal - discountAmount;
+	
+	console.log('Subtotal: $' + subtotal.toFixed(2));
+	console.log('Discount Rate: ' + (discountRate * 100) + '%');
+	console.log('Discount Amount: $' + discountAmount.toFixed(2));
+	console.log('Total after discount: $' + total.toFixed(2));
+	
+	alert('Check the console to see the results!');
+};
+
+const runSplitBillExample = () => {
+	console.clear();
+	console.log('Running Split Bill Calculator Example:');
+	console.log('-----------------------------------');
+	
+	let total = 120;
+	let numberOfPeople = 4;
+	let perPerson = total / numberOfPeople;
+	
+	console.log('Total Bill: $' + total.toFixed(2));
+	console.log('Number of People: ' + numberOfPeople);
+	console.log('Each person pays: $' + perPerson.toFixed(2));
+	
+	alert('Check the console to see the results!');
 };
 
 // Code examples
@@ -3018,6 +3253,69 @@ let tableSize = 4;
 let hasRemainder = partySize % tableSize !== 0;
 console.log('Need extra table for remainder?', hasRemainder); // true
 console.log('Number of extra seats needed:', partySize % tableSize); // 3`;
+
+const restaurantExample = `// Restaurant bill calculator
+let bill = 50; // Starting bill amount
+let taxRate = 0.08; // 8% tax rate
+let tipRate = 0.15; // 15% tip rate
+
+// Calculate tax
+let taxAmount = bill * taxRate;
+
+// Calculate tip
+let tipAmount = bill * tipRate;
+
+// Calculate total with tax and tip
+let total = bill + taxAmount + tipAmount;
+
+console.log('Subtotal: $' + bill);
+console.log('Tax: $' + taxAmount.toFixed(2));
+console.log('Tip: $' + tipAmount.toFixed(2));
+console.log('Total: $' + total.toFixed(2));`;
+
+const tipExample = `// Tip calculator
+let bill = 50; // Starting bill amount
+let tipRate = 0.15; // 15% tip rate
+
+// Calculate tip
+let tipAmount = bill * tipRate;
+
+console.log('Bill: $' + bill);
+console.log('Tip: $' + tipAmount.toFixed(2));
+console.log('Total: $' + (bill + tipAmount).toFixed(2));`;
+
+const menuPriceExample = `// Menu price calculator
+let salmonPrice = 24.99;
+let steakPrice = 29.99;
+let pastaPrice = 18.99;
+
+// Calculate total for 2 salmon dishes and 1 pasta
+let total = (salmonPrice * 2) + pastaPrice;
+console.log('Total price for 2 salmon dishes and 1 pasta: $' + total.toFixed(2));`;
+
+const tableAssignmentExample = `// Table assignment
+let partySize = 7;
+let tableSize = 4;
+let tableAssignment = partySize % tableSize;
+// If tableAssignment is 0, use table 4
+tableAssignment = tableAssignment === 0 ? tableSize : tableAssignment;
+console.log('Party of 7 is assigned to table:', tableAssignment);`;
+
+const discountExample = `// Discount calculator
+let subtotal = 120; // Total before discount
+let discountRate = 0.10; // 10% discount
+let discountAmount = subtotal * discountRate;
+let total = subtotal - discountAmount;
+console.log('Subtotal: $' + subtotal.toFixed(2));
+console.log('Discount: $' + discountAmount.toFixed(2));
+console.log('Total after discount: $' + total.toFixed(2));`;
+
+const splitBillExample = `// Split bill calculator
+let total = 120; // Total bill amount
+let numberOfPeople = 4; // Number of people splitting the bill
+let perPerson = total / numberOfPeople;
+console.log('Total bill: $' + total.toFixed(2));
+console.log('Each person pays: $' + perPerson.toFixed(2));`;
 </script>
 
 <script>
@@ -3110,5 +3408,62 @@ export default {
 .button:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-examples-container {
+	overflow-x: auto;
+	white-space: nowrap;
+	padding-bottom: 1rem;
+	margin: 0 -1rem;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: thin;
+	scrollbar-color: #dbdbdb #f5f5f5;
+}
+
+.code-examples-container::-webkit-scrollbar {
+	height: 8px;
+}
+
+.code-examples-container::-webkit-scrollbar-track {
+	background: #f5f5f5;
+	border-radius: 4px;
+}
+
+.code-examples-container::-webkit-scrollbar-thumb {
+	background: #dbdbdb;
+	border-radius: 4px;
+}
+
+.code-examples-container::-webkit-scrollbar-thumb:hover {
+	background: #b5b5b5;
+}
+
+.code-panel {
+	display: inline-block;
+	vertical-align: top;
+	width: calc(50% - 1rem);
+	min-width: 300px;
+	max-width: 500px;
+	margin: 0 0.5rem;
+}
+
+.code-container {
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.card {
+	height: 100%;
+	margin-bottom: 0;
+}
+
+.card-content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.button {
+	margin-top: auto;
 }
 </style>

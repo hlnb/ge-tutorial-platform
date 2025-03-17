@@ -167,6 +167,102 @@
 			</h2>
 
 			<div class="columns is-multiline">
+				<!-- Hello World App Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Hello World App</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">15 minutes</span>
+							</p>
+							<div class="content">
+								Create a simple interactive greeting application. Practice working with DOM manipulation, event handling, and user input.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'hello-world' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+
+				<!-- Number Game Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Number Guessing Game</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">20 minutes</span>
+							</p>
+							<div class="content">
+								Build a number guessing game with basic JavaScript. Practice working with numbers, conditionals, and user input validation.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'number-game' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+
+				<!-- Temperature Converter Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Temperature Converter</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">25 minutes</span>
+							</p>
+							<div class="content">
+								Build a temperature converter with real-time updates. Practice working with numbers, type conversion, and form handling.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'temperature-converter' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+
+				<!-- Color Switcher Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Dynamic Color Switcher</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">20 minutes</span>
+							</p>
+							<div class="content">
+								Create a color switcher with dynamic updates. Practice working with DOM manipulation, event handling, and color management.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'color-switcher' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+
 				<!-- Calculator App Project -->
 				<div class="column is-one-third">
 					<div class="card project-card">
@@ -183,6 +279,54 @@
 						<footer class="card-footer">
 							<router-link
 								:to="{ name: 'calculator' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+
+				<!-- Grade Calculator Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Grade Calculator</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">25 minutes</span>
+							</p>
+							<div class="content">
+								Build a calculator that computes final grades based on weighted assignments. Practice working with numbers, variables, and user input validation.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'grade-calculator' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+
+				<!-- Interactive Message Board Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Interactive Message Board</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">30 minutes</span>
+							</p>
+							<div class="content">
+								Build an interactive message board with dynamic content. Practice DOM manipulation, event handling, and working with user input.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'interactive-demo' }"
 								class="card-footer-item"
 							>
 								Start Project <i class="fas fa-arrow-right ml-2"></i>
