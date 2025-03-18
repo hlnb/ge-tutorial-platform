@@ -89,6 +89,12 @@ import { ref, computed, inject, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
 
+interface NavItem {
+  path: string;
+  title: string;
+  comingSoon?: boolean;
+}
+
 const route = useRoute();
 const isMainExpanded = ref(true);
 const expandedSections = ref(new Set());
@@ -98,7 +104,7 @@ const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
 // Navigation items
-const navItems = [
+const navItems: NavItem[] = [
   {
     path: '/tutorials/dom-basics',
     title: 'Overview',
@@ -116,9 +122,8 @@ const navItems = [
     title: 'DOM Manipulation',
   },
   {
-    path: '/tutorials/dom-basics/events',
-    title: 'Event Handling',
-    comingSoon: true,
+    path: '/tutorials/dom-basics/dom-events',
+    title: 'Event Handling'
   },
 ];
 
