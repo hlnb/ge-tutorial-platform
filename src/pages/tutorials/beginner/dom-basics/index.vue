@@ -63,7 +63,9 @@
               <div class="card-content">
                 <h5 class="title is-6">DOM Manipulation</h5>
                 <p>Learn to select and modify HTML elements dynamically.</p>
-                <span class="tag is-warning">Coming Soon</span>
+                <router-link to="/tutorials/dom-basics/dom-manipulation" class="button is-primary is-small">
+                  Start Learning
+                </router-link>
               </div>
             </div>
           </div>
@@ -77,17 +79,19 @@
           <div class="column is-6">
             <div class="card">
               <div class="card-content">
-                <h5 class="title is-6">Event Basics</h5>
-                <p>Handle user interactions and browser events.</p>
-                <span class="tag is-warning">Coming Soon</span>
+                <h5 class="title is-6">Event Handling</h5>
+                <p>Master event handling, form validation, and event delegation.</p>
+                <router-link to="/tutorials/dom-basics/dom-events" class="button is-primary is-small">
+                  Start Learning
+                </router-link>
               </div>
             </div>
           </div>
           <div class="column is-6">
             <div class="card">
               <div class="card-content">
-                <h5 class="title is-6">Event Propagation</h5>
-                <p>Master event bubbling and capturing.</p>
+                <h5 class="title is-6">Advanced Events</h5>
+                <p>Learn event bubbling, capturing, and custom events.</p>
                 <span class="tag is-warning">Coming Soon</span>
               </div>
             </div>
