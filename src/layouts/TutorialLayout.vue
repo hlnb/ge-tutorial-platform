@@ -32,6 +32,7 @@ import HTMLBasicsNav from '@/components/HTMLBasicsNav.vue';
 import GetStartedNav from '@/components/GetStartedNav.vue';
 import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
 import JavaScriptBasicsNav from '@/components/JavaScriptBasicsNav.vue';
+import DOMBasicsNav from '@/components/DOMBasicsNav.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import progressService from '@/services/ProgressService';
 import { hasQuiz } from '@/utils/quizUtils';
@@ -55,6 +56,7 @@ const navComponents = {
 	GetStartedNav,
 	CSSBasicsNav,
 	JavaScriptBasicsNav,
+	DOMBasicsNav,
 };
 
 // Determine which navigation component to show based on route
@@ -68,6 +70,8 @@ const currentNav = computed(() => {
 		return CSSBasicsNav;
 	} else if (path.includes('/javascript-basics')) {
 		return JavaScriptBasicsNav;
+	} else if (path.includes('/dom-basics')) {
+		return DOMBasicsNav;
 	}
 	return null;
 });
@@ -299,6 +303,20 @@ const tutorialMap = {
 			path: '/tutorials/javascript-basics/conditionals',
 			title: 'Conditionals and Logic',
 		},
+	},
+
+	// DOM Basics routes
+	'dom-basics-index': {
+		prev: { path: '/tutorials/javascript-basics/conditionals', title: 'JavaScript Conditionals' },
+		next: { path: '/tutorials/dom-basics/introduction', title: 'Introduction to DOM' }
+	},
+	'dom-basics-introduction': {
+		prev: { path: '/tutorials/dom-basics', title: 'DOM Basics Overview' },
+		next: { path: '/tutorials/dom-basics/arrays', title: 'Arrays and Methods' }
+	},
+	'dom-basics-arrays': {
+		prev: { path: '/tutorials/dom-basics/introduction', title: 'Introduction to DOM' },
+		next: { path: '/tutorials/dom-basics/dom-manipulation', title: 'DOM Manipulation' }
 	},
 };
 

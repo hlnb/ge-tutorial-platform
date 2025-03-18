@@ -262,6 +262,24 @@ const projectRoutes = [
 			description: 'Build a temperature converter that handles different units and real-time updates',
 		},
 	},
+	{
+		path: '/projects/photo-gallery-2',
+		name: 'photo-gallery-2',
+		component: () => import('@/pages/projects/photo-gallery-2.vue'),
+		meta: {
+			title: 'Enhanced Photo Gallery Project',
+			description: 'Building on your JavaScript and DOM knowledge, create an advanced interactive photo gallery that demonstrates array operations and dynamic DOM manipulation.',
+		},
+	},
+	{
+		path: '/projects/todo-list-2',
+		name: 'todo-list-2',
+		component: () => import('@/pages/projects/todo-list-2.vue'),
+		meta: {
+			title: 'Enhanced Todo List Project',
+			description: 'Apply your JavaScript array methods and DOM manipulation skills to build a sophisticated task management application.',
+		},
+	},
 	// Add more project routes as needed
 ];
 
@@ -592,6 +610,62 @@ const routes = [
 					// Add more JavaScript tutorials as they are created
 				],
 			},
+
+			// DOM Basics section
+			{
+				path: 'dom-basics',
+				name: 'dom-basics-section',
+				component: () => import('@/layouts/TutorialLayout.vue'),
+				children: [
+					{
+						path: '',
+						name: 'dom-basics-index',
+						component: () =>
+							import('@/pages/tutorials/beginner/dom-basics/index.vue'),
+					},
+					{
+						path: 'introduction',
+						name: 'dom-basics-introduction',
+						component: () =>
+							import('@/pages/tutorials/beginner/dom-basics/introduction.vue'),
+					},
+					{
+						path: 'arrays',
+						name: 'dom-basics-arrays',
+						component: () =>
+							import('@/pages/tutorials/beginner/dom-basics/arrays.vue'),
+						meta: {
+							title: 'Arrays and Array Methods in JavaScript',
+							description: 'Master JavaScript arrays with hands-on practice in DOM manipulation, leading to enhanced photo gallery and todo list projects',
+							practiceProjects: ['photo-gallery-2', 'todo-list-2']
+						}
+					},
+					{
+						path: 'dom-manipulation',
+						name: 'dom-basics-dom-manipulation',
+						component: () =>
+							import('@/pages/tutorials/beginner/dom-basics/dom-manipulation.vue'),
+					},
+					{
+						path: 'event-handling',
+						name: 'dom-basics-event-handling',
+						component: () =>
+							import('@/pages/tutorials/beginner/dom-basics/event-handling.vue'),
+					},
+					{
+						path: 'dom-traversal',
+						name: 'dom-basics-dom-traversal',
+						component: () =>
+							import('@/pages/tutorials/beginner/dom-basics/dom-traversal.vue'),
+					},
+					{
+						path: 'dom-events',
+						name: 'dom-basics-dom-events',
+						component: () =>
+							import('@/pages/tutorials/beginner/dom-basics/dom-events.vue'),
+					},
+				],
+			},
 		],
 	},
 
@@ -708,6 +782,11 @@ const routes = [
 		path: '/tutorials/css-basics',
 		name: 'CSSBasics',
 		redirect: { name: 'css-basics-index' },
+	},
+	{
+		path: '/tutorials/dom-basics',
+		name: 'DOMBasics',
+		redirect: { name: 'dom-basics-index' },
 	},
 	// Additional redirects for other naming patterns
 	{

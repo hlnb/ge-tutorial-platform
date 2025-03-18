@@ -89,7 +89,7 @@
 						</div>
 						<footer class="card-footer">
 							<router-link
-								:to="{ name: 'photo-gallery' }"
+								:to="{ name: 'photo-gallery-2' }"
 								class="card-footer-item"
 							>
 								Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -350,7 +350,7 @@
 						</div>
 						<footer class="card-footer">
 							<router-link
-								:to="{ name: 'todo-list' }"
+								:to="{ name: 'todo-list-2' }"
 								class="card-footer-item"
 							>
 								Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -375,6 +375,63 @@
 						<footer class="card-footer">
 							<router-link
 								:to="{ name: 'quiz-game' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- DOM Projects -->
+		<section class="project-category">
+			<h2 class="title is-2">
+				<i class="fas fa-sitemap"></i> Document Object Model Projects
+			</h2>
+
+			<div class="columns is-multiline">
+				<!-- Photo Gallery Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Dynamic Photo Gallery</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">45 minutes</span>
+							</p>
+							<div class="content">
+								Build an interactive photo gallery using arrays and DOM manipulation. Practice working with image elements, event handling, and array methods to create a responsive image browsing experience.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'photo-gallery-2' }"
+								class="card-footer-item"
+							>
+								Start Project <i class="fas fa-arrow-right ml-2"></i>
+							</router-link>
+						</footer>
+					</div>
+				</div>
+
+				<!-- Todo List Project -->
+				<div class="column is-one-third">
+					<div class="card project-card">
+						<div class="card-content">
+							<p class="title is-4">Interactive Todo List</p>
+							<p class="subtitle is-6">
+								<span class="tag is-info">Beginner</span>
+								<span class="tag is-warning">60 minutes</span>
+							</p>
+							<div class="content">
+								Create a dynamic todo list application that manages tasks using arrays. Practice DOM manipulation, event handling, and array methods to add, remove, and update task items.
+							</div>
+						</div>
+						<footer class="card-footer">
+							<router-link
+								:to="{ name: 'todo-list-2' }"
 								class="card-footer-item"
 							>
 								Start Project <i class="fas fa-arrow-right ml-2"></i>

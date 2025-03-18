@@ -117,7 +117,7 @@
 				</div>
 				<div class="box tutorial-card">
 					<h4 class="title is-4">
-						<i class="fab fa-js javascript-icon"></i> JavaScript Basics
+						<span class="js-icon-wrapper">JS</span> JavaScript Basics
 					</h4>
 					<p>Learn interactive web programming with JavaScript</p>
 					<div class="tags">
@@ -136,6 +136,30 @@
 						:to="{ name: 'javascript-basics-index' }"
 						class="button is-primary is-outlined mt-3"
 						>Start Your JavaScript Journey</router-link
+					>
+				</div>
+				<div class="box tutorial-card">
+					<h4 class="title is-4">
+						<i class="fas fa-sitemap fa-rotate-270 dom-icon"></i> Document Object Model
+					</h4>
+					<p>Master DOM manipulation and dynamic web content</p>
+					<div class="tags">
+						<span class="tag is-light">6 tutorials</span>
+						<span class="tag is-light">4-5 hours</span>
+						<span class="tag is-success">Available Now</span>
+					</div>
+					<ul class="tutorial-topics mt-3">
+						<li><i class="fas fa-check"></i> Introduction to the DOM</li>
+						<li><i class="fas fa-check"></i> Arrays & DOM Collections</li>
+						<li><i class="fas fa-check"></i> DOM Manipulation</li>
+						<li><i class="fas fa-check"></i> Event Handling</li>
+						<li><i class="fas fa-check"></i> DOM Traversal</li>
+						<li><i class="fas fa-check"></i> Practice Projects</li>
+					</ul>
+					<router-link
+						:to="{ name: 'dom-basics-index' }"
+						class="button is-primary is-outlined mt-3"
+						>Start Your DOM Journey</router-link
 					>
 				</div>
 			</div>
@@ -298,6 +322,21 @@ onMounted(() => {
 
 .javascript-icon {
 	color: #f0db4f;
+}
+
+.js-icon-wrapper {
+	background-color: #f0db4f;
+	color: #000;
+	padding: 2px 4px;
+	border-radius: 2px;
+	font-weight: bold;
+	font-size: 0.9em;
+	font-family: monospace;
+	margin-right: 8px;
+}
+
+.dom-icon {
+	color: #ffd43b;
 }
 
 .tutorial-topics {

@@ -6,6 +6,7 @@
 import { htmlBasicsQuizzes } from '@/data/quizzes/html-basics';
 import { cssBasicsQuizzes } from '@/data/quizzes/css-basics';
 import jsBasicsQuizzes from '@/data/quizzes/javascript-basics';
+import { domBasicsQuizzes } from '@/data/quizzes/dom-basics';
 
 // Add JavaScript Basics quizzes
 const javascriptBasicsQuizzes = {
@@ -68,6 +69,7 @@ const allQuizzes = {
 	...htmlBasicsQuizzes,
 	...cssBasicsQuizzes,
 	...javascriptBasicsQuizzes,
+	...domBasicsQuizzes
 };
 
 /**
@@ -90,12 +92,27 @@ export function getQuizQuestions(section, tutorial) {
 		case 'javascript-basics':
 			quizCollection = jsBasicsQuizzes;
 			break;
+		case 'dom-basics':
+			quizCollection = domBasicsQuizzes;
+			break;
 		default:
 			return [];
 	}
 
 	// Return the questions for the specific tutorial or an empty array if not found
-	return quizCollection[tutorial]?.questions || [];
+	const questions = quizCollection[tutorial] || [];
+	
+	// Transform DOM basics quiz format if needed
+	if (section === 'dom-basics' && questions.length > 0) {
+		return questions.map(q => ({
+			question: q.text,
+			options: q.options,
+			correctAnswer: q.correctAnswer,
+			explanation: q.explanation
+		}));
+	}
+
+	return questions;
 }
 
 /**
@@ -109,8 +126,17 @@ export function hasQuiz(path) {
 
 	if (pathParts.length < 3) return false;
 
-	const section = pathParts[1];
-	const tutorial = pathParts[2];
+	// Handle paths with 'beginner' segment
+	let section, tutorial;
+	if (pathParts.includes('beginner')) {
+		const beginnerIndex = pathParts.indexOf('beginner');
+		if (beginnerIndex + 2 >= pathParts.length) return false;
+		section = pathParts[beginnerIndex + 1];
+		tutorial = pathParts[beginnerIndex + 2];
+	} else {
+		section = pathParts[1];
+		tutorial = pathParts[2];
+	}
 
 	// Get quiz questions
 	const questions = getQuizQuestions(section, tutorial);
@@ -129,36 +155,23 @@ export function getQuizQuestionsForPath(path) {
 
 	// Extract section and tutorial from path
 	const pathParts = path.split('/').filter(Boolean);
-	console.log('Path parts:', pathParts);
 
 	if (pathParts.length < 3) return [];
 
-	// Handle different path formats
+	// Handle paths with 'beginner' segment
 	let section, tutorial;
-
-	// Check if the path includes 'beginner' segment
 	if (pathParts.includes('beginner')) {
-		// Format: /tutorials/beginner/javascript-basics/functions
 		const beginnerIndex = pathParts.indexOf('beginner');
-		console.log('Beginner index:', beginnerIndex);
 		if (beginnerIndex + 2 >= pathParts.length) return [];
-
-		section = pathParts[beginnerIndex + 1]; // e.g., 'javascript-basics'
-		tutorial = pathParts[beginnerIndex + 2]; // e.g., 'functions'
+		section = pathParts[beginnerIndex + 1];
+		tutorial = pathParts[beginnerIndex + 2];
 	} else {
-		// Format: /tutorials/javascript-basics/functions
-		section = pathParts[1]; // e.g., 'javascript-basics'
-		tutorial = pathParts[2]; // e.g., 'functions'
+		section = pathParts[1];
+		tutorial = pathParts[2];
 	}
 
-	console.log('Extracted section:', section);
-	console.log('Extracted tutorial:', tutorial);
-	console.log('Quiz collection:', jsBasicsQuizzes);
-
-	// Return quiz questions
-	const questions = jsBasicsQuizzes[tutorial]?.questions || [];
-	console.log('Found questions:', questions);
-	return questions;
+	// Get quiz questions
+	return getQuizQuestions(section, tutorial);
 }
 
 /**

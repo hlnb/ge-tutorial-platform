@@ -618,6 +618,122 @@ const tutorialRecommendations = {
 			]
 		},
 	},
+	'dom-basics': {
+		'introduction': {
+			nextTutorial: {
+				path: '/tutorials/dom-basics/arrays',
+				title: 'Arrays and Array Methods'
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/javascript-basics/introduction',
+					title: 'JavaScript Basics'
+				},
+				{
+					path: '/tutorials/html-basics/doc-structure',
+					title: 'HTML Document Structure'
+				}
+			],
+			
+			resources: [
+				{
+					title: 'MDN: Introduction to the DOM',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction',
+					description: 'Comprehensive guide to understanding the DOM'
+				},
+				{
+					title: 'JavaScript.info: DOM Nodes',
+					url: 'https://javascript.info/dom-nodes',
+					description: 'In-depth explanation of DOM tree structure'
+				}
+			]
+		},
+		'arrays': {
+			nextTutorial: {
+				path: '/tutorials/beginner/dom-basics/dom-manipulation',
+				title: 'DOM Manipulation'
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/javascript-basics/loops',
+					title: 'JavaScript Loops'
+				},
+				{
+					path: '/tutorials/beginner/dom-basics/introduction',
+					title: 'Introduction to DOM'
+				}
+			],
+			practiceProjects: [
+				{
+					path: '/tutorials/beginner/dom-basics/todo-list-2',
+					title: 'Todo List Project',
+					description: 'Create a todo list application that uses arrays to manage tasks and their states.',
+					tags: ['Arrays', 'DOM', 'CRUD Operations'],
+					
+				},
+				{
+					title: 'Photo Gallery Project',
+					path: '/tutorials/beginner/dom-basics/photo-gallery-2',
+					description: 'Build a dynamic photo gallery using arrays to manage and display images.',
+					tags: ['Arrays', 'DOM', 'Events'],
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Working with Objects',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects',
+					description: 'Guide to working with JavaScript objects and arrays'
+				},
+				{
+					title: 'JavaScript.info: Arrays',
+					url: 'https://javascript.info/array',
+					description: 'Detailed tutorial on JavaScript arrays and methods'
+				}
+			]
+		},
+		'dom-manipulation': {
+			nextTutorial: {
+				path: '/tutorials/beginner/dom-basics/events',
+				title: 'DOM Events',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/beginner/javascript-basics/arrays',
+					title: 'JavaScript Arrays',
+				},
+				{
+					path: '/tutorials/beginner/dom-basics/traversal',
+					title: 'Advanced DOM Traversal',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Photo Gallery Project',
+					description: 'Build an interactive photo gallery with DOM manipulation',
+					tags: ['DOM', 'JavaScript', 'Interactive'],
+					path: '/projects/photo-gallery',
+				},
+				{
+					title: 'Todo List',
+					description: 'Create a dynamic todo list application',
+					tags: ['DOM', 'JavaScript', 'CRUD'],
+					path: '/projects/todo-list',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Manipulating Documents',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents',
+					description: 'Comprehensive guide to DOM manipulation',
+				},
+				{
+					title: 'JavaScript.info: DOM Manipulation',
+					url: 'https://javascript.info/modifying-document',
+					description: 'In-depth tutorial on modifying document structure',
+				},
+			],
+		},
+	}
 };
 
 export const projects = {
