@@ -646,18 +646,7 @@ const routes = [
 						component: () =>
 							import('@/pages/tutorials/beginner/dom-basics/dom-manipulation.vue'),
 					},
-					{
-						path: 'event-handling',
-						name: 'dom-basics-event-handling',
-						component: () =>
-							import('@/pages/tutorials/beginner/dom-basics/event-handling.vue'),
-					},
-					{
-						path: 'dom-traversal',
-						name: 'dom-basics-dom-traversal',
-						component: () =>
-							import('@/pages/tutorials/beginner/dom-basics/dom-traversal.vue'),
-					},
+				
 					{
 						path: 'dom-events',
 						name: 'dom-basics-dom-events',
