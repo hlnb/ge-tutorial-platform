@@ -201,5 +201,86 @@ export const domBasicsQuizzes = {
             correctAnswer: 1,
             explanation: 'setAttribute() adds a new attribute or changes the value of an existing attribute on the specified element.'
         }
+    ],
+
+    // Event Handling quiz
+    'event-handling': [
+        {
+            text: 'What is the correct way to add an event listener to an element?',
+            options: [
+                'element.addEventListener("click", function() {})',
+                'element.onClick = function() {}',
+                'element.attachEvent("click", function() {})',
+                'element.on("click", function() {})'
+            ],
+            correctAnswer: 0,
+            explanation: 'addEventListener is the modern standard way to attach event listeners, providing better control and the ability to add multiple listeners.'
+        },
+        {
+            text: 'What is event bubbling?',
+            options: [
+                'When an event only triggers on the target element',
+                'When an event triggers on the target element and then up through its ancestors',
+                'When an event triggers on the root element first',
+                'When multiple events trigger simultaneously'
+            ],
+            correctAnswer: 1,
+            explanation: 'Event bubbling is when an event triggered on a nested element "bubbles up" through its parent elements in the DOM tree.'
+        },
+        {
+            text: 'Which event object property tells you which element triggered the event?',
+            options: [
+                'event.element',
+                'event.source',
+                'event.target',
+                'event.currentTarget'
+            ],
+            correctAnswer: 2,
+            explanation: 'event.target refers to the element that triggered the event, while event.currentTarget refers to the element the listener is attached to.'
+        },
+        {
+            text: 'What method prevents an event from bubbling up to parent elements?',
+            options: [
+                'event.preventDefault()',
+                'event.stopBubbling()',
+                'event.stopPropagation()',
+                'event.cancelBubble()'
+            ],
+            correctAnswer: 2,
+            explanation: 'stopPropagation() prevents the event from bubbling up to parent elements in the DOM tree.'
+        },
+        {
+            text: 'Which of these is NOT a common DOM event?',
+            options: [
+                'click',
+                'mouseover',
+                'keypress',
+                'elementchange'
+            ],
+            correctAnswer: 3,
+            explanation: 'elementchange is not a standard DOM event. Common events include click, mouseover, keypress, submit, change, etc.'
+        },
+        {
+            text: 'What is event delegation?',
+            options: [
+                'Removing all event listeners from an element',
+                'Adding multiple event listeners to one element',
+                'Handling events on parent elements that affect children',
+                'Creating custom events'
+            ],
+            correctAnswer: 2,
+            explanation: 'Event delegation is a technique of handling events on a parent element that affect child elements, useful for dynamic content.'
+        },
+        {
+            text: 'How do you prevent a form from submitting normally using JavaScript?',
+            options: [
+                'form.preventDefault()',
+                'event.stopSubmit()',
+                'event.preventDefault()',
+                'form.stopPropagation()'
+            ],
+            correctAnswer: 2,
+            explanation: 'event.preventDefault() stops the default action of an event, such as a form submission, from occurring.'
+        }
     ]
 }; 
