@@ -1,5 +1,21 @@
 <template>
   <div class="tutorial-container">
+    <!-- Add breadcrumb navigation -->
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li>
+          <router-link to="/">
+            <i class="fa-solid fa-house mr-2"></i> Home
+          </router-link>
+        </li>
+        <li><router-link to="/tutorials">Tutorials</router-link></li>
+        <li><router-link to="/tutorials/beginner/dom-basics">DOM Basics</router-link></li>
+        <li class="is-active">
+          <a href="#" aria-current="page">Event Handling</a>
+        </li>
+      </ul>
+    </nav>
+
     <div class="tutorial-content">
       <h1>DOM Events: Making Your Web Pages Interactive</h1>
       
@@ -111,26 +127,52 @@ button.addEventListener('click', function() {
 
       <!-- Next steps section -->
       <section id="next-steps">
-        <h2>Next Steps</h2>
-        <div class="tutorial-recommendations">
-          <router-link to="/tutorials/beginner/web-storage-basics" class="recommendation-card">
-            <h3>Web Storage Basics</h3>
-            <p>Learn how to persist data in the browser</p>
-          </router-link>
-          <router-link to="/tutorials/beginner/fetch-api-basics" class="recommendation-card">
-            <h3>Fetch API Basics</h3>
-            <p>Make HTTP requests and handle responses</p>
-          </router-link>
-        </div>
+       <tutorial-recommendations />
       </section>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, provide } from 'vue'
 import { getQuizQuestionsForPath } from '@/utils/quizUtils'
 import TutorialQuiz from '@/components/TutorialQuiz.vue'
+import { usePageSections } from '@/composables/usePageSections'
+
+// Define sections for sidebar navigation
+const sections = [
+  {
+    id: 'introduction',
+    title: 'Introduction to DOM Events'
+  },
+  {
+    id: 'event-basics',
+    title: 'Event Basics'
+  },
+  {
+    id: 'event-types',
+    title: 'Common Event Types'
+  },
+  {
+    id: 'form-events',
+    title: 'Form Events and Validation'
+  },
+  {
+    id: 'event-delegation',
+    title: 'Event Delegation'
+  },
+  {
+    id: 'best-practices',
+    title: 'Best Practices'
+  },
+  {
+    id: 'next-steps',
+    title: 'Next Steps'
+  }
+]
+
+// Provide sections data for the page navigation
+const { pageSections } = usePageSections(sections);
 
 // Quiz data
 const quizData = ref(getQuizQuestionsForPath('/tutorials/beginner/dom-basics/dom-events'))
