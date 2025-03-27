@@ -1311,6 +1311,9 @@ This is a new line
 			</div>
 		</div>
 
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/doc-structure'" />
+
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />
 
@@ -1339,6 +1342,7 @@ import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodingOptions from '@/components/CodingOptions.vue';
 import { basicSetup } from 'codemirror';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 // Get the route
 const route = useRoute();

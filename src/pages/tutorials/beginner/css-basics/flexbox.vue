@@ -6,6 +6,7 @@ import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 // Define a ref for the code editor instances
 const codeEditors = ref([]);
@@ -1132,6 +1133,9 @@ body {
 				</div>
 			</section>
 		</div>
+
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/flexbox'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />

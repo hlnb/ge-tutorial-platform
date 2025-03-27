@@ -5,6 +5,7 @@ import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 const progressEnabled = ref(true);
 
@@ -825,6 +826,9 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 				</div>
 			</div>
 		</section>
+
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/modern'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />

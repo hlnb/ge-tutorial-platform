@@ -33,11 +33,9 @@
 				<i class="fas fa-graduation-cap"></i> Project Objectives
 			</h3>
 			<ul>
-				<li>Create a responsive photo gallery using HTML</li>
-				<li>Implement proper image elements with attributes</li>
-				<li>Add descriptive captions for each image</li>
-				<li>Practice organizing visual content</li>
-				<li>Use semantic HTML for better accessibility</li>
+				<li v-for="objective in objectives" :key="objective">
+					{{ objective }}
+				</li>
 			</ul>
 		</div>
 
@@ -68,13 +66,13 @@
 		<div class="notification is-info is-light">
 			<p>
 				<i class="fas fa-lightbulb mr-2"></i>
-				<strong>Prerequisites:</strong> Before starting this project, you should
-				complete the
-				<router-link to="/tutorials/html-basics/images"
-					>Working with Images</router-link
-				>
-				tutorial.
+				<strong>Prerequisites:</strong> Before starting this project, you should complete these tutorials:
 			</p>
+			<ul class="mt-2">
+				<li v-for="prereq in prerequisites" :key="prereq.path">
+					<router-link :to="prereq.path">{{ prereq.title }}</router-link>
+				</li>
+			</ul>
 		</div>
 
 		<div class="box">
@@ -122,11 +120,17 @@
 		<section class="project-section">
 			<h2 class="title is-2">Getting Started</h2>
 
-			<h3 class="title is-4">Step 1: Set Up Your HTML File</h3>
-			<p>
-				Create a new file called <code>gallery.html</code> and set up the basic
-				HTML structure:
-			</p>
+			<h3 class="title is-4">Step 1: Set Up Your Project</h3>
+			<p>{{ instructions.setup }}</p>
+
+			<h3 class="title is-4 mt-5">Step 2: Create the Structure</h3>
+			<p>{{ instructions.structure }}</p>
+
+			<h3 class="title is-4 mt-5">Step 3: Add Content</h3>
+			<p>{{ instructions.content }}</p>
+
+			<h3 class="title is-4 mt-5">Step 4: Enhance Your Project</h3>
+			<p>{{ instructions.enhancement }}</p>
 
 			<div class="codemirror-wrapper">
 				<CodeMirror
@@ -377,16 +381,19 @@ const filteredImages = computed(() => {
 					</li>
 				</ul>
 				
-				<div class="notification is-info is-light mt-3">
-					<p>
-						<i class="fas fa-info-circle mr-2"></i>
-						<strong>Tip:</strong> When downloading images, make sure to:
+				<div class="box">
+					<h3 class="title is-4">Tips for Image Management</h3>
+					<div class="content">
+						<p>
+							<i class="fas fa-info-circle mr-2"></i>
+							<strong>Tip:</strong> When downloading images, make sure to:
+						</p>
 						<ul>
 							<li>Choose appropriate sizes (800px to 1200px width is usually good)</li>
 							<li>Save them with meaningful filenames (e.g., "mountain-sunset.jpg")</li>
 							<li>Store them in an "images" folder in your project</li>
 						</ul>
-					</p>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -444,16 +451,19 @@ searchInput.addEventListener('input', (e) => {
 				</code></pre>
 			</div>
 
-			<div class="notification is-warning is-light">
-				<p>
-					<i class="fas fa-lightbulb mr-2"></i>
-					<strong>Challenge:</strong> Try extending the search functionality to:
+			<div class="box">
+				<h3 class="title is-4">Challenge</h3>
+				<div class="content">
+					<p>
+						<i class="fas fa-lightbulb mr-2"></i>
+						<strong>Challenge:</strong> Try extending the search functionality to:
+					</p>
 					<ul>
 						<li>Add filters for different categories</li>
 						<li>Sort images by date or name</li>
 						<li>Add a "no results found" message</li>
 					</ul>
-				</p>
+				</div>
 			</div>
 		</section>
 
@@ -479,7 +489,6 @@ searchInput.addEventListener('input', (e) => {
 			</div>
 		</section>
 
-		<!-- Recommendations for next projects -->
 
 	</div>
 </template>
@@ -487,6 +496,41 @@ searchInput.addEventListener('input', (e) => {
 <script setup>
 import { ref, computed, watch } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
+
+const props = defineProps({
+	currentTutorial: {
+		type: String,
+		required: false,
+		default: null
+	}
+});
+
+// Default values for project content
+const objectives = ref([
+	'Create a responsive photo gallery using HTML',
+	'Practice working with image elements and their attributes',
+	'Implement proper semantic HTML structure',
+	'Add captions and descriptions to images',
+	'Ensure accessibility with proper alt text'
+]);
+
+const prerequisites = ref([
+	{
+		title: 'HTML Basics',
+		path: '/tutorials/html-basics'
+	},
+	{
+		title: 'HTML Images',
+		path: '/tutorials/html-basics/images'
+	}
+]);
+
+const instructions = ref({
+	setup: 'Create a new directory for your project and set up the basic file structure. You\'ll need an index.html file and an images folder to store your photos.',
+	structure: 'Start with a basic HTML5 document structure. Include proper meta tags and a title for your gallery.',
+	content: 'Add your images to the gallery, making sure to include descriptive alt text and captions for each image.',
+	enhancement: 'Consider adding features like image thumbnails, a grid layout, or hover effects to make your gallery more engaging.'
+});
 
 // Code examples
 const htmlStructure = ref(`<!DOCTYPE html>
@@ -529,110 +573,6 @@ const galleryItems = ref(`<!-- Example of a gallery item -->
   <img src="images/beach.jpg" alt="Sandy beach with turquoise water" width="800" height="600">
   <figcaption>Tropical beach in Bali, Indonesia with crystal clear waters</figcaption>
 </figure>`);
-
-const completeExample = ref(`<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nature Photography Gallery</title>
-</head>
-<body>
-  <header>
-    <h1>Nature Photography Gallery</h1>
-    <p>
-      A collection of my favorite nature photographs taken during my travels.
-      Each image captures a unique moment in the natural world.
-    </p>
-  </header>
-  
-  <main>
-    <section class="gallery">
-      <h2>Photo Collection</h2>
-      
-      <figure class="gallery-item">
-        <img 
-          src="images/mountain.jpg" 
-          alt="Mountain landscape with snow-capped peaks" 
-          width="800" 
-          height="600"
-        >
-        <figcaption>Mountain vista in the Canadian Rockies, taken during sunrise in summer 2023</figcaption>
-      </figure>
-      
-      <figure class="gallery-item">
-        <img 
-          src="images/beach.jpg" 
-          alt="Sandy beach with turquoise water" 
-          width="800" 
-          height="600"
-        >
-        <figcaption>Tropical beach in Bali, Indonesia with crystal clear waters</figcaption>
-      </figure>
-      
-      <figure class="gallery-item">
-        <img 
-          src="images/forest.jpg" 
-          alt="Dense forest with sunlight streaming through trees" 
-          width="800" 
-          height="600"
-        >
-        <figcaption>Ancient redwood forest in Northern California, early morning fog</figcaption>
-      </figure>
-      
-      <figure class="gallery-item">
-        <img 
-          src="images/waterfall.jpg" 
-          alt="Cascading waterfall in a lush green setting" 
-          width="800" 
-          height="600"
-        >
-        <figcaption>Hidden waterfall discovered during a hike in Costa Rica</figcaption>
-      </figure>
-      
-      <figure class="gallery-item">
-        <img 
-          src="images/desert.jpg" 
-          alt="Desert landscape with sand dunes at sunset" 
-          width="800" 
-          height="600"
-        >
-        <figcaption>Sahara Desert sand dunes at sunset, Morocco</figcaption>
-      </figure>
-      
-      <figure class="gallery-item">
-        <img 
-          src="images/lake.jpg" 
-          alt="Calm lake reflecting mountains and sky" 
-          width="800" 
-          height="600"
-        >
-        <figcaption>Mirror-like reflection on Lake Louise in Banff National Park</figcaption>
-      </figure>
-    </section>
-    
-    <section class="about">
-      <h2>About the Photographer</h2>
-      <p>
-        All photos were taken by Jane Smith, an amateur nature photographer with a passion for 
-        capturing the beauty of our natural world. I've been photographing landscapes for over 
-        5 years and have traveled to 15 countries in search of breathtaking scenery.
-      </p>
-      <p>
-        Camera: Canon EOS 5D Mark IV with various lenses
-      </p>
-    </section>
-  </main>
-  
-  <footer>
-    <p>&copy; 2023 Jane Smith Photography. All rights reserved.</p>
-    <p>
-      <a href="mailto:jane@example.com">Contact Me</a> | 
-      <a href="https://instagram.com/">Follow on Instagram</a>
-    </p>
-  </footer>
-</body>
-</html>`);
 
 const images = ref([
 	{

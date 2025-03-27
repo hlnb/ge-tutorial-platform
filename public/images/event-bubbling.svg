@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="335" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="400" height="335" fill="#f8f9fa"/>
+    
+    <!-- Outer Box -->  
+    <rect x="50" y="50" width="300" height="200" 
+          fill="#f0f0f0" stroke="#666" stroke-width="2"/>
+    <text x="200" y="70" text-anchor="middle" fill="#333">Outer Box</text>
+    
+    <!-- Middle Box -->
+    <rect x="100" y="100" width="200" height="120" 
+          fill="#e0e0e0" stroke="#666" stroke-width="2"/>
+    <text x="200" y="120" text-anchor="middle" fill="#333">Middle Box</text>
+    
+    <!-- Inner Box -->
+    <rect x="150" y="150" width="100" height="40" 
+          fill="#d0d0d0" stroke="#666" stroke-width="2"/>
+    <text x="200" y="170" text-anchor="middle" fill="#333">Target</text>
+    
+    <!-- Event Bubbling Arrows -->
+    <g stroke="#4CAF50" stroke-width="2" fill="none">
+        <!-- Arrow from Target to Middle -->
+        <path d="M200,190 L200,220" marker-end="url(#arrowhead)"/>
+        <text x="220" y="205" fill="#4CAF50">Event bubbles up</text>
+        
+        <!-- Arrow from Middle to Outer -->
+        <path d="M200,220 L200,250" marker-end="url(#arrowhead)"/>
+        <text x="220" y="235" fill="#4CAF50">Event bubbles up</text>
+        
+        <!-- Arrow from Outer to Document -->
+        <path d="M200,250 L200,280" marker-end="url(#arrowhead)"/>
+        <text x="220" y="265" fill="#4CAF50">Event bubbles up</text>
+    </g>
+    
+    <!-- Arrowhead Definition -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#4CAF50"/>
+        </marker>
+    </defs>
+    
+    <!-- Legend -->
+    <g font-size="12" fill="#666">
+        <text x="50" y="290">Click order: Target → Middle → Outer → Document</text>
+        <text x="50" y="305">Use stopPropagation() to prevent bubbling</text>
+    </g>
+</svg> 

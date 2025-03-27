@@ -290,7 +290,7 @@
 		<TutorialQuiz />
 
 		<!-- Tutorial Recommendations -->
-		<TutorialRecommendations />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/variables-data-types'" />
 	</div>
 </template>
 

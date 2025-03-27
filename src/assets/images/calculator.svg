@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- Title -->
+    <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="32" fill="#2c3e50">
+        Calculator
+    </text>
+    
+    <!-- Calculator Layout -->
+    <g transform="translate(250, 150)">
+        <!-- Display -->
+        <rect x="0" y="0" width="300" height="80" fill="#2c3e50" rx="8"/>
+        <text x="20" y="50" font-family="monospace" font-size="24" fill="white">
+            0
+        </text>
+        
+        <!-- Buttons -->
+        <g transform="translate(0, 100)">
+            <!-- Row 1 -->
+            <rect x="0" y="0" width="70" height="70" fill="#3498db" rx="8"/>
+            <text x="35" y="45" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                7
+            </text>
+            
+            <rect x="80" y="0" width="70" height="70" fill="#3498db" rx="8"/>
+            <text x="115" y="45" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                8
+            </text>
+            
+            <rect x="160" y="0" width="70" height="70" fill="#3498db" rx="8"/>
+            <text x="195" y="45" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                9
+            </text>
+            
+            <rect x="240" y="0" width="70" height="70" fill="#e74c3c" rx="8"/>
+            <text x="275" y="45" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                ÷
+            </text>
+        </g>
+        
+        <!-- Row 2 -->
+        <g transform="translate(0, 180)">
+            <rect x="0" y="0" width="70" height="70" fill="#3498db" rx="8"/>
+            <text x="35" y="45" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                4
+            </text>
+            
+            <rect x="80" y="0" width="70" height="70" fill="#3498db" rx="8"/>
+            <text x="115" y="45" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                5
+            </text>
+            
+            <rect x="160" y="0" width="70" height="70" fill="#3498db" rx="8"/>
+            <text x="195" y="45" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                6
+            </text>
+            
+            <rect x="240" y="0" width="70" height="70" fill="#e74c3c" rx="8"/>
+            <text x="275" y="45" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                ×
+            </text>
+        </g>
+    </g>
+    
+    <!-- Features -->
+    <g transform="translate(100, 500)">
+        <text x="0" y="0" font-family="Arial" font-size="20" fill="#2c3e50">
+            Features:
+        </text>
+        <g transform="translate(0, 30)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Basic Operations
+            </text>
+            <text x="0" y="30" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Event Handling
+            </text>
+            <text x="0" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • State Management
+            </text>
+        </g>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="550" text-anchor="middle" font-family="Arial" font-size="16" fill="#7f8c8d">
+        Build a functional calculator with JavaScript
+    </text>
+</svg> 

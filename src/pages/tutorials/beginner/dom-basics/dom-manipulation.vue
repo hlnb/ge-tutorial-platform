@@ -1427,7 +1427,7 @@
       </section>
       <!-- Add Tutorial Recommendations -->
       <section id="next-steps" class="mb-6">
-        <tutorial-recommendations />
+        <tutorial-recommendations :current-path="'/tutorials/beginner/dom-basics/dom-manipulation'" />
       </section>
     </div>
   </div>

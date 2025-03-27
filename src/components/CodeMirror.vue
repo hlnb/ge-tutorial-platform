@@ -1,11 +1,11 @@
 <template>
 	<div class="codemirror-container">
-		<pre><code :class="language" v-html="highlightedCode"></code></pre>
+		<pre><code :class="language" ref="codeElement"></code></pre>
 	</div>
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 
@@ -34,6 +34,8 @@ const props = defineProps({
 	},
 });
 
+const codeElement = ref(null);
+
 // Decode HTML entities
 function decodeHtml(html) {
 	const txt = document.createElement('textarea');
@@ -47,23 +49,20 @@ const codeContent = computed(() => {
 	return decodeHtml(content);
 });
 
-// Computed property for highlighted code
-const highlightedCode = computed(() => {
-	if (!codeContent.value) return '';
-	try {
-		const highlighted = hljs.highlight(codeContent.value, {
-			language: props.language,
-		});
-		return highlighted.value;
-	} catch (error) {
-		console.error('Highlighting error:', error);
-		return codeContent.value;
+// Watch for changes in code content and update highlighting
+watch([codeContent, () => props.language], () => {
+	if (codeElement.value) {
+		codeElement.value.textContent = codeContent.value;
+		hljs.highlightElement(codeElement.value);
 	}
-});
+}, { immediate: true });
 
 // Initialize highlight.js
 onMounted(() => {
-	hljs.highlightAll();
+	if (codeElement.value) {
+		codeElement.value.textContent = codeContent.value;
+		hljs.highlightElement(codeElement.value);
+	}
 });
 </script>
 

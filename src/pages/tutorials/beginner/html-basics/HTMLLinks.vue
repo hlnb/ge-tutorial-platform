@@ -631,6 +631,9 @@
 			</div>
 		</div>
 
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/links'" />
+
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />
 

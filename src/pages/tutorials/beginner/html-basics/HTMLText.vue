@@ -341,6 +341,9 @@ Soups & Salads
 		</section>
 	</div>
 
+	<!-- Add recommendations before navigation -->
+	<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/text'" />
+
 	<!-- Main Tutorial Navigation -->
 	<TutorialNavigation />
 </template>
@@ -355,6 +358,7 @@ import SolutionViewer from '@/components/SolutionViewer.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import QuizComponent from '@/components/QuizComponent.vue';
 import { useRoute } from 'vue-router';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 useHead({
 	title: 'Working with Text - HTML Basics - GraphitEdge Tutorials',

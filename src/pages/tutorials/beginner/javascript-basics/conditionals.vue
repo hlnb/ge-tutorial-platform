@@ -737,7 +737,7 @@
 		<TutorialQuiz />
 
 		<!-- Recommendations for next steps -->
-		<TutorialRecommendations />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/conditionals'" />
 	</div>
 </template>
 

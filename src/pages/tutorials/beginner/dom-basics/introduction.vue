@@ -232,7 +232,7 @@ document
       <TutorialQuiz />
 
       <!-- Tutorial recommendations -->
-      <TutorialRecommendations />
+      <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/introduction'" />
     </div>
   </div>
 </template>

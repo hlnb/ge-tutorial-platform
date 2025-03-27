@@ -402,7 +402,7 @@
 		</section>
 
 		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/introduction'" />
 
 		<section class="mt-6">
 			<h2 class="title is-3">Test Your Knowledge</h2>

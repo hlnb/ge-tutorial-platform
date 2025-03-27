@@ -349,7 +349,7 @@
 		</div>
 
 		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/emmet'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />

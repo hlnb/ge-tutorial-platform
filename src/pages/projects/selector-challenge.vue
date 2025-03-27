@@ -341,15 +341,12 @@
 			</div>
 		</section>
 
-		<!-- Recommendations for next projects -->
-		<TutorialRecommendations />
 	</div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 // Code examples
 const htmlStructure = ref(`<!DOCTYPE html>
@@ -363,12 +360,11 @@ const htmlStructure = ref(`<!DOCTYPE html>
 <body>
   <header>
     <h1 id="main-title">CSS Selector Challenge</h1>
-    <p>Test your knowledge of CSS selectors by styling this page without modifying the HTML.</p>
     <nav>
       <ul>
         <li><a href="#basic">Basic Selectors</a></li>
-        <li><a href="#attribute">Attribute Selectors</a></li>
-        <li><a href="#pseudo">Pseudo Selectors</a></li>
+        <li><a href="#attributes">Attribute Selectors</a></li>
+        <li><a href="#pseudo">Pseudo-classes</a></li>
         <li><a href="#combinators">Combinators</a></li>
         <li><a href="#specificity">Specificity</a></li>
       </ul>
@@ -378,25 +374,17 @@ const htmlStructure = ref(`<!DOCTYPE html>
   <main>
     <section id="basic" class="section">
       <h2>Basic Selectors</h2>
-      <p>CSS provides several basic selectors to target elements.</p>
-      <p class="highlight">Element selectors target all elements of a specific type.</p>
-      <p>Class selectors target elements with a specific class attribute.</p>
-      <p class="highlight">ID selectors target a single element with a specific ID.</p>
-      <div class="example-box">
-        <h3>Example</h3>
-        <pre><code>
-          p { color: blue; }
-          .highlight { background-color: yellow; }
-          #main-title { font-size: 24px; }
-        </code></pre>
+      <p class="highlight">This paragraph should be highlighted.</p>
+      <p>This is a regular paragraph with <span class="highlight">highlighted text</span> inside.</p>
+      <div class="container">
+        <h3>Container Title</h3>
+        <p>This paragraph is inside a container.</p>
       </div>
     </section>
 
-    <section id="attribute" class="section">
+    <section id="attributes" class="section">
       <h2>Attribute Selectors</h2>
-      <p>Attribute selectors target elements based on their attributes.</p>
       <div class="links-container">
-        <a href="https://example.com" target="_blank">External Link</a>
         <a href="document.pdf">PDF Document</a>
         <a href="image.jpg">Image Link</a>
         <a href="https://another-site.com" target="_blank">Another External Link</a>
@@ -597,17 +585,20 @@ form label {
 }
 
 /* Specificity Challenges */
+.specificity-example p {
+  color: #666;
+}
+
+.text {
+  color: #4a6cf7;
+}
+
+.important-text {
+  color: #ff6b6b !important;
+}
+
 #special-text {
-  color: red; /* This will override a class selector */
-}
-
-.specificity-example .text.important-text {
-  font-size: 18px; /* Higher specificity than just .text or .important-text */
-}
-
-section#specificity .specificity-example p {
-  /* This has higher specificity than a simple class selector */
-  text-decoration: underline;
+  color: #2575fc;
 }`);
 </script>
 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- Title -->
+    <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="32" fill="#2c3e50">
+        Accordion Menu
+    </text>
+    
+    <!-- Accordion Layout -->
+    <g transform="translate(100, 150)">
+        <!-- Section 1 -->
+        <rect x="0" y="0" width="600" height="60" fill="#3498db" rx="8 8 0 0"/>
+        <text x="30" y="40" font-family="Arial" font-size="18" fill="white">
+            Section 1
+        </text>
+        <text x="550" y="40" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+            +
+        </text>
+        
+        <!-- Section 2 (Expanded) -->
+        <g transform="translate(0, 70)">
+            <rect x="0" y="0" width="600" height="60" fill="#2ecc71" rx="8"/>
+            <text x="30" y="40" font-family="Arial" font-size="18" fill="white">
+                Section 2
+            </text>
+            <text x="550" y="40" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                -
+            </text>
+            
+            <!-- Content -->
+            <rect x="0" y="60" width="600" height="100" fill="white" rx="0 0 8 8" stroke="#e0e0e0" stroke-width="2"/>
+            <text x="30" y="100" font-family="Arial" font-size="14" fill="#7f8c8d">
+                This is the expanded content of section 2. It can contain any type of content.
+            </text>
+        </g>
+        
+        <!-- Section 3 -->
+        <g transform="translate(0, 230)">
+            <rect x="0" y="0" width="600" height="60" fill="#3498db" rx="8"/>
+            <text x="30" y="40" font-family="Arial" font-size="18" fill="white">
+                Section 3
+            </text>
+            <text x="550" y="40" text-anchor="middle" font-family="Arial" font-size="24" fill="white">
+                +
+            </text>
+        </g>
+    </g>
+    
+    <!-- Features -->
+    <g transform="translate(100, 500)">
+        <text x="0" y="0" font-family="Arial" font-size="20" fill="#2c3e50">
+            Features:
+        </text>
+        <g transform="translate(0, 30)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Smooth Animations
+            </text>
+            <text x="0" y="30" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Keyboard Navigation
+            </text>
+            <text x="0" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • ARIA Support
+            </text>
+        </g>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="550" text-anchor="middle" font-family="Arial" font-size="16" fill="#7f8c8d">
+        Create an accessible accordion menu with DOM manipulation
+    </text>
+</svg> 

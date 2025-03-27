@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#F8F9FA"/>
+    
+    <!-- Title -->
+    <text x="400" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2C3E50">
+        Number Game
+    </text>
+    
+    <!-- Game Interface -->
+    <rect x="50" y="80" width="700" height="400" rx="8" fill="#FFFFFF" stroke="#E9ECEF" stroke-width="2"/>
+    
+    <!-- Game Title -->
+    <text x="400" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">
+        Guess the Number!
+    </text>
+    
+    <!-- Input Field -->
+    <rect x="300" y="150" width="200" height="40" rx="4" fill="#F8F9FA" stroke="#6C757D" stroke-width="1"/>
+    <text x="310" y="175" font-family="Arial, sans-serif" font-size="16" fill="#6C757D">Enter a number</text>
+    
+    <!-- Submit Button -->
+    <rect x="510" y="150" width="100" height="40" rx="4" fill="#0D6EFD"/>
+    <text x="560" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF">Guess</text>
+    
+    <!-- Message Display -->
+    <rect x="100" y="220" width="600" height="60" rx="4" fill="#F8F9FA" stroke="#E9ECEF" stroke-width="1"/>
+    <text x="120" y="255" font-family="Arial, sans-serif" font-size="16" fill="#2C3E50">Try to guess the number between 1 and 100!</text>
+    
+    <!-- Score Display -->
+    <rect x="100" y="300" width="600" height="40" rx="4" fill="#E9ECEF"/>
+    <text x="120" y="325" font-family="Arial, sans-serif" font-size="14" fill="#495057">Attempts: 0</text>
+    
+    <!-- Footer Text -->
+    <text x="400" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6C757D">
+        Create a number guessing game with JavaScript
+    </text>
+</svg> 

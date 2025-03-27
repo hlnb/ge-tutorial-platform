@@ -2764,7 +2764,7 @@ function safeDivide(numerator, denominator) {
 		<TutorialQuiz />
 
 		<!-- Recommendations for next steps -->
-		<TutorialRecommendations />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/operators'" />
 	</div>
 </template>
 

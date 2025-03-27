@@ -5,6 +5,7 @@ import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 
 const frontmatter = {
@@ -1447,6 +1448,9 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 				</div>
 			</section>
 		</section>
+
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/colors'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />

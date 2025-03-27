@@ -5,6 +5,7 @@ import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 const frontmatter = {
 	title: 'Responsive Design',
@@ -1268,6 +1269,9 @@ const navigationExample = ref(`/* Responsive Navigation */
 				</div>
 			</div>
 		</section>
+
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/responsive'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />

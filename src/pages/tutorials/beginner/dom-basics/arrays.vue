@@ -375,7 +375,7 @@ Array.isArray(numbers);  // true</code></pre>
         <TutorialQuiz />
 
         <!-- Tutorial recommendations -->
-        <TutorialRecommendations />
+        <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/arrays'" />
       </div>
     </div>
   </template>

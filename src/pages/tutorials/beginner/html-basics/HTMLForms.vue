@@ -330,6 +330,9 @@
 			</div>
 		</div>
 
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/forms'" />
+
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />
 
@@ -356,6 +359,7 @@ import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');

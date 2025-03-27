@@ -577,6 +577,12 @@
 				</p>
 			</div>
 		</div>
+
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/introduction'" />
+
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
 	</div>
 </template>
 

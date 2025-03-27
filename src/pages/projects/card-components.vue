@@ -321,15 +321,12 @@
 			</div>
 		</section>
 
-		<!-- Recommendations for next projects -->
-		<TutorialRecommendations />
 	</div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 // Code examples
 const htmlStructure = ref(`<!DOCTYPE html>

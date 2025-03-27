@@ -280,14 +280,11 @@
 			</div>
 		</div>
 
-		<!-- Quiz -->
-		<h2 class="title is-2">Test Your Knowledge</h2>
-		<div class="box">
-			<TutorialQuiz section="loops" />
-		</div>
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/loops'" />
 
-		<!-- Next Steps -->
-		<TutorialRecommendations :recommendations="getTutorialRecommendations('loops')" />
+		<!-- Add quiz before the completion section -->
+		<TutorialQuiz />
 	</div>
 </template>
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- Title -->
+    <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="32" fill="#2c3e50">
+        CSS Selector Challenge
+    </text>
+    
+    <!-- Selector Examples -->
+    <g transform="translate(100, 150)">
+        <!-- Class Selector -->
+        <rect x="0" y="0" width="600" height="80" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        <text x="30" y="30" font-family="monospace" font-size="16" fill="#3498db">
+            .highlight { background-color: yellow; }
+        </text>
+        <text x="30" y="60" font-family="Arial" font-size="14" fill="#2c3e50">
+            Class selector example
+        </text>
+    </g>
+    
+    <!-- ID Selector -->
+    <g transform="translate(100, 250)">
+        <rect x="0" y="0" width="600" height="80" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        <text x="30" y="30" font-family="monospace" font-size="16" fill="#e74c3c">
+            #header { color: blue; }
+        </text>
+        <text x="30" y="60" font-family="Arial" font-size="14" fill="#2c3e50">
+            ID selector example
+        </text>
+    </g>
+    
+    <!-- Element Selector -->
+    <g transform="translate(100, 350)">
+        <rect x="0" y="0" width="600" height="80" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        <text x="30" y="30" font-family="monospace" font-size="16" fill="#2ecc71">
+            p { margin: 10px; }
+        </text>
+        <text x="30" y="60" font-family="Arial" font-size="14" fill="#2c3e50">
+            Element selector example
+        </text>
+    </g>
+    
+    <!-- Features -->
+    <g transform="translate(100, 450)">
+        <text x="0" y="0" font-family="Arial" font-size="20" fill="#2c3e50">
+            Features:
+        </text>
+        <g transform="translate(0, 30)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Multiple selector types
+            </text>
+            <text x="0" y="30" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Interactive examples
+            </text>
+            <text x="0" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Practice exercises
+            </text>
+        </g>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="550" text-anchor="middle" font-family="Arial" font-size="16" fill="#7f8c8d">
+        Master CSS selectors through interactive challenges and examples
+    </text>
+</svg> 

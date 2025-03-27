@@ -281,8 +281,9 @@
 			<button class="button mt-3" @click="runGalleryExample">Try it</button>
 		</div>
 
+		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/functions'" />
+
 		<TutorialQuiz />
-		<TutorialRecommendations />
 	</div>
 </template>
 

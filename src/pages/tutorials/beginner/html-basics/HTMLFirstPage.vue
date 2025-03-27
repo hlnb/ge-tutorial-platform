@@ -209,7 +209,7 @@ Best time to visit: September to May</pre
 		</div>
 
 		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/first-page'" />
 
 		<!-- Quiz Section -->
 		<QuizComponent

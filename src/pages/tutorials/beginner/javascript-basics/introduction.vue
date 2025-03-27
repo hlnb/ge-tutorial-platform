@@ -278,7 +278,7 @@
 		<TutorialQuiz />
 
 		<!-- Tutorial Recommendations -->
-		<TutorialRecommendations />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/introduction'" />
 	</div>
 </template>
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- Title -->
+    <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="32" fill="#2c3e50">
+        Card Components
+    </text>
+    
+    <!-- Card Examples -->
+    <g transform="translate(100, 150)">
+        <!-- Basic Card -->
+        <rect x="0" y="0" width="250" height="300" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        <rect x="0" y="0" width="250" height="150" fill="#3498db" rx="8 8 0 0"/>
+        <text x="20" y="180" font-family="Arial" font-size="20" fill="#2c3e50">
+            Basic Card
+        </text>
+        <text x="20" y="220" font-family="Arial" font-size="14" fill="#7f8c8d">
+            A simple card with header and content
+        </text>
+    </g>
+    
+    <g transform="translate(400, 150)">
+        <!-- Hover Card -->
+        <rect x="0" y="0" width="250" height="300" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        <rect x="0" y="0" width="250" height="150" fill="#e74c3c" rx="8 8 0 0"/>
+        <text x="20" y="180" font-family="Arial" font-size="20" fill="#2c3e50">
+            Hover Card
+        </text>
+        <text x="20" y="220" font-family="Arial" font-size="14" fill="#7f8c8d">
+            Interactive card with hover effects
+        </text>
+    </g>
+    
+    <!-- Box Model Components -->
+    <g transform="translate(100, 500)">
+        <text x="0" y="0" font-family="Arial" font-size="20" fill="#2c3e50">
+            Box Model Components:
+        </text>
+        <g transform="translate(0, 30)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Content
+            </text>
+            <text x="0" y="30" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Padding
+            </text>
+            <text x="0" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Border
+            </text>
+            <text x="0" y="90" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Margin
+            </text>
+        </g>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="550" text-anchor="middle" font-family="Arial" font-size="16" fill="#7f8c8d">
+        Learn to create beautiful card components using CSS box model
+    </text>
+</svg> 

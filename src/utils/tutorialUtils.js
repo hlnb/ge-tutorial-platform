@@ -4,67 +4,83 @@
  */
 
 /**
- * Get recommendations for a tutorial
+ * Get recommendations for a tutorial based on its path
  * @param {string} path - The current tutorial path
  * @returns {Object} - Object containing next tutorial, related tutorials, practice projects, and resources
  */
 export function getTutorialRecommendations(path) {
-	// Default empty recommendations
-	const defaultRecommendations = {
-		nextTutorial: null,
-		relatedTutorials: [],
-		practiceProjects: [],
-		resources: [],
-	};
-
-	// If no path provided, return empty recommendations
-	if (!path) return defaultRecommendations;
-
-	// Extract section and tutorial from path
-	const pathParts = path.split('/').filter(Boolean);
-
-	if (pathParts.length < 3) return defaultRecommendations;
-
-	// Handle different path formats
-	let section, tutorial;
-
-	// Check if the path includes 'beginner' segment
-	if (pathParts.includes('beginner')) {
-		// Format: /tutorials/beginner/html-basics/first-page
-		const beginnerIndex = pathParts.indexOf('beginner');
-		if (beginnerIndex + 2 >= pathParts.length) return defaultRecommendations;
-
-		section = pathParts[beginnerIndex + 1]; // e.g., 'html-basics'
-		tutorial = pathParts[beginnerIndex + 2]; // e.g., 'first-page'
-	} else {
-		// Format: /tutorials/html-basics/first-page
-		section = pathParts[1]; // e.g., 'html-basics'
-		tutorial = pathParts[2]; // e.g., 'first-page'
-	}
-
-	// Get recommendations based on section and tutorial
-	return getRecommendationsForTutorial(section, tutorial);
-}
-
-/**
- * Get recommendations for a specific tutorial
- * @param {string} section - The tutorial section (e.g., 'html-basics', 'css-basics')
- * @param {string} tutorial - The specific tutorial (e.g., 'first-page', 'text')
- * @returns {Object} - Object containing next tutorial, related tutorials, practice projects, and resources
- */
-function getRecommendationsForTutorial(section, tutorial) {
-	// Get the recommendations map for the section
-	const recommendationsMap = tutorialRecommendations[section] || {};
-
-	// Get recommendations for the specific tutorial
-	return (
-		recommendationsMap[tutorial] || {
+	// Return empty recommendations if path is null or undefined
+	if (!path) {
+		return {
 			nextTutorial: null,
 			relatedTutorials: [],
 			practiceProjects: [],
-			resources: [],
+			resources: []
+		};
+	}
+
+	// Extract section and tutorial from path
+	const pathParts = path.split('/').filter(Boolean);
+	const section = pathParts[pathParts.length - 2]; // e.g., 'dom-basics'
+	const tutorial = pathParts[pathParts.length - 1]; // e.g., 'introduction'
+
+	// Get recommendations for the section and tutorial
+	const sectionRecs = tutorialRecommendations[section];
+	if (!sectionRecs) {
+		console.warn(`No recommendations found for section: ${section}`);
+		return {
+			nextTutorial: null,
+			relatedTutorials: [],
+			practiceProjects: [],
+			resources: []
+		};
+	}
+
+	const tutorialRecs = sectionRecs[tutorial];
+	if (!tutorialRecs) {
+		console.warn(`No recommendations found for tutorial: ${tutorial} in section: ${section}`);
+		return {
+			nextTutorial: null,
+			relatedTutorials: [],
+			practiceProjects: [],
+			resources: []
+		};
+	}
+
+	return tutorialRecs;
+}
+
+/**
+ * Get recommendations for a tutorial, handling both direct props and path-based lookup
+ * @param {Object} props - Component props containing recommendations and current path
+ * @param {Object} providedTutorial - Tutorial info provided by parent component
+ * @returns {Object} - Object containing next tutorial, related tutorials, practice projects, and resources
+ */
+export function getRecommendationsFromProps(props, providedTutorial) {
+	if (
+		props.nextTutorial ||
+		props.relatedTutorials.length > 0 ||
+		props.practiceProjects.length > 0 ||
+		props.resources.length > 0
+	) {
+		// Use provided props
+		return {
+			nextTutorial: props.nextTutorial,
+			relatedTutorials: props.relatedTutorials,
+			practiceProjects: props.practiceProjects,
+			resources: props.resources,
+		};
+	} else {
+		// Get recommendations from utility
+		const recs = getTutorialRecommendations(props.currentPath);
+
+		// If no next tutorial is found in recommendations but we have one from the parent, use that
+		if (!recs.nextTutorial && providedTutorial && providedTutorial.next) {
+			recs.nextTutorial = providedTutorial.next;
 		}
-	);
+
+		return recs;
+	}
 }
 
 /**
@@ -126,10 +142,10 @@ const tutorialRecommendations = {
 			],
 			practiceProjects: [
 				{
-					title: 'Blog Post',
-					description: 'Create a blog post with various text formatting',
+					title: 'Recipe Page',
+					description: 'Create a recipe page with various text formatting',
 					tags: ['HTML', 'Text', 'Formatting'],
-					path: '/projects/blog-post',
+					path: '/projects/recipe-page',
 				},
 			],
 			resources: [
@@ -153,10 +169,10 @@ const tutorialRecommendations = {
 			],
 			practiceProjects: [
 				{
-					title: 'Multi-page Website',
-					description: 'Create a simple multi-page website with navigation',
+					title: 'Personal Profile',
+					description: 'Create a personal profile page with navigation and links',
 					tags: ['HTML', 'Links', 'Navigation'],
-					path: '/projects/multi-page-site',
+					path: '/projects/personal-profile',
 				},
 			],
 			resources: [
@@ -212,10 +228,10 @@ const tutorialRecommendations = {
 			],
 			practiceProjects: [
 				{
-					title: 'Semantic Blog Layout',
-					description: 'Create a blog layout using semantic HTML elements',
+					title: 'Recipe Page',
+					description: 'Create a recipe page using semantic HTML elements',
 					tags: ['HTML', 'Semantics', 'Structure'],
-					path: '/projects/semantic-blog',
+					path: '/projects/recipe-page',
 				},
 			],
 			resources: [
@@ -239,16 +255,16 @@ const tutorialRecommendations = {
 			],
 			practiceProjects: [
 				{
-					title: 'Contact Form',
-					description: 'Build a contact form with various input types',
+					title: 'Interactive Demo',
+					description: 'Build an interactive form with various input types',
 					tags: ['HTML', 'Forms', 'Inputs'],
-					path: '/projects/contact-form',
+					path: '/projects/interactive-demo',
 				},
 				{
-					title: 'Survey Form',
-					description: 'Create a comprehensive survey form with validation',
+					title: 'Todo List',
+					description: 'Create a todo list with form handling',
 					tags: ['HTML', 'Forms', 'Validation'],
-					path: '/projects/survey-form',
+					path: '/projects/todo-list',
 				},
 			],
 			resources: [
@@ -277,11 +293,10 @@ const tutorialRecommendations = {
 			],
 			practiceProjects: [
 				{
-					title: 'Emmet Speed Challenge',
-					description:
-						'Practice your Emmet skills by recreating layouts quickly',
+					title: 'Hello World',
+					description: 'Practice your HTML skills by creating a simple webpage',
 					tags: ['HTML', 'Emmet', 'Productivity'],
-					path: '/projects/emmet-challenge',
+					path: '/projects/hello-world',
 				},
 			],
 			resources: [
@@ -299,7 +314,7 @@ const tutorialRecommendations = {
 		},
 	},
 	'css-basics': {
-		introduction: {
+		'introduction': {
 			nextTutorial: {
 				path: '/tutorials/css-basics/selectors',
 				title: 'CSS Selectors',
@@ -307,91 +322,250 @@ const tutorialRecommendations = {
 			relatedTutorials: [
 				{
 					path: '/tutorials/html-basics/first-page',
-					title: 'Your First HTML Page',
+					title: 'Creating Your First Page',
 				},
 			],
 			practiceProjects: [
 				{
-					title: 'Styled Profile Page',
-					description: 'Add CSS styling to a simple profile page',
-					tags: ['CSS', 'Styling', 'Beginner'],
-					path: '/projects/styled-profile',
+					title: 'Personal Profile',
+					description: 'Style your personal profile page with basic CSS',
+					tags: ['CSS', 'Beginner', 'Styling'],
+					path: '/projects/personal-profile',
+				},
+				{
+					title: 'Photo Gallery',
+					description: 'Add basic styling to your photo gallery',
+					tags: ['CSS', 'Beginner', 'Images'],
+					path: '/projects/photo-gallery',
 				},
 			],
 			resources: [
 				{
-					title: 'MDN: CSS first steps',
-					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps',
-					description: 'Introduction to CSS concepts',
-				},
-				{
-					title: 'CSS Tricks',
-					url: 'https://css-tricks.com/',
-					description: 'Articles and tutorials about CSS',
+					title: 'MDN: Getting started with CSS',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started',
+					description: 'Comprehensive guide to CSS basics',
 				},
 			],
 		},
-		selectors: {
+		'selectors': {
 			nextTutorial: {
 				path: '/tutorials/css-basics/box-model',
-				title: 'The Box Model',
+				title: 'CSS Box Model',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/html-basics/doc-structure',
-					title: 'HTML Document Structure',
+					path: '/tutorials/css-basics/introduction',
+					title: 'Introduction to CSS',
 				},
 			],
 			practiceProjects: [
 				{
 					title: 'Selector Challenge',
-					description:
-						'Practice using different CSS selectors to style elements',
-					tags: ['CSS', 'Selectors', 'Specificity'],
+					description: 'Practice using different CSS selectors to style elements',
+					tags: ['CSS', 'Selectors', 'Practice'],
 					path: '/projects/selector-challenge',
+				},
+				{
+					title: 'Enhanced Photo Gallery',
+					description: 'Use advanced selectors to create a responsive photo gallery',
+					tags: ['CSS', 'Intermediate', 'Grid'],
+					path: '/projects/photo-gallery-enhanced',
 				},
 			],
 			resources: [
 				{
-					title: 'MDN: CSS selectors',
+					title: 'MDN: CSS Selectors',
 					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors',
-					description: 'Comprehensive guide to CSS selectors',
-				},
-				{
-					title: 'CSS Diner',
-					url: 'https://flukeout.github.io/',
-					description: 'Interactive game to learn CSS selectors',
+					description: 'Guide to CSS selectors',
 				},
 			],
 		},
 		'box-model': {
 			nextTutorial: {
-				path: '/tutorials/css-basics/text-properties',
-				title: 'Text Properties',
+				path: '/tutorials/css-basics/layout',
+				title: 'CSS Layout',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/css-basics/layout',
-					title: 'Layout Basics',
+					path: '/tutorials/css-basics/selectors',
+					title: 'CSS Selectors',
 				},
 			],
 			practiceProjects: [
 				{
+					title: 'Enhanced Personal Profile',
+					description: 'Create a professional profile page using box model properties',
+					tags: ['CSS', 'Intermediate', 'Layout'],
+					path: '/projects/personal-profile-enhanced',
+				},
+				{
 					title: 'Card Components',
-					description: 'Create different card designs using the box model',
-					tags: ['CSS', 'Box Model', 'Components'],
+					description: 'Build different card designs using box model properties',
+					tags: ['CSS', 'Beginner', 'Box Model'],
 					path: '/projects/card-components',
 				},
 			],
 			resources: [
 				{
-					title: 'MDN: The box model',
+					title: 'MDN: The Box Model',
 					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model',
-					description: 'Detailed explanation of the CSS box model',
+					description: 'Guide to CSS box model',
 				},
 			],
 		},
-		// Add more CSS tutorials as needed
+		'layout': {
+			nextTutorial: {
+				path: '/tutorials/css-basics/typography',
+				title: 'Typography',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/css-basics/box-model',
+					title: 'CSS Box Model',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Enhanced Todo List',
+					description: 'Create a modern todo list with CSS layout techniques',
+					tags: ['CSS', 'Intermediate', 'Layout'],
+					path: '/projects/todo-list-enhanced',
+				},
+				{
+					title: 'Photo Gallery Enhanced',
+					description: 'Build a responsive photo gallery using CSS Grid and Flexbox',
+					tags: ['CSS', 'Intermediate', 'Grid'],
+					path: '/projects/photo-gallery-enhanced',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: CSS Layout',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout',
+					description: 'Guide to CSS layout techniques',
+				},
+			],
+		},
+		'typography': {
+			nextTutorial: {
+				path: '/tutorials/css-basics/colors',
+				title: 'Colors & Backgrounds',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/css-basics/layout',
+					title: 'CSS Layout',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Enhanced Personal Profile',
+					description: 'Style your profile page with typography and layout',
+					tags: ['CSS', 'Intermediate', 'Typography'],
+					path: '/projects/personal-profile-enhanced',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Fundamental text and font styling',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals',
+					description: 'Guide to CSS typography',
+				},
+			],
+		},
+		'colors': {
+			nextTutorial: {
+				path: '/tutorials/css-basics/animations',
+				title: 'Animations & Transitions',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/css-basics/typography',
+					title: 'Typography',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Enhanced Todo List',
+					description: 'Add color schemes and visual hierarchy to your todo list',
+					tags: ['CSS', 'Intermediate', 'Colors'],
+					path: '/projects/todo-list-enhanced',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Applying color to HTML elements using CSS',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Applying_color',
+					description: 'Guide to CSS colors',
+				},
+			],
+		},
+		'animations': {
+			nextTutorial: {
+				path: '/tutorials/css-basics/responsive',
+				title: 'Responsive Design',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/css-basics/colors',
+					title: 'Colors & Backgrounds',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Enhanced Todo List',
+					description: 'Add smooth animations and transitions to your todo list',
+					tags: ['CSS', 'Intermediate', 'Animations'],
+					path: '/projects/todo-list-enhanced',
+				},
+				{
+					title: 'Photo Gallery Enhanced',
+					description: 'Create an interactive photo gallery with animations',
+					tags: ['CSS', 'Intermediate', 'Animations'],
+					path: '/projects/photo-gallery-enhanced',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Using CSS animations',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations',
+					description: 'Guide to CSS animations',
+				},
+			],
+		},
+		'responsive': {
+			nextTutorial: {
+				path: '/tutorials/css-basics/frameworks',
+				title: 'CSS Frameworks',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/css-basics/animations',
+					title: 'Animations & Transitions',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Enhanced Personal Profile',
+					description: 'Make your profile page responsive for all devices',
+					tags: ['CSS', 'Intermediate', 'Responsive'],
+					path: '/projects/personal-profile-enhanced',
+				},
+				{
+					title: 'Photo Gallery Enhanced',
+					description: 'Create a responsive photo gallery that works on all devices',
+					tags: ['CSS', 'Intermediate', 'Responsive'],
+					path: '/projects/photo-gallery-enhanced',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Responsive design',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design',
+					description: 'Guide to responsive design',
+				},
+			],
+		},
 	},
 	'javascript-basics': {
 		'introduction': {
@@ -410,7 +584,7 @@ const tutorialRecommendations = {
 					title: 'Hello World App',
 					description: 'Create a simple interactive greeting application',
 					tags: ['JavaScript', 'Beginner', 'DOM'],
-					path: '/projects/hello-world-js',
+					path: '/projects/hello-world',
 				},
 				{
 					title: 'Number Game',
@@ -448,7 +622,7 @@ const tutorialRecommendations = {
 					title: 'Temperature Converter',
 					description: 'Create a temperature conversion tool',
 					tags: ['JavaScript', 'Variables', 'Math'],
-					path: '/projects/temp-converter',
+					path: '/projects/temperature-converter',
 				},
 				{
 					title: 'Message Board Data Planning',
@@ -487,7 +661,7 @@ const tutorialRecommendations = {
 					title: 'Grade Calculator',
 					description: 'Create a tool to calculate final grades',
 					tags: ['JavaScript', 'Operators', 'Logic'],
-					path: '/projects/grade-calc',
+					path: '/projects/grade-calculator',
 				},
 			],
 			resources: [
@@ -514,7 +688,7 @@ const tutorialRecommendations = {
 					title: 'Number Guessing Game',
 					description: 'Create an interactive number guessing game that uses conditionals to provide feedback to the player. Practice if statements, comparisons, and logical operators while building a fun game.',
 					tags: ['conditionals', 'comparison operators', 'user input'],
-					path: '/projects/number-guessing-game',
+					path: '/projects/number-game',
 				},
 				{
 					title: 'Quiz Game',	
@@ -634,106 +808,122 @@ const tutorialRecommendations = {
 					title: 'HTML Document Structure'
 				}
 			],
-			
+			practiceProjects: [
+				{
+					title: 'Hello World App',
+					description: 'Create a simple interactive greeting application to practice basic DOM manipulation',
+					tags: ['DOM', 'JavaScript', 'Beginner'],
+					path: '/projects/hello-world'
+				}
+			],
 			resources: [
 				{
 					title: 'MDN: Introduction to the DOM',
 					url: 'https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction',
 					description: 'Comprehensive guide to understanding the DOM'
-				},
-				{
-					title: 'JavaScript.info: DOM Nodes',
-					url: 'https://javascript.info/dom-nodes',
-					description: 'In-depth explanation of DOM tree structure'
 				}
 			]
 		},
 		'arrays': {
 			nextTutorial: {
-				path: '/tutorials/beginner/dom-basics/dom-manipulation',
+				path: '/tutorials/dom-basics/dom-manipulation',
 				title: 'DOM Manipulation'
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/javascript-basics/loops',
-					title: 'JavaScript Loops'
-				},
-				{
-					path: '/tutorials/beginner/dom-basics/introduction',
-					title: 'Introduction to DOM'
+					path: '/tutorials/javascript-basics/arrays',
+					title: 'JavaScript Arrays'
 				}
 			],
 			practiceProjects: [
 				{
-					path: '/tutorials/beginner/dom-basics/todo-list-2',
-					title: 'Todo List Project',
-					description: 'Create a todo list application that uses arrays to manage tasks and their states.',
-					tags: ['Arrays', 'DOM', 'CRUD Operations'],
-					
+					title: 'Photo Gallery',
+					description: 'Build a dynamic photo gallery using arrays to manage and display images',
+					tags: ['Arrays', 'DOM', 'JavaScript'],
+					path: '/projects/photo-gallery-2'
 				},
 				{
-					title: 'Photo Gallery Project',
-					path: '/tutorials/beginner/dom-basics/photo-gallery-2',
-					description: 'Build a dynamic photo gallery using arrays to manage and display images.',
-					tags: ['Arrays', 'DOM', 'Events'],
-				},
+					title: 'Todo List',
+					description: 'Create a todo list application that uses arrays to manage tasks',
+					tags: ['Arrays', 'DOM', 'JavaScript'],
+					path: '/projects/todo-list-2'
+				}
 			],
 			resources: [
 				{
-					title: 'MDN: Working with Objects',
-					url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects',
-					description: 'Guide to working with JavaScript objects and arrays'
-				},
-				{
-					title: 'JavaScript.info: Arrays',
-					url: 'https://javascript.info/array',
-					description: 'Detailed tutorial on JavaScript arrays and methods'
+					title: 'MDN: Array Methods',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array',
+					description: 'Complete reference for JavaScript array methods'
 				}
 			]
 		},
 		'dom-manipulation': {
 			nextTutorial: {
-				path: '/tutorials/beginner/dom-basics/events',
-				title: 'DOM Events',
+				path: '/tutorials/dom-basics/dom-events',
+				title: 'DOM Events'
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/beginner/javascript-basics/arrays',
-					title: 'JavaScript Arrays',
-				},
-				{
-					path: '/tutorials/beginner/dom-basics/traversal',
-					title: 'Advanced DOM Traversal',
-				},
+					path: '/tutorials/dom-basics/arrays',
+					title: 'Arrays and Array Methods'
+				}
 			],
 			practiceProjects: [
 				{
-					title: 'Photo Gallery Project',
-					description: 'Build an interactive photo gallery with DOM manipulation',
-					tags: ['DOM', 'JavaScript', 'Interactive'],
-					path: '/projects/photo-gallery',
+					title: 'Dynamic Form Builder',
+					description: 'Create a form that dynamically adds and removes fields',
+					tags: ['DOM', 'JavaScript', 'Forms'],
+					path: '/projects/form-builder'
 				},
 				{
-					title: 'Todo List',
-					description: 'Create a dynamic todo list application',
-					tags: ['DOM', 'JavaScript', 'CRUD'],
-					path: '/projects/todo-list',
-				},
+					title: 'Color Theme Switcher',
+					description: 'Build a theme switcher that changes page colors dynamically',
+					tags: ['DOM', 'JavaScript', 'Styling'],
+					path: '/projects/theme-switcher'
+				}
 			],
 			resources: [
 				{
-					title: 'MDN: Manipulating Documents',
+					title: 'MDN: DOM Manipulation',
 					url: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents',
-					description: 'Comprehensive guide to DOM manipulation',
+					description: 'Guide to DOM manipulation techniques'
+				}
+			]
+		},
+		'dom-events': {
+			nextTutorial: {
+				path: '/tutorials/dom-basics/event-delegation',
+				title: 'Event Delegation'
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/dom-basics/dom-manipulation',
+					title: 'DOM Manipulation'
+				}
+			],
+			practiceProjects: [
+				{
+					title: 'Interactive Calculator',
+					description: 'Build a calculator with event handling for user input',
+					tags: ['Events', 'DOM', 'JavaScript'],
+					path: '/projects/calculator'
 				},
 				{
-					title: 'JavaScript.info: DOM Manipulation',
-					url: 'https://javascript.info/modifying-document',
-					description: 'In-depth tutorial on modifying document structure',
-				},
+					title: 'Drag and Drop Game',
+					description: 'Create a simple drag and drop game using DOM events',
+					tags: ['Events', 'DOM', 'JavaScript'],
+					path: '/projects/drag-drop-game'
+				}
 			],
-		},
-	}
+			resources: [
+				{
+					title: 'MDN: Event Reference',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/Events',
+					description: 'Complete reference for DOM events'
+				}
+			]
+		}
+	},
 };
 
 export const projects = {

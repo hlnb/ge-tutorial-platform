@@ -129,158 +129,190 @@ const projectRoutes = [
 		path: '/projects',
 		name: 'projects',
 		component: () => import('@/pages/projects/index.vue'),
-		meta: {
-			title: 'Practice Projects',
-			description:
-				"Apply what you've learned with these hands-on web development projects",
-		},
+		children: [
+			{
+				path: 'photo-gallery',
+				name: 'photo-gallery',
+				component: () => import('@/pages/projects/photo-gallery.vue'),
+				meta: {
+					title: 'Photo Gallery Project',
+					description: 'Create a beautiful photo gallery with CSS Grid and Flexbox',
+				}
+			},
+			{
+				path: 'todo-list',
+				name: 'todo-list',
+				component: () => import('@/pages/projects/todo-list.vue'),
+				meta: {
+					title: 'Todo List Project',
+					description: 'Build a functional todo list application with JavaScript',
+				}
+			},
+			{
+				path: 'personal-profile',
+				name: 'personal-profile',
+				component: () => import('@/pages/projects/personal-profile.vue'),
+				meta: {
+					title: 'Personal Profile Page Project',
+					description:
+						'Create a simple personal profile page with basic HTML structure',
+				},
+			},
+			{
+				path: 'recipe-page',
+				name: 'recipe-page',
+				component: () => import('@/pages/projects/recipe-page.vue'),
+				meta: {
+					title: 'Recipe Page Project',
+					description: 'Build a page for your favorite recipe using HTML structure',
+				},
+			},
+			{
+				path: 'card-components',
+				name: 'card-components',
+				component: () => import('@/pages/projects/card-components.vue'),
+				meta: {
+					title: 'Card Components Project',
+					description: 'Create different card designs using the CSS box model',
+				},
+			},
+			{
+				path: 'selector-challenge',
+				name: 'selector-challenge',
+				component: () => import('@/pages/projects/selector-challenge.vue'),
+				meta: {
+					title: 'CSS Selector Challenge',
+					description: 'Practice using different CSS selectors to style elements',
+				},
+			},
+			{
+				path: 'calculator',
+				name: 'calculator',
+				component: () => import('@/pages/projects/calculator.vue'),
+				meta: {
+					title: 'Calculator App Project',
+					description: 'Build a basic calculator with arithmetic operators',
+				},
+			},
+			{
+				path: 'quiz-game',
+				name: 'quiz-game',
+				component: () => import('@/pages/projects/quiz-game.vue'),
+				meta: {
+					title: 'Quiz Game Project',
+					description: 'Build an interactive quiz game with JavaScript',
+				},
+			},
+			{
+				path: 'hello-world',
+				name: 'hello-world',
+				component: () => import('@/pages/projects/hello-world.vue'),
+				meta: {
+					title: 'Hello World App Project',
+					description: 'Create a simple interactive greeting application',
+				},
+			},
+			{
+				path: 'number-game',
+				name: 'number-game',
+				component: () => import('@/pages/projects/number-game.vue'),
+				meta: {
+					title: 'Number Guessing Game Project',
+					description: 'Build a number guessing game with basic JavaScript',
+				},
+			},
+			{
+				path: 'interactive-demo',
+				name: 'interactive-demo',
+				component: () => import('@/pages/projects/interactive-demo.vue'),
+				meta: {
+					title: 'Interactive Message Board Project',
+					description: 'Build an interactive message board with dynamic content',
+				},
+			},
+			{
+				path: 'color-switcher',
+				name: 'color-switcher',
+				component: () => import('@/pages/projects/color-switcher.vue'),
+				meta: {
+					title: 'Dynamic Color Switcher Project',
+					description: 'Create a color switcher with dynamic updates',
+				},
+			},
+			{
+				path: 'grade-calculator',
+				name: 'grade-calculator',
+				component: () => import('@/pages/projects/grade-calculator.vue'),
+				meta: {
+					title: 'Grade Calculator Project',
+					description: 'Build a calculator that computes final grades based on weighted assignments',
+				},
+			},
+			{
+				path: 'temp-converter',
+				name: 'temperature-converter',
+				component: () => import('@/pages/projects/temperature-converter.vue'),
+				meta: {
+					title: 'Temperature Converter Project',
+					description: 'Build a temperature converter that handles different units and real-time updates',
+				},
+			},
+			{
+				path: 'photo-gallery-2',
+				name: 'photo-gallery-2',
+				component: () => import('@/pages/projects/photo-gallery-2.vue'),
+				meta: {
+					title: 'Enhanced Photo Gallery Project',
+					description: 'Building on your JavaScript and DOM knowledge, create an advanced interactive photo gallery that demonstrates array operations and dynamic DOM manipulation.',
+				},
+			},
+			{
+				path: 'todo-list-2',
+				name: 'todo-list-2',
+				component: () => import('@/pages/projects/todo-list-2.vue'),
+				meta: {
+					title: 'Enhanced Todo List Project',
+					description: 'Apply your JavaScript array methods and DOM manipulation skills to build a sophisticated task management application.',
+				},
+			},
+			{
+				path: 'color-palette',
+				name: 'color-palette',
+				component: () => import('@/pages/projects/color-palette.vue'),
+				meta: {
+					title: 'Color Palette Project',
+					description: 'Learn about CSS colors and typography by creating a design system',
+				},
+			},
+			{
+				path: 'photo-gallery-enhanced',
+				name: 'photo-gallery-enhanced',
+				component: () => import('@/pages/projects/photo-gallery-enhanced.vue'),
+				meta: {
+					title: 'Enhanced Photo Gallery Project',
+					description: 'Transform the basic photo gallery into a responsive, visually appealing showcase using CSS Grid and Flexbox',
+				},
+			},
+			{
+				path: 'personal-profile-enhanced',
+				name: 'personal-profile-enhanced',
+				component: () => import('@/pages/projects/personal-profile-enhanced.vue'),
+				meta: {
+					title: 'Enhanced Personal Profile Project',
+					description: 'Style your personal profile page with modern CSS techniques and create a professional online presence',
+				},
+			},
+			{
+				path: 'todo-list-enhanced',
+				name: 'todo-list-enhanced',
+				component: () => import('@/pages/projects/todo-list-enhanced.vue'),
+				meta: {
+					title: 'Enhanced Todo List Project',
+					description: 'Add smooth animations and transitions to your todo list, making it more engaging and interactive',
+				},
+			},
+		],
 	},
-	{
-		path: '/projects/personal-profile',
-		name: 'personal-profile',
-		component: () => import('@/pages/projects/personal-profile.vue'),
-		meta: {
-			title: 'Personal Profile Page Project',
-			description:
-				'Create a simple personal profile page with basic HTML structure',
-		},
-	},
-	{
-		path: '/projects/recipe-page',
-		name: 'recipe-page',
-		component: () => import('@/pages/projects/recipe-page.vue'),
-		meta: {
-			title: 'Recipe Page Project',
-			description: 'Build a page for your favorite recipe using HTML structure',
-		},
-	},
-	{
-		path: '/projects/photo-gallery',
-		name: 'photo-gallery',
-		component: () => import('@/pages/projects/photo-gallery.vue'),
-		meta: {
-			title: 'Photo Gallery Project',
-			description: 'Build a simple photo gallery with images and captions',
-		},
-	},
-	{
-		path: '/projects/card-components',
-		name: 'card-components',
-		component: () => import('@/pages/projects/card-components.vue'),
-		meta: {
-			title: 'Card Components Project',
-			description: 'Create different card designs using the CSS box model',
-		},
-	},
-	{
-		path: '/projects/selector-challenge',
-		name: 'selector-challenge',
-		component: () => import('@/pages/projects/selector-challenge.vue'),
-		meta: {
-			title: 'CSS Selector Challenge',
-			description: 'Practice using different CSS selectors to style elements',
-		},
-	},
-	{
-		path: '/projects/calculator',
-		name: 'calculator',
-		component: () => import('@/pages/projects/calculator.vue'),
-		meta: {
-			title: 'Calculator App Project',
-			description: 'Build a basic calculator with arithmetic operators',
-		},
-	},
-	{
-		path: '/projects/todo-list',
-		name: 'todo-list',
-		component: () => import('@/pages/projects/todo-list.vue'),
-		meta: {
-			title: 'Todo List Project',
-			description: 'Build a todo list with array iteration',
-		},
-	},
-	{
-		path: '/projects/quiz-game',
-		name: 'quiz-game',
-		component: () => import('@/pages/projects/quiz-game.vue'),
-		meta: {
-			title: 'Quiz Game Project',
-			description: 'Build an interactive quiz game with JavaScript',
-		},
-	},
-	{
-		path: '/projects/hello-world',
-		name: 'hello-world',
-		component: () => import('@/pages/projects/hello-world.vue'),
-		meta: {
-			title: 'Hello World App Project',
-			description: 'Create a simple interactive greeting application',
-		},
-	},
-	{
-		path: '/projects/number-game',
-		name: 'number-game',
-		component: () => import('@/pages/projects/number-game.vue'),
-		meta: {
-			title: 'Number Guessing Game Project',
-			description: 'Build a number guessing game with basic JavaScript',
-		},
-	},
-	{
-		path: '/projects/interactive-demo',
-		name: 'interactive-demo',
-		component: () => import('@/pages/projects/interactive-demo.vue'),
-		meta: {
-			title: 'Interactive Message Board Project',
-			description: 'Build an interactive message board with dynamic content',
-		},
-	},
-	{
-		path: '/projects/color-switcher',
-		name: 'color-switcher',
-		component: () => import('@/pages/projects/color-switcher.vue'),
-		meta: {
-			title: 'Dynamic Color Switcher Project',
-			description: 'Create a color switcher with dynamic updates',
-		},
-	},
-	{
-		path: '/projects/grade-calculator',
-		name: 'grade-calculator',
-		component: () => import('@/pages/projects/grade-calculator.vue'),
-		meta: {
-			title: 'Grade Calculator Project',
-			description: 'Build a calculator that computes final grades based on weighted assignments',
-		},
-	},
-	{
-		path: '/projects/temp-converter',
-		name: 'temperature-converter',
-		component: () => import('@/pages/projects/temperature-converter.vue'),
-		meta: {
-			title: 'Temperature Converter Project',
-			description: 'Build a temperature converter that handles different units and real-time updates',
-		},
-	},
-	{
-		path: '/projects/photo-gallery-2',
-		name: 'photo-gallery-2',
-		component: () => import('@/pages/projects/photo-gallery-2.vue'),
-		meta: {
-			title: 'Enhanced Photo Gallery Project',
-			description: 'Building on your JavaScript and DOM knowledge, create an advanced interactive photo gallery that demonstrates array operations and dynamic DOM manipulation.',
-		},
-	},
-	{
-		path: '/projects/todo-list-2',
-		name: 'todo-list-2',
-		component: () => import('@/pages/projects/todo-list-2.vue'),
-		meta: {
-			title: 'Enhanced Todo List Project',
-			description: 'Apply your JavaScript array methods and DOM manipulation skills to build a sophisticated task management application.',
-		},
-	},
-	// Add more project routes as needed
 ];
 
 // Auth routes
@@ -862,5 +894,22 @@ function checkPostAccess(slug, next) {
 router.onError((error) => {
 	console.error('Router error:', error);
 });
+
+// Add a function to get the current tutorial path
+function getCurrentTutorialPath(to) {
+	const tutorialPath = to.meta.tutorialPath;
+	if (tutorialPath) return tutorialPath;
+	
+	// If no tutorial path is specified, try to get it from the referrer
+	const referrer = document.referrer;
+	if (referrer) {
+		const url = new URL(referrer);
+		if (url.pathname.startsWith('/tutorials/')) {
+			return url.pathname;
+		}
+	}
+	
+	return null;
+}
 
 export default router;

@@ -9,6 +9,7 @@ import { usePageSections } from '@/composables/usePageSections';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 const frontmatter = {
 	title: 'The Box Model',
@@ -1003,6 +1004,9 @@ border: 10px solid black;
 				/>
 			</div>
 		</div>
+
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/box-model'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />

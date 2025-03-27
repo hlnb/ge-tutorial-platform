@@ -6,6 +6,8 @@ import { usePageSections } from '@/composables/usePageSections';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import { useProgressTracking } from '@/utils/progressUtils';
 
 // Define page sections
 const sections = [
@@ -48,6 +50,16 @@ const sections = [
 ];
 
 const { pageSections } = usePageSections(sections);
+
+// Initialize progress tracking
+const { progressEnabled, trackTutorial } = useProgressTracking();
+
+const route = useRoute();
+
+// Track tutorial progress when route changes
+watch(route, () => {
+	trackTutorial(route.path);
+});
 
 onMounted(() => {
 	pageSections.value = [
@@ -1403,6 +1415,9 @@ footer {}
 				<li>Prepare for adding properties in future lessons</li>
 			</ul>
 		</div>
+
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/selectors'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />
