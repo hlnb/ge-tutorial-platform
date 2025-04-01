@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="400" fill="#F8F9FA"/>
+    
+    <!-- Title Section -->
+    <g transform="translate(50, 60)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#0D6EFD">
+            Speed Matters
+        </text>
+        <text x="0" y="40" font-family="Arial, sans-serif" font-size="18" fill="#6C757D">
+            A Practical Guide to Web Performance Optimization
+        </text>
+    </g>
+
+    <!-- Speedometer -->
+    <g transform="translate(400, 200)">
+        <!-- Speedometer Background -->
+        <path d="M-100,-100 A100,100 0 0 1 100,-100" 
+              stroke="#E9ECEF" 
+              stroke-width="20" 
+              fill="none"/>
+        
+        <!-- Speedometer Fill -->
+        <path d="M-100,-100 A100,100 0 0 1 100,-100" 
+              stroke="#0D6EFD" 
+              stroke-width="20" 
+              fill="none"
+              stroke-dasharray="314"
+              stroke-dashoffset="157"/>
+        
+        <!-- Speedometer Needle -->
+        <g transform="rotate(-45)">
+            <path d="M0,0 L0,-80" 
+                  stroke="#0D6EFD" 
+                  stroke-width="4"/>
+            <circle cx="0" cy="0" r="8" fill="#0D6EFD"/>
+        </g>
+    </g>
+
+    <!-- Performance Metrics -->
+    <g transform="translate(200, 300)">
+        <!-- LCP -->
+        <rect x="-40" y="-30" width="80" height="60" rx="5" fill="#198754" opacity="0.1"/>
+        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="14" fill="#198754" text-anchor="middle">
+            LCP
+        </text>
+        <text x="0" y="10" font-family="Arial, sans-serif" font-size="12" fill="#198754" text-anchor="middle">
+            1.6s
+        </text>
+    </g>
+
+    <g transform="translate(400, 300)">
+        <!-- FID -->
+        <rect x="-40" y="-30" width="80" height="60" rx="5" fill="#0D6EFD" opacity="0.1"/>
+        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="14" fill="#0D6EFD" text-anchor="middle">
+            FID
+        </text>
+        <text x="0" y="10" font-family="Arial, sans-serif" font-size="12" fill="#0D6EFD" text-anchor="middle">
+            80ms
+        </text>
+    </g>
+
+    <g transform="translate(600, 300)">
+        <!-- CLS -->
+        <rect x="-40" y="-30" width="80" height="60" rx="5" fill="#FFC107" opacity="0.1"/>
+        <text x="0" y="-15" font-family="Arial, sans-serif" font-size="14" fill="#FFC107" text-anchor="middle">
+            CLS
+        </text>
+        <text x="0" y="10" font-family="Arial, sans-serif" font-size="12" fill="#FFC107" text-anchor="middle">
+            0.05
+        </text>
+    </g>
+
+    <!-- Decorative Elements -->
+    <g transform="translate(400, 350)">
+        <!-- Performance Icons -->
+        <circle cx="-100" cy="0" r="15" fill="#0D6EFD" opacity="0.2"/>
+        <circle cx="0" cy="0" r="15" fill="#0D6EFD" opacity="0.2"/>
+        <circle cx="100" cy="0" r="15" fill="#0D6EFD" opacity="0.2"/>
+    </g>
+
+    <!-- Footer Text -->
+    <g transform="translate(400, 380)">
+        <text x="0" y="0" 
+              font-family="Arial, sans-serif" 
+              font-size="14" 
+              fill="#6C757D" 
+              text-anchor="middle">
+            Learn how to make your website blazingly fast
+        </text>
+    </g>
+</svg> 

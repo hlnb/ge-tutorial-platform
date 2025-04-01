@@ -120,6 +120,38 @@ export const posts = {
 			'Ready to dive into the world of backend development? Learn how PHP and databases work together to create powerful, dynamic websites that can store and process data.',
 		featured: false,
 	},
+	'web-security-essentials': {
+		title: 'Web Security Essentials: Protecting Your Site From Common Threats',
+		description: 'Learn essential web security practices to protect your website from common threats. From SSL/TLS to security headers, we cover everything you need to know.',
+		status: 'published',
+		publishDate: '2024-04-15',
+		lastUpdated: '2024-04-15',
+		author: 'Helen Burgess',
+		tags: ['Security', 'Web Development', 'Best Practices'],
+		readingTime: '12 min',
+		series: 'Web Development Fundamentals',
+		seriesOrder: 2,
+		relatedPosts: ['web-performance-optimization', 'backend-programming'],
+		imageUrl: '/images/posts/web-security-essentials.svg',
+		excerpt: 'Learn how to protect your website from common security threats with practical, actionable steps that don\'t require advanced technical knowledge.',
+		featured: true,
+	},
+	'web-performance-optimization': {
+		title: 'Speed Matters: A Practical Guide to Web Performance Optimization',
+		description: 'Learn practical strategies to optimize your website\'s performance, from caching to image optimization, with real-world examples and case studies.',
+		status: 'published',
+		publishDate: '2024-04-30',
+		lastUpdated: '2024-04-30',
+		author: 'Helen Burgess',
+		tags: ['Performance', 'Web Development', 'Optimization'],
+		readingTime: '15 min',
+		series: 'Web Development Fundamentals',
+		seriesOrder: 3,
+		relatedPosts: ['web-security-essentials', 'backend-programming'],
+		imageUrl: '/images/posts/web-performance-optimization.svg',
+		excerpt: 'Discover how to make your website blazingly fast with practical optimization strategies, real-world case studies, and actionable tips you can implement today.',
+		featured: true,
+	},
 };
 
 // Project routes
@@ -756,7 +788,6 @@ const routes = [
 						props: true,
 						beforeEnter: (to, from, next) => {
 							console.log('Checking route access for build-first-web-page');
-							// Don't redirect, let PostVisibility handle the display
 							next();
 						},
 					},
@@ -776,11 +807,29 @@ const routes = [
 					},
 					{
 						path: 'backend-programming',
-						component: () => import('@/pages/posts/backend-programming.vue'),
+						component: () => import('../pages/posts/backend-programming.vue'),
 						meta: {
 							layout: 'default',
 							title: posts['backend-programming'].title,
 							description: posts['backend-programming'].description,
+						},
+					},
+					{
+						path: 'web-security-essentials',
+						component: () => import('../pages/posts/web-security-essentials.vue'),
+						meta: {
+							layout: 'default',
+							title: 'Web Security Essentials: Protecting Your Site From Common Threats',
+							description: 'Learn essential web security practices to protect your website from common threats. From SSL/TLS to security headers, we cover everything you need to know.',
+						},
+					},
+					{
+						path: 'web-performance-optimization',
+						component: () => import('../pages/posts/web-performance-optimization.vue'),
+						meta: {
+							layout: 'default',
+							title: 'Speed Matters: A Practical Guide to Web Performance Optimization',
+							description: 'Learn practical strategies to optimize your website\'s performance, from caching to image optimization, with real-world examples and case studies.',
 						},
 					},
 				],

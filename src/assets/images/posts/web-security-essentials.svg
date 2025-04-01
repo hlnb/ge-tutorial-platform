@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="400" fill="#F8F9FA"/>
+    
+    <!-- Title Section -->
+    <g transform="translate(50, 60)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#0D6EFD">
+            Web Security Essentials
+        </text>
+        <text x="0" y="40" font-family="Arial, sans-serif" font-size="18" fill="#6C757D">
+            Protecting Your Site From Common Threats
+        </text>
+    </g>
+
+    <!-- Main Shield -->
+    <g transform="translate(400, 200)">
+        <!-- Shield Base -->
+        <path d="M-100,-120 L0,-160 L100,-120 L100,120 L0,160 L-100,120 Z" 
+              fill="#0D6EFD" 
+              stroke="#0A58CA" 
+              stroke-width="4"/>
+        
+        <!-- Lock Icon -->
+        <g transform="translate(-30, -30)">
+            <!-- Lock Body -->
+            <rect x="-20" y="-40" width="40" height="60" rx="5" fill="white"/>
+            <!-- Lock Arch -->
+            <path d="M-30,-40 Q0,-60 30,-40" stroke="white" stroke-width="8" fill="none"/>
+            <!-- Keyhole -->
+            <circle cx="0" cy="-10" r="8" fill="#0D6EFD"/>
+            <rect x="-4" y="0" width="8" height="20" fill="#0D6EFD"/>
+        </g>
+    </g>
+
+    <!-- Security Elements -->
+    <g transform="translate(200, 300)">
+        <!-- Checkmark -->
+        <path d="M-30,-20 L-10,0 L30,-40" 
+              stroke="#198754" 
+              stroke-width="8" 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              fill="none"/>
+    </g>
+
+    <g transform="translate(600, 300)">
+        <!-- Key -->
+        <path d="M-30,0 L30,0 M0,-30 L0,30 M-20,-20 L20,20" 
+              stroke="#FFC107" 
+              stroke-width="8" 
+              stroke-linecap="round"/>
+    </g>
+
+    <!-- Decorative Elements -->
+    <g transform="translate(400, 350)">
+        <!-- Security Icons -->
+        <circle cx="-100" cy="0" r="15" fill="#0D6EFD" opacity="0.2"/>
+        <circle cx="0" cy="0" r="15" fill="#0D6EFD" opacity="0.2"/>
+        <circle cx="100" cy="0" r="15" fill="#0D6EFD" opacity="0.2"/>
+    </g>
+
+    <!-- Footer Text -->
+    <g transform="translate(400, 380)">
+        <text x="0" y="0" 
+              font-family="Arial, sans-serif" 
+              font-size="14" 
+              fill="#6C757D" 
+              text-anchor="middle">
+            Learn how to protect your website from common security threats
+        </text>
+    </g>
+</svg> 

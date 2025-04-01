@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="400" fill="#f8f9fa"/>
+    
+    <!-- Title Section -->
+    <g transform="translate(40, 40)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#0D6EFD">
+            Speed Matters
+        </text>
+        <text x="0" y="40" font-family="Arial, sans-serif" font-size="18" fill="#6C757D">
+            A Practical Guide to Web Performance Optimization
+        </text>
+    </g>
+    
+    <!-- Speedometer Design -->
+    <g transform="translate(400, 200)">
+        <!-- Speedometer Background -->
+        <path d="M-100,-100 A100,100 0 0 1 100,-100" 
+              stroke="#6C757D" stroke-width="20" fill="none"/>
+        
+        <!-- Speedometer Fill -->
+        <path d="M-100,-100 A100,100 0 0 1 100,-100" 
+              stroke="#198754" stroke-width="20" fill="none" 
+              stroke-dasharray="314" stroke-dashoffset="157"/>
+        
+        <!-- Needle -->
+        <line x1="0" y1="0" x2="0" y2="-90" 
+              stroke="#FFC107" stroke-width="4"/>
+        
+        <!-- Center Circle -->
+        <circle cx="0" cy="0" r="10" fill="#0D6EFD"/>
+        
+        <!-- Performance Metrics -->
+        <g transform="translate(-150, 50)">
+            <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#6C757D">
+                LCP: 2.5s
+            </text>
+            <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" fill="#6C757D">
+                FID: 100ms
+            </text>
+            <text x="0" y="40" font-family="Arial, sans-serif" font-size="14" fill="#6C757D">
+                CLS: 0.1
+            </text>
+        </g>
+    </g>
+    
+    <!-- Decorative Elements -->
+    <g transform="translate(40, 360)">
+        <circle cx="0" cy="0" r="5" fill="#0D6EFD"/>
+        <circle cx="20" cy="0" r="5" fill="#198754"/>
+        <circle cx="40" cy="0" r="5" fill="#FFC107"/>
+    </g>
+    
+    <!-- Footer Text -->
+    <g transform="translate(400, 380)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#6C757D" text-anchor="middle">
+            Optimize your website for better performance and user experience
+        </text>
+    </g>
+</svg> 

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- Title -->
+    <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="32" fill="#2c3e50">
+        Interactive Form
+    </text>
+    
+    <!-- Form Layout -->
+    <g transform="translate(100, 150)">
+        <!-- Form Container -->
+        <rect x="0" y="0" width="600" height="400" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        
+        <!-- Form Fields -->
+        <g transform="translate(30, 30)">
+            <!-- Name Field -->
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#2c3e50">
+                Full Name
+            </text>
+            <rect x="0" y="10" width="540" height="40" fill="#ecf0f1" rx="4"/>
+            <text x="10" y="35" font-family="Arial" font-size="14" fill="#7f8c8d">
+                Enter your full name
+            </text>
+        </g>
+        
+        <g transform="translate(30, 90)">
+            <!-- Email Field -->
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#2c3e50">
+                Email
+            </text>
+            <rect x="0" y="10" width="540" height="40" fill="#ecf0f1" rx="4"/>
+            <text x="10" y="35" font-family="Arial" font-size="14" fill="#7f8c8d">
+                Enter your email
+            </text>
+        </g>
+        
+        <g transform="translate(30, 150)">
+            <!-- Message Field -->
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#2c3e50">
+                Message
+            </text>
+            <rect x="0" y="10" width="540" height="120" fill="#ecf0f1" rx="4"/>
+            <text x="10" y="35" font-family="Arial" font-size="14" fill="#7f8c8d">
+                Type your message here...
+            </text>
+        </g>
+        
+        <!-- Submit Button -->
+        <g transform="translate(30, 300)">
+            <rect x="0" y="0" width="540" height="50" fill="#3498db" rx="4"/>
+            <text x="270" y="32" text-anchor="middle" font-family="Arial" font-size="16" fill="white">
+                Submit
+            </text>
+        </g>
+    </g>
+    
+    <!-- Features -->
+    <g transform="translate(100, 500)">
+        <text x="0" y="0" font-family="Arial" font-size="20" fill="#2c3e50">
+            Features:
+        </text>
+        <g transform="translate(0, 30)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Form Validation
+            </text>
+            <text x="0" y="30" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Real-time Feedback
+            </text>
+            <text x="0" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Error Handling
+            </text>
+        </g>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="550" text-anchor="middle" font-family="Arial" font-size="16" fill="#7f8c8d">
+        Create an interactive form with DOM manipulation
+    </text>
+</svg> 

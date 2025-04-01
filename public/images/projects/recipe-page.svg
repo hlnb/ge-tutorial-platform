@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- Title -->
+    <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="32" fill="#2c3e50">
+        Recipe Page
+    </text>
+    
+    <!-- Recipe Layout -->
+    <g transform="translate(100, 150)">
+        <!-- Header -->
+        <rect x="0" y="0" width="600" height="300" fill="#e74c3c" rx="8 8 0 0"/>
+        <text x="30" y="40" font-family="Arial" font-size="32" fill="white">
+            Classic Chocolate Cake
+        </text>
+        <text x="30" y="80" font-family="Arial" font-size="16" fill="white">
+            Prep Time: 30 mins | Cook Time: 45 mins | Serves: 8
+        </text>
+    </g>
+    
+    <!-- Ingredients -->
+    <g transform="translate(100, 470)">
+        <rect x="0" y="0" width="290" height="100" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        <text x="20" y="30" font-family="Arial" font-size="20" fill="#2c3e50">
+            Ingredients
+        </text>
+        <text x="20" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+            • Flour • Sugar • Eggs • Milk • Chocolate
+        </text>
+    </g>
+    
+    <!-- Instructions -->
+    <g transform="translate(410, 470)">
+        <rect x="0" y="0" width="290" height="100" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        <text x="20" y="30" font-family="Arial" font-size="20" fill="#2c3e50">
+            Instructions
+        </text>
+        <text x="20" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+            • Mix ingredients • Bake • Cool • Frost
+        </text>
+    </g>
+    
+    <!-- Features -->
+    <g transform="translate(100, 500)">
+        <text x="0" y="0" font-family="Arial" font-size="20" fill="#2c3e50">
+            Features:
+        </text>
+        <g transform="translate(0, 30)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Structured Content
+            </text>
+            <text x="0" y="30" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Lists & Tables
+            </text>
+            <text x="0" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Media Integration
+            </text>
+        </g>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="550" text-anchor="middle" font-family="Arial" font-size="16" fill="#7f8c8d">
+        Create a beautiful recipe page with structured HTML
+    </text>
+</svg> 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#F8F9FA"/>
+    
+    <!-- Title -->
+    <text x="400" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2C3E50">
+        Message Board
+    </text>
+    
+    <!-- Message Board Interface -->
+    <rect x="50" y="80" width="700" height="400" rx="8" fill="#FFFFFF" stroke="#E9ECEF" stroke-width="2"/>
+    
+    <!-- Message Input -->
+    <rect x="70" y="100" width="660" height="100" rx="4" fill="#F8F9FA" stroke="#6C757D" stroke-width="1"/>
+    <text x="80" y="120" font-family="Arial, sans-serif" font-size="14" fill="#6C757D">Write your message here...</text>
+    
+    <!-- Post Button -->
+    <rect x="70" y="210" width="100" height="40" rx="4" fill="#0D6EFD"/>
+    <text x="120" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF">Post</text>
+    
+    <!-- Messages List -->
+    <g transform="translate(70, 270)">
+        <!-- Message 1 -->
+        <rect x="0" y="0" width="660" height="80" rx="4" fill="#F8F9FA" stroke="#E9ECEF" stroke-width="1"/>
+        <text x="10" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2C3E50">John Doe</text>
+        <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#6C757D">Posted 2 hours ago</text>
+        <text x="10" y="65" font-family="Arial, sans-serif" font-size="14" fill="#2C3E50">Hello everyone! This is my first message.</text>
+        
+        <!-- Message 2 -->
+        <rect x="0" y="90" width="660" height="80" rx="4" fill="#F8F9FA" stroke="#E9ECEF" stroke-width="1"/>
+        <text x="10" y="115" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2C3E50">Jane Smith</text>
+        <text x="10" y="135" font-family="Arial, sans-serif" font-size="12" fill="#6C757D">Posted 1 hour ago</text>
+        <text x="10" y="155" font-family="Arial, sans-serif" font-size="14" fill="#2C3E50">Welcome to the message board!</text>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6C757D">
+        Create an interactive message board with JavaScript
+    </text>
+</svg> 

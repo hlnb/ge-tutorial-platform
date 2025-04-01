@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#F8F9FA"/>
+    
+    <!-- Title -->
+    <text x="400" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2C3E50">
+        Calculator App
+    </text>
+    
+    <!-- Calculator -->
+    <rect x="250" y="80" width="300" height="400" rx="8" fill="#E9ECEF" stroke="#6C757D" stroke-width="2"/>
+    
+    <!-- Display -->
+    <rect x="270" y="100" width="260" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+    <text x="280" y="140" font-family="monospace" font-size="24" fill="#2C3E50">1234</text>
+    
+    <!-- Buttons Grid -->
+    <g transform="translate(270, 180)">
+        <!-- Row 1 -->
+        <rect x="0" y="0" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="30" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">7</text>
+        
+        <rect x="70" y="0" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="100" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">8</text>
+        
+        <rect x="140" y="0" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="170" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">9</text>
+        
+        <rect x="210" y="0" width="60" height="60" rx="4" fill="#0D6EFD"/>
+        <text x="240" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF">÷</text>
+        
+        <!-- Row 2 -->
+        <rect x="0" y="70" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="30" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">4</text>
+        
+        <rect x="70" y="70" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="100" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">5</text>
+        
+        <rect x="140" y="70" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="170" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">6</text>
+        
+        <rect x="210" y="70" width="60" height="60" rx="4" fill="#0D6EFD"/>
+        <text x="240" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF">×</text>
+        
+        <!-- Row 3 -->
+        <rect x="0" y="140" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="30" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">1</text>
+        
+        <rect x="70" y="140" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="100" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">2</text>
+        
+        <rect x="140" y="140" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="170" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">3</text>
+        
+        <rect x="210" y="140" width="60" height="60" rx="4" fill="#0D6EFD"/>
+        <text x="240" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF">-</text>
+        
+        <!-- Row 4 -->
+        <rect x="0" y="210" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="30" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">0</text>
+        
+        <rect x="70" y="210" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="100" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">.</text>
+        
+        <rect x="140" y="210" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#6C757D" stroke-width="1"/>
+        <text x="170" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#2C3E50">=</text>
+        
+        <rect x="210" y="210" width="60" height="60" rx="4" fill="#0D6EFD"/>
+        <text x="240" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF">+</text>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6C757D">
+        Create a functional calculator with JavaScript
+    </text>
+</svg> 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- Title -->
+    <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="32" fill="#2c3e50">
+        Photo Gallery
+    </text>
+    
+    <!-- Gallery Layout -->
+    <g transform="translate(100, 150)">
+        <!-- Grid Layout -->
+        <rect x="0" y="0" width="600" height="400" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        
+        <!-- Image Placeholders -->
+        <g transform="translate(20, 20)">
+            <!-- Row 1 -->
+            <rect x="0" y="0" width="180" height="180" fill="#3498db" rx="4"/>
+            <rect x="200" y="0" width="180" height="180" fill="#2ecc71" rx="4"/>
+            <rect x="400" y="0" width="180" height="180" fill="#e74c3c" rx="4"/>
+            
+            <!-- Row 2 -->
+            <rect x="0" y="200" width="180" height="180" fill="#f1c40f" rx="4"/>
+            <rect x="200" y="200" width="180" height="180" fill="#9b59b6" rx="4"/>
+            <rect x="400" y="200" width="180" height="180" fill="#1abc9c" rx="4"/>
+        </g>
+    </g>
+    
+    <!-- Features -->
+    <g transform="translate(100, 500)">
+        <text x="0" y="0" font-family="Arial" font-size="20" fill="#2c3e50">
+            Features:
+        </text>
+        <g transform="translate(0, 30)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Responsive Grid
+            </text>
+            <text x="0" y="30" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Image Optimization
+            </text>
+            <text x="0" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Accessibility
+            </text>
+        </g>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="550" text-anchor="middle" font-family="Arial" font-size="16" fill="#7f8c8d">
+        Create a responsive photo gallery with semantic HTML
+    </text>
+</svg> 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa"/>
+    
+    <!-- Title -->
+    <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="32" fill="#2c3e50">
+        Weather App
+    </text>
+    
+    <!-- Weather App Layout -->
+    <g transform="translate(100, 150)">
+        <!-- Search Bar -->
+        <rect x="0" y="0" width="600" height="60" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        <rect x="20" y="15" width="400" height="30" fill="#ecf0f1" rx="4"/>
+        <text x="30" y="35" font-family="Arial" font-size="14" fill="#7f8c8d">
+            Enter city name...
+        </text>
+        <rect x="440" y="15" width="40" height="30" fill="#3498db" rx="4"/>
+        <text x="455" y="35" font-family="Arial" font-size="20" fill="white">→</text>
+    </g>
+    
+    <!-- Weather Display -->
+    <g transform="translate(100, 230)">
+        <rect x="0" y="0" width="600" height="300" fill="white" rx="8" stroke="#e0e0e0" stroke-width="2"/>
+        
+        <!-- Current Weather -->
+        <text x="30" y="40" font-family="Arial" font-size="24" fill="#2c3e50">
+            New York, NY
+        </text>
+        <text x="30" y="80" font-family="Arial" font-size="48" fill="#3498db">
+            72°F
+        </text>
+        <text x="30" y="120" font-family="Arial" font-size="18" fill="#7f8c8d">
+            Sunny
+        </text>
+        
+        <!-- Weather Details -->
+        <g transform="translate(30, 160)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#7f8c8d">
+                Humidity: 65%
+            </text>
+            <text x="0" y="30" font-family="Arial" font-size="14" fill="#7f8c8d">
+                Wind: 8 mph
+            </text>
+            <text x="0" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+                Feels like: 70°F
+            </text>
+        </g>
+    </g>
+    
+    <!-- Features -->
+    <g transform="translate(100, 500)">
+        <text x="0" y="0" font-family="Arial" font-size="20" fill="#2c3e50">
+            Features:
+        </text>
+        <g transform="translate(0, 30)">
+            <text x="0" y="0" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Real-time Weather
+            </text>
+            <text x="0" y="30" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • API Integration
+            </text>
+            <text x="0" y="60" font-family="Arial" font-size="14" fill="#7f8c8d">
+                • Location Search
+            </text>
+        </g>
+    </g>
+    
+    <!-- Footer Text -->
+    <text x="400" y="550" text-anchor="middle" font-family="Arial" font-size="16" fill="#7f8c8d">
+        Build a weather app using JavaScript and APIs
+    </text>
+</svg> 

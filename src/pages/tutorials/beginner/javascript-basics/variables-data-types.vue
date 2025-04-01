@@ -435,22 +435,28 @@ const codeRunner = createCodeRunner();
 
 // Interactive example functions
 const runVariableExample = () => {
-    console.clear();
-    console.log('Running Variable Examples...');
-    let specialOfTheDay = 'Grilled Salmon';
-    console.log('Initial special:', specialOfTheDay);
+    const codeRunner = createCodeRunner();
     
-    specialOfTheDay = 'Beef Steak';
-    console.log('Updated special:', specialOfTheDay);
-    
-    const taxRate = 0.08;
-    console.log('Tax rate:', taxRate);
-    
+    // Execute the safe version of the code
+    const safeCode = `// Menu item using let (value can change)
+let specialOfTheDay = 'Grilled Salmon';
+specialOfTheDay = 'Beef Steak'; // Can be reassigned
+
+// Fixed price using const (value cannot change)
+const taxRate = 0.08;
+
+// Menu categories using const array
+const menuCategories = ['Appetizers', 'Main Course', 'Desserts'];
+menuCategories.push('Drinks'); // Can modify array, but not reassign
+
+console.log('specialOfTheDay:', specialOfTheDay);
+console.log('taxRate:', taxRate);
+console.log('menuCategories:', menuCategories);`;
+
     try {
-        // @ts-ignore
-        taxRate = 0.09;
-    } catch (e) {
-        console.log('Cannot change const variable!');
+        codeRunner.run(safeCode);
+    } catch (error) {
+        console.error('Error running example:', error);
     }
 };
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="800" height="400" fill="#f8f9fa"/>
+    
+    <!-- Title Section -->
+    <g transform="translate(40, 40)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#0D6EFD">
+            Portfolio Website
+        </text>
+        <text x="0" y="40" font-family="Arial, sans-serif" font-size="18" fill="#6C757D">
+            A Personal Portfolio Built with Vue.js
+        </text>
+    </g>
+    
+    <!-- Website Design -->
+    <g transform="translate(400, 200)">
+        <!-- Browser Window -->
+        <rect x="-150" y="-100" width="300" height="200" rx="10" 
+              fill="#0D6EFD" stroke="#198754" stroke-width="4"/>
+        
+        <!-- Browser Bar -->
+        <rect x="-150" y="-100" width="300" height="30" rx="10" fill="#198754"/>
+        
+        <!-- Browser Buttons -->
+        <g transform="translate(-140, -90)">
+            <circle cx="0" cy="0" r="5" fill="#FFC107"/>
+            <circle cx="20" cy="0" r="5" fill="#FFC107"/>
+            <circle cx="40" cy="0" r="5" fill="#FFC107"/>
+        </g>
+        
+        <!-- Content Area -->
+        <g transform="translate(-140, -60)">
+            <!-- Navigation -->
+            <rect x="0" y="0" width="280" height="40" rx="5" fill="white"/>
+            <line x1="20" y1="20" x2="260" y2="20" stroke="#6C757D" stroke-width="2"/>
+            
+            <!-- Main Content -->
+            <rect x="0" y="50" width="280" height="120" rx="5" fill="white"/>
+            <line x1="20" y1="80" x2="260" y2="80" stroke="#6C757D" stroke-width="2"/>
+            <line x1="20" y1="100" x2="260" y2="100" stroke="#6C757D" stroke-width="2"/>
+            <line x1="20" y1="120" x2="260" y2="120" stroke="#6C757D" stroke-width="2"/>
+        </g>
+    </g>
+    
+    <!-- Tech Stack -->
+    <g transform="translate(40, 360)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#6C757D">
+            Vue.js • Tailwind CSS • Vite
+        </text>
+    </g>
+    
+    <!-- Footer Text -->
+    <g transform="translate(400, 380)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#6C757D" text-anchor="middle">
+            A modern, responsive portfolio website showcasing my work
+        </text>
+    </g>
+</svg> 
