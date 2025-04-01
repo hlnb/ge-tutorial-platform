@@ -23,33 +23,6 @@ export default defineConfig({
 			input: {
 				main: path.resolve(__dirname, 'index.html'),
 			},
-			output: {
-				manualChunks: {
-					'vendor-vue': ['vue', 'vue-router', 'pinia'],
-					'vendor-ui': ['@fortawesome/fontawesome-free'],
-					'vendor-utils': ['@emailjs/browser'],
-					
-					'tutorials': [
-						'@/pages/tutorials/beginner/javascript-basics/variables-data-types',
-						'@/pages/tutorials/beginner/javascript-basics/conditionals',
-						'@/pages/tutorials/beginner/javascript-basics/loops',
-						'@/pages/tutorials/beginner/javascript-basics/functions',
-						'@/pages/tutorials/beginner/javascript-basics/arrays',
-						'@/pages/tutorials/beginner/javascript-basics/objects'
-					],
-					'projects': [
-						'@/pages/projects/photo-gallery',
-						'@/pages/projects/todo-list',
-						'@/pages/projects/personal-profile',
-						'@/pages/projects/calculator'
-					],
-					'posts': [
-						'@/pages/posts/backend-programming',
-						'@/pages/posts/javascript-basics',
-						'@/pages/posts/responsive-design'
-					]
-				}
-			}
 		},
 	},
 	optimizeDeps: {
