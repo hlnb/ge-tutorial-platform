@@ -167,14 +167,14 @@ const htmlStructure = ref(`<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhanced Photo Gallery</title>
+  <title>Nature Photography Gallery</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="gallery-header">
+  <header>
     <h1>Nature Photography Gallery</h1>
     <div class="search-filters">
-      <input type="search" placeholder="Search photos..." aria-label="Search photos">
+      <input type="search" placeholder="Search images...">
       <div class="filter-buttons">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="landscape">Landscape</button>
@@ -184,9 +184,11 @@ const htmlStructure = ref(`<!DOCTYPE html>
     </div>
   </header>
 
-  <main class="gallery-container">
-    <div class="gallery-grid">
-      <!-- Gallery items will be dynamically added here -->
+  <main>
+    <div class="gallery-container">
+      <div class="gallery-grid">
+        <!-- Gallery items will be dynamically added here -->
+      </div>
     </div>
   </main>
 
@@ -194,7 +196,7 @@ const htmlStructure = ref(`<!DOCTYPE html>
     <p>&copy; 2024 Nature Photography Gallery</p>
   </footer>
 
-  <script src="gallery.js"></script>
+  <script src="gallery.js"><\/script>
 </body>
 </html>`);
 
@@ -389,194 +391,14 @@ const completeExample = ref(`<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhanced Photo Gallery</title>
-  <style>
-    /* CSS Variables */
-    :root {
-      --primary-color: #4A90E2;
-      --secondary-color: #2C3E50;
-      --text-color: #333;
-      --light-gray: #F5F5F5;
-      --transition-speed: 0.3s;
-    }
-
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-color: var(--light-gray);
-    }
-
-    /* Header Styles */
-    .gallery-header {
-      background-color: var(--secondary-color);
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .search-filters {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    input[type="search"] {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 4px;
-      width: 300px;
-    }
-
-    .filter-buttons {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .filter-btn {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 4px;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: white;
-      cursor: pointer;
-      transition: background-color var(--transition-speed);
-    }
-
-    .filter-btn.active {
-      background-color: var(--primary-color);
-    }
-
-    /* Grid Layout */
-    .gallery-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 1rem;
-    }
-
-    /* Gallery Item Styles */
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform var(--transition-speed);
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      transition: transform var(--transition-speed);
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-item .overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-      padding: 1rem;
-      color: white;
-      transform: translateY(100%);
-      transition: transform var(--transition-speed);
-    }
-
-    .gallery-item:hover .overlay {
-      transform: translateY(0);
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .gallery-item {
-      animation: fadeIn 0.5s ease forwards;
-    }
-
-    .gallery-item:nth-child(2) { animation-delay: 0.1s; }
-    .gallery-item:nth-child(3) { animation-delay: 0.2s; }
-    .gallery-item:nth-child(4) { animation-delay: 0.3s; }
-    .gallery-item:nth-child(5) { animation-delay: 0.4s; }
-    .gallery-item:nth-child(6) { animation-delay: 0.5s; }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1rem;
-      }
-
-      .gallery-item img {
-        height: 250px;
-      }
-
-      .search-filters {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .filter-buttons {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-item img {
-        height: 300px;
-      }
-    }
-  </style>
+  <title>Nature Photography Gallery</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="gallery-header">
+  <header>
     <h1>Nature Photography Gallery</h1>
     <div class="search-filters">
-      <input type="search" placeholder="Search photos..." aria-label="Search photos">
+      <input type="search" placeholder="Search images...">
       <div class="filter-buttons">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="landscape">Landscape</button>
@@ -586,9 +408,11 @@ const completeExample = ref(`<!DOCTYPE html>
     </div>
   </header>
 
-  <main class="gallery-container">
-    <div class="gallery-grid">
-      <!-- Gallery items will be dynamically added here -->
+  <main>
+    <div class="gallery-container">
+      <div class="gallery-grid">
+        <!-- Gallery items will be dynamically added here -->
+      </div>
     </div>
   </main>
 
@@ -596,85 +420,7 @@ const completeExample = ref(`<!DOCTYPE html>
     <p>&copy; 2024 Nature Photography Gallery</p>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const gallery = document.querySelector('.gallery-grid');
-      const searchInput = document.querySelector('input[type="search"]');
-      const filterButtons = document.querySelectorAll('.filter-btn');
-
-      // Sample image data
-      const images = [
-        {
-          id: 1,
-          src: 'images/landscape-1.jpg',
-          title: 'Mountain Vista',
-          category: 'landscape',
-          description: 'Beautiful mountain landscape at sunset'
-        },
-        {
-          id: 2,
-          src: 'images/wildlife-1.jpg',
-          title: 'Eagle in Flight',
-          category: 'wildlife',
-          description: 'Majestic eagle soaring through the sky'
-        },
-        {
-          id: 3,
-          src: 'images/macro-1.jpg',
-          title: 'Dew Drop',
-          category: 'macro',
-          description: 'Tiny dewdrop on a spider web'
-        },
-        // Add more images as needed
-      ];
-
-      // Render gallery items
-      function renderGallery(filteredImages = images) {
-        gallery.innerHTML = filteredImages
-          .map(image => \`
-            <div class="gallery-item" data-category="\${image.category}">
-              <img src="\${image.src}" alt="\${image.title}" loading="lazy">
-              <div class="overlay">
-                <h3>\${image.title}</h3>
-                <p>\${image.description}</p>
-              </div>
-            </div>
-          \`)
-          .join('');
-      }
-
-      // Search functionality
-      searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        const filteredImages = images.filter(image => 
-          image.title.toLowerCase().includes(searchTerm) ||
-          image.description.toLowerCase().includes(searchTerm)
-        );
-        renderGallery(filteredImages);
-      });
-
-      // Filter functionality
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const filter = button.dataset.filter;
-          
-          // Update active button
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-
-          // Filter images
-          const filteredImages = filter === 'all'
-            ? images
-            : images.filter(image => image.category === filter);
-          
-          renderGallery(filteredImages);
-        });
-      });
-
-      // Initial render
-      renderGallery();
-    });
-  </script>
+  <script src="gallery.js"><\/script>
 </body>
 </html>`);
 </script>

@@ -18,11 +18,36 @@ export default defineConfig({
 		target: 'es2015',
 		outDir: 'dist',
 		assetsDir: 'assets',
+		chunkSizeWarningLimit: 1000,
 		rollupOptions: {
 			input: {
 				main: path.resolve(__dirname, 'index.html'),
-				// Add any other entry points you need
 			},
+			output: {
+				manualChunks: {
+					'vendor-vue': ['vue', 'vue-router', 'pinia'],
+					'vendor-ui': ['@fortawesome/fontawesome-free'],
+					'vendor-utils': ['@emailjs/browser'],
+					
+					'tutorials': [
+						'@/pages/tutorials/beginner/html-basics',
+						'@/pages/tutorials/beginner/css-basics',
+						'@/pages/tutorials/beginner/javascript-basics',
+						'@/pages/tutorials/beginner/dom-basics'
+					],
+					'projects': [
+						'@/pages/projects/photo-gallery',
+						'@/pages/projects/todo-list',
+						'@/pages/projects/personal-profile',
+						'@/pages/projects/calculator'
+					],
+					'posts': [
+						'@/pages/posts/backend-programming',
+						'@/pages/posts/javascript-basics',
+						'@/pages/posts/responsive-design'
+					]
+				}
+			}
 		},
 	},
 	optimizeDeps: {

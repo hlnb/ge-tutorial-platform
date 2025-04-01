@@ -747,12 +747,16 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import { usePageSections } from '@/composables/usePageSections';
+import { createCodeRunner } from '@/utils/codeRunner';
 
 // Toggle solution visibility
 const showSolution = ref(false);
 const toggleSolution = () => {
 	showSolution.value = !showSolution.value;
 };
+
+// Create a code runner instance
+const codeRunner = createCodeRunner();
 
 // Code examples
 const basicIfCode = `let price = 24.99;
@@ -1319,28 +1323,28 @@ const runExercise1 = () => {
     console.clear();
     console.log('Exercise 1: Menu Item Availability');
     console.log('----------------------------------');
-    eval(exercise1Code);
+    codeRunner.run(exercise1Code);
 };
 
 const runExercise2 = () => {
     console.clear();
     console.log('Exercise 2: Customer Discount');
     console.log('----------------------------');
-    eval(exercise2Code);
+    codeRunner.run(exercise2Code);
 };
 
 const runExercise3 = () => {
     console.clear();
     console.log('Exercise 3: Table Assignment');
     console.log('---------------------------');
-    eval(exercise3Code);
+    codeRunner.run(exercise3Code);
 };
 
 const runChallenge = () => {
     console.clear();
     console.log('Challenge: Order Validation System');
     console.log('--------------------------------');
-    eval(challengeCode);
+    codeRunner.run(challengeCode);
 };
 </script>
 

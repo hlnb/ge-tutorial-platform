@@ -911,7 +911,7 @@ const completeExample = ref(`<!DOCTYPE html>
       // Initial render
       renderTodos();
     });
-  </script>
+  <\/script>
 </body>
 </html>`);
 </script>

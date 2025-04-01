@@ -299,6 +299,7 @@ import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import { createCodeRunner } from '@/utils/codeRunner';
 
 // Updated code examples with more practical scenarios
 const declaringVariablesCode = `// Menu item using let (value can change)
@@ -429,6 +430,9 @@ const order = {
 console.log('Order Details:', order);
 console.log('Total: $' + order.calculateTotal().toFixed(2));`;
 
+// Create a code runner instance
+const codeRunner = createCodeRunner();
+
 // Interactive example functions
 const runVariableExample = () => {
     console.clear();
@@ -453,49 +457,49 @@ const runVariableExample = () => {
 const runStringExample = () => {
     console.clear();
     console.log('Running String Examples...');
-    eval(stringsCode);
+    codeRunner.run(stringsCode);
 };
 
 const runNumberExample = () => {
     console.clear();
     console.log('Running Number Examples...');
-    eval(numbersCode);
+    codeRunner.run(numbersCode);
 };
 
 const runBooleanExample = () => {
     console.clear();
     console.log('Running Boolean Examples...');
-    eval(booleansCode);
+    codeRunner.run(booleansCode);
 };
 
 const runArrayExample = () => {
     console.clear();
     console.log('Running Array Examples...');
-    eval(arraysCode);
+    codeRunner.run(arraysCode);
 };
 
 const runObjectExample = () => {
     console.clear();
     console.log('Running Object Examples...');
-    eval(objectsCode);
+    codeRunner.run(objectsCode);
 };
 
 const runPracticeStep1 = () => {
     console.clear();
     console.log('Running Practice Step 1...');
-    eval(practiceStep1Code);
+    codeRunner.run(practiceStep1Code);
 };
 
 const runPracticeStep2 = () => {
     console.clear();
     console.log('Running Practice Step 2...');
-    eval(practiceStep1Code + practiceStep2Code);
+    codeRunner.run(practiceStep1Code + practiceStep2Code);
 };
 
 const runPracticeStep3 = () => {
     console.clear();
     console.log('Running Practice Step 3...');
-    eval(practiceStep1Code + practiceStep2Code + practiceStep3Code);
+    codeRunner.run(practiceStep1Code + practiceStep2Code + practiceStep3Code);
 };
 
 const openConsole = () => {

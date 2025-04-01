@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import BackendProgramming from '@/pages/posts/backend-programming.vue';
 import RSSFeedService from '@/services/RSSFeedService';
 
 // Post metadata registry
@@ -777,7 +776,7 @@ const routes = [
 					},
 					{
 						path: 'backend-programming',
-						component: BackendProgramming,
+						component: () => import('@/pages/posts/backend-programming.vue'),
 						meta: {
 							layout: 'default',
 							title: posts['backend-programming'].title,
