@@ -30,10 +30,12 @@ export default defineConfig({
 					'vendor-utils': ['@emailjs/browser'],
 					
 					'tutorials': [
-						'@/pages/tutorials/beginner/html-basics',
-						'@/pages/tutorials/beginner/css-basics',
-						'@/pages/tutorials/beginner/javascript-basics',
-						'@/pages/tutorials/beginner/dom-basics'
+						'@/pages/tutorials/beginner/javascript-basics/variables-data-types',
+						'@/pages/tutorials/beginner/javascript-basics/conditionals',
+						'@/pages/tutorials/beginner/javascript-basics/loops',
+						'@/pages/tutorials/beginner/javascript-basics/functions',
+						'@/pages/tutorials/beginner/javascript-basics/arrays',
+						'@/pages/tutorials/beginner/javascript-basics/objects'
 					],
 					'projects': [
 						'@/pages/projects/photo-gallery',
