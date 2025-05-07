@@ -238,7 +238,7 @@ onMounted(() => {
 
 .hero {
 	background-image: url('/images/posts/git-basics.svg');
-	background-size: cover;
+	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
 	min-height: 400px;

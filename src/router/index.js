@@ -124,8 +124,8 @@ export const posts = {
 		title: 'Web Security Essentials: Protecting Your Site From Common Threats',
 		description: 'Learn essential web security practices to protect your website from common threats. From SSL/TLS to security headers, we cover everything you need to know.',
 		status: 'published',
-		publishDate: '2024-04-15',
-		lastUpdated: '2024-04-15',
+		publishDate: '2025-04-15',
+		lastUpdated: '2025-04-15',
 		author: 'Helen Burgess',
 		tags: ['Security', 'Web Development', 'Best Practices'],
 		readingTime: '12 min',
@@ -140,8 +140,8 @@ export const posts = {
 		title: 'Speed Matters: A Practical Guide to Web Performance Optimization',
 		description: 'Learn practical strategies to optimize your website\'s performance, from caching to image optimization, with real-world examples and case studies.',
 		status: 'published',
-		publishDate: '2024-04-30',
-		lastUpdated: '2024-04-30',
+		publishDate: '2025-04-30',
+		lastUpdated: '2025-04-30',
 		author: 'Helen Burgess',
 		tags: ['Performance', 'Web Development', 'Optimization'],
 		readingTime: '15 min',
@@ -168,6 +168,22 @@ export const posts = {
 		excerpt: 'Ever saved multiple versions of a file with names like "final", "final_v2", "final_REALLY_FINAL"? Then you already understand why we need version control! Let\'s demystify Git - the tool that solves this problem and so much more.',
 		featured: true,
 	},
+	'api-best-practices-beginner': {
+		title: 'API Best Practices: A Beginner\'s Guide to Building Better Web APIs',
+    description: 'Learn the best practices for building APIs, from clear naming conventions to security tips, in this beginner-friendly guide.',
+    status: 'published',
+    publishDate: '2025-05-29',
+    lastUpdated: '2025-05-29',
+    author: 'Helen Burgess',
+    tags: ['API', 'Web Development', 'Best Practices'],
+    readingTime: '10 min',
+    series: 'Web Development Fundamentals',
+    seriesOrder: 9,
+    relatedPosts: ['web-security-essentials', 'backend-programming'],
+    imageUrl: '/images/posts/api-best-practices-beginner.svg',
+    excerpt: 'Learn the best practices for building APIs, from clear naming conventions to security tips, in this beginner-friendly guide.',
+    featured: false,
+	}
 };
 
 // Project routes
@@ -844,6 +860,13 @@ const routes = [
 						beforeEnter: (to, from, next) =>
 							checkPostAccess('git-basics', next),
 					},
+					{
+						path: 'api-best-practices-beginner',
+						component: () => import('../pages/posts/api-best-practices-beginner.vue'),
+						props: true,
+						beforeEnter: (to, from, next) =>
+								checkPostAccess('api-best-practices-beginner', next),
+					}
 				],
 			},
 		],

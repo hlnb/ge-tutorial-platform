@@ -1,0 +1,74 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 500 500"
+  width="500"
+  height="500"
+>
+  <!-- Background -->
+  <rect width="500" height="500" fill="#f4f4f9" />
+
+  <!-- API Icon -->
+  <rect
+    x="100"
+    y="150"
+    width="300"
+    height="200"
+    rx="20"
+    ry="20"
+    fill="#4CAF50"
+  />
+  <text
+    x="250"
+    y="250"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-size="40"
+    fill="white"
+  >
+    API
+  </text>
+
+  <!-- Security Icon -->
+  <circle cx="150" cy="400" r="40" fill="#2196F3" />
+  <path
+    d="M150 370 v20 a20 20 0 0 0 40 0 v-20 z"
+    fill="white"
+  />
+  <circle cx="150" cy="400" r="10" fill="#2196F3" />
+
+  <!-- Best Practices Icon -->
+  <polygon
+    points="350,360 370,400 330,400"
+    fill="#FFC107"
+  />
+  <rect
+    x="340"
+    y="400"
+    width="20"
+    height="40"
+    fill="#FFC107"
+  />
+  <circle cx="350" cy="450" r="10" fill="#FFC107" />
+
+  <!-- Title -->
+  <text
+    x="250"
+    y="80"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-size="30"
+    fill="#333"
+  >
+    API Best Practices
+  </text>
+  <text
+    x="250"
+    y="120"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-size="20"
+    fill="#666"
+  >
+    A Beginner's Guide
+  </text>
+</svg>
