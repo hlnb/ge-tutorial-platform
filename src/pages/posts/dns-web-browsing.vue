@@ -18,10 +18,10 @@
 						<!-- Hero Image Section -->
 						<div class="post-hero">
 							<!-- Background image set in CSS -->
-							<h1 class="title is-1">
+							<h2 class="title is-1">
 								<i class="fas fa-globe section-icon"></i> Understanding DNS: The
 								Internet's Phone Book
-							</h1>
+							</h2>
 						</div>
 
 						<p class="mb-5">
@@ -144,12 +144,13 @@
 <script>
 export const frontmatter = {
 	title: 'Understanding DNS and Web Browsing: A Deep Dive',
-	date: '2025-01-25', // Adjust date as needed
+	date: '2025-01-29', // Adjust date as needed
 	author: 'Helen Burgess',
 	image: '/images/posts/dns-web-browsing.svg',
 	description:
 		'Learn how DNS works and the journey of a web request from your browser to the server and back.',
 	tags: ['DNS', 'Web Development', 'Infrastructure', 'Networking'],
+	publishDate: '2025-01-29',
 	status: 'published',
 };
 </script>

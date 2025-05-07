@@ -1,6 +1,23 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
+/// <reference types="vite/client" />
+
+interface Frontmatter {
+	title: string;
+	date: string;
+	description: string;
+}
+
+interface Post {
+	path: string;
+	frontmatter: Frontmatter;
+}
+
+interface PostModule {
+	default: any;
+	frontmatter: Frontmatter;
+}
 
 const props = defineProps({
 	currentPath: {
@@ -10,70 +27,65 @@ const props = defineProps({
 });
 
 const router = useRouter();
-const prevPost = ref(null);
-const nextPost = ref(null);
+const route = useRoute();
+const posts = ref<Post[]>([]);
+const previousPost = ref<Post | null>(null);
+const nextPost = ref<Post | null>(null);
+
 
 onMounted(async () => {
-	// Get all posts and sort them by date
-	const modules = import.meta.glob('../pages/posts/\*.vue');
-	const posts = await Promise.all(
-		Object.entries(modules).map(async ([path, module]) => {
-			const component = await module();
-			return {
-				path: path.replace('../pages/posts/', '').replace('.vue', ''),
-				frontmatter: component.frontmatter,
-			};
-		}),
-	);
+  const postModules = import.meta.glob<PostModule>('/src/pages/posts/*.vue', { eager: true });
+  posts.value = Object.entries(postModules).map(([path, module]) => ({
+    path: path.replace('/src/pages/posts/', '').replace('.vue', ''),
+    frontmatter: module.frontmatter,
+  }));
 
-	// Sort posts by date (newest first)
-	const sortedPosts = posts.sort((a, b) => {
-		return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
-	});
+  // Sort posts by date with a fallback for missing or invalid dates
+  posts.value.sort((a, b) => {
+    const dateA = new Date(a.frontmatter?.date || 0).getTime();
+    const dateB = new Date(b.frontmatter?.date || 0).getTime();
+    return dateB - dateA;
+  });
 
-	// Find current post index
-	const currentIndex = sortedPosts.findIndex(
-		(post) => post.path === props.currentPath,
-	);
+  const currentIndex = posts.value.findIndex(post => post.path === props.currentPath);
 
-	// Set previous and next posts
-	if (currentIndex > 0) {
-		nextPost.value = sortedPosts[currentIndex - 1];
-	}
-	if (currentIndex < sortedPosts.length - 1) {
-		prevPost.value = sortedPosts[currentIndex + 1];
-	}
+  if (currentIndex > 0) {
+    previousPost.value = posts.value[currentIndex - 1];
+  }
+  if (currentIndex < posts.value.length - 1) {
+    nextPost.value = posts.value[currentIndex + 1];
+  }
 });
 </script>
 
 <template>
-	<nav class="post-navigation" v-if="prevPost || nextPost">
-		<div class="nav-links">
-			<router-link
-				v-if="prevPost"
-				:to="`/posts/${prevPost.path}`"
-				class="prev-post"
-			>
-				<span class="nav-label">
-					<i class="fa-solid fa-arrow-left"></i> Previous
-				</span>
-				<span class="post-title">{{ prevPost.frontmatter.title }}</span>
-			</router-link>
-			<div v-else class="nav-placeholder"></div>
+    <nav class="post-navigation" v-if="previousPost || nextPost">
+        <div class="nav-links">
+            <router-link
+                v-if="previousPost"
+                :to="`/posts/${previousPost.path}`"
+                class="prev-post"
+            >
+                <span class="nav-label">
+                    <i class="fa-solid fa-arrow-left"></i> Previous
+                </span>
+                <span class="post-title">{{ previousPost.frontmatter?.title }}</span>
+            </router-link>
+            <div v-else class="nav-placeholder"></div>
 
-			<router-link
-				v-if="nextPost"
-				:to="`/posts/${nextPost.path}`"
-				class="next-post"
-			>
-				<span class="nav-label">
-					Next <i class="fa-solid fa-arrow-right"></i>
-				</span>
-				<span class="post-title">{{ nextPost.frontmatter.title }}</span>
-			</router-link>
-			<div v-else class="nav-placeholder"></div>
-		</div>
-	</nav>
+            <router-link
+                v-if="nextPost"
+                :to="`/posts/${nextPost.path}`"
+                class="next-post"
+            >
+                <span class="nav-label">
+                    Next <i class="fa-solid fa-arrow-right"></i>
+                </span>
+                <span class="post-title">{{ nextPost.frontmatter?.title }}</span>
+            </router-link>
+            <div v-else class="nav-placeholder"></div>
+        </div>
+    </nav>
 </template>
 
 <style scoped>

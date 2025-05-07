@@ -19,20 +19,14 @@
 	</div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import { format } from 'date-fns';
 
-const props = defineProps({
-	publishDate: {
-		type: String,
-		required: true,
-	},
-	status: {
-		type: String,
-		required: true,
-	},
-});
+const props = defineProps<{
+	publishDate: string;
+	status: string;
+}>();
 
 // Let's log these values to debug
 console.log('PostVisibility props:', {
@@ -57,9 +51,13 @@ const isVisible = computed(() => {
 	return isPublished && isPastPublishDate;
 });
 
-const formatDate = (date) => {
+const formatDate = (date: string) => {
 	return format(new Date(date), 'MMMM do, yyyy');
 };
+
+defineOptions({
+	name: 'PostVisibility'
+});
 </script>
 
 <style scoped>

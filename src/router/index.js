@@ -6,9 +6,9 @@ export const posts = {
 	'dns-web-browsing': {
 		title: 'DNS and Web Browsing',
 		description: 'Understanding how DNS works and its role in web browsing',
-		status: 'scheduled',
+		status: 'published',
 		publishDate: '2025-01-29',
-		lastUpdated: '2025-01-29',
+		lastUpdated: '2025-05-07',
 		author: 'Helen Burgess',
 		tags: ['DNS', 'Web', 'Networking'],
 		readingTime: '5 min',
@@ -17,7 +17,7 @@ export const posts = {
 		relatedPosts: ['internet-everywhere'],
 		imageUrl: '/images/posts/dns-web-browsing.svg',
 		excerpt: 'A deep dive into the Domain Name System...',
-		featured: true,
+		featured: false,
 	},
 	'internet-everywhere': {
 		title: 'Internet Everywhere',
@@ -61,7 +61,7 @@ export const posts = {
 		tags: ['HTML', 'Web Development', 'Beginners'],
 		readingTime: '6 min',
 		series: 'Web Fundamentals',
-		seriesOrder: 1,
+		seriesOrder: 3,
 		relatedPosts: ['javascript-basics', 'responsive-design'],
 		imageUrl: '/images/posts/first-webpage-guide.svg',
 		excerpt:
@@ -78,7 +78,7 @@ export const posts = {
 		tags: ['Design', 'Web', 'Responsive'],
 		readingTime: '5 min',
 		series: 'Web Fundamentals',
-		seriesOrder: 3,
+		seriesOrder: 4,
 		relatedPosts: ['dns-web-browsing', 'internet-everywhere'],
 		imageUrl: '/images/posts/responsive-design.svg',
 		excerpt: 'Responsive design is the practice of designing websites...',
@@ -95,7 +95,7 @@ export const posts = {
 		tags: ['JavaScript', 'Web Development', 'Programming', 'Beginners'],
 		readingTime: '8 min',
 		series: 'Web Fundamentals',
-		seriesOrder: 4,
+		seriesOrder: 5,
 		relatedPosts: ['responsive-design', 'build-first-web-page'],
 		imageUrl: '/images/posts/javascript-basics.svg',
 		excerpt:
@@ -113,7 +113,7 @@ export const posts = {
 		tags: ['PHP', 'Databases', 'Backend', 'Web Development', 'MySQL'],
 		readingTime: '10 min',
 		series: 'Web Fundamentals',
-		seriesOrder: 5,
+		seriesOrder: 6,
 		relatedPosts: ['javascript-basics', 'build-first-web-page'],
 		imageUrl: '/images/posts/backend-programming.svg',
 		excerpt:
@@ -130,7 +130,7 @@ export const posts = {
 		tags: ['Security', 'Web Development', 'Best Practices'],
 		readingTime: '12 min',
 		series: 'Web Development Fundamentals',
-		seriesOrder: 2,
+		seriesOrder: 7,
 		relatedPosts: ['web-performance-optimization', 'backend-programming'],
 		imageUrl: '/images/posts/web-security-essentials.svg',
 		excerpt: 'Learn how to protect your website from common security threats with practical, actionable steps that don\'t require advanced technical knowledge.',
@@ -146,10 +146,26 @@ export const posts = {
 		tags: ['Performance', 'Web Development', 'Optimization'],
 		readingTime: '15 min',
 		series: 'Web Development Fundamentals',
-		seriesOrder: 3,
+		seriesOrder: 8,
 		relatedPosts: ['web-security-essentials', 'backend-programming'],
 		imageUrl: '/images/posts/web-performance-optimization.svg',
 		excerpt: 'Discover how to make your website blazingly fast with practical optimization strategies, real-world case studies, and actionable tips you can implement today.',
+		featured: true,
+	},
+	'git-basics': {
+		title: 'Git Basics: Version Control Made Simple',
+		description: 'Learn the fundamentals of Git version control in plain English. Perfect for beginners who want to understand why version control matters and how to get started.',
+		status: 'published',
+		publishDate: '2025-05-15',
+		lastUpdated: '2025-05-15',
+		author: 'Helen Burgess',
+		tags: ['Git', 'Version Control', 'Beginners', 'Development'],
+		readingTime: '8 min',
+		series: 'Development Tools',
+		seriesOrder: 1,
+		relatedPosts: ['javascript-basics', 'backend-programming'],
+		imageUrl: '/images/posts/git-basics.svg',
+		excerpt: 'Ever saved multiple versions of a file with names like "final", "final_v2", "final_REALLY_FINAL"? Then you already understand why we need version control! Let\'s demystify Git - the tool that solves this problem and so much more.',
 		featured: true,
 	},
 };
@@ -401,9 +417,6 @@ const routes = [
 			next(false);
 		},
 	},
-
-	// Auth routes
-	...authRoutes,
 
 	// Main tutorials page
 	{
@@ -786,10 +799,8 @@ const routes = [
 						path: 'build-first-web-page',
 						component: () => import('../pages/posts/build-first-web-page.vue'),
 						props: true,
-						beforeEnter: (to, from, next) => {
-							console.log('Checking route access for build-first-web-page');
-							next();
-						},
+						beforeEnter: (to, from, next) =>
+							checkPostAccess('build-first-web-page', next),
 					},
 					{
 						path: 'responsive-design',
@@ -808,29 +819,30 @@ const routes = [
 					{
 						path: 'backend-programming',
 						component: () => import('../pages/posts/backend-programming.vue'),
-						meta: {
-							layout: 'default',
-							title: posts['backend-programming'].title,
-							description: posts['backend-programming'].description,
-						},
+						props: true,
+						beforeEnter: (to, from, next) =>
+							checkPostAccess('backend-programming', next),
 					},
 					{
 						path: 'web-security-essentials',
 						component: () => import('../pages/posts/web-security-essentials.vue'),
-						meta: {
-							layout: 'default',
-							title: 'Web Security Essentials: Protecting Your Site From Common Threats',
-							description: 'Learn essential web security practices to protect your website from common threats. From SSL/TLS to security headers, we cover everything you need to know.',
-						},
+						props: true,
+						beforeEnter: (to, from, next) =>
+							checkPostAccess('web-security-essentials', next),
 					},
 					{
 						path: 'web-performance-optimization',
 						component: () => import('../pages/posts/web-performance-optimization.vue'),
-						meta: {
-							layout: 'default',
-							title: 'Speed Matters: A Practical Guide to Web Performance Optimization',
-							description: 'Learn practical strategies to optimize your website\'s performance, from caching to image optimization, with real-world examples and case studies.',
-						},
+						props: true,
+						beforeEnter: (to, from, next) =>
+							checkPostAccess('web-performance-optimization', next),
+					},
+					{
+						path: 'git-basics',
+						component: () => import('@/pages/posts/git-basics.vue'),
+						props: true,
+						beforeEnter: (to, from, next) =>
+							checkPostAccess('git-basics', next),
 					},
 				],
 			},
@@ -888,8 +900,6 @@ const routes = [
 			title: 'My Learning Progress',
 		},
 	},
-	// Add the projects routes
-	...projectRoutes,
 	// Catch-all route for 404
 	{
 		path: '/:pathMatch(.*)*',

@@ -239,7 +239,7 @@
 <script>
 export const frontmatter = {
 	title: 'How to Work with Clients as a Web Developer: The Essential Guide',
-	date: '2025-01-07T09:00:00Z',
+	date: '2025-01-07',
 	author: 'Helen Burgess',
 	image: '/images/posts/web-development-client-guide.svg',
 	description:
@@ -261,22 +261,6 @@ import { useHead } from '@vueuse/head';
 import BlogSignup from '../../components/BlogSignup.vue';
 import PostNavigation from '../../components/PostNavigation.vue';
 import PostVisibility from '@/components/PostVisibility.vue';
-
-const frontmatter = {
-	title: 'How to Work with Clients as a Web Developer: The Essential Guide',
-	date: '2024-01-07',
-	description:
-		'Learn how to communicate effectively with clients as a web developer. Avoid scope creep, set expectations, and manage web projects smoothly.',
-	tags: [
-		'web development',
-		'client management',
-		'freelancing',
-		'working with clients',
-		'web design process',
-	],
-	author: 'Helen Burgess',
-	image: '/images/posts/web-development-client-guide.svg',
-};
 
 const postData = ref(frontmatter);
 
