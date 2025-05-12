@@ -12,46 +12,31 @@
 				</div>
 
 				<p class="is-size-5">
-					Most web tutorials only teach you how to write code—but what about
-					everything else that makes a website successful? How the internet
-					actually works, how to deploy a site, how to optimize for SEO, how to
-					make designs functional in the real world?
-				</p>
+					Ever felt like something's missing from web tutorials? You're not alone. While most courses focus solely on coding, they skip the crucial parts that make websites truly successful in the real world.</p>	
+					<p class="is-size-5">That's where GraphitEdge comes in.</p>
 
-				<p class="is-size-5">That's where GraphiteEdge comes in.</p>
+					<p class=""feature-text><i class="fas fa-rocket"></i>We go beyond just teaching code. Want to know how the internet actually works? How to deploy your site? Make it findable on Google? Turn beautiful designs into functional websites? We've got you covered—demystifying everything from DNS to SEO, design to deployment.
+					</p>
 
-				<p class="feature-text">
-					<i class="fas fa-rocket"></i> We teach web development beyond just
-					code—demystifying the full process from DNS to SEO, design to
-					deployment.
-				</p>
+		
 			</div>
 			<div class="meet-helen mb-6">
 				<h2 class="title is-3">Meet Helen Burgess</h2>
 
 				<p class="feature-text">
-					<i class="fas fa-hand-wave"></i> Hi, I'm Helen, and I've been in the
-					web industry for over 20 years.
+					<i class="fas fa-hand-wave"></i>Hi! I'm Helen, and I've spent over two decades watching the web evolve from simple HTML pages to the dynamic platforms we build today.
 				</p>
 
 				<p class="is-size-5">
-					I started my career when the internet was still in its early days,
-					building websites from scratch and watching web technologies evolve.
-					Over the years, I've worked as a developer, educator, and mentor, and
-					I've seen countless beginners struggle—not because they can't code,
-					but because they're missing the bigger picture of how web development
-					really works.
+					My journey started in the early 2000s, hand-coding websites when CSS was just becoming a thing. Since then, I've worn many hats—developer, educator, mentor, and life-long learner. Through it all, I've noticed a pattern: talented people struggling not because coding is hard, but because traditional tutorials miss the forest for the trees.
 				</p>
 
 				<p class="feature-text">
-					<i class="fas fa-lightbulb"></i> The problem? Most tutorials focus on
-					syntax but leave out the crucial skills developers actually need.
+					<i class="fas fa-lightbulb"></i> You see, knowing syntax is one thing. But understanding how to actually build and launch real websites? That's where most learning resources fall short.
 				</p>
 
 				<p class="is-size-5">
-					I created GraphiteEdge to change that—to bridge the gap between code,
-					design, and real-world web development using plain, visual, and
-					practical explanations.
+				That's why I created GraphitEdge—to share not just code, but the complete picture of web development. Using visual explanations, real-world examples, and plain language, we bridge the gap between "I can code" and "I can build professional websites."
 				</p>
 			</div>
 
@@ -59,87 +44,92 @@
 				<h2 class="title is-3">Our Mission</h2>
 
 				<p class="feature-text">
-					<i class="fas fa-rocket"></i> "Web development isn't just
-					code—demystifying the full process from DNS to SEO, design to
-					deployment."
+					<i class="fas fa-rocket"></i> Our mission is simple: to make web development truly accessible—not just the code, but the whole journey from concept to launch.
 				</p>
 
 				<p class="is-size-5">We help:</p>
 				<ul class="checkmark-list">
 					<li>
-						Beginners build confidence in understanding web development beyond
-						syntax.
+						Build Your Confidence by explaining complex concepts in clear, practical terms
 					</li>
 					<li>
-						Self-taught developers fill in the missing knowledge that holds them
-						back.
+						Fill Knowledge Gaps that traditional tutorials often miss
 					</li>
 					<li>
-						Designers transitioning into development bridge the gap between
-						aesthetics and functionality.
+						Bridge Theory and Practice so you can turn your learning into real-world results
+					</li>
+					<li>
+						Create "Aha!" Moments where confusing concepts suddenly make perfect sense
 					</li>
 				</ul>
+				<p class="is-size-5">
+					Whether you're writing your first line of HTML or ready to launch your tenth website, we're here to help you understand the full picture of web development—from DNS to SEO, design to deployment.
+				</p>
+				<p class="feature-text">
+					<i class="fas fa-lightbulb"></i> We believe that with the right guidance, anyone can become a confident web developer.
+				</p>
 			</div>
 
 			<div class="approach-section mb-6">
 				<h2 class="title is-3">
-					Our Approach: Learn by Building a Real-World Project
+					Our Core Values
 				</h2>
-
-				<p class="is-size-5">
-					At GraphiteEdge, we believe the best way to learn is by doing. That's
-					why our tutorials are centered around "Rotto Rocks", a real-world
-					project inspired by Rottnest Island's beauty and the Black Swan
-					Bistro, a typical Western Australian restaurant.
-				</p>
-
-				<p class="is-size-5">
-					Through this hands-on learning experience, you'll go beyond just
-					writing HTML, CSS, and JavaScript. You'll also learn:
-				</p>
-
-				<ul class="checkmark-list">
-					<li>
-						How the internet works (domains, DNS, hosting, and deployment).
-					</li>
-					<li>How to take a design and turn it into a functional website.</li>
-					<li>
-						The science behind effective web pages (SEO, CTAs, performance
-						optimization).
-					</li>
-					<li>
-						How to build interactive, modern web experiences using Vue.js &
-						Bulma.
-					</li>
-				</ul>
-
 				<p class="feature-text">
-					<i class="fas fa-bullseye"></i> No more disconnected
-					tutorials—GraphiteEdge gives you the missing pieces of web development
-					in a structured, practical learning experience.
+					<i class="fas fa-heart"></i> Everything we do at GraphitEdge is guided by five fundamental principles:
+				</p>	
+				<ul class="checkmark-list">
+					<li>Clarity Over Complexity - We break things down step-by-step and explain the why, not just the how. If it's confusing, we rewrite it—because learning should feel like a lightbulb moment, not a wall of text</li>
+					<li>Learning with Purpose - Our content is designed to help you build real skills you can apply. Whether you want to launch a project, change careers, or simply understand the internet better—you're in the right place.</li>
+					<li>Beginner-Friendly Always - You don't need a computer science degree to start here. We welcome the curious, the self-taught, the career switchers, and everyone in between.</li>
+					<li>Inclusive & Personal - GraphitEdge is grounded in lived experience. We're here to support a wide range of learners—across age, background, and ability—and to create a safe space where everyone feels like they belong.</li>
+					<li>Creative Exploration Through Code - Coding is a craft, and creativity fuels great development. From layout design to logic flows, we encourage exploration, experimentation, and finding your own voice on the web.</li>
+				</ul>
+				</div>
+		<div class="our-approach mb-6">
+				<h2 class="title is-3">Our Approach: Learn by Building a Real-World Project</h2>
+				<p>At GraphitEdge, we believe in learning by doing—not just watching. That's why we've created "Rotto Rocks", an immersive project inspired by the stunning beauty of Rottnest Island and the charm of the Black Swan Bistro, a fictional Western Australian restaurant.</p>
+				<p>
+					As you build this real-world project step by step, you'll master not just HTML, CSS, and JavaScript, but the entire web development ecosystem. You'll learn:</p>
+				<ul class="checkmark-list">
+					<li>How the internet works (domains, DNS, hosting, and deployment)</li>
+					<li>How to take a design and turn it into a functional website</li>
+					<li>The science behind effective web pages (SEO, CTAs, performance optimization)</li>
+					<li>How to build interactive, modern web experiences using Vue.js & Bulma</li>
+				</ul>
+				<p class="is-size-5">
+					No more disconnected tutorials—GraphitEdge gives you the missing pieces of web development in a structured, practical learning experience.
 				</p>
 			</div>
+			<div class="where-graphitedge-is-for mb-6">
+				<h2 class="title is-3">Who GraphitEdge Is For</h2>
 
-			<div class="audience-section mb-6">
-				<h2 class="title is-3">Who GraphiteEdge Is For</h2>
-
+				<p class="is-size-5">
+					Whether you're just starting your coding journey or looking to fill in knowledge gaps, GraphitEdge welcomes: 
+				</p>
 				<ul class="checkmark-list">
-					<li>Beginners who feel lost beyond writing code.</li>
-					<li>
-						Self-taught developers who want to master the full web development
-						process.
-					</li>
-					<li>
-						Designers who want to transition into web development with a
-						structured, practical approach.
-					</li>
-					<li>
-						Anyone who wants to go beyond tutorials and actually understand how
-						websites work in the real world.
-					</li>
+					<li>Curious Beginners who want to understand the bigger picture of web development, not just snippets of code</li>
+					<li>Self-Taught Developers ready to level up their skills and master the full development process</li>
+					<li>Transitioning Designers looking to bridge the gap between beautiful designs and functional websites</li>
+					<li>Career Switchers seeking a structured, practical path into web development</li>
+					<li>Small Business Owners who want to understand how their websites really work</li>
 				</ul>
-			</div>
 
+				<p class="is-size-5">
+					Ready to understand web development in a whole new way? Join us on this journey as we demystify the web, one practical step at a time.
+				</p>
+		</div>
+		<div class="where-were-going mb-6">
+			<h2 class="title is-3">Where We're Going</h2>
+
+			<p class="is-size-5">
+				GraphitEdge is growing—just like you. We're crafting new tutorials, building practical tools, and creating resources that help you navigate the ever-evolving world of web development with confidence.
+			</p>
+
+			<p class="is-size-5">
+				Ready to understand web development in a whole new way? Join us on this journey as we demystify the web, one practical step at a time.
+			</p>
+
+	</div>
 			<div class="newsletter-section has-background-light p-5">
 				<h2 class="title is-3">
 					Join the GraphiteEdge Community <i class="fas fa-rocket"></i>
