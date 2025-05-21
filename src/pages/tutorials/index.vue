@@ -162,6 +162,28 @@
 						>Start Your DOM Journey</router-link
 					>
 				</div>
+				<div class="box tutorial-card">
+					<h4 class="title is-4">
+						<i class="fab fa-git-alt git-icon"></i> Git Basics
+					</h4>
+					<p>Version control and collaboration with Git</p>
+					<div class="tags">
+						<span class="tag is-light">5 tutorials</span>
+						<span class="tag is-light">3-4 hours</span>
+						<span class="tag is-success">Available Now</span>
+					</div>
+					<ul class="tutorial-topics mt-3">
+						<li><i class="fas fa-check"></i> Introduction to Git</li>
+						<li><i class="fas fa-check"></i> Basic Commands</li>
+						<li><i class="fas fa-check"></i> Branching & Merging</li>
+						<li><i class="fas fa-check"></i> Remote Repositories</li>
+						<li><i class="fas fa-check"></i> Best Practices</li>
+					</ul>
+					<router-link
+						:to="{ name: 'git-basics-index' }"
+						class="button is-primary is-outlined mt-3"
+						>Start Your Git Journey</router-link
+					>
 			</div>
 		</div>
 
@@ -239,6 +261,7 @@
 				<li>Take breaks between tutorials</li>
 			</ul>
 		</div>
+	</div>
 	</div>
 
 	<!-- Router view for nested routes -->

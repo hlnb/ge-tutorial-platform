@@ -164,17 +164,16 @@ const route = useRoute();
 // Try to get the current tutorial info from the parent component
 const providedTutorial = inject('currentTutorial', null);
 
-// Get recommendations using the utility function
 const recommendations = computed(() => {
-    if (!props.currentPath && !providedTutorial) {
-        return {
-            nextTutorial: null,
-            relatedTutorials: [],
-            practiceProjects: [],
-            resources: []
-        };
-    }
-    return getRecommendationsFromProps(props, providedTutorial);
+  if (!props.currentPath && !providedTutorial) {
+    return {
+      nextTutorial: null,
+      relatedTutorials: [],
+      practiceProjects: [],
+      resources: []
+    };
+  }
+  return getRecommendationsFromProps(props, providedTutorial);
 });
 
 // Computed properties to get recommendations

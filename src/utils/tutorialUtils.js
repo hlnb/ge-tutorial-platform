@@ -924,6 +924,196 @@ const tutorialRecommendations = {
 			]
 		}
 	},
+	'git-basics': {
+		'install': {
+			nextTutorial: {
+				path: '/tutorials/git-basics/introduction',
+				title: 'Introduction to Git',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/command-line',
+					title: 'Getting Started with the Command Line',
+				},
+				{
+					path: '/tutorials/html-basics/first-page',
+					title: 'HTML Basics',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Install and Configure Git',
+					description: 'Install Git, set your username/email, and configure your default editor.',
+					tags: ['git', 'install', 'config'],
+					path: '/projects/git-install',
+				},
+				{
+					title: 'Verify Git Installation',
+					description: 'Run git --version and git config --list to verify your setup.',
+					tags: ['git', 'verify', 'setup'],
+					path: '/projects/git-verify',
+				},
+			],
+			resources: [
+				{
+					title: 'Official Git Downloads',
+					url: 'https://git-scm.com/downloads',
+					description: 'Download Git for your operating system.'
+				},
+				{
+					title: 'VS Code Download',
+					url: 'https://code.visualstudio.com/',
+					description: 'Recommended code editor for Git and web development.'
+				},
+				{
+					title: 'GitHub Desktop',
+					url: 'https://desktop.github.com/',
+					description: 'A simple GUI for Git workflows.'
+				},
+				{
+					title: 'Atlassian: Set up Git',
+				 url: 'https://www.atlassian.com/git/tutorials/install-git',
+				 description: 'Step-by-step guide to installing Git.'
+				},
+			],
+		},
+		'introduction': {
+			nextTutorial: {
+				path: '/tutorials/git-basics/commands',
+				title: 'Basic Commands',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/git-basics/branching',
+					title: 'Branching & Merging',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Clone and Explore',
+					description: 'Clone a remote repository and explore its history.',
+					tags: ['git', 'clone', 'history'],
+					path: '/projects/git-clone',
+				},
+			],
+			resources: [
+				{
+					title: 'Git Basics Video',
+					url: 'https://www.youtube.com/watch?v=8JJ101D3knE',
+					description: 'A beginner-friendly video introduction to Git.'
+				},
+			],
+		},
+		'commands': {
+			nextTutorial: {
+				path: '/tutorials/git-basics/branching',
+				title: 'Branching & Merging',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/git-basics/remote',
+					title: 'Remote Repositories',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Commit Practice',
+					description: 'Make multiple commits and view the log.',
+					tags: ['git', 'commit', 'log'],
+					path: '/projects/git-commit',
+				},
+			],
+			resources: [
+				{
+					title: 'Git Cheat Sheet',
+					url: 'https://education.github.com/git-cheat-sheet-education.pdf',
+					description: 'Handy PDF cheat sheet for Git commands.'
+				},
+			],
+		},
+		'branching': {
+			nextTutorial: {
+				path: '/tutorials/git-basics/remote',
+				title: 'Remote Repositories',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/git-basics/best-practices',
+					title: 'Best Practices',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Branching Exercise',
+					description: 'Create, switch, and merge branches in a sample repo.',
+					tags: ['git', 'branch', 'merge'],
+					path: '/projects/git-branch',
+				},
+			],
+			resources: [
+				{
+					title: 'Atlassian Branching Guide',
+					url: 'https://www.atlassian.com/git/tutorials/using-branches',
+					description: 'Guide to branching workflows in Git.'
+				},
+			],
+		},
+		'remote': {
+			nextTutorial: {
+				path: '/tutorials/git-basics/best-practices',
+				title: 'Best Practices',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/git-basics/introduction',
+					title: 'Introduction to Git',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Push & Pull',
+					description: 'Push local changes and pull updates from a remote.',
+					tags: ['git', 'push', 'pull', 'remote'],
+					path: '/projects/git-remote',
+				},
+			],
+			resources: [
+				{
+					title: 'GitHub Docs: Remote Repositories',
+					url: 'https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories',
+					description: 'Learn about working with remotes in Git.'
+				},
+			],
+		},
+		'best-practices': {
+			nextTutorial: null,
+			relatedTutorials: [
+				{
+					path: '/tutorials/html-basics/first-page',
+					title: 'HTML Basics',
+				},
+				{
+					path: '/tutorials/css-basics/introduction',
+					title: 'CSS Basics',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Team Workflow',
+					description: 'Simulate a team workflow with branches and pull requests.',
+					tags: ['git', 'workflow', 'team'],
+					path: '/projects/git-team',
+				},
+			],
+			resources: [
+				{
+					title: 'Git Best Practices',
+					url: 'https://sethrobertson.github.io/GitBestPractices/',
+					description: 'A collection of best practices for using Git.'
+				},
+			],
+		},
+	},
 };
 
 export const projects = {

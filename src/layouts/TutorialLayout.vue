@@ -33,6 +33,7 @@ import GetStartedNav from '@/components/GetStartedNav.vue';
 import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
 import JavaScriptBasicsNav from '@/components/JavaScriptBasicsNav.vue';
 import DOMBasicsNav from '@/components/DOMBasicsNav.vue';
+import GitBasicsNav from '@/components/GitBasicsNav.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import progressService from '@/services/ProgressService';
 import { hasQuiz } from '@/utils/quizUtils';
@@ -91,37 +92,37 @@ provide('pageSections', pageSections);
 const tutorialMap = {
 	// HTML Basics routes
 	'html-basics-index': {
-		prev: { path: '/tutorials/getting-started', title: 'Getting Started' },
+		prev: { path: '/tutorials/getting-started',title: 'Getting Started' },
 		next: {
 			path: '/tutorials/html-basics/first-page',
 			title: 'Your First HTML Page',
 		},
 	},
 	'html-basics-first-page': {
-		prev: { path: '/tutorials/html-basics', title: 'Introduction' },
-		next: { path: '/tutorials/html-basics/text', title: 'Working with Text' },
+		prev: { path: '/tutorials/html-basics',title: 'Introduction' },
+		next: { path: '/tutorials/html-basics/text',title: 'Working with Text' },
 	},
 	'html-basics-text': {
 		prev: {
 			path: '/tutorials/html-basics/first-page',
 			title: 'Your First HTML Page',
 		},
-		next: { path: '/tutorials/html-basics/links', title: 'Links & Navigation' },
+		next: { path: '/tutorials/html-basics/links',title: 'Links & Navigation' },
 	},
 	'html-basics-links': {
-		prev: { path: '/tutorials/html-basics/text', title: 'Working with Text' },
-		next: { path: '/tutorials/html-basics/images', title: 'Images' },
+		prev: { path: '/tutorials/html-basics/text',title: 'Working with Text' },
+		next: { path: '/tutorials/html-basics/images',title: 'Images' },
 	},
 	'html-basics-images': {
-		prev: { path: '/tutorials/html-basics/links', title: 'Links & Navigation' },
+		prev: { path: '/tutorials/html-basics/links',title: 'Links & Navigation' },
 		next: {
 			path: '/tutorials/html-basics/doc-structure',
 			title: 'Document Structure',
 		},
 	},
 	'html-basics-doc-structure': {
-		prev: { path: '/tutorials/html-basics/images', title: 'Images' },
-		next: { path: '/tutorials/html-basics/forms', title: 'Forms' },
+		prev: { path: '/tutorials/html-basics/images',title: 'Images' },
+		next: { path: '/tutorials/html-basics/forms',title: 'Forms' },
 	},
 	'html-basics-forms': {
 		prev: {
@@ -134,20 +135,20 @@ const tutorialMap = {
 		},
 	},
 	'html-basics-html-emmet': {
-		prev: { path: '/tutorials/html-basics/forms', title: 'Forms' },
-		next: { path: '/tutorials/css-basics', title: 'CSS Basics Introduction' },
+		prev: { path: '/tutorials/html-basics/forms',title: 'Forms' },
+		next: { path: '/tutorials/css-basics',title: 'CSS Basics Introduction' },
 	},
 
 	// Getting Started routes
 	'getting-started-index': {
-		prev: { path: '/tutorials', title: 'Tutorials Home' },
+		prev: { path: '/tutorials',title: 'Tutorials Home' },
 		next: {
 			path: '/tutorials/getting-started/how-internet-works',
 			title: 'How the Internet Works',
 		},
 	},
 	'getting-started-how-internet-works': {
-		prev: { path: '/tutorials/getting-started', title: 'Introduction' },
+		prev: { path: '/tutorials/getting-started',title: 'Introduction' },
 		next: {
 			path: '/tutorials/getting-started/web-basics',
 			title: 'Web Basics',
@@ -198,7 +199,7 @@ const tutorialMap = {
 			path: '/tutorials/getting-started/browser-tools',
 			title: 'Browser Development Tools',
 		},
-		next: { path: '/tutorials/html-basics', title: 'HTML Basics' },
+		next: { path: '/tutorials/html-basics',title: 'HTML Basics' },
 	},
 
 	// CSS Basics routes
@@ -213,8 +214,8 @@ const tutorialMap = {
 		},
 	},
 	'css-basics-introduction': {
-		prev: { path: '/tutorials/css-basics', title: 'CSS Basics Overview' },
-		next: { path: '/tutorials/css-basics/selectors', title: 'CSS Selectors' },
+		prev: { path: '/tutorials/css-basics',title: 'CSS Basics Overview' },
+		next: { path: '/tutorials/css-basics/selectors',title: 'CSS Selectors' },
 	},
 	'css-basics-selectors': {
 		prev: {
@@ -227,15 +228,15 @@ const tutorialMap = {
 		},
 	},
 	'css-basics-box-model': {
-		prev: { path: '/tutorials/css-basics/selectors', title: 'CSS Selectors' },
+		prev: { path: '/tutorials/css-basics/selectors',title: 'CSS Selectors' },
 		next: {
 			path: '/tutorials/css-basics/text-properties',
 			title: 'Text Properties',
 		},
 	},
 	'css-basics-text-properties': {
-		prev: { path: '/tutorials/css-basics/box-model', title: 'The Box Model' },
-		next: { path: '/tutorials/css-basics/layout', title: 'Layout Basics' },
+		prev: { path: '/tutorials/css-basics/box-model',title: 'The Box Model' },
+		next: { path: '/tutorials/css-basics/layout',title: 'Layout Basics' },
 	},
 	'css-basics-layout': {
 		prev: {
@@ -248,8 +249,8 @@ const tutorialMap = {
 		},
 	},
 	'css-basics-colors': {
-		prev: { path: '/tutorials/css-basics/layout', title: 'Layout Basics' },
-		next: { path: '/tutorials/css-basics/modern', title: 'Modern CSS' },
+		prev: { path: '/tutorials/css-basics/layout',title: 'Layout Basics' },
+		next: { path: '/tutorials/css-basics/modern',title: 'Modern CSS' },
 	},
 	'css-basics-modern': {
 		prev: {
@@ -262,7 +263,7 @@ const tutorialMap = {
 		},
 	},
 	'css-basics-responsive': {
-		prev: { path: '/tutorials/css-basics/modern', title: 'Modern CSS' },
+		prev: { path: '/tutorials/css-basics/modern',title: 'Modern CSS' },
 		next: {
 			path: '/tutorials/css-basics/flexbox',
 			title: 'Flexbox',
@@ -273,12 +274,12 @@ const tutorialMap = {
 			path: '/tutorials/css-basics/responsive',
 			title: 'Responsive Design',
 		},
-		next: { path: '/tutorials', title: 'Tutorials Home' },
+		next: { path: '/tutorials',title: 'Tutorials Home' },
 	},
 
 	// JavaScript Basics routes
 	'javascript-basics-index': {
-		prev: { path: '/tutorials/css-basics/flexbox', title: 'Flexbox' },
+		prev: { path: '/tutorials/css-basics/flexbox',title: 'Flexbox' },
 		next: {
 			path: '/tutorials/javascript-basics/introduction',
 			title: 'Introduction to JavaScript',
@@ -307,17 +308,51 @@ const tutorialMap = {
 
 	// DOM Basics routes
 	'dom-basics-index': {
-		prev: { path: '/tutorials/javascript-basics/conditionals', title: 'JavaScript Conditionals' },
-		next: { path: '/tutorials/dom-basics/introduction', title: 'Introduction to DOM' }
+		prev: { path: '/tutorials/javascript-basics/conditionals',title: 'JavaScript Conditionals' },
+		next: { path: '/tutorials/dom-basics/introduction',title: 'Introduction to DOM' }
 	},
 	'dom-basics-introduction': {
-		prev: { path: '/tutorials/dom-basics', title: 'DOM Basics Overview' },
-		next: { path: '/tutorials/dom-basics/arrays', title: 'Arrays and Methods' }
+		prev: { path: '/tutorials/dom-basics',title: 'DOM Basics Overview' },
+		next: { path: '/tutorials/dom-basics/arrays',title: 'Arrays and Methods' }
 	},
 	'dom-basics-arrays': {
-		prev: { path: '/tutorials/dom-basics/introduction', title: 'Introduction to DOM' },
-		next: { path: '/tutorials/dom-basics/dom-manipulation', title: 'DOM Manipulation' }
+		prev: { path: '/tutorials/dom-basics/introduction',title: 'Introduction to DOM' },
+		next: { path: '/tutorials/dom-basics/dom-manipulation',title: 'DOM Manipulation' }
 	},
+	'dom-basics-dom-manipulation': {
+		prev: { path: '/tutorials/dom-basics/arrays',title: 'Arrays and Methods' },
+		next: { path: '/tutorials/dom-basics/dom-events',title: 'Event Handling' }
+	},
+	'dom-basics-dom-events': {
+		prev: { path: '/tutorials/dom-basics/dom-manipulation',title: 'DOM Manipulation' },
+		next: { path: '/tutorials',title: 'Tutorials Home' }
+	},
+	// Git Basics routes
+	'git-basics-index': {
+		prev: { path: '/tutorial',title: 'Tutorials Home' },
+		next: { path: '/tutorials/git-basics/introduction',title: 'Introduction to Git' }
+	},
+	'git-basics-introduction': {
+		prev: { path: '/tutorials/git-basics',title: 'Git Basics Overview' },
+		next: { path: '/tutorials/git-basics/basic-commands',title: 'Basic Commands' }
+	},
+	'git-basics-basic-commands': {
+		prev: { path: '/tutorials/git-basics/introduction',title: 'Introduction to Git' },
+		next: { path: '/tutorials/git-basics/branching',title: 'Branching & Merging' }
+	},
+	'git-basics-branching': {
+		prev: { path: '/tutorials/git-basics/basic-commands',title: 'Basic Commands' },
+		next: { path: '/tutorials/git-basics/remote',title: 'Remote Repositories' }
+	},
+	'git-basics-remote': {
+		prev: { path: '/tutorials/git-basics/branching',title: 'Branching & Merging' },
+		next: { path: '/tutorials/git-basics/workflow',title: 'Workflow' }
+	},
+	'git-basics-workflow': {
+		prev: { path: '/tutorials/git-basics/remote',title: 'Remote Repositories' },
+		next: { path: '/tutorials',title: 'Tutorials Home' }
+	}
+
 };
 
 const currentTutorial = computed(() => {

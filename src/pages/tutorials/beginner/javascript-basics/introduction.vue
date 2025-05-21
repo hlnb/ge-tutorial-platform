@@ -289,8 +289,24 @@ import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { useProgressTracking } from '@/utils/progressUtils';
 
+const frontmatter = {
+	title: 'Foundations-Getting Started',
+	description: 'Get started with JavaScript programming',
+	category: 'JavaScript Basics',
+	level: 'Beginner',
+	order: 1,
+	tags: ['javascript', 'basics', 'foundations', 'web development'],
+	lastUpdated: '2023-10-15',
+};
+// Reactive variables for the interactive demo
+const demoMessage = ref('');
+const messageColor = ref('is-primary');
+const clickCount = ref(0);
+
+
 // Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgressTracking();
+const { trackTutorial } = useProgressTracking();
+
 
 // Interactive demo
 const demoMessage = ref('');

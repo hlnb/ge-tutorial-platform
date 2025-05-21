@@ -729,7 +729,7 @@ const routes = [
 						meta: {
 							title: 'Arrays and Array Methods in JavaScript',
 							description: 'Master JavaScript arrays with hands-on practice in DOM manipulation, leading to enhanced photo gallery and todo list projects',
-							practiceProjects: ['photo-gallery-2', 'todo-list-2']
+							practiceProjects: ['photo-gallery-2','todo-list-2']
 						}
 					},
 					{
@@ -747,8 +747,74 @@ const routes = [
 					},
 				],
 			},
+			//git basics
+			{
+
+				path: 'git-basics',
+				name: 'git-basics-section',
+				component: () => import('@/layouts/TutorialLayout.vue'),
+				children: [
+					{
+						path: '',
+						name: 'git-basics-index',
+						component: () =>	
+							import('@/pages/tutorials/beginner/git-basics/index.vue'),
+					},
+					{
+						path: 'introduction',
+						name: 'git-basics-introduction',
+						component: () =>
+							import('@/pages/tutorials/beginner/git-basics/introduction.vue'),	
+					},
+					{
+						path: 'installation',
+						name: 'git-basics-installation',
+						component: () =>
+							import('@/pages/tutorials/beginner/git-basics/installation.vue'),					
+					},
+					{
+						path: 'basic-commands',
+						name: 'git-basics-commands',
+						component: () =>
+							import('@/pages/tutorials/beginner/git-basics/basic-commands.vue'),					
+					},	
+					{
+						path: 'branching',
+						name: 'git-basics-branching',
+						component: () =>
+							import('@/pages/tutorials/beginner/git-basics/branching.vue'),
+					},				
+					{
+						path:'merging',
+						name: 'git-basics-merging',
+						component: () =>	
+							import('@/pages/tutorials/beginner/git-basics/merging.vue'),
+					},
+					{	
+						path: 'remote-repositories',	
+						name: 'git-basics-remote-repositories',
+						component: () =>
+							import('@/pages/tutorials/beginner/git-basics/remote-repositories.vue'),
+					},
+					{
+						path: 'workflow',
+						name: 'git-basics-workflow',
+						component: () =>
+							import('@/pages/tutorials/beginner/git-basics/workflow.vue'),	
+					},
+					{
+						path: 'conclusion',
+						name: 'git-basics-conclusion',
+						component: () =>
+							import('@/pages/tutorials/beginner/git-basics/conclusion.vue'),	
+					},
+				]
+
+
+				
+			},
 		],
-	},
+	},	
 
 	// Rest of the routes
 	{
