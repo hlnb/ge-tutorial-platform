@@ -931,11 +931,7 @@ const tutorialRecommendations = {
 				title: 'Introduction to Git',
 			},
 			relatedTutorials: [
-				{
-					path: '/tutorials/getting-started/command-line',
-					title: 'Getting Started with the Command Line',
-				},
-				{
+							{
 					path: '/tutorials/html-basics/first-page',
 					title: 'HTML Basics',
 				},
@@ -979,7 +975,7 @@ const tutorialRecommendations = {
 		},
 		'introduction': {
 			nextTutorial: {
-				path: '/tutorials/git-basics/commands',
+				path: '/tutorials/git-basics/basic-commands',
 				title: 'Basic Commands',
 			},
 			relatedTutorials: [
@@ -1004,14 +1000,14 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		'commands': {
+		'basic-commands': {
 			nextTutorial: {
 				path: '/tutorials/git-basics/branching',
 				title: 'Branching & Merging',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/git-basics/remote',
+					path: '/tutorials/git-basics/remote-repositories',
 					title: 'Remote Repositories',
 				},
 			],
@@ -1033,13 +1029,13 @@ const tutorialRecommendations = {
 		},
 		'branching': {
 			nextTutorial: {
-				path: '/tutorials/git-basics/remote',
-				title: 'Remote Repositories',
+				path: '/tutorials/git-basics/merging',
+				title: 'Merging',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/git-basics/best-practices',
-					title: 'Best Practices',
+					path: '/tutorials/git-basics/workflow',
+					title: 'Workflow Best Practices',
 				},
 			],
 			practiceProjects: [
@@ -1058,10 +1054,37 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		'remote': {
+		'merging': {
 			nextTutorial: {
-				path: '/tutorials/git-basics/best-practices',
-				title: 'Best Practices',
+				path: '/tutorials/git-basics/remote-repositories',
+				title: 'Remote Repositories',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/git-basics/branching',
+					title: 'Branching & Merging',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Merge Conflict Practice',
+					description: 'Practice resolving merge conflicts in a sample repo.',
+					tags: ['git', 'merge', 'conflict'],
+					path: '/projects/git-merge',
+				},
+			],
+			resources: [
+				{
+					title: 'Git Merge Documentation',
+					url: 'https://git-scm.com/docs/git-merge',
+					description: 'Official documentation for git merge.'
+				},
+			],
+		},
+		'remote-repositories': {
+			nextTutorial: {
+				path: '/tutorials/git-basics/workflow',
+				title: 'Workflow Best Practices',
 			},
 			relatedTutorials: [
 				{
@@ -1085,7 +1108,7 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		'best-practices': {
+		'workflow': {
 			nextTutorial: null,
 			relatedTutorials: [
 				{
@@ -1099,10 +1122,10 @@ const tutorialRecommendations = {
 			],
 			practiceProjects: [
 				{
-					title: 'Team Workflow',
-					description: 'Simulate a team workflow with branches and pull requests.',
-					tags: ['git', 'workflow', 'team'],
-					path: '/projects/git-team',
+					title: 'Push & Pull',
+					description: 'Push local changes and pull updates from a remote.',
+					tags: ['git', 'push', 'pull', 'remote'],
+					path: '/projects/git-remote',
 				},
 			],
 			resources: [

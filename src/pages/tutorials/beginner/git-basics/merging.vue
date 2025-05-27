@@ -61,64 +61,54 @@
 
     <h2 class="title is-2">What is Merging?</h2>
     <p>
-      Merging in Git is the process of combining changes from one branch into another. It allows you to integrate new features, bug fixes, or updates into your main codebase.
+      Merging in Git is the process of combining the changes from one branch into another. This is a core part of collaborative workflows and feature development.
+    </p>
+    <p>
+      The most common merge is bringing changes from a feature branch into the <code>main</code> branch after the feature is complete.
     </p>
 
-    <h2 class="title is-2">Step 1: Merge a Branch</h2>
-    <p>
-      To merge a branch into your current branch, use the following command:
-    </p>
-    <CodeMirror
-      :code="`git merge <branch-name>`"
-      language="bash"
-      :read-only="true"
-    />
-    <p>
-      For example, to merge the <code>feature-login</code> branch into the <code>main</code> branch:
-    </p>
-    <CodeMirror
-      :code="`git checkout main\ngit merge feature-login`"
-      language="bash"
-      :read-only="true"
-    />
+    <h2 class="title is-2">How to Merge Branches</h2>
+    <ol>
+      <li>
+        <strong>Switch to the branch you want to merge into (usually <code>main</code>):</strong>
+        <CodeMirror :code="`git checkout main`" language="bash" :read-only="true" />
+      </li>
+      <li>
+        <strong>Run the merge command:</strong>
+        <CodeMirror :code="`git merge feature-branch`" language="bash" :read-only="true" />
+        <p>This will bring the changes from <code>feature-branch</code> into <code>main</code>.</p>
+      </li>
+    </ol>
 
-    <h2 class="title is-2">Step 2: Resolve Merge Conflicts</h2>
+    <h2 class="title is-2">Merge Conflicts</h2>
     <p>
-      Sometimes, Git cannot automatically merge changes because the same lines of code were modified in both branches. This is called a merge conflict.
+      Sometimes, Git can't automatically combine changes and will report a <strong>merge conflict</strong>. This happens when the same part of a file was changed in both branches.
     </p>
-    <p>
-      Git will mark the conflicting files and ask you to resolve the conflicts manually. Open the files, look for the conflict markers (e.g., <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>), and decide which changes to keep.
-    </p>
-    <p>
-      After resolving the conflicts, stage the changes and complete the merge:
-    </p>
-    <CodeMirror
-      :code="`git add <file-name>\ngit commit`"
-      language="bash"
-      :read-only="true"
-    />
+    <ol>
+      <li>
+        <strong>Git will mark the conflict in your files:</strong>
+        <CodeMirror :code="`<<<<<<< HEAD\nYour changes\n=======\nIncoming changes\n>>>>>>> feature-branch`" language="diff" :read-only="true" />
+      </li>
+      <li>
+        <strong>Edit the file to resolve the conflict, then stage and commit:</strong>
+        <CodeMirror :code="`git add <file>\ngit commit`" language="bash" :read-only="true" />
+      </li>
+    </ol>
+
+    <div class="notification is-info is-light">
+      <p>
+        <i class="fas fa-lightbulb mr-2"></i>
+        <strong>Tip:</strong> Use <code>git status</code> to see which files have conflicts and need to be resolved.
+      </p>
+    </div>
 
     <h2 class="title is-2">Best Practices for Merging</h2>
     <ul>
-      <li>Always pull the latest changes from the remote repository before merging</li>
-      <li>Test your code after merging to ensure everything works as expected</li>
-      <li>Write clear commit messages for merge commits</li>
+      <li>Pull the latest changes from <code>main</code> before merging your branch</li>
+      <li>Resolve conflicts as soon as they arise</li>
+      <li>Test your code after merging</li>
+      <li>Write clear commit messages when resolving conflicts</li>
     </ul>
-
-    <!-- Interactive Demo -->
-    <div class="box interactive-demo mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-hand-pointer"></i> Try It Yourself
-      </h3>
-      <p>
-        Use the interactive terminal below to practice merging branches:
-      </p>
-      <CodeMirror
-        :code="`# Merge a branch\ngit checkout main\ngit merge feature-login\n\n# Resolve conflicts\ngit add <file-name>\ngit commit`"
-        language="bash"
-        :read-only="false"
-      />
-    </div>
 
     <!-- Tutorial Quiz -->
     <TutorialQuiz :quiz-id="'git-basics-merging-quiz'" @quiz-completed="onQuizCompleted" />
@@ -171,12 +161,12 @@ const onQuizCompleted = (results) => {
 export default {
   frontmatter: {
     title: 'Merging',
-    description: 'Learn how to merge branches in Git and resolve conflicts',
+    description: 'Learn how to merge branches and resolve conflicts in Git',
     category: 'Git Basics',
     level: 'Beginner',
-    order: 4,
-    tags: ['git', 'merging', 'branches', 'tutorial'],
-    lastUpdated: '2025-05-12',
+    order: 5,
+    tags: ['git', 'merging', 'conflict', 'tutorial'],
+    lastUpdated: '2025-05-27',
   },
 };
 </script>
@@ -190,10 +180,5 @@ export default {
 .prerequisite-box {
   background-color: #f8f9fa;
   border-left: 4px solid #3273dc;
-}
-
-.interactive-demo {
-  background-color: #f0f8ff;
-  border-left: 4px solid #00d1b2;
 }
 </style>

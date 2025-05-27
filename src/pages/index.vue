@@ -353,8 +353,24 @@ const frontmatter = {
 		},
 // ... other features
 	],
-	// ... other frontmatter properties ...
-	latestPosts: getLatestPosts(),
+	latestPosts: getLatestPosts(), // This is from our previous work
+
+  // ✨ NEW: Add your general FAQs here
+  generalFaqs: [
+    {
+      question: 'What is GraphiteEdge?',
+      answer: 'GraphiteEdge is a learning platform dedicated to demystifying web development. We focus on teaching the full process, from understanding how the internet works to deploying and optimizing your websites.'
+    },
+    {
+      question: 'Who are these tutorials for?',
+      answer: 'Our tutorials are designed for beginners starting their web development journey, self-taught developers looking to fill knowledge gaps, and designers transitioning into development. We aim to make complex topics accessible to everyone.'
+    },
+    {
+      question: 'How are the tutorials structured?',
+      answer: 'Most of our tutorials are part of a larger learning path, often centered around building real-world projects like "The Black Swan Bistro" (a restaurant website) and "Rotto Rocks" (a tourism website). This project-based approach helps you apply concepts practically.'
+    }
+    // Add more general FAQs as needed
+  ]
 };
 // This log shows the final array being passed to the layout
 console.log('Final frontmatter.latestPosts to be used by layout:',frontmatter.latestPosts);

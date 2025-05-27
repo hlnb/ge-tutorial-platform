@@ -573,6 +573,55 @@
 				</div>
 			</section>
 
+			<!-- Git Basics Projects -->
+			<section>
+				<h2 class="title is-2 mt-6"><i class="fab fa-git-alt mr-2"></i> Git Basics Projects</h2>
+				<div class="columns is-multiline">
+					<div class="column is-4">
+						<router-link to="/projects/git-install" class="box">
+							<h3 class="title is-4">Install and Configure Git</h3>
+							<p>Install Git, set your username/email, and configure your default editor.</p>
+						</router-link>
+					</div>
+					<div class="column is-4">
+						<router-link to="/projects/git-verify" class="box">
+							<h3 class="title is-4">Verify Git Installation</h3>
+							<p>Run git --version and git config --list to verify your setup.</p>
+						</router-link>
+					</div>
+					<div class="column is-4">
+						<router-link to="/projects/git-clone" class="box">
+							<h3 class="title is-4">Clone and Explore</h3>
+							<p>Clone a remote repository and explore its history.</p>
+						</router-link>
+					</div>
+					<div class="column is-4">
+						<router-link to="/projects/git-commit" class="box">
+							<h3 class="title is-4">Commit Practice</h3>
+							<p>Make multiple commits and view the log.</p>
+						</router-link>
+					</div>
+					<div class="column is-4">
+						<router-link to="/projects/git-branch" class="box">
+							<h3 class="title is-4">Branching Exercise</h3>
+							<p>Create, switch, and merge branches in a sample repo.</p>
+						</router-link>
+					</div>
+					<div class="column is-4">
+						<router-link to="/projects/git-merge" class="box">
+							<h3 class="title is-4">Merge Conflict Practice</h3>
+							<p>Practice resolving merge conflicts in a sample repo.</p>
+						</router-link>
+					</div>
+					<div class="column is-4">
+						<router-link to="/projects/git-remote" class="box">
+							<h3 class="title is-4">Push & Pull</h3>
+							<p>Push local changes and pull updates from a remote.</p>
+						</router-link>
+					</div>
+				</div>
+			</section>
+
 			<section class="mt-6">
 				<h2 class="title is-3">
 					<i class="fas fa-graduation-cap"></i> Learning Path

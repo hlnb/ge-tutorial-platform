@@ -109,7 +109,7 @@ const navItems: NavItem[] = [
     title: 'Introduction to Git',
   },
   {
-    path: '/tutorials/git-basics/commands',
+    path: '/tutorials/git-basics/basic-commands',
     title: 'Basic Commands',
   },
   {
@@ -117,13 +117,17 @@ const navItems: NavItem[] = [
     title: 'Branching & Merging',
   },
   {
-    path: '/tutorials/git-basics/remote',
+    path: '/tutorials/git-basics/merging',
+    title: 'Merging',
+  },
+  {
+    path: '/tutorials/git-basics/remote-repositories',
     title: 'Remote Repositories',
   },
   {
-    path: '/tutorials/git-basics/best-practices',
-    title: 'Best Practices',
-  },
+    path: '/tutorials/git-basics/workflow',
+    title: 'Git Workflow',
+  }
 ];
 
 const currentIndex = computed(() =>
