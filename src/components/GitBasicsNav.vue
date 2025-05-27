@@ -165,6 +165,7 @@ onMounted(() => {
 });
 </script>
 
+export default {};
 <style scoped>
 .tutorial-nav {
   padding: 1.5rem;

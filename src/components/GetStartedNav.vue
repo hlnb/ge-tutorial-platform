@@ -546,6 +546,7 @@ function isSubsectionOpen(id) {
 }
 </script>
 
+export default {};
 <style scoped>
 .tutorial-nav {
 	padding: 1.5rem;

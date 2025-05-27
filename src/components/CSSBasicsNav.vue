@@ -111,6 +111,8 @@ function isActive(path) {
 }
 </script>
 
+export default {};
+
 <template>
 	<div class="menu tutorial-nav">
 		<h2 class="title is-3">

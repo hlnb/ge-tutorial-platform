@@ -102,6 +102,7 @@ onMounted(() => {
 });
 </script>
 
+export default {};
 <style scoped>
 .tutorial-navigation {
 	margin-top: 3rem;

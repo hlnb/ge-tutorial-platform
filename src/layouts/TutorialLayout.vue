@@ -58,6 +58,7 @@ const navComponents = {
 	CSSBasicsNav,
 	JavaScriptBasicsNav,
 	DOMBasicsNav,
+	GitBasicsNav, // Added GitBasicsNav
 };
 
 // Determine which navigation component to show based on route
@@ -73,6 +74,8 @@ const currentNav = computed(() => {
 		return JavaScriptBasicsNav;
 	} else if (path.includes('/dom-basics')) {
 		return DOMBasicsNav;
+	} else if (path.includes('/git-basics')) {
+		return GitBasicsNav;
 	}
 	return null;
 });

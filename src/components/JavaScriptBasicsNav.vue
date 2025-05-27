@@ -124,6 +124,7 @@ function scrollToSection(id) {
 }
 </script>
 
+export default {};
 <style scoped>
 
 .tutorial-nav {
