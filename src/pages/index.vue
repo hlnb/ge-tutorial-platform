@@ -1,6 +1,13 @@
 <template>
 	<div class="container">
 		<section class="section">
+			<!--
+			  The content that was previously directly in this template (hero, about, features)
+			  is now primarily handled by the src/layouts/home.vue layout,
+			  which receives its data via the `frontmatter` object defined below.
+			  If you have any content that is unique to the index page and *not* part of
+			  the shared layout, it would go here. Otherwise, this template can be minimal.
+			-->
 			<div class="content">
 				<!-- Hero Section -->
 				<section class="hero is-large mb-6">
@@ -173,32 +180,202 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'; // Import computed if not already there
 import { useHead } from '@vueuse/head';
 
-const frontmatter = {
-	title: 'GraphitEdge',
-	description:
-		'Welcome to GraphitEdge - Web Development Tutorials and Practical Projects',
+// Get all .vue files from the src/pages/posts directory
+const postModules = import.meta.glob('/src/pages/posts/*.vue', { eager: true });
+console.log('Post modules:', postModules); // Debugging line to check loaded modules
+// Ensure the postModules object is not empty
+if (Object.keys(postModules).length === 0) {
+	console.warn('No post modules found. Check your import path or file structure.');
+}
+// Function to process posts and get the latest ones
+const getLatestPosts = () =>
+{
+	const processedPosts = Object.entries(postModules)
+		.map(([path,module]) =>
+		{
+			const fm = module.frontmatter;
+			// Log the frontmatter for each post to see what's being processed
+			console.log(`Processing ${ path }: frontmatter =`,fm);
+			if (fm && fm.status === 'published' && fm.date)
+			{
+				const slug = path.split('/').pop().replace('.vue','');
+				return {
+					title: fm.title,
+					status: fm.status, // Good to include for debugging
+					dateString: fm.date, // Original date string
+					link: `/posts/${ slug }`,
+					snippet: fm.description || '',
+					date: new Date(fm.date),
+				};
+			}
+			return null;
+		})
+		.filter(post => post !== null)
+		.sort((a,b) => b.date - a.date)
+		.slice(0,3);
+	// This log shows what posts actually made it through the filter and sort
+	console.log('Posts after processing (getLatestPosts):',processedPosts);
+	return processedPosts;
 };
 
-// SEO metadata
+// This 'frontmatter' object is what gets passed to your home.vue layout
+const frontmatter = {
+	title: 'GraphitEdge', // Existing title for SEO
+	description: 'Welcome to GraphitEdge - Web Development Tutorials and Practical Projects', // Existing description for SEO
+	hero: { // Existing hero data
+		title: 'Web Development Isn’t Just Code',
+		description: 'Demystifying the full process from DNS to SEO, design to deployment.',
+		// tagline and actions would also be here if they were part of your original hero
+	},
+	features: [ // Existing features data
+		{
+			title: 'Foundations of Web Development',
+			icon: '📌',
+			items: [
+				{
+					heading: 'Understand the Internet',
+					description: 'Learn about domains, DNS, hosting, and how websites actually work behind the scenes.',
+				},
+				// ... other items and features
+				{
+					heading: 'HTML, CSS & JavaScript',
+					description: 'Master the building blocks of web development with clear, visual explanations.',
+				},
+				{
+					heading: 'Vue.js & Bulma',
+					description: 'Build modern, responsive interfaces with real-world frameworks.',
+				},
+			],
+		},
+		{
+			title: 'Turning Design into Reality',
+			icon: '📌',
+			items: [
+				{
+					heading: 'Design to Code',
+					description: 'Learn how to translate a mockup or an image into a functional website.',
+				},
+				// ... other items
+			],
+		},
+		{
+			title: 'Web Performance & SEO',
+			icon: '📌',
+			items: [
+				{
+					heading: 'SEO Optimization',
+					description: 'Understand how search engines rank pages and how to create SEO-friendly content.',
+				},
+				{
+					heading: 'Page Speed & Performance',
+					description: 'Learn why speed matters and how to optimize your site for fast loading times.',
+				},
+			],
+		},
+		{
+			title: 'Deployment & Security',
+			icon: '📌',
+			items: [
+				{
+					heading: 'Hosting & Deployment',
+					description: 'Learn how to launch your site on the web.',
+				},
+				{
+					heading: 'Security Best Practices',
+					description: 'Keep your website safe and resilient from threats.',
+				},
+			],
+		},
+		// ... other features
+		{
+			title: 'Foundations of Web Development',
+			icon: '📌',
+			items: [
+				{
+					heading: 'Understand the Internet',
+					description: 'Learn about domains, DNS, hosting, and how websites actually work behind the scenes.',
+				},
+				{
+					heading: 'HTML, CSS & JavaScript',
+					description: 'Master the building blocks of web development with clear, visual explanations.',
+				},
+				{
+					heading: 'Vue.js & Bulma',
+					description: 'Build modern, responsive interfaces with real-world frameworks.',
+				},
+			],
+		},
+		{
+			title: 'Turning Design into Reality',
+			icon: '📌',
+			items: [
+				{
+					heading: 'Design to Code',
+					description: 'Learn how to translate a mockup or an image into a functional website.',
+				},
+				{
+					heading: 'CSS & Layouts',
+					description: 'Discover best practices for structuring and styling web pages.',
+				},
+			],
+		},
+		// ... other features
+		{
+			title: 'Web Performance & SEO',
+			icon: '📌',
+			items: [
+				{
+					heading: 'SEO Optimization',
+					description: 'Understand how search engines rank pages and how to create SEO-friendly content.',
+				},
+				{
+					heading: 'Page Speed & Performance',
+					description: 'Learn why speed matters and how to optimize your site for fast loading times.',
+				},
+			],
+		},
+		{
+			title: 'Deployment & Security',
+			icon: '📌',
+			items: [
+				{
+					heading: 'Hosting & Deployment',
+					description: 'Learn how to launch your site on the web.',
+				},
+				{
+					heading: 'Security Best Practices',
+					description: 'Keep your website safe and resilient from threats.',
+				},
+			],
+		},
+// ... other features
+	],
+	// ... other frontmatter properties ...
+	latestPosts: getLatestPosts(),
+};
+// This log shows the final array being passed to the layout
+console.log('Final frontmatter.latestPosts to be used by layout:',frontmatter.latestPosts);
+
+// SEO metadata (this part remains the same)
 useHead({
 	title: frontmatter.title,
 	meta: [
-		{ name: 'description', content: frontmatter.description },
+		{ name: 'description',content: frontmatter.description },
 		{
 			name: 'keywords',
-			content:
-				'web development, tutorials, beginner to advanced, practical projects, Western Australia, Vue.js, HTML, CSS, JavaScript',
+			content: 'web development, tutorials, beginner to advanced, practical projects, Western Australia, Vue.js, HTML, CSS, JavaScript',
 		},
-		// Open Graph tags for social sharing
-		{ property: 'og:title', content: frontmatter.title },
-		{ property: 'og:description', content: frontmatter.description },
-		{ property: 'og:type', content: 'website' },
+		// Open Graph tags
+		{ property: 'og:title',content: frontmatter.title },
+		{ property: 'og:description',content: frontmatter.description },
+		{ property: 'og:type',content: 'website' },
 		// Twitter Card tags
-		{ name: 'twitter:title', content: frontmatter.title },
-		{ name: 'twitter:description', content: frontmatter.description },
-		{ name: 'twitter:card', content: 'summary_large_image' },
+		{ name: 'twitter:title',content: frontmatter.title },
+		{ name: 'twitter:description',content: frontmatter.description },
+		{ name: 'twitter:card',content: 'summary_large_image' },
 	],
 });
 

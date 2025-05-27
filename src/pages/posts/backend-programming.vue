@@ -471,6 +471,10 @@ export const frontmatter = {
 	readingTime: '10 min',
 	relatedPosts: ['javascript-basics', 'build-first-web-page'],
 };
+const formatDate = (date) =>
+{
+	return format(new Date(date),'MMMM do, yyyy');
+};
 </script>
 
 <script setup>
@@ -484,9 +488,7 @@ import { format } from 'date-fns';
 
 const postData = ref(frontmatter);
 
-const formatDate = (date) => {
-	return format(new Date(date), 'MMMM do, yyyy');
-};
+
 
 useHead({
 	title: postData.value.title,

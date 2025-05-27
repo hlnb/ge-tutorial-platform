@@ -174,17 +174,10 @@
 	<PostNavigation :current-path="'web-security-essentials'" />
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
-import { usePageSections } from '@/composables/usePageSections';
-import { useHead } from '@vueuse/head';
-import { format } from 'date-fns';
-import PostVisibility from '@/components/PostVisibility.vue';
-import PostNavigation from '@/components/PostNavigation.vue';
-import BlogSignup from '@/components/BlogSignup.vue';
+<script>
 
 // Define frontmatter for the post
-const frontmatter = {
+export const frontmatter = {
 	title: 'Web Security Essentials: Protecting Your Site From Common Threats',
 	date: '2024-04-15',
 	author: 'Helen Burgess',
@@ -206,12 +199,23 @@ const frontmatter = {
 	excerpt: 'Learn how to protect your website from common security threats with practical, actionable steps that don\'t require advanced technical knowledge.',
 	featured: true,
 };
+const formatDate = (date) =>
+{
+	return format(new Date(date),'MMMM do, yyyy');
+};
+</script>
+<script setup>
+import { ref, onMounted } from 'vue';
+import { usePageSections } from '@/composables/usePageSections';
+import { useHead } from '@vueuse/head';
+import { format } from 'date-fns';
+import PostVisibility from '@/components/PostVisibility.vue';
+import PostNavigation from '@/components/PostNavigation.vue';
+import BlogSignup from '@/components/BlogSignup.vue';
 
 const postData = ref(frontmatter);
 
-const formatDate = (date) => {
-	return format(new Date(date), 'MMMM do, yyyy');
-};
+
 
 useHead({
 	title: postData.value.title,

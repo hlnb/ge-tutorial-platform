@@ -231,23 +231,13 @@ location /static/ {
 	</PostVisibility>
 	<PostNavigation :current-path="'web-performance-optimization'" />
 </template>
-
-<script setup>
-import { ref, onMounted } from 'vue';
-import { usePageSections } from '@/composables/usePageSections';
-import { useHead } from '@vueuse/head';
-import { format } from 'date-fns';
-import PostVisibility from '@/components/PostVisibility.vue';
-import PostNavigation from '@/components/PostNavigation.vue';
-import BlogSignup from '@/components/BlogSignup.vue';
-
-// Define frontmatter for the post
-const frontmatter = {
+<script>
+export const frontmatter = {
 	title: 'Speed Matters: A Practical Guide to Web Performance Optimization',
 	date: '2025-04-30',
 	author: 'Helen Burgess',
 	description: 'Learn practical strategies to optimize your website\'s performance, from caching to image optimization, with real-world examples and case studies.',
-	tags: ['Performance', 'Web Development', 'Optimization'],
+	tags: ['Performance','Web Development','Optimization'],
 	status: 'published',
 	series: 'Web Development Fundamentals',
 	seriesOrder: 3,
@@ -264,11 +254,23 @@ const frontmatter = {
 	featured: true,
 };
 
-const postData = ref(frontmatter);
+const formatDate = (date) =>
+{
+	return format(new Date(date),'MMMM do, yyyy');
+};	
+</script>
+<script setup>
+import { ref, onMounted } from 'vue';
+import { usePageSections } from '@/composables/usePageSections';
+import { useHead } from '@vueuse/head';
+import { format } from 'date-fns';
+import PostVisibility from '@/components/PostVisibility.vue';
+import PostNavigation from '@/components/PostNavigation.vue';
+import BlogSignup from '@/components/BlogSignup.vue';
 
-const formatDate = (date) => {
-	return format(new Date(date), 'MMMM do, yyyy');
-};
+// Define frontmatter for the post
+
+const postData = ref(frontmatter);
 
 useHead({
 	title: postData.value.title,
