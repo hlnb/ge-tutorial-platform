@@ -1055,6 +1055,16 @@ const routes = [
 			title: 'My Learning Progress',
 		},
 	},
+	// Community page route
+	{
+		path: '/community',
+		name: 'community',
+		component: () => import('@/pages/community.vue'),
+		meta: {
+			title: 'GraphitEdge Community',
+			description: 'Connect with other learners, get support, and join the GraphitEdge community.'
+		}
+	},
 	// Catch-all route for 404
 	{
 		path: '/:pathMatch(.*)*',

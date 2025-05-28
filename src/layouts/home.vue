@@ -1,35 +1,39 @@
 <template>
-  <div>
-    <section class="hero">
-      <h1>{{ frontmatter.hero.title }}</h1> <!-- Changed from name to title -->
-      <p>{{ frontmatter.hero.description }}</p> <!-- Changed from text to description -->
-      <!-- Conditionally render tagline if it exists, or remove if not used -->
-      <p v-if="frontmatter.hero.tagline">{{ frontmatter.hero.tagline }}</p>
-      <!-- Conditionally render actions if they exist -->
-      <div v-if="frontmatter.hero.actions && frontmatter.hero.actions.length">
-        <a v-for="action in frontmatter.hero.actions" :key="action.text" :href="action.link" :class="action.theme || 'primary'">
-          {{ action.text }}
-        </a>
-      </div>
-    </section>
+
+<div class="content">
+    <slot name="hero" />
+
+    <slot name="about" />
+    <slot name="mission" />
+    <slot name="learning" />
+    <slot name="techstack" />
     <section class="features">
-      <div v-for="feature in frontmatter.features" :key="feature.title">
-        <h2>
-          <span v-if="feature.icon" class="icon-text">
-            <span class="icon">{{ feature.icon }}</span>
-            <span>{{ feature.title }}</span>
-          </span>
-          <span v-else>{{ feature.title }}</span>
-        </h2>
-        <ul v-if="feature.items && feature.items.length">
-          <li v-for="item in feature.items" :key="item.heading">
-            <strong>{{ item.heading }}:</strong> {{ item.description }}
-          </li>
-        </ul>
-        <!-- If you had a simple 'details' string before, this part is no longer used with the new structure -->
-        <!-- <p v-if="feature.details && !feature.items">{{ feature.details }}</p> -->
+      <div>
+        <h2 class="title is-3 has-text-white">What You'll Learn with GraphiteEdge</h2>
+        <p class="has-text-white">At GraphiteEdge, our tutorials go beyond just writing code. We help beginners, self-taught developers, and designers understand the entire web development process by building real-world projects</p>
+      </div>
+      <div class="features-cards">
+        <div v-for="feature in visibleFeatures" :key="feature.title" class="feature-card">
+          <h2>
+            <span v-if="feature.icon" class="icon-text">
+              <span class="icon">{{ feature.icon }}</span>
+              <span>{{ feature.title }}</span>
+            </span>
+            <span v-else>{{ feature.title }}</span>
+          </h2>
+          <ul v-if="feature.items && feature.items.length">
+            <li v-for="item in feature.items" :key="item.heading">
+              <strong>{{ item.heading }}:</strong> {{ item.description }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="features-carousel-controls">
+        <button @click="prevFeatures" :disabled="!canGoPrev" class="carousel-arrow">&#8592;</button>
+        <button @click="nextFeatures" :disabled="!canGoNext" class="carousel-arrow">&#8594;</button>
       </div>
     </section>
+
     <section class="latest-posts" v-if="frontmatter.latestPosts && frontmatter.latestPosts.length">
       <h2>Latest from The Graphite Journal</h2>
       <div class="posts-grid">
@@ -44,6 +48,8 @@
         </article>
       </div>
     </section>
+    <slot name="faqs" />
+    <slot />
   </div>
 </template>
 
@@ -55,6 +61,36 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      featureStart: 0,
+      featuresPerPage: 3,
+    };
+  },
+  computed: {
+    visibleFeatures() {
+      if (!this.frontmatter.features) return [];
+      return this.frontmatter.features.slice(this.featureStart, this.featureStart + this.featuresPerPage);
+    },
+    canGoPrev() {
+      return this.featureStart > 0;
+    },
+    canGoNext() {
+      return this.featureStart + this.featuresPerPage < (this.frontmatter.features ? this.frontmatter.features.length : 0);
+    }
+  },
+  methods: {
+    prevFeatures() {
+      if (this.canGoPrev) {
+        this.featureStart = Math.max(0, this.featureStart - this.featuresPerPage);
+      }
+    },
+    nextFeatures() {
+      if (this.canGoNext) {
+        this.featureStart = Math.min((this.frontmatter.features ? this.frontmatter.features.length : 0) - this.featuresPerPage, this.featureStart + this.featuresPerPage);
+      }
+    }
+  }
 };
 </script>
 
@@ -63,7 +99,8 @@ export default {
 .hero {
   text-align: center;
   padding: 4rem 1rem;
-  background-color: #f4f4f4; /* Example background */
+  background-color: #23272f; /* Match hero background, dark slate */
+  color: #fff;
 }
 .hero h1 {
   font-size: 2.5rem;
@@ -72,7 +109,7 @@ export default {
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: #555;
+  color: #ddd;
 }
 .hero div a {
   display: inline-block;
@@ -94,12 +131,79 @@ export default {
 /* Features Section Styles (example) */
 .features {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem 1rem;
+  background-color: #23272f; /* Match hero background */
 }
 .features > div {
   flex-basis: 30%;
   text-align: center;
+}
+
+.features-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.feature-card {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 0;
+  text-align: left;
+  transition: box-shadow 0.2s;
+  /* Bulma card style */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.feature-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.features-carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.carousel-arrow {
+  background: #23272f;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+.carousel-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.feature-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #23272f;
+}
+.feature-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.feature-card li {
+  margin-bottom: 0.5rem;
+  color: #23272f;
+}
+/* Use Bulma card helpers */
+.feature-card {
+  box-shadow: var(--bulma-box-shadow, 0 2px 8px rgba(0,0,0,0.08));
 }
 
 /* Latest Posts Section Styles */

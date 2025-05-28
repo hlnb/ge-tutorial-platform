@@ -53,7 +53,7 @@
 
 		<h2 class="title is-2 mt-6">Learning Path</h2>
 
-		<div class="level-section mb-6">
+		<section class="level-section mb-6">
 			<h3 class="title is-3">
 				<span class="tag is-info is-large mb-2">Beginner</span>
 			</h3>
@@ -185,9 +185,10 @@
 						>Start Your Git Journey</router-link
 					>
 			</div>
-		</div>
+			</div>
+		</section>
 
-		<div class="level-section mb-6">
+		<section class="level-section mb-6">
 			<h3 class="title is-3">
 				<span class="tag is-success is-large mb-2">Intermediate</span>
 			</h3>
@@ -217,9 +218,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 
-		<div class="level-section mb-6">
+		<section class="level-section mb-6">
 			<h3 class="title is-3">
 				<span class="tag is-warning is-large mb-2">Advanced</span>
 			</h3>
@@ -249,28 +250,81 @@
 					</div>
 				</div>
 			</div>
+		</section>
 		</div>
-
+		<!-- Learning tips and community section -->
+		<section class="level-section mb-6">
+			<h3 class="title is-3">Learning Tips & Community</h3>
+			<div class="box box-info mt-6">
+			<h3 class="title is-5 mb-2">Getting Started</h3>
+			<p>
+				To begin, choose a topic from the list above and start with the first
+				tutorial. Each tutorial builds on the previous one, so it's best to
+				follow the order provided.
+			</p>
+			<p>
+				You can also use the navigation menu to jump directly to specific
+				tutorials or levels.
+			</p>
+			<router-link to="/tutorials/getting-started" class="button is-primary"
+				>Start Learning Now</router-link
+			>
+		</div>
 		<div class="box box-info mt-6">
-			<h3 class="title is-5 mb-2">Learning Tips</h3>
-			<ul>
-				<li>Complete tutorials in order within each level</li>
-				<li>Practice with the provided exercises</li>
-				<li>Build the example projects</li>
-				<li>Review code in the practice sessions</li>
-				<li>Take breaks between tutorials</li>
-			</ul>
+			<h3 class="title is-5 mb-2">Tutorial Levels</h3>
+			<p>
+				Each tutorial is categorized into levels based on difficulty and
+				completeness. Start with the Beginner level and progress through
+				Intermediate and Advanced as you gain confidence.
+			</p>
+			<p>
+				You can always revisit previous tutorials to reinforce your knowledge.
+			</p>
+			<router-link to="/tutorials/beginner" class="button is-primary"
+				>Explore Beginner Tutorials</router-link
+			>
 		</div>
-	</div>
-	</div>
+		<div class="box box-info mt-6">
+			<h3 class="title is-5 mb-2">Practice and Projects</h3>
+			<p>
+				After completing the tutorials, apply your skills with the practice
+				exercises and projects provided. These will help solidify your
+				understanding and prepare you for real-world development.
+			</p>
+			<p>
+				You can find practice sessions linked at the end of each tutorial.
+			</p>
+			<router-link to="/tutorials/practice" class="button is-primary"
+				>Start Practicing</router-link
+			>
+		</div>
+		<div class="box box-info mt-6">
+			<h3 class="title is-5 mb-2">Community and Support</h3>
+			<p>
+				Join our community to connect with other learners, ask questions, and
+				get feedback on your projects. We have a friendly and supportive
+				environment where you can grow your skills.
+			</p>
+			<p>
+				You can also find additional resources, tips, and discussions in our
+				forums.
+			</p>
+			<router-link to="/community" class="button is-primary"
+				>Join the Community</router-link
+			>
+		</div>
+		</section>
+		<!-- Learning tips and community section -->
 
-	<!-- Router view for nested routes -->
-	<router-view v-else></router-view>
+	<!-- FAQ Section at the bottom -->
+	<FaqSection :faqs="generalFaqs" class="mt-6" />
 </template>
 
 <script setup>
 import { computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import FaqSection from '@/components/FaqSection.vue';
+import generalFaqs from '@/data/faqs';
 
 const route = useRoute();
 const router = useRouter();

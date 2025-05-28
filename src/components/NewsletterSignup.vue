@@ -4,7 +4,7 @@
 			<input
 				type="email"
 				v-model="email"
-				placeholder="Enter your email"
+				placeholder="Enter your email for site news & major updates"
 				required
 				:disabled="status === 'loading' || status === 'success'"
 			/>
@@ -13,7 +13,7 @@
 				:disabled="status === 'loading' || status === 'success'"
 			>
 				<span v-if="status === 'idle'">
-					<i class="fa-regular fa-paper-plane"></i> Subscribe
+					<i class="fa-regular fa-paper-plane"></i> Subscribe to General Newsletter
 				</span>
 				<span v-else-if="status === 'loading'">
 					<i class="fa-solid fa-circle-notch fa-spin"></i> Subscribing...
@@ -25,6 +25,12 @@
 					<i class="fa-solid fa-exclamation-triangle"></i> Try Again
 				</span>
 			</button>
+		</div>
+
+		<div class="newsletter-description mb-2">
+			<p class="is-size-7 has-text-grey">
+				<strong>General Newsletter:</strong> Get site news, platform updates, new feature announcements, and important community info. (No blog post notifications.)
+			</p>
 		</div>
 
 		<div v-if="status === 'success'" class="message success">

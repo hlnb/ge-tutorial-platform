@@ -17,6 +17,14 @@
 				<router-link class="navbar-item has-text-dark" to="/about">
 					About
 				</router-link>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link has-text-dark">More</a>
+					<div class="navbar-dropdown">
+						<router-link class="navbar-item" to="/community">
+							Community
+						</router-link>
+					</div>
+				</div>
 				<router-link
 					class="navbar-item has-text-dark"
 					to="/the-graphite-journal"

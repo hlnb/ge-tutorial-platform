@@ -156,6 +156,9 @@
 				</p>
 
 				<NewsletterSignup />
+				<router-link to="/community" class="button is-primary is-large mt-3">
+  Visit the Community Page
+</router-link>
 			</div>
 		</section>
 	</div>

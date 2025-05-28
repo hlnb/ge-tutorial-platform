@@ -2,7 +2,7 @@
 export const gitBasicsQuizzes = {
   'introduction': [
     {
-      text: 'What is the primary purpose of Git?',
+      question: 'What is the primary purpose of Git?',
       options: [
         'Text editing',
         'Version control',
@@ -12,7 +12,7 @@ export const gitBasicsQuizzes = {
       correctAnswer: 1
     },
     {
-      text: 'Which command initializes a new Git repository?',
+      question: 'Which command initializes a new Git repository?',
       options: [
         'git start',
         'git init',
@@ -24,7 +24,7 @@ export const gitBasicsQuizzes = {
   ],
   'installation': [
     {
-      text: 'Which command checks your installed Git version?',
+      question: 'Which command checks your installed Git version?',
       options: [
         'git check',
         'git version',
@@ -36,7 +36,7 @@ export const gitBasicsQuizzes = {
   ],
   'basic-commands': [
     {
-      text: 'What does "git add" do?',
+      question: 'What does "git add" do?',
       options: [
         'Adds a new branch',
         'Stages changes for commit',
@@ -48,7 +48,7 @@ export const gitBasicsQuizzes = {
   ],
   'branching': [
     {
-      text: 'Which command creates a new branch?',
+      question: 'Which command creates a new branch?',
       options: [
         'git branch <name>',
         'git new branch',
@@ -60,7 +60,7 @@ export const gitBasicsQuizzes = {
   ],
   'merging': [
     {
-      text: 'What does "git merge" do?',
+      question: 'What does "git merge" do?',
       options: [
         'Deletes a branch',
         'Combines branches',
@@ -72,7 +72,7 @@ export const gitBasicsQuizzes = {
   ],
   'remote-repositories': [
     {
-      text: 'Which command adds a remote repository?',
+      question: 'Which command adds a remote repository?',
       options: [
         'git add remote',
         'git remote add',
@@ -84,7 +84,7 @@ export const gitBasicsQuizzes = {
   ],
   'workflow': [
     {
-      text: 'What is the typical order of a Git workflow?',
+      question: 'What is the typical order of a Git workflow?',
       options: [
         'add > commit > push',
         'commit > add > push',
@@ -96,7 +96,7 @@ export const gitBasicsQuizzes = {
   ],
   'conclusion': [
     {
-      text: 'After completing Git Basics, what is a recommended next step?',
+      question: 'After completing Git Basics, what is a recommended next step?',
       options: [
         'Stop using Git',
         'Learn advanced Git topics',

@@ -198,7 +198,8 @@
 						</ul>
 
 						<p>
-							If you have any questions, drop an email or join our community!
+							If you have any questions, drop an email or
+							<router-link to="/community">join our community</router-link>!
 							Happy coding! 🎉
 						</p>
 

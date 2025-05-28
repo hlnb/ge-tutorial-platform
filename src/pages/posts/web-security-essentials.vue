@@ -156,7 +156,7 @@
 						</p>
 
 						<p>
-							Want to learn more? Check out our <a href="https://example.com/tutorial">hands-on tutorial</a> where we secure the Rotto Rocks website from the ground up, or join our <a href="https://example.com/community">community</a> to discuss security best practices with other developers.
+							Want to learn more? Check out our <router-link to="/tutorials">hands-on tutorial</router-link> where we secure the Rotto Rocks website from the ground up, or join our <router-link to="/community">community</router-link> to discuss security best practices with other developers.
 						</p>
 
 						<p class="conclusion">
@@ -435,4 +435,4 @@ a:hover {
 		font-size: 1.2rem;
 	}
 }
-</style> 
+</style>
