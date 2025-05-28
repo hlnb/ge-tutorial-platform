@@ -3,6 +3,10 @@
  * Service for tracking and managing student progress through tutorials
  */
 
+import { auth, db } from './firebase';
+import { doc, getDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
+
 // Constants
 const PROGRESS_STORAGE_KEY = 'tutorial_progress';
 
@@ -14,52 +18,72 @@ const defaultProgress = {
 	quizResults: {},
 };
 
-// Load progress from localStorage
+// Get current user ID
+function getCurrentUserId() {
+	return auth.currentUser ? auth.currentUser.uid : null;
+}
+
+// Load progress from Firestore or localStorage
 async function loadProgress() {
-	try {
-		const savedProgress = localStorage.getItem(PROGRESS_STORAGE_KEY);
-		if (savedProgress) {
-			return JSON.parse(savedProgress);
+	const userId = getCurrentUserId();
+	if (userId) {
+		// Authenticated: load from Firestore
+		try {
+			const docRef = doc(db, 'progress', userId);
+			const docSnap = await getDoc(docRef);
+			if (docSnap.exists()) {
+				return docSnap.data();
+			}
+			return defaultProgress;
+		} catch (error) {
+			console.error('Error loading progress from Firestore:', error);
+			return defaultProgress;
 		}
-		return defaultProgress;
-	} catch (error) {
-		console.error('Error loading progress:', error);
-		return defaultProgress;
+	} else {
+		// Guest: load from localStorage
+		try {
+			const savedProgress = localStorage.getItem(PROGRESS_STORAGE_KEY);
+			if (savedProgress) {
+				return JSON.parse(savedProgress);
+			}
+			return defaultProgress;
+		} catch (error) {
+			console.error('Error loading progress from localStorage:', error);
+			return defaultProgress;
+		}
 	}
 }
 
-// Save progress to localStorage
+// Save progress to Firestore or localStorage
 async function saveProgress(progress) {
-	try {
-		localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
-		return true;
-	} catch (error) {
-		console.error('Error saving progress:', error);
-		return false;
+	const userId = getCurrentUserId();
+	if (userId) {
+		// Authenticated: save to Firestore
+		try {
+			const docRef = doc(db, 'progress', userId);
+			await setDoc(docRef, progress, { merge: true });
+			return true;
+		} catch (error) {
+			console.error('Error saving progress to Firestore:', error);
+			return false;
+		}
+	} else {
+		// Guest: save to localStorage
+		try {
+			localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+			return true;
+		} catch (error) {
+			console.error('Error saving progress to localStorage:', error);
+			return false;
+		}
 	}
 }
 
 // Check if progress tracking is enabled
 function isProgressTrackingEnabled() {
 	if (typeof window === 'undefined') return false;
-
-	try {
-		const consent = localStorage.getItem('cookieConsent');
-		const settingsStr = localStorage.getItem('cookieSettings');
-		
-		if (consent !== 'true') return false;
-		
-		try {
-			const settings = JSON.parse(settingsStr);
-			return settings && settings.progress === true;
-		} catch (error) {
-			console.error('Error parsing cookie settings:', error);
-			return false;
-		}
-	} catch (error) {
-		console.error('Error checking progress tracking status:', error);
-		return false;
-	}
+	// You may want to add logic for cookie consent, etc.
+	return true;
 }
 
 // Enable progress tracking
@@ -230,15 +254,8 @@ async function trackProgress(tutorialPath) {
 
 // Export all functions
 export default {
+	loadProgress,
+	saveProgress,
 	isProgressTrackingEnabled,
-	enableProgressTracking,
-	disableProgressTracking,
-	getProgress,
-	markTutorialCompleted,
-	updateTutorialProgress,
-	saveQuizResult,
-	clearAllProgress,
-	getProgressSummary,
-	trackScrollProgress,
-	trackProgress
+	getCurrentUserId,
 };

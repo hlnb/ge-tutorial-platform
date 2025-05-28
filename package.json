@@ -9,7 +9,6 @@
 		"dev:api": "node api/server.js",
 		"build": "vite build",
 		"preview": "vite preview",
-		"test:redis": "node --experimental-json-modules test-redis.js",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix",
 		"format": "prettier --write src/"
 	},
@@ -26,11 +25,11 @@
 		"codemirror": "^5.65.2",
 		"date-fns": "^4.1.0",
 		"dompurify": "^3.2.3",
+		"firebase": "^11.8.1",
 		"highlight.js": "^11.11.1",
 		"mongoose": "^8.9.5",
 		"node-schedule": "^2.1.1",
 		"pinia": "^2.1.6",
-		"redis": "^4.7.0",
 		"vue": "^3.3.4",
 		"vue-codemirror": "^4.0.6",
 		"vue-router": "^4.2.4"
