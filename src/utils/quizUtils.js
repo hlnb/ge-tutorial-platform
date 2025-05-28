@@ -7,6 +7,7 @@ import { htmlBasicsQuizzes } from '@/data/quizzes/html-basics';
 import { cssBasicsQuizzes } from '@/data/quizzes/css-basics';
 import jsBasicsQuizzes from '@/data/quizzes/javascript-basics';
 import { domBasicsQuizzes } from '@/data/quizzes/dom-basics';
+import { gitBasicsQuizzes } from '@/data/quizzes/git-basics';
 
 // Add JavaScript Basics quizzes
 const javascriptBasicsQuizzes = {
@@ -69,7 +70,8 @@ const allQuizzes = {
 	...htmlBasicsQuizzes,
 	...cssBasicsQuizzes,
 	...javascriptBasicsQuizzes,
-	...domBasicsQuizzes
+	...domBasicsQuizzes,
+	...gitBasicsQuizzes
 };
 
 /**
@@ -94,6 +96,9 @@ export function getQuizQuestions(section, tutorial) {
 			break;
 		case 'dom-basics':
 			quizCollection = domBasicsQuizzes;
+			break;
+		case 'git-basics':
+			quizCollection = gitBasicsQuizzes;
 			break;
 		default:
 			return [];

@@ -208,7 +208,10 @@
       Install the <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory" target="_blank">Git History</a> extension to view your commit history in a visual format. This can be helpful for tracking changes and understanding your project's timeline.
     </p>
     <!-- Tutorial Quiz -->
-    <TutorialQuiz :quiz-id="'git-basics-remote-repositories-quiz'" @quiz-completed="onQuizCompleted" />
+    <div class="quiz-box mt-6">
+      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Remote Repositories</h2>
+      <TutorialQuiz :quiz-id="'git-basics-remote-repositories'" />
+    </div>
 
     <!-- Tutorial Recommendations -->
     <TutorialRecommendations :current-path="'/tutorials/git-basics/remote-repositories'" />
@@ -282,5 +285,13 @@ export default {
 .interactive-demo {
   background-color: #f0f8ff;
   border-left: 4px solid #00d1b2;
+}
+
+.quiz-box {
+  background-color: #fff8f0;
+  border-left: 4px solid #ffdd57;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
 }
 </style>

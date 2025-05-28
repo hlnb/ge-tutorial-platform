@@ -111,7 +111,10 @@
     </ul>
 
     <!-- Tutorial Quiz -->
-    <TutorialQuiz :quiz-id="'git-basics-merging-quiz'" @quiz-completed="onQuizCompleted" />
+    <div class="quiz-box mt-6">
+      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Merging in Git</h2>
+      <TutorialQuiz :quiz-id="'git-basics-merging'" />
+    </div>
 
     <!-- Tutorial Recommendations -->
     <TutorialRecommendations :current-path="'/tutorials/git-basics/merging'" />

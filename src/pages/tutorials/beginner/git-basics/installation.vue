@@ -220,7 +220,10 @@ git config --global user.email 'your.email@example.com'`"
       Install the <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory" target="_blank">Git History</a> extension to view your commit history in a visual format. This can be helpful for tracking changes and understanding your project's timeline.
     </p>
     <!-- Tutorial Quiz -->
-    <TutorialQuiz :quiz-id="'git-basics-installation-quiz'" @quiz-completed="onQuizCompleted" />
+    <div class="quiz-box mt-6">
+      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Installing Git</h2>
+      <TutorialQuiz :quiz-id="'git-basics-installation'" />
+    </div>
 
     <!-- Tutorial Recommendations -->
     <TutorialRecommendations :current-path="'/tutorials/git-basics/installation'" />

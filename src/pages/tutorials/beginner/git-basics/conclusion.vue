@@ -82,6 +82,8 @@
       We'd love to hear your thoughts on this tutorial! If you have any feedback or suggestions, please <router-link to="/contact">contact us</router-link>.
     </p>
 
+    <TutorialQuiz :quiz-id="'git-basics-conclusion'" />
+
     <div class="level mt-6">
       <div class="level-left">
         <div class="level-item">
@@ -104,6 +106,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useProgressTracking } from '@/utils/progressUtils';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 // Initialize progress tracking
 const { trackTutorial } = useProgressTracking();

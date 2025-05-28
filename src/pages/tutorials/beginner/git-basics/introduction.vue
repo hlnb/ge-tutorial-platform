@@ -525,7 +525,10 @@
     </div>
 
     <!-- Tutorial Quiz -->
-    <TutorialQuiz :quiz-id="'git-basics-intro-quiz'" @quiz-completed="onQuizCompleted" />
+    <div class="quiz-box mt-6">
+      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Introduction to Git</h2>
+      <TutorialQuiz :quiz-id="'git-basics-introduction'" />
+    </div>
 
     <!-- Tutorial Recommendations -->
     <TutorialRecommendations :current-path="'/tutorials/git-basics/introduction'" />

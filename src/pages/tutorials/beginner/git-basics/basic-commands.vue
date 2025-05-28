@@ -189,7 +189,10 @@
     </p>
 
     <!-- Tutorial Quiz -->
-    <TutorialQuiz :quiz-id="'git-basics-basic-commands-quiz'" @quiz-completed="onQuizCompleted" />
+    <div class="quiz-box mt-6">
+      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Basic Git Commands</h2>
+      <TutorialQuiz :quiz-id="'git-basics-basic-commands'" />
+    </div>
 
     <!-- Tutorial Recommendations -->
     <TutorialRecommendations :current-path="'/tutorials/git-basics/basic-commands'" />
@@ -263,5 +266,12 @@ export default {
 .interactive-demo {
   background-color: #f0f8ff;
   border-left: 4px solid #00d1b2;
+}
+
+.quiz-box {
+  background-color: #f9f9f9;
+  border-left: 4px solid #ffdd57;
+  padding: 1.5rem;
+  border-radius: 4px;
 }
 </style>
