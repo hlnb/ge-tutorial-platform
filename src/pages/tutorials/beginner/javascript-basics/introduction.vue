@@ -309,9 +309,6 @@ const { trackTutorial } = useProgressTracking();
 
 
 // Interactive demo
-const demoMessage = ref('');
-const messageColor = ref('is-primary');
-const clickCount = ref(0);
 
 // Track tutorial on mount
 onMounted(() => {
