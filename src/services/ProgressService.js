@@ -252,6 +252,76 @@ async function trackProgress(tutorialPath) {
 	}
 }
 
+// Merge two progress objects, preferring the most recently updated fields
+function mergeProgress(local, remote) {
+	if (!local) return remote || defaultProgress;
+	if (!remote) return local || defaultProgress;
+	const merged = { ...remote };
+	// Merge completedTutorials and completedQuizzes as union
+	merged.completedTutorials = Array.from(new Set([...(local.completedTutorials || []), ...(remote.completedTutorials || [])]));
+	merged.completedQuizzes = Array.from(new Set([...(local.completedQuizzes || []), ...(remote.completedQuizzes || [])]));
+	// Merge tutorialProgress by most recent lastUpdated
+	merged.tutorialProgress = { ...remote.tutorialProgress };
+	for (const key in local.tutorialProgress) {
+		if (!merged.tutorialProgress[key] || new Date(local.tutorialProgress[key].lastUpdated || 0) > new Date((merged.tutorialProgress[key]||{}).lastUpdated || 0)) {
+			merged.tutorialProgress[key] = local.tutorialProgress[key];
+		}
+	}
+	// Merge quizResults by most recent completedAt
+	merged.quizResults = { ...remote.quizResults };
+	for (const key in local.quizResults) {
+		if (!merged.quizResults[key] || new Date(local.quizResults[key].completedAt || 0) > new Date((merged.quizResults[key]||{}).completedAt || 0)) {
+			merged.quizResults[key] = local.quizResults[key];
+		}
+	}
+	return merged;
+}
+
+// On login: merge/sync local progress to Firestore for the user
+export async function syncProgressOnLogin() {
+	const userId = getCurrentUserId();
+	if (!userId) return;
+	const local = (() => {
+		try {
+			const raw = localStorage.getItem(PROGRESS_STORAGE_KEY);
+			return raw ? JSON.parse(raw) : null;
+		} catch { return null; }
+	})();
+	let remote = defaultProgress;
+	try {
+		const docRef = doc(db, 'progress', userId);
+		const docSnap = await getDoc(docRef);
+		if (docSnap.exists()) {
+			const data = docSnap.data();
+			remote = {
+				completedTutorials: data.completedTutorials || [],
+				tutorialProgress: data.tutorialProgress || {},
+				completedQuizzes: data.completedQuizzes || [],
+				quizResults: data.quizResults || {},
+			};
+		}
+	} catch {}
+	const merged = mergeProgress(local, remote);
+	try {
+		const docRef = doc(db, 'progress', userId);
+		await setDoc(docRef, merged, { merge: true });
+		localStorage.removeItem(PROGRESS_STORAGE_KEY);
+	} catch (e) { console.error('Error syncing progress on login:', e); }
+}
+
+// On logout: switch back to localStorage
+export async function switchToLocalOnLogout() {
+	const userId = getCurrentUserId();
+	if (!userId) return;
+	try {
+		const docRef = doc(db, 'progress', userId);
+		const docSnap = await getDoc(docRef);
+		if (docSnap.exists()) {
+			localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(docSnap.data()));
+		}
+	} catch (e) { console.error('Error switching to local progress on logout:', e); }
+}
+
 // Export all functions
 export default {
 	loadProgress,

@@ -7,7 +7,6 @@ import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgressTracking } from '@/utils/progressUtils';
 
 // Define page sections
 const sections = [
@@ -51,56 +50,7 @@ const sections = [
 
 const { pageSections } = usePageSections(sections);
 
-// Initialize progress tracking
-const { progressEnabled, trackTutorial } = useProgressTracking();
-
 const route = useRoute();
-
-// Track tutorial progress when route changes
-watch(route, () => {
-	trackTutorial(route.path);
-});
-
-onMounted(() => {
-	pageSections.value = [
-		{
-			id: 'basic-selectors',
-			title: 'Basic Selectors',
-			subsections: [
-				{ id: 'element-selectors', title: 'Element Selectors' },
-				{ id: 'class-selectors', title: 'Class Selectors' },
-				{ id: 'id-selectors', title: 'ID Selectors' },
-				{ id: 'universal-selector', title: 'Universal Selector' },
-			],
-		},
-		{
-			id: 'combinators',
-			title: 'Combining Selectors',
-			subsections: [
-				{ id: 'descendant-combinator', title: 'Descendant Combinator' },
-				{ id: 'child-combinator', title: 'Child Combinator' },
-			],
-		},
-		{
-			id: 'attribute-selectors',
-			title: 'Attribute Selectors',
-			subsections: [
-				{ id: 'basic-attribute', title: 'Basic Attribute Selector' },
-				{ id: 'exact-value', title: 'Exact Value Selector' },
-			],
-		},
-		{
-			id: 'pseudo-classes',
-			title: 'Pseudo-classes',
-			subsections: [
-				{ id: 'state-pseudo', title: 'State Pseudo-classes' },
-				{ id: 'structural-pseudo', title: 'Simple Structural Pseudo-classes' },
-			],
-		},
-		{ id: 'specificity', title: 'Specificity' },
-		{ id: 'practice', title: 'Practical Exercises' },
-	];
-});
 
 // Example code
 const elementExample = ref(
@@ -1423,7 +1373,7 @@ footer {}
 		<TutorialQuiz />
 
 		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
+		<div class="completion-section mt-6">
 			<h2 class="title is-3">Completion</h2>
 			<p>Congratulations! You've completed the CSS selectors tutorial.</p>
 			<p>

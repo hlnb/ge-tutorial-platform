@@ -287,7 +287,6 @@ import { ref, onMounted } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgressTracking } from '@/utils/progressUtils';
 
 const frontmatter = {
 	title: 'Foundations-Getting Started',
@@ -304,16 +303,7 @@ const messageColor = ref('is-primary');
 const clickCount = ref(0);
 
 
-// Initialize progress tracking
-const { trackTutorial } = useProgressTracking();
-
-
 // Interactive demo
-
-// Track tutorial on mount
-onMounted(() => {
-	trackTutorial('/tutorials/beginner/javascript-basics/introduction');
-});
 
 const showInteractiveDemo = () => {
 	console.log('Showing welcome message...');

@@ -17,13 +17,9 @@ import { computed, ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import QuizComponent from '@/components/QuizComponent.vue';
 import { hasQuiz } from '@/utils/quizUtils';
-import { useProgressTracking } from '@/utils/progressUtils';
 
 const route = useRoute();
 const quizAvailable = ref(true);
-
-// Initialize progress tracking
-const { saveQuizResult } = useProgressTracking();
 
 const props = defineProps({
 	title: {
@@ -63,7 +59,7 @@ onMounted(() => {
 const handleQuizCompleted = (result) => {
 	// Save quiz result
 	if (result) {
-		saveQuizResult(currentPath.value, result.score, result.total);
+		// Use completeQuiz from '@/utils/progressUtils' or useProgress composable instead.
 	}
 	emit('quiz-completed', result);
 };

@@ -1,11 +1,9 @@
 /**
  * Authentication Service
- * Handles user authentication using Redis for storage
+ * Handles user authentication
  */
 
-// Import the shared Redis client
-import { getRedisClient, isRedisConnected } from './redisClient';
-import externalProgressService from './ExternalProgressService';
+import { switchToLocalOnLogout } from './ProgressService';
 
 class AuthService {
 	constructor() {
@@ -24,11 +22,15 @@ class AuthService {
 		try {
 			const userData = localStorage.getItem(this.localStorageKey);
 			if (userData) {
-				this.currentUser = JSON.parse(userData);
-				this.isAuthenticated = true;
-
-				// Set user ID in progress service
-				externalProgressService.setUserId(this.currentUser.id);
+				const user = JSON.parse(userData);
+				if (user && user.id && user.email) {
+					this.currentUser = user;
+					this.isAuthenticated = true;
+				} else {
+					this.currentUser = null;
+					this.isAuthenticated = false;
+					localStorage.removeItem(this.localStorageKey);
+				}
 			}
 		} catch (error) {
 			console.error('Error initializing auth from local storage:', error);
@@ -66,24 +68,8 @@ class AuthService {
 	 */
 	async register(email, password, name) {
 		try {
-			if (!isRedisConnected()) {
-				return {
-					success: false,
-					message: 'Database connection error. Please try again later.',
-				};
-			}
-
-			// Get Redis client
-			const redis = await getRedisClient();
-			if (!redis) {
-				return {
-					success: false,
-					message: 'Database connection error. Please try again later.',
-				};
-			}
-
 			// Check if user already exists
-			const existingUser = await redis.get(`user:email:${email}`);
+			const existingUser = localStorage.getItem(`user:email:${email}`);
 			if (existingUser) {
 				return { success: false, message: 'Email already registered' };
 			}
@@ -100,9 +86,9 @@ class AuthService {
 				createdAt: Date.now(),
 			};
 
-			// Store user in Redis
-			await redis.set(`user:${userId}`, JSON.stringify(user));
-			await redis.set(`user:email:${email}`, userId);
+			// Store user in local storage
+			localStorage.setItem(`user:${userId}`, JSON.stringify(user));
+			localStorage.setItem(`user:email:${email}`, userId);
 
 			// Remove password before storing in local storage
 			const userForStorage = { ...user };
@@ -119,7 +105,7 @@ class AuthService {
 			);
 
 			// Set user ID in progress service
-			externalProgressService.setUserId(userId);
+			//externalProgressService.setUserId(userId);
 
 			return { success: true, user: userForStorage };
 		} catch (error) {
@@ -133,30 +119,14 @@ class AuthService {
 	 */
 	async login(email, password) {
 		try {
-			if (!isRedisConnected()) {
-				return {
-					success: false,
-					message: 'Database connection error. Please try again later.',
-				};
-			}
-
-			// Get Redis client
-			const redis = await getRedisClient();
-			if (!redis) {
-				return {
-					success: false,
-					message: 'Database connection error. Please try again later.',
-				};
-			}
-
 			// Get user ID by email
-			const userId = await redis.get(`user:email:${email}`);
+			const userId = localStorage.getItem(`user:email:${email}`);
 			if (!userId) {
 				return { success: false, message: 'Invalid email or password' };
 			}
 
 			// Get user data
-			const userData = await redis.get(`user:${userId}`);
+			const userData = localStorage.getItem(`user:${userId}`);
 			if (!userData) {
 				return { success: false, message: 'Invalid email or password' };
 			}
@@ -184,10 +154,10 @@ class AuthService {
 			);
 
 			// Set user ID in progress service
-			externalProgressService.setUserId(userId);
+			//externalProgressService.setUserId(userId);
 
 			// Sync progress
-			await externalProgressService.syncProgress();
+			//await externalProgressService.syncProgress();
 
 			return { success: true, user: userForStorage };
 		} catch (error) {
@@ -208,7 +178,9 @@ class AuthService {
 		localStorage.removeItem(this.localStorageKey);
 
 		// Clear user ID from progress service
-		externalProgressService.clearUserId();
+		//externalProgressService.clearUserId();
+
+		switchToLocalOnLogout();
 
 		return true;
 	}
@@ -217,7 +189,12 @@ class AuthService {
 	 * Check if user is authenticated
 	 */
 	isUserAuthenticated() {
-		return this.isAuthenticated;
+		return (
+			this.isAuthenticated &&
+			this.currentUser &&
+			this.currentUser.id &&
+			this.currentUser.email
+		);
 	}
 
 	/**

@@ -242,7 +242,6 @@ import { ref, onMounted } from 'vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import { usePageSections } from '@/composables/usePageSections';
-import { useProgressTracking } from '@/utils/progressUtils';
 
 const frontmatter = {
   title: 'Introduction to the Document Object Model (DOM)',
@@ -353,12 +352,8 @@ const sections = [
 
 // Initialize page sections
 const { pageSections } = usePageSections(sections);
-// Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgressTracking();
 
 onMounted(() => {
-  // Track tutorial on mount
-  trackTutorial('/tutorials/dom-basics/introduction');
   // Initialize all sections as expanded
   pageSections.value.forEach((section) => {
     section.subsections?.forEach((subsection) => {

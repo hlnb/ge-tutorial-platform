@@ -11,7 +11,7 @@
 		<!-- Main Content Area -->
 		<main class="main-content">
 			<div class="content">
-				<router-view></router-view>
+				<router-view />
 			</div>
 
 			<!-- Tutorial Navigation -->

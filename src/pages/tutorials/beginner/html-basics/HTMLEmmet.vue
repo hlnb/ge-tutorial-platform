@@ -355,7 +355,7 @@
 		<TutorialQuiz />
 
 		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
+		<div class="completion-section mt-6">
 			<h2 class="title is-3">
 				<i class="fas fa-graduation-cap"></i> Completion
 			</h2>
@@ -378,7 +378,6 @@
 <script setup>
 import { ref, computed, onMounted, inject, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { useProgressTracking } from '@/utils/progressUtils';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
@@ -387,17 +386,11 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');
 
-// Initialize progress tracking
-const { progressEnabled, trackTutorial } = useProgressTracking();
-
 // Get the route
 const route = useRoute();
 
 // Define the sections for this tutorial
 onMounted(() => {
-	// Track this tutorial
-	trackTutorial(route.path);
-
 	if (pageSections) {
 		pageSections.value = [
 			{

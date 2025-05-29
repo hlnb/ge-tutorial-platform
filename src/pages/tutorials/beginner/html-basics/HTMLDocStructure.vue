@@ -739,7 +739,7 @@
 										stroke-width="2"
 									/>
 									<rect
-										x="105"
+									x="105"
 										y="60"
 										width="50"
 										height="30"
@@ -1318,7 +1318,7 @@ This is a new line
 		<TutorialQuiz />
 
 		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
+		<div class="completion-section mt-6">
 			<h2 class="title is-3">
 				<i class="fas fa-check-circle section-icon"></i> Congratulations!
 			</h2>
@@ -1335,7 +1335,6 @@ This is a new line
 <script setup>
 import { ref, computed, onMounted, inject, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { useProgressTracking } from '@/utils/progressUtils';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
@@ -1347,17 +1346,13 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 // Get the route
 const route = useRoute();
 
-// Initialize progress tracking
-const { progressEnabled, trackTutorial, markCompleted, isCompleted } =
-	useProgressTracking();
-
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');
 
 // Define the sections for this tutorial
 onMounted(() => {
 	// Track this tutorial
-	trackTutorial(route.path);
+	// trackTutorial(route.path);
 
 	// Set up page sections
 	if (pageSections) {

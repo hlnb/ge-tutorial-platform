@@ -1,63 +1,37 @@
-/**
- * Progress Tracking Utilities
- * Helper functions for working with the progress service
- */
+// NOTE: useProgressTracking is obsolete. Use the useProgress composable (src/composables/useProgress.js) or direct utility functions below.
 
-import progressService from '@/services/ProgressService';
+import ProgressService from '@/services/ProgressService';
 
-/**
- * Initialize progress tracking for a tutorial page
- * @returns {Object} - Object with reactive properties and methods for progress tracking
- */
-export function useProgressTracking() {
-	// Check if progress tracking is enabled
-	const progressEnabled = progressService.isProgressTrackingEnabled();
+// Get the user's progress (from Firebase if logged in, else localStorage)
+export async function getUserProgress() {
+    return await ProgressService.getProgress();
+}
 
-	// Track the current tutorial
-	const trackTutorial = (path) => {
-		if (progressEnabled) {
-			progressService.trackProgress(path);
-		}
-	};
+// Save the user's progress
+export async function saveUserProgress(progress) {
+    return await ProgressService.saveProgress(progress);
+}
 
-	// Mark the current tutorial as completed
-	const markCompleted = (path) => {
-		if (progressEnabled) {
-			progressService.markTutorialCompleted(path);
-		}
-	};
+// Mark a tutorial as completed
+export async function completeTutorial(tutorialId) {
+    const progress = await ProgressService.getProgress();
+    if (!progress.completedTutorials.includes(tutorialId)) {
+        progress.completedTutorials.push(tutorialId);
+        await ProgressService.saveProgress(progress);
+    }
+}
 
-	// Mark the current tutorial as incomplete
-	const markIncomplete = (path) => {
-		if (progressEnabled) {
-			progressService.markTutorialIncomplete(path);
-		}
-	};
+// Mark a quiz as completed and store the result
+export async function completeQuiz(quizId, result) {
+    const progress = await ProgressService.getProgress();
+    if (!progress.completedQuizzes.includes(quizId)) {
+        progress.completedQuizzes.push(quizId);
+        progress.quizResults[quizId] = result;
+        await ProgressService.saveProgress(progress);
+    }
+}
 
-	// Check if the current tutorial is completed
-	const isCompleted = (path) => {
-		return progressEnabled ? progressService.isTutorialCompleted(path) : false;
-	};
-
-	// Save quiz result
-	const saveQuizResult = (path, score, total) => {
-		if (progressEnabled) {
-			progressService.saveQuizResult(path, score, total);
-		}
-	};
-
-	// Enable progress tracking
-	const enableProgressTracking = () => {
-		progressService.enableProgressTracking();
-	};
-
-	return {
-		progressEnabled,
-		trackTutorial,
-		markCompleted,
-		markIncomplete,
-		isCompleted,
-		saveQuizResult,
-		enableProgressTracking,
-	};
+// Clear all user progress
+export async function clearUserProgress() {
+    await ProgressService.clearProgress();
 }

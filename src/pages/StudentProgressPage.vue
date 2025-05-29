@@ -79,7 +79,7 @@
 
 					<div v-if="Object.keys(progressBySection).length > 0">
 						<div
-							v-for="(section, sectionKey) in progressBySection"
+							v-for="([sectionKey, section]) in Object.entries(progressBySection)"
 							:key="sectionKey"
 							class="section-progress mb-6"
 						>
@@ -88,10 +88,10 @@
 							<div class="progress-bar-container">
 								<div
 									class="progress-bar"
-									:style="{ width: `${section.completionPercentage}%` }"
+									:style="{ width: `${section.completionPercentage || 0}%` }"
 								></div>
 								<span class="progress-text"
-									>{{ section.completionPercentage }}% Complete</span
+									>{{ section.completionPercentage || 0 }}% Complete</span
 								>
 							</div>
 
@@ -107,7 +107,7 @@
 									</thead>
 									<tbody>
 										<tr
-											v-for="tutorial in section.tutorials"
+											v-for="tutorial in (section.tutorials || [])"
 											:key="tutorial.path"
 										>
 											<td>
@@ -276,15 +276,28 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { format } from 'date-fns';
-import externalProgressService from '@/services/ExternalProgressService';
+import { useProgress } from '@/composables/useProgress';
+import { clearUserProgress, getUserProgress } from '@/utils/progressUtils';
+import { useRouter } from 'vue-router';
 import authService from '@/services/AuthService';
 
-// Authentication state
-const isAuthenticated = ref(false);
-const currentUser = ref(null);
+// Use the new progress composable
+const {
+	isAuthenticated: composableIsAuthenticated,
+	currentUser: composableCurrentUser,
+	progress,
+	summary,
+	reloadProgress,
+} = useProgress();
 
-// Progress data
-const progressData = ref({});
+const showResetConfirmation = ref(false);
+const router = useRouter();
+
+// Always use AuthService for authentication check
+const isAuthenticated = computed(() => authService.isUserAuthenticated());
+const currentUser = computed(() => authService.getCurrentUser());
+
+// Tutorial metadata (static)
 const tutorialMetadata = ref({
 	'getting-started': {
 		title: 'Getting Started',
@@ -336,43 +349,28 @@ const tutorialMetadata = ref({
 	},
 });
 
-// Computed properties for progress statistics
-const completedTutorials = computed(() => {
-	return Object.values(progressData.value).filter(
-		(tutorial) => tutorial.completed,
-	).length;
-});
+// Map progress data to tutorial paths
+const progressData = computed(() => progress.value?.tutorialProgress || {});
+const quizResults = computed(() => progress.value?.quizResults || {});
 
-const visitedTutorials = computed(() => {
-	return Object.values(progressData.value).filter(
-		(tutorial) => tutorial.visited,
-	).length;
-});
-
-const completedQuizzes = computed(() => {
-	return Object.values(progressData.value).filter(
-		(tutorial) => tutorial.quizCompleted,
-	).length;
-});
-
+// Progress statistics
+const completedTutorials = computed(() => progress.value?.completedTutorials?.length || 0);
+const visitedTutorials = computed(() => Object.values(progressData.value).filter(t => t.visited).length);
+const completedQuizzes = computed(() => progress.value?.completedQuizzes?.length || 0);
 const averageQuizScore = computed(() => {
-	const quizzes = Object.values(progressData.value).filter(
-		(tutorial) => tutorial.quizCompleted,
+	const quizzes = Object.values(quizResults.value);
+	if (!quizzes.length) return 0;
+	const total = quizzes.reduce(
+		(sum, q) => sum + (q.score / (q.total || 1)) * 100,
+		0,
 	);
-	if (quizzes.length === 0) return 0;
-
-	const totalScore = quizzes.reduce((sum, tutorial) => {
-		return sum + (tutorial.quizScore / tutorial.quizTotalQuestions) * 100;
-	}, 0);
-
-	return Math.round(totalScore / quizzes.length);
+	return Math.round(total / quizzes.length);
 });
+const hasQuizResults = computed(() => Object.keys(quizResults.value).length > 0);
 
-// Computed property for progress by section
+// Section progress
 const progressBySection = computed(() => {
 	const sections = {};
-
-	// Initialize sections
 	Object.keys(tutorialMetadata.value).forEach((sectionKey) => {
 		const section = tutorialMetadata.value[sectionKey];
 		sections[sectionKey] = {
@@ -382,74 +380,82 @@ const progressBySection = computed(() => {
 			totalCount: Object.keys(section.tutorials).length,
 			completionPercentage: 0,
 		};
-
-		// Add tutorials to section
 		Object.entries(section.tutorials).forEach(([path, metadata]) => {
 			const progress = progressData.value[path] || {};
+			const quiz = quizResults.value[path] || {};
 			const tutorial = {
 				path,
 				title: metadata.title,
 				visited: !!progress.visited,
-				completed: !!progress.completed,
+				completed:
+					progress.value?.completedTutorials?.includes(path) || !!progress.completed,
 				lastVisited: progress.lastUpdated,
-				quizCompleted: !!progress.quizCompleted,
-				quizScore: progress.quizScore || 0,
-				quizTotalQuestions: progress.quizTotalQuestions || 0,
+				quizCompleted: !!quiz.score,
+				quizScore: quiz.score || 0,
+				quizTotalQuestions: quiz.total || 0,
 			};
-
 			sections[sectionKey].tutorials.push(tutorial);
-
-			// Update completed count
-			if (tutorial.completed) {
-				sections[sectionKey].completedCount++;
-			}
+			if (tutorial.completed) sections[sectionKey].completedCount++;
 		});
-
-		// Calculate completion percentage
 		sections[sectionKey].completionPercentage = Math.round(
-			(sections[sectionKey].completedCount / sections[sectionKey].totalCount) *
-				100,
+			(sections[sectionKey].completedCount / sections[sectionKey].totalCount) * 100,
 		);
 	});
-
 	return sections;
 });
 
-// Format date
+// Formatting helpers
 const formatDate = (timestamp) => {
+	if (!timestamp) return 'Never';
 	return format(new Date(timestamp), 'MMM d, yyyy');
 };
-
-// Format section title
 const formatSectionTitle = (sectionKey) => {
-	return (
-		tutorialMetadata.value[sectionKey]?.title ||
-		sectionKey
-			.split('-')
-			.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-			.join(' ')
-	);
+	return tutorialMetadata.value[sectionKey]?.title || sectionKey.replace(/-/g, ' ');
 };
-
-// Load progress data
-const loadProgressData = async () => {
-	try {
-		// Get authentication state
-		isAuthenticated.value = authService.isUserAuthenticated();
-		currentUser.value = authService.getCurrentUser();
-
-		// Initialize external progress service
-		await externalProgressService.init();
-
-		// Get all progress data
-		progressData.value = await externalProgressService.getAllProgress();
-	} catch (error) {
-		console.error('Error loading progress data:', error);
+const getTutorialTitle = (path) => {
+	for (const section of Object.values(tutorialMetadata.value)) {
+		if (section.tutorials[path]) return section.tutorials[path].title;
 	}
+	return path;
+};
+const formatPath = (path) =>
+	path.replace(/^\/tutorials\//, '').replace(/\//g, ' > ');
+const getScoreClass = (result) => {
+	const pct = result && result.total ? (result.score / result.total) * 100 : 0;
+	if (pct >= 80) return 'is-success';
+	if (pct >= 60) return 'is-warning';
+	return 'is-danger';
+};
+const getScorePercentage = (result) => {
+	if (!result || !result.total) return 0;
+	return Math.round((result.score / result.total) * 100);
+};
+const getScoreMessage = (result) => {
+	const pct = getScorePercentage(result);
+	if (pct >= 80) return 'Excellent!';
+	if (pct >= 60) return 'Good job!';
+	if (pct >= 40) return 'Keep practicing!';
+	return 'Needs improvement';
 };
 
-// Load data on mount
-onMounted(loadProgressData);
+// Reset progress
+const resetProgress = async () => {
+	await clearUserProgress();
+	await reloadProgress();
+	showResetConfirmation.value = false;
+};
+
+// Export progress
+const exportProgress = async () => {
+	const data = await getUserProgress();
+	const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+	const url = URL.createObjectURL(blob);
+	const a = document.createElement('a');
+	a.href = url;
+	a.download = 'progress.json';
+	a.click();
+	URL.revokeObjectURL(url);
+};
 </script>
 
 <style scoped>

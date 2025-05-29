@@ -236,17 +236,15 @@ import { ref, onMounted } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgressTracking } from '@/utils/progressUtils';
+import { useProgress } from '@/composables/useProgress';
 
 // Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgressTracking();
+const { trackTutorial, saveQuizResult } = useProgress();
 
-// Track tutorial on mount
 onMounted(() => {
   trackTutorial('/tutorials/git-basics/branching');
 });
 
-// Quiz handling
 const onQuizCompleted = (results) => {
   saveQuizResult('git-basics-branching-quiz', results);
 };

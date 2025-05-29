@@ -105,11 +105,11 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useProgressTracking } from '@/utils/progressUtils';
+import { useProgress } from '@/composables/useProgress';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 // Initialize progress tracking
-const { trackTutorial } = useProgressTracking();
+const { trackTutorial } = useProgress();
 
 // Track tutorial on mount
 onMounted(() => {

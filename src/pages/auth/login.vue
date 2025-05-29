@@ -22,6 +22,7 @@
 										type="email"
 										placeholder="your@email.com"
 										required
+										autocomplete="email"
 									/>
 									<span class="icon is-small is-left">
 										<i class="fas fa-envelope"></i>
@@ -38,6 +39,7 @@
 										type="password"
 										placeholder="Your password"
 										required
+										autocomplete="current-password"
 									/>
 									<span class="icon is-small is-left">
 										<i class="fas fa-lock"></i>
@@ -75,9 +77,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import authService from '@/services/AuthService';
+import { syncProgressOnLogin } from '@/services/ProgressService';
 
 const router = useRouter();
 const email = ref('');
@@ -85,10 +88,11 @@ const password = ref('');
 const errorMessage = ref('');
 const isLoading = ref(false);
 
-// Check if already logged in
-if (authService.isUserAuthenticated()) {
-	router.push('/my-progress');
-}
+onMounted(() => {
+	if (authService.isUserAuthenticated()) {
+		router.push('/my-progress');
+	}
+});
 
 const handleLogin = async () => {
 	isLoading.value = true;
@@ -98,6 +102,7 @@ const handleLogin = async () => {
 		const result = await authService.login(email.value, password.value);
 
 		if (result.success) {
+			await syncProgressOnLogin();
 			// Redirect to progress page
 			router.push('/my-progress');
 		} else {

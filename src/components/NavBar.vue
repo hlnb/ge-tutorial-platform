@@ -1,4 +1,18 @@
 <template>
+	<!-- Auth Bar -->
+	<div class="auth-bar">
+		<div class="container is-flex is-justify-content-flex-end is-align-items-center py-1">
+			<template v-if="!isAuthenticated">
+				<router-link to="/auth/login" class="button is-small is-light mr-2">Login</router-link>
+				<router-link to="/auth/register" class="button is-small is-primary">Sign Up</router-link>
+			</template>
+			<template v-else>
+				<span class="mr-3">Welcome, {{ currentUser.name }}</span>
+				<router-link to="/auth/logout" class="button is-small is-danger">Logout</router-link>
+			</template>
+		</div>
+	</div>
+
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
 			<router-link class="navbar-item" to="/">
@@ -47,8 +61,43 @@
 	</nav>
 </template>
 
+<script setup>
+import { ref, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import authService from '@/services/AuthService';
+
+const forceUpdate = ref(0);
+const isAuthenticated = computed(() => {
+	forceUpdate.value;
+	return authService.isUserAuthenticated();
+});
+const currentUser = computed(() => {
+	forceUpdate.value;
+	return authService.getCurrentUser() || {};
+});
+
+// Optional: force update on login/logout
+onMounted(() => {
+	window.addEventListener('storage', () => {
+		forceUpdate.value++;
+	});
+
+	// Also update on route change (for logout redirect)
+	const router = useRouter();
+	router.afterEach(() => {
+		forceUpdate.value++;
+	});
+});
+</script>
+
 <style>
 @import '../assets/styles/main.css';
+
+.auth-bar {
+	background: #f5f5f5;
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 0.95rem;
+}
 
 .navbar {
 	padding: 1rem;

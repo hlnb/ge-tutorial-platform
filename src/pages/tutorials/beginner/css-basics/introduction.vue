@@ -416,7 +416,7 @@
 		<TutorialQuiz />
 
 		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
+		<div class="completion-section mt-6">
 			<h2 class="title is-3">
 				<i class="fas fa-check-circle"></i> Congratulations!
 			</h2>
@@ -439,8 +439,6 @@ import DOMPurify from 'dompurify';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import { useRoute } from 'vue-router';
-import { useProgressTracking } from '@/utils/progressUtils';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 const frontmatter = {
 	title: 'Introduction to CSS',
@@ -624,15 +622,6 @@ onMounted(() => {
 		{ id: 'css-syntax', title: 'CSS Syntax' },
 		{ id: 'practice', title: 'Practice Exercise' },
 	];
-});
-
-// Initialize progress tracking
-const { progressEnabled, trackTutorial } = useProgressTracking();
-
-const route = useRoute();
-
-watch(route, () => {
-	trackTutorial(route.path);
 });
 </script>
 

@@ -557,7 +557,7 @@ import { ref, onMounted } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgressTracking } from '@/utils/progressUtils';
+import { useProgress } from '@/composables/useProgress';
 import { usePageSections } from '@/composables/usePageSections'; // Import usePageSections from @
 
 const frontmatter = {
@@ -587,9 +587,8 @@ const { pageSections,} = usePageSections(sections);
 
 
 // Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgressTracking();
+const { trackTutorial, saveQuizResult } = useProgress();
 
-// Track tutorial on mount
 onMounted(() => {
   trackTutorial('/tutorials/git-basics/introduction');
 });

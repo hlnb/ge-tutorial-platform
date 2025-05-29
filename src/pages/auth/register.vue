@@ -22,6 +22,7 @@
 										type="text"
 										placeholder="Your name"
 										required
+										autocomplete="name"
 									/>
 									<span class="icon is-small is-left">
 										<i class="fas fa-user"></i>
@@ -38,6 +39,7 @@
 										type="email"
 										placeholder="your@email.com"
 										required
+										autocomplete="email"
 									/>
 									<span class="icon is-small is-left">
 										<i class="fas fa-envelope"></i>
@@ -55,6 +57,7 @@
 										placeholder="Choose a password"
 										required
 										minlength="8"
+										autocomplete="new-password"
 									/>
 									<span class="icon is-small is-left">
 										<i class="fas fa-lock"></i>
@@ -72,6 +75,7 @@
 										type="password"
 										placeholder="Confirm your password"
 										required
+										autocomplete="new-password"
 									/>
 									<span class="icon is-small is-left">
 										<i class="fas fa-lock"></i>
@@ -110,7 +114,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import authService from '@/services/AuthService';
 
@@ -123,9 +127,11 @@ const errorMessage = ref('');
 const isLoading = ref(false);
 
 // Check if already logged in
-if (authService.isUserAuthenticated()) {
-	router.push('/my-progress');
-}
+onMounted(() => {
+	if (authService.isUserAuthenticated()) {
+		router.push('/my-progress');
+	}
+});
 
 // Validate form
 const isFormValid = computed(() => {
