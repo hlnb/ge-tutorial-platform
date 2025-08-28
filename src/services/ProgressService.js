@@ -328,4 +328,13 @@ export default {
 	saveProgress,
 	isProgressTrackingEnabled,
 	getCurrentUserId,
+	getProgress,
+	markTutorialCompleted,
+	updateTutorialProgress,
+	saveQuizResult,
+	clearAllProgress,
+	getProgressSummary,
+	trackScrollProgress,
+	trackProgress,
+	mergeProgress,
 };

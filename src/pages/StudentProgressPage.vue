@@ -221,13 +221,13 @@
 								your progress or export it for backup.
 							</p>
 							<div class="buttons mt-4">
-								<button @click="exportProgress" class="button is-info">
+								<button class="button is-info" @click="exportProgress">
 									<span class="icon"><i class="fas fa-download"></i></span>
 									<span>Export Progress</span>
 								</button>
 								<button
-									@click="showResetConfirmation = true"
 									class="button is-danger"
+									@click="showResetConfirmation = true"
 								>
 									<span class="icon"><i class="fas fa-trash"></i></span>
 									<span>Reset Progress</span>
@@ -259,10 +259,10 @@
 							</p>
 						</section>
 						<footer class="modal-card-foot">
-							<button @click="resetProgress" class="button is-danger">
+							<button class="button is-danger" @click="resetProgress">
 								Reset All Progress
 							</button>
-							<button @click="showResetConfirmation = false" class="button">
+							<button class="button" @click="showResetConfirmation = false">
 								Cancel
 							</button>
 						</footer>

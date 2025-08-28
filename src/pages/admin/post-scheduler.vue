@@ -59,9 +59,9 @@
 						<label class="label">Post Title</label>
 						<div class="control">
 							<input
+								v-model="selectedPost.title"
 								class="input"
 								type="text"
-								v-model="selectedPost.title"
 								disabled
 							/>
 						</div>
@@ -70,9 +70,9 @@
 						<label class="label">Publish Date</label>
 						<div class="control">
 							<input
+								v-model="selectedPost.publishDate"
 								class="input"
 								type="datetime-local"
-								v-model="selectedPost.publishDate"
 								:min="minDate"
 							/>
 						</div>

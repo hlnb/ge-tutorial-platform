@@ -1,7 +1,7 @@
 <template>
 	<div class="tutorial-layout" :class="{ 'full-width': isMainTutorialsPage }">
 		<!-- Hide sidebar on main tutorials page -->
-		<aside class="sidebar" v-if="!isMainTutorialsPage">
+		<aside v-if="!isMainTutorialsPage" class="sidebar">
 			<!-- Dynamic navigation component -->
 			<component :is="currentNav" v-if="currentNav" />
 

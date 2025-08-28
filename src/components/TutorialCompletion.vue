@@ -5,8 +5,8 @@
 				<i class="fas fa-exclamation-triangle"></i>
 				Progress tracking is disabled. Enable it in
 				<button
-					@click="openCookieSettings"
 					class="button is-small is-link is-light"
+					@click="openCookieSettings"
 				>
 					Cookie Settings
 				</button>
@@ -23,7 +23,7 @@
 				<p>Great job! You've completed this tutorial.</p>
 			</div>
 			<div class="completion-actions">
-				<button @click="markAsIncomplete" class="button is-small is-light">
+				<button class="button is-small is-light" @click="markAsIncomplete">
 					Mark as Incomplete
 				</button>
 			</div>
@@ -38,7 +38,7 @@
 				<p>Mark this tutorial as completed when you're done.</p>
 			</div>
 			<div class="completion-actions">
-				<button @click="markAsCompleted" class="button is-primary">
+				<button class="button is-primary" @click="markAsCompleted">
 					Mark as Completed
 				</button>
 			</div>
@@ -62,8 +62,8 @@
 							<div class="cookie-setting-header">
 								<label class="checkbox">
 									<input
-										type="checkbox"
 										v-model="cookieSettings.essential"
+										type="checkbox"
 										disabled
 									/>
 									<span>Essential Cookies</span>
@@ -79,7 +79,7 @@
 						<div class="cookie-setting-item">
 							<div class="cookie-setting-header">
 								<label class="checkbox">
-									<input type="checkbox" v-model="cookieSettings.progress" />
+									<input v-model="cookieSettings.progress" type="checkbox" />
 									<span>Progress Tracking</span>
 								</label>
 								<span class="tag is-success is-light">Recommended</span>
@@ -93,7 +93,7 @@
 						<div class="cookie-setting-item">
 							<div class="cookie-setting-header">
 								<label class="checkbox">
-									<input type="checkbox" v-model="cookieSettings.preferences" />
+									<input v-model="cookieSettings.preferences" type="checkbox" />
 									<span>Preferences</span>
 								</label>
 							</div>

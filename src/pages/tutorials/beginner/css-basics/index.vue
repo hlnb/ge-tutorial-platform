@@ -59,7 +59,6 @@ onMounted(() => {
 		<div class="tutorial-grid">
 			<div class="columns is-multiline">
 				<div
-					class="column is-one-third"
 					v-for="(link, index) in [
 						{
 							name: 'css-basics-introduction',
@@ -103,6 +102,7 @@ onMounted(() => {
 						},
 					]"
 					:key="index"
+					class="column is-one-third"
 				>
 					<div class="card">
 						<div class="card-content">

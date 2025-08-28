@@ -1,9 +1,9 @@
 <template>
-	<form @submit="handleSubmit" class="newsletter-form">
+	<form class="newsletter-form" @submit="handleSubmit">
 		<div class="form-content">
 			<input
-				type="email"
 				v-model="email"
+				type="email"
 				placeholder="Enter your email for site news & major updates"
 				required
 				:disabled="status === 'loading' || status === 'success'"

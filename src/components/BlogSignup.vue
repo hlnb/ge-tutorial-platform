@@ -11,11 +11,11 @@
 				<li><i class="fas fa-check"></i> Early access to new content</li>
 			</ul>
 		</div>
-		<form @submit="handleSubmit" class="signup-form">
+		<form class="signup-form" @submit="handleSubmit">
 			<div class="field">
 				<input
-					type="email"
 					v-model="email"
+					type="email"
 					placeholder="Enter your email address"
 					required
 					class="input"

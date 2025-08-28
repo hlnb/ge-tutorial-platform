@@ -33,6 +33,12 @@ function toggle(i) {
 }
 </script>
 
+<script>
+export default {
+  props: ['faqs']
+};
+</script>
+
 <style scoped>
 .faq-section {
   background: #fff;
@@ -66,9 +72,3 @@ function toggle(i) {
   color: #333;
 }
 </style>
-
-<script>
-export default {
-  props: ['faqs']
-};
-</script>

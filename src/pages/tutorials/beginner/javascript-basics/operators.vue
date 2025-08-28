@@ -214,7 +214,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2" id="arithmetic-operators">Arithmetic Operators</h2>
+		<h2 id="arithmetic-operators" class="title is-2">Arithmetic Operators</h2>
 		<p>
 			Arithmetic operators perform mathematical calculations on numbers. They're
 			essential for any calculations in your code.
@@ -907,7 +907,7 @@ function safeDivide(numerator, denominator) {
 			</div>
 		</div>
 
-		<h2 class="title is-2" id="comparison-operators">Comparison Operators</h2>
+		<h2 id="comparison-operators" class="title is-2">Comparison Operators</h2>
 		<p>
 			Comparison operators compare two values and return a boolean result (true
 			or false). They're essential for making decisions in your code.
@@ -1323,7 +1323,7 @@ function safeDivide(numerator, denominator) {
 			</p>
 		</div>
 
-		<h2 class="title is-2" id="logical-operators">Logical Operators</h2>
+		<h2 id="logical-operators" class="title is-2">Logical Operators</h2>
 		<p>
 			Logical operators combine multiple conditions and return a boolean result.
 			 They're used to make complex decisions based on multiple factors.
@@ -2042,7 +2042,7 @@ function safeDivide(numerator, denominator) {
 			</div>
 		</div>
 
-		<h2 class="title is-2" id="assignment-operators">Assignment Operators</h2>
+		<h2 id="assignment-operators" class="title is-2">Assignment Operators</h2>
 		<p>
 			Assignment operators assign values to variables. They're used to set or
 			update variable values.
@@ -2588,7 +2588,7 @@ function safeDivide(numerator, denominator) {
 			</p>
 		</div>
 
-		<h2 class="title is-2" id="practice">Practice Exercises</h2>
+		<h2 id="practice" class="title is-2">Practice Exercises</h2>
 		<p>
 			Let's practice using operators with real-world scenarios from our restaurant theme:
 		</p>

@@ -108,7 +108,7 @@
 				</ol>
 
 				<div id="selectors" class="mt-4">
-					<h3 class="title is-4" id="selectors-title">Selectors</h3>
+					<h3 id="selectors-title" class="title is-4">Selectors</h3>
 					<p>
 						Selectors tell the browser which HTML elements should be styled.
 						They can target:
@@ -122,7 +122,7 @@
 				</div>
 
 				<div id="properties" class="mt-4">
-					<h3 class="title is-4" id="properties-title">Properties</h3>
+					<h3 id="properties-title" class="title is-4">Properties</h3>
 					<p>
 						Properties are the specific aspects of an element you want to style,
 						such as:
@@ -136,7 +136,7 @@
 				</div>
 
 				<div id="values" class="mt-4">
-					<h3 class="title is-4" id="values-title">Values</h3>
+					<h3 id="values-title" class="title is-4">Values</h3>
 					<p>Values define how properties should be styled. These can be:</p>
 					<ul>
 						<li>Keywords (like 'red' or 'bold')</li>
@@ -146,7 +146,7 @@
 				</div>
 
 				<div id="cascade" class="mt-4">
-					<h3 class="title is-4" id="cascade-title">The Cascade</h3>
+					<h3 id="cascade-title" class="title is-4">The Cascade</h3>
 					<p>
 						The cascade determines which styles take precedence when multiple
 						rules target the same element. It considers:

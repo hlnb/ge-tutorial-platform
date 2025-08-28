@@ -1,3 +1,4 @@
+import './services/firebase'; // Ensure firebase is initialized before using auth and db
 import { createApp } from 'vue';
 import { createHead } from '@vueuse/head';
 import App from './App.vue';

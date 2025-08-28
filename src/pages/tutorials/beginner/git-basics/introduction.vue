@@ -103,15 +103,15 @@
             <line x1="50" y1="75" x2="550" y2="75" stroke="#f05033" stroke-width="4" />
             
             <!-- Commit points -->
-            <circle cx="100" cy="75" r="10" :fill="currentCommit === 1 ? '#2ecc71' : '#f05033'" @click="selectCommit(1)" class="clickable-commit" />
-            <circle cx="200" cy="75" r="10" :fill="currentCommit === 2 ? '#2ecc71' : '#f05033'" @click="selectCommit(2)" class="clickable-commit" />
-            <circle cx="300" cy="75" r="10" :fill="currentCommit === 3 ? '#2ecc71' : '#f05033'" @click="selectCommit(3)" class="clickable-commit" />
-            <circle cx="400" cy="75" r="10" :fill="currentCommit === 4 ? '#2ecc71' : '#f05033'" @click="selectCommit(4)" class="clickable-commit" />
-            <circle cx="500" cy="75" r="10" :fill="currentCommit === 5 ? '#2ecc71' : '#f05033'" @click="selectCommit(5)" class="clickable-commit" />
+            <circle cx="100" cy="75" r="10" :fill="currentCommit === 1 ? '#2ecc71' : '#f05033'" class="clickable-commit" @click="selectCommit(1)" />
+            <circle cx="200" cy="75" r="10" :fill="currentCommit === 2 ? '#2ecc71' : '#f05033'" class="clickable-commit" @click="selectCommit(2)" />
+            <circle cx="300" cy="75" r="10" :fill="currentCommit === 3 ? '#2ecc71' : '#f05033'" class="clickable-commit" @click="selectCommit(3)" />
+            <circle cx="400" cy="75" r="10" :fill="currentCommit === 4 ? '#2ecc71' : '#f05033'" class="clickable-commit" @click="selectCommit(4)" />
+            <circle cx="500" cy="75" r="10" :fill="currentCommit === 5 ? '#2ecc71' : '#f05033'" class="clickable-commit" @click="selectCommit(5)" />
             
             <!-- Branch -->
             <line x1="300" y1="75" x2="350" y2="25" stroke="#3498db" stroke-width="3" :stroke-opacity="branchVisible ? 1 : 0" />
-            <circle cx="350" cy="25" r="10" fill="#3498db" :fill-opacity="branchVisible ? 1 : 0" @click="selectCommit(6)" class="clickable-commit" />
+            <circle cx="350" cy="25" r="10" fill="#3498db" :fill-opacity="branchVisible ? 1 : 0" class="clickable-commit" @click="selectCommit(6)" />
             <text x="370" y="30" :opacity="branchVisible ? 1 : 0">Experimental Branch</text>
             
             <!-- Labels -->

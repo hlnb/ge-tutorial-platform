@@ -5,7 +5,7 @@
 		<div class="field">
 			<label class="label">Publish Date</label>
 			<div class="control">
-				<input type="datetime-local" v-model="publishDate" :min="minDate" />
+				<input v-model="publishDate" type="datetime-local" :min="minDate" />
 			</div>
 		</div>
 
@@ -13,8 +13,8 @@
 			<div class="control">
 				<button
 					class="button is-primary"
-					@click="schedulePost"
 					:disabled="!canSchedule"
+					@click="schedulePost"
 				>
 					Schedule Post
 				</button>

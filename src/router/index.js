@@ -3,6 +3,54 @@ import RSSFeedService from '@/services/RSSFeedService';
 
 // Post metadata registry
 export const posts = {
+	'api-best-practices-beginner': {
+		title: "API Best Practices: A Beginner's Guide to Building Better Web APIs",
+		description: 'Learn the best practices for building APIs, from clear naming conventions to security tips, in this beginner-friendly guide.',
+		status: 'published',
+		publishDate: '2025-05-29',
+		lastUpdated: '2025-05-29',
+		author: 'Helen Burgess',
+		tags: ['API', 'Web Development', 'Best Practices'],
+		readingTime: '10 min',
+		series: 'Web Development Fundamentals',
+		seriesOrder: 9,
+		relatedPosts: ['web-security-essentials', 'backend-programming', 'docker-basics-guide-for-web-developers'],
+		imageUrl: '/images/posts/api-best-practices-beginner.svg',
+		excerpt: 'Learn the best practices for building APIs, from clear naming conventions to security tips, in this beginner-friendly guide.',
+		featured: false,
+	},
+	'modern-js-patterns': {
+		title: 'Modern JavaScript Patterns: Best Practices for 2025',
+		description: 'A practical guide to modern JavaScript patterns, including modules, async/await, composition, and more. Stay up to date with the latest best practices for writing clean, maintainable JS.',
+		status: 'published',
+		publishDate: '2025-07-15',
+		lastUpdated: '2025-07-15',
+		author: 'Elizabeth H. Burgess',
+		tags: ['JavaScript', 'Best Practices', 'Patterns', 'ES2025', 'Frontend'],
+		readingTime: '14 min',
+		series: 'JavaScript Mastery',
+		seriesOrder: 1,
+		relatedPosts: ['javascript-basics', 'api-best-practices-beginner'],
+		imageUrl: '/images/posts/modern-js-patterns.svg',
+		excerpt: 'Explore the latest JavaScript patterns and techniques for writing robust, modern web applications in 2025.',
+		featured: false,
+	},
+		'docker-basics-guide-for-web-developers': {
+		title: 'Docker for Web Developers: Simplifying Setup and Deployment',
+		description: 'A practical guide to using Docker, containers, and Docker Compose for modern web development and deployment.',
+		status: 'published',
+		publishDate: '2025-07-29',
+		lastUpdated: '2025-07-29',
+		author: 'Elizabeth H. Burgess',
+		tags: ['Docker', 'Web Development', 'Containers', 'DevOps', 'Guide'],
+		readingTime: '12 min',
+		series: 'DevOps & Deployment',
+		seriesOrder: 1,
+		relatedPosts: ['api-best-practices-beginner', 'backend-programming'],
+		imageUrl: '/images/posts/docker-basics-guide.svg',
+		excerpt: 'Learn how Docker, containers, and Docker Compose can simplify your web development workflow and deployment process.',
+		featured: false,
+	},
 	'dns-web-browsing': {
 		title: 'DNS and Web Browsing',
 		description: 'Understanding how DNS works and its role in web browsing',
@@ -150,7 +198,7 @@ export const posts = {
 		relatedPosts: ['web-security-essentials', 'backend-programming'],
 		imageUrl: '/images/posts/web-performance-optimization.svg',
 		excerpt: 'Discover how to make your website blazingly fast with practical optimization strategies, real-world case studies, and actionable tips you can implement today.',
-		featured: true,
+		featured: false,
 	},
 	'git-basics': {
 		title: 'Git Basics: Version Control Made Simple',
@@ -166,24 +214,8 @@ export const posts = {
 		relatedPosts: ['javascript-basics', 'backend-programming'],
 		imageUrl: '/images/posts/git-basics.svg',
 		excerpt: 'Ever saved multiple versions of a file with names like "final", "final_v2", "final_REALLY_FINAL"? Then you already understand why we need version control! Let\'s demystify Git - the tool that solves this problem and so much more.',
-		featured: true,
+		featured: false,
 	},
-	'api-best-practices-beginner': {
-		title: 'API Best Practices: A Beginner\'s Guide to Building Better Web APIs',
-    description: 'Learn the best practices for building APIs, from clear naming conventions to security tips, in this beginner-friendly guide.',
-    status: 'published',
-    publishDate: '2025-05-29',
-    lastUpdated: '2025-05-29',
-    author: 'Helen Burgess',
-    tags: ['API', 'Web Development', 'Best Practices'],
-    readingTime: '10 min',
-    series: 'Web Development Fundamentals',
-    seriesOrder: 9,
-    relatedPosts: ['web-security-essentials', 'backend-programming'],
-    imageUrl: '/images/posts/api-best-practices-beginner.svg',
-    excerpt: 'Learn the best practices for building APIs, from clear naming conventions to security tips, in this beginner-friendly guide.',
-    featured: false,
-	}
 };
 
 // Project routes
@@ -462,7 +494,6 @@ const authRoutes = [
 	},
 	{
 		path: '/auth/logout',
-		name: 'logout',
 		redirect: '/',
 		beforeEnter: async (to, from, next) => {
 			const { default: authService } = await import('@/services/AuthService');
@@ -500,57 +531,52 @@ const routes = [
 	{
 		path: '/tutorials',
 		name: 'tutorials-index',
-		component: () => import('@/pages/tutorials/index.vue'),
+		component: () => import('@/layouts/TutorialLayout.vue'),
 		children: [
+			{
+				path: '',
+				name: 'tutorials-index-page',
+				component: () => import('@/pages/tutorials/index.vue'),
+			},
 			// Getting Started section
 			{
 				path: 'getting-started',
-				name: 'getting-started-section',
-				component: () => import('@/layouts/TutorialLayout.vue'),
+				component: () => import('@/pages/tutorials/getting-started/index.vue'),
 				children: [
 					{
 						path: '',
 						name: 'getting-started-index',
-						component: () =>
-							import('@/pages/tutorials/getting-started/index.vue'),
+						component: () => import('@/pages/tutorials/getting-started/index.vue'),
 					},
 					{
 						path: 'how-internet-works',
 						name: 'getting-started-how-internet-works',
-						component: () =>
-							import(
-								'@/pages/tutorials/getting-started/how-internet-works.vue'
-							),
+						component: () => import('@/pages/tutorials/getting-started/how-internet-works.vue'),
 					},
 					{
 						path: 'web-basics',
 						name: 'getting-started-web-basics',
-						component: () =>
-							import('@/pages/tutorials/getting-started/web-basics.vue'),
+						component: () => import('@/pages/tutorials/getting-started/web-basics.vue'),
 					},
 					{
 						path: 'dev-environment',
 						name: 'getting-started-dev-environment',
-						component: () =>
-							import('@/pages/tutorials/getting-started/dev-environment.vue'),
+						component: () => import('@/pages/tutorials/getting-started/dev-environment.vue'),
 					},
 					{
 						path: 'browser-tools',
 						name: 'getting-started-browser-tools',
-						component: () =>
-							import('@/pages/tutorials/getting-started/browser-tools.vue'),
+						component: () => import('@/pages/tutorials/getting-started/browser-tools.vue'),
 					},
 					{
 						path: 'text-editors',
 						name: 'getting-started-text-editors',
-						component: () =>
-							import('@/pages/tutorials/getting-started/text-editors.vue'),
+						component: () => import('@/pages/tutorials/getting-started/text-editors.vue'),
 					},
 					{
 						path: 'domain-hosting',
 						name: 'getting-started-domain-hosting',
-						component: () =>
-							import('@/pages/tutorials/getting-started/domain-hosting.vue'),
+						component: () => import('@/pages/tutorials/getting-started/domain-hosting.vue'),
 					},
 				],
 			},
@@ -558,66 +584,52 @@ const routes = [
 			// HTML Basics section
 			{
 				path: 'html-basics',
-				name: 'html-basics-section',
-				component: () => import('@/layouts/TutorialLayout.vue'),
+				component: () => import('@/pages/tutorials/beginner/html-basics/index.vue'),
 				children: [
 					{
 						path: '',
 						name: 'html-basics-index',
-						component: () =>
-							import('@/pages/tutorials/beginner/html-basics/index.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/index.vue'),
 					},
 					{
 						path: 'introduction',
 						name: 'html-basics-introduction',
-						component: () =>
-							import('@/pages/tutorials/beginner/html-basics/introduction.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/introduction.vue'),
 					},
 					{
 						path: 'first-page',
 						name: 'html-basics-first-page',
-						component: () =>
-							import(
-								'@/pages/tutorials/beginner/html-basics/HTMLFirstPage.vue'
-							),
+						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLFirstPage.vue'),
 					},
 					{
 						path: 'text',
 						name: 'html-basics-text',
-						component: () =>
-							import('@/pages/tutorials/beginner/html-basics/HTMLText.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLText.vue'),
 					},
 					{
 						path: 'links',
 						name: 'html-basics-links',
-						component: () =>
-							import('@/pages/tutorials/beginner/html-basics/HTMLLinks.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLLinks.vue'),
 					},
 					{
 						path: 'images',
 						name: 'html-basics-images',
-						component: () =>
-							import('@/pages/tutorials/beginner/html-basics/HTMLImages.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLImages.vue'),
 					},
 					{
 						path: 'doc-structure',
 						name: 'html-basics-doc-structure',
-						component: () =>
-							import(
-								'@/pages/tutorials/beginner/html-basics/HTMLDocStructure.vue'
-							),
+						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLDocStructure.vue'),
 					},
 					{
 						path: 'forms',
 						name: 'html-basics-forms',
-						component: () =>
-							import('@/pages/tutorials/beginner/html-basics/HTMLForms.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLForms.vue'),
 					},
 					{
 						path: 'html-emmet',
 						name: 'html-basics-html-emmet',
-						component: () =>
-							import('@/pages/tutorials/beginner/html-basics/HTMLEmmet.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLEmmet.vue'),
 					},
 				],
 			},
@@ -625,68 +637,57 @@ const routes = [
 			// CSS Basics section
 			{
 				path: 'css-basics',
-				name: 'css-basics-section',
-				component: () => import('@/layouts/TutorialLayout.vue'),
+				component: () => import('@/pages/tutorials/beginner/css-basics/index.vue'),
 				children: [
 					{
 						path: '',
 						name: 'css-basics-index',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/index.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/index.vue'),
 					},
 					{
 						path: 'introduction',
 						name: 'css-basics-introduction',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/introduction.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/introduction.vue'),
 					},
 					{
 						path: 'selectors',
 						name: 'css-basics-selectors',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/selectors.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/selectors.vue'),
 					},
 					{
 						path: 'box-model',
 						name: 'css-basics-box-model',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/box-model.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/box-model.vue'),
 					},
 					{
 						path: 'text',
 						name: 'css-basics-text-properties',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/text.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/text.vue'),
 					},
 					{
 						path: 'layout',
 						name: 'css-basics-layout',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/layout.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/layout.vue'),
 					},
 					{
 						path: 'colors',
 						name: 'css-basics-colors',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/colors.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/colors.vue'),
 					},
 					{
 						path: 'modern',
 						name: 'css-basics-modern',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/modern.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/modern.vue'),
 					},
 					{
 						path: 'responsive',
 						name: 'css-basics-responsive',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/responsive.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/responsive.vue'),
 					},
 					{
 						path: 'flexbox',
 						name: 'css-basics-flexbox',
-						component: () =>
-							import('@/pages/tutorials/beginner/css-basics/flexbox.vue'),
+						component: () => import('@/pages/tutorials/beginner/css-basics/flexbox.vue'),
 					},
 				],
 			},
@@ -694,100 +695,77 @@ const routes = [
 			// JavaScript Basics section
 			{
 				path: 'javascript-basics',
-				name: 'javascript-basics-section',
-				component: () => import('@/layouts/TutorialLayout.vue'),
+				component: () => import('@/pages/tutorials/beginner/javascript-basics/index.vue'),
 				children: [
 					{
 						path: '',
 						name: 'javascript-basics-index',
-						component: () =>
-							import('@/pages/tutorials/beginner/javascript-basics/index.vue'),
+						component: () => import('@/pages/tutorials/beginner/javascript-basics/index.vue'),
 					},
 					{
 						path: 'introduction',
 						name: 'javascript-basics-introduction',
-						component: () =>
-							import(
-								'@/pages/tutorials/beginner/javascript-basics/introduction.vue'
-							),
+						component: () => import('@/pages/tutorials/beginner/javascript-basics/introduction.vue'),
 					},
 					{
 						path: 'variables-data-types',
 						name: 'javascript-basics-variables-data-types',
-						component: () =>
-							import(
-								'@/pages/tutorials/beginner/javascript-basics/variables-data-types.vue'
-							),
+						component: () => import('@/pages/tutorials/beginner/javascript-basics/variables-data-types.vue'),
 					},
 					{
 						path: 'conditionals',
 						name: 'javascript-basics-conditionals',
-						component: () =>
-							import(
-								'@/pages/tutorials/beginner/javascript-basics/conditionals.vue'
-							),
+						component: () => import('@/pages/tutorials/beginner/javascript-basics/conditionals.vue'),
 					},
 					{
 						path: 'operators',
 						name: 'javascript-basics-operators',
-						component: () =>
-							import(
-								'../pages/tutorials/beginner/javascript-basics/operators.vue'
-							),
+						component: () => import('@/pages/tutorials/beginner/javascript-basics/operators.vue'),
 						meta: {
 							title: 'Operators & Expressions in JavaScript',
-							description:
-								'Learn about JavaScript operators for calculations, comparisons, and logical operations',
+							description: 'Learn about JavaScript operators for calculations, comparisons, and logical operations',
 						},
 					},
 					{
 						path: 'loops',
 						name: 'javascript-basics-loops',
-						component: () =>
-							import('../pages/tutorials/beginner/javascript-basics/loops.vue'),
+						component: () => import('@/pages/tutorials/beginner/javascript-basics/loops.vue'),
 						meta: {
 							title: 'Loops in JavaScript',
-							description:
-								'Learn how to use loops to repeat actions and iterate through data in JavaScript',
+							description: 'Learn how to use loops to repeat actions and iterate through data in JavaScript',
 						},
 					},
 					{
 						path: 'functions',
 						name: 'javascript-basics-functions',
-						component: () =>
-							import('../pages/tutorials/beginner/javascript-basics/functions.vue'),
+						component: () => import('@/pages/tutorials/beginner/javascript-basics/functions.vue'),
 						meta: {
 							title: 'Functions in JavaScript',
 							description: 'Learn how to create and use functions in JavaScript to write reusable code',
 						},
 					},
-					// Add more JavaScript tutorials as they are created
 				],
 			},
 
 			// DOM Basics section
 			{
 				path: 'dom-basics',
-				name: 'dom-basics-section',
-				component: () => import('@/layouts/TutorialLayout.vue'),
+				component: () => import('@/pages/tutorials/beginner/dom-basics/index.vue'),
 				children: [
 					{
 						path: '',
 						name: 'dom-basics-index',
-						component: () =>
-							import('@/pages/tutorials/beginner/dom-basics/index.vue'),
+						component: () => import('@/pages/tutorials/beginner/dom-basics/index.vue'),
 					},
 					{
 						path: 'introduction',
 						name: 'dom-basics-introduction',
-						component: () =>
-							import('@/pages/tutorials/beginner/dom-basics/introduction.vue'),
+						component: () => import('@/pages/tutorials/beginner/dom-basics/introduction.vue'),
 					},
 					{
 						path: 'arrays',
 						name: 'dom-basics-arrays',
-						component: () =>
-							import('@/pages/tutorials/beginner/dom-basics/arrays.vue'),
+						component: () => import('@/pages/tutorials/beginner/dom-basics/arrays.vue'),
 						meta: {
 							title: 'Arrays and Array Methods in JavaScript',
 							description: 'Master JavaScript arrays with hands-on practice in DOM manipulation, leading to enhanced photo gallery and todo list projects',
@@ -797,83 +775,67 @@ const routes = [
 					{
 						path: 'dom-manipulation',
 						name: 'dom-basics-dom-manipulation',
-						component: () =>
-							import('@/pages/tutorials/beginner/dom-basics/dom-manipulation.vue'),
+						component: () => import('@/pages/tutorials/beginner/dom-basics/dom-manipulation.vue'),
 					},
-				
 					{
 						path: 'dom-events',
 						name: 'dom-basics-dom-events',
-						component: () =>
-							import('@/pages/tutorials/beginner/dom-basics/dom-events.vue'),
+						component: () => import('@/pages/tutorials/beginner/dom-basics/dom-events.vue'),
 					},
 				],
 			},
-			//git basics
-			{
 
+			// Git Basics section
+			{
 				path: 'git-basics',
-				name: 'git-basics-section',
-				component: () => import('@/layouts/TutorialLayout.vue'),
+				component: () => import('@/pages/tutorials/beginner/git-basics/index.vue'),
 				children: [
 					{
 						path: '',
 						name: 'git-basics-index',
-						component: () =>	
-							import('@/pages/tutorials/beginner/git-basics/index.vue'),
+						component: () => import('@/pages/tutorials/beginner/git-basics/index.vue'),
 					},
 					{
 						path: 'introduction',
 						name: 'git-basics-introduction',
-						component: () =>
-							import('@/pages/tutorials/beginner/git-basics/introduction.vue'),	
+						component: () => import('@/pages/tutorials/beginner/git-basics/introduction.vue'),
 					},
 					{
 						path: 'installation',
 						name: 'git-basics-installation',
-						component: () =>
-							import('@/pages/tutorials/beginner/git-basics/installation.vue'),					
+						component: () => import('@/pages/tutorials/beginner/git-basics/installation.vue'),
 					},
 					{
 						path: 'basic-commands',
 						name: 'git-basics-commands',
-						component: () =>
-							import('@/pages/tutorials/beginner/git-basics/basic-commands.vue'),					
-					},	
+						component: () => import('@/pages/tutorials/beginner/git-basics/basic-commands.vue'),
+					},
 					{
 						path: 'branching',
 						name: 'git-basics-branching',
-						component: () =>
-							import('@/pages/tutorials/beginner/git-basics/branching.vue'),
-					},				
+						component: () => import('@/pages/tutorials/beginner/git-basics/branching.vue'),
+					},
 					{
 						path:'merging',
 						name: 'git-basics-merging',
-						component: () =>	
-							import('@/pages/tutorials/beginner/git-basics/merging.vue'),
+						component: () => import('@/pages/tutorials/beginner/git-basics/merging.vue'),
 					},
-					{	
-						path: 'remote-repositories',	
+					{
+						path: 'remote-repositories',
 						name: 'git-basics-remote-repositories',
-						component: () =>
-							import('@/pages/tutorials/beginner/git-basics/remote-repositories.vue'),
+						component: () => import('@/pages/tutorials/beginner/git-basics/remote-repositories.vue'),
 					},
 					{
 						path: 'workflow',
 						name: 'git-basics-workflow',
-						component: () =>
-							import('@/pages/tutorials/beginner/git-basics/workflow.vue'),	
+						component: () => import('@/pages/tutorials/beginner/git-basics/workflow.vue'),
 					},
 					{
 						path: 'conclusion',
 						name: 'git-basics-conclusion',
-						component: () =>
-							import('@/pages/tutorials/beginner/git-basics/conclusion.vue'),	
+						component: () => import('@/pages/tutorials/beginner/git-basics/conclusion.vue'),
 					},
-				]
-
-
-				
+				],
 			},
 		],
 	},	
@@ -998,7 +960,21 @@ const routes = [
 						props: true,
 						beforeEnter: (to, from, next) =>
 								checkPostAccess('api-best-practices-beginner', next),
-					}
+					},
+					{
+						path: 'docker-basics-guide-for-web-developers',
+						component: () => import('../pages/posts/docker-basics-guide-for-web-developers.vue'),
+						props: true,
+						beforeEnter: (to, from, next) =>
+							checkPostAccess('docker-basics-guide-for-web-developers', next),
+					},
+					{
+						path: 'modern-js-patterns',
+						component: () => import('../pages/posts/modern-js-patterns.vue'),
+						props: true,
+						beforeEnter: (to, from, next) =>
+							checkPostAccess('modern-js-patterns', next),
+					},
 				],
 			},
 		],
@@ -1006,44 +982,22 @@ const routes = [
 	// Redirects for backward compatibility with old route names
 	{
 		path: '/tutorials/getting-started',
-		name: 'GettingStarted',
 		redirect: { name: 'getting-started-index' },
 	},
 	{
 		path: '/tutorials/html-basics',
-		name: 'HTMLBasics',
 		redirect: { name: 'html-basics-index' },
 	},
 	{
 		path: '/tutorials/css-basics',
-		name: 'CSSBasics',
 		redirect: { name: 'css-basics-index' },
 	},
 	{
 		path: '/tutorials/dom-basics',
-		name: 'DOMBasics',
 		redirect: { name: 'dom-basics-index' },
 	},
-	// Additional redirects for other naming patterns
-	{
-		path: '/tutorials/html-basics',
-		name: 'html-basics',
-		redirect: { name: 'html-basics-index' },
-	},
-	{
-		path: '/tutorials/getting-started',
-		name: 'getting-started',
-		redirect: { name: 'getting-started-index' },
-	},
-	{
-		path: '/tutorials/css-basics',
-		name: 'css-basics',
-		redirect: { name: 'css-basics-index' },
-	},
-	// Add redirect for html-basics-emmet
 	{
 		path: '/tutorials/html-basics/html-emmet',
-		name: 'html-basics-emmet',
 		redirect: { name: 'html-basics-html-emmet' },
 	},
 	// Add the student progress route

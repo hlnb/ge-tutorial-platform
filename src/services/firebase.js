@@ -4,13 +4,13 @@ import { getFirestore } from 'firebase/firestore';
 // import { getAnalytics } from 'firebase/analytics'; // Optional
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDV7HzFwrRMMRy7PYa6Zpr8VOQk5PvFUQ8",
-  authDomain: "graphitedge-student-progress.firebaseapp.com",
-  projectId: "graphitedge-student-progress",
-  storageBucket: "graphitedge-student-progress.appspot.com",
-  messagingSenderId: "333636638361",
-  appId: "1:333636638361:web:ed58c487bcd07732488a08",
-  measurementId: "G-ZPD4BWPX4H"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const firebaseApp = initializeApp(firebaseConfig);

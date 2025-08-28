@@ -20,11 +20,11 @@
 				</ul>
 			</div>
 			<div class="cookie-actions">
-				<button @click="acceptAll" class="button is-primary">Accept All</button>
-				<button @click="acceptEssential" class="button is-light">
+				<button class="button is-primary" @click="acceptAll">Accept All</button>
+				<button class="button is-light" @click="acceptEssential">
 					Essential Only
 				</button>
-				<button @click="showSettings" class="button is-link is-light">
+				<button class="button is-link is-light" @click="showSettings">
 					Cookie Settings
 				</button>
 			</div>
@@ -48,7 +48,7 @@
 					<div class="cookie-setting-item">
 						<div class="cookie-setting-header">
 							<label class="checkbox">
-								<input type="checkbox" v-model="settings.essential" disabled />
+								<input v-model="settings.essential" type="checkbox" disabled />
 								<span>Essential Cookies</span>
 							</label>
 							<span class="tag is-info is-light">Required</span>
@@ -62,7 +62,7 @@
 					<div class="cookie-setting-item">
 						<div class="cookie-setting-header">
 							<label class="checkbox">
-								<input type="checkbox" v-model="settings.progress" />
+								<input v-model="settings.progress" type="checkbox" />
 								<span>Progress Tracking</span>
 							</label>
 							<span class="tag is-success is-light">Recommended</span>
@@ -76,7 +76,7 @@
 					<div class="cookie-setting-item">
 						<div class="cookie-setting-header">
 							<label class="checkbox">
-								<input type="checkbox" v-model="settings.preferences" />
+								<input v-model="settings.preferences" type="checkbox" />
 								<span>Preferences</span>
 							</label>
 						</div>

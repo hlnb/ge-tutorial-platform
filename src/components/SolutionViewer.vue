@@ -90,7 +90,7 @@ const previewStyle = computed(
 
 				<!-- Preview Tab -->
 				<div v-if="activeTab === 'preview'" class="preview-container">
-					<div v-html="previewStyle" class="solution-preview"></div>
+					<div class="solution-preview" v-html="previewStyle"></div>
 				</div>
 
 				<!-- Explanation Tab -->

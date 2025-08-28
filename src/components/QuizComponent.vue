@@ -9,9 +9,9 @@
 
 			<div v-if="!quizStarted && !quizCompleted" class="quiz-intro">
 				<button
-					@click="startQuiz"
 					class="button is-primary"
 					:disabled="!quizQuestions || quizQuestions.length === 0"
+					@click="startQuiz"
 				>
 					Start Quiz
 				</button>
@@ -34,9 +34,9 @@
 			>
 				<div
 					v-for="(question, index) in quizQuestions"
+					v-show="currentQuestionIndex === index"
 					:key="index"
 					class="quiz-question"
-					v-show="currentQuestionIndex === index"
 				>
 					<p class="question-text">{{ index + 1 }}. {{ question.question }}</p>
 
@@ -87,9 +87,9 @@
 					<div class="quiz-navigation mt-4">
 						<button
 							v-if="index > 0"
-							@click="currentQuestionIndex--"
 							class="button is-light"
 							:disabled="showResults"
+							@click="currentQuestionIndex--"
 						>
 							Previous
 						</button>
@@ -98,34 +98,34 @@
 
 						<button
 							v-if="!showResults && index < quizQuestions.length - 1"
-							@click="currentQuestionIndex++"
 							class="button is-primary"
 							:disabled="selectedAnswers[index] === undefined"
+							@click="currentQuestionIndex++"
 						>
 							Next
 						</button>
 
 						<button
 							v-if="!showResults && index === quizQuestions.length - 1"
-							@click="submitQuiz"
 							class="button is-primary"
 							:disabled="selectedAnswers[index] === undefined"
+							@click="submitQuiz"
 						>
 							Submit
 						</button>
 
 						<button
 							v-if="showResults && index < quizQuestions.length - 1"
-							@click="currentQuestionIndex++"
 							class="button is-primary"
+							@click="currentQuestionIndex++"
 						>
 							Next
 						</button>
 
 						<button
 							v-if="showResults && index === quizQuestions.length - 1"
-							@click="finishQuiz"
 							class="button is-success"
+							@click="finishQuiz"
 						>
 							Finish Quiz
 						</button>
@@ -189,10 +189,10 @@
 				</div>
 
 				<div class="actions mt-4">
-					<button @click="resetQuiz" class="button is-primary">
+					<button class="button is-primary" @click="resetQuiz">
 						Try Again
 					</button>
-					<button @click="reviewAnswers" class="button is-info ml-2">
+					<button class="button is-info ml-2" @click="reviewAnswers">
 						Review Answers
 					</button>
 				</div>

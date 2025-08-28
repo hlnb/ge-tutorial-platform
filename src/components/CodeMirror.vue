@@ -1,6 +1,6 @@
 <template>
 	<div class="codemirror-container">
-		<pre><code :class="language" ref="codeElement"></code></pre>
+		<pre><code ref="codeElement" :class="language"></code></pre>
 	</div>
 </template>
 

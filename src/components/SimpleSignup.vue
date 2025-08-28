@@ -1,10 +1,10 @@
 <template>
 	<div class="simple-signup">
-		<form @submit.prevent="handleSubmit" class="signup-form">
+		<form class="signup-form" @submit.prevent="handleSubmit">
 			<div class="field">
 				<input
-					type="email"
 					v-model="email"
+					type="email"
 					placeholder="Enter your email for updates"
 					required
 					class="input"

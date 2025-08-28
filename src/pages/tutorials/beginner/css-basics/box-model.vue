@@ -619,24 +619,24 @@ margin-top: 20px;</code></pre>
 						<div class="demo-controls">
 							<div class="control">
 								<label>Margin:</label>
-								<input type="range" v-model.number="margin" min="0" max="40" />
+								<input v-model.number="margin" type="range" min="0" max="40" />
 								<span>{{ margin }}px</span>
 							</div>
 
 							<div class="control">
 								<label>Border:</label>
-								<input type="range" v-model.number="border" min="0" max="20" />
+								<input v-model.number="border" type="range" min="0" max="20" />
 								<span>{{ border }}px</span>
 							</div>
 
 							<div class="control">
 								<label>Padding:</label>
-								<input type="range" v-model.number="padding" min="0" max="40" />
+								<input v-model.number="padding" type="range" min="0" max="40" />
 								<span>{{ padding }}px</span>
 							</div>
 						</div>
 
-						<div class="layer-info" v-if="activeLayer">
+						<div v-if="activeLayer" class="layer-info">
 							<strong
 								>{{
 									activeLayer.charAt(0).toUpperCase() + activeLayer.slice(1)
@@ -829,7 +829,7 @@ border: 10px solid black;
 							<CodeMirror
 								v-model="cardExample"
 								:extensions="[html(), css(), javascript()]"
-								:basicSetup="{
+								:basic-setup="{
 									lineNumbers: true,
 									highlightActiveLineGutter: true,
 									highlightActiveLine: true,
@@ -862,7 +862,7 @@ border: 10px solid black;
 							<CodeMirror
 								v-model="containerExample"
 								:extensions="[html(), css(), javascript()]"
-								:basicSetup="{
+								:basic-setup="{
 									lineNumbers: true,
 									highlightActiveLineGutter: true,
 									highlightActiveLine: true,
@@ -896,7 +896,7 @@ border: 10px solid black;
 							<CodeMirror
 								v-model="responsiveExample"
 								:extensions="[html(), css(), javascript()]"
-								:basicSetup="{
+								:basic-setup="{
 									lineNumbers: true,
 									highlightActiveLineGutter: true,
 									highlightActiveLine: true,
@@ -947,7 +947,7 @@ border: 10px solid black;
 				<CodeMirror
 					v-model="blackSwanExercise"
 					:extensions="[css()]"
-					:basicSetup="{
+					:basic-setup="{
 						lineNumbers: true,
 						highlightActiveLineGutter: true,
 						highlightActiveLine: true,
@@ -995,7 +995,7 @@ border: 10px solid black;
 				<CodeMirror
 					v-model="rottoRocksExercise"
 					:extensions="[css()]"
-					:basicSetup="{
+					:basic-setup="{
 						lineNumbers: true,
 						highlightActiveLineGutter: true,
 						highlightActiveLine: true,

@@ -29,12 +29,12 @@
         </div>
       </div>
       <div class="features-carousel-controls">
-        <button @click="prevFeatures" :disabled="!canGoPrev" class="carousel-arrow">&#8592;</button>
-        <button @click="nextFeatures" :disabled="!canGoNext" class="carousel-arrow">&#8594;</button>
+        <button :disabled="!canGoPrev" class="carousel-arrow" @click="prevFeatures">&#8592;</button>
+        <button :disabled="!canGoNext" class="carousel-arrow" @click="nextFeatures">&#8594;</button>
       </div>
     </section>
 
-    <section class="latest-posts" v-if="frontmatter.latestPosts && frontmatter.latestPosts.length">
+    <section v-if="frontmatter.latestPosts && frontmatter.latestPosts.length" class="latest-posts">
       <h2>Latest from The Graphite Journal</h2>
       <div class="posts-grid">
         <article v-for="post in frontmatter.latestPosts" :key="post.link" class="post-card">

@@ -1,0 +1,33 @@
+<svg width="512" height="320" viewBox="0 0 512 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="320" rx="32" fill="#F7F7F7" />
+  <g>
+    <rect x="40" y="40" width="432" height="240" rx="24" fill="#FFF" stroke="#E0E0E0" stroke-width="2" />
+    <text x="256" y="100" text-anchor="middle" font-size="32" font-family="Inter, Arial, sans-serif" font-weight="bold"
+      fill="#222">
+      Modern JS Patterns
+    </text>
+    <g>
+      <!-- Subtle rounded rectangle grouping the three boxes -->
+      <rect x="70" y="130" width="372" height="80" rx="20" fill="#F0F4F8" stroke="#D0D7DE" stroke-width="2" />
+      <rect x="80" y="140" width="100" height="60" rx="12" fill="#FFD600" />
+      <text x="130" y="175" text-anchor="middle" font-size="18" font-family="Inter, Arial, sans-serif"
+        font-weight="bold" fill="#222">
+        Arrow
+      </text>
+      <rect x="206" y="140" width="100" height="60" rx="12" fill="#00B8D9" />
+      <text x="256" y="175" text-anchor="middle" font-size="14" font-family="Inter, Arial, sans-serif"
+        font-weight="bold" fill="#FFF">
+        Destructuring
+      </text>
+      <rect x="332" y="140" width="100" height="60" rx="12" fill="#6554C0" />
+      <text x="382" y="175" text-anchor="middle" font-size="18" font-family="Inter, Arial, sans-serif"
+        font-weight="bold" fill="#FFF">
+        Modules
+      </text>
+    </g>
+    <!-- Arrows removed, grouping rectangle added above -->
+    <text x="256" y="270" text-anchor="middle" font-size="20" font-family="Inter, Arial, sans-serif" fill="#888">
+      Clean, Modern, Maintainable
+    </text>
+  </g>
+</svg>

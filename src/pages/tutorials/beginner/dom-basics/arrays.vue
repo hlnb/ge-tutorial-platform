@@ -129,7 +129,7 @@
           <p>Arrays in JavaScript are versatile data structures that can store multiple values in a single variable. Let's explore the fundamental operations:</p>
 
           <div class="method-examples">
-            <div class="method-card" id="creating-arrays">
+            <div id="creating-arrays" class="method-card">
               <h3>Creating Arrays</h3>
               <pre><code>// Array literal
 let fruits = ['apple', 'banana', 'orange'];
@@ -141,7 +141,7 @@ let numbers = new Array(1, 2, 3);
 let empty = new Array(3); // [undefined, undefined, undefined]</code></pre>
             </div>
 
-            <div class="method-card" id="accessing-elements">
+            <div id="accessing-elements" class="method-card">
               <h3>Accessing Elements</h3>
               <pre><code>let fruits = ['apple', 'banana', 'orange'];
 
@@ -156,7 +156,7 @@ console.log(fruits.at(-1)); // 'orange'</code></pre>
             </div>
 
             <!-- Add Zero-Based Indexing -->
-            <div class="method-card" id="zero-based-indexing">
+            <div id="zero-based-indexing" class="method-card">
               <h3>Understanding Zero-Based Indexing</h3>
               <p>Arrays in JavaScript start counting from 0, not 1. Here's why:</p>
               
@@ -195,7 +195,7 @@ console.log(fruits.at(-1)); // 'orange'</code></pre>
               </div>
             </div>
 
-            <div class="method-card" id="modifying-arrays">
+            <div id="modifying-arrays" class="method-card">
               <h3>Modifying Arrays</h3>
               <pre><code>let fruits = ['apple', 'banana'];
 
@@ -214,7 +214,7 @@ fruits.shift();          // ['apple', 'banana']</code></pre>
           </div>
 
           <div class="method-examples mt-4">
-            <div class="method-card" id="useful-methods">
+            <div id="useful-methods" class="method-card">
               <h3>Useful Array Methods</h3>
               <pre><code>let fruits = ['apple', 'banana', 'orange'];
 
@@ -231,7 +231,7 @@ fruits.join(', ');          // "apple, banana, orange"
 fruits.slice(1, 2);         // ['banana']</code></pre>
             </div>
 
-            <div class="method-card" id="array-transformation">
+            <div id="array-transformation" class="method-card">
               <h3>Array Transformation</h3>
               <pre><code>let numbers = [1, 2, 3, 4, 5];
 
@@ -245,7 +245,7 @@ numbers.filter(n => n > 3); // [4, 5]
 numbers.reduce((sum, n) => sum + n, 0); // 15</code></pre>
             </div>
 
-            <div class="method-card" id="common-patterns">
+            <div id="common-patterns" class="method-card">
               <h3>Common Patterns</h3>
               <pre><code>// Remove duplicates
 let array = [1, 2, 2, 3, 3, 4];
@@ -300,7 +300,7 @@ Array.isArray(numbers);  // true</code></pre>
           <!-- Interactive Demo: DOM Collection -->
           <div class="demo-section mt-4">
             <h3>DOM Collection Demo</h3>
-            <div class="demo-elements" ref="demoElements">
+            <div ref="demoElements" class="demo-elements">
               <div class="demo-item">Item 1</div>
               <div class="demo-item">Item 2</div>
               <div class="demo-item">Item 3</div>
@@ -310,7 +310,7 @@ Array.isArray(numbers);  // true</code></pre>
               <button @click="showNodeList">Get NodeList</button>
               <button @click="convertToArray">Convert to Array</button>
             </div>
-            <div class="result-display" v-if="collectionResult">
+            <div v-if="collectionResult" class="result-display">
               <p>{{ collectionResult }}</p>
             </div>
           </div>
@@ -356,7 +356,7 @@ Array.isArray(numbers);  // true</code></pre>
               <button @click="addListItem">Add Item</button>
             </div>
 
-            <ul class="practice-list" ref="practiceList">
+            <ul ref="practiceList" class="practice-list">
               <li v-for="(item, index) in listItems" :key="index">
                 {{ item }}
                 <button class="delete-btn" @click="removeListItem(index)">×</button>

@@ -57,7 +57,7 @@
 		</div>
 
 		<!-- Pagination -->
-		<nav class="pagination is-centered mt-6" v-if="totalPages > 1">
+		<nav v-if="totalPages > 1" class="pagination is-centered mt-6">
 			<ul class="pagination-list">
 				<li>
 					<a
@@ -178,7 +178,7 @@ onMounted(async () => {
 <style scoped>
 .journal-hero {
 	background-color: var(--color-mine-shaft);
-	height: 45vh;
+	height: 50vh;
 	color: var(--color-white);
 	text-align: center;
 	padding: 10vh 0;

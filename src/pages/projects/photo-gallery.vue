@@ -285,14 +285,14 @@
 			<h2 class="title is-2">Search Your Gallery</h2>
 			<div class="search-controls mb-4">
 				<input
-					type="text"
 					v-model="searchQuery"
+					type="text"
 					placeholder="Search images by caption..."
 					class="input"
 				/>
 				<div class="filter-options mt-2">
 					<label class="checkbox mr-4">
-						<input type="checkbox" v-model="searchInTags"> Search in tags
+						<input v-model="searchInTags" type="checkbox"> Search in tags
 					</label>
 					<div class="select is-small">
 						<select v-model="sortBy">

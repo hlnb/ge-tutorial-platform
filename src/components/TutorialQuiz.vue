@@ -1,5 +1,5 @@
 <template>
-	<section class="tutorial-quiz mt-6" v-if="quizAvailable">
+	<section v-if="quizAvailable" class="tutorial-quiz mt-6">
 		<h2 class="title is-3">{{ title }}</h2>
 		<p class="mb-4">{{ description }}</p>
 

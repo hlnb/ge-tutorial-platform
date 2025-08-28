@@ -90,14 +90,14 @@
 			</ul>
 		</div>
 
-		<h2 class="title is-2" id="if-statements">Conditions with If Statements</h2>
+		<h2 id="if-statements" class="title is-2">Conditions with If Statements</h2>
 		<p>
 			Conditions allow your code to make decisions based on different
 			situations. Think of them as forks in a road - your code can take
 			different paths depending on certain conditions.
 		</p>
 
-		<h3 class="title is-4" id="basic-if">Basic If Statement</h3>
+		<h3 id="basic-if" class="title is-4">Basic If Statement</h3>
 		<p>
 			The simplest form of a condition. If the condition is true, the code
 			inside the curly braces will run:
@@ -135,7 +135,7 @@
 			:read-only="true"
 		/>
 
-		<h3 class="title is-4" id="if-else">If-Else Statement</h3>
+		<h3 id="if-else" class="title is-4">If-Else Statement</h3>
 		<p>
 			This adds an alternative path. If the condition is true, the first block
 			runs; otherwise, the else block runs:
@@ -179,7 +179,7 @@
 			:read-only="true"
 		/>
 
-		<h3 class="title is-4" id="else-if">If-Else If-Else</h3>
+		<h3 id="else-if" class="title is-4">If-Else If-Else</h3>
 		<p>
 			For multiple conditions, you can chain them together. The code checks each
 			condition in order until one is true:
@@ -324,7 +324,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2" id="switch-statements">Switch Statements</h2>
+		<h2 id="switch-statements" class="title is-2">Switch Statements</h2>
 		<p>
 			Switch statements are useful when you have multiple possible values for a
 			single variable. They're cleaner than writing many if/else statements:
@@ -403,7 +403,7 @@
 			</p>
 		</div>
 
-		<h3 class="title is-4" id="switch-syntax">Switch Syntax</h3>
+		<h3 id="switch-syntax" class="title is-4">Switch Syntax</h3>
 		<p>
 			Switch statements are useful when you have multiple possible values for a
 			single variable. They're cleaner than writing many if/else statements:
@@ -416,14 +416,14 @@
 			:read-only="true"
 		/>
 
-		<h3 class="title is-4" id="case-break">Case and Break</h3>
+		<h3 id="case-break" class="title is-4">Case and Break</h3>
 		<p>
 			Don't forget the <code>break</code> statement after each case! Without
 			it, the code will "fall through" and continue executing the next cases,
 			which is rarely what you want.
 		</p>
 
-		<h2 class="title is-2" id="ternary-operator">Ternary Operator</h2>
+		<h2 id="ternary-operator" class="title is-2">Ternary Operator</h2>
 		<p>
 			The ternary operator is a shorthand way to write simple if-else statements.
 			It's perfect for quick conditional assignments and returns.
@@ -483,7 +483,7 @@
 			</ul>
 		</div>
 
-		<h3 class="title is-4" id="nested-ternary">Nested Ternary</h3>
+		<h3 id="nested-ternary" class="title is-4">Nested Ternary</h3>
 		<p>
 			While possible, nesting ternary operators can make code hard to read.
 			Use with caution:
@@ -510,14 +510,14 @@
 			</div>
 		</div>
 
-		<h2 class="title is-2" id="truthy-falsy">Truthy and Falsy Values</h2>
+		<h2 id="truthy-falsy" class="title is-2">Truthy and Falsy Values</h2>
 		<p>
 			In JavaScript, values can be converted to booleans automatically in
 			conditional contexts. Understanding truthy and falsy values helps write
 			cleaner conditions.
 		</p>
 
-		<h3 class="title is-4" id="falsy-values">Falsy Values</h3>
+		<h3 id="falsy-values" class="title is-4">Falsy Values</h3>
 		<p>
 			These values are considered false when used in conditions:
 		</p>
@@ -529,7 +529,7 @@
 			:read-only="true"
 		/>
 
-		<h3 class="title is-4" id="truthy-values">Truthy Values</h3>
+		<h3 id="truthy-values" class="title is-4">Truthy Values</h3>
 		<p>
 			Almost everything else is considered true! Here are common examples:
 		</p>
@@ -554,7 +554,7 @@
 			/>
 		</div>
 
-		<h2 class="title is-2" id="practice">Practice Exercises</h2>
+		<h2 id="practice" class="title is-2">Practice Exercises</h2>
 
 		<div class="notification is-info is-light">
 			<p>

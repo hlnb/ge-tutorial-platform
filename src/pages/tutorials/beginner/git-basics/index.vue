@@ -308,7 +308,7 @@
                 <p class="has-text-centered">
                     {{ completedSections }} of {{ totalSections }} sections completed ({{ progressPercentage }}%)
                 </p>
-                <div class="mt-4" v-if="completedSections < totalSections">
+                <div v-if="completedSections < totalSections" class="mt-4">
                     <p class="has-text-centered">
                         <strong>Next up:</strong> 
                         <span v-if="nextSection" class="tag is-primary is-medium">
@@ -316,7 +316,7 @@
                         </span>
                     </p>
                 </div>
-                <div class="mt-4" v-else>
+                <div v-else class="mt-4">
                     <p class="has-text-centered has-text-success">
                         <i class="fas fa-trophy"></i>
                         <strong>Congratulations!</strong> You've completed all sections!

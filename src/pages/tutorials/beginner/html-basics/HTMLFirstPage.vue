@@ -236,7 +236,7 @@ Best time to visit: September to May</pre
 					Progress tracking is disabled. Enable it to track your completed
 					tutorials.
 				</p>
-				<button @click="openCookieSettings" class="button is-primary mt-2">
+				<button class="button is-primary mt-2" @click="openCookieSettings">
 					Enable Progress Tracking
 				</button>
 			</div>
@@ -246,7 +246,7 @@ Best time to visit: September to May</pre
 					<i class="fas fa-check-circle"></i>
 					You've marked this tutorial as completed!
 				</p>
-				<button @click="markAsIncomplete" class="button is-light mt-2">
+				<button class="button is-light mt-2" @click="markAsIncomplete">
 					Mark as Incomplete
 				</button>
 			</div>
@@ -256,7 +256,7 @@ Best time to visit: September to May</pre
 					Don't forget to mark this tutorial as completed to track your
 					progress.
 				</p>
-				<button @click="markAsCompleted" class="button is-primary mt-2">
+				<button class="button is-primary mt-2" @click="markAsCompleted">
 					Mark as Completed
 				</button>
 			</div>
@@ -280,8 +280,8 @@ Best time to visit: September to May</pre
 							<div class="cookie-setting-header">
 								<label class="checkbox">
 									<input
-										type="checkbox"
 										v-model="cookieSettings.essential"
+										type="checkbox"
 										disabled
 									/>
 									<span>Essential Cookies</span>
@@ -297,7 +297,7 @@ Best time to visit: September to May</pre
 						<div class="cookie-setting-item">
 							<div class="cookie-setting-header">
 								<label class="checkbox">
-									<input type="checkbox" v-model="cookieSettings.progress" />
+									<input v-model="cookieSettings.progress" type="checkbox" />
 									<span>Progress Tracking</span>
 								</label>
 								<span class="tag is-success is-light">Recommended</span>
@@ -311,7 +311,7 @@ Best time to visit: September to May</pre
 						<div class="cookie-setting-item">
 							<div class="cookie-setting-header">
 								<label class="checkbox">
-									<input type="checkbox" v-model="cookieSettings.preferences" />
+									<input v-model="cookieSettings.preferences" type="checkbox" />
 									<span>Preferences</span>
 								</label>
 							</div>

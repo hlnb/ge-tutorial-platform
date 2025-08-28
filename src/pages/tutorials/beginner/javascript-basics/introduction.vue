@@ -97,7 +97,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2" id="what-is-javascript">What is JavaScript?</h2>
+		<h2 id="what-is-javascript" class="title is-2">What is JavaScript?</h2>
 		<p>
 			JavaScript is the programming language that brings websites to life. It's the technology that transforms static web pages into interactive applications that respond to user actions in real-time.
 		</p>
@@ -184,14 +184,14 @@
 			</div>
 		</div>
 
-		<h2 class="title is-2 mt-6" id="adding-javascript">Adding JavaScript to HTML</h2>
+		<h2 id="adding-javascript" class="title is-2 mt-6">Adding JavaScript to HTML</h2>
 		<p>
 			There are three ways to add JavaScript to your webpage. Let's explore each method with practical examples:
 		</p>
 
 		<!-- Method 1: Inline JavaScript -->
 		<div class="box">
-			<h3 class="title is-4" id="inline-javascript">
+			<h3 id="inline-javascript" class="title is-4">
 				<i class="fas fa-code mr-2"></i>
 				1. Inline JavaScript
 			</h3>
@@ -215,7 +215,7 @@
 
 		<!-- Method 2: Internal JavaScript -->
 		<div class="box">
-			<h3 class="title is-4" id="internal-javascript">
+			<h3 id="internal-javascript" class="title is-4">
 				<i class="fas fa-file-code mr-2"></i>
 				2. Internal JavaScript
 			</h3>
@@ -234,7 +234,7 @@
 
 		<!-- Method 3: External JavaScript -->
 		<div class="box">
-			<h3 class="title is-4" id="external-javascript">
+			<h3 id="external-javascript" class="title is-4">
 				<i class="fas fa-external-link-alt mr-2"></i>
 				3. External JavaScript (Recommended)
 			</h3>

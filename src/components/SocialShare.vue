@@ -26,7 +26,7 @@
 			>
 				<i class="fab fa-facebook"></i>
 			</a>
-			<button class="button is-light" @click="copyLink" aria-label="Copy link">
+			<button class="button is-light" aria-label="Copy link" @click="copyLink">
 				<i class="fas fa-link"></i>
 			</button>
 		</div>

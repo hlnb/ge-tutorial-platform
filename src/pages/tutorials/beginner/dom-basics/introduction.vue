@@ -150,7 +150,7 @@ document
       <section id="interactive-demo" class="interactive-demo">
         <h2>Interactive Example</h2>
         <div class="demo-container">
-          <div class="demo-element" ref="demoElement">
+          <div ref="demoElement" class="demo-element">
             <p>{{ demoText }}</p>
           </div>
           <div class="demo-controls">
@@ -190,7 +190,7 @@ document
         <div class="box practice-box">
           <h3>Exercise 1: Viewing DOM Elements</h3>
           <p>Use the console to inspect DOM elements:</p>
-          <div class="code-example" id="example1">
+          <div id="example1" class="code-example">
             <p>This is a paragraph element</p>
             <button class="button">This is a button</button>
           </div>
@@ -207,7 +207,7 @@ document
         <div class="box practice-box">
           <h3>Exercise 2: Using Console Methods</h3>
           <p>Try different console methods to explore the DOM:</p>
-          <div class="code-example" id="example2">
+          <div id="example2" class="code-example">
             <div class="sample-element">Sample Element</div>
           </div>
           <div class="codemirror-wrapper">

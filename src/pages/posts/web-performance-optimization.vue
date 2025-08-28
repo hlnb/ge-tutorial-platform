@@ -1,12 +1,12 @@
 <template>
 	<PostVisibility :publish-date="frontmatter.date" :status="frontmatter.status">
 		<div class="box container">
-			<section class="hero" v-if="frontmatter">
+			<section v-if="frontmatter" class="hero">
 				<div class="hero-content">
 					<h1>{{ frontmatter.title }}</h1>
 					<div class="meta">
 						<time class="date">{{ formatDate(frontmatter.date) }}</time>
-						<span class="tags" v-if="frontmatter.tags?.length">
+						<span v-if="frontmatter.tags?.length" class="tags">
 							Tags: {{ frontmatter.tags.join(', ') }}
 						</span>
 					</div>

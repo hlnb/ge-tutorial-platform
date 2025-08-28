@@ -126,6 +126,13 @@
 	</footer>
 </template>
 
+<script setup>
+import { computed } from 'vue';
+import NewsletterSignup from './NewsletterSignup.vue';
+
+const currentYear = computed(() => new Date().getFullYear());
+</script>
+
 <style scoped>
 .footer {
 	background-color: var(--color-light-gray);
@@ -257,10 +264,3 @@
 	font-size: 1rem;
 }
 </style>
-
-<script setup>
-import { computed } from 'vue';
-import NewsletterSignup from './NewsletterSignup.vue';
-
-const currentYear = computed(() => new Date().getFullYear());
-</script>

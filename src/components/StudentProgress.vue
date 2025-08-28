@@ -12,7 +12,7 @@
 					You have disabled progress tracking in your cookie settings. Enable
 					progress tracking to keep track of your learning journey.
 				</p>
-				<button @click="openCookieSettings" class="button is-primary mt-3">
+				<button class="button is-primary mt-3" @click="openCookieSettings">
 					Update Cookie Settings
 				</button>
 			</div>
@@ -243,8 +243,8 @@
 
 						<div class="quiz-result-action">
 							<button
-								@click="viewQuizDetails(quizId)"
 								class="button is-info is-small"
+								@click="viewQuizDetails(quizId)"
 							>
 								View Details
 							</button>
@@ -260,7 +260,7 @@
 					If you want to start fresh, you can clear all your progress data. This
 					action cannot be undone.
 				</p>
-				<button @click="confirmClearProgress" class="button is-danger mt-3">
+				<button class="button is-danger mt-3" @click="confirmClearProgress">
 					Clear All Progress
 				</button>
 			</div>
@@ -291,10 +291,10 @@
 					</p>
 				</section>
 				<footer class="modal-card-foot">
-					<button @click="clearProgress" class="button is-danger">
+					<button class="button is-danger" @click="clearProgress">
 						Yes, Clear All Progress
 					</button>
-					<button @click="showClearConfirmation = false" class="button">
+					<button class="button" @click="showClearConfirmation = false">
 						Cancel
 					</button>
 				</footer>
@@ -319,8 +319,8 @@
 							<div class="cookie-setting-header">
 								<label class="checkbox">
 									<input
-										type="checkbox"
 										v-model="cookieSettings.essential"
+										type="checkbox"
 										disabled
 									/>
 									<span>Essential Cookies</span>
@@ -336,7 +336,7 @@
 						<div class="cookie-setting-item">
 							<div class="cookie-setting-header">
 								<label class="checkbox">
-									<input type="checkbox" v-model="cookieSettings.progress" />
+									<input v-model="cookieSettings.progress" type="checkbox" />
 									<span>Progress Tracking</span>
 								</label>
 								<span class="tag is-success is-light">Recommended</span>
@@ -350,7 +350,7 @@
 						<div class="cookie-setting-item">
 							<div class="cookie-setting-header">
 								<label class="checkbox">
-									<input type="checkbox" v-model="cookieSettings.preferences" />
+									<input v-model="cookieSettings.preferences" type="checkbox" />
 									<span>Preferences</span>
 								</label>
 							</div>

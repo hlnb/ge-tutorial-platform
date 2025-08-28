@@ -6,7 +6,7 @@
                     <h1>{{ frontmatter.title }}</h1>
                     <div class="meta">
                         <time class="date">{{ formatDate(frontmatter.date) }}</time>
-                        <span class="tags" v-if="frontmatter.tags?.length">
+                        <span v-if="frontmatter.tags?.length" class="tags">
                             Tags: {{ frontmatter.tags.join(', ') }}
                         </span>
                     </div>

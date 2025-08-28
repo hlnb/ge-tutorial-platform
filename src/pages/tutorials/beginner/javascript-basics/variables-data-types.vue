@@ -81,7 +81,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-2" id="variables">Understanding Variables</h2>
+		<h2 id="variables" class="title is-2">Understanding Variables</h2>
 		<p>
 			Think of variables as labeled containers that store different types of information in your program. Just like a restaurant uses different containers to store ingredients, we use variables to store data.
 		</p>
@@ -138,7 +138,7 @@
 			</div>
 		</div>
 
-		<h2 class="title is-2" id="data-types">JavaScript Data Types</h2>
+		<h2 id="data-types" class="title is-2">JavaScript Data Types</h2>
 		<p>
 			JavaScript has several built-in data types that help us work with different kinds of information. Let's explore each one with practical examples from a restaurant management system.
 		</p>

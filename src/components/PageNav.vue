@@ -1,6 +1,6 @@
 <template>
 	<div class="box table-of-contents mt-4">
-		<div class="nav-header" @click="toggleNav" role="button" tabindex="0">
+		<div class="nav-header" role="button" tabindex="0" @click="toggleNav">
 			<h4 class="title is-5">On This Page</h4>
 			<span class="icon">
 				<i
@@ -10,7 +10,7 @@
 			</span>
 		</div>
 
-		<ul class="menu-list" v-show="isExpanded">
+		<ul v-show="isExpanded" class="menu-list">
 			<li v-for="section in sections" :key="section.id">
 				<a
 					:href="`#${section.id}`"
