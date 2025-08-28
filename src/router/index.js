@@ -1046,7 +1046,6 @@ const router = createRouter({
 
 // Check if post should be accessible
 function checkPostAccess(slug, next) {
-	console.log('Checking access for post:', slug);
 	const post = posts[slug];
 	if (!post) {
 		next('/'); // Redirect to home if post doesn't exist

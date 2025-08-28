@@ -77,28 +77,17 @@ const hasQuiz = inject('hasQuiz', false);
 
 // Handle tutorial completion
 const handleTutorialCompleted = (tutorialPath) => {
-	console.log('Tutorial completed:', tutorialPath);
-
 	// You can add additional logic here if needed
 	// For example, show a congratulations message or update UI
 };
 
 // Handle tutorial marked as incomplete
 const handleTutorialIncomplete = (tutorialPath) => {
-	console.log('Tutorial marked as incomplete:', tutorialPath);
-
 	// You can add additional logic here if needed
 };
 
 onMounted(() => {
-	console.log('TutorialNavigation component mounted');
-	console.log(
-		'Available routes:',
-		router
-			.getRoutes()
-			.map((r) => r.name)
-			.filter(Boolean),
-	);
+	// Component mounted
 });
 </script>
 

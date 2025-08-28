@@ -93,12 +93,6 @@ const { pageSections, hasPageSections } = usePageNavigation();
 // Inject pageSections from the current tutorial
 const pageSectionsInject = inject('pageSections', ref([]));
 
-// Log the current route and available routes
-console.log('Current route in HTMLBasicsNav:', route.name);
-console.log(
-	'Available routes:',
-	router.getRoutes().map((r) => r.name),
-);
 
 const tutorials = [
 	{ path: '/tutorials/html-basics', title: 'Introduction' },

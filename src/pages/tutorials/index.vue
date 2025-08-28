@@ -335,16 +335,6 @@ const isMainTutorialsPage = computed(() => {
 });
 
 onMounted(() => {
-	console.log('Tutorials index page mounted');
-	console.log('Current route path:', route.path);
-	console.log('isMainTutorialsPage:', isMainTutorialsPage.value);
-	console.log(
-		'Available routes:',
-		router
-			.getRoutes()
-			.map((r) => r.name)
-			.filter(Boolean),
-	);
 });
 </script>
 
@@ -394,7 +384,7 @@ onMounted(() => {
 }
 
 .css-icon {
-	color: #264de4;
+	color: rebeccapurple;
 }
 
 .javascript-icon {

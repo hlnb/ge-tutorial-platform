@@ -42,11 +42,6 @@ const props = defineProps<{
 	relatedPosts?: string[];
 }>();
 
-// Let's log these values to debug
-console.log('PostVisibility props:', {
-	date: props.publishDate,
-	status: props.status,
-});
 
 const isVisible = computed(() => {
 	const now = new Date();

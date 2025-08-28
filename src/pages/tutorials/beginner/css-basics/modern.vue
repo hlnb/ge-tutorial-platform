@@ -857,7 +857,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 	padding: 2rem;
 }
 .css-icon {
-	color: #264de4;
+	color: rebeccapurple;
 }
 
 .function-demos {

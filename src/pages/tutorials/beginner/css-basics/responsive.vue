@@ -1292,7 +1292,7 @@ const navigationExample = ref(`/* Responsive Navigation */
 
 <style scoped>
 .css-icon {
-	color: #264de4;
+	color: rebeccapurple;
 	margin-right: 0.5rem;
 }
 

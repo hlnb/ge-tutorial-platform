@@ -377,9 +377,6 @@ const currentTutorial = computed(() => {
 		}
 	}
 
-	console.log('Current route key:', routeKey);
-	console.log('Current route name:', route.name);
-	console.log('Available tutorial map keys:', Object.keys(tutorialMap));
 
 	// Handle legacy route names
 	let legacyRouteKey = null;
@@ -409,27 +406,13 @@ const currentTutorial = computed(() => {
 watch(
 	() => route.name,
 	(newName) => {
-		console.log('Route name changed to:', newName);
-		console.log(
-			'All available routes:',
-			router
-				.getRoutes()
-				.map((r) => r.name)
-				.filter(Boolean),
-		);
+		// Route changed
 	},
 	{ immediate: true },
 );
 
 // Add this after the imports
 onMounted(() => {
-	console.log('TutorialLayout mounted');
-	console.log('Current route:', route.path, route.name);
-	console.log(
-		'All routes:',
-		router.getRoutes().map((r) => ({ name: r.name, path: r.path })),
-	);
-
 	// Add scroll event listener for progress tracking
 	window.addEventListener('scroll', handleScroll);
 });

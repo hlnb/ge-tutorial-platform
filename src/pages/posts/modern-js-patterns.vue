@@ -142,7 +142,7 @@ export default function multiply(a, b) {
 			</section>
 		</div>
 	</PostVisibility>
-	<PostNavigation :current-path="'modernJS-Patterns'" />
+	<PostNavigation :current-path="'modern-js-patterns'" />
 </template>
 
 <script>

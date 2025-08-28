@@ -128,7 +128,6 @@ class PostScheduler {
 				});
 
 				this.jobs.delete(post._id.toString());
-				console.log(`Post published: ${post.title}`);
 			} catch (error) {
 				console.error(`Failed to publish post ${post._id}:`, error);
 			}

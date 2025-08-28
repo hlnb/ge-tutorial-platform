@@ -203,7 +203,7 @@ export default {};
 
 .css-icon {
 	margin-right: 0.5rem;
-	color: #3273dc;
+	color: rebeccapurple;
 }
 
 .menu-list a {
@@ -320,7 +320,7 @@ export default {};
 }
 
 .css-icon {
-	color: #264de4;
+	color: rebeccapurple;
 	margin-right: 0.5rem;
 }
 

@@ -23,7 +23,6 @@ import { ref } from 'vue';
 const email = ref('');
 
 const handleSubmit = () => {
-	console.log('Email submitted:', email.value);
 	email.value = '';
 };
 </script>

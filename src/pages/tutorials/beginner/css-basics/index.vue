@@ -176,7 +176,7 @@ onMounted(() => {
 
 <style scoped>
 .css-icon {
-	color: #264de4;
+	color: rebeccapurple;
 }
 
 .content {

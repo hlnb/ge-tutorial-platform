@@ -23,7 +23,6 @@ import CookieConsent from '@/components/CookieConsent.vue';
 
 // Handle consent update
 const handleConsentUpdate = (settings) => {
-	console.log('Consent updated:', settings);
 	// Here you can initialize tracking based on settings
 	if (settings.progress) {
 		initializeProgressTracking();
@@ -34,7 +33,6 @@ const handleConsentUpdate = (settings) => {
 const initializeProgressTracking = () => {
 	// This function will be implemented later
 	// It will set up the necessary tracking for student progress
-	console.log('Progress tracking initialized');
 };
 </script>
 

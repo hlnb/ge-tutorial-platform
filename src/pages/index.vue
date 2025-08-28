@@ -114,7 +114,6 @@ import FaqSection from '@/components/FaqSection.vue';
 
 // Get all .vue files from the src/pages/posts directory
 const postModules = import.meta.glob('/src/pages/posts/*.vue', { eager: true });
-console.log('Post modules:', postModules); // Debugging line to check loaded modules
 // Ensure the postModules object is not empty
 if (Object.keys(postModules).length === 0) {
 	console.warn('No post modules found. Check your import path or file structure.');

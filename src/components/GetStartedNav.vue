@@ -475,12 +475,6 @@ const { pageSections, hasPageSections } = usePageNavigation();
 // Inject pageSections from the current tutorial
 const pageSectionsInject = inject('pageSections', ref([]));
 
-// Log the current route and available routes
-console.log('Current route in GetStartedNav:', route.name);
-console.log(
-	'Available routes:',
-	router.getRoutes().map((r) => r.name),
-);
 
 // Define the order of tutorials for next/prev navigation
 const tutorialOrder = [
