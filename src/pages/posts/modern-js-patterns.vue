@@ -202,7 +202,7 @@ onMounted(() => {
 }
 
 .hero {
-	background-image: url('/images/posts/[your-image-name].svg');
+	background-image: url('/images/posts/modern-js-patterns.svg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

@@ -1,0 +1,30 @@
+<svg width="400" height="220" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="220" rx="28" fill="#F7F7FA" />
+  <g>
+    <rect x="40" y="60" width="320" height="100" rx="16" fill="#fff" stroke="#6366F1" stroke-width="3" />
+    <rect x="64" y="84" width="72" height="14" rx="4" fill="#E0E7FF" />
+    <rect x="64" y="108" width="180" height="10" rx="3" fill="#E0E7FF" />
+    <rect x="64" y="126" width="110" height="10" rx="3" fill="#E0E7FF" />
+    <rect x="64" y="144" width="80" height="10" rx="3" fill="#E0E7FF" />
+    <rect x="64" y="162" width="60" height="10" rx="3" fill="#E0E7FF" />
+    <rect x="160" y="84" width="160" height="14" rx="4" fill="#FDE68A" />
+    <rect x="240" y="126" width="56" height="10" rx="3" fill="#FDE68A" />
+    <rect x="200" y="144" width="80" height="10" rx="3" fill="#FDE68A" />
+    <rect x="180" y="162" width="100" height="10" rx="3" fill="#FDE68A" />
+    <rect x="64" y="180" width="256" height="4" rx="2" fill="#B3B3D1" />
+  </g>
+  <g>
+    <circle cx="100" cy="44" r="18" fill="#6366F1" />
+    <path d="M100 36v16M92 44h16" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+    <rect x="140" y="32" width="36" height="20" rx="6" fill="#fff" stroke="#B3B3D1" stroke-width="2" />
+    <rect x="146" y="38" width="24" height="6" rx="2" fill="#E0E7FF" />
+    <rect x="190" y="32" width="36" height="20" rx="6" fill="#fff" stroke="#B3B3D1" stroke-width="2" />
+    <rect x="196" y="38" width="24" height="6" rx="2" fill="#FDE68A" />
+    <rect x="240" y="32" width="36" height="20" rx="6" fill="#fff" stroke="#B3B3D1" stroke-width="2" />
+    <rect x="246" y="38" width="24" height="6" rx="2" fill="#E0E7FF" />
+  </g>
+  <text x="200" y="40" text-anchor="middle" font-size="24px" font-family="Arial, sans-serif" fill="#6366F1">Design to
+    Code</text>
+  <text x="200" y="65" text-anchor="middle" font-size="16px" font-family="Arial, sans-serif" fill="#B3B3D1">Breakdown &
+    Patterns</text>
+</svg>

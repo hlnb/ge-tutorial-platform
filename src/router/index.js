@@ -3,6 +3,22 @@ import RSSFeedService from '@/services/RSSFeedService';
 
 // Post metadata registry
 export const posts = {
+	'design-to-code': {
+		title: 'Design to Code – Part 1: Breaking Down a Mockup into Sections',
+		description: 'A practical guide to breaking down a design mockup into code-ready sections for developers.',
+		status: 'published',
+		publishDate: '2025-09-29',
+		lastUpdated: '2025-09-29',
+		author: 'Helen Burgess',
+		tags: ['Design', 'HTML', 'CSS', 'Workflow'],
+		readingTime: '14 min',
+		series: 'Design to Code',
+		seriesOrder: 1,
+		relatedPosts: ['modern-js-patterns', 'responsive-design'],
+		imageUrl: '/images/posts/design-to-code.svg',
+		excerpt: 'Learn how to break down a visual design mockup into manageable, code-ready sections and patterns.',
+		featured: false,
+	},
 	'api-best-practices-beginner': {
 		title: "API Best Practices: A Beginner's Guide to Building Better Web APIs",
 		description: 'Learn the best practices for building APIs, from clear naming conventions to security tips, in this beginner-friendly guide.',
@@ -968,13 +984,20 @@ const routes = [
 						beforeEnter: (to, from, next) =>
 							checkPostAccess('docker-basics-guide-for-web-developers', next),
 					},
-					{
-						path: 'modern-js-patterns',
-						component: () => import('../pages/posts/modern-js-patterns.vue'),
-						props: true,
-						beforeEnter: (to, from, next) =>
-							checkPostAccess('modern-js-patterns', next),
-					},
+								{
+									path: 'modern-js-patterns',
+									component: () => import('../pages/posts/modern-js-patterns.vue'),
+									props: true,
+									beforeEnter: (to, from, next) =>
+										checkPostAccess('modern-js-patterns', next),
+								},
+								{
+									path: 'design-to-code',
+									component: () => import('../pages/posts/design-to-code.vue'),
+									props: true,
+									beforeEnter: (to, from, next) =>
+										checkPostAccess('design-to-code', next),
+								},
 				],
 			},
 		],

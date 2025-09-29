@@ -1,4 +1,3 @@
-
 <template>
     <PostVisibility :publish-date="frontmatter.date" :status="frontmatter.status">
         <div class="container">
@@ -16,14 +15,7 @@
             <section class="section">
                 <div class="content">
                     <article class="blog-post">
-                        <!-- Hero Image Section -->
-                        <div class="post-hero">
-                            <h1 class="title is-1">
-                                <i class="fas fa-code section-icon"></i> Example Post Title
-                            </h1>
-                        </div>
-
-                        <h1><strong>🐳 Docker for Web Developers: Simplifying Setup and Deployment</strong></h1><blockquote><p>How containers, images, and Docker Compose can streamline your dev and deploy workflow</p></blockquote><hr><p>Ever had your code work perfectly on your computer, only to break when you share it with someone else? That's a common headache in web development—where different Node versions, package conflicts, and mysterious configuration issues can turn simple setups into debugging marathons. Enter <strong>Docker</strong>.</p><p>Docker brings order to the chaos with <strong>containers</strong>—lightweight, portable environments that bundle up your app, its dependencies, and its configuration into something that runs <em>anywhere</em>. If you're new to containers, think of them like perfectly packed lunchboxes—everything your app needs to run, all packed up and ready to go. Whether you’re building a static site, a React app, or a full-stack Node/Express API, Docker can help you tame your dev setup and streamline your deployments.</p><p>In this guide, we’ll explore:</p><ul><li><p>🧱 What containers and images actually are</p></li><li><p>🧰 How to use docker-compose for local dev</p></li><li><p>🚀 A basic deployment workflow using Docker</p></li><li><p>✅ Practical setup tips for web developers</p></li></ul><hr><h2><strong>🔹 Containers vs Images: What’s the Deal?</strong></h2><p>Let's break down two of Docker's most important concepts. Don't worry if they feel a bit abstract at first—even experienced developers sometimes mix them up!</p><p>A <strong>Docker image</strong> is like a cooking recipe that lists everything your app needs: the code, the operating system, all the dependencies, and configuration. A <strong>container</strong> is what happens when you follow that recipe—it's your actual running application, ready to serve users.</p><h3><strong>📦 Image</strong></h3><p>Think of an image as your app's blueprint. Here's a basic example of what one looks like (don't worry if the syntax feels new—we'll break it down step by step in future tutorials):</p><pre><code><code># A basic Node app image
+                               <h2><strong>🐳 Docker for Web Developers: Simplifying Setup and Deployment</strong></h2><blockquote><p>How containers, images, and Docker Compose can streamline your dev and deploy workflow</p></blockquote><hr><p>Ever had your code work perfectly on your computer, only to break when you share it with someone else? That's a common headache in web development—where different Node versions, package conflicts, and mysterious configuration issues can turn simple setups into debugging marathons. Enter <strong>Docker</strong>.</p><p>Docker brings order to the chaos with <strong>containers</strong>—lightweight, portable environments that bundle up your app, its dependencies, and its configuration into something that runs <em>anywhere</em>. If you're new to containers, think of them like perfectly packed lunchboxes—everything your app needs to run, all packed up and ready to go. Whether you’re building a static site, a React app, or a full-stack Node/Express API, Docker can help you tame your dev setup and streamline your deployments.</p><p>In this guide, we’ll explore:</p><ul><li><p>🧱 What containers and images actually are</p></li><li><p>🧰 How to use docker-compose for local dev</p></li><li><p>🚀 A basic deployment workflow using Docker</p></li><li><p>✅ Practical setup tips for web developers</p></li></ul><hr><h2><strong>🔹 Containers vs Images: What’s the Deal?</strong></h2><p>Let's break down two of Docker's most important concepts. Don't worry if they feel a bit abstract at first—even experienced developers sometimes mix them up!</p><p>A <strong>Docker image</strong> is like a cooking recipe that lists everything your app needs: the code, the operating system, all the dependencies, and configuration. A <strong>container</strong> is what happens when you follow that recipe—it's your actual running application, ready to serve users.</p><h3><strong>📦 Image</strong></h3><p>Think of an image as your app's blueprint. Here's a basic example of what one looks like (don't worry if the syntax feels new—we'll break it down step by step in future tutorials):</p><pre><code><code># A basic Node app image
 FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
@@ -81,7 +73,7 @@ export const frontmatter = {
     image: '/images/posts/docker-basics-guide.svg',
     description: 'A practical guide to using Docker, containers, and Docker Compose for modern web development and deployment.',
     tags: ['Docker', 'Web Development', 'Containers', 'DevOps', 'Guide'],
-    status: 'published'
+    status: 'published',
 };
 </script>
 
@@ -91,6 +83,12 @@ import PostNavigation from '@/components/PostNavigation.vue';
 import BlogSignup from '../../components/BlogSignup.vue';
 import { ref, onMounted } from 'vue';
 import { useHead } from '@vueuse/head';
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
 
 const postData = ref(frontmatter);
 
@@ -124,7 +122,7 @@ onMounted(() => {
 }
 
 .hero {
-    background-image: url('/images/posts/example-image.svg');
+    background-image: url('/images/posts/docker-basics-guide.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -233,4 +231,4 @@ h2 {
         font-size: 1.8rem;
     }
 }
-</style> 
+</style>

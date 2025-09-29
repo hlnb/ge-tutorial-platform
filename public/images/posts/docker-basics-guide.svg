@@ -1,0 +1,24 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="48" fill="#F8FAFC" />
+  <g>
+    <rect x="40" y="160" width="176" height="32" rx="16" fill="#0091E2" />
+    <rect x="56" y="128" width="32" height="32" rx="8" fill="#0091E2" />
+    <rect x="96" y="128" width="32" height="32" rx="8" fill="#0091E2" />
+    <rect x="136" y="128" width="32" height="32" rx="8" fill="#0091E2" />
+    <rect x="176" y="128" width="32" height="32" rx="8" fill="#0091E2" />
+    <rect x="72" y="104" width="32" height="24" rx="8" fill="#0091E2" />
+    <rect x="112" y="104" width="32" height="24" rx="8" fill="#0091E2" />
+    <rect x="152" y="104" width="32" height="24" rx="8" fill="#0091E2" />
+    <ellipse cx="200" cy="120" rx="12" ry="8" fill="#0091E2" />
+    <ellipse cx="56" cy="120" rx="12" ry="8" fill="#0091E2" />
+    <ellipse cx="128" cy="200" rx="80" ry="16" fill="#E0F2FE" />
+    <path d="M56 160c0-40 144-40 144 0" stroke="#0369A1" stroke-width="4" stroke-linecap="round" />
+    <circle cx="128" cy="80" r="24" fill="#0091E2" />
+    <ellipse cx="128" cy="80" rx="12" ry="6" fill="#F8FAFC" />
+    <rect x="120" y="72" width="16" height="8" rx="4" fill="#F8FAFC" />
+    <circle cx="120" cy="76" r="2" fill="#0091E2" />
+    <circle cx="136" cy="76" r="2" fill="#0091E2" />
+  </g>
+  <text x="50%" y="240" text-anchor="middle" fill="#0369A1" font-size="20"
+    font-family="Arial, Helvetica, sans-serif">Docker Basics</text>
+</svg>
