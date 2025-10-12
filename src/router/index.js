@@ -645,7 +645,7 @@ const routes = [
 					{
 						path: 'html-emmet',
 						name: 'html-basics-html-emmet',
-						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLEmmet.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/html-emmet.vue'),
 					},
 				],
 			},
