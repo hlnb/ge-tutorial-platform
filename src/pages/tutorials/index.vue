@@ -186,6 +186,16 @@
 					>
 			</div>
 			</div>
+				<div class="box tutorial-card">
+					<h4 class="title is-4">AI-Assisted Web Development</h4>
+					<p>Learn how to use AI tools to assist coding, testing, and deployment.</p>
+					<div class="tags">
+						<span class="tag is-light">6 tutorials</span>
+						<span class="tag is-light">4-6 hours</span>
+						<span class="tag is-success">New</span>
+					</div>
+					<router-link :to="{ name: 'ai-assisted-index' }" class="button is-primary is-outlined mt-3">Explore AI Module</router-link>
+				</div>
 		</section>
 
 		<section class="level-section mb-6">

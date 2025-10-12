@@ -853,6 +853,141 @@ const routes = [
 					},
 				],
 			},
+
+			// AI-Assisted Web Development (new)
+			{
+				path: 'ai-assisted',
+				component: () => import('@/pages/tutorials/ai-assisted/index.vue'),
+				children: [
+					{
+						path: '',
+						name: 'ai-assisted-index',
+						component: () => import('@/pages/tutorials/ai-assisted/index.vue'),
+					},
+					{
+						path: 'introduction',
+						name: 'ai-assisted-introduction',
+						component: () => import('@/pages/tutorials/ai-assisted/introduction.vue'),
+					},
+					{
+						path: 'workflow-integration',
+						name: 'ai-assisted-workflow-integration',
+						component: () => import('@/pages/tutorials/ai-assisted/workflow-integration.vue'),
+					},
+					{
+						path: 'building-with-ai',
+						name: 'ai-assisted-building-with-ai',
+						component: () => import('@/pages/tutorials/ai-assisted/building-with-ai.vue'),
+					},
+					{
+						path: 'design-to-code',
+						name: 'ai-assisted-design-to-code',
+						component: () => import('@/pages/tutorials/ai-assisted/design-to-code.vue'),
+					},
+					{
+						path: 'custom-gpt-automation',
+						name: 'ai-assisted-custom-gpt-automation',
+						component: () => import('@/pages/tutorials/ai-assisted/custom-gpt-automation.vue'),
+					},
+				],
+			},
+
+			// Backend fundamentals (new)
+			{
+				path: 'backend',
+				component: () => import('@/pages/tutorials/backend/index.vue'),
+				children: [
+					{
+						path: '',
+						name: 'backend-index',
+						component: () => import('@/pages/tutorials/backend/index.vue'),
+					},
+					{
+						path: 'node-basics',
+						name: 'backend-node-basics',
+						component: () => import('@/pages/tutorials/backend/node-basics.vue'),
+					},
+					{
+						path: 'rest-apis',
+						name: 'backend-rest-apis',
+						component: () => import('@/pages/tutorials/backend/rest-apis.vue'),
+					},
+					{
+						path: 'databases',
+						name: 'backend-databases',
+						component: () => import('@/pages/tutorials/backend/databases.vue'),
+					},
+				],
+			},
+
+			// Deployments (new)
+			{
+				path: 'deployments',
+				component: () => import('@/pages/tutorials/deployments/index.vue'),
+				children: [
+					{
+						path: '',
+						name: 'deployments-index',
+						component: () => import('@/pages/tutorials/deployments/index.vue'),
+					},
+					{
+						path: 'vercel-netlify',
+						name: 'deployments-vercel-netlify',
+						component: () => import('@/pages/tutorials/deployments/vercel-netlify.vue'),
+					},
+					{
+						path: 'firebase-hosting',
+						name: 'deployments-firebase-hosting',
+						component: () => import('@/pages/tutorials/deployments/firebase-hosting.vue'),
+					},
+					{
+						path: 'static-vs-dynamic',
+						name: 'deployments-static-vs-dynamic',
+						component: () => import('@/pages/tutorials/deployments/static-vs-dynamic.vue'),
+					},
+				],
+			},
+
+			// SEO & Analytics (new)
+			{
+				path: 'seo-analytics',
+				component: () => import('@/pages/tutorials/seo-analytics/index.vue'),
+				children: [
+					{
+						path: '',
+						name: 'seo-analytics-index',
+						component: () => import('@/pages/tutorials/seo-analytics/index.vue'),
+					},
+					{
+						path: 'on-page-seo',
+						name: 'seo-on-page',
+						component: () => import('@/pages/tutorials/seo-analytics/on-page-seo.vue'),
+					},
+					{
+						path: 'analytics-setup',
+						name: 'seo-analytics-setup',
+						component: () => import('@/pages/tutorials/seo-analytics/analytics-setup.vue'),
+					},
+				],
+			},
+
+			// Capstone (new)
+			{
+				path: 'capstone',
+				component: () => import('@/pages/tutorials/capstone/index.vue'),
+				children: [
+					{
+						path: '',
+						name: 'capstone-index',
+						component: () => import('@/pages/tutorials/capstone/index.vue'),
+					},
+					{
+						path: 'spec',
+						name: 'capstone-spec',
+						component: () => import('@/pages/tutorials/capstone/spec.vue'),
+					},
+				],
+			},
 		],
 	},	
 

@@ -16,6 +16,7 @@
 
 			<!-- Tutorial Navigation -->
 			<TutorialNavigation
+				v-if="!isMainTutorialsPage"
 				:prev="currentTutorial.prev"
 				:next="currentTutorial.next"
 				:hide-completion="shouldHideCompletion"
