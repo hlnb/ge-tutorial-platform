@@ -615,32 +615,32 @@ const routes = [
 					{
 						path: 'first-page',
 						name: 'html-basics-first-page',
-						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLFirstPage.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/html-first-page.vue'),
 					},
 					{
 						path: 'text',
 						name: 'html-basics-text',
-						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLText.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/html-text.vue'),
 					},
 					{
 						path: 'links',
 						name: 'html-basics-links',
-						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLLinks.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/html-links.vue'),
 					},
 					{
 						path: 'images',
 						name: 'html-basics-images',
-						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLImages.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/html-images.vue'),
 					},
 					{
 						path: 'doc-structure',
 						name: 'html-basics-doc-structure',
-						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLDocStructure.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/html-doc-structure.vue'),
 					},
 					{
 						path: 'forms',
 						name: 'html-basics-forms',
-						component: () => import('@/pages/tutorials/beginner/html-basics/HTMLForms.vue'),
+						component: () => import('@/pages/tutorials/beginner/html-basics/html-forms.vue'),
 					},
 					{
 						path: 'html-emmet',
