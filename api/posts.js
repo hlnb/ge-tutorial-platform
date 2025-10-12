@@ -1,15 +1,13 @@
 import express from 'express';
 import { postScheduler } from '../src/services/PostScheduler';
-import db from '../src/models/Post';
+import Post from '../src/models/Post';
 const router = express.Router();
 
-router.post('/posts/schedule', async (req, res) => {
+router.get('/posts', async (req, res) => {
 	try {
-		const posts = await db.posts
-			.find({
-				status: { $in: ['schedules', 'published'] },
-			})
-			.sort({ publishDate: 1 });
+		const posts = await Post.find({
+			status: { $in: ['scheduled', 'published'] },
+		}).sort({ publishDate: 1 });
 		res.json(posts);
 	} catch (error) {
 		res.status(500).json({ error: error.message });

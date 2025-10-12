@@ -14,7 +14,6 @@
 				<button
 					class="button is-primary"
 					:disabled="!canSchedule"
-					@click="schedulePost"
 				>
 					Schedule Post
 				</button>
@@ -26,6 +25,13 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { format } from 'date-fns';
+
+const props = defineProps({
+	postId: {
+		type: [String, Number],
+		required: true,
+	},
+});
 
 const publishDate = ref('');
 const minDate = computed(() => {
@@ -50,7 +56,9 @@ async function schedulePost() {
 		});
 		// Handle success
 	} catch (error) {
-		// Handle error
+		// Log error for debugging
+		 
+		console.error('Failed to schedule post:', error);
 	}
 }
 </script>

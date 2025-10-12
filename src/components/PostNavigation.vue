@@ -1,23 +1,5 @@
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
-/// <reference types="vite/client" />
-
-interface Frontmatter {
-	title: string;
-	date: string;
-	description: string;
-}
-
-interface Post {
-	path: string;
-	frontmatter: Frontmatter;
-}
-
-interface PostModule {
-	default: any;
-	frontmatter: Frontmatter;
-}
 
 const props = defineProps({
 	currentPath: {
@@ -26,40 +8,38 @@ const props = defineProps({
 	},
 });
 
-const router = useRouter();
-const route = useRoute();
-const posts = ref<Post[]>([]);
-const previousPost = ref<Post | null>(null);
-const nextPost = ref<Post | null>(null);
-
+// router and route are not required here; remove to avoid unused warnings
+const posts = ref([]);
+const previousPost = ref(null);
+const nextPost = ref(null);
 
 onMounted(async () => {
-  const postModules = import.meta.glob<PostModule>('/src/pages/posts/*.vue', { eager: true });
-  posts.value = Object.entries(postModules).map(([path, module]) => ({
-    path: path.replace('/src/pages/posts/', '').replace('.vue', ''),
-    frontmatter: module.frontmatter,
-  }));
+	const postModules = import.meta.glob('/src/pages/posts/*.vue', { eager: true });
+		posts.value = Object.entries(postModules).map(([path, module]) => ({
+			path: path.replace('/src/pages/posts/', '').replace('.vue', ''),
+			frontmatter: /** @type {any} */ (module).frontmatter,
+		}));
 
-  // Sort posts by date with a fallback for missing or invalid dates
-  posts.value.sort((a, b) => {
-    const dateA = new Date(a.frontmatter?.date || 0).getTime();
-    const dateB = new Date(b.frontmatter?.date || 0).getTime();
-    return dateB - dateA;
-  });
+	// Sort posts by date with a fallback for missing or invalid dates
+	posts.value.sort((a, b) => {
+		const dateA = new Date(a.frontmatter?.date || 0).getTime();
+		const dateB = new Date(b.frontmatter?.date || 0).getTime();
+		return dateB - dateA;
+	});
 
-  const currentIndex = posts.value.findIndex(post => post.path === props.currentPath);
+	const currentIndex = posts.value.findIndex((post) => post.path === props.currentPath);
 
-  if (currentIndex > 0) {
-    previousPost.value = posts.value[currentIndex - 1];
-  }
-  if (currentIndex < posts.value.length - 1) {
-    nextPost.value = posts.value[currentIndex + 1];
-  }
+	if (currentIndex > 0) {
+		previousPost.value = posts.value[currentIndex - 1];
+	}
+	if (currentIndex < posts.value.length - 1) {
+		nextPost.value = posts.value[currentIndex + 1];
+	}
 });
 </script>
 
 <template>
-    <nav class="post-navigation" v-if="previousPost || nextPost">
+    <nav v-if="previousPost || nextPost" class="post-navigation">
         <div class="nav-links">
             <router-link
                 v-if="previousPost"

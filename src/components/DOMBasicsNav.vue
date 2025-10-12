@@ -84,16 +84,10 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, computed, inject, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
-
-interface NavItem {
-  path: string;
-  title: string;
-  comingSoon?: boolean;
-}
 
 const route = useRoute();
 const isMainExpanded = ref(true);
@@ -104,7 +98,7 @@ const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
 // Navigation items
-const navItems: NavItem[] = [
+const navItems = [
   {
     path: '/tutorials/dom-basics',
     title: 'Overview',
@@ -127,9 +121,7 @@ const navItems: NavItem[] = [
   },
 ];
 
-const currentIndex = computed(() =>
-  navItems.findIndex((item) => isCurrentPath(item.path))
-);
+const currentIndex = computed(() => navItems.findIndex((item) => isCurrentPath(item.path)));
 
 const isAnyTutorialActive = computed(() =>
   navItems.some((item) => isCurrentPath(item.path))
@@ -170,8 +162,6 @@ onMounted(() => {
   });
 });
 </script>
-
-export default {};
 <style scoped>
 .tutorial-nav {
   padding: 1.5rem;

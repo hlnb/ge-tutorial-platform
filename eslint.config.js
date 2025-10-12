@@ -50,6 +50,9 @@ export default [
         // Browser globals
         window: 'readonly',
         document: 'readonly',
+  navigator: 'readonly',
+  setTimeout: 'readonly',
+  clearTimeout: 'readonly',
         console: 'readonly',
         localStorage: 'readonly',
         sessionStorage: 'readonly',

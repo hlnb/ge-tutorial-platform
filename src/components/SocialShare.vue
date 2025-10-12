@@ -58,9 +58,7 @@ const showCopyMessage = ref(false);
 
 const encodedUrl = computed(() => encodeURIComponent(props.url));
 const encodedTitle = computed(() => encodeURIComponent(props.title));
-const encodedDescription = computed(() =>
-	encodeURIComponent(props.description),
-);
+// No description-encoded value needed currently; remove to avoid unused variable
 
 const twitterUrl = computed(
 	() =>
@@ -78,12 +76,30 @@ const facebookUrl = computed(
 
 async function copyLink() {
 	try {
-		await navigator.clipboard.writeText(props.url);
+		// Use the Clipboard API when available, otherwise fall back to a textarea copy.
+		if (window.navigator && window.navigator.clipboard && window.navigator.clipboard.writeText) {
+			await window.navigator.clipboard.writeText(props.url);
+		} else {
+			const textarea = document.createElement('textarea');
+			textarea.value = props.url;
+			// Prevent scrolling to bottom
+			textarea.style.position = 'fixed';
+			textarea.style.top = '0';
+			textarea.style.left = '0';
+			document.body.appendChild(textarea);
+			textarea.focus();
+			textarea.select();
+			document.execCommand('copy');
+			document.body.removeChild(textarea);
+		}
+
 		showCopyMessage.value = true;
-		setTimeout(() => {
+		window.setTimeout(() => {
 			showCopyMessage.value = false;
 		}, 2000);
 	} catch (error) {
+		// Log but don't throw - copying is a best-effort UX enhancement
+		 
 		console.error('Failed to copy link:', error);
 	}
 }

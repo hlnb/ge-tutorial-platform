@@ -108,8 +108,8 @@ const handleSubmit = async () => {
 		}
 
 		// Here you would typically make an API call to send the message
-		// For now, we'll just simulate a successful submission
-		await new Promise((resolve) => setTimeout(resolve, 1000));
+	// For now, we'll just simulate a successful submission
+	await new Promise((resolve) => window.setTimeout(resolve, 1000));
 
 		status.value = {
 			type: 'is-success',
@@ -121,6 +121,9 @@ const handleSubmit = async () => {
 		formData.email = '';
 		formData.message = '';
 	} catch (error) {
+		// Log error for diagnostics
+		 
+		console.error('Contact form submit error:', error);
 		status.value = {
 			type: 'is-danger',
 			message:
@@ -134,10 +137,6 @@ const handleSubmit = async () => {
 
 <style scoped>
 .field {
-	margin-bottom: 1rem;
-}
-
-.notification {
 	margin-bottom: 1rem;
 }
 </style>

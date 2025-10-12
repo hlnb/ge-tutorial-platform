@@ -41,7 +41,7 @@
 
         <div class="example-container">
           <div class="code-example">
-            <pre><code>
+            <pre><code v-pre>
 // Basic event handling structure
 element.addEventListener('eventName', function(event) {
     // This is the event handler
@@ -108,7 +108,7 @@ element.addEventListener('eventName', function(event) {
             <p id="clickResult" class="result-text">Click the button to see what happens!</p>
           </div>
           <div class="code-example">
-            <pre><code>
+            <pre><code v-pre>
 // Adding a click event listener
 const button = document.getElementById('clickMeBtn');
 const result = document.getElementById('clickResult');
@@ -339,7 +339,7 @@ boxes.forEach(box => {
           </ul>
 
           <div class="code-example">
-            <pre><code>
+            <pre><code v-pre>
 // Basic keyboard event handling
 input.addEventListener('keydown', (e) => {
   // Prevent default behavior (e.g., form submission)
@@ -430,7 +430,7 @@ input.addEventListener('keydown', (e) => {
           <p>
             You can detect if a device supports touch events using the following code:
           </p>
-          <pre><code>
+          <pre><code v-pre>
 // Check if device supports touch events
 if ('ontouchstart' in window) {
   console.log('Device supports touch events');
@@ -508,7 +508,7 @@ if (window.TouchEvent) {
           </p>
 
           <div class="code-example">
-            <pre><code>
+            <pre><code v-pre>
 // 1. Basic try-catch with error logging
 button.addEventListener('click', (e) => {
   try {
@@ -642,7 +642,7 @@ validateButton.addEventListener('click', (e) => {
         <div class="code-example mt-4">
           <h3>Performance Optimization Patterns</h3>
           <div class="code-example">
-            <pre><code>
+            <pre><code v-pre>
 // 1. Event Throttling
 function throttle(func: Function, limit: number) {
   let inThrottle: boolean;

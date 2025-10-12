@@ -332,12 +332,11 @@
 
 <script setup>
 import { computed, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import FaqSection from '@/components/FaqSection.vue';
 import generalFaqs from '@/data/faqs';
 
 const route = useRoute();
-const router = useRouter();
 
 // Check if we're on the main tutorials page
 const isMainTutorialsPage = computed(() => {

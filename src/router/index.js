@@ -1229,21 +1229,6 @@ router.onError((error) => {
 	console.error('Router error:', error);
 });
 
-// Add a function to get the current tutorial path
-function getCurrentTutorialPath(to) {
-	const tutorialPath = to.meta.tutorialPath;
-	if (tutorialPath) return tutorialPath;
-	
-	// If no tutorial path is specified, try to get it from the referrer
-	const referrer = document.referrer;
-	if (referrer) {
-		const url = new URL(referrer);
-		if (url.pathname.startsWith('/tutorials/')) {
-			return url.pathname;
-		}
-	}
-	
-	return null;
-}
+// (removed unused helper getCurrentTutorialPath)
 
 export default router;

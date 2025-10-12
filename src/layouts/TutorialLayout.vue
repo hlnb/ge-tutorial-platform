@@ -28,19 +28,23 @@
 
 <script setup>
 import { ref, provide, watch, computed, onMounted, onBeforeUnmount } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import HTMLBasicsNav from '@/components/HTMLBasicsNav.vue';
 import GetStartedNav from '@/components/GetStartedNav.vue';
 import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
 import JavaScriptBasicsNav from '@/components/JavaScriptBasicsNav.vue';
 import DOMBasicsNav from '@/components/DOMBasicsNav.vue';
 import GitBasicsNav from '@/components/GitBasicsNav.vue';
+import AiAssistedNav from '@/components/tutorial-navs/AiAssistedNav.vue';
+import BackendNav from '@/components/tutorial-navs/BackendNav.vue';
+import DeploymentsNav from '@/components/tutorial-navs/DeploymentsNav.vue';
+import SeoAnalyticsNav from '@/components/tutorial-navs/SeoAnalyticsNav.vue';
+import CapstoneNav from '@/components/tutorial-navs/CapstoneNav.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import progressService from '@/services/ProgressService';
 import { hasQuiz } from '@/utils/quizUtils';
 
 const route = useRoute();
-const router = useRouter();
 const pageSections = ref([]);
 
 // Add scroll tracking variables
@@ -52,15 +56,7 @@ const isMainTutorialsPage = computed(() => {
 	return route.path === '/tutorials';
 });
 
-// Create a components map for dynamic rendering
-const navComponents = {
-	HTMLBasicsNav,
-	GetStartedNav,
-	CSSBasicsNav,
-	JavaScriptBasicsNav,
-	DOMBasicsNav,
-	GitBasicsNav, // Added GitBasicsNav
-};
+// (nav components are returned directly from the computed `currentNav`)
 
 // Determine which navigation component to show based on route
 const currentNav = computed(() => {
@@ -77,6 +73,16 @@ const currentNav = computed(() => {
 		return DOMBasicsNav;
 	} else if (path.includes('/git-basics')) {
 		return GitBasicsNav;
+	} else if (path.includes('/ai-assisted')) {
+		return AiAssistedNav;
+	} else if (path.includes('/backend')) {
+		return BackendNav;
+	} else if (path.includes('/deployments')) {
+		return DeploymentsNav;
+	} else if (path.includes('/seo-analytics')) {
+		return SeoAnalyticsNav;
+	} else if (path.includes('/capstone')) {
+		return CapstoneNav;
 	}
 	return null;
 });
@@ -404,13 +410,7 @@ const currentTutorial = computed(() => {
 });
 
 // Add this after the currentNav computed property
-watch(
-	() => route.name,
-	(newName) => {
-		// Route changed
-	},
-	{ immediate: true },
-);
+// no-op route name watcher removed to satisfy linter
 
 // Add this after the imports
 onMounted(() => {
@@ -425,7 +425,7 @@ onBeforeUnmount(() => {
 
 	// Clear any pending throttle timeout
 	if (scrollThrottleTimeout.value) {
-		clearTimeout(scrollThrottleTimeout.value);
+		window.clearTimeout(scrollThrottleTimeout.value);
 	}
 });
 
@@ -437,7 +437,7 @@ const handleScroll = () => {
 	// Throttle scroll events to avoid excessive updates
 	if (scrollThrottleTimeout.value) return;
 
-	scrollThrottleTimeout.value = setTimeout(() => {
+	scrollThrottleTimeout.value = window.setTimeout(() => {
 		// Calculate scroll position
 		const scrollPosition = window.scrollY + window.innerHeight;
 		const totalHeight = document.documentElement.scrollHeight;

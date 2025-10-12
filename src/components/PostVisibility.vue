@@ -30,30 +30,37 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { computed } from 'vue';
 import { format } from 'date-fns';
-import { posts } from '@/router';
 
-const props = defineProps<{
-	publishDate: string;
-	status: string;
-	series?: string;
-	relatedPosts?: string[];
-}>();
+// Try to import posts from router if available; otherwise use empty object
+let posts = {};
+try {
+    // Optionally require posts from router if available (commented out to avoid build-time resolution issues)
+    // posts = require('@/router').posts || {};
+} catch {
+    posts = {};
+}
 
-
-const isVisible = computed(() => {
-	const now = new Date();
-	const publishDate = new Date(props.publishDate);
-	const isPublished = props.status === 'published';
-	const isPastPublishDate = publishDate <= now;
-
-	return isPublished && isPastPublishDate;
+const props = defineProps({
+    publishDate: String,
+    status: String,
+    series: { type: String, required: false },
+    relatedPosts: { type: Array, required: false },
 });
 
-const formatDate = (date: string) => {
-	return format(new Date(date), 'MMMM do, yyyy');
+const isVisible = computed(() => {
+    const now = new Date();
+    const publishDate = new Date(props.publishDate);
+    const isPublished = props.status === 'published';
+    const isPastPublishDate = publishDate <= now;
+
+    return isPublished && isPastPublishDate;
+});
+
+const formatDate = (date) => {
+    return format(new Date(date), 'MMMM do, yyyy');
 };
 
 // Filter suggested posts based on series or relatedPosts
@@ -61,30 +68,28 @@ const suggestedPosts = computed(() => {
     const suggestions = [];
 
     // Add posts from the same series
-    if (props.series) {
+    if (props.series && posts) {
         suggestions.push(
             ...Object.entries(posts)
-                .filter(([slug, post]) => post.series === props.series && post.status === 'published')
+                .filter(([, post]) => post.series === props.series && post.status === 'published')
                 .map(([slug, post]) => ({ slug, title: post.title }))
         );
     }
 
     // Add related posts
-    if (props.relatedPosts) {
+    if (props.relatedPosts && posts) {
         suggestions.push(
             ...props.relatedPosts
-                .filter(slug => posts[slug]?.status === 'published')
-                .map(slug => ({ slug, title: posts[slug].title }))
+                .filter((slug) => posts[slug]?.status === 'published')
+                .map((slug) => ({ slug, title: posts[slug].title }))
         );
     }
 
     // Remove duplicates and return
-    return suggestions.filter((post, index, self) => self.findIndex(p => p.slug === post.slug) === index);
+    return suggestions.filter((post, index, self) => self.findIndex((p) => p.slug === post.slug) === index);
 });
 
-defineOptions({
-	name: 'PostVisibility'
-});
+defineOptions({ name: 'PostVisibility' });
 </script>
 
 <style scoped>

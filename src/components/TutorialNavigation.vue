@@ -44,13 +44,11 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
 import { onMounted, inject } from 'vue';
-import { useRouter } from 'vue-router';
-import TutorialCompletion from '@/components/TutorialCompletion.vue';
-import progressService from '@/services/ProgressService';
+import { defineAsyncComponent } from 'vue';
+const TutorialCompletion = defineAsyncComponent(() => import('@/components/TutorialCompletion.vue'));
 
-const props = defineProps({
+defineProps({
 	prev: {
 		type: Object,
 		default: null,
@@ -69,29 +67,23 @@ const props = defineProps({
 	},
 });
 
-const route = useRoute();
-const router = useRouter();
-
 // Get quiz availability from parent component
 const hasQuiz = inject('hasQuiz', false);
 
 // Handle tutorial completion
-const handleTutorialCompleted = (tutorialPath) => {
-	// You can add additional logic here if needed
-	// For example, show a congratulations message or update UI
+const handleTutorialCompleted = () => {
+	// Placeholder for future logic
 };
 
 // Handle tutorial marked as incomplete
-const handleTutorialIncomplete = (tutorialPath) => {
-	// You can add additional logic here if needed
+const handleTutorialIncomplete = () => {
+	// Placeholder for future logic
 };
 
 onMounted(() => {
 	// Component mounted
 });
-</script>
-
-export default {};
+</script> // Removed redundant export default
 <style scoped>
 .tutorial-navigation {
 	margin-top: 3rem;
