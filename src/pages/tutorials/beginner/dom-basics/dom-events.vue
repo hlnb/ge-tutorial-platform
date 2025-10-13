@@ -41,7 +41,7 @@
 
         <div class="example-container">
           <div class="code-example">
-            <pre><code v-pre>
+            <pre v-pre><code v-pre>
 // Basic event handling structure
 element.addEventListener('eventName', function(event) {
     // This is the event handler
@@ -108,7 +108,7 @@ element.addEventListener('eventName', function(event) {
             <p id="clickResult" class="result-text">Click the button to see what happens!</p>
           </div>
           <div class="code-example">
-            <pre><code v-pre>
+            <pre v-pre><code v-pre>
 // Adding a click event listener
 const button = document.getElementById('clickMeBtn');
 const result = document.getElementById('clickResult');
@@ -199,9 +199,9 @@ button.addEventListener('click', function() {
               <li>Each parent's click handler is triggered in sequence</li>
               <li>Use <code>stopPropagation()</code> to prevent further bubbling</li>
             </ol>
-            <div class="code-explanation">
+              <div class="code-explanation">
               <p>By default, event listeners are registered in the bubbling phase. To register in the capturing phase:</p>
-              <pre><code v-pre>
+              <pre v-pre><code v-pre>
 element.addEventListener('click', handler, true); // Capturing phase
 element.addEventListener('click', handler, false); // Bubbling phase (default)
               </code></pre>
@@ -223,7 +223,7 @@ element.addEventListener('click', handler, false); // Bubbling phase (default)
         </div>
 
         <div class="code-example mt-4">
-          <pre><code v-pre>
+          <pre v-pre><code v-pre>
 // Event propagation example
 const boxes = document.querySelectorAll('.propagation-box div');
 boxes.forEach(box => {
@@ -339,7 +339,7 @@ boxes.forEach(box => {
           </ul>
 
           <div class="code-example">
-            <pre><code v-pre>
+            <pre v-pre><code v-pre>
 // Basic keyboard event handling
 input.addEventListener('keydown', (e) => {
   // Prevent default behavior (e.g., form submission)
@@ -430,7 +430,7 @@ input.addEventListener('keydown', (e) => {
           <p>
             You can detect if a device supports touch events using the following code:
           </p>
-          <pre><code v-pre>
+          <pre v-pre><code v-pre>
 // Check if device supports touch events
 if ('ontouchstart' in window) {
   console.log('Device supports touch events');
@@ -508,7 +508,7 @@ if (window.TouchEvent) {
           </p>
 
           <div class="code-example">
-            <pre><code v-pre>
+            <pre v-pre><code v-pre>
 // 1. Basic try-catch with error logging
 button.addEventListener('click', (e) => {
   try {
@@ -642,7 +642,7 @@ validateButton.addEventListener('click', (e) => {
         <div class="code-example mt-4">
           <h3>Performance Optimization Patterns</h3>
           <div class="code-example">
-            <pre><code v-pre>
+            <pre v-pre><code v-pre>
 // 1. Event Throttling
 function throttle(func: Function, limit: number) {
   let inThrottle: boolean;
@@ -667,14 +667,15 @@ list?.addEventListener('click', (e) => {
 });
 
 // 3. Performance Monitoring
-const observer = new PerformanceObserver((list) => {
-  for (const entry of list.getEntries()) {
-    console.log('Performance:', entry);
-    // Log to monitoring service
-  }
-});
+// (Example only — runtime demo below is guarded)
+// const observer = new PerformanceObserver((list) => {
+//   for (const entry of list.getEntries()) {
+//     console.log('Performance:', entry);
+//     // Log to monitoring service
+//   }
+// });
 
-observer.observe({ entryTypes: ['event'] });
+// observer.observe({ entryTypes: ['event'] });
             </code></pre>
             <div class="code-explanation">
               <p>Key performance optimization techniques:</p>
@@ -771,7 +772,7 @@ id="password" type="password" required
         <div class="code-example mt-4">
           <h3>Form Validation Patterns</h3>
           <div class="code-example">
-            <pre><code v-pre>
+            <pre v-pre><code v-pre>
 // 1. Real-time Validation with Accessibility
 const username = document.getElementById('username') as HTMLInputElement;
 const usernameError = document.getElementById('username-error');
@@ -904,7 +905,7 @@ form?.addEventListener('submit', async (e) => {
         <div class="code-example mt-4">
           <h3>Event Delegation Patterns</h3>
           <div class="code-example">
-            <pre><code v-pre>
+            <pre v-pre><code v-pre>
 // 1. Basic Event Delegation
 const list = document.getElementById('dynamicList');
 list?.addEventListener('click', (e) => {
@@ -1545,8 +1546,8 @@ function initializePerformanceDemo() {
   // Performance monitoring demo
   if (startMonitoring && stopMonitoring && monitoringResult) {
     startMonitoring.addEventListener('click', () => {
-      if (typeof PerformanceObserver !== 'undefined') {
-        observer = new PerformanceObserver((list) => {
+      if (typeof window !== 'undefined' && typeof window.PerformanceObserver !== 'undefined') {
+        observer = new window.PerformanceObserver((list) => {
           const entries = list.getEntries()
           if (monitoringResult) monitoringResult.textContent = `Recorded ${entries.length} performance entries`
           console.log('Performance entries:', entries)

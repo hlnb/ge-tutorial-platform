@@ -60,7 +60,7 @@
           <h3 class="title is-4">Creating New Elements</h3>
           <p>Learn how to create DOM elements programmatically using JavaScript:</p>
           <div class="code-example">
-            <pre v-pre><code><span class="comment">// Creating a new element</span>
+            <pre v-pre><code v-pre><span class="comment">// Creating a new element</span>
 <span class="keyword">const</span> <span class="variable">newDiv</span> = <span class="function">document.createElement</span>(<span class="string">'div'</span>);
 <span class="variable">newDiv</span>.<span class="variable">textContent</span> = <span class="string">'Hello, DOM!'</span>;
 <span class="variable">newDiv</span>.<span class="variable">className</span> = <span class="string">'greeting'</span>;
@@ -72,7 +72,7 @@
           <div class="more-examples mt-4">
             <h4 class="title is-5">More Creation Methods</h4>
             <div class="code-example">
-              <pre v-pre><code><span class="comment">// Creating elements with innerHTML</span>
+              <pre v-pre><code v-pre><span class="comment">// Creating elements with innerHTML</span>
 <span class="keyword">const</span> <span class="variable">container</span> = <span class="function">document.getElementById</span>(<span class="string">'container'</span>);
 <span class="variable">container</span>.<span class="variable">innerHTML</span> = <span class="string">'&lt;div class="new-element"&gt;Created with innerHTML&lt;/div&gt;'</span>;
 

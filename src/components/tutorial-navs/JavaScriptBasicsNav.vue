@@ -2,7 +2,7 @@
   <div class="tutorial-nav">
     <h3 class="title is-5">
       <span class="js-logo-container">
-        <!-- SVG logo omitted for brevity; original retained in source component -->
+       <i class="fa-brands fa-js js-logo"></i>
       </span>
       JavaScript Basics
     </h3>
@@ -81,6 +81,12 @@ export default {};
 
 /* JavaScript yellow — use accent and darker icon stroke */
 .js-logo-container { margin-right: 0.5rem; }
+.js-logo { color: #f7df1e; 
+  font-size: 1.5rem;
+background-color: #000;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.1rem;
+}
 .tutorial-nav {
   --tutorial-accent: #f7df1e;
   /* darker variants for hover/active states */

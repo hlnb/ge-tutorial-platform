@@ -14,6 +14,9 @@
 			</ul>
 		</nav>
 
+		<!-- Child content for subsections will mount here while keeping the shared index layout -->
+		<router-view />
+
 		<div class="tags">
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">10 minutes</span>
@@ -21,32 +24,7 @@
 		</div>
 
 		<h1 class="title is-1">
-			<span class="js-logo-container">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 630 630"
-					class="js-logo"
-				>
-					<g id="js-logo">
-						<rect
-							id="background"
-							x="0"
-							y="0"
-							width="630"
-							height="630"
-							fill="#f7df1e"
-						/>
-						<path
-							id="j"
-							d="m 165.65,526.47375 48.2125,-29.1775 C 223.16375,513.7875 231.625,527.74 251.92,527.74 c 19.45375,0 31.71875,-7.60975 31.71875,-37.21 l 0,-201.3 59.20375,0 0,202.1375 c 0,61.32 -35.94375,89.23125 -88.385,89.23125 -47.36125,0 -74.8525,-24.52875 -88.8075,-54.13"
-						/>
-						<path
-							id="s"
-							d="m 375,520.13 48.20625,-27.91125 c 12.69,20.72375 29.1825,35.9475 58.36125,35.9475 24.53125,0 40.17375,-12.26475 40.17375,-29.18125 0,-20.29875 -16.06875,-27.48875 -43.135,-39.32625 l -14.7975,-6.3475 c -42.715,-18.18125 -71.05,-41.0175 -71.05,-89.2275 0,-44.40375 33.83125,-78.2375 86.695,-78.2375 37.6375,0 64.7025,13.11125 84.15375,47.36625 l -46.09625,29.60125 c -10.15,-18.1825 -21.1425,-25.37125 -38.0575,-25.37125 -17.33875,0 -28.335,10.995 -28.335,25.37125 0,17.7625 10.99625,24.9525 36.3675,35.94875 l 14.8,6.3425 c 50.325,21.56875 78.66,43.5575 78.66,93.03375 0,53.2875 -41.86625,82.465 -98.11,82.465 -54.97625,0 -90.5,-26.2175 -107.83625,-60.47375"
-						/>
-					</g>
-				</svg>
-			</span>
+			<i class="fa-brands fa-js html-icon"></i>		
 			JavaScript Basics
 		</h1>
 
@@ -368,7 +346,7 @@
 				<div class="level-section">
 					<h3 class="title is-3">Level 1: Foundations</h3>
 					<div class="path-item">
-						<router-link to="javascript-basics/introduction" class="box" :class="{ 'is-completed': isSectionCompleted('introduction') }">
+						<router-link to="introduction" class="box" :class="{ 'is-completed': isSectionCompleted('introduction') }">
 							<h4 class="title is-4">
 								<i class="fas fa-flag-checkered"></i> Getting Started
 								<span v-if="isSectionCompleted('introduction')" class="icon has-text-success">
@@ -388,7 +366,7 @@
 				<div class="level-section">
 					<h3 class="title is-3">Level 2: Basic Building Blocks</h3>
 					<div class="path-item">
-						<router-link to="javascript-basics/variables-data-types" class="box" :class="{ 'is-completed': isSectionCompleted('variables-data-types') }">
+						<router-link to="variables-data-types" class="box" :class="{ 'is-completed': isSectionCompleted('variables-data-types') }">
 							<h4 class="title is-4">
 								<i class="fas fa-cube"></i> Variables & Data Types
 								<span v-if="isSectionCompleted('variables-data-types')" class="icon has-text-success">
@@ -409,7 +387,7 @@
 					<h3 class="title is-3">Level 3: Operations & Logic</h3>
 					<div class="columns">
 						<div class="column">
-							<router-link to="javascript-basics/operators" class="box" :class="{ 'is-completed': isSectionCompleted('operators') }">
+							<router-link to="operators" class="box" :class="{ 'is-completed': isSectionCompleted('operators') }">
 								<h4 class="title is-4">
 									<i class="fas fa-calculator"></i> Operators
 									<span v-if="isSectionCompleted('operators')" class="icon has-text-success">
@@ -424,7 +402,7 @@
 							</router-link>
 						</div>
 						<div class="column">
-							<router-link to="javascript-basics/conditionals" class="box" :class="{ 'is-completed': isSectionCompleted('conditionals') }">
+							<router-link to="conditionals" class="box" :class="{ 'is-completed': isSectionCompleted('conditionals') }">
 								<h4 class="title is-4">
 									<i class="fas fa-code-branch"></i> Conditionals
 									<span v-if="isSectionCompleted('conditionals')" class="icon has-text-success">
@@ -446,7 +424,7 @@
 					<h3 class="title is-3">Level 4: Repetition & Functions</h3>
 					<div class="columns">
 						<div class="column">
-							<router-link to="javascript-basics/loops" class="box" :class="{ 'is-completed': isSectionCompleted('loops') }">
+							<router-link to="loops" class="box" :class="{ 'is-completed': isSectionCompleted('loops') }">
 								<h4 class="title is-4">
 									<i class="fas fa-redo"></i> Loops
 									<span v-if="isSectionCompleted('loops')" class="icon has-text-success">
@@ -461,7 +439,7 @@
 							</router-link>
 						</div>
 						<div class="column">
-							<router-link to="javascript-basics/functions" class="box" :class="{ 'is-completed': isSectionCompleted('functions') }">
+							<router-link to="functions" class="box" :class="{ 'is-completed': isSectionCompleted('functions') }">
 								<h4 class="title is-4">
 									<i class="fas fa-box"></i> Functions
 									<span v-if="isSectionCompleted('functions')" class="icon has-text-success">
@@ -554,6 +532,7 @@ const tutorialSections = [
 const totalSections = tutorialSections.length;
 const completedSections = ref(0);
 const route = useRoute();
+
 
 // Check all possible localStorage keys to help debug
 const debugLocalStorage = () => {
@@ -649,28 +628,12 @@ const isSectionCompleted = (sectionId) => {
 	return progress.completed.includes(sectionId);
 };
 
-// Mark a section as completed
-const markSectionCompleted = (sectionId) => {
-	const progress = loadProgress();
-	if (!progress.completed.includes(sectionId)) {
-		progress.completed.push(sectionId);
-		completedSections.value = progress.completed.length;
-		saveProgress(progress);
-	}
-};
 
 // Computed properties
 const progressPercentage = computed(() => {
 	return Math.round((completedSections.value / totalSections) * 100);
 });
 
-const currentProgress = computed(() => {
-	return {
-		completed: completedSections.value,
-		total: totalSections,
-		percentage: progressPercentage.value
-	};
-});
 
 const nextSection = computed(() => {
 	const progress = loadProgress();
@@ -719,9 +682,11 @@ export default {
 	vertical-align: middle;
 }
 
-.js-logo {
-	width: 100%;
-	height: 100%;
+.html-icon {
+	color: #f7df1f;
+	font-size: 3rem;
+	background-color: #000;
+	padding: 0;
 }
 
 .tutorials-list .card {
