@@ -15,5 +15,9 @@ export default {
 </script>
 
 <style scoped>
+@import './nav.css';
+
 .module-nav { width: 220px; }
+/* SEO accent (teal-blue) */
+.tutorial-nav { --tutorial-accent: #118ab2; }
 </style>

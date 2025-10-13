@@ -29,12 +29,12 @@
 <script setup>
 import { ref, provide, watch, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useRoute } from 'vue-router';
-import HTMLBasicsNav from '@/components/HTMLBasicsNav.vue';
-import GetStartedNav from '@/components/GetStartedNav.vue';
-import CSSBasicsNav from '@/components/CSSBasicsNav.vue';
-import JavaScriptBasicsNav from '@/components/JavaScriptBasicsNav.vue';
-import DOMBasicsNav from '@/components/DOMBasicsNav.vue';
-import GitBasicsNav from '@/components/GitBasicsNav.vue';
+import HTMLBasicsNav from '@/components/tutorial-navs/HTMLBasicsNav.vue';
+import GetStartedNav from '@/components/tutorial-navs/GetStartedNav.vue';
+import CSSBasicsNav from '@/components/tutorial-navs/CSSBasicsNav.vue';
+import JavaScriptBasicsNav from '@/components/tutorial-navs/JavaScriptBasicsNav.vue';
+import DOMBasicsNav from '@/components/tutorial-navs/DOMBasicsNav.vue';
+import GitBasicsNav from '@/components/tutorial-navs/GitBasicsNav.vue';
 import AiAssistedNav from '@/components/tutorial-navs/AiAssistedNav.vue';
 import BackendNav from '@/components/tutorial-navs/BackendNav.vue';
 import DeploymentsNav from '@/components/tutorial-navs/DeploymentsNav.vue';
@@ -393,8 +393,6 @@ const currentTutorial = computed(() => {
 		legacyRouteKey = 'html-basics-index';
 	} else if (route.name === 'CSSBasics') {
 		legacyRouteKey = 'css-basics-index';
-	} else if (route.name === 'html-basics-emmet') {
-		legacyRouteKey = 'html-basics-html-emmet';
 	}
 
 	// Try to find the tutorial in this order:

@@ -864,7 +864,7 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 						</li>
 					</ul>
 					<p class="mt-2"><strong>Basic Syntax:</strong></p>
-					<pre><code>/* Defining a custom property */
+					<pre v-pre><code>/* Defining a custom property */
 :root {
 	--my-color: blue;
 }
@@ -882,7 +882,7 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 							these other uses in future tutorials!
 						</p>
 						<p class="mt-2">For example:</p>
-						<pre><code>:root {
+						<pre v-pre><code>:root {
 	--spacing-unit: 1rem;
 	--main-font: 'Arial', sans-serif;
 	--animation-speed: 0.3s;

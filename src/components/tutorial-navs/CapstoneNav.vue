@@ -15,5 +15,9 @@ export default {
 </script>
 
 <style scoped>
+@import './nav.css';
+
 .module-nav { width: 220px; }
+/* Capstone accent (dark slate) */
+.tutorial-nav { --tutorial-accent: #2b2d42; }
 </style>

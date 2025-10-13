@@ -409,8 +409,8 @@ const rottoRocksExercise = ref(`/* Reset and Base Styles */
 						</svg>
 						<div class="component-info">
 							<p>The actual content of the element (text, image, etc.)</p>
-							<pre><code>width: 200px;
-height: 100px;</code></pre>
+							<pre v-pre><code>width: 200px;
+	height: 100px;</code></pre>
 						</div>
 					</div>
 
@@ -424,7 +424,7 @@ height: 100px;</code></pre>
 						</svg>
 						<div class="component-info">
 							<p>Clear space around the content, inside the border</p>
-							<pre><code>padding: 20px;
+							<pre v-pre><code>padding: 20px;
 padding-left: 10px;</code></pre>
 						</div>
 					</div>
@@ -440,7 +440,7 @@ padding-left: 10px;</code></pre>
 						</svg>
 						<div class="component-info">
 							<p>The border around the padding and content</p>
-							<pre><code>border: 2px solid black;
+							<pre v-pre><code>border: 2px solid black;
 border-radius: 4px;</code></pre>
 						</div>
 					</div>
@@ -457,8 +457,8 @@ border-radius: 4px;</code></pre>
 						</svg>
 						<div class="component-info">
 							<p>Clear space outside the border</p>
-							<pre><code>margin: 10px;
-margin-top: 20px;</code></pre>
+							<pre v-pre><code>margin: 10px;
+	margin-top: 20px;</code></pre>
 						</div>
 					</div>
 				</div>
@@ -708,7 +708,7 @@ margin-top: 20px;</code></pre>
 							</g>
 						</svg>
 
-						<pre><code>box-sizing: content-box;
+						<pre v-pre><code>box-sizing: content-box;
 width: 200px;
 padding: 20px;
 border: 10px solid black;
@@ -770,7 +770,7 @@ border: 10px solid black;
 							</g>
 						</svg>
 
-						<pre><code>box-sizing: border-box;
+						<pre v-pre><code>box-sizing: border-box;
 width: 200px;
 padding: 20px;
 border: 10px solid black;
@@ -795,7 +795,7 @@ border: 10px solid black;
 						<li>Better for responsive design</li>
 					</ul>
 
-					<pre><code>/* Common CSS Reset */
+                    <pre v-pre><code>/* Common CSS Reset */
 *, *::before, *::after {
 	box-sizing: border-box;
 }</code></pre>

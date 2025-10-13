@@ -9,13 +9,9 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link to="/tutorials/beginner/javascript-basics">
-						JavaScript Basics
-					</router-link>
+					<router-link to="/tutorials/beginner/javascript-basics">JavaScript Basics</router-link>
 				</li>
-				<li class="is-active">
-					<a href="#" aria-current="page">Operators & Expressions</a>
-				</li>
+				<li class="is-active"><a href="#" aria-current="page">Operators & Expressions</a></li>
 			</ul>
 		</nav>
 
@@ -575,20 +571,20 @@
 							not allowed and will result in <code>Infinity</code> or
 							<code>-Infinity</code>. For example:
 						</p>
-						<pre><code>let result = 10 / 0;  // Results in Infinity
+						<pre v-pre><code>let result = 10 / 0;  // Results in Infinity
 let negResult = -10 / 0;  // Results in -Infinity</code></pre>
 						<p>
 							This won't crash your program, but it can lead to unexpected
 							behavior. Always check that your divisor is not zero before
 							performing division:
 						</p>
-						<pre><code>// Safe division example
+												<pre v-pre><code>// Safe division example
 function safeDivide(numerator, denominator) {
-  if (denominator === 0) {
-    console.error("Cannot divide by zero!");
-    return null;
-  }
-  return numerator / denominator;
+	if (denominator === 0) {
+		console.error("Cannot divide by zero!");
+		return null;
+	}
+	return numerator / denominator;
 }</code></pre>
 						<p>
 							In our restaurant analogy, this would be like trying to split a

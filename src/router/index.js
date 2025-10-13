@@ -1158,6 +1158,14 @@ const routes = [
 		path: '/tutorials/html-basics/html-emmet',
 		redirect: { name: 'html-basics-html-emmet' },
 	},
+	// Compatibility route name for legacy references (some templates still use
+	// the old name 'html-basics-emmet'). This provides a named route that
+	// immediately redirects to the canonical 'html-basics-html-emmet'.
+	{
+		path: '/_legacy/html-basics-emmet',
+		name: 'html-basics-emmet',
+		redirect: { name: 'html-basics-html-emmet' },
+	},
 	// Add the student progress route
 	{
 		path: '/my-progress',

@@ -21,6 +21,7 @@ Location: `src/assets/styles/global.css`
 - Use `<style scoped>` in components
 - Follow BEM methodology
 - Leverage CSS variables for consistency
+ - Tutorial nav components use the `--tutorial-accent` CSS variable to set per-section colors (e.g. `.tutorial-nav { --tutorial-accent: #f7df1e; }`).
 
 ## Brand Colors
 

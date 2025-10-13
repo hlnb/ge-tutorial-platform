@@ -142,7 +142,7 @@ button.addEventListener('click', function() {
         </p>
         <div class="interactive-demo">
           <div id="eventTypesDemo" class="demo-box">
-            <input type="text" id="textInput" placeholder="Type something...">
+            <input id="textInput" type="text" placeholder="Type something...">
             <div id="mouseArea" class="mouse-area">
               Move your mouse here
             </div>
@@ -201,7 +201,7 @@ button.addEventListener('click', function() {
             </ol>
             <div class="code-explanation">
               <p>By default, event listeners are registered in the bubbling phase. To register in the capturing phase:</p>
-              <pre><code>
+              <pre><code v-pre>
 element.addEventListener('click', handler, true); // Capturing phase
 element.addEventListener('click', handler, false); // Bubbling phase (default)
               </code></pre>
@@ -223,7 +223,7 @@ element.addEventListener('click', handler, false); // Bubbling phase (default)
         </div>
 
         <div class="code-example mt-4">
-          <pre><code>
+          <pre><code v-pre>
 // Event propagation example
 const boxes = document.querySelectorAll('.propagation-box div');
 boxes.forEach(box => {
@@ -284,7 +284,7 @@ boxes.forEach(box => {
             <h3>Keyboard Event Demo</h3>
             <div class="demo-section">
               <h4>Basic Key Events</h4>
-              <input type="text" id="keyboardInput" placeholder="Type to see keyboard events...">
+              <input id="keyboardInput" type="text" placeholder="Type to see keyboard events...">
               <div id="keyboardResult" class="keyboard-result"></div>
             </div>
 
@@ -493,7 +493,7 @@ if (window.TouchEvent) {
             <div class="demo-section">
               <h4>Form Validation Error</h4>
               <div class="form-group">
-                <input type="number" id="ageInput" placeholder="Enter age (1-100)">
+                <input id="ageInput" type="number" placeholder="Enter age (1-100)">
                 <button id="validateButton" class="demo-button">Validate</button>
               </div>
               <div id="validationErrorResult" class="error-result"></div>
@@ -725,14 +725,16 @@ observer.observe({ entryTypes: ['event'] });
               <form id="validationForm" class="demo-form">
                 <div class="form-group">
                   <label for="username">Username:</label>
-                  <input type="text" id="username" required 
+                  <input
+id="username" type="text" required 
                          minlength="3" maxlength="20"
                          aria-describedby="username-error">
                   <div id="username-error" class="error-message" role="alert"></div>
                 </div>
                 <div class="form-group">
                   <label for="email">Email:</label>
-                  <input type="email" id="email" required
+                  <input
+id="email" type="email" required
                          aria-describedby="email-error">
                   <div id="email-error" class="error-message" role="alert"></div>
                 </div>
@@ -746,7 +748,8 @@ observer.observe({ entryTypes: ['event'] });
               <form id="customValidationForm" class="demo-form">
                 <div class="form-group">
                   <label for="password">Password:</label>
-                  <input type="password" id="password" required
+                  <input
+id="password" type="password" required
                          aria-describedby="password-requirements">
                   <div id="password-requirements" class="requirements" role="status">
                     Password must contain:
@@ -768,7 +771,7 @@ observer.observe({ entryTypes: ['event'] });
         <div class="code-example mt-4">
           <h3>Form Validation Patterns</h3>
           <div class="code-example">
-            <pre><code>
+            <pre><code v-pre>
 // 1. Real-time Validation with Accessibility
 const username = document.getElementById('username') as HTMLInputElement;
 const usernameError = document.getElementById('username-error');
@@ -901,7 +904,7 @@ form?.addEventListener('submit', async (e) => {
         <div class="code-example mt-4">
           <h3>Event Delegation Patterns</h3>
           <div class="code-example">
-            <pre><code>
+            <pre><code v-pre>
 // 1. Basic Event Delegation
 const list = document.getElementById('dynamicList');
 list?.addEventListener('click', (e) => {
@@ -1044,8 +1047,8 @@ touchDemo?.addEventListener('touchstart', (e) => {
   </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted, ref, provide } from 'vue'
+<script setup>
+import { onMounted, ref } from 'vue'
 import { getQuizQuestionsForPath } from '@/utils/quizUtils'
 import TutorialQuiz from '@/components/TutorialQuiz.vue'
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
@@ -1144,13 +1147,18 @@ function initializeEventTypes() {
   
   if (textInput && mouseArea && eventResult) {
     textInput.addEventListener('input', (e) => {
-      const target = e.target as HTMLInputElement
-      eventResult.textContent = `Input event: ${target.value}`
+      const t = e.target
+      const value = (typeof window !== 'undefined' && window.HTMLInputElement && t instanceof window.HTMLInputElement) ? t.value : ''
+      eventResult.textContent = `Input event: ${value}`
     })
 
     mouseArea.addEventListener('mousemove', (e) => {
-      const mouseEvent = e as MouseEvent
-      eventResult.textContent = `Mouse position: X=${mouseEvent.offsetX}, Y=${mouseEvent.offsetY}`
+      const me = e
+      if (typeof window !== 'undefined' && window.MouseEvent && me instanceof window.MouseEvent) {
+        eventResult.textContent = `Mouse position: X=${me.offsetX}, Y=${me.offsetY}`
+      } else if (me && 'offsetX' in me) {
+        eventResult.textContent = `Mouse position: X=${me.offsetX}, Y=${me.offsetY}`
+      }
     })
 
     mouseArea.addEventListener('mouseenter', () => {
@@ -1164,14 +1172,14 @@ function initializeEventTypes() {
 }
 
 function initializeFormValidation() {
-  const validationForm = document.getElementById('validationForm') as HTMLFormElement
-  const username = document.getElementById('username') as HTMLInputElement
+  const validationForm = document.getElementById('validationForm')
+  const username = document.getElementById('username')
   const usernameError = document.getElementById('username-error')
-  const email = document.getElementById('email') as HTMLInputElement
+  const email = document.getElementById('email')
   const emailError = document.getElementById('email-error')
   const formResult = document.getElementById('formResult')
-  const customValidationForm = document.getElementById('customValidationForm') as HTMLFormElement
-  const password = document.getElementById('password') as HTMLInputElement
+  const customValidationForm = document.getElementById('customValidationForm')
+  const password = document.getElementById('password')
   const customValidationResult = document.getElementById('customValidationResult')
   const requirements = {
     length: document.getElementById('length'),
@@ -1183,73 +1191,80 @@ function initializeFormValidation() {
   // Real-time validation
   if (username && usernameError) {
     username.addEventListener('input', (e) => {
-      const value = (e.target as HTMLInputElement).value
+      const t = e.target
+      const value = (typeof window !== 'undefined' && window.HTMLInputElement && t instanceof window.HTMLInputElement) ? t.value : ''
       if (value.length < 3) {
-        usernameError.textContent = 'Username must be at least 3 characters'
-        username.setAttribute('aria-invalid', 'true')
+        if (usernameError) usernameError.textContent = 'Username must be at least 3 characters'
+        if (username) username.setAttribute('aria-invalid', 'true')
       } else {
-        usernameError.textContent = ''
-        username.setAttribute('aria-invalid', 'false')
+        if (usernameError) usernameError.textContent = ''
+        if (username) username.setAttribute('aria-invalid', 'false')
       }
     })
   }
 
   if (email && emailError) {
     email.addEventListener('input', (e) => {
-      const value = (e.target as HTMLInputElement).value
+      const t = e.target
+      const value = (typeof window !== 'undefined' && window.HTMLInputElement && t instanceof window.HTMLInputElement) ? t.value : ''
       if (!value.includes('@')) {
-        emailError.textContent = 'Please enter a valid email address'
-        email.setAttribute('aria-invalid', 'true')
+        if (emailError) emailError.textContent = 'Please enter a valid email address'
+        if (email) email.setAttribute('aria-invalid', 'true')
       } else {
-        emailError.textContent = ''
-        email.setAttribute('aria-invalid', 'false')
+        if (emailError) emailError.textContent = ''
+        if (email) email.setAttribute('aria-invalid', 'false')
       }
     })
   }
 
   // Form submission
   if (validationForm && formResult) {
-    validationForm.addEventListener('submit', async (e) => {
-      e.preventDefault()
-      if (!validationForm.checkValidity()) {
-        validationForm.reportValidity()
-        return
-      }
+    const formEl = (typeof window !== 'undefined' && window.HTMLFormElement && validationForm instanceof window.HTMLFormElement) ? validationForm : null
+    if (formEl) {
+      formEl.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        if (!formEl.checkValidity()) {
+          formEl.reportValidity()
+          return
+        }
 
-      try {
-        const formData = new FormData(validationForm)
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        formResult.textContent = 'Form submitted successfully!'
-        formResult.style.backgroundColor = '#e8f5e9'
-        formResult.style.color = '#2e7d32'
-      } catch (error) {
-        formResult.textContent = `Error submitting form: ${error.message}`
-        formResult.style.backgroundColor = '#ffebee'
-        formResult.style.color = '#c62828'
-      }
-    })
+        try {
+          const formData = new FormData(formEl)
+          // Simulate API call
+          await new Promise(resolve => setTimeout(resolve, 1000))
+          formResult.textContent = 'Form submitted successfully!'
+          formResult.style.backgroundColor = '#e8f5e9'
+          formResult.style.color = '#2e7d32'
+        } catch (error) {
+          formResult.textContent = `Error submitting form: ${error.message}`
+          formResult.style.backgroundColor = '#ffebee'
+          formResult.style.color = '#c62828'
+        }
+      })
+    }
   }
 
   // Custom password validation
   if (password && requirements.length && requirements.uppercase && 
       requirements.lowercase && requirements.number) {
-    password.addEventListener('input', (e) => {
-      const value = (e.target as HTMLInputElement).value
-      requirements.length.classList.toggle('valid', value.length >= 8)
-      requirements.uppercase.classList.toggle('valid', /[A-Z]/.test(value))
-      requirements.lowercase.classList.toggle('valid', /[a-z]/.test(value))
-      requirements.number.classList.toggle('valid', /[0-9]/.test(value))
-    })
+    const pwdEl = (typeof window !== 'undefined' && window.HTMLInputElement && password instanceof window.HTMLInputElement) ? password : null
+    if (pwdEl) {
+      pwdEl.addEventListener('input', (e) => {
+        const t = e.target
+        const value = (typeof window !== 'undefined' && window.HTMLInputElement && t instanceof window.HTMLInputElement) ? t.value : ''
+        if (requirements.length) requirements.length.classList.toggle('valid', value.length >= 8)
+        if (requirements.uppercase) requirements.uppercase.classList.toggle('valid', /[A-Z]/.test(value))
+        if (requirements.lowercase) requirements.lowercase.classList.toggle('valid', /[a-z]/.test(value))
+        if (requirements.number) requirements.number.classList.toggle('valid', /[0-9]/.test(value))
+      })
+    }
   }
 
   if (customValidationForm && customValidationResult) {
     customValidationForm.addEventListener('submit', (e) => {
       e.preventDefault()
-      if (password && password.value.length >= 8 && 
-          /[A-Z]/.test(password.value) && 
-          /[a-z]/.test(password.value) && 
-          /[0-9]/.test(password.value)) {
+      const pwdVal = (typeof window !== 'undefined' && window.HTMLInputElement && password instanceof window.HTMLInputElement) ? password.value : ''
+      if (pwdVal.length >= 8 && /[A-Z]/.test(pwdVal) && /[a-z]/.test(pwdVal) && /[0-9]/.test(pwdVal)) {
         customValidationResult.textContent = 'Password meets all requirements!'
         customValidationResult.style.backgroundColor = '#e8f5e9'
         customValidationResult.style.color = '#2e7d32'
@@ -1274,11 +1289,13 @@ function initializeEventDelegation() {
   if (dynamicList && delegationResult) {
     let itemCount = 2
     dynamicList.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement
-      if (target.matches('li')) {
-        delegationResult.textContent = `Clicked item: ${target.textContent}`
-        target.setAttribute('aria-selected', 'true')
-        target.focus()
+      const t = e.target
+      const target = (t && typeof t === 'object') ? t : null
+      const tagName = target && 'tagName' in target && typeof target['tagName'] === 'string' ? String(target['tagName']).toLowerCase() : ''
+      if (tagName === 'li') {
+        if (delegationResult) delegationResult.textContent = `Clicked item: ${target['textContent']}`
+        if (typeof target['setAttribute'] === 'function') target['setAttribute']('aria-selected', 'true')
+        if (typeof target['focus'] === 'function') target['focus']()
       }
     })
 
@@ -1306,18 +1323,18 @@ function initializeEventDelegation() {
   // Nested elements delegation
   if (nestedDemo && nestedResult) {
     nestedDemo.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement
-      const closest = target.closest('[role="button"]')
+      const t = e.target
+      const closest = (t && typeof t === 'object' && 'closest' in t && typeof t.closest === 'function') ? t.closest('[role="button"]') : null
       if (closest) {
         const phase = e.eventPhase
-        nestedResult.textContent = `Clicked ${closest.className} in ${phase} phase`
+        if (nestedResult) nestedResult.textContent = `Clicked ${closest.className} in ${phase} phase`
       }
     })
   }
 }
 
 function initializeKeyboardEvents() {
-  const input = document.getElementById('keyboardInput') as HTMLInputElement
+  const input = document.getElementById('keyboardInput')
   const lastKey = document.getElementById('lastKey')
   const keyCode = document.getElementById('keyCode')
   const modifierKeys = document.getElementById('modifierKeys')
@@ -1328,26 +1345,28 @@ function initializeKeyboardEvents() {
   if (input && lastKey && keyCode && modifierKeys && result && specialKeyResult && shortcutResult) {
     // Basic key events
     input.addEventListener('keydown', (e) => {
-      lastKey.textContent = e.key
-      keyCode.textContent = e.keyCode.toString()
-      modifierKeys.textContent = [
+      lastKey && (lastKey.textContent = e.key)
+      keyCode && (keyCode.textContent = e.keyCode.toString())
+      if (modifierKeys) modifierKeys.textContent = [
         e.ctrlKey && 'Ctrl',
         e.shiftKey && 'Shift',
         e.altKey && 'Alt',
         e.metaKey && 'Meta'
       ].filter(Boolean).join(', ') || 'None'
       
-      result.textContent = `Key pressed: ${e.key} (Code: ${e.keyCode})`
+      if (result) result.textContent = `Key pressed: ${e.key} (Code: ${e.keyCode})`
     })
 
     // Special keys
     input.addEventListener('keydown', (e) => {
-      if (e.code.startsWith('Arrow')) {
-        specialKeyResult.textContent = `Arrow key pressed: ${e.key}`
-      } else if (e.code.startsWith('F')) {
-        specialKeyResult.textContent = `Function key pressed: ${e.key}`
-      } else if (['Enter', 'Space', 'Tab', 'Escape', 'Backspace', 'Delete'].includes(e.key)) {
-        specialKeyResult.textContent = `Special key pressed: ${e.key}`
+      if (specialKeyResult) {
+        if (e.code && e.code.startsWith && e.code.startsWith('Arrow')) {
+          specialKeyResult.textContent = `Arrow key pressed: ${e.key}`
+        } else if (e.code && e.code.startsWith && e.code.startsWith('F')) {
+          specialKeyResult.textContent = `Function key pressed: ${e.key}`
+        } else if (['Enter', 'Space', 'Tab', 'Escape', 'Backspace', 'Delete'].includes(e.key)) {
+          specialKeyResult.textContent = `Special key pressed: ${e.key}`
+        }
       }
     })
 
@@ -1389,20 +1408,22 @@ function initializeKeyboardEvents() {
 
 function initializeTouchEvents() {
   const touchArea = document.querySelector('.touch-area')
-  const result = document.getElementById('touchResult')
+  const resultTouch = document.getElementById('touchResult')
   
-  if (touchArea && result) {
-    touchArea.addEventListener('touchstart', (e: TouchEvent) => {
-      result.textContent = 'Touch started'
+  if (touchArea && resultTouch) {
+    touchArea.addEventListener('touchstart', (e) => {
+      if (resultTouch) resultTouch.textContent = 'Touch started'
     })
     
-    touchArea.addEventListener('touchmove', (e: TouchEvent) => {
-      const touch = e.touches[0]
-      result.textContent = `Touch moving: X=${touch.clientX}, Y=${touch.clientY}`
+    touchArea.addEventListener('touchmove', (e) => {
+      const touch = e && e['touches'] && e['touches'][0]
+      if (touch && resultTouch) {
+        resultTouch.textContent = `Touch moving: X=${touch.clientX}, Y=${touch.clientY}`
+      }
     })
     
     touchArea.addEventListener('touchend', () => {
-      result.textContent = 'Touch ended'
+      if (resultTouch) resultTouch.textContent = 'Touch ended'
     })
   }
 }
@@ -1413,7 +1434,7 @@ function initializeErrorHandling() {
   const asyncErrorButton = document.getElementById('asyncErrorButton')
   const asyncErrorResult = document.getElementById('asyncErrorResult')
   const validateButton = document.getElementById('validateButton')
-  const ageInput = document.getElementById('ageInput') as HTMLInputElement
+  const ageInput = document.getElementById('ageInput')
   const validationErrorResult = document.getElementById('validationErrorResult')
   
   if (errorButton && errorResult) {
@@ -1453,7 +1474,8 @@ function initializeErrorHandling() {
     // Form validation error handling
     validateButton.addEventListener('click', () => {
       try {
-        const age = parseInt(ageInput.value)
+        const ageStr = (typeof window !== 'undefined' && window.HTMLInputElement && ageInput instanceof window.HTMLInputElement) ? ageInput.value : ''
+        const age = parseInt(ageStr)
         if (isNaN(age)) {
           throw new Error('Please enter a valid number')
         }
@@ -1482,7 +1504,7 @@ function initializePerformanceDemo() {
   const startMonitoring = document.getElementById('startMonitoring')
   const stopMonitoring = document.getElementById('stopMonitoring')
   const monitoringResult = document.getElementById('monitoringResult')
-  let observer: PerformanceObserver | null = null
+  let observer = null
 
   // Event throttling demo
   if (scrollArea && throttleResult) {
@@ -1499,11 +1521,13 @@ function initializePerformanceDemo() {
   if (delegationList && delegationResult) {
     let itemCount = 2
     delegationList.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement
-      if (target.matches('li')) {
-        delegationResult.textContent = `Clicked item: ${target.textContent}`
-        target.setAttribute('aria-selected', 'true')
-        target.focus()
+      const t = e.target
+      const target = (t && typeof t === 'object') ? t : null
+      const tagName = target && 'tagName' in target && typeof target['tagName'] === 'string' ? String(target['tagName']).toLowerCase() : ''
+      if (tagName === 'li') {
+        if (delegationResult) delegationResult.textContent = `Clicked item: ${target['textContent']}`
+        if (typeof target['setAttribute'] === 'function') target['setAttribute']('aria-selected', 'true')
+        if (typeof target['focus'] === 'function') target['focus']()
       }
     })
 
@@ -1521,14 +1545,16 @@ function initializePerformanceDemo() {
   // Performance monitoring demo
   if (startMonitoring && stopMonitoring && monitoringResult) {
     startMonitoring.addEventListener('click', () => {
-      observer = new PerformanceObserver((list) => {
-        const entries = list.getEntries()
-        monitoringResult.textContent = `Recorded ${entries.length} performance entries`
-        console.log('Performance entries:', entries)
-      })
+      if (typeof PerformanceObserver !== 'undefined') {
+        observer = new PerformanceObserver((list) => {
+          const entries = list.getEntries()
+          if (monitoringResult) monitoringResult.textContent = `Recorded ${entries.length} performance entries`
+          console.log('Performance entries:', entries)
+        })
 
-      observer.observe({ entryTypes: ['event'] })
-      monitoringResult.textContent = 'Performance monitoring started'
+        observer.observe({ entryTypes: ['event'] })
+        if (monitoringResult) monitoringResult.textContent = 'Performance monitoring started'
+      }
     })
 
     stopMonitoring.addEventListener('click', () => {
@@ -1541,9 +1567,9 @@ function initializePerformanceDemo() {
   }
 }
 
-function throttle(func: Function, limit: number) {
-  let inThrottle: boolean;
-  return function(...args: any[]) {
+function throttle(func, limit) {
+  let inThrottle;
+  return function(...args) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;

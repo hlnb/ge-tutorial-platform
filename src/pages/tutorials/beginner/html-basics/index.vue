@@ -88,7 +88,7 @@ onBeforeUnmount(() => {
 						},
 						{ name: 'html-basics-forms', text: 'Forms', time: '35 minutes' },
 						{
-							name: 'html-basics-emmet',
+							name: 'html-basics-html-emmet',
 							text: 'Emmet Workflow',
 							time: '20 minutes',
 						},

@@ -16,5 +16,9 @@ export default {
 </script>
 
 <style scoped>
+@import './nav.css';
+
 .module-nav { width: 220px; }
+/* Deployments accent (green) */
+.tutorial-nav { --tutorial-accent: #2ecc71; }
 </style>

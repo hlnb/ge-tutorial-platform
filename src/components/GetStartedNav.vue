@@ -1,3 +1,8 @@
+<script>
+// Compatibility shim: re-export the tutorial-navs GetStartedNav component
+import GetStartedNav from '@/components/tutorial-navs/GetStartedNav.vue';
+export default GetStartedNav;
+</script>
 <template>
 	<div class="menu tutorial-nav">
 		<h2 class="title is-3">

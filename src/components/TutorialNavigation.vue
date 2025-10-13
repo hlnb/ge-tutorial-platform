@@ -83,7 +83,12 @@ const handleTutorialIncomplete = () => {
 onMounted(() => {
 	// Component mounted
 });
-</script> // Removed redundant export default
+</script>
+
+<script>
+export default {};
+</script>
+
 <style scoped>
 .tutorial-navigation {
 	margin-top: 3rem;

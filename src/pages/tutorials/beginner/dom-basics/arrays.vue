@@ -131,7 +131,7 @@
           <div class="method-examples">
             <div id="creating-arrays" class="method-card">
               <h3>Creating Arrays</h3>
-              <pre><code>// Array literal
+              <pre v-pre><code>// Array literal
 let fruits = ['apple', 'banana', 'orange'];
 
 // Array constructor
@@ -143,16 +143,16 @@ let empty = new Array(3); // [undefined, undefined, undefined]</code></pre>
 
             <div id="accessing-elements" class="method-card">
               <h3>Accessing Elements</h3>
-              <pre><code>let fruits = ['apple', 'banana', 'orange'];
+              <pre v-pre><code>let fruits = ['apple', 'banana', 'orange'];
 
-// Using index (0-based)
-console.log(fruits[0]); // 'apple'
+  // Using index (0-based)
+  console.log(fruits[0]); // 'apple'
 
-// Last element
-console.log(fruits[fruits.length - 1]); // 'orange'
+  // Last element
+  console.log(fruits[fruits.length - 1]); // 'orange'
 
-// Using at() method (newer)
-console.log(fruits.at(-1)); // 'orange'</code></pre>
+  // Using at() method (newer)
+  console.log(fruits.at(-1)); // 'orange'</code></pre>
             </div>
 
             <!-- Add Zero-Based Indexing -->
@@ -197,7 +197,7 @@ console.log(fruits.at(-1)); // 'orange'</code></pre>
 
             <div id="modifying-arrays" class="method-card">
               <h3>Modifying Arrays</h3>
-              <pre><code>let fruits = ['apple', 'banana'];
+              <pre v-pre><code>let fruits = ['apple', 'banana'];
 
 // Add to end
 fruits.push('orange');     // ['apple', 'banana', 'orange']
@@ -216,7 +216,7 @@ fruits.shift();          // ['apple', 'banana']</code></pre>
           <div class="method-examples mt-4">
             <div id="useful-methods" class="method-card">
               <h3>Useful Array Methods</h3>
-              <pre><code>let fruits = ['apple', 'banana', 'orange'];
+              <pre v-pre><code>let fruits = ['apple', 'banana', 'orange'];
 
 // Check if element exists
 fruits.includes('apple');    // true
@@ -233,7 +233,7 @@ fruits.slice(1, 2);         // ['banana']</code></pre>
 
             <div id="array-transformation" class="method-card">
               <h3>Array Transformation</h3>
-              <pre><code>let numbers = [1, 2, 3, 4, 5];
+              <pre v-pre><code>let numbers = [1, 2, 3, 4, 5];
 
 // Map: transform each element
 numbers.map(n => n * 2);    // [2, 4, 6, 8, 10]
@@ -247,7 +247,7 @@ numbers.reduce((sum, n) => sum + n, 0); // 15</code></pre>
 
             <div id="common-patterns" class="method-card">
               <h3>Common Patterns</h3>
-              <pre><code>// Remove duplicates
+              <pre v-pre><code>// Remove duplicates
 let array = [1, 2, 2, 3, 3, 4];
 let unique = [...new Set(array)]; // [1, 2, 3, 4]
 
@@ -325,21 +325,21 @@ Array.isArray(numbers);  // true</code></pre>
             <div class="method-card">
               <h3>forEach</h3>
               <p>Iterate over elements:</p>
-              <pre><code>elements.forEach(el => el.style.color = 'blue');</code></pre>
+              <pre v-pre><code>elements.forEach(el => el.style.color = 'blue');</code></pre>
               <button @click="demoForEach">Try It</button>
             </div>
 
             <div class="method-card">
               <h3>map</h3>
               <p>Transform elements:</p>
-              <pre><code>elements.map(el => el.textContent.toUpperCase());</code></pre>
+              <pre v-pre><code>elements.map(el => el.textContent.toUpperCase());</code></pre>
               <button @click="demoMap">Try It</button>
             </div>
 
             <div class="method-card">
               <h3>filter</h3>
               <p>Select specific elements:</p>
-              <pre><code>elements.filter(el => el.textContent.length > 5);</code></pre>
+              <pre v-pre><code>elements.filter(el => el.textContent.length > 5);</code></pre>
               <button @click="demoFilter">Try It</button>
             </div>
           </div>

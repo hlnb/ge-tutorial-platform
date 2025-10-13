@@ -16,5 +16,9 @@ export default {
 </script>
 
 <style scoped>
+@import './nav.css';
+
 .module-nav { width: 220px; }
+/* Backend teal */
+.tutorial-nav { --tutorial-accent: #4db6ac; }
 </style>

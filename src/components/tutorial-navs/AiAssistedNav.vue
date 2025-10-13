@@ -23,5 +23,9 @@ export default {
 </script>
 
 <style scoped>
+@import './nav.css';
+
 .module-nav { width: 220px; }
+/* AI accent (indigo) */
+.tutorial-nav { --tutorial-accent: #5b21b6; }
 </style>

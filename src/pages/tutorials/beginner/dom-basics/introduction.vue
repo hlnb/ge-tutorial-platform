@@ -237,13 +237,8 @@ document
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
-import { usePageSections } from '@/composables/usePageSections';
-
-const frontmatter = {
+<script>
+export const frontmatter = {
   title: 'Introduction to the Document Object Model (DOM)',
   description: 'Learn the fundamentals of the Document Object Model (DOM), how it represents HTML, SVG, and XML documents, and how to manipulate web pages dynamically using JavaScript.',
   difficulty: 'Beginner',
@@ -277,7 +272,14 @@ const frontmatter = {
       description: 'Discover how to handle user interactions and browser events.'
     }
   ]
-};
+}
+</script>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
+import TutorialQuiz from '@/components/TutorialQuiz.vue'
+import { usePageSections } from '@/composables/usePageSections'
 
 // Initialize page sections
 const sections = [
@@ -363,10 +365,10 @@ onMounted(() => {
 });
 
 // Demo state
-const demoText = ref('Click the buttons below to interact with this element!');
-const originalText = 'Click the buttons below to interact with this element!';
-const colors = ['#42b983', '#3498db', '#e74c3c', '#f1c40f'];
-const demoElement = ref<HTMLElement | null>(null);
+const demoText = ref('Click the buttons below to interact with this element!')
+const originalText = 'Click the buttons below to interact with this element!'
+const colors = ['#42b983', '#3498db', '#e74c3c', '#f1c40f']
+const demoElement = ref(null)
 
 // Demo methods
 const changeText = () => {
@@ -425,13 +427,16 @@ const runViewingExample = () => {
   console.log('Full element:', example1);
   
   const paragraph = document.querySelector('#example1 p');
-  console.log('Element properties:', {
-    tagName: paragraph.tagName,
-    textContent: paragraph.textContent,
-    innerHTML: paragraph.innerHTML
-  });
-  
-  console.dir(paragraph);
+  if (paragraph) {
+    console.log('Element properties:', {
+      tagName: paragraph.tagName,
+      textContent: paragraph.textContent,
+      innerHTML: paragraph.innerHTML
+    });
+    console.dir(paragraph);
+  } else {
+    console.log('No paragraph found in #example1')
+  }
 };
 
 const runConsoleExample = () => {
@@ -441,8 +446,12 @@ const runConsoleExample = () => {
   
   console.log('Basic log:', element);
   console.dir('Detailed view:', element);
-  console.log('HTML view:', element.outerHTML);
-  console.log('Is this an HTML element?', element instanceof HTMLElement);
+  if (element) {
+    console.log('HTML view:', element.outerHTML);
+    console.log('Is this an HTML element?', element instanceof HTMLElement);
+  } else {
+    console.log('No element found matching .sample-element')
+  }
 };
 </script>
 

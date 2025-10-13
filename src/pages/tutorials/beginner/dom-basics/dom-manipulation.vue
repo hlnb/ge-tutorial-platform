@@ -60,7 +60,7 @@
           <h3 class="title is-4">Creating New Elements</h3>
           <p>Learn how to create DOM elements programmatically using JavaScript:</p>
           <div class="code-example">
-            <pre><code><span class="comment">// Creating a new element</span>
+            <pre v-pre><code><span class="comment">// Creating a new element</span>
 <span class="keyword">const</span> <span class="variable">newDiv</span> = <span class="function">document.createElement</span>(<span class="string">'div'</span>);
 <span class="variable">newDiv</span>.<span class="variable">textContent</span> = <span class="string">'Hello, DOM!'</span>;
 <span class="variable">newDiv</span>.<span class="variable">className</span> = <span class="string">'greeting'</span>;
@@ -72,7 +72,7 @@
           <div class="more-examples mt-4">
             <h4 class="title is-5">More Creation Methods</h4>
             <div class="code-example">
-              <pre><code><span class="comment">// Creating elements with innerHTML</span>
+              <pre v-pre><code><span class="comment">// Creating elements with innerHTML</span>
 <span class="keyword">const</span> <span class="variable">container</span> = <span class="function">document.getElementById</span>(<span class="string">'container'</span>);
 <span class="variable">container</span>.<span class="variable">innerHTML</span> = <span class="string">'&lt;div class="new-element"&gt;Created with innerHTML&lt;/div&gt;'</span>;
 
@@ -119,7 +119,7 @@
           <h3 class="title is-4">Working with Attributes and Styles</h3>
           <p>Explore different ways to modify existing elements:</p>
           <div class="code-example">
-            <pre><code><span class="comment">// Modifying attributes</span>
+            <pre v-pre><code><span class="comment">// Modifying attributes</span>
 <span class="variable">element</span>.<span class="function">setAttribute</span>(<span class="string">'id'</span>, <span class="string">'unique-id'</span>);
 <span class="variable">element</span>.<span class="variable">id</span> = <span class="string">'unique-id'</span>;
 
@@ -131,7 +131,7 @@
           <div class="more-examples mt-4">
             <h4 class="title is-5">Manipulating Classes and Content</h4>
             <div class="code-example">
-              <pre><code><span class="comment">// Working with classes</span>
+              <pre v-pre><code><span class="comment">// Working with classes</span>
 <span class="variable">element</span>.<span class="variable">classList</span>.<span class="function">add</span>(<span class="string">'active'</span>);
 <span class="variable">element</span>.<span class="variable">classList</span>.<span class="function">remove</span>(<span class="string">'inactive'</span>);
 <span class="variable">element</span>.<span class="variable">classList</span>.<span class="function">toggle</span>(<span class="string">'highlight'</span>);
@@ -271,7 +271,7 @@
           <div class="traversal-examples">
             <h4 class="title is-5">Common Traversal Methods</h4>
             <div class="code-example">
-              <pre><code><span class="comment">// Parent Relationships</span>
+              <pre v-pre><code><span class="comment">// Parent Relationships</span>
 <span class="keyword">const</span> <span class="variable">main</span> = <span class="function">document.querySelector</span>(<span class="string">'main'</span>);
 <span class="keyword">const</span> <span class="variable">parent</span> = <span class="variable">main</span>.<span class="variable">parentNode</span>;  <span class="comment">// Gets body element</span>
 <span class="keyword">const</span> <span class="variable">parentEl</span> = <span class="variable">main</span>.<span class="variable">parentElement</span>;  <span class="comment">// Same as parentNode for element nodes</span>
@@ -455,7 +455,7 @@
                     <li>Show/hide cart contents when a user clicks the cart icon</li>
                   </ul>
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Add item to cart</span>
+                    <pre v-pre><code><span class="comment">// Add item to cart</span>
 <span class="keyword">function</span> <span class="function">addToCart</span>(product) {
   <span class="keyword">const</span> <span class="variable">cartItems</span> = <span class="function">document.getElementById</span>(<span class="string">'cart-items'</span>);
   <span class="keyword">const</span> <span class="variable">cartItem</span> = <span class="function">document.createElement</span>(<span class="string">'div'</span>);
@@ -495,7 +495,7 @@
                     <li>Show success messages after form submission</li>
                   </ul>
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Validate email field</span>
+                    <pre v-pre><code><span class="comment">// Validate email field</span>
 <span class="keyword">function</span> <span class="function">validateEmail</span>() {
   <span class="keyword">const</span> <span class="variable">emailInput</span> = <span class="function">document.getElementById</span>(<span class="string">'email'</span>);
   <span class="keyword">const</span> <span class="variable">emailError</span> = <span class="function">document.getElementById</span>(<span class="string">'email-error'</span>);
@@ -534,7 +534,7 @@
                     <li>Implement image navigation (prev/next)</li>
                   </ul>
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Create lightbox for gallery images</span>
+                    <pre v-pre><code><span class="comment">// Create lightbox for gallery images</span>
 <span class="keyword">function</span> <span class="function">openLightbox</span>(imageSrc, caption) {
   <span class="comment">// Create lightbox container if it doesn't exist</span>
   <span class="keyword">let</span> <span class="variable">lightbox</span> = <span class="function">document.getElementById</span>(<span class="string">'lightbox'</span>);
@@ -584,7 +584,7 @@
                     <li>Show loading indicators during content fetch</li>
                   </ul>
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Add infinite scroll functionality</span>
+                    <pre v-pre><code><span class="comment">// Add infinite scroll functionality</span>
 <span class="keyword">function</span> <span class="function">setupInfiniteScroll</span>() {
   <span class="keyword">let</span> <span class="variable">page</span> = 1;
   <span class="keyword">let</span> <span class="variable">loading</span> = <span class="boolean">false</span>;
@@ -724,7 +724,7 @@
                     <li><strong>Event Prevention:</strong> <code>event.preventDefault()</code> vs. <code>event.returnValue = false</code></li>
                   </ul>
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Cross-browser event listener</span>
+                    <pre v-pre><code><span class="comment">// Cross-browser event listener</span>
 <span class="keyword">function</span> <span class="function">addEvent</span>(element, event, handler) {
   <span class="keyword">if</span> (element.addEventListener) {
     element.addEventListener(event, handler, <span class="boolean">false</span>);
@@ -752,7 +752,7 @@
                     <li><strong>Safari 5.1-6.0:</strong> Only partial support for <code>classList</code></li>
                   </ul>
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Cross-browser class toggling</span>
+                    <pre v-pre><code><span class="comment">// Cross-browser class toggling</span>
 <span class="keyword">function</span> <span class="function">toggleClass</span>(element, className) {
   <span class="keyword">if</span> (element.classList) {
     element.classList.toggle(className);
@@ -786,7 +786,7 @@
                     <li><strong>All browsers:</strong> Support <code>parentNode.removeChild(element)</code></li>
                   </ul>
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Cross-browser element removal</span>
+                    <pre v-pre><code><span class="comment">// Cross-browser element removal</span>
 <span class="keyword">function</span> <span class="function">removeElement</span>(element) {
   <span class="keyword">if</span> (element.remove) {
     element.remove();
@@ -812,7 +812,7 @@
                     <li><strong>Security:</strong> <code>innerHTML</code> can be a security risk with user-provided content</li>
                   </ul>
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Safer way to add text content</span>
+                    <pre v-pre><code><span class="comment">// Safer way to add text content</span>
 <span class="keyword">function</span> <span class="function">setTextContent</span>(element, text) {
   <span class="keyword">while</span> (element.firstChild) {
     element.removeChild(element.firstChild);
@@ -861,27 +861,29 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-danger">❌ Inefficient</h4>
                       <div class="code-example">
-                        <pre v-pre><code><span class="comment">// Adding items one at a time (forces multiple reflows)</span>
-<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i < <span class="number">100</span>; i++) {
-  <span class="keyword">const</span> <span class="variable">item</span> = <span class="function">document.createElement</span>(<span class="string">'div'</span>);
-  <span class="variable">item</span>.<span class="variable">textContent</span> = <span class="string">`Item ${i}`</span>;
-  <span class="variable">container</span>.<span class="function">appendChild</span>(<span class="variable">item</span>);  <span class="comment">// Causes reflow each time</span>
-}</code></pre>
+                          <pre v-pre><code v-pre>// Adding items one at a time (forces multiple reflows)
+for (let i = 0; i < 100; i++) {
+  const item = document.createElement('div');
+  item.textContent = `Item ${i}`;
+  container.appendChild(item);  // Causes reflow each time
+}
+</code></pre>
                       </div>
                     </div>
                     <div class="column">
                       <h4 class="title is-6 has-text-success">✅ Optimized</h4>
                       <div class="code-example">
-                        <pre v-pre><code><span class="comment">// Using DocumentFragment (single reflow)</span>
-<span class="keyword">const</span> <span class="variable">fragment</span> = <span class="function">document.createDocumentFragment</span>();
+                          <pre v-pre><code v-pre>// Using DocumentFragment (single reflow)
+const fragment = document.createDocumentFragment();
 
-<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i < <span class="number">100</span>; i++) {
-  <span class="keyword">const</span> <span class="variable">item</span> = <span class="function">document.createElement</span>(<span class="string">'div'</span>);
-  <span class="variable">item</span>.<span class="variable">textContent</span> = <span class="string">`Item ${i}`</span>;
-  <span class="variable">fragment</span>.<span class="function">appendChild</span>(<span class="variable">item</span>);
+for (let i = 0; i < 100; i++) {
+  const item = document.createElement('div');
+  item.textContent = `Item ${i}`;
+  fragment.appendChild(item);
 }
 
-<span class="variable">container</span>.<span class="function">appendChild</span>(<span class="variable">fragment</span>);  <span class="comment">// Single reflow</span></code></pre>
+container.appendChild(fragment);  // Single reflow
+</code></pre>
                       </div>
                     </div>
                   </div>
@@ -901,7 +903,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-danger">❌ Inefficient</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Reading and writing repeatedly causes thrashing</span>
+                        <pre v-pre><code><span class="comment">// Reading and writing repeatedly causes thrashing</span>
 <span class="keyword">const</span> <span class="variable">width</span> = <span class="variable">element</span>.<span class="function">getBoundingClientRect</span>().<span class="variable">width</span>;
 <span class="variable">element</span>.<span class="variable">style</span>.<span class="variable">width</span> = <span class="variable">width</span> + <span class="number">10</span> + <span class="string">'px'</span>;
 
@@ -912,7 +914,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-success">✅ Optimized</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Read all measurements, then make all changes</span>
+                        <pre v-pre><code><span class="comment">// Read all measurements, then make all changes</span>
 <span class="comment">// This avoids forced synchronous layouts</span>
 <span class="keyword">const</span> <span class="variable">rect</span> = <span class="variable">element</span>.<span class="function">getBoundingClientRect</span>();
 <span class="keyword">const</span> <span class="variable">width</span> = <span class="variable">rect</span>.<span class="variable">width</span>;
@@ -939,7 +941,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-danger">❌ Inefficient</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Adding listeners to each button (memory-intensive)</span>
+                        <pre v-pre><code><span class="comment">// Adding listeners to each button (memory-intensive)</span>
 <span class="keyword">const</span> <span class="variable">buttons</span> = <span class="function">document.querySelectorAll</span>(<span class="string">'.button'</span>);
 
 <span class="variable">buttons</span>.<span class="function">forEach</span>(<span class="variable">button</span> => {
@@ -950,7 +952,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-success">✅ Optimized</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Using event delegation (single listener)</span>
+                        <pre v-pre><code><span class="comment">// Using event delegation (single listener)</span>
 <span class="keyword">const</span> <span class="variable">container</span> = <span class="function">document.querySelector</span>(<span class="string">'.buttons-container'</span>);
 
 <span class="variable">container</span>.<span class="function">addEventListener</span>(<span class="string">'click'</span>, <span class="variable">event</span> => {
@@ -988,7 +990,7 @@
                     
                     <h4 class="title is-5 mt-4">Implementation Example</h4>
                     <div class="code-example">
-                      <pre><code><span class="comment">// Progressive Enhancement Example</span>
+                      <pre v-pre><code><span class="comment">// Progressive Enhancement Example</span>
 
 <span class="comment">// 1. Check if the browser supports the features we need</span>
 <span class="keyword">const</span> <span class="variable">supportsCustomElements</span> = <span class="string">'customElements'</span> <span class="keyword">in</span> <span class="variable">window</span>;
@@ -1088,7 +1090,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-danger">❌ Inaccessible</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Dynamically adding an error message</span>
+                        <pre v-pre><code><span class="comment">// Dynamically adding an error message</span>
 <span class="keyword">function</span> <span class="function">showError</span>(message) {
   <span class="keyword">const</span> <span class="variable">errorDiv</span> = <span class="function">document.createElement</span>(<span class="string">'div'</span>);
   <span class="variable">errorDiv</span>.<span class="variable">className</span> = <span class="string">'error'</span>;
@@ -1100,7 +1102,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-success">✅ Accessible</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Screen reader friendly error message</span>
+                        <pre v-pre><code><span class="comment">// Screen reader friendly error message</span>
 <span class="keyword">function</span> <span class="function">showError</span>(message) {
   <span class="keyword">const</span> <span class="variable">errorDiv</span> = <span class="function">document.createElement</span>(<span class="string">'div'</span>);
   <span class="variable">errorDiv</span>.<span class="variable">className</span> = <span class="string">'error'</span>;
@@ -1130,7 +1132,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-danger">❌ Not Keyboard Accessible</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Adding a clickable div (non-accessible)</span>
+                        <pre v-pre><code><span class="comment">// Adding a clickable div (non-accessible)</span>
 <span class="keyword">const</span> <span class="variable">clickableDiv</span> = <span class="function">document.createElement</span>(<span class="string">'div'</span>);
 <span class="variable">clickableDiv</span>.<span class="variable">className</span> = <span class="string">'card'</span>;
 <span class="variable">clickableDiv</span>.<span class="variable">innerHTML</span> = <span class="string">'Click me!'</span>;
@@ -1140,7 +1142,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-success">✅ Keyboard Accessible</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Creating a properly accessible interactive element</span>
+                        <pre v-pre><code><span class="comment">// Creating a properly accessible interactive element</span>
 <span class="keyword">const</span> <span class="variable">clickableElement</span> = <span class="function">document.createElement</span>(<span class="string">'button'</span>);
 <span class="variable">clickableElement</span>.<span class="variable">className</span> = <span class="string">'card'</span>;
 <span class="variable">clickableElement</span>.<span class="variable">textContent</span> = <span class="string">'Click me!'</span>;
@@ -1166,7 +1168,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-danger">❌ Silent Updates</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Silently updating content (screen readers miss this)</span>
+                        <pre v-pre><code><span class="comment">// Silently updating content (screen readers miss this)</span>
 <span class="keyword">function</span> <span class="function">updateStatus</span>(status) {
   <span class="keyword">const</span> <span class="variable">statusElement</span> = <span class="function">document.getElementById</span>(<span class="string">'status'</span>);
   <span class="variable">statusElement</span>.<span class="variable">textContent</span> = status;
@@ -1176,7 +1178,7 @@
                     <div class="column">
                       <h4 class="title is-6 has-text-success">✅ Announced Updates</h4>
                       <div class="code-example">
-                        <pre><code><span class="comment">// Accessible dynamic updates</span>
+                        <pre v-pre><code><span class="comment">// Accessible dynamic updates</span>
 <span class="keyword">function</span> <span class="function">updateStatus</span>(status) {
   <span class="keyword">const</span> <span class="variable">statusElement</span> = <span class="function">document.getElementById</span>(<span class="string">'status'</span>);
   
@@ -1205,7 +1207,7 @@
                   <p>Modals, popups, and overlays require special accessibility considerations to trap focus and provide keyboard navigation.</p>
                   
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Accessible modal implementation</span>
+                    <pre v-pre><code><span class="comment">// Accessible modal implementation</span>
 <span class="keyword">function</span> <span class="function">createAccessibleModal</span>(title, content) {
   <span class="keyword">const</span> <span class="variable">modal</span> = <span class="function">document.createElement</span>(<span class="string">'div'</span>);
   <span class="variable">modal</span>.<span class="variable">className</span> = <span class="string">'modal'</span>;
@@ -1312,7 +1314,7 @@
                   <p>Implementing proper error handling makes your DOM manipulation code more reliable and easier to debug.</p>
                   
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Defensive DOM manipulation with error handling</span>
+                    <pre v-pre><code><span class="comment">// Defensive DOM manipulation with error handling</span>
 <span class="keyword">function</span> <span class="function">safelyManipulateDOM</span>(selector, manipulation) {
   <span class="keyword">try</span> {
     <span class="keyword">const</span> <span class="variable">element</span> = <span class="function">document.querySelector</span>(selector);
@@ -1356,7 +1358,7 @@
                   </ol>
                   
                   <div class="code-example mt-3">
-                    <pre><code><span class="comment">// Debug method to visualize DOM structure</span>
+                    <pre v-pre><code><span class="comment">// Debug method to visualize DOM structure</span>
 <span class="keyword">function</span> <span class="function">debugDOMStructure</span>(element, depth = 0) {
   <span class="keyword">if</span> (!element) <span class="keyword">return</span>;
   
@@ -1602,6 +1604,12 @@ onMounted(() => {
   }, 100);
 });
 
+// Runtime type-guards to be safe when manipulating DOM in non-TypeScript lint
+const isHTMLElement = (el) => typeof window !== 'undefined' && window.HTMLElement && el instanceof window.HTMLElement;
+const isInput = (el) => typeof window !== 'undefined' && window.HTMLInputElement && el instanceof window.HTMLInputElement;
+const isSelect = (el) => typeof window !== 'undefined' && window.HTMLSelectElement && el instanceof window.HTMLSelectElement;
+const isButton = (el) => typeof window !== 'undefined' && window.HTMLButtonElement && el instanceof window.HTMLButtonElement;
+
 // Element Creator functionality
 function initElementCreator() {
   const elementCreator = document.querySelector('#element-creator');
@@ -1615,9 +1623,13 @@ function initElementCreator() {
   const createButton = elementCreator.querySelector('button');
   const previewArea = document.querySelector('#element-preview');
   
+  // Narrow types at runtime to avoid assuming Element has input/button-specific properties
   if (!createButton || !previewArea) return;
+  if (!(isInput(typeInput) && isInput(contentInput) && isButton(createButton) && isHTMLElement(previewArea))) return;
   
   createButton.addEventListener('click', function() {
+    // Re-check inside handler in case DOM changed
+    if (!(isInput(typeInput) && isInput(contentInput) && isHTMLElement(previewArea))) return;
     const type = typeInput.value.trim() || 'div';
     const content = contentInput.value.trim() || 'New Element';
     
@@ -1671,33 +1683,52 @@ function initElementStyler() {
   const classSelect = styleControls.querySelector('.field:nth-child(4) select');
   const previewElement = document.querySelector('#style-preview p');
   
+  // Ensure we have the expected element types before accessing .value/.selectedOptions/.style
   if (!bgColorInput || !textColorInput || !borderRadiusInput || !classSelect || !previewElement) return;
+  if (!(isInput(bgColorInput) && isInput(textColorInput) && isInput(borderRadiusInput) && isSelect(classSelect) && isHTMLElement(previewElement))) return;
   
   // Background color change
   bgColorInput.addEventListener('input', function(e) {
-    previewElement.style.backgroundColor = this.value;
+    if (!(typeof window !== 'undefined' && window.HTMLElement && previewElement instanceof window.HTMLElement)) return;
+    /** @type {HTMLElement} */
+    const pe = previewElement;
+    pe.style.backgroundColor = this.value;
   });
   
   // Text color change
   textColorInput.addEventListener('input', function(e) {
-    previewElement.style.color = this.value;
+    if (!(typeof window !== 'undefined' && window.HTMLElement && previewElement instanceof window.HTMLElement)) return;
+    /** @type {HTMLElement} */
+    const pe = previewElement;
+    pe.style.color = this.value;
   });
   
   // Border radius change
   borderRadiusInput.addEventListener('input', function(e) {
-    previewElement.style.borderRadius = `${this.value}px`;
+    if (!(typeof window !== 'undefined' && window.HTMLElement && previewElement instanceof window.HTMLElement)) return;
+    /** @type {HTMLElement} */
+    const pe = previewElement;
+    pe.style.borderRadius = `${this.value}px`;
   });
   
   // Class changes
   classSelect.addEventListener('change', function() {
+    // Ensure runtime DOM types are available
+    if (!(isHTMLElement(previewElement) && isSelect(classSelect))) return;
+
+    /** @type {HTMLElement} */
+    const pe = previewElement;
+    /** @type {HTMLSelectElement} */
+    const cs = classSelect;
+
     // Reset styles
-    previewElement.style.border = 'none';
-    previewElement.style.boxShadow = 'none';
-    previewElement.style.padding = '0';
-    previewElement.style.textAlign = 'left';
-    
+    pe.style.border = 'none';
+    pe.style.boxShadow = 'none';
+    pe.style.padding = '0';
+    pe.style.textAlign = 'left';
+
     // Add selected classes
-    Array.from(this.selectedOptions).forEach(option => {
+    Array.from(cs.selectedOptions).forEach(option => {
       switch(option.value) {
         case 'border':
           previewElement.style.border = '2px solid #333';
@@ -1725,24 +1756,36 @@ function initDOMTraversalDemo() {
   const overlay = document.querySelector('.overlay');
   
   if (!elementSelector || !traversalMethod || !applyButton || !resultsArea || !overlay) return;
-  
+  // Narrow types
+  if (!(isSelect(elementSelector) && isSelect(traversalMethod) && isHTMLElement(applyButton) && isHTMLElement(resultsArea) && isHTMLElement(overlay))) return;
+
   const overlayMessage = overlay.querySelector('.message');
-  if (!overlayMessage) return;
+  if (!overlayMessage || !isHTMLElement(overlayMessage)) return;
   
   // Setup element highlighting on click
   const elements = document.querySelectorAll('#traversal-container div');
   elements.forEach(element => {
+    // Only attach if element is an HTMLElement
+    if (!isHTMLElement(element)) return;
     element.addEventListener('click', function() {
-      // Reset all elements
-      elements.forEach(el => {
-        el.style.boxShadow = 'none';
-      });
-      
-      // Highlight selected element
-      this.style.boxShadow = '0 0 0 3px #ffd43b';
-      
+        // Reset all elements
+        elements.forEach(el => {
+          if (isHTMLElement(el)) {
+            /** @type {HTMLElement} */
+            const eh = el;
+            eh.style.boxShadow = 'none';
+          }
+        });
+
+        // Highlight selected element
+        if (isHTMLElement(this)) {
+          /** @type {HTMLElement} */
+          const th = this;
+          th.style.boxShadow = '0 0 0 3px #ffd43b';
+        }
+
       // Update the selector dropdown
-      if (this.id) {
+      if (this.id && isSelect(elementSelector)) {
         elementSelector.value = this.id;
       }
     });
@@ -1751,16 +1794,16 @@ function initDOMTraversalDemo() {
   // Apply traversal
   applyButton.addEventListener('click', function() {
     // Get selected element
-    const elementId = elementSelector.value;
-    const element = document.getElementById(elementId);
-    
+    const elementId = (typeof window !== 'undefined' && window.HTMLSelectElement && elementSelector instanceof window.HTMLSelectElement) ? elementSelector.value : '';
+    const element = elementId ? document.getElementById(elementId) : null;
+
     if (!element) {
-      resultsArea.textContent = 'Element not found';
+      if (isHTMLElement(resultsArea)) resultsArea.textContent = 'Element not found';
       return;
     }
     
-    // Get selected method
-    const method = traversalMethod.value;
+  // Get selected method
+  const method = isSelect(traversalMethod) ? /** @type {HTMLSelectElement} */ (traversalMethod).value : '';
     
     // Apply traversal method
     let result;
@@ -1780,11 +1823,19 @@ function initDOMTraversalDemo() {
           
         case 'parentNode':
           result = element.parentNode;
-          if (!result || result.id === 'traversal-container') {
+          if (!result) {
             resultText = `${elementId}.${method} → parent container`;
+          } else if (isHTMLElement(result)) {
+            /** @type {HTMLElement} */
+            const resEl = result;
+            if (resEl.id === 'traversal-container') {
+              resultText = `${elementId}.${method} → parent container`;
+            } else {
+              resultText = `${elementId}.${method} → ${resEl.id || resEl.tagName}`;
+              highlightElements([resEl]);
+            }
           } else {
-            resultText = `${elementId}.${method} → ${result.id || result.tagName}`;
-            highlightElements([result]);
+            resultText = `${elementId}.${method} → (parent)`;
           }
           break;
           
@@ -1793,9 +1844,13 @@ function initDOMTraversalDemo() {
           result = element[method];
           if (!result) {
             resultText = `${elementId}.${method} → null (no children)`;
+          } else if (isHTMLElement(result)) {
+            /** @type {HTMLElement} */
+            const resEl = result;
+            resultText = `${elementId}.${method} → ${resEl.id || resEl.tagName}`;
+            highlightElements([resEl]);
           } else {
-            resultText = `${elementId}.${method} → ${result.id || result.tagName}`;
-            highlightElements([result]);
+            resultText = `${elementId}.${method} → (element)`;
           }
           break;
           
@@ -1804,9 +1859,11 @@ function initDOMTraversalDemo() {
           result = element[method];
           if (!result) {
             resultText = `${elementId}.${method} → null (no ${method === 'previousElementSibling' ? 'previous' : 'next'} sibling)`;
-          } else {
+          } else if (isHTMLElement(result)) {
             resultText = `${elementId}.${method} → ${result.id || result.tagName}`;
             highlightElements([result]);
+          } else {
+            resultText = `${elementId}.${method} → (sibling)`;
           }
           break;
       }
@@ -1820,26 +1877,42 @@ function initDOMTraversalDemo() {
   // Function to highlight selected elements
   function highlightElements(elementsToHighlight) {
     if (!elementsToHighlight.length) return;
-    
+
     // Reset all element styles
     elements.forEach(el => {
-      el.style.boxShadow = 'none';
-    });
-    
-    // Highlight selected elements
-    elementsToHighlight.forEach(el => {
-      if (el.nodeType === 1) { // Element node
-        el.style.boxShadow = '0 0 0 3px #ffd43b';
+      if (isHTMLElement(el)) {
+        /** @type {HTMLElement} */
+        const eh = el;
+        eh.style.boxShadow = 'none';
       }
     });
-    
+
+    // Highlight selected elements
+    elementsToHighlight.forEach(el => {
+      if (isHTMLElement(el)) {
+        /** @type {HTMLElement} */
+        const eh = el;
+        eh.style.boxShadow = '0 0 0 3px #ffd43b';
+      }
+    });
+
     // Show overlay message
-    overlayMessage.textContent = `Found ${elementsToHighlight.length} element${elementsToHighlight.length !== 1 ? 's' : ''}`;
-    overlay.style.display = 'flex';
-    
+    if (isHTMLElement(overlayMessage)) {
+      overlayMessage.textContent = `Found ${elementsToHighlight.length} element${elementsToHighlight.length !== 1 ? 's' : ''}`;
+    }
+    if (isHTMLElement(overlay)) {
+      /** @type {HTMLElement} */
+      const oh = overlay;
+      oh.style.display = 'flex';
+    }
+
     // Hide overlay after a short delay
     setTimeout(() => {
-      overlay.style.display = 'none';
+      if (isHTMLElement(overlay)) {
+        /** @type {HTMLElement} */
+        const oh = overlay;
+        oh.style.display = 'none';
+      }
     }, 1500);
   }
 }
@@ -1854,14 +1927,22 @@ function initContentManager() {
   const contentPreview = document.querySelector('.content-preview');
   
   if (!typeSelect || !contentInput || !classInput || !addButton || !codePreview || !contentPreview) return;
+  if (!(isSelect(typeSelect) && isInput(contentInput) && isInput(classInput) && isButton(addButton) && isHTMLElement(codePreview) && isHTMLElement(contentPreview))) return;
   
   // Array to track added elements for code preview
   const addedElements = [];
   
   addButton.addEventListener('click', function() {
-    const type = typeSelect.value;
-    const content = contentInput.value.trim() || `${type} element`;
-    const className = classInput.value.trim();
+  if (!(isSelect(typeSelect) && isInput(contentInput) && isInput(classInput) && isHTMLElement(contentPreview) && isHTMLElement(codePreview))) return;
+  /** @type {any} */
+  const ts = typeSelect;
+  /** @type {any} */
+  const ci = contentInput;
+  /** @type {any} */
+  const cl = classInput;
+  const type = ts.value;
+  const content = ci.value.trim() || `${type} element`;
+  const className = cl.value.trim();
     
     // Create the new element
     const newElement = document.createElement(type);
@@ -1920,9 +2001,9 @@ function initContentManager() {
     moveUpBtn.className = 'button is-small is-link mr-2';
     moveUpBtn.addEventListener('click', function() {
       const prev = newElement.previousElementSibling;
-      if (prev && !prev.classList.contains('has-text-grey')) {
+      if (prev && prev instanceof HTMLElement && !prev.classList.contains('has-text-grey')) {
         contentPreview.insertBefore(newElement, prev);
-        
+
         // Update array order
         const index = addedElements.findIndex(el => el.element === newElement);
         if (index > 0) {
@@ -1956,13 +2037,17 @@ function initContentManager() {
       element: newElement
     });
     
-    // Update code preview
-    updateCodePreview();
+  // Update code preview
+  updateCodePreview();
     
-    // Reset inputs
-    contentInput.value = '';
-    classInput.value = '';
-    contentInput.focus();
+  // Reset inputs
+  /** @type {any} */
+  const ciReset = contentInput;
+  /** @type {any} */
+  const clReset = classInput;
+  ciReset.value = '';
+  clReset.value = '';
+  ciReset.focus();
   });
   
   // Function to update code preview

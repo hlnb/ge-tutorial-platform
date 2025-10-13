@@ -187,7 +187,7 @@
 
 				<div class="content mt-4">
 					<h4>Restaurant Information:</h4>
-					<pre class="has-background-grey-lighter p-3">
+					<pre v-pre class="has-background-grey-lighter p-3">
 Restaurant Name: Black Swan Bistro
 Tagline: Elegant Dining, Modern Australian Cuisine
 
@@ -205,7 +205,7 @@ Closed Mondays
 					>
 
 					<h4 class="mt-4">Menu Sections:</h4>
-					<pre class="has-background-grey-lighter p-3">
+					<pre v-pre class="has-background-grey-lighter p-3">
 STARTERS
 Small Plates
 - Sydney Rock Oysters

@@ -6,7 +6,7 @@
 
 		<div class="columns is-multiline">
 			<!-- Next tutorial in sequence -->
-			<div v-if="nextTutorial" class="column is-full">
+			<div v-if="computedNextTutorial" class="column is-full">
 				<div class="box recommendation-box is-primary">
 					<div class="recommendation-content">
 						<div class="recommendation-icon">
@@ -15,8 +15,8 @@
 						<div class="recommendation-text">
 							<h3 class="title is-4">Continue Learning</h3>
 							<p>Ready to move forward? Continue with the next tutorial in this series:</p>
-							<router-link :to="nextTutorial.path" class="button is-primary mt-3">
-								{{ nextTutorial.title }} <i class="fas fa-arrow-right ml-2"></i>
+							<router-link :to="computedNextTutorial.path" class="button is-primary mt-3">
+								{{ computedNextTutorial.title }} <i class="fas fa-arrow-right ml-2"></i>
 							</router-link>
 						</div>
 					</div>
@@ -24,7 +24,7 @@
 			</div>
 
 			<!-- Related tutorials -->
-			<div v-if="relatedTutorials.length > 0" class="column is-full">
+			<div v-if="computedRelatedTutorials.length > 0" class="column is-full">
 				<div class="box recommendation-box is-info">
 					<div class="recommendation-content">
 						<div class="recommendation-icon">
@@ -35,7 +35,7 @@
 							<p>Explore these related tutorials to expand your knowledge:</p>
 							<div class="buttons mt-3">
 								<router-link
-									v-for="tutorial in relatedTutorials"
+									v-for="tutorial in computedRelatedTutorials"
 									:key="tutorial.path"
 									:to="tutorial.path"
 									class="button is-info is-light"
@@ -49,7 +49,7 @@
 			</div>
 
 			<!-- Practice projects -->
-			<div v-if="practiceProjects.length > 0" class="column is-full">
+			<div v-if="computedPracticeProjects.length > 0" class="column is-full">
 				<div class="box recommendation-box is-success">
 					<div class="recommendation-content">
 						<div class="recommendation-icon">
@@ -60,7 +60,7 @@
 							<p>Apply what you've learned with these hands-on projects:</p>
 							<div class="project-cards mt-3">
 								<div
-									v-for="project in practiceProjects"
+									v-for="project in computedPracticeProjects"
 									:key="project.title"
 									class="project-card"
 								>
@@ -75,14 +75,14 @@
 												>{{ tag }}</span
 											>
 										</div>
-										<router-link
-											v-if="project.path"
-											:to="{
-												path: project.path,
-												query: { tutorial: currentPath }
-											}"
-											class="button is-success is-small mt-2"
-										>
+											<router-link
+												v-if="project.path"
+												:to="{
+													path: project.path,
+													query: { tutorial: currentPath }
+												}"
+												class="button is-success is-small mt-2"
+											>
 											Start Project
 										</router-link>
 										<a
@@ -102,7 +102,7 @@
 			</div>
 
 			<!-- Resources -->
-			<div v-if="resources.length > 0" class="column is-full">
+			<div v-if="computedResources.length > 0" class="column is-full">
 				<div class="box recommendation-box is-warning">
 					<div class="recommendation-content">
 						<div class="recommendation-icon">
@@ -113,7 +113,7 @@
 							<p>Deepen your understanding with these helpful resources:</p>
 							<div class="content mt-3">
 								<ul class="resource-list">
-									<li v-for="resource in resources" :key="resource.title">
+									<li v-for="resource in computedResources" :key="resource.title">
 										<a :href="resource.url" target="_blank" rel="noopener">
 											{{ resource.title }}
 										</a>
@@ -135,6 +135,9 @@
 import { computed, inject } from 'vue';
 import { useRoute } from 'vue-router';
 import { getRecommendationsFromProps } from '@/utils/tutorialUtils';
+
+// Provide component name for tooling that expects a default export
+defineOptions({ name: 'TutorialRecommendations' });
 
 const props = defineProps({
 	nextTutorial: {
@@ -165,27 +168,26 @@ const route = useRoute();
 const providedTutorial = inject('currentTutorial', null);
 
 const recommendations = computed(() => {
-  if (!props.currentPath && !providedTutorial) {
-    return {
-      nextTutorial: null,
-      relatedTutorials: [],
-      practiceProjects: [],
-      resources: []
-    };
-  }
-  return getRecommendationsFromProps(props, providedTutorial);
+	if (!props.currentPath && !providedTutorial) {
+		return {
+			nextTutorial: null,
+			relatedTutorials: [],
+			practiceProjects: [],
+			resources: []
+		};
+	}
+	return getRecommendationsFromProps(props, providedTutorial);
 });
-
-// Computed properties to get recommendations
-const nextTutorial = computed(() => recommendations.value?.nextTutorial || null);
-const relatedTutorials = computed(() => recommendations.value?.relatedTutorials || []);
-const practiceProjects = computed(() => recommendations.value?.practiceProjects || []);
-const resources = computed(() => recommendations.value?.resources || []);
+// Computed properties to get recommendations (renamed to avoid prop name collision)
+const computedNextTutorial = computed(() => recommendations.value?.nextTutorial || null);
+const computedRelatedTutorials = computed(() => recommendations.value?.relatedTutorials || []);
+const computedPracticeProjects = computed(() => recommendations.value?.practiceProjects || []);
+const computedResources = computed(() => recommendations.value?.resources || []);
 </script>
 
 <script>
 export default {
-	name: 'TutorialRecommendations',
+	name: 'TutorialRecommendations'
 };
 </script>
 

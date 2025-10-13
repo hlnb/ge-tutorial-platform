@@ -331,23 +331,23 @@ defineExpose({
 				<div class="columns mt-4">
 					<div class="column">
 						<h3 class="title is-5">External CSS</h3>
-						<pre><code>.css file:
-h1 {
-  color: blue;
-}</code></pre>
+											<pre v-pre><code>.css file:
+	h1 {
+		color: blue;
+	}</code></pre>
 					</div>
 					<div class="column">
 						<h3 class="title is-5">Internal CSS</h3>
-						<pre><code>&lt;style&gt;
+												<pre v-pre><code>&lt;style&gt;
 h1 {
-  color: blue;
+	color: blue;
 }
 &lt;/style&gt;</code></pre>
 					</div>
 					<div class="column">
 						<h3 class="title is-5">Inline CSS</h3>
-						<pre><code>&lt;h1 style="color: blue;"&gt;
-  Heading
+												<pre v-pre><code>&lt;h1 style="color: blue;"&gt;
+	Heading
 &lt;/h1&gt;</code></pre>
 					</div>
 				</div>
@@ -364,19 +364,19 @@ h1 {
 					<div class="column">
 						<div class="box">
 							<h3 class="title is-5">Syntax</h3>
-							<pre><code>element-name {
-  property: value;
+														<pre v-pre><code>element-name {
+	property: value;
 }</code></pre>
 
 							<h3 class="title is-5 mt-4">Example</h3>
-							<pre><code>p {
-  color: navy;
-  line-height: 1.6;
+														<pre v-pre><code>p {
+	color: navy;
+	line-height: 1.6;
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 1em;
+	font-size: 24px;
+	margin-bottom: 1em;
 }</code></pre>
 						</div>
 					</div>
@@ -405,23 +405,23 @@ h1 {
 					<div class="column">
 						<div class="box">
 							<h3 class="title is-5">CSS Syntax</h3>
-							<pre><code>.highlight {
-  background-color: yellow;
+														<pre v-pre><code>.highlight {
+	background-color: yellow;
 }
 
 .btn {
-  padding: 10px 20px;
-  border-radius: 4px;
+	padding: 10px 20px;
+	border-radius: 4px;
 }</code></pre>
 
 							<h3 class="title is-5 mt-4">HTML Usage</h3>
-							<pre><code>&lt;p class="highlight"&gt;This text will be highlighted&lt;/p&gt;
+														<pre v-pre><code>&lt;p class="highlight"&gt;This text will be highlighted&lt;/p&gt;
 
 &lt;button class="btn"&gt;Click me&lt;/button&gt;
 
 &lt;!-- Multiple classes on one element --&gt;
 &lt;div class="highlight btn"&gt;
-  Both classes will apply
+	Both classes will apply
 &lt;/div&gt;</code></pre>
 						</div>
 					</div>
@@ -460,7 +460,7 @@ h1 {
 					<div class="column">
 						<div class="box">
 							<h3 class="title is-5">CSS Syntax</h3>
-							<pre><code>#main-header {
+														<pre v-pre><code>#main-header {
   background-image: url('header.jpg');
 }
 
@@ -470,7 +470,7 @@ h1 {
 }</code></pre>
 
 							<h3 class="title is-5 mt-4">HTML Usage</h3>
-							<pre><code>&lt;header id="main-header"&gt;
+														<pre v-pre><code>&lt;header id="main-header"&gt;
   Site Header
 &lt;/header&gt;
 
@@ -527,32 +527,32 @@ h1 {
 
 				<div class="columns">
 					<div class="column">
-						<div class="box">
-							<h3 class="title is-5">CSS Syntax</h3>
-							<pre><code>/* Selects all elements */
+												<div class="box">
+														<h3 class="title is-5">CSS Syntax</h3>
+														<pre v-pre><code>/* Selects all elements */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /* With a specific parent */
 .container * {
-  border: 1px solid #ccc;
+	border: 1px solid #ccc;
 }
 
 /* With pseudo-classes */
 *:hover {
-  cursor: pointer;
+	cursor: pointer;
 }</code></pre>
 
 							<h3 class="title is-5 mt-4">HTML Context</h3>
-							<pre><code>&lt;div class="container"&gt;
-  &lt;h1&gt;Heading&lt;/h1&gt;  <!-- Affected -->
-  &lt;p&gt;Paragraph&lt;/p&gt;  <!-- Affected -->
-  &lt;ul&gt;              <!-- Affected -->
-    &lt;li&gt;Item&lt;/li&gt;  <!-- Affected -->
-  &lt;/ul&gt;
+														<pre v-pre><code>&lt;div class="container"&gt;
+	&lt;h1&gt;Heading&lt;/h1&gt;  <!-- Affected -->
+	&lt;p&gt;Paragraph&lt;/p&gt;  <!-- Affected -->
+	&lt;ul&gt;              <!-- Affected -->
+		&lt;li&gt;Item&lt;/li&gt;  <!-- Affected -->
+	&lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 						</div>
 					</div>
@@ -614,24 +614,24 @@ h1 {
 
 				<div class="columns">
 					<div class="column">
-						<div class="box">
-							<h4 class="title is-5">CSS Syntax</h4>
-							<pre><code>/* Selects all p elements inside article */
+												<div class="box">
+														<h4 class="title is-5">CSS Syntax</h4>
+																				<pre v-pre><code>/* Selects all p elements inside article */
 article p {
-  color: navy;
+	color: navy;
 }
 
 /* Selects all spans inside div with class 'container' */
 .container span {
-  font-weight: bold;
+	font-weight: bold;
 }</code></pre>
 
 							<h4 class="title is-5 mt-4">HTML Example</h4>
-							<pre><code>&lt;article&gt;
-  &lt;p&gt;This paragraph is selected&lt;/p&gt;
-  &lt;div&gt;
-    &lt;p&gt;This nested paragraph is also selected&lt;/p&gt;
-  &lt;/div&gt;
+														<pre v-pre><code>&lt;article&gt;
+	&lt;p&gt;This paragraph is selected&lt;/p&gt;
+	&lt;div&gt;
+		&lt;p&gt;This nested paragraph is also selected&lt;/p&gt;
+	&lt;/div&gt;
 &lt;/article&gt;</code></pre>
 						</div>
 					</div>
@@ -661,7 +661,7 @@ article p {
 					<div class="column">
 						<div class="box">
 							<h4 class="title is-5">CSS Syntax</h4>
-							<pre><code>/* Selects only direct li children of ul */
+														<pre v-pre><code>/* Selects only direct li children of ul */
 ul > li {
   list-style: square;
 }
@@ -672,7 +672,7 @@ ul > li {
 }</code></pre>
 
 							<h4 class="title is-5 mt-4">HTML Example</h4>
-							<pre><code>&lt;ul&gt;
+							<pre v-pre><code>&lt;ul&gt;
   &lt;li&gt;Direct child - Selected&lt;/li&gt;
   &lt;li&gt;Direct child - Selected
     &lt;ul&gt;
@@ -725,22 +725,22 @@ ul > li {
 				<div class="columns">
 					<div class="column">
 						<h4 class="title is-5">CSS Syntax</h4>
-						<pre><code>/* Selects all elements with a title attribute */
+												<pre v-pre><code>/* Selects all elements with a title attribute */
 [title] {
-  cursor: help;
+	cursor: help;
 }
 
 /* Selects all inputs with required attribute */
 input[required] {
-  border-color: red;
+	border-color: red;
 }</code></pre>
 
 						<h4 class="title is-5 mt-4">HTML Example</h4>
-						<pre><code>&lt;p title="More info"&gt;Hover me for a tooltip&lt;/p&gt;
+												<pre v-pre><code>&lt;p title="More info"&gt;Hover me for a tooltip&lt;/p&gt;
 
 &lt;form&gt;
-  &lt;input type="text" required&gt;
-  &lt;input type="text"&gt; &lt;!-- Not selected --&gt;
+	&lt;input type="text" required&gt;
+	&lt;input type="text"&gt; &lt;!-- Not selected --&gt;
 &lt;/form&gt;</code></pre>
 					</div>
 
@@ -765,22 +765,22 @@ input[required] {
 				<div class="columns">
 					<div class="column">
 						<h4 class="title is-5">CSS Syntax</h4>
-						<pre><code>/* Selects inputs of type "submit" */
+												<pre v-pre><code>/* Selects inputs of type "submit" */
 input[type="submit"] {
-  background-color: blue;
-  color: white;
+	background-color: blue;
+	color: white;
 }
 
 /* Selects elements with specific role */
 [role="button"] {
-  cursor: pointer;
-  padding: 0.5em 1em;
+	cursor: pointer;
+	padding: 0.5em 1em;
 }</code></pre>
 
 						<h4 class="title is-5 mt-4">HTML Example</h4>
-						<pre><code>&lt;form&gt;
-  &lt;input type="text"&gt;     &lt;!-- Not selected --&gt;
-  &lt;input type="submit"&gt;   &lt;!-- Selected --&gt;
+												<pre v-pre><code>&lt;form&gt;
+	&lt;input type="text"&gt;     &lt;!-- Not selected --&gt;
+	&lt;input type="submit"&gt;   &lt;!-- Selected --&gt;
 &lt;/form&gt;
 
 &lt;div role="button"&gt;Click Me&lt;/div&gt;</code></pre>
@@ -822,26 +822,26 @@ input[type="submit"] {
 
 			<div class="box mt-4">
 				<h3 class="title is-5">Practical Example: Styling Form Inputs</h3>
-				<pre><code>/* Style all required inputs */
+								<pre v-pre><code>/* Style all required inputs */
 input[required] {
-  border: 2px solid #ff9f43;
+	border: 2px solid #ff9f43;
 }
 
 /* Style different input types */
 input[type="email"] {
-  background: url('email-icon.png') no-repeat 10px center;
-  padding-left: 35px;
+	background: url('email-icon.png') no-repeat 10px center;
+	padding-left: 35px;
 }
 
 input[type="tel"] {
-  background: url('phone-icon.png') no-repeat 10px center;
-  padding-left: 35px;
+	background: url('phone-icon.png') no-repeat 10px center;
+	padding-left: 35px;
 }
 
 /* Style external links */
 a[target="_blank"] {
-  padding-right: 20px;
-  background: url('external-link.png') no-repeat right;
+	padding-right: 20px;
+	background: url('external-link.png') no-repeat right;
 }</code></pre>
 			</div>
 		</div>
@@ -864,29 +864,29 @@ a[target="_blank"] {
 				<div class="columns">
 					<div class="column">
 						<h4 class="title is-5">Common State Pseudo-classes</h4>
-						<pre><code>/* Hover state */
+												<pre v-pre><code>/* Hover state */
 button:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
 }
 
 /* Active state (while clicking) */
 button:active {
-  transform: scale(0.98);
+	transform: scale(0.98);
 }
 
 /* Focus state */
 input:focus {
-  border-color: #007bff;
-  outline: none;
+	border-color: #007bff;
+	outline: none;
 }
 
 /* Visited links */
 a:visited {
-  color: purple;
+	color: purple;
 }</code></pre>
 
 						<h4 class="title is-5 mt-4">HTML Example</h4>
-						<pre><code>&lt;button class="btn"&gt;Hover Me&lt;/button&gt;
+						<pre v-pre><code>&lt;button class="btn"&gt;Hover Me&lt;/button&gt;
 
 &lt;input type="text" placeholder="Focus Me"&gt;
 
@@ -927,30 +927,30 @@ a:visited {
 				<div class="columns">
 					<div class="column">
 						<h4 class="title is-5">Basic Structural Selectors</h4>
-						<pre><code>/* First child element */
+												<pre v-pre><code>/* First child element */
 li:first-child {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 /* Last child element */
 li:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 /* Only child */
 p:only-child {
-  font-style: italic;
+	font-style: italic;
 }</code></pre>
 
 						<h4 class="title is-5 mt-4">HTML Example</h4>
-						<pre><code>&lt;ul&gt;
-  &lt;li&gt;First item (bold)&lt;/li&gt;
-  &lt;li&gt;Middle item&lt;/li&gt;
-  &lt;li&gt;Last item (no border)&lt;/li&gt;
+												<pre v-pre><code>&lt;ul&gt;
+	&lt;li&gt;First item (bold)&lt;/li&gt;
+	&lt;li&gt;Middle item&lt;/li&gt;
+	&lt;li&gt;Last item (no border)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div&gt;
-  &lt;p&gt;Only paragraph (italic)&lt;/p&gt;
+	&lt;p&gt;Only paragraph (italic)&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 					</div>
 
@@ -1202,7 +1202,7 @@ p:only-child {
 				<div class="columns">
 					<div class="column">
 						<h4 class="title is-5">External Stylesheet (style.css)</h4>
-						<pre><code>/* Header Styles */
+						<pre v-pre><code>/* Header Styles */
 header {}
 .main-header {}
 #restaurant-name {}
@@ -1229,7 +1229,7 @@ footer {}
 
 					<div class="column">
 						<h4 class="title is-5">Internal Styles (index.html)</h4>
-						<pre><code>&lt;style&gt;
+						<pre v-pre><code>&lt;style&gt;
 /* Hero Section */
 .hero-section {}
 .hero-content {}
@@ -1293,7 +1293,7 @@ footer {}
 			<div class="columns">
 				<div class="column">
 					<h4 class="title is-5">External Stylesheet (rotto-styles.css)</h4>
-					<pre><code>/* Site Header */
+					<pre v-pre><code>/* Site Header */
 .site-header {}
 .logo-container {}
 #site-logo {}
@@ -1321,7 +1321,7 @@ footer {}
 
 				<div class="column">
 					<h4 class="title is-5">Internal Styles (venue-page.html)</h4>
-					<pre><code>&lt;style&gt;
+					<pre v-pre><code>&lt;style&gt;
 /* Venue Features */
 .venue-highlights {}
 .feature-grid {}
