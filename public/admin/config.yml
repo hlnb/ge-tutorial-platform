@@ -45,15 +45,30 @@ collections:
         required: true
         hint: 'Select the category folder for this tutorial'
         options:
-          - { label: 'Beginner / Getting Started', value: 'beginner/getting-started' }
+          - {
+              label: 'Beginner / Getting Started',
+              value: 'beginner/getting-started',
+            }
           - { label: 'Beginner / HTML Basics', value: 'beginner/html-basics' }
           - { label: 'Beginner / CSS Basics', value: 'beginner/css-basics' }
-          - { label: 'Beginner / JavaScript Basics', value: 'beginner/javascript-basics' }
+          - {
+              label: 'Beginner / JavaScript Basics',
+              value: 'beginner/javascript-basics',
+            }
           - { label: 'Beginner / DOM Basics', value: 'beginner/dom-basics' }
           - { label: 'Beginner / Git Basics', value: 'beginner/git-basics' }
-          - { label: 'Intermediate / Responsive Design', value: 'intermediate/responsive-design' }
-          - { label: 'Intermediate / Vue Basics', value: 'intermediate/vue-basics' }
-          - { label: 'Intermediate / API Integration', value: 'intermediate/api-integration' }
+          - {
+              label: 'Intermediate / Responsive Design',
+              value: 'intermediate/responsive-design',
+            }
+          - {
+              label: 'Intermediate / Vue Basics',
+              value: 'intermediate/vue-basics',
+            }
+          - {
+              label: 'Intermediate / API Integration',
+              value: 'intermediate/api-integration',
+            }
           - { label: 'Advanced / Performance', value: 'advanced/performance' }
           - { label: 'Advanced / Security', value: 'advanced/security' }
           - { label: 'Deployments', value: 'deployments' }
@@ -64,7 +79,11 @@ collections:
         widget: 'string'
         required: true
         hint: 'File name without extension (e.g., "introduction", "getting-started")'
-        pattern: ['^[a-z0-9-]+$', 'Must be lowercase letters, numbers, and hyphens only']
+        pattern:
+          [
+            '^[a-z0-9-]+$',
+            'Must be lowercase letters, numbers, and hyphens only',
+          ]
 
       - label: 'Title'
         name: 'title'
@@ -233,7 +252,11 @@ collections:
         widget: 'string'
         required: true
         hint: 'URL-friendly version of the title (e.g., "modern-js-patterns")'
-        pattern: ['^[a-z0-9-]+$', 'Must be lowercase letters, numbers, and hyphens only']
+        pattern:
+          [
+            '^[a-z0-9-]+$',
+            'Must be lowercase letters, numbers, and hyphens only',
+          ]
 
       - label: 'Title'
         name: 'title'
@@ -338,8 +361,12 @@ collections:
         widget: 'string'
         required: true
         hint: 'URL-friendly project identifier (e.g., "todo-list", "weather-app")'
-        pattern: ['^[a-z0-9-]+$', 'Must be lowercase letters, numbers, and hyphens only']
-    fields:
+        pattern:
+          [
+            '^[a-z0-9-]+$',
+            'Must be lowercase letters, numbers, and hyphens only',
+          ]
+
       - label: 'Title'
         name: 'title'
         widget: 'string'
