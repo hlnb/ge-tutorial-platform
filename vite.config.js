@@ -1,10 +1,30 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 export default defineConfig({
 	base: '/',
-	plugins: [vue()],
+	plugins: [
+		vue(),
+		// Custom plugin to serve admin HTML
+		{
+			name: 'serve-admin',
+			configureServer(server) {
+				server.middlewares.use((req, res, next) => {
+					if (req.url === '/admin' || req.url === '/admin/') {
+						const adminPath = path.resolve(__dirname, 'public/admin/index.html');
+						const html = fs.readFileSync(adminPath, 'utf-8');
+						res.setHeader('Content-Type', 'text/html');
+						res.end(html);
+						return;
+					}
+					next();
+				});
+			},
+		},
+	],
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
@@ -38,5 +58,13 @@ export default defineConfig({
 				secure: false,
 			},
 		},
+		// Serve admin files directly, bypassing Vue router
+		fs: {
+			strict: false,
+		},
+	},
+	// Configure rewrites to serve admin files
+	preview: {
+		port: 5173,
 	},
 });
