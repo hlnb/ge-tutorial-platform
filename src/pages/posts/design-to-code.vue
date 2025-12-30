@@ -1,3 +1,17 @@
+---
+slug: design-to-code-pt1
+title: 'Design to Code – Part 1: Breaking Down a Mockup into Sections'
+date: 2025-12-30
+author: Helen Burgess
+description: A practical guide to breaking down a design mockup into code-ready sections for developers.
+tags:
+  - Design
+  - HTML
+  - CSS
+  - Workflow
+status: published
+excerpt: A practical guide to breaking down a design mockup into code-ready sections for developers.
+---
 <template>
 	   <PostVisibility :publish-date="postData.date" :status="postData.status">
 		   <div class="container">
