@@ -74,15 +74,16 @@ const expandedSections = ref(new Set()); // Track expanded sections
 
 // Single source of truth for navigation items
 const navItems = [
-  { path: '/tutorials/css-basics/introduction', title: 'Introduction to CSS', icon: 'fas fa-info-circle' },
-  { path: '/tutorials/css-basics/selectors', title: 'CSS Selectors', icon: 'fas fa-mouse-pointer' },
-  { path: '/tutorials/css-basics/box-model', title: 'The Box Model', icon: 'fas fa-th' },
-  { path: '/tutorials/css-basics/text', title: 'Typography & Text', icon: 'fas fa-font' },
-  { path: '/tutorials/css-basics/layout', title: 'Layout Basics' },
-  { path: '/tutorials/css-basics/colors', title: 'Working with Colors' },
-  { path: '/tutorials/css-basics/modern', title: 'Modern CSS' },
-  { path: '/tutorials/css-basics/responsive', title: 'Responsive Design' },
-  { path: '/tutorials/css-basics/flexbox', title: 'Flexbox' },
+  { path: '/tutorials/beginner/css-basics/', title: 'Overview', icon: 'fas fa-home' },
+  { path: '/tutorials/beginner/css-basics/introduction', title: 'Introduction to CSS', icon: 'fas fa-info-circle' },
+  { path: '/tutorials/beginner/css-basics/selectors', title: 'CSS Selectors', icon: 'fas fa-mouse-pointer' },
+  { path: '/tutorials/beginner/css-basics/box-model', title: 'The Box Model', icon: 'fas fa-th' },
+  { path: '/tutorials/beginner/css-basics/text', title: 'Typography & Text', icon: 'fas fa-font' },
+  { path: '/tutorials/beginner/css-basics/layout', title: 'Layout Basics' },
+  { path: '/tutorials/beginner/css-basics/colors', title: 'Working with Colors' },
+  { path: '/tutorials/beginner/css-basics/modern', title: 'Modern CSS' },
+  { path: '/tutorials/beginner/css-basics/responsive', title: 'Responsive Design' },
+  { path: '/tutorials/beginner/css-basics/flexbox', title: 'Flexbox' },
 ];
 
 // The following computed values and helpers are present for future

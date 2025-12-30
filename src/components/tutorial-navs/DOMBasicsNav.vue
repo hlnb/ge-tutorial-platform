@@ -54,11 +54,11 @@ const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
 const navItems = [
-  { path: '/tutorials/dom-basics', title: 'Overview' },
-  { path: '/tutorials/dom-basics/introduction', title: 'Introduction' },
-  { path: '/tutorials/dom-basics/arrays', title: 'Arrays and Methods', icon: 'fas fa-list-ol' },
-  { path: '/tutorials/dom-basics/dom-manipulation', title: 'DOM Manipulation', icon: 'fas fa-code' },
-  { path: '/tutorials/dom-basics/dom-events', title: 'Event Handling', icon: 'fas fa-bolt' },
+  { path: '/tutorials/beginner/dom-basics/', title: 'Overview' },
+  { path: '/tutorials/beginner/dom-basics/introduction', title: 'Introduction' },
+  { path: '/tutorials/beginner/dom-basics/arrays', title: 'Arrays and Methods', icon: 'fas fa-list-ol' },
+  { path: '/tutorials/beginner/dom-basics/dom-manipulation', title: 'DOM Manipulation', icon: 'fas fa-code' },
+  { path: '/tutorials/beginner/dom-basics/dom-events', title: 'Event Handling', icon: 'fas fa-bolt' },
 ];
 
 const currentIndex = computed(() => navItems.findIndex((item) => isCurrentPath(item.path)));

@@ -66,14 +66,14 @@ const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
 const tutorials = [
-  { path: '/tutorials/html-basics/introduction', title: 'Introduction', icon: 'fab fa-html5' },
-  { path: '/tutorials/html-basics/first-page', title: 'Your First HTML Page', icon: 'fas fa-file-code' },
-  { path: '/tutorials/html-basics/text', title: 'Working with Text' },
-  { path: '/tutorials/html-basics/links', title: 'Links & Navigation' },
-  { path: '/tutorials/html-basics/images', title: 'Images' },
-  { path: '/tutorials/html-basics/doc-structure', title: 'Document Structure' },
-  { path: '/tutorials/html-basics/forms', title: 'Forms' },
-  { path: '/tutorials/html-basics/html-emmet', title: 'HTML Emmet' },
+  { path: '/tutorials/beginner/html-basics/introduction', title: 'Introduction', icon: 'fab fa-html5' },
+  { path: '/tutorials/beginner/html-basics/first-page', title: 'Your First HTML Page', icon: 'fas fa-file-code' },
+  { path: '/tutorials/beginner/html-basics/text', title: 'Working with Text' },
+  { path: '/tutorials/beginner/html-basics/links', title: 'Links & Navigation' },
+  { path: '/tutorials/beginner/html-basics/images', title: 'Images' },
+  { path: '/tutorials/beginner/html-basics/doc-structure', title: 'Document Structure' },
+  { path: '/tutorials/beginner/html-basics/forms', title: 'Forms' },
+  { path: '/tutorials/beginner/html-basics/html-emmet', title: 'HTML Emmet' },
 ];
 
 const currentIndex = computed(() => tutorials.findIndex((tutorial) => isCurrentPath(tutorial.path)));

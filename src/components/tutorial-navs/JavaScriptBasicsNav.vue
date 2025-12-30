@@ -56,13 +56,13 @@ const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
 const navItems = [
-  { path: '/tutorials/javascript-basics/', title: 'Overview', icon: 'fa-home' },
-  { path: '/tutorials/javascript-basics/introduction', title: 'Getting  Started', icon: 'fa-flag' },
-  { path: '/tutorials/javascript-basics/variables-data-types', title: 'Variables & Data Types', icon: 'fa-cube' },
-  { path: '/tutorials/javascript-basics/operators', title: 'Operators & Expressions', icon: 'fa-calculator' },
-  { path: '/tutorials/javascript-basics/conditionals', title: 'Control Flow', icon: 'fa-code-branch' },
-  { path: '/tutorials/javascript-basics/loops', title: 'Loops', icon: 'fa-sync' },
-  { path: '/tutorials/javascript-basics/functions', title: 'Functions', icon: 'fa-cogs' },
+  { path: '/tutorials/beginner/javascript-basics/', title: 'Overview', icon: 'fa-home' },
+  { path: '/tutorials/beginner/javascript-basics/introduction', title: 'Getting  Started', icon: 'fa-flag' },
+  { path: '/tutorials/beginner/javascript-basics/variables-data-types', title: 'Variables & Data Types', icon: 'fa-cube' },
+  { path: '/tutorials/beginner/javascript-basics/operators', title: 'Operators & Expressions', icon: 'fa-calculator' },
+  { path: '/tutorials/beginner/javascript-basics/conditionals', title: 'Control Flow', icon: 'fa-code-branch' },
+  { path: '/tutorials/beginner/javascript-basics/loops', title: 'Loops', icon: 'fa-sync' },
+  { path: '/tutorials/beginner/javascript-basics/functions', title: 'Functions', icon: 'fa-cogs' },
 ];
 
 function isCurrentPath(path) { return route.path === path; }
