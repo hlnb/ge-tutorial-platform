@@ -65,7 +65,7 @@ collections:
         required: true
         hint: 'File name without extension (e.g., "introduction", "getting-started")'
         pattern: ['^[a-z0-9-]+$', 'Must be lowercase letters, numbers, and hyphens only']
-    fields:
+
       - label: 'Title'
         name: 'title'
         widget: 'string'
