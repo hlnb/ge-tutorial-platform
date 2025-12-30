@@ -32,14 +32,12 @@ useHead({
 				</ul>
 			</nav>
 
-						<div v-if="isIndex">
-							<h1 class="title is-1">Getting Started</h1>
+		<div>
+			<h1 class="title is-1">Getting Started</h1>
 
-							<p class="subtitle is-4 mb-6">
-									Essential concepts and tools for web development
-							</p>
-
-			<div class="box box-info mb-6">
+			<p class="subtitle is-4 mb-6">
+				Essential concepts and tools for web development
+			</p>
 				<p>
 					<strong>🎯 Learning Path:</strong> Complete these tutorials in order
 					to understand how the web works and set up your development
@@ -190,6 +188,5 @@ useHead({
 			</div>
 		</div>
 	</div>
-</div>
 </template>
 

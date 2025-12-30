@@ -28,11 +28,13 @@ onBeforeUnmount(() => {
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">Series</span>
 		</div>
+
+		<h1 class="title is-1">
+			<i class="fab fa-html5 html-icon"></i> HTML Basics
+		</h1>
 		<p class="subtitle is-4 mb-6">
 			Learn the fundamentals of HTML structure and elements
 		</p>
-
-		<div class="box box-info mb-6">
 			<h3 class="title is-5 mb-2">What You'll Learn</h3>
 			<ul>
 				<li>Understanding HTML elements and structure</li>
