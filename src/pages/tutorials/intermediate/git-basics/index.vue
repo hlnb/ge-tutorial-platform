@@ -360,16 +360,17 @@
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 
+const route = useRoute();
 
 // Tutorial sections in order
 const tutorialSections = [
-    { id: 'introduction', name: 'Introduction', path: '/tutorials/beginner/git-basics/introduction' },
-    { id: 'installation', name: 'Installation & Setup', path: '/tutorials/beginner/git-basics/installation' },
-    { id: 'basic-commands', name: 'Basic Commands', path: '/tutorials/beginner/git-basics/basic-commands' },
-    { id: 'branching', name: 'Branching', path: '/tutorials/beginner/git-basics/branching' },
-    { id: 'merging', name: 'Merging', path: '/tutorials/beginner/git-basics/merging' },
-    { id: 'remote-repositories', name: 'Remote Repositories', path: '/tutorials/beginner/git-basics/remote-repositories' },
-    { id: 'workflow', name: 'Git Workflow', path: '/tutorials/beginner/git-basics/workflow' }
+    { id: 'introduction', name: 'Introduction', path: '/tutorials/intermediate/git-basics/introduction' },
+    { id: 'installation', name: 'Installation & Setup', path: '/tutorials/intermediate/git-basics/installation' },
+    { id: 'basic-commands', name: 'Basic Commands', path: '/tutorials/intermediate/git-basics/basic-commands' },
+    { id: 'branching', name: 'Branching', path: '/tutorials/intermediate/git-basics/branching' },
+    { id: 'merging', name: 'Merging', path: '/tutorials/intermediate/git-basics/merging' },
+    { id: 'remote-repositories', name: 'Remote Repositories', path: '/tutorials/intermediate/git-basics/remote-repositories' },
+    { id: 'workflow', name: 'Git Workflow', path: '/tutorials/intermediate/git-basics/workflow' }
 ];
 
 const totalSections = tutorialSections.length;

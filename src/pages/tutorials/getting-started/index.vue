@@ -1,15 +1,6 @@
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
 import '@/assets/styles/tutorials.css';
 import { useHead } from '@vueuse/head';
-
-const route = useRoute();
-const isIndex = computed(() => {
-	const matched = route.matched || [];
-	const last = matched[matched.length - 1];
-	return !!(last && last.name === 'getting-started-index');
-});
 
 useHead({
 	title: 'Getting Started - GraphitEdge Tutorials',
@@ -25,7 +16,6 @@ useHead({
 <template>
 	<div class="container section">
 		<div class="content">
-			<router-view />
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
 					<li>
