@@ -26,17 +26,19 @@ logo_url: /vite.svg
 collections:
   # ============================================
   # TUTORIALS COLLECTION
+  # NOTE: Vue SFCs with JS exports aren't fully supported by CMS
+  # These collections allow file listing and basic editing
   # ============================================
   - name: 'tutorials'
     label: 'Tutorials'
     label_singular: 'Tutorial'
-    description: 'Interactive coding tutorials organized by skill level and topic'
+    description: 'Interactive coding tutorials - Edit files manually or use CMS for metadata'
     folder: 'src/pages/tutorials'
-    create: true
+    create: false # Disable creation until we have proper templates
     extension: 'vue'
-    # Use path to handle nested folders
-    path: '{{categoryFolder}}/{{filename}}'
-    slug: '{{filename}}'
+    identifier_field: 'title'
+    # Match all nested Vue files
+    path: '{{slug}}'
     fields:
       - label: 'Category Folder'
         name: 'categoryFolder'
