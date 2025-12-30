@@ -20,8 +20,6 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const { code } = req.query;
-
   // Validate environment variables
   const clientId = process.env.OAUTH_GITHUB_CLIENT_ID;
   const clientSecret = process.env.OAUTH_GITHUB_CLIENT_SECRET;
@@ -34,12 +32,14 @@ export default async function handler(req, res) {
     });
   }
 
-  // Validate authorization code
+  const { code, state } = req.query;
+
+  // If no code, redirect to GitHub OAuth authorization
   if (!code) {
-    return res.status(400).json({
-      error: 'Missing authorization code',
-      message: 'The "code" query parameter is required',
-    });
+    const callbackUrl = `${req.headers['x-forwarded-proto'] || 'https'}://${req.headers.host}/api/auth-callback`;
+    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(callbackUrl)}&scope=repo,user${state ? `&state=${state}` : ''}`;
+    
+    return res.redirect(302, githubAuthUrl);
   }
 
   try {
