@@ -13,7 +13,7 @@ const route = useRoute();
 const isIndex = computed(() => {
 	const matched = route.matched || [];
 	const last = matched[matched.length - 1];
-	return !!(last && last.name === 'html-basics-index');
+	return !!(last && last.path === '/tutorials/beginner/html-basics/');
 });
 </script>
 
@@ -70,38 +70,38 @@ const isIndex = computed(() => {
 				<div
 					v-for="(link, index) in [
 						{
-							name: 'html-basics-introduction',
+							path: '/tutorials/beginner/html-basics/introduction',
 							text: 'Introduction',
 							time: '15 minutes',
 						},
 						{
-							name: 'html-basics-first-page',
+							path: '/tutorials/beginner/html-basics/first-page',
 							text: 'Your First HTML Page',
 							time: '20 minutes',
 						},
 						{
-							name: 'html-basics-text',
+							path: '/tutorials/beginner/html-basics/text',
 							text: 'Working with Text',
 							time: '30 minutes',
 						},
 						{
-							name: 'html-basics-links',
+							path: '/tutorials/beginner/html-basics/links',
 							text: 'Links & Navigation',
 							time: '30 minutes',
 						},
 						{
-							name: 'html-basics-images',
+							path: '/tutorials/beginner/html-basics/images',
 							text: 'Images',
 							time: '25 minutes',
 						},
 						{
-							name: 'html-basics-doc-structure',
+							path: '/tutorials/beginner/html-basics/doc-structure',
 							text: 'Document Structure',
 							time: '20 minutes',
 						},
-						{ name: 'html-basics-forms', text: 'Forms', time: '35 minutes' },
+						{ path: '/tutorials/beginner/html-basics/forms', text: 'Forms', time: '35 minutes' },
 						{
-							name: 'html-basics-html-emmet',
+							path: '/tutorials/beginner/html-basics/html-emmet',
 							text: 'Emmet Workflow',
 							time: '20 minutes',
 						},
@@ -112,7 +112,7 @@ const isIndex = computed(() => {
 					<div class="card">
 						<div class="card-content">
 							<h3 class="title is-4">
-								<router-link :to="{ name: link.name }">{{
+								<router-link :to="link.path">{{
 									link.text
 								}}</router-link>
 							</h3>

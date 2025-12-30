@@ -12,7 +12,7 @@
 						<router-link to="/tutorials">Tutorials</router-link>
 					</li>
 					<li>
-						<router-link :to="{ name: 'GettingStarted' }"
+						<router-link :to="'/tutorials/getting-started/'"
 							>Getting Started</router-link
 						>
 					</li>

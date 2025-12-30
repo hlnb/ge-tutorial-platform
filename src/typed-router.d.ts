@@ -58,6 +58,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/auth/logout': RouteRecordInfo<
+      '/auth/logout',
+      '/auth/logout',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/auth/register': RouteRecordInfo<
       '/auth/register',
       '/auth/register',
@@ -75,6 +82,13 @@ declare module 'vue-router/auto-routes' {
     '/contact': RouteRecordInfo<
       '/contact',
       '/contact',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/my-progress': RouteRecordInfo<
+      '/my-progress',
+      '/my-progress',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -380,13 +394,6 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/StudentProgressPage': RouteRecordInfo<
-      '/StudentProgressPage',
-      '/StudentProgressPage',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/terms': RouteRecordInfo<
       '/terms',
       '/terms',
@@ -499,6 +506,43 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/beginner': RouteRecordInfo<
+      '/tutorials/beginner',
+      '/tutorials/beginner',
+      Record<never, never>,
+      Record<never, never>,
+      | '/tutorials/beginner/css-basics/'
+      | '/tutorials/beginner/css-basics/box-model'
+      | '/tutorials/beginner/css-basics/colors'
+      | '/tutorials/beginner/css-basics/flexbox'
+      | '/tutorials/beginner/css-basics/introduction'
+      | '/tutorials/beginner/css-basics/layout'
+      | '/tutorials/beginner/css-basics/modern'
+      | '/tutorials/beginner/css-basics/responsive'
+      | '/tutorials/beginner/css-basics/selectors'
+      | '/tutorials/beginner/css-basics/text'
+      | '/tutorials/beginner/dom-basics/'
+      | '/tutorials/beginner/dom-basics/arrays'
+      | '/tutorials/beginner/dom-basics/dom-events'
+      | '/tutorials/beginner/dom-basics/dom-manipulation'
+      | '/tutorials/beginner/dom-basics/introduction'
+      | '/tutorials/beginner/html-basics/'
+      | '/tutorials/beginner/html-basics/html-doc-structure'
+      | '/tutorials/beginner/html-basics/html-emmet'
+      | '/tutorials/beginner/html-basics/html-first-page'
+      | '/tutorials/beginner/html-basics/html-forms'
+      | '/tutorials/beginner/html-basics/html-images'
+      | '/tutorials/beginner/html-basics/html-links'
+      | '/tutorials/beginner/html-basics/html-text'
+      | '/tutorials/beginner/html-basics/introduction'
+      | '/tutorials/beginner/javascript-basics/'
+      | '/tutorials/beginner/javascript-basics/conditionals'
+      | '/tutorials/beginner/javascript-basics/functions'
+      | '/tutorials/beginner/javascript-basics/introduction'
+      | '/tutorials/beginner/javascript-basics/loops'
+      | '/tutorials/beginner/javascript-basics/operators'
+      | '/tutorials/beginner/javascript-basics/variables-data-types'
+    >,
     '/tutorials/beginner/css-basics/': RouteRecordInfo<
       '/tutorials/beginner/css-basics/',
       '/tutorials/beginner/css-basics',
@@ -600,69 +644,6 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/beginner/dom-basics/introduction': RouteRecordInfo<
       '/tutorials/beginner/dom-basics/introduction',
       '/tutorials/beginner/dom-basics/introduction',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/beginner/git-basics/': RouteRecordInfo<
-      '/tutorials/beginner/git-basics/',
-      '/tutorials/beginner/git-basics',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/beginner/git-basics/basic-commands': RouteRecordInfo<
-      '/tutorials/beginner/git-basics/basic-commands',
-      '/tutorials/beginner/git-basics/basic-commands',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/beginner/git-basics/branching': RouteRecordInfo<
-      '/tutorials/beginner/git-basics/branching',
-      '/tutorials/beginner/git-basics/branching',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/beginner/git-basics/conclusion': RouteRecordInfo<
-      '/tutorials/beginner/git-basics/conclusion',
-      '/tutorials/beginner/git-basics/conclusion',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/beginner/git-basics/installation': RouteRecordInfo<
-      '/tutorials/beginner/git-basics/installation',
-      '/tutorials/beginner/git-basics/installation',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/beginner/git-basics/introduction': RouteRecordInfo<
-      '/tutorials/beginner/git-basics/introduction',
-      '/tutorials/beginner/git-basics/introduction',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/beginner/git-basics/merging': RouteRecordInfo<
-      '/tutorials/beginner/git-basics/merging',
-      '/tutorials/beginner/git-basics/merging',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/beginner/git-basics/remote-repositories': RouteRecordInfo<
-      '/tutorials/beginner/git-basics/remote-repositories',
-      '/tutorials/beginner/git-basics/remote-repositories',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/beginner/git-basics/workflow': RouteRecordInfo<
-      '/tutorials/beginner/git-basics/workflow',
-      '/tutorials/beginner/git-basics/workflow',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -870,6 +851,76 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/git-basics/': RouteRecordInfo<
+      '/tutorials/intermediate/git-basics/',
+      '/tutorials/intermediate/git-basics',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/git-basics/basic-commands': RouteRecordInfo<
+      '/tutorials/intermediate/git-basics/basic-commands',
+      '/tutorials/intermediate/git-basics/basic-commands',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/git-basics/branching': RouteRecordInfo<
+      '/tutorials/intermediate/git-basics/branching',
+      '/tutorials/intermediate/git-basics/branching',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/git-basics/conclusion': RouteRecordInfo<
+      '/tutorials/intermediate/git-basics/conclusion',
+      '/tutorials/intermediate/git-basics/conclusion',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/git-basics/installation': RouteRecordInfo<
+      '/tutorials/intermediate/git-basics/installation',
+      '/tutorials/intermediate/git-basics/installation',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/git-basics/introduction': RouteRecordInfo<
+      '/tutorials/intermediate/git-basics/introduction',
+      '/tutorials/intermediate/git-basics/introduction',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/git-basics/merging': RouteRecordInfo<
+      '/tutorials/intermediate/git-basics/merging',
+      '/tutorials/intermediate/git-basics/merging',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/git-basics/remote-repositories': RouteRecordInfo<
+      '/tutorials/intermediate/git-basics/remote-repositories',
+      '/tutorials/intermediate/git-basics/remote-repositories',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/git-basics/workflow': RouteRecordInfo<
+      '/tutorials/intermediate/git-basics/workflow',
+      '/tutorials/intermediate/git-basics/workflow',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/practice': RouteRecordInfo<
+      '/tutorials/practice',
+      '/tutorials/practice',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/seo-analytics/': RouteRecordInfo<
       '/tutorials/seo-analytics/',
       '/tutorials/seo-analytics',
@@ -934,6 +985,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/auth/logout.vue': {
+      routes:
+        | '/auth/logout'
+      views:
+        | never
+    }
     'src/pages/auth/register.vue': {
       routes:
         | '/auth/register'
@@ -949,6 +1006,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/contact.vue': {
       routes:
         | '/contact'
+      views:
+        | never
+    }
+    'src/pages/my-progress.vue': {
+      routes:
+        | '/my-progress'
       views:
         | never
     }
@@ -1210,12 +1273,6 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/StudentProgressPage.vue': {
-      routes:
-        | '/StudentProgressPage'
-      views:
-        | never
-    }
     'src/pages/terms.vue': {
       routes:
         | '/terms'
@@ -1312,6 +1369,43 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/beginner.vue': {
+      routes:
+        | '/tutorials/beginner'
+        | '/tutorials/beginner/css-basics/'
+        | '/tutorials/beginner/css-basics/box-model'
+        | '/tutorials/beginner/css-basics/colors'
+        | '/tutorials/beginner/css-basics/flexbox'
+        | '/tutorials/beginner/css-basics/introduction'
+        | '/tutorials/beginner/css-basics/layout'
+        | '/tutorials/beginner/css-basics/modern'
+        | '/tutorials/beginner/css-basics/responsive'
+        | '/tutorials/beginner/css-basics/selectors'
+        | '/tutorials/beginner/css-basics/text'
+        | '/tutorials/beginner/dom-basics/'
+        | '/tutorials/beginner/dom-basics/arrays'
+        | '/tutorials/beginner/dom-basics/dom-events'
+        | '/tutorials/beginner/dom-basics/dom-manipulation'
+        | '/tutorials/beginner/dom-basics/introduction'
+        | '/tutorials/beginner/html-basics/'
+        | '/tutorials/beginner/html-basics/html-doc-structure'
+        | '/tutorials/beginner/html-basics/html-emmet'
+        | '/tutorials/beginner/html-basics/html-first-page'
+        | '/tutorials/beginner/html-basics/html-forms'
+        | '/tutorials/beginner/html-basics/html-images'
+        | '/tutorials/beginner/html-basics/html-links'
+        | '/tutorials/beginner/html-basics/html-text'
+        | '/tutorials/beginner/html-basics/introduction'
+        | '/tutorials/beginner/javascript-basics/'
+        | '/tutorials/beginner/javascript-basics/conditionals'
+        | '/tutorials/beginner/javascript-basics/functions'
+        | '/tutorials/beginner/javascript-basics/introduction'
+        | '/tutorials/beginner/javascript-basics/loops'
+        | '/tutorials/beginner/javascript-basics/operators'
+        | '/tutorials/beginner/javascript-basics/variables-data-types'
+      views:
+        | 'default'
+    }
     'src/pages/tutorials/beginner/css-basics/index.vue': {
       routes:
         | '/tutorials/beginner/css-basics/'
@@ -1399,60 +1493,6 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/beginner/dom-basics/introduction.vue': {
       routes:
         | '/tutorials/beginner/dom-basics/introduction'
-      views:
-        | never
-    }
-    'src/pages/tutorials/beginner/git-basics/index.vue': {
-      routes:
-        | '/tutorials/beginner/git-basics/'
-      views:
-        | never
-    }
-    'src/pages/tutorials/beginner/git-basics/basic-commands.vue': {
-      routes:
-        | '/tutorials/beginner/git-basics/basic-commands'
-      views:
-        | never
-    }
-    'src/pages/tutorials/beginner/git-basics/branching.vue': {
-      routes:
-        | '/tutorials/beginner/git-basics/branching'
-      views:
-        | never
-    }
-    'src/pages/tutorials/beginner/git-basics/conclusion.vue': {
-      routes:
-        | '/tutorials/beginner/git-basics/conclusion'
-      views:
-        | never
-    }
-    'src/pages/tutorials/beginner/git-basics/installation.vue': {
-      routes:
-        | '/tutorials/beginner/git-basics/installation'
-      views:
-        | never
-    }
-    'src/pages/tutorials/beginner/git-basics/introduction.vue': {
-      routes:
-        | '/tutorials/beginner/git-basics/introduction'
-      views:
-        | never
-    }
-    'src/pages/tutorials/beginner/git-basics/merging.vue': {
-      routes:
-        | '/tutorials/beginner/git-basics/merging'
-      views:
-        | never
-    }
-    'src/pages/tutorials/beginner/git-basics/remote-repositories.vue': {
-      routes:
-        | '/tutorials/beginner/git-basics/remote-repositories'
-      views:
-        | never
-    }
-    'src/pages/tutorials/beginner/git-basics/workflow.vue': {
-      routes:
-        | '/tutorials/beginner/git-basics/workflow'
       views:
         | never
     }
@@ -1627,6 +1667,66 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/getting-started/web-basics.vue': {
       routes:
         | '/tutorials/getting-started/web-basics'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/git-basics/index.vue': {
+      routes:
+        | '/tutorials/intermediate/git-basics/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/git-basics/basic-commands.vue': {
+      routes:
+        | '/tutorials/intermediate/git-basics/basic-commands'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/git-basics/branching.vue': {
+      routes:
+        | '/tutorials/intermediate/git-basics/branching'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/git-basics/conclusion.vue': {
+      routes:
+        | '/tutorials/intermediate/git-basics/conclusion'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/git-basics/installation.vue': {
+      routes:
+        | '/tutorials/intermediate/git-basics/installation'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/git-basics/introduction.vue': {
+      routes:
+        | '/tutorials/intermediate/git-basics/introduction'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/git-basics/merging.vue': {
+      routes:
+        | '/tutorials/intermediate/git-basics/merging'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/git-basics/remote-repositories.vue': {
+      routes:
+        | '/tutorials/intermediate/git-basics/remote-repositories'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/git-basics/workflow.vue': {
+      routes:
+        | '/tutorials/intermediate/git-basics/workflow'
+      views:
+        | never
+    }
+    'src/pages/tutorials/practice.vue': {
+      routes:
+        | '/tutorials/practice'
       views:
         | never
     }

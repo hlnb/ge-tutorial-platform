@@ -86,7 +86,7 @@
 						<li><i class="fas fa-check"></i> Emmet Workflow</li>
 					</ul>
 					<router-link
-						:to="{ name: 'html-basics-index' }"
+						:to="'/tutorials/beginner/html-basics/'"
 						class="button is-primary is-outlined mt-3"
 						>Start Your HTML Journey</router-link
 					>
@@ -110,7 +110,7 @@
 						<li><i class="fas fa-check"></i> Responsive Design</li>
 					</ul>
 					<router-link
-						:to="{ name: 'css-basics-index' }"
+						:to="'/tutorials/beginner/css-basics/'"
 						class="button is-primary is-outlined mt-3"
 						>Start Your CSS Journey</router-link
 					>
@@ -133,7 +133,7 @@
 						<li><i class="fas fa-check"></i> Loops</li>
 					</ul>
 					<router-link
-						:to="{ name: 'javascript-basics-index' }"
+						:to="'/tutorials/beginner/javascript-basics/'"
 						class="button is-primary is-outlined mt-3"
 						>Start Your JavaScript Journey</router-link
 					>
@@ -157,7 +157,7 @@
 						<li><i class="fas fa-check"></i> Practice Projects</li>
 					</ul>
 					<router-link
-						:to="{ name: 'dom-basics-index' }"
+						:to="'/tutorials/beginner/dom-basics/'"
 						class="button is-primary is-outlined mt-3"
 						>Start Your DOM Journey</router-link
 					>
@@ -180,7 +180,7 @@
 						<li><i class="fas fa-check"></i> Best Practices</li>
 					</ul>
 					<router-link
-						:to="{ name: 'git-basics-index' }"
+						:to="'/tutorials/intermediate/git-basics/'"
 						class="button is-primary is-outlined mt-3"
 						>Start Your Git Journey</router-link
 					>
@@ -194,7 +194,7 @@
 						<span class="tag is-light">4-6 hours</span>
 						<span class="tag is-success">New</span>
 					</div>
-					<router-link :to="{ name: 'ai-assisted-index' }" class="button is-primary is-outlined mt-3">Explore AI Module</router-link>
+					<router-link :to="'/tutorials/ai-assisted/'" class="button is-primary is-outlined mt-3">Explore AI Module</router-link>
 				</div>
 		</section>
 

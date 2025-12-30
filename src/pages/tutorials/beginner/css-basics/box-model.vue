@@ -1026,7 +1026,7 @@ border: 10px solid black;
 					</ul>
 				</div>
 				<router-link
-					:to="{ name: 'css-basics-text-properties' }"
+					:to="'/tutorials/beginner/css-basics/text'"
 					class="button is-primary is-medium"
 				>
 					Continue to Text Properties →

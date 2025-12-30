@@ -2,8 +2,8 @@
   <aside class="menu module-nav">
     <p class="menu-label">Capstone</p>
     <ul class="menu-list">
-      <li><router-link :to="{ name: 'capstone-index' }">Project Overview</router-link></li>
-      <li><router-link :to="{ name: 'capstone-spec' }">Spec</router-link></li>
+      <li><router-link :to="'/tutorials/capstone/'">Project Overview</router-link></li>
+      <li><router-link :to="'/tutorials/capstone/spec'">Spec</router-link></li>
     </ul>
   </aside>
 </template>

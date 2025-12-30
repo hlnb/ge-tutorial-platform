@@ -45,7 +45,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'personal-profile' }"
+									:to="'/projects/personal-profile'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -73,7 +73,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'recipe-page' }"
+									:to="'/projects/recipe-page'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -101,7 +101,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'photo-gallery' }"
+									:to="'/projects/photo-gallery'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -283,7 +283,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'hello-world' }"
+									:to="'/projects/hello-world'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -310,7 +310,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'number-game' }"
+									:to="'/projects/number-game'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -337,7 +337,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'temperature-converter' }"
+									:to="'/projects/temperature-converter'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -364,7 +364,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'color-switcher' }"
+									:to="'/projects/color-switcher'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -391,7 +391,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'calculator' }"
+									:to="'/projects/calculator'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -418,7 +418,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'grade-calculator' }"
+									:to="'/projects/grade-calculator'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -445,7 +445,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'interactive-demo' }"
+									:to="'/projects/interactive-demo'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -472,7 +472,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'todo-list-2' }"
+									:to="'/projects/todo-list-2'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -499,7 +499,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'quiz-game' }"
+									:to="'/projects/quiz-game'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -535,7 +535,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'photo-gallery-2' }"
+									:to="'/projects/photo-gallery-2'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>
@@ -562,7 +562,7 @@
 							</div>
 							<footer class="card-footer">
 								<router-link
-									:to="{ name: 'todo-list-2' }"
+									:to="'/projects/todo-list-2'"
 									class="card-footer-item"
 								>
 									Start Project <i class="fas fa-arrow-right ml-2"></i>

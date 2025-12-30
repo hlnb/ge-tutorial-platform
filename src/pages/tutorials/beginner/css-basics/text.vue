@@ -1259,7 +1259,7 @@ const rottoContentStyles = ref(`/* Content sections */
 				<p>
 					Control the color of your text using CSS. We'll cover the basics here,
 					but for a deeper dive into colors, check out the
-					<router-link :to="{ name: 'css-basics-colors' }"
+					<router-link :to="'/tutorials/beginner/css-basics/colors'"
 						>Colors tutorial</router-link
 					>.
 				</p>

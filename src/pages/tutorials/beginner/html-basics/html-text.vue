@@ -9,7 +9,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link :to="{ name: 'html-basics-index' }">HTML Basics</router-link>
+					<router-link :to="'/tutorials/beginner/html-basics/'">HTML Basics</router-link>
 				</li>
 				<li class="is-active">
 					<a href="#" aria-current="page">Working with Text</a>
@@ -305,7 +305,7 @@ Soups & Salads
 								<h4 class="title is-4"><i class="fas fa-link"></i> Links</h4>
 								<p>Connect your pages and link to external content</p>
 								<router-link
-									:to="{ name: 'html-basics-links' }"
+									:to="'/tutorials/beginner/html-basics/html-links'"
 									class="button is-primary is-outlined mt-2"
 								>
 									Start Links Tutorial
@@ -318,7 +318,7 @@ Soups & Salads
 								<h4 class="title is-4"><i class="fas fa-image"></i> Images</h4>
 								<p>Add visual content to make your pages engaging</p>
 								<router-link
-									:to="{ name: 'html-basics-images' }"
+									:to="'/tutorials/beginner/html-basics/html-images'"
 									class="button is-info is-outlined mt-2"
 								>
 									Start Images Tutorial
