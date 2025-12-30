@@ -63,6 +63,7 @@
 		"prettier": "^3.5.3",
 		"rollup": "^4.40.2",
 		"sass": "^1.68.0",
+		"unplugin-vue-router": "^0.19.2",
 		"vite": "^6.3.5",
 		"vue-eslint-parser": "^10.1.3"
 	},

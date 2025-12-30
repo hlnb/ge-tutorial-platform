@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import VueRouter from 'unplugin-vue-router/vite';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
@@ -7,6 +8,14 @@ import fs from 'fs';
 export default defineConfig({
 	base: '/',
 	plugins: [
+		// VueRouter must come before Vue plugin
+		VueRouter({
+			/* options */
+			routesFolder: 'src/pages',
+			extensions: ['.vue'],
+			exclude: ['**/components/**', '**/layouts/**'],
+			dts: 'src/typed-router.d.ts',
+		}),
 		vue(),
 		// Custom plugin to serve admin HTML
 		{
