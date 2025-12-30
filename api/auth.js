@@ -36,7 +36,9 @@ export default async function handler(req, res) {
 
   // If no code, redirect to GitHub OAuth authorization
   if (!code) {
-    const callbackUrl = `${req.headers['x-forwarded-proto'] || 'https'}://${req.headers.host}/api/auth-callback`;
+    // Explicitly use the production URL
+    const callbackUrl = 'https://www.graphitedge.com.au/api/auth-callback';
+    console.log('Using callback URL:', callbackUrl);
     const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(callbackUrl)}&scope=repo,user${state ? `&state=${state}` : ''}`;
     
     return res.redirect(302, githubAuthUrl);
