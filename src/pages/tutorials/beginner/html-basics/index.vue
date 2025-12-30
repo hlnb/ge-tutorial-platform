@@ -1,25 +1,15 @@
 <script setup>
-import { onBeforeUnmount, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { onBeforeUnmount } from 'vue';
 
 // Clean up any side effects when component unmounts
 onBeforeUnmount(() => {
 	// Any cleanup code if needed
 });
-
-const route = useRoute();
-// Parent index should only render when the deepest matched route is the
-// html-basics index record (i.e. we're on /tutorials/html-basics and not a child).
-const isIndex = computed(() => {
-	const matched = route.matched || [];
-	const last = matched[matched.length - 1];
-	return !!(last && last.path === '/tutorials/beginner/html-basics/');
-});
 </script>
 
 <template>
 	<div class="tutorial-content">
-		<nav v-if="isIndex" class="breadcrumb" aria-label="breadcrumbs">
+		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
 					<router-link to="/"
@@ -33,9 +23,7 @@ const isIndex = computed(() => {
 			</ul>
 		</nav>
 
-		<router-view />
-
-		<div v-if="isIndex">
+		<div>
 			<div class="tags mb-4">
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">Series</span>
@@ -177,7 +165,7 @@ const isIndex = computed(() => {
 				</div>
 			</div>
 		</div>
-	</div>
+
 	</div>
 </template>
 

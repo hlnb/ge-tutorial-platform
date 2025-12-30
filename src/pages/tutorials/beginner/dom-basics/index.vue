@@ -2,8 +2,6 @@
 
 <template>
   <div class="content">
-    <router-view />
-    <div v-if="isIndex">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
@@ -140,20 +138,10 @@
         <li><i class="fas fa-check"></i> A modern web browser with developer tools</li>
       </ul>
     </div>
-    </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
-const isIndex = computed(() => {
-  const matched = route.matched || [];
-  const last = matched[matched.length - 1];
-  return !!(last && last.name === 'dom-basics-index');
-});
 </script>
 <script>
 export default {

@@ -1,6 +1,5 @@
 <script setup>
-import { ref, inject, onMounted, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, inject, onMounted } from 'vue';
 
 const pageSections = inject('pageSections');
 
@@ -12,19 +11,10 @@ onMounted(() => {
 		{ id: 'next-steps', title: 'Next Steps' },
 	];
 });
-
-const route = useRoute();
-const isIndex = computed(() => {
-  const matched = route.matched || [];
-  const last = matched[matched.length - 1];
-  return !!(last && last.path === '/tutorials/beginner/css-basics/');
-});
 </script>
 
 <template>
 	<div class="content">
-		<router-view />
-		<div v-if="isIndex">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
@@ -180,8 +170,7 @@ const isIndex = computed(() => {
 				</div>
 			</div>
 		</div>
-	  </div>
-  </div>
+	</div>
 </template>
 
 <style scoped>

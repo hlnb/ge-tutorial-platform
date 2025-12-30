@@ -14,8 +14,6 @@
 			</ul>
 		</nav>
 
-		<!-- Child content for subsections will mount here while keeping the shared index layout -->
-		<router-view />
 
 		<div class="tags">
 			<span class="tag is-info">Beginner</span>
