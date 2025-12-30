@@ -5,7 +5,12 @@
 
 		<!-- Main content area -->
 		<main>
-			<router-view></router-view>
+			<!-- Wrap tutorial pages in TutorialLayout -->
+			<TutorialLayout v-if="isTutorialPage">
+				<router-view></router-view>
+			</TutorialLayout>
+			<!-- Other pages render directly -->
+			<router-view v-else></router-view>
 		</main>
 
 		<!-- Footer should be outside router-view to appear on all pages -->
@@ -17,9 +22,21 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 import CookieConsent from '@/components/CookieConsent.vue';
+import TutorialLayout from '@/layouts/TutorialLayout.vue';
+
+const route = useRoute();
+
+// Determine if current page is a tutorial page
+const isTutorialPage = computed(() => {
+	const path = route.path;
+	// Tutorial pages are under /tutorials/ but not the main index
+	return path.startsWith('/tutorials/') && path !== '/tutorials/';
+});
 
 // Handle consent update
 const handleConsentUpdate = (settings) => {
