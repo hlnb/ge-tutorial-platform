@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li><router-link to="/tutorials">Tutorials</router-link></li>
-        <li><router-link to="/tutorials/git-basics">Git Basics</router-link></li>
+        <li><router-link to="/tutorials/intermediate/git-basics">Git Basics</router-link></li>
         <li class="is-active">
           <a href="#" aria-current="page">Workflow</a>
         </li>
@@ -49,15 +49,15 @@
       <ul>
         <li>
           <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Be familiar with basic Git commands - <router-link to="/tutorials/git-basics/basic-commands">Review Basic Commands</router-link>
+          Be familiar with basic Git commands - <router-link to="/tutorials/intermediate/git-basics/basic-commands">Review Basic Commands</router-link>
         </li>
         <li>
           <i class="fas fa-code-branch has-text-success mr-2"></i>
-          Understand Git branching - <router-link to="/tutorials/git-basics/branching">Review Branching</router-link>
+          Understand Git branching - <router-link to="/tutorials/intermediate/git-basics/branching">Review Branching</router-link>
         </li>
         <li>
           <i class="fas fa-cloud-upload-alt has-text-info mr-2"></i>
-          Know how to connect to a remote repository - <router-link to="/tutorials/git-basics/remote-repositories">Review Remote Repositories</router-link>
+          Know how to connect to a remote repository - <router-link to="/tutorials/intermediate/git-basics/remote-repositories">Review Remote Repositories</router-link>
         </li>
       </ul>
     </div>
@@ -227,19 +227,19 @@
     </div>
 
     <!-- Tutorial Recommendations -->
-    <TutorialRecommendations :current-path="'/tutorials/git-basics/workflow'" />
+    <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/workflow'" />
 
     <div class="level mt-6">
       <div class="level-left">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/remote-repositories" class="button is-info">
+          <router-link to="/tutorials/intermediate/git-basics/remote-repositories" class="button is-info">
             <i class="fas fa-arrow-left mr-2"></i> Previous: Remote Repositories
           </router-link>
         </div>
       </div>
       <div class="level-right">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/conclusion" class="button is-success">
+          <router-link to="/tutorials/intermediate/git-basics/conclusion" class="button is-success">
             Next: Conclusion <i class="fas fa-arrow-right ml-2"></i>
           </router-link>
         </div>
@@ -259,7 +259,7 @@ import { useProgress } from '@/composables/useProgress';
 const { trackTutorial, saveQuizResult } = useProgress();
 
 onMounted(() => {
-  trackTutorial('/tutorials/git-basics/workflow');
+  trackTutorial('/tutorials/intermediate/git-basics/workflow');
 });
 
 const onQuizCompleted = (results) => {

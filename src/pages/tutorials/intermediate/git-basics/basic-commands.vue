@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li><router-link to="/tutorials">Tutorials</router-link></li>
-        <li><router-link to="/tutorials/git-basics">Git Basics</router-link></li>
+        <li><router-link to="/tutorials/intermediate/git-basics">Git Basics</router-link></li>
         <li class="is-active">
           <a href="#" aria-current="page">Basic Commands</a>
         </li>
@@ -50,7 +50,7 @@
       <ul>
         <li>
           <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Have Git installed and configured - <router-link to="/tutorials/git-basics/installation">Review Installation</router-link>
+          Have Git installed and configured - <router-link to="/tutorials/intermediate/git-basics/installation">Review Installation</router-link>
         </li>
         <li>
           <i class="fas fa-folder has-text-warning mr-2"></i>
@@ -195,19 +195,19 @@
     </div>
 
     <!-- Tutorial Recommendations -->
-    <TutorialRecommendations :current-path="'/tutorials/git-basics/basic-commands'" />
+    <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/basic-commands'" />
 
     <div class="level mt-6">
       <div class="level-left">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/installation" class="button is-info">
+          <router-link to="/tutorials/intermediate/git-basics/installation" class="button is-info">
             <i class="fas fa-arrow-left mr-2"></i> Previous: Installation
           </router-link>
         </div>
       </div>
       <div class="level-right">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/branching" class="button is-success">
+          <router-link to="/tutorials/intermediate/git-basics/branching" class="button is-success">
             Next: Branching <i class="fas fa-arrow-right ml-2"></i>
           </router-link>
         </div>
@@ -227,7 +227,7 @@ import { useProgress } from '@/composables/useProgress';
 const { trackTutorial, saveQuizResult } = useProgress();
 
 onMounted(() => {
-  trackTutorial('/tutorials/git-basics/basic-commands');
+  trackTutorial('/tutorials/intermediate/git-basics/basic-commands');
 });
 
 const onQuizCompleted = (results) => {

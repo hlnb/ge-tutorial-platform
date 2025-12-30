@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li><router-link to="/tutorials">Tutorials</router-link></li>
-        <li><router-link to="/tutorials/git-basics">Git Basics</router-link></li>
+        <li><router-link to="/tutorials/intermediate/git-basics">Git Basics</router-link></li>
         <li class="is-active">
           <a href="#" aria-current="page">Installation</a>
         </li>
@@ -226,19 +226,19 @@ git config --global user.email 'your.email@example.com'`"
     </div>
 
     <!-- Tutorial Recommendations -->
-    <TutorialRecommendations :current-path="'/tutorials/git-basics/installation'" />
+    <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/installation'" />
 
     <div class="level mt-6">
       <div class="level-left">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/introduction" class="button is-info">
+          <router-link to="/tutorials/intermediate/git-basics/introduction" class="button is-info">
             <i class="fas fa-arrow-left mr-2"></i> Previous: Introduction
           </router-link>
         </div>
       </div>
       <div class="level-right">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/basic-commands" class="button is-success">
+          <router-link to="/tutorials/intermediate/git-basics/basic-commands" class="button is-success">
             Next: Basic Commands <i class="fas fa-arrow-right ml-2"></i>
           </router-link>
         </div>
@@ -258,7 +258,7 @@ import { useProgress } from '@/composables/useProgress';
 const { trackTutorial, saveQuizResult } = useProgress();
 
 onMounted(() => {
-  trackTutorial('/tutorials/git-basics/installation');
+  trackTutorial('/tutorials/intermediate/git-basics/installation');
 });
 
 const onQuizCompleted = (results) => {

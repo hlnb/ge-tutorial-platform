@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li><router-link to="/tutorials">Tutorials</router-link></li>
-        <li><router-link to="/tutorials/git-basics">Git Basics</router-link></li>
+        <li><router-link to="/tutorials/intermediate/git-basics">Git Basics</router-link></li>
         <li class="is-active">
           <a href="#" aria-current="page">Introduction</a>
         </li>
@@ -531,19 +531,19 @@
     </div>
 
     <!-- Tutorial Recommendations -->
-    <TutorialRecommendations :current-path="'/tutorials/git-basics/introduction'" />
+    <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/introduction'" />
 
     <div class="level mt-6">
       <div class="level-left">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics" class="button is-info">
+          <router-link to="/tutorials/intermediate/git-basics" class="button is-info">
             <i class="fas fa-arrow-left mr-2"></i> Tutorial Home
           </router-link>
         </div>
       </div>
       <div class="level-right">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/installation" class="button is-success">
+          <router-link to="/tutorials/intermediate/git-basics/installation" class="button is-success">
             Next: Installation & Setup <i class="fas fa-arrow-right ml-2"></i>
           </router-link>
         </div>
@@ -590,7 +590,7 @@ const { pageSections,} = usePageSections(sections);
 const { trackTutorial, saveQuizResult } = useProgress();
 
 onMounted(() => {
-  trackTutorial('/tutorials/git-basics/introduction');
+  trackTutorial('/tutorials/intermediate/git-basics/introduction');
 });
 
 // Interactive Git timeline demo

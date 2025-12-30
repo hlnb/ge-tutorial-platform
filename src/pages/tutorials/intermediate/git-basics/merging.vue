@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li><router-link to="/tutorials">Tutorials</router-link></li>
-        <li><router-link to="/tutorials/git-basics">Git Basics</router-link></li>
+        <li><router-link to="/tutorials/intermediate/git-basics">Git Basics</router-link></li>
         <li class="is-active">
           <a href="#" aria-current="page">Merging</a>
         </li>
@@ -50,7 +50,7 @@
       <ul>
         <li>
           <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Be familiar with Git branching - <router-link to="/tutorials/git-basics/branching">Review Branching</router-link>
+          Be familiar with Git branching - <router-link to="/tutorials/intermediate/git-basics/branching">Review Branching</router-link>
         </li>
         <li>
           <i class="fas fa-folder has-text-warning mr-2"></i>
@@ -117,19 +117,19 @@
     </div>
 
     <!-- Tutorial Recommendations -->
-    <TutorialRecommendations :current-path="'/tutorials/git-basics/merging'" />
+    <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/merging'" />
 
     <div class="level mt-6">
       <div class="level-left">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/branching" class="button is-info">
+          <router-link to="/tutorials/intermediate/git-basics/branching" class="button is-info">
             <i class="fas fa-arrow-left mr-2"></i> Previous: Branching
           </router-link>
         </div>
       </div>
       <div class="level-right">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/remote-repositories" class="button is-success">
+          <router-link to="/tutorials/intermediate/git-basics/remote-repositories" class="button is-success">
             Next: Remote Repositories <i class="fas fa-arrow-right ml-2"></i>
           </router-link>
         </div>
@@ -149,7 +149,7 @@ import { useProgress } from '@/composables/useProgress';
 const { trackTutorial, saveQuizResult } = useProgress();
 
 onMounted(() => {
-  trackTutorial('/tutorials/git-basics/merging');
+  trackTutorial('/tutorials/intermediate/git-basics/merging');
 });
 
 const onQuizCompleted = (results) => {

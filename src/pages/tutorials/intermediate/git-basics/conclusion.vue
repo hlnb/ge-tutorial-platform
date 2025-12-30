@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li><router-link to="/tutorials">Tutorials</router-link></li>
-        <li><router-link to="/tutorials/git-basics">Git Basics</router-link></li>
+        <li><router-link to="/tutorials/intermediate/git-basics">Git Basics</router-link></li>
         <li class="is-active">
           <a href="#" aria-current="page">Conclusion</a>
         </li>
@@ -87,7 +87,7 @@
     <div class="level mt-6">
       <div class="level-left">
         <div class="level-item">
-          <router-link to="/tutorials/git-basics/workflow" class="button is-info">
+          <router-link to="/tutorials/intermediate/git-basics/workflow" class="button is-info">
             <i class="fas fa-arrow-left mr-2"></i> Previous: Workflow
           </router-link>
         </div>
@@ -113,7 +113,7 @@ const { trackTutorial } = useProgress();
 
 // Track tutorial on mount
 onMounted(() => {
-  trackTutorial('/tutorials/git-basics/conclusion');
+  trackTutorial('/tutorials/intermediate/git-basics/conclusion');
 });
 </script>
 

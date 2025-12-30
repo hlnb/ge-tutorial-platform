@@ -347,7 +347,7 @@
             <p>
                 <i class="fas fa-check-circle mr-2"></i>
                 <strong>Ready to start?</strong> Begin with the
-                <router-link to="/tutorials/git-basics/introduction">
+                <router-link to="/tutorials/intermediate/git-basics/introduction">
                     Introduction to Git
                 </router-link>
                 tutorial to take your first steps into version control!
