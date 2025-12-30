@@ -43,7 +43,7 @@
 				<i class="fas fa-lightbulb mr-2"></i>
 				<strong>Prerequisites:</strong> Before starting this project, you should
 				complete the
-				<router-link to="/tutorials/html-basics/first-page"
+				<router-link to="/tutorials/beginner/html-basics/html-first-page"
 					>Your First HTML Page</router-link
 				>
 				tutorial.
@@ -211,7 +211,7 @@
 					<i class="fas fa-info-circle mr-2"></i>
 					<strong>Next Steps:</strong> After completing this project, you might
 					want to check out the
-					<router-link to="/tutorials/html-basics/text"
+					<router-link to="/tutorials/beginner/html-basics/html-text"
 						>Working with Text</router-link
 					>
 					tutorial to learn more ways to format your content.

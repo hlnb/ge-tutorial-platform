@@ -81,11 +81,11 @@
 			</h3>
 			<ul>
 				<li>
-					<router-link to="/tutorials/html-basics">HTML Basics</router-link>
+					<router-link to="/tutorials/beginner/html-basics/">HTML Basics</router-link>
 					- Understanding of basic HTML structure
 				</li>
 				<li>
-					<router-link to="/tutorials/html-basics/images">HTML Images</router-link>
+					<router-link to="/tutorials/beginner/html-basics/html-images">HTML Images</router-link>
 					- Working with image elements
 				</li>
 				<li>
@@ -274,7 +274,7 @@
 					<i class="fas fa-info-circle mr-2"></i>
 					<strong>Next Steps:</strong> After completing this project, you might
 					want to check out the
-					<router-link to="/tutorials/css-basics">CSS Basics</router-link>
+					<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
 					tutorials to learn how to style your gallery and make it even more
 					visually appealing.
 				</p>

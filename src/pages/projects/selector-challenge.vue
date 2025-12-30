@@ -46,7 +46,7 @@
 				<i class="fas fa-lightbulb mr-2"></i>
 				<strong>Prerequisites:</strong> Before starting this project, you should
 				complete the
-				<router-link to="/tutorials/css-basics/selectors"
+				<router-link to="/tutorials/beginner/css-basics/selectors"
 					>CSS Selectors</router-link
 				>
 				tutorial.
@@ -333,7 +333,7 @@
 					<i class="fas fa-info-circle mr-2"></i>
 					<strong>Next Steps:</strong> After completing this project, you might
 					want to check out the
-					<router-link to="/tutorials/css-basics/box-model"
+					<router-link to="/tutorials/beginner/css-basics/box-model"
 						>CSS Box Model</router-link
 					>
 					tutorial to learn more about styling elements.

@@ -55,11 +55,11 @@
 			<ul>
 				<li>
 					<i class="fab fa-html5 has-text-danger mr-2"></i>
-					Basic HTML - <router-link to="/tutorials/html-basics">Review HTML Basics</router-link>
+					Basic HTML - <router-link to="/tutorials/beginner/html-basics/">Review HTML Basics</router-link>
 				</li>
 				<li>
 					<i class="fab fa-css3-alt has-text-info mr-2"></i>
-					Basic CSS - <router-link to="/tutorials/css-basics">Review CSS Basics</router-link>
+					Basic CSS - <router-link to="/tutorials/beginner/css-basics/">Review CSS Basics</router-link>
 				</li>
 			</ul>
 		</div>

@@ -48,8 +48,8 @@
 				<i class="fas fa-lightbulb mr-2"></i>
 				<strong>Prerequisites:</strong> Before starting this series, we
 				recommend completing the
-				<router-link to="/tutorials/html-basics">HTML Basics</router-link> and
-				<router-link to="/tutorials/css-basics">CSS Basics</router-link>
+				<router-link to="/tutorials/beginner/html-basics/">HTML Basics</router-link> and
+				<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
 				tutorials.
 			</p>
 		</div>

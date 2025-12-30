@@ -10,7 +10,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link to="/tutorials/html-basics">HTML Basics</router-link>
+					<router-link to="/tutorials/beginner/html-basics/">HTML Basics</router-link>
 				</li>
 				<li class="is-active">
 					<a href="#" aria-current="page">Document Structure</a>
@@ -348,7 +348,7 @@
 			<div class="notification is-info is-light">
 				<p>
 					<i class="fas fa-backward mr-2"></i> In
-					<router-link to="/tutorials/html-basics/first-page"
+					<router-link to="/tutorials/beginner/html-basics/html-first-page"
 						>Your First HTML Page</router-link
 					>, we learned about the basic HTML structure and essential meta tags.
 					Now, let's dive deeper into metadata and explore additional tags that
@@ -1118,7 +1118,7 @@ This is a new line
 					<p>
 						<i class="fas fa-link mr-2"></i> For a complete guide on working
 						with file paths, check out the
-						<router-link to="/tutorials/html-basics/links"
+						<router-link to="/tutorials/beginner/html-basics/html-links"
 							>HTML Links and Navigation</router-link
 						>
 						tutorial, where we cover absolute paths, relative paths, and best
@@ -1162,7 +1162,7 @@ This is a new line
 					<p class="mt-2">
 						<small
 							>See the
-							<router-link to="/tutorials/html-basics/links"
+							<router-link to="/tutorials/beginner/html-basics/html-links"
 								>HTML Links tutorial</router-link
 							>
 							for more detailed path examples and best practices.</small

@@ -9,7 +9,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link to="/tutorials/html-basics">HTML Basics</router-link>
+					<router-link to="/tutorials/beginner/html-basics/">HTML Basics</router-link>
 				</li>
 				<li class="is-active">
 					<a href="#" aria-current="page">Working with Forms</a>
