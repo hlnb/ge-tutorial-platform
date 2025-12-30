@@ -134,7 +134,7 @@ const htmlStructure = `<!DOCTYPE html>
         <p id="message"></p>
         <p id="attempts">Attempts: 0</p>
     </div>
-    <script src="script.js"><\/script>
+	` + ('</' + 'script>') + `
 </body>
 </html>`;
 

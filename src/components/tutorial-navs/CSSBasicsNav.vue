@@ -60,17 +60,17 @@
 </template>
 
 <script setup>
-import { ref, computed, inject, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
 
 const route = useRoute();
-const isMainExpanded = ref(true);
-const expandedSections = ref(new Set()); // Track expanded sections
 const { pageSections, hasPageSections } = usePageNavigation();
 
-// Inject pageSections from the current tutorial
-const pageSectionsInject = inject('pageSections', ref([]));
+ 
+const isMainExpanded = ref(true);
+ 
+const expandedSections = ref(new Set()); // Track expanded sections
 
 // Single source of truth for navigation items
 const navItems = [
@@ -85,22 +85,30 @@ const navItems = [
   { path: '/tutorials/css-basics/flexbox', title: 'Flexbox' },
 ];
 
+// The following computed values and helpers are present for future
+// functionality and are intentionally unused at the moment. Silence
+// ESLint for them to keep the code readable.
+ 
 const currentIndex = computed(() => navItems.findIndex((item) => isCurrentPath(item.path)));
 
+/* eslint-disable-next-line no-unused-vars */
 const isAnyTutorialActive = computed(() => navItems.some((item) => isCurrentPath(item.path)));
 
 function isCurrentPath(path) {
   return route.path === path;
 }
 
+/* eslint-disable-next-line no-unused-vars */
 function isNextTutorial(index) {
   return index === currentIndex.value + 1;
 }
 
+/* eslint-disable-next-line no-unused-vars */
 function toggleMainNav() {
   isMainExpanded.value = !isMainExpanded.value;
 }
 
+/* eslint-disable-next-line no-unused-vars */
 function toggleSection(sectionId) {
   if (expandedSections.value.has(sectionId)) {
     expandedSections.value.delete(sectionId);
@@ -109,13 +117,14 @@ function toggleSection(sectionId) {
   }
 }
 
+/* eslint-disable-next-line no-unused-vars */
 function isExpanded(sectionId) {
   return expandedSections.value.has(sectionId);
 }
 
 // Initialize all sections as expanded
 onMounted(() => {
-  pageSectionsInject.value.forEach((section) => {
+  pageSections.value.forEach((section) => {
     if (section.subsections?.length) {
       expandedSections.value.add(section.id);
     }

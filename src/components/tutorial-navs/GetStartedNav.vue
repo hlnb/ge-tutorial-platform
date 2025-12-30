@@ -153,7 +153,7 @@ const pageSectionsInject = inject('pageSections', ref([]));
 
 // Define the order of tutorials for next/prev navigation
 const tutorialOrder = [
-    '/tutorials/getting-started',
+    '/tutorials/getting-started/introduction',
     '/tutorials/getting-started/how-internet-works',
     '/tutorials/getting-started/web-basics',
     '/tutorials/getting-started/dev-environment',

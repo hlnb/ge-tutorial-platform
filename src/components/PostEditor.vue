@@ -14,6 +14,7 @@
 				<button
 					class="button is-primary"
 					:disabled="!canSchedule"
+					@click="schedulePost"
 				>
 					Schedule Post
 				</button>
@@ -26,7 +27,7 @@
 import { ref, computed } from 'vue';
 import { format } from 'date-fns';
 
-const props = defineProps({
+const { postId } = defineProps({
 	postId: {
 		type: [String, Number],
 		required: true,
@@ -50,7 +51,7 @@ async function schedulePost() {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				postId: props.postId,
+				postId: postId,
 				publishDate: publishDate.value,
 			}),
 		});

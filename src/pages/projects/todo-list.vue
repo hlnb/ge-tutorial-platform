@@ -185,7 +185,7 @@ const htmlStructure = ref('<!DOCTYPE html>\n' +
 '      <button id="clear-completed">Clear Completed</button>\n' +
 '    </div>\n' +
 '  </div>\n' +
-'  <script src="script.js"><\/script>\n' +
+`  ` + ('</' + 'script>') + `\n` +
 '</body>\n' +
 '</html>');
 

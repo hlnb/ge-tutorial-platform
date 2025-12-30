@@ -1,3 +1,4 @@
+<!-- eslint-disable no-useless-escape -->
 <template>
 	<div class="container">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
@@ -154,6 +155,7 @@
 </template>
 
 <script setup>
+/* eslint-disable no-useless-escape */
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 

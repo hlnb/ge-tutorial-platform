@@ -21,22 +21,16 @@
 
 <script setup>
 import { ref } from 'vue';
-const props = defineProps({
+const { faqs } = defineProps({
   faqs: {
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 });
 const openIndex = ref(null);
 function toggle(i) {
   openIndex.value = openIndex.value === i ? null : i;
 }
-</script>
-
-<script>
-export default {
-  props: ['faqs']
-};
 </script>
 
 <style scoped>

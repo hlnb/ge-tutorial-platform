@@ -133,7 +133,6 @@
 
 <script setup>
 import { computed, inject } from 'vue';
-import { useRoute } from 'vue-router';
 import { getRecommendationsFromProps } from '@/utils/tutorialUtils';
 
 // Provide component name for tooling that expects a default export
@@ -161,8 +160,6 @@ const props = defineProps({
 		default: null,
 	},
 });
-
-const route = useRoute();
 
 // Try to get the current tutorial info from the parent component
 const providedTutorial = inject('currentTutorial', null);

@@ -837,9 +837,9 @@ const htmlSetupCode = `<!DOCTYPE html>
   <body>
     <h1>Check the console for results</h1>
 
-    <script>
-      // Your practice code goes here
-    <\/script>
+		<script>
+			// Your practice code goes here
+		` + ('</' + 'script>') + `
 
 	
   </body>

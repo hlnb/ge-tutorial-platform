@@ -505,9 +505,9 @@ const internalJsCode = `<script>
 	function sayHello() {
 		alert('Hello!');
 	}
-<\/script>`;
+` + ('</' + 'script>');
 
-const externalJsCode = `<script src="script.js" defer><\/script>`;
+const externalJsCode = `<script src="script.js" defer>` + ('</' + 'script>');
 
 const consoleExample = `console.log("Hello! 👋");`;
 

@@ -9,7 +9,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link :to="{ name: 'html-basics' }">HTML Basics</router-link>
+					<router-link :to="{ name: 'html-basics-index' }">HTML Basics</router-link>
 				</li>
 				<li class="is-active">
 					<a href="#" aria-current="page">Introduction to HTML</a>
@@ -592,6 +592,8 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import { useHead } from '@vueuse/head';
 import { usePageSections } from '@/composables/usePageSections';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TutorialQuiz from '@/components/TutorialQuiz.vue';
 
 const frontmatter = {
 	title: 'Introduction to HTML',

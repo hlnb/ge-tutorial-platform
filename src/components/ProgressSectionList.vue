@@ -46,7 +46,7 @@
 <script setup>
 import { defineProps } from 'vue';
 
-const props = defineProps({
+const { tutorials, sectionPath } = defineProps({
 	tutorials: {
 		type: Array,
 		required: true,

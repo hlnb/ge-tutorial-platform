@@ -9,7 +9,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link :to="{ name: 'html-basics' }">HTML Basics</router-link>
+					<router-link :to="{ name: 'html-basics-index' }">HTML Basics</router-link>
 				</li>
 				<li class="is-active">
 					<a href="#" aria-current="page">Emmet Workflow</a>
@@ -376,28 +376,22 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, inject, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import DOMPurify from 'dompurify';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
-// Get the pageSections array from the parent component
-const pageSections = inject('pageSections');
-
-// Get the route
-const route = useRoute();
+// Get the pageSections array from the parent component (if provided)
+const pageSections = inject('pageSections', null);
 
 // Define the sections for this tutorial
-onMounted(() => {
-	if (pageSections) {
-		pageSections.value = [
-			{
-				id: 'introduction',
-				title: 'Introduction to Emmet',
-				subsections: [],
-			},
+if (pageSections) {
+	pageSections.value = [
+		{
+			id: 'introduction',
+			title: 'Introduction to Emmet',
+			subsections: [],
+		},
 			{
 				id: 'basic-syntax',
 				title: 'Basic Emmet Syntax',
@@ -438,7 +432,6 @@ onMounted(() => {
 			},
 		];
 	}
-});
 
 const basicExample = ref(`<!-- Type 'div' and press Tab -->
 <div></div>

@@ -63,7 +63,6 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useRouter } from 'vue-router';
 import { currentUser, isAuthenticated } from '@/services/AuthService';
 
 const isAuth = computed(() =>

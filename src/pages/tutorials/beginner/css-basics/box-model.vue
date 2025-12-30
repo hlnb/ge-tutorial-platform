@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, inject, onMounted, watch } from 'vue';
+import { ref, computed, inject, onMounted } from 'vue';
 import DOMPurify from 'dompurify';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { html } from '@codemirror/lang-html';

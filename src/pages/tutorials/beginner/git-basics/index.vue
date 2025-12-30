@@ -1,5 +1,7 @@
 <template>
     <div class="content">
+        <router-view />
+        <div v-if="isIndex">
         <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
                 <li>
@@ -354,6 +356,7 @@
             </p>
         </div>
     </div>
+    </div>
 </template>
 
 <script setup>
@@ -375,6 +378,11 @@ const tutorialSections = [
 const totalSections = tutorialSections.length;
 const completedSections = ref(0);
 const route = useRoute();
+const isIndex = computed(() => {
+    const matched = route.matched || [];
+    const last = matched[matched.length - 1];
+    return !!(last && last.name === 'git-basics-index');
+});
 
 // Check all possible localStorage keys to help debug
 const debugLocalStorage = () => {

@@ -75,8 +75,8 @@ const handleSubmit = async (e) => {
 			);
 		}
 
-		const data = await response.json();
-		status.value = 'success';
+	await response.json();
+	status.value = 'success';
 		email.value = '';
 	} catch (error) {
 		console.error('Subscription Error:', error);

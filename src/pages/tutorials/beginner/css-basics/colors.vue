@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, inject, watch } from 'vue';
+import { ref, computed, onMounted, inject } from 'vue';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';

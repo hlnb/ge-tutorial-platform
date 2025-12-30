@@ -352,8 +352,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, inject, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, computed, onMounted, inject } from 'vue';
 import progressService from '@/services/ProgressService';
 import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
@@ -771,7 +770,6 @@ const rottoContactForm =
   <button type="submit">Send Inquiry</button>
 </form>`);
 
-const route = useRoute();
 const progressEnabled = ref(progressService.isProgressTrackingEnabled());
 </script>
 

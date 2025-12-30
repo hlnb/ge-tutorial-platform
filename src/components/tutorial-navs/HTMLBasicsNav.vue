@@ -59,8 +59,6 @@ import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
 
 const route = useRoute();
-const router = undefined; // placeholder to match original structure
-const isMainExpanded = ref(true);
 const expandedSections = ref(new Set()); // Track expanded sections
 const { pageSections, hasPageSections } = usePageNavigation();
 
@@ -68,7 +66,7 @@ const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
 const tutorials = [
-  { path: '/tutorials/html-basics', title: 'Introduction', icon: 'fab fa-html5' },
+  { path: '/tutorials/html-basics/introduction', title: 'Introduction', icon: 'fab fa-html5' },
   { path: '/tutorials/html-basics/first-page', title: 'Your First HTML Page', icon: 'fas fa-file-code' },
   { path: '/tutorials/html-basics/text', title: 'Working with Text' },
   { path: '/tutorials/html-basics/links', title: 'Links & Navigation' },
@@ -88,21 +86,7 @@ function isNextTutorial(index) {
   return index === currentIndex.value + 1;
 }
 
-function toggleMainNav() {
-  isMainExpanded.value = !isMainExpanded.value;
-}
-
-function toggleSection(sectionId) {
-  if (expandedSections.value.has(sectionId)) {
-    expandedSections.value.delete(sectionId);
-  } else {
-    expandedSections.value.add(sectionId);
-  }
-}
-
-function isExpanded(sectionId) {
-  return expandedSections.value.has(sectionId);
-}
+// (toggle helpers removed - not used in this nav component)
 
 // Initialize all sections as expanded
 onMounted(() => {
@@ -126,10 +110,6 @@ function isSubsectionOpen(id) {
 function isActive(path) {
   return route.path === path;
 }
-</script>
-
-<script>
-export default {};
 </script>
 
 <style scoped>

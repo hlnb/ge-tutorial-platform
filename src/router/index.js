@@ -600,13 +600,9 @@ const routes = [
 			// HTML Basics section
 			{
 				path: 'html-basics',
+				name: 'html-basics-index',
 				component: () => import('@/pages/tutorials/beginner/html-basics/index.vue'),
 				children: [
-					{
-						path: '',
-						name: 'html-basics-index',
-						component: () => import('@/pages/tutorials/beginner/html-basics/index.vue'),
-					},
 					{
 						path: 'introduction',
 						name: 'html-basics-introduction',

@@ -3,8 +3,11 @@
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
-					<router-link to="/"
-						><i class="fa-solid fa-house mr-2"></i> Home</router-link
+				import { ref, computed, onMounted, inject } from 'vue';
+				import progressService from '@/services/ProgressService';
+				import CodeMirror from '@/components/CodeMirror.vue';
+				import DOMPurify from 'dompurify';
+				import TutorialQuiz from '@/components/TutorialQuiz.vue';
 					>
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
@@ -75,7 +78,6 @@
 
 		<div class="box">
 			<h2 id="what-makes-the-web-a-web" class="title is-3">
-				What Makes the Web a Web?
 			</h2>
 			<p>
 				Links are what make the World Wide Web truly a "web". They allow us to
@@ -650,8 +652,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, inject, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, computed, onMounted, inject } from 'vue';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
@@ -726,11 +727,13 @@ const practiceCode = ref(`<!-- Create your restaurant navigation here -->
   <!-- Add your navigation links -->
 </nav>`);
 
-const sanitizedLinkPreview = computed(() =>
-	DOMPurify.sanitize(linkExample.value),
-);
 const sanitizedPracticePreview = computed(() =>
 	DOMPurify.sanitize(practiceCode.value),
+);
+
+// Progress tracking flag (used in template)
+const progressEnabled = computed(() =>
+	progressService.isProgressTrackingEnabled(),
 );
 
 const internalLinks = ref(

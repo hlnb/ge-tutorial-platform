@@ -1,0 +1,484 @@
+# Sveltia CMS Configuration for Graphite Edge Tutorial Platform
+# https://github.com/sveltia/sveltia-cms
+
+# Backend configuration - using GitHub OAuth via Vercel
+backend:
+  name: github
+  repo: hlnb/ge-tutorial-platform
+  branch: master # or main, depending on your default branch
+  base_url: https://www.graphitedge.com.au # Your Vercel deployment URL
+  auth_endpoint: api/auth # Vercel serverless function endpoint
+
+# Local backend for development (comment out when in production)
+# local_backend: true
+
+# Media files configuration
+media_folder: 'public/images' # Where uploaded images will be stored
+public_folder: '/images' # How they'll be referenced in content
+
+# Site URL for preview
+site_url: https://www.graphitedge.com.au
+
+# Logo for the CMS interface
+logo_url: /vite.svg
+
+# Collections define the structure of different content types
+collections:
+  # ============================================
+  # TUTORIALS COLLECTION
+  # ============================================
+  - name: 'tutorials'
+    label: 'Tutorials'
+    label_singular: 'Tutorial'
+    description: 'Interactive coding tutorials organized by skill level and topic'
+    folder: 'src/pages/tutorials'
+    create: true
+    nested:
+      depth: 100
+      summary: '{{title}}'
+    meta:
+      path:
+        label: 'Path'
+        widget: 'string'
+        index_file: 'index'
+    fields:
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+        required: true
+        hint: "The tutorial title (e.g., 'Introduction to HTML')"
+
+      - label: 'Description'
+        name: 'description'
+        widget: 'text'
+        required: true
+        hint: 'Brief description of what students will learn'
+
+      - label: 'Category'
+        name: 'category'
+        widget: 'select'
+        required: true
+        options:
+          - { label: 'Getting Started', value: 'Getting Started' }
+          - { label: 'HTML Basics', value: 'HTML Basics' }
+          - { label: 'CSS Basics', value: 'CSS Basics' }
+          - { label: 'JavaScript Basics', value: 'JavaScript Basics' }
+          - { label: 'DOM Basics', value: 'DOM Basics' }
+          - { label: 'Git Basics', value: 'Git Basics' }
+          - { label: 'Intermediate', value: 'Intermediate' }
+          - { label: 'Advanced', value: 'Advanced' }
+          - { label: 'Deployments', value: 'Deployments' }
+          - { label: 'SEO & Analytics', value: 'SEO & Analytics' }
+
+      - label: 'Difficulty Level'
+        name: 'level'
+        widget: 'select'
+        default: 'Beginner'
+        options:
+          - { label: 'Beginner', value: 'Beginner' }
+          - { label: 'Intermediate', value: 'Intermediate' }
+          - { label: 'Advanced', value: 'Advanced' }
+
+      - label: 'Order'
+        name: 'order'
+        widget: 'number'
+        required: true
+        default: 1
+        value_type: 'int'
+        min: 1
+        hint: 'Order within the category (1 = first)'
+
+      - label: 'Duration'
+        name: 'duration'
+        widget: 'string'
+        required: false
+        hint: "e.g., '15 minutes', '1 hour'"
+
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        required: false
+        hint: 'Topics covered in this tutorial'
+        field:
+          label: 'Tag'
+          name: 'tag'
+          widget: 'string'
+
+      - label: 'Prerequisites'
+        name: 'prerequisites'
+        widget: 'list'
+        required: false
+        hint: 'What students should know before starting'
+        field:
+          label: 'Prerequisite'
+          name: 'prerequisite'
+          widget: 'string'
+
+      - label: 'Last Updated'
+        name: 'lastUpdated'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD'
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        required: false
+
+      - label: 'Author'
+        name: 'author'
+        widget: 'string'
+        default: 'Helen Burgess'
+        required: false
+
+      - label: 'Featured Image'
+        name: 'image'
+        widget: 'image'
+        required: false
+        media_folder: '/public/images/tutorials'
+        public_folder: '/images/tutorials'
+        hint: 'Main image for the tutorial'
+
+      - label: 'Learning Objectives'
+        name: 'learningObjectives'
+        widget: 'list'
+        required: false
+        hint: 'What students will learn'
+        field:
+          label: 'Objective'
+          name: 'objective'
+          widget: 'string'
+
+      - label: 'Tutorial Content'
+        name: 'body'
+        widget: 'markdown'
+        required: true
+        hint: 'Main tutorial content in Markdown format'
+        modes: ['raw', 'rich_text']
+
+      - label: 'Code Examples'
+        name: 'codeExamples'
+        widget: 'list'
+        required: false
+        hint: 'Code snippets and examples'
+        fields:
+          - label: 'Title'
+            name: 'title'
+            widget: 'string'
+          - label: 'Language'
+            name: 'language'
+            widget: 'select'
+            options: ['html', 'css', 'javascript', 'bash', 'json', 'yaml']
+          - label: 'Code'
+            name: 'code'
+            widget: 'text'
+            default: 'code'
+
+      - label: 'Practice Exercises'
+        name: 'exercises'
+        widget: 'list'
+        required: false
+        fields:
+          - label: 'Exercise Title'
+            name: 'title'
+            widget: 'string'
+          - label: 'Instructions'
+            name: 'instructions'
+            widget: 'markdown'
+          - label: 'Starter Code'
+            name: 'starterCode'
+            widget: 'text'
+            required: false
+          - label: 'Solution'
+            name: 'solution'
+            widget: 'text'
+            required: false
+
+  # ============================================
+  # BLOG POSTS COLLECTION (The Graphite Journal)
+  # ============================================
+  - name: 'posts'
+    label: 'Blog Posts'
+    label_singular: 'Blog Post'
+    description: 'Articles for The Graphite Journal'
+    folder: 'src/pages/posts'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+        required: true
+        hint: 'The blog post title'
+
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD'
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        required: true
+
+      - label: 'Author'
+        name: 'author'
+        widget: 'string'
+        default: 'Helen Burgess'
+        required: true
+
+      - label: 'Featured Image'
+        name: 'image'
+        widget: 'image'
+        required: true
+        media_folder: '/public/images/posts'
+        public_folder: '/images/posts'
+        hint: 'Main image for the post'
+
+      - label: 'Description'
+        name: 'description'
+        widget: 'text'
+        required: true
+        hint: 'Brief summary for SEO and previews'
+
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        required: true
+        hint: 'Topics covered in this post'
+        field:
+          label: 'Tag'
+          name: 'tag'
+          widget: 'string'
+
+      - label: 'Status'
+        name: 'status'
+        widget: 'select'
+        default: 'draft'
+        options:
+          - { label: 'Draft', value: 'draft' }
+          - { label: 'Published', value: 'published' }
+          - { label: 'Scheduled', value: 'scheduled' }
+
+      - label: 'Excerpt'
+        name: 'excerpt'
+        widget: 'text'
+        required: false
+        hint: 'Optional custom excerpt (leave blank to use description)'
+
+      - label: 'Content'
+        name: 'body'
+        widget: 'markdown'
+        required: true
+        hint: 'Main post content in Markdown format'
+        modes: ['raw', 'rich_text']
+
+      - label: 'SEO Keywords'
+        name: 'keywords'
+        widget: 'list'
+        required: false
+        field:
+          label: 'Keyword'
+          name: 'keyword'
+          widget: 'string'
+
+      - label: 'Related Posts'
+        name: 'relatedPosts'
+        widget: 'list'
+        required: false
+        hint: 'Slugs of related posts'
+        field:
+          label: 'Post Slug'
+          name: 'slug'
+          widget: 'string'
+
+  # ============================================
+  # PROJECTS COLLECTION
+  # ============================================
+  - name: 'projects'
+    label: 'Projects'
+    label_singular: 'Project'
+    description: 'Hands-on coding projects for students'
+    folder: 'src/pages/projects'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+        required: true
+        hint: "Project title (e.g., 'Calculator App')"
+
+      - label: 'Description'
+        name: 'description'
+        widget: 'text'
+        required: true
+        hint: 'Brief project description'
+
+      - label: 'Difficulty Level'
+        name: 'difficulty'
+        widget: 'select'
+        default: 'Beginner'
+        options:
+          - { label: 'Beginner', value: 'Beginner' }
+          - { label: 'Intermediate', value: 'Intermediate' }
+          - { label: 'Advanced', value: 'Advanced' }
+
+      - label: 'Duration'
+        name: 'duration'
+        widget: 'string'
+        required: false
+        hint: "Estimated time to complete (e.g., '60 minutes', '2-3 hours')"
+
+      - label: 'Technologies'
+        name: 'technologies'
+        widget: 'list'
+        required: true
+        hint: 'Technologies used in this project'
+        field:
+          label: 'Technology'
+          name: 'tech'
+          widget: 'select'
+          options:
+            - 'HTML'
+            - 'CSS'
+            - 'JavaScript'
+            - 'Git'
+            - 'Vue'
+            - 'React'
+            - 'Node.js'
+            - 'Other'
+
+      - label: 'Category'
+        name: 'category'
+        widget: 'select'
+        required: true
+        options:
+          - { label: 'HTML/CSS', value: 'HTML/CSS' }
+          - { label: 'JavaScript', value: 'JavaScript' }
+          - { label: 'DOM Manipulation', value: 'DOM' }
+          - { label: 'Git', value: 'Git' }
+          - { label: 'Full Stack', value: 'Full Stack' }
+          - { label: 'API', value: 'API' }
+
+      - label: 'Order'
+        name: 'order'
+        widget: 'number'
+        required: false
+        default: 1
+        value_type: 'int'
+        min: 1
+        hint: 'Display order within category'
+
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        required: false
+        field:
+          label: 'Tag'
+          name: 'tag'
+          widget: 'string'
+
+      - label: 'Prerequisites'
+        name: 'prerequisites'
+        widget: 'list'
+        required: false
+        hint: 'Required tutorials/knowledge'
+        fields:
+          - label: 'Tutorial'
+            name: 'tutorial'
+            widget: 'string'
+          - label: 'Link'
+            name: 'link'
+            widget: 'string'
+
+      - label: 'Featured Image'
+        name: 'image'
+        widget: 'image'
+        required: false
+        media_folder: '/public/images/projects'
+        public_folder: '/images/projects'
+
+      - label: 'Project Objectives'
+        name: 'objectives'
+        widget: 'list'
+        required: false
+        field:
+          label: 'Objective'
+          name: 'objective'
+          widget: 'string'
+
+      - label: 'Project Content'
+        name: 'body'
+        widget: 'markdown'
+        required: true
+        hint: 'Full project instructions and guidance'
+        modes: ['raw', 'rich_text']
+
+      - label: 'Starter Code'
+        name: 'starterCode'
+        widget: 'object'
+        required: false
+        fields:
+          - label: 'HTML'
+            name: 'html'
+            widget: 'text'
+            required: false
+          - label: 'CSS'
+            name: 'css'
+            widget: 'text'
+            required: false
+          - label: 'JavaScript'
+            name: 'javascript'
+            widget: 'text'
+            required: false
+
+      - label: 'Solution Code'
+        name: 'solutionCode'
+        widget: 'object'
+        required: false
+        fields:
+          - label: 'HTML'
+            name: 'html'
+            widget: 'text'
+            required: false
+          - label: 'CSS'
+            name: 'css'
+            widget: 'text'
+            required: false
+          - label: 'JavaScript'
+            name: 'javascript'
+            widget: 'text'
+            required: false
+
+      - label: 'Challenge Extensions'
+        name: 'challenges'
+        widget: 'list'
+        required: false
+        hint: 'Additional challenges for advanced students'
+        field:
+          label: 'Challenge'
+          name: 'challenge'
+          widget: 'text'
+
+      - label: 'Demo URL'
+        name: 'demoUrl'
+        widget: 'string'
+        required: false
+        hint: 'Link to live demo'
+
+      - label: 'GitHub Repository'
+        name: 'githubUrl'
+        widget: 'string'
+        required: false
+        hint: 'Link to starter/solution repo'
+
+# Editor settings
+editor:
+  preview: true
+
+# Publish mode
+publish_mode: editorial_workflow
+
+# Media library
+media_library:
+  name: uploadcare
+  config:
+    publicKey: 'demopublickey'
+    multiple: true
+    tabs: 'file camera url'

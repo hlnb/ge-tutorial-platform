@@ -563,11 +563,9 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, inject, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, computed, onMounted, inject } from 'vue';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
-import DOMPurify from 'dompurify';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodingOptions from '@/components/CodingOptions.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
@@ -820,6 +818,11 @@ const backgroundImage = ref(
      aria-hidden="true">
   <!-- Content goes here -->
 </div>`,
+);
+
+// Progress tracking flag (used in template)
+const progressEnabled = computed(() =>
+	progressService.isProgressTrackingEnabled(),
 );
 </script>
 

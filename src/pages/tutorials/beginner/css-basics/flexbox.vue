@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, inject, onMounted, watch } from 'vue';
+import { ref, computed, inject, onMounted } from 'vue';
 import { usePageSections } from '@/composables/usePageSections';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';

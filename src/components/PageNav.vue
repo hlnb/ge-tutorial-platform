@@ -36,7 +36,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const props = defineProps({
+const { sections } = defineProps({
 	sections: {
 		type: Array,
 		default: () => [],
@@ -50,21 +50,16 @@ const toggleNav = () => {
 	isExpanded.value = !isExpanded.value;
 };
 
-const scrollToSection = (id) => {
-	const element = document.getElementById(id);
-	if (element) {
-		element.scrollIntoView({ behavior: 'smooth' });
-	}
-};
+// scrollToSection intentionally removed: navigation handled with anchor links
 
 // Track active section based on scroll position
 const updateActiveSection = () => {
-	const sections = [...document.querySelectorAll('[id]')];
+	const pageEls = Array.from(document.querySelectorAll('[id]'));
 	const scrollPosition = window.scrollY + 100; // Offset for better detection
 
-	for (const section of sections.reverse()) {
-		if (section.offsetTop <= scrollPosition) {
-			activeSection.value = section.id;
+	for (const sectionEl of pageEls.reverse()) {
+		if (sectionEl instanceof HTMLElement && sectionEl.offsetTop <= scrollPosition) {
+			activeSection.value = sectionEl.id;
 			break;
 		}
 	}

@@ -121,6 +121,7 @@
 </template>
 
 <script setup>
+/* eslint-disable no-useless-escape */
 import CodeMirror from '@/components/CodeMirror.vue';
 
 const fileStructure = `project-folder/

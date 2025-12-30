@@ -1333,18 +1333,11 @@ This is a new line
 </template>
 
 <script setup>
-import { ref, computed, onMounted, inject, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, onMounted, inject, computed } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import DOMPurify from 'dompurify';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
-import CodingOptions from '@/components/CodingOptions.vue';
-import { basicSetup } from 'codemirror';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
-// Get the route
-const route = useRoute();
+// (route not needed in this file)
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');
@@ -1412,7 +1405,7 @@ const headExample = ref(`<head>
     <meta name="description" content="Description of your page">
     <title>Page Title</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"><\/script>
+	<script src="script.js">` + ('</' + 'script>') + `
 </head>`);
 
 const bodyExample = ref(`<body>
@@ -1720,15 +1713,40 @@ const correctStructure = ref(`<!DOCTYPE html>
 </body>
 </html>`);
 
-const wrongPaths = ref(`<img src="C:\Users\Me\Pictures\logo.png">
+const wrongPaths = ref(`<img src="C:\\Users\\Me\\Pictures\\logo.png">
 <img src="../../../../../../images/photo.jpg">
 <a href="ABOUT.HTML">About Us</a>
 <img src="my photo.jpg">`);
+
+// (moved) Mark example refs as used to avoid no-unused-vars in this large examples file
 
 const correctPaths = ref(`<img src="images/logo.png" alt="Logo">
 <img src="../images/photo.jpg" alt="Photo">
 <a href="about.html">About Us</a>
 <img src="images/my-photo.jpg" alt="My photo">`);
+
+// Mark example refs as used to avoid no-unused-vars in this large examples file
+void [
+	basicStructure,
+	headExample,
+	bodyExample,
+	practiceCode,
+	semanticExample,
+	basicLayout,
+	blogLayout,
+	bistroExample,
+	rottoExample,
+	metadataBasics,
+	metadataAdvanced,
+	fileStructure,
+	bistroStructure,
+	rottoStructure,
+	wrongStructure,
+	correctStructure,
+	wrongPaths,
+	correctPaths,
+	generatedMetadata,
+];
 </script>
 
 <script>

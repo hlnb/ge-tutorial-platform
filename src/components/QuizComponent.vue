@@ -2,10 +2,10 @@
 	<div id="quiz" class="quiz-container">
 		<div class="box quiz-box" :class="{ 'is-success': quizCompleted }">
 			<h3 class="title is-4">
-				<i class="fas fa-question-circle"></i> {{ title }}
+				<i class="fas fa-question-circle"></i> {{ quizTitle }}
 			</h3>
 
-			<p class="quiz-description">{{ description }}</p>
+			<p class="quiz-description">{{ quizDescription }}</p>
 
 			<div v-if="!quizStarted && !quizCompleted" class="quiz-intro">
 				<button

@@ -150,6 +150,7 @@
 </template>
 
 <script setup>
+/* eslint-disable no-useless-escape */
 import CodeMirror from '@/components/CodeMirror.vue';
 
 const htmlStructure = `<!DOCTYPE html>

@@ -156,6 +156,7 @@
 </template>
 
 <script setup>
+/* eslint-disable no-useless-escape */
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 

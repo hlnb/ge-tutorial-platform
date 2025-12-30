@@ -10,7 +10,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link :to="{ name: 'html-basics' }">HTML Basics</router-link>
+					<router-link :to="{ name: 'html-basics-index' }">HTML Basics</router-link>
 				</li>
 				<li class="is-active">
 					<a href="#" aria-current="page">Your First HTML Page</a>
@@ -347,7 +347,7 @@ Best time to visit: September to May</pre
 </template>
 
 <script setup>
-import { ref, computed, onMounted, inject, watch } from 'vue';
+import { ref, computed, onMounted, inject } from 'vue';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';

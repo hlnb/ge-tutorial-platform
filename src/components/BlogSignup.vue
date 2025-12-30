@@ -55,8 +55,8 @@ const handleSubmit = async (e) => {
 			throw new Error('Subscription failed. Please try again.');
 		}
 
-		const data = await response.json();
-		status.value = 'success';
+	await response.json();
+	status.value = 'success';
 		email.value = '';
 	} catch (error) {
 		console.error('Subscription error:', error);

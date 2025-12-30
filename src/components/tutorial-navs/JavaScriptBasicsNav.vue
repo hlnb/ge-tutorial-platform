@@ -44,6 +44,7 @@
 </template>
 
 <script setup>
+/* eslint-disable no-unused-vars */
 import { ref, computed, inject, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';

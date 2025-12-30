@@ -7,10 +7,16 @@
 		"dev": "concurrently \"npm run dev:vite\" \"npm run dev:api\"",
 		"dev:vite": "vite",
 		"dev:api": "node api/server.js",
+		"dev:cms": "concurrently \"npm run dev:vite\" \"npm run cms:proxy\"",
+		"cms:proxy": "npx @sveltia/cms-proxy-server",
 		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix",
-		"format": "prettier --write src/"
+		"format": "prettier --write src/",
+		"migrate:content": "node scripts/migrate-to-markdown.js",
+		"migrate:tutorials": "node scripts/migrate-to-markdown.js --type=tutorials",
+		"migrate:posts": "node scripts/migrate-to-markdown.js --type=posts",
+		"migrate:projects": "node scripts/migrate-to-markdown.js --type=projects"
 	},
 	"dependencies": {
 		"@codemirror/lang-html": "^6.4.9",

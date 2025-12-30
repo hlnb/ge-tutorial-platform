@@ -1,6 +1,31 @@
+<script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import '@/assets/styles/tutorials.css';
+import { useHead } from '@vueuse/head';
+
+const route = useRoute();
+const isIndex = computed(() => {
+	const matched = route.matched || [];
+	const last = matched[matched.length - 1];
+	return !!(last && last.name === 'getting-started-index');
+});
+
+useHead({
+	title: 'Getting Started - GraphitEdge Tutorials',
+	meta: [
+		{
+			name: 'description',
+			content: 'Essential concepts and tools for web development',
+		},
+	],
+});
+</script>
+
 <template>
 	<div class="container section">
 		<div class="content">
+			<router-view />
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
 					<li>
@@ -17,11 +42,12 @@
 				</ul>
 			</nav>
 
-			<h1 class="title is-1">Getting Started</h1>
+						<div v-if="isIndex">
+							<h1 class="title is-1">Getting Started</h1>
 
-			<p class="subtitle is-4 mb-6">
-				Essential concepts and tools for web development
-			</p>
+							<p class="subtitle is-4 mb-6">
+									Essential concepts and tools for web development
+							</p>
 
 			<div class="box box-info mb-6">
 				<p>
@@ -174,19 +200,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </template>
 
-<script setup>
-import '@/assets/styles/tutorials.css';
-import { useHead } from '@vueuse/head';
-
-useHead({
-	title: 'Getting Started - GraphitEdge Tutorials',
-	meta: [
-		{
-			name: 'description',
-			content: 'Essential concepts and tools for web development',
-		},
-	],
-});
-</script>
