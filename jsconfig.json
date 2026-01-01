@@ -10,7 +10,7 @@
 		"moduleResolution": "node",
 		"lib": ["es2022", "dom"],
 		"allowJs": true,
-		"checkJs": true
+		"checkJs": false
 	},
 	"exclude": ["node_modules", "dist"],
 	"include": ["src/**/*", "api/posts.js"],

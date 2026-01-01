@@ -92,62 +92,80 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { format } from 'date-fns';
-import { scheduleJob } from 'node-schedule';
-import Post from '../models/Post.js';
+import { postScheduler } from '../../services/PostScheduler';
+import Post from '../../models/Post.js';
 
-class PostScheduler {
-	constructor() {
-		this.jobs = new Map();
-		this.init();
-	}
+// Component state
+const scheduledPosts = ref([]);
+const isModalActive = ref(false);
+const selectedPost = ref({});
+const minDate = ref('');
 
-	async init() {
-		try {
-			// Load all scheduled posts on startup
-			const scheduledPosts = await Post.find({
-				status: 'scheduled',
-				publishDate: { $gt: new Date() },
-			});
+onMounted(async () => {
+	await loadScheduledPosts();
+	setMinDate();
+});
 
-			scheduledPosts.forEach((post) => this.schedulePost(post));
-		} catch (error) {
-			console.error('Failed to initialize post scheduler:', error);
-		}
-	}
-
-	async schedulePost(post) {
-		if (this.jobs.has(post._id.toString())) {
-			this.jobs.get(post._id.toString()).cancel();
-		}
-
-		const job = scheduleJob(post.publishDate, async () => {
-			try {
-				await Post.findByIdAndUpdate(post._id, {
-					status: 'published',
-					updatedAt: new Date(),
-				});
-
-				this.jobs.delete(post._id.toString());
-			} catch (error) {
-				console.error(`Failed to publish post ${post._id}:`, error);
-			}
-		});
-
-		this.jobs.set(post._id.toString(), job);
-	}
-
-	async cancelSchedule(postId) {
-		if (this.jobs.has(postId)) {
-			this.jobs.get(postId).cancel();
-			this.jobs.delete(postId);
-
-			await Post.findByIdAndUpdate(postId, {
-				status: 'draft',
-				publishDate: null,
-			});
-		}
+async function loadScheduledPosts() {
+	try {
+		scheduledPosts.value = await Post.find({
+			status: { $in: ['scheduled', 'published'] },
+		}).sort({ publishDate: 1 });
+	} catch (error) {
+		console.error('Failed to load scheduled posts:', error);
 	}
 }
 
-export const postScheduler = new PostScheduler();
+function formatDate(date) {
+	return date ? format(new Date(date), 'PPpp') : 'Not set';
+}
+
+function setMinDate() {
+	const now = new Date();
+	now.setMinutes(now.getMinutes() + 5);
+	minDate.value = now.toISOString().slice(0, 16);
+}
+
+function openEditModal(post) {
+	selectedPost.value = { ...post };
+	isModalActive.value = true;
+}
+
+function closeModal() {
+	isModalActive.value = false;
+	selectedPost.value = {};
+}
+
+async function updateSchedule() {
+	try {
+		const publishDate = new Date(selectedPost.value.publishDate);
+		
+		await Post.findByIdAndUpdate(selectedPost.value._id, {
+			publishDate,
+			status: 'scheduled',
+		});
+
+		// Reschedule the post
+		postScheduler.schedulePost({
+			_id: selectedPost.value._id,
+			publishDate,
+		});
+
+		await loadScheduledPosts();
+		closeModal();
+	} catch (error) {
+		console.error('Failed to update schedule:', error);
+	}
+}
+
+async function cancelSchedule(postId) {
+	if (confirm('Are you sure you want to cancel this scheduled post?')) {
+		try {
+			await postScheduler.cancelSchedule(postId);
+			await loadScheduledPosts();
+		} catch (error) {
+			console.error('Failed to cancel schedule:', error);
+		}
+	}
+}
 </script>
