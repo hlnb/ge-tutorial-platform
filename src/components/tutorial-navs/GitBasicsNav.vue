@@ -28,7 +28,7 @@
     </ul>
     <div class="sidebar-footer">
       <router-link to="/tutorials" class="nav-button"><i class="fas fa-arrow-left"></i> All Tutorials</router-link>
-      <router-link to="/progress" class="nav-button"><i class="fas fa-chart-line"></i> My Progress</router-link>
+      <router-link to="/my-progress" class="nav-button"><i class="fas fa-chart-line"></i> My Progress</router-link>
     </div>
   </div>
 </template>
@@ -46,13 +46,13 @@ const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
 const navItems = [
-  { path: '/tutorials/git-basics', title: 'Overview' },
-  { path: '/tutorials/git-basics/introduction', title: 'Introduction to Git' },
-  { path: '/tutorials/git-basics/basic-commands', title: 'Basic Commands' },
-  { path: '/tutorials/git-basics/branching', title: 'Branching & Merging' },
-  { path: '/tutorials/git-basics/merging', title: 'Merging' },
-  { path: '/tutorials/git-basics/remote-repositories', title: 'Remote Repositories' },
-  { path: '/tutorials/git-basics/workflow', title: 'Git Workflow' }
+  { path: '/tutorials/intermediate/git-basics', title: 'Overview' },
+  { path: '/tutorials/intermediate/git-basics/introduction', title: 'Introduction to Git' },
+  { path: '/tutorials/intermediate/git-basics/basic-commands', title: 'Basic Commands' },
+  { path: '/tutorials/intermediate/git-basics/branching', title: 'Branching & Merging' },
+  { path: '/tutorials/intermediate/git-basics/merging', title: 'Merging' },
+  { path: '/tutorials/intermediate/git-basics/remote-repositories', title: 'Remote Repositories' },
+  { path: '/tutorials/intermediate/git-basics/workflow', title: 'Git Workflow' }
 ];
 
 const currentIndex = computed(() => navItems.findIndex((item) => isCurrentPath(item.path)));

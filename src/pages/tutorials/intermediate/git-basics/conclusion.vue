@@ -63,7 +63,7 @@
       </li>
       <li>
         <i class="fas fa-arrow-right has-text-info mr-2"></i>
-        Check out our <router-link to="/tutorials/git-advanced">Advanced Git Tutorial</router-link>
+        Explore advanced Git topics like rebasing, cherry-picking, and Git hooks
       </li>
     </ul>
 

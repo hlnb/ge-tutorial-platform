@@ -342,7 +342,7 @@ Soups & Salads
 	</div>
 
 	<!-- Add recommendations before navigation -->
-	<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/text'" />
+	<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-text'" />
 
 	<!-- Main Tutorial Navigation -->
 	<TutorialNavigation />

@@ -1262,7 +1262,7 @@ const navigationExample = ref(`/* Responsive Navigation */
 						creating flexible, responsive layouts.
 					</p>
 					<p class="mt-3">
-						<a href="/tutorials/css-basics/flexbox" class="button is-warning">
+						<a href="/tutorials/beginner/css-basics/flexbox" class="button is-warning">
 							Continue to Flexbox →
 						</a>
 					</p>

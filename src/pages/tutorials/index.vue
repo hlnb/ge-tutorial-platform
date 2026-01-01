@@ -162,6 +162,45 @@
 						>Start Your DOM Journey</router-link
 					>
 				</div>
+			</div>
+		</section>
+
+		<section class="level-section mb-6">
+			<h3 class="title is-3">
+				<span class="tag is-link is-large mb-2">Tools & AI Assistance</span>
+			</h3>
+			<p class="subtitle mb-4">
+				Modern development tools and AI-powered workflows that enhance productivity at any skill level
+			</p>
+			<div class="tutorials-grid">
+				<div class="box tutorial-card">
+					<h4 class="title is-4">
+						<i class="fas fa-robot"></i> AI-Assisted Web Development
+					</h4>
+					<p>Learn how to use AI tools to assist coding, testing, and deployment.</p>
+					<div class="tags">
+						<span class="tag is-light">6 tutorials</span>
+						<span class="tag is-light">4-6 hours</span>
+						<span class="tag is-success">New</span>
+					</div>
+					<ul class="tutorial-topics mt-3">
+						<li><i class="fas fa-check"></i> AI Coding Assistants</li>
+						<li><i class="fas fa-check"></i> Code Generation & Review</li>
+						<li><i class="fas fa-check"></i> Debugging with AI</li>
+						<li><i class="fas fa-check"></i> Documentation & Testing</li>
+					</ul>
+					<router-link :to="'/tutorials/ai-assisted/'" class="button is-primary is-outlined mt-3">
+						Explore AI Tools
+					</router-link>
+				</div>
+			</div>
+		</section>
+
+		<section class="level-section mb-6">
+			<h3 class="title is-3">
+				<span class="tag is-success is-large mb-2">Intermediate</span>
+			</h3>
+			<div class="tutorials-grid">
 				<div class="box tutorial-card">
 					<h4 class="title is-4">
 						<i class="fab fa-git-alt git-icon"></i> Git Basics
@@ -184,25 +223,7 @@
 						class="button is-primary is-outlined mt-3"
 						>Start Your Git Journey</router-link
 					>
-			</div>
-			</div>
-				<div class="box tutorial-card">
-					<h4 class="title is-4">AI-Assisted Web Development</h4>
-					<p>Learn how to use AI tools to assist coding, testing, and deployment.</p>
-					<div class="tags">
-						<span class="tag is-light">6 tutorials</span>
-						<span class="tag is-light">4-6 hours</span>
-						<span class="tag is-success">New</span>
-					</div>
-					<router-link :to="'/tutorials/ai-assisted/'" class="button is-primary is-outlined mt-3">Explore AI Module</router-link>
 				</div>
-		</section>
-
-		<section class="level-section mb-6">
-			<h3 class="title is-3">
-				<span class="tag is-success is-large mb-2">Intermediate</span>
-			</h3>
-			<div class="tutorials-grid">
 				<div class="box tutorial-card">
 					<h4 class="title is-4">Common Page Sections</h4>
 					<p>Build professional navigation, galleries, forms, and more</p>

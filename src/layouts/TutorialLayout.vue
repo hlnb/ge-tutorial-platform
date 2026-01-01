@@ -104,39 +104,39 @@ const tutorialMap = {
 	'html-basics-index': {
 		prev: { path: '/tutorials/getting-started',title: 'Getting Started' },
 		next: {
-			path: '/tutorials/html-basics/first-page',
+			path: '/tutorials/beginner/html-basics/html-first-page',
 			title: 'Your First HTML Page',
 		},
 	},
 	'html-basics-first-page': {
 		prev: { path: '/tutorials/html-basics',title: 'Introduction' },
-		next: { path: '/tutorials/html-basics/text',title: 'Working with Text' },
+		next: { path: '/tutorials/beginner/html-basics/html-text',title: 'Working with Text' },
 	},
 	'html-basics-text': {
 		prev: {
-			path: '/tutorials/html-basics/first-page',
+			path: '/tutorials/beginner/html-basics/html-first-page',
 			title: 'Your First HTML Page',
 		},
-		next: { path: '/tutorials/html-basics/links',title: 'Links & Navigation' },
+		next: { path: '/tutorials/beginner/html-basics/html-links',title: 'Links & Navigation' },
 	},
 	'html-basics-links': {
-		prev: { path: '/tutorials/html-basics/text',title: 'Working with Text' },
-		next: { path: '/tutorials/html-basics/images',title: 'Images' },
+		prev: { path: '/tutorials/beginner/html-basics/html-text',title: 'Working with Text' },
+		next: { path: '/tutorials/beginner/html-basics/html-images',title: 'Images' },
 	},
 	'html-basics-images': {
-		prev: { path: '/tutorials/html-basics/links',title: 'Links & Navigation' },
+		prev: { path: '/tutorials/beginner/html-basics/html-links',title: 'Links & Navigation' },
 		next: {
-			path: '/tutorials/html-basics/doc-structure',
+			path: '/tutorials/beginner/html-basics/html-doc-structure',
 			title: 'Document Structure',
 		},
 	},
 	'html-basics-doc-structure': {
-		prev: { path: '/tutorials/html-basics/images',title: 'Images' },
-		next: { path: '/tutorials/html-basics/forms',title: 'Forms' },
+		prev: { path: '/tutorials/beginner/html-basics/html-images',title: 'Images' },
+		next: { path: '/tutorials/beginner/html-basics/html-forms',title: 'Forms' },
 	},
 	'html-basics-forms': {
 		prev: {
-			path: '/tutorials/html-basics/doc-structure',
+			path: '/tutorials/beginner/html-basics/html-doc-structure',
 			title: 'Document Structure',
 		},
 		next: {
@@ -145,7 +145,7 @@ const tutorialMap = {
 		},
 	},
 	'html-basics-html-emmet': {
-		prev: { path: '/tutorials/html-basics/forms',title: 'Forms' },
+		prev: { path: '/tutorials/beginner/html-basics/html-forms',title: 'Forms' },
 		next: { path: '/tutorials/css-basics',title: 'CSS Basics Introduction' },
 	},
 
@@ -215,73 +215,73 @@ const tutorialMap = {
 	// CSS Basics routes
 	'css-basics-index': {
 		prev: {
-			path: '/tutorials/html-basics/html-emmet',
+			path: '/tutorials/beginner/html-basics/html-emmet',
 			title: 'HTML Emmet',
 		},
 		next: {
-			path: '/tutorials/css-basics/introduction',
+			path: '/tutorials/beginner/css-basics/introduction',
 			title: 'Introduction to CSS',
 		},
 	},
 	'css-basics-introduction': {
-		prev: { path: '/tutorials/css-basics',title: 'CSS Basics Overview' },
-		next: { path: '/tutorials/css-basics/selectors',title: 'CSS Selectors' },
+		prev: { path: '/tutorials/beginner/css-basics',title: 'CSS Basics Overview' },
+		next: { path: '/tutorials/beginner/css-basics/selectors',title: 'CSS Selectors' },
 	},
 	'css-basics-selectors': {
 		prev: {
-			path: '/tutorials/css-basics/introduction',
+			path: '/tutorials/beginner/css-basics/introduction',
 			title: 'Introduction to CSS',
 		},
 		next: {
-			path: '/tutorials/css-basics/box-model',
+			path: '/tutorials/beginner/css-basics/box-model',
 			title: 'The Box Model',
 		},
 	},
 	'css-basics-box-model': {
-		prev: { path: '/tutorials/css-basics/selectors',title: 'CSS Selectors' },
+		prev: { path: '/tutorials/beginner/css-basics/selectors',title: 'CSS Selectors' },
 		next: {
-			path: '/tutorials/css-basics/text-properties',
+			path: '/tutorials/beginner/css-basics/text-properties',
 			title: 'Text Properties',
 		},
 	},
 	'css-basics-text-properties': {
-		prev: { path: '/tutorials/css-basics/box-model',title: 'The Box Model' },
-		next: { path: '/tutorials/css-basics/layout',title: 'Layout Basics' },
+		prev: { path: '/tutorials/beginner/css-basics/box-model',title: 'The Box Model' },
+		next: { path: '/tutorials/beginner/css-basics/layout',title: 'Layout Basics' },
 	},
 	'css-basics-layout': {
 		prev: {
-			path: '/tutorials/css-basics/text-properties',
+			path: '/tutorials/beginner/css-basics/text-properties',
 			title: 'Text Properties',
 		},
 		next: {
-			path: '/tutorials/css-basics/colors',
+			path: '/tutorials/beginner/css-basics/colors',
 			title: 'Working with Colors',
 		},
 	},
 	'css-basics-colors': {
-		prev: { path: '/tutorials/css-basics/layout',title: 'Layout Basics' },
-		next: { path: '/tutorials/css-basics/modern',title: 'Modern CSS' },
+		prev: { path: '/tutorials/beginner/css-basics/layout',title: 'Layout Basics' },
+		next: { path: '/tutorials/beginner/css-basics/modern',title: 'Modern CSS' },
 	},
 	'css-basics-modern': {
 		prev: {
-			path: '/tutorials/css-basics/colors',
+			path: '/tutorials/beginner/css-basics/colors',
 			title: 'Working with Colors',
 		},
 		next: {
-			path: '/tutorials/css-basics/responsive',
+			path: '/tutorials/beginner/css-basics/responsive',
 			title: 'Responsive Design',
 		},
 	},
 	'css-basics-responsive': {
-		prev: { path: '/tutorials/css-basics/modern',title: 'Modern CSS' },
+		prev: { path: '/tutorials/beginner/css-basics/modern',title: 'Modern CSS' },
 		next: {
-			path: '/tutorials/css-basics/flexbox',
+			path: '/tutorials/beginner/css-basics/flexbox',
 			title: 'Flexbox',
 		},
 	},
 	'css-basics-flexbox': {
 		prev: {
-			path: '/tutorials/css-basics/responsive',
+			path: '/tutorials/beginner/css-basics/responsive',
 			title: 'Responsive Design',
 		},
 		next: { path: '/tutorials',title: 'Tutorials Home' },
@@ -289,52 +289,52 @@ const tutorialMap = {
 
 	// JavaScript Basics routes
 	'javascript-basics-index': {
-		prev: { path: '/tutorials/css-basics/flexbox',title: 'Flexbox' },
+		prev: { path: '/tutorials/beginner/css-basics/flexbox',title: 'Flexbox' },
 		next: {
-			path: '/tutorials/javascript-basics/introduction',
+			path: '/tutorials/beginner/javascript-basics/introduction',
 			title: 'Introduction to JavaScript',
 		},
 	},
 	'javascript-basics-introduction': {
 		prev: {
-			path: '/tutorials/javascript-basics',
+			path: '/tutorials/beginner/javascript-basics',
 			title: 'JavaScript Basics Overview',
 		},
 		next: {
-			path: '/tutorials/javascript-basics/variables-data-types',
+			path: '/tutorials/beginner/javascript-basics/variables-data-types',
 			title: 'Variables and Data Types',
 		},
 	},
 	'javascript-basics-variables-data-types': {
 		prev: {
-			path: '/tutorials/javascript-basics/introduction',
+			path: '/tutorials/beginner/javascript-basics/introduction',
 			title: 'Introduction to JavaScript',
 		},
 		next: {
-			path: '/tutorials/javascript-basics/conditionals',
+			path: '/tutorials/beginner/javascript-basics/conditionals',
 			title: 'Conditionals and Logic',
 		},
 	},
 
 	// DOM Basics routes
 	'dom-basics-index': {
-		prev: { path: '/tutorials/javascript-basics/conditionals',title: 'JavaScript Conditionals' },
-		next: { path: '/tutorials/dom-basics/introduction',title: 'Introduction to DOM' }
+		prev: { path: '/tutorials/beginner/javascript-basics/conditionals',title: 'JavaScript Conditionals' },
+		next: { path: '/tutorials/beginner/dom-basics/introduction',title: 'Introduction to DOM' }
 	},
 	'dom-basics-introduction': {
-		prev: { path: '/tutorials/dom-basics',title: 'DOM Basics Overview' },
-		next: { path: '/tutorials/dom-basics/arrays',title: 'Arrays and Methods' }
+		prev: { path: '/tutorials/beginner/dom-basics',title: 'DOM Basics Overview' },
+		next: { path: '/tutorials/beginner/dom-basics/arrays',title: 'Arrays and Methods' }
 	},
 	'dom-basics-arrays': {
-		prev: { path: '/tutorials/dom-basics/introduction',title: 'Introduction to DOM' },
-		next: { path: '/tutorials/dom-basics/dom-manipulation',title: 'DOM Manipulation' }
+		prev: { path: '/tutorials/beginner/dom-basics/introduction',title: 'Introduction to DOM' },
+		next: { path: '/tutorials/beginner/dom-basics/dom-manipulation',title: 'DOM Manipulation' }
 	},
 	'dom-basics-dom-manipulation': {
-		prev: { path: '/tutorials/dom-basics/arrays',title: 'Arrays and Methods' },
-		next: { path: '/tutorials/dom-basics/dom-events',title: 'Event Handling' }
+		prev: { path: '/tutorials/beginner/dom-basics/arrays',title: 'Arrays and Methods' },
+		next: { path: '/tutorials/beginner/dom-basics/dom-events',title: 'Event Handling' }
 	},
 	'dom-basics-dom-events': {
-		prev: { path: '/tutorials/dom-basics/dom-manipulation',title: 'DOM Manipulation' },
+		prev: { path: '/tutorials/beginner/dom-basics/dom-manipulation',title: 'DOM Manipulation' },
 		next: { path: '/tutorials',title: 'Tutorials Home' }
 	},
 	// Git Basics routes
@@ -456,13 +456,13 @@ const handleScroll = () => {
 const shouldHideCompletion = computed(() => {
 	// List of routes that have their own custom completion sections
 	const routesWithCustomCompletion = [
-		'/tutorials/html-basics/first-page',
-		'/tutorials/html-basics/text',
-		'/tutorials/html-basics/links',
-		'/tutorials/html-basics/images',
-		'/tutorials/html-basics/doc-structure',
-		'/tutorials/html-basics/forms',
-		'/tutorials/html-basics/html-emmet',
+		'/tutorials/beginner/html-basics/html-first-page',
+		'/tutorials/beginner/html-basics/html-text',
+		'/tutorials/beginner/html-basics/html-links',
+		'/tutorials/beginner/html-basics/html-images',
+		'/tutorials/beginner/html-basics/html-doc-structure',
+		'/tutorials/beginner/html-basics/html-forms',
+		'/tutorials/beginner/html-basics/html-emmet',
 		// Add other routes here as needed
 	];
 
@@ -473,7 +473,7 @@ const shouldHideCompletion = computed(() => {
 const shouldHideQuizIndicator = computed(() => {
 	// List of routes that have their own quiz indicators
 	const routesWithCustomQuizIndicators = [
-		'/tutorials/html-basics/text',
+		'/tutorials/beginner/html-basics/html-text',
 		// Add other routes here as needed
 	];
 

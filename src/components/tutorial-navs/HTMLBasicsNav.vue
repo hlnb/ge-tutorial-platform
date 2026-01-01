@@ -46,7 +46,7 @@
       <router-link to="/tutorials" class="button is-small is-fullwidth">
         <i class="fas fa-arrow-left"></i> All Tutorials
       </router-link>
-      <router-link to="/progress" class="button is-small is-fullwidth mt-2">
+      <router-link to="/my-progress" class="button is-small is-fullwidth mt-2">
         <i class="fas fa-chart-line"></i> My Progress
       </router-link>
     </div>
@@ -67,12 +67,12 @@ const pageSectionsInject = inject('pageSections', ref([]));
 
 const tutorials = [
   { path: '/tutorials/beginner/html-basics/introduction', title: 'Introduction', icon: 'fab fa-html5' },
-  { path: '/tutorials/beginner/html-basics/first-page', title: 'Your First HTML Page', icon: 'fas fa-file-code' },
-  { path: '/tutorials/beginner/html-basics/text', title: 'Working with Text' },
-  { path: '/tutorials/beginner/html-basics/links', title: 'Links & Navigation' },
-  { path: '/tutorials/beginner/html-basics/images', title: 'Images' },
-  { path: '/tutorials/beginner/html-basics/doc-structure', title: 'Document Structure' },
-  { path: '/tutorials/beginner/html-basics/forms', title: 'Forms' },
+  { path: '/tutorials/beginner/html-basics/html-first-page', title: 'Your First HTML Page', icon: 'fas fa-file-code' },
+  { path: '/tutorials/beginner/html-basics/html-text', title: 'Working with Text' },
+  { path: '/tutorials/beginner/html-basics/html-links', title: 'Links & Navigation' },
+  { path: '/tutorials/beginner/html-basics/html-images', title: 'Images' },
+  { path: '/tutorials/beginner/html-basics/html-doc-structure', title: 'Document Structure' },
+  { path: '/tutorials/beginner/html-basics/html-forms', title: 'Forms' },
   { path: '/tutorials/beginner/html-basics/html-emmet', title: 'HTML Emmet' },
 ];
 

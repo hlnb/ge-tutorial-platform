@@ -331,7 +331,7 @@
 		</div>
 
 		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/forms'" />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-forms'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />

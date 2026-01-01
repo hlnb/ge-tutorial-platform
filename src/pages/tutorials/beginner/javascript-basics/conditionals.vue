@@ -39,11 +39,11 @@
 				<i class="fas fa-lightbulb fa-sm mr-2"></i>
 				<strong>Prerequisites:</strong> Before starting this tutorial, we
 				recommend completing the
-				<router-link to="/tutorials/javascript-basics/variables-data-types"
+				<router-link to="/tutorials/beginner/javascript-basics/variables-data-types"
 					>Variables & Data Types</router-link
 				>
 				and
-				<router-link to="/tutorials/javascript-basics/operators"
+				<router-link to="/tutorials/beginner/javascript-basics/operators"
 					>Operators & Expressions</router-link
 				>
 				tutorials to understand the concepts used here.
@@ -256,7 +256,7 @@
 		<p>
 			Here's a brief introduction to loops - we'll cover these in much more
 			detail in the
-			<router-link to="/tutorials/javascript-basics/loops"
+			<router-link to="/tutorials/beginner/javascript-basics/loops"
 				>Loops tutorial</router-link
 			>.
 		</p>
@@ -291,7 +291,7 @@
 			<p>
 				<i class="fas fa-info-circle mr-2"></i>
 				<strong>Want to learn more about loops?</strong> Check out our dedicated
-				<router-link to="/tutorials/javascript-basics/loops"
+				<router-link to="/tutorials/beginner/javascript-basics/loops"
 					>Loops tutorial</router-link
 				>
 				where we cover all types of loops in JavaScript in much more detail,

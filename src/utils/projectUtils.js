@@ -30,26 +30,26 @@ export function getContextPrerequisites(section, tutorial) {
     const prerequisites = {
         'html-basics': {
             'images': [
-                { path: '/tutorials/html-basics/first-page', title: 'Your First HTML Page' },
-                { path: '/tutorials/html-basics/text', title: 'Working with Text' }
+                { path: '/tutorials/beginner/html-basics/html-first-page', title: 'Your First HTML Page' },
+                { path: '/tutorials/beginner/html-basics/html-text', title: 'Working with Text' }
             ]
         },
         'css-basics': {
             'box-model': [
-                { path: '/tutorials/css-basics/introduction', title: 'CSS Introduction' },
-                { path: '/tutorials/css-basics/selectors', title: 'CSS Selectors' }
+                { path: '/tutorials/beginner/css-basics/introduction', title: 'CSS Introduction' },
+                { path: '/tutorials/beginner/css-basics/selectors', title: 'CSS Selectors' }
             ],
             'layout': [
-                { path: '/tutorials/css-basics/box-model', title: 'The Box Model' },
-                { path: '/tutorials/css-basics/responsive', title: 'Responsive Design' }
+                { path: '/tutorials/beginner/css-basics/box-model', title: 'The Box Model' },
+                { path: '/tutorials/beginner/css-basics/responsive', title: 'Responsive Design' }
             ]
         },
         'javascript-basics': {
             'loops': [
-                { path: '/tutorials/javascript-basics/conditionals', title: 'Control Flow' }
+                { path: '/tutorials/beginner/javascript-basics/conditionals', title: 'Control Flow' }
             ],
             'functions': [
-                { path: '/tutorials/javascript-basics/loops', title: 'Loops' }
+                { path: '/tutorials/beginner/javascript-basics/loops', title: 'Loops' }
             ]
         }
     };

@@ -257,17 +257,17 @@ export const frontmatter = {
   ],
   nextSteps: [
     {
-      path: '/tutorials/dom-basics/arrays',
+      path: '/tutorials/beginner/dom-basics/arrays',
       title: 'Arrays and Methods',
       description: 'Learn how to work with multiple DOM elements using arrays and array methods.'
     },
     {
-      path: '/tutorials/dom-basics/manipulation',
+      path: '/tutorials/beginner/dom-basics/dom-manipulation',
       title: 'DOM Manipulation',
       description: 'Master the techniques for modifying HTML elements and content dynamically.'
     },
     {
-      path: '/tutorials/dom-basics/events',
+      path: '/tutorials/beginner/dom-basics/dom-events',
       title: 'Event Handling',
       description: 'Discover how to handle user interactions and browser events.'
     }

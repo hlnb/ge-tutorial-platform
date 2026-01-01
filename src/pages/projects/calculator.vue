@@ -45,7 +45,7 @@
 				<i class="fas fa-lightbulb mr-2"></i>
 				<strong>Prerequisites:</strong> Before starting this project, you should
 				complete the
-				<router-link to="/tutorials/javascript-basics/operators"
+				<router-link to="/tutorials/beginner/javascript-basics/operators"
 					>JavaScript Operators</router-link
 				>
 				tutorial.

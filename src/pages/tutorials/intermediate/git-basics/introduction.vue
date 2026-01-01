@@ -51,7 +51,7 @@
       <ul>
         <li>
           <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Basic command line usage - <router-link to="/tutorials/command-line-basics">Review Command Line Basics</router-link>
+          Basic command line usage
         </li>
         <li>
           <i class="fas fa-folder has-text-warning mr-2"></i>

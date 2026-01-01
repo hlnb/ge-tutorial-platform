@@ -547,7 +547,7 @@
 		</div>
 
 		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/images'" />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-images'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />

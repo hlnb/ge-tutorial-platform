@@ -504,7 +504,7 @@
 			<p>
 				<i class="fas fa-check-circle mr-2"></i>
 				<strong>Ready to start?</strong> Begin with the
-				<router-link to="/tutorials/javascript-basics/introduction">
+				<router-link to="/tutorials/beginner/javascript-basics/introduction">
 					Introduction to JavaScript
 				</router-link>
 				tutorial to take your first steps into programming!
@@ -519,12 +519,12 @@ import { useRoute } from 'vue-router';
 
 // Tutorial sections in order
 const tutorialSections = [
-	{ id: 'introduction', name: 'Introduction', path: '/tutorials/javascript-basics/introduction' },
-	{ id: 'variables-data-types', name: 'Variables & Data Types', path: '/tutorials/javascript-basics/variables-data-types' },
-	{ id: 'operators', name: 'Operators', path: '/tutorials/javascript-basics/operators' },
-	{ id: 'conditionals', name: 'Conditionals', path: '/tutorials/javascript-basics/conditionals' },
-	{ id: 'loops', name: 'Loops', path: '/tutorials/javascript-basics/loops' },
-	{ id: 'functions', name: 'Functions', path: '/tutorials/javascript-basics/functions' }
+	{ id: 'introduction', name: 'Introduction', path: '/tutorials/beginner/javascript-basics/introduction' },
+	{ id: 'variables-data-types', name: 'Variables & Data Types', path: '/tutorials/beginner/javascript-basics/variables-data-types' },
+	{ id: 'operators', name: 'Operators', path: '/tutorials/beginner/javascript-basics/operators' },
+	{ id: 'conditionals', name: 'Conditionals', path: '/tutorials/beginner/javascript-basics/conditionals' },
+	{ id: 'loops', name: 'Loops', path: '/tutorials/beginner/javascript-basics/loops' },
+	{ id: 'functions', name: 'Functions', path: '/tutorials/beginner/javascript-basics/functions' }
 ];
 
 const totalSections = tutorialSections.length;

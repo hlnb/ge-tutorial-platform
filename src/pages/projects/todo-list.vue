@@ -45,7 +45,7 @@
 				<i class="fas fa-lightbulb mr-2"></i>
 				<strong>Prerequisites:</strong> Before starting this project, you should
 				complete the
-				<router-link to="/tutorials/javascript-basics/loops"
+				<router-link to="/tutorials/beginner/javascript-basics/loops"
 					>JavaScript Loops</router-link
 				>
 				tutorial.

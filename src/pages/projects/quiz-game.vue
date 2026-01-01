@@ -45,7 +45,7 @@
 				<i class="fas fa-lightbulb mr-2"></i>
 				<strong>Prerequisites:</strong> Before starting this project, you should
 				complete the
-				<router-link to="/tutorials/javascript-basics/conditionals"
+				<router-link to="/tutorials/beginner/javascript-basics/conditionals"
 					>JavaScript Conditionals</router-link
 				>
 				tutorial.

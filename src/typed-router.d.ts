@@ -506,43 +506,6 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/tutorials/beginner': RouteRecordInfo<
-      '/tutorials/beginner',
-      '/tutorials/beginner',
-      Record<never, never>,
-      Record<never, never>,
-      | '/tutorials/beginner/css-basics/'
-      | '/tutorials/beginner/css-basics/box-model'
-      | '/tutorials/beginner/css-basics/colors'
-      | '/tutorials/beginner/css-basics/flexbox'
-      | '/tutorials/beginner/css-basics/introduction'
-      | '/tutorials/beginner/css-basics/layout'
-      | '/tutorials/beginner/css-basics/modern'
-      | '/tutorials/beginner/css-basics/responsive'
-      | '/tutorials/beginner/css-basics/selectors'
-      | '/tutorials/beginner/css-basics/text'
-      | '/tutorials/beginner/dom-basics/'
-      | '/tutorials/beginner/dom-basics/arrays'
-      | '/tutorials/beginner/dom-basics/dom-events'
-      | '/tutorials/beginner/dom-basics/dom-manipulation'
-      | '/tutorials/beginner/dom-basics/introduction'
-      | '/tutorials/beginner/html-basics/'
-      | '/tutorials/beginner/html-basics/html-doc-structure'
-      | '/tutorials/beginner/html-basics/html-emmet'
-      | '/tutorials/beginner/html-basics/html-first-page'
-      | '/tutorials/beginner/html-basics/html-forms'
-      | '/tutorials/beginner/html-basics/html-images'
-      | '/tutorials/beginner/html-basics/html-links'
-      | '/tutorials/beginner/html-basics/html-text'
-      | '/tutorials/beginner/html-basics/introduction'
-      | '/tutorials/beginner/javascript-basics/'
-      | '/tutorials/beginner/javascript-basics/conditionals'
-      | '/tutorials/beginner/javascript-basics/functions'
-      | '/tutorials/beginner/javascript-basics/introduction'
-      | '/tutorials/beginner/javascript-basics/loops'
-      | '/tutorials/beginner/javascript-basics/operators'
-      | '/tutorials/beginner/javascript-basics/variables-data-types'
-    >,
     '/tutorials/beginner/css-basics/': RouteRecordInfo<
       '/tutorials/beginner/css-basics/',
       '/tutorials/beginner/css-basics',
@@ -1368,43 +1331,6 @@ declare module 'vue-router/auto-routes' {
         | '/tutorials/backend/rest-apis'
       views:
         | never
-    }
-    'src/pages/tutorials/beginner.vue': {
-      routes:
-        | '/tutorials/beginner'
-        | '/tutorials/beginner/css-basics/'
-        | '/tutorials/beginner/css-basics/box-model'
-        | '/tutorials/beginner/css-basics/colors'
-        | '/tutorials/beginner/css-basics/flexbox'
-        | '/tutorials/beginner/css-basics/introduction'
-        | '/tutorials/beginner/css-basics/layout'
-        | '/tutorials/beginner/css-basics/modern'
-        | '/tutorials/beginner/css-basics/responsive'
-        | '/tutorials/beginner/css-basics/selectors'
-        | '/tutorials/beginner/css-basics/text'
-        | '/tutorials/beginner/dom-basics/'
-        | '/tutorials/beginner/dom-basics/arrays'
-        | '/tutorials/beginner/dom-basics/dom-events'
-        | '/tutorials/beginner/dom-basics/dom-manipulation'
-        | '/tutorials/beginner/dom-basics/introduction'
-        | '/tutorials/beginner/html-basics/'
-        | '/tutorials/beginner/html-basics/html-doc-structure'
-        | '/tutorials/beginner/html-basics/html-emmet'
-        | '/tutorials/beginner/html-basics/html-first-page'
-        | '/tutorials/beginner/html-basics/html-forms'
-        | '/tutorials/beginner/html-basics/html-images'
-        | '/tutorials/beginner/html-basics/html-links'
-        | '/tutorials/beginner/html-basics/html-text'
-        | '/tutorials/beginner/html-basics/introduction'
-        | '/tutorials/beginner/javascript-basics/'
-        | '/tutorials/beginner/javascript-basics/conditionals'
-        | '/tutorials/beginner/javascript-basics/functions'
-        | '/tutorials/beginner/javascript-basics/introduction'
-        | '/tutorials/beginner/javascript-basics/loops'
-        | '/tutorials/beginner/javascript-basics/operators'
-        | '/tutorials/beginner/javascript-basics/variables-data-types'
-      views:
-        | 'default'
     }
     'src/pages/tutorials/beginner/css-basics/index.vue': {
       routes:

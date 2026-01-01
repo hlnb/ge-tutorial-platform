@@ -46,8 +46,8 @@
 			<p>
 				<i class="fas fa-info-circle page-icon mr-2"></i>
 				<strong>Prerequisites:</strong> Before starting this tutorial, you should be familiar with JavaScript variables, data types, and control flow (if/else statements). If you're new to these concepts, check out our 
-				<router-link to="/tutorials/javascript-basics/variables">Variables &amp; Data Types</router-link> and 
-				<router-link to="/tutorials/javascript-basics/conditionals">Control Flow</router-link> tutorials first.
+				<router-link to="/tutorials/beginner/javascript-basics/variables-data-types">Variables &amp; Data Types</router-link> and 
+				<router-link to="/tutorials/beginner/javascript-basics/conditionals">Control Flow</router-link> tutorials first.
 			</p>
 		</div>
 

@@ -61,31 +61,31 @@ onBeforeUnmount(() => {
 							time: '15 minutes',
 						},
 						{
-							path: '/tutorials/beginner/html-basics/first-page',
+							path: '/tutorials/beginner/html-basics/html-first-page',
 							text: 'Your First HTML Page',
 							time: '20 minutes',
 						},
 						{
-							path: '/tutorials/beginner/html-basics/text',
+							path: '/tutorials/beginner/html-basics/html-text',
 							text: 'Working with Text',
 							time: '30 minutes',
 						},
 						{
-							path: '/tutorials/beginner/html-basics/links',
+							path: '/tutorials/beginner/html-basics/html-links',
 							text: 'Links & Navigation',
 							time: '30 minutes',
 						},
 						{
-							path: '/tutorials/beginner/html-basics/images',
+							path: '/tutorials/beginner/html-basics/html-images',
 							text: 'Images',
 							time: '25 minutes',
 						},
 						{
-							path: '/tutorials/beginner/html-basics/doc-structure',
+							path: '/tutorials/beginner/html-basics/html-doc-structure',
 							text: 'Document Structure',
 							time: '20 minutes',
 						},
-						{ path: '/tutorials/beginner/html-basics/forms', text: 'Forms', time: '35 minutes' },
+						{ path: '/tutorials/beginner/html-basics/html-forms', text: 'Forms', time: '35 minutes' },
 						{
 							path: '/tutorials/beginner/html-basics/html-emmet',
 							text: 'Emmet Workflow',

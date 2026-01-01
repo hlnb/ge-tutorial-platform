@@ -36,7 +36,7 @@
               <div class="card-content">
                 <h5 class="title is-6">Introduction to DOM</h5>
                 <p>Learn the basics of Document Object Model and its structure.</p>
-                <router-link to="/tutorials/dom-basics/introduction" class="button is-primary is-small">
+                <router-link to="/tutorials/beginner/dom-basics/introduction" class="button is-primary is-small">
                   Start Learning
                 </router-link>
               </div>
@@ -54,7 +54,7 @@
               <div class="card-content">
                 <h5 class="title is-6">Arrays and Methods</h5>
                 <p>Master JavaScript arrays and their methods for data management.</p>
-                <router-link to="/tutorials/dom-basics/arrays" class="button is-primary is-small">
+                <router-link to="/tutorials/beginner/dom-basics/arrays" class="button is-primary is-small">
                   Start Learning
                 </router-link>
               </div>
@@ -65,7 +65,7 @@
               <div class="card-content">
                 <h5 class="title is-6">DOM Manipulation</h5>
                 <p>Learn to select and modify HTML elements dynamically.</p>
-                <router-link to="/tutorials/dom-basics/dom-manipulation" class="button is-primary is-small">
+                <router-link to="/tutorials/beginner/dom-basics/dom-manipulation" class="button is-primary is-small">
                   Start Learning
                 </router-link>
               </div>
@@ -83,7 +83,7 @@
               <div class="card-content">
                 <h5 class="title is-6">Event Handling</h5>
                 <p>Master event handling, form validation, and event delegation.</p>
-                <router-link to="/tutorials/dom-basics/dom-events" class="button is-primary is-small">
+                <router-link to="/tutorials/beginner/dom-basics/dom-events" class="button is-primary is-small">
                   Start Learning
                 </router-link>
               </div>

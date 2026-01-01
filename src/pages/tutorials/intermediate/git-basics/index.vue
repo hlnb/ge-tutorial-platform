@@ -166,7 +166,7 @@
                 <div class="level-section">
                     <h3 class="title is-3">Level 1: Foundations</h3>
                     <div class="path-item">
-                        <router-link to="git-basics/introduction" class="box" :class="{ 'is-completed': isSectionCompleted('introduction') }">
+                        <router-link to="/tutorials/intermediate/git-basics/introduction" class="box" :class="{ 'is-completed': isSectionCompleted('introduction') }">
                             <h4 class="title is-4">
                                 <i class="fas fa-flag-checkered"></i> Getting Started
                                 <span v-if="isSectionCompleted('introduction')" class="icon has-text-success">
@@ -186,7 +186,7 @@
                 <div class="level-section">
                     <h3 class="title is-3">Level 2: Basic Concepts</h3>
                     <div class="path-item">
-                        <router-link to="git-basics/installation" class="box" :class="{ 'is-completed': isSectionCompleted('installation') }">
+                        <router-link to="/tutorials/intermediate/git-basics/installation" class="box" :class="{ 'is-completed': isSectionCompleted('installation') }">
                             <h4 class="title is-4">
                                 <i class="fas fa-download"></i> Installation & Setup
                                 <span v-if="isSectionCompleted('installation')" class="icon has-text-success">
@@ -207,7 +207,7 @@
                     <h3 class="title is-3">Level 3: Basic Commands</h3>
                     <div class="columns">
                         <div class="column">
-                            <router-link to="git-basics/basic-commands" class="box" :class="{ 'is-completed': isSectionCompleted('basic-commands') }">
+                            <router-link to="/tutorials/intermediate/git-basics/basic-commands" class="box" :class="{ 'is-completed': isSectionCompleted('basic-commands') }">
                                 <h4 class="title is-4">
                                     <i class="fas fa-terminal"></i> Basic Commands
                                     <span v-if="isSectionCompleted('basic-commands')" class="icon has-text-success">
@@ -222,7 +222,7 @@
                             </router-link>
                         </div>
                         <div class="column">
-                            <router-link to="git-basics/branching" class="box" :class="{ 'is-completed': isSectionCompleted('branching') }">
+                            <router-link to="/tutorials/intermediate/git-basics/branching" class="box" :class="{ 'is-completed': isSectionCompleted('branching') }">
                                 <h4 class="title is-4">
                                     <i class="fas fa-code-branch"></i> Branching
                                     <span v-if="isSectionCompleted('branching')" class="icon has-text-success">
@@ -244,7 +244,7 @@
                     <h3 class="title is-3">Level 4: Collaboration</h3>
                     <div class="columns">
                         <div class="column">
-                            <router-link to="git-basics/merging" class="box" :class="{ 'is-completed': isSectionCompleted('merging') }">
+                            <router-link to="/tutorials/intermediate/git-basics/merging" class="box" :class="{ 'is-completed': isSectionCompleted('merging') }">
                                 <h4 class="title is-4">
                                     <i class="fas fa-object-group"></i> Merging
                                     <span v-if="isSectionCompleted('merging')" class="icon has-text-success">
@@ -259,7 +259,7 @@
                             </router-link>
                         </div>
                         <div class="column">
-                            <router-link to="git-basics/remote-repositories" class="box" :class="{ 'is-completed': isSectionCompleted('remote-repositories') }">
+                            <router-link to="/tutorials/intermediate/git-basics/remote-repositories" class="box" :class="{ 'is-completed': isSectionCompleted('remote-repositories') }">
                                 <h4 class="title is-4">
                                     <i class="fas fa-cloud"></i> Remote Repositories
                                     <span v-if="isSectionCompleted('remote-repositories')" class="icon has-text-success">
@@ -280,7 +280,7 @@
                 <div class="level-section">
                     <h3 class="title is-3">Level 5: Best Practices</h3>
                     <div class="path-item">
-                        <router-link to="git-basics/workflow" class="box" :class="{ 'is-completed': isSectionCompleted('workflow') }">
+                        <router-link to="/tutorials/intermediate/git-basics/workflow" class="box" :class="{ 'is-completed': isSectionCompleted('workflow') }">
                             <h4 class="title is-4">
                                 <i class="fas fa-sitemap"></i> Git Workflow
                                 <span v-if="isSectionCompleted('workflow')" class="icon has-text-success">

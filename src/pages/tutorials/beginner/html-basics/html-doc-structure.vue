@@ -1312,7 +1312,7 @@ This is a new line
 		</div>
 
 		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/doc-structure'" />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-doc-structure'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />

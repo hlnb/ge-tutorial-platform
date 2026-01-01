@@ -89,7 +89,7 @@
 					- Working with image elements
 				</li>
 				<li>
-					<router-link to="/tutorials/javascript-basics">JavaScript Basics</router-link>
+					<router-link to="/tutorials/beginner/javascript-basics">JavaScript Basics</router-link>
 					(for search functionality) - Coming Soon!
 				</li>
 			</ul>
@@ -521,7 +521,7 @@ const prerequisites = ref([
 	},
 	{
 		title: 'HTML Images',
-		path: '/tutorials/html-basics/images'
+		path: '/tutorials/beginner/html-basics/html-images'
 	}
 ]);
 

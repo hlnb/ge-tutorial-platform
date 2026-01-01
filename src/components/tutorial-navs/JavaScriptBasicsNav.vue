@@ -37,7 +37,7 @@
       </ul>
       <div class="sidebar-footer">
         <router-link to="/tutorials" class="button is-small is-fullwidth"><i class="fas fa-arrow-left"></i> All Tutorials</router-link>
-        <router-link to="/progress" class="button is-small is-fullwidth mt-2"><i class="fas fa-chart-line"></i> My Progress</router-link>
+        <router-link to="/my-progress" class="button is-small is-fullwidth mt-2"><i class="fas fa-chart-line"></i> My Progress</router-link>
       </div>
     </aside>
   </div>

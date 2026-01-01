@@ -50,7 +50,7 @@
       <ul>
         <li>
           <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Be comfortable using the command line - <router-link to="/tutorials/command-line-basics">Review Command Line Basics</router-link>
+          Be comfortable using the command line
         </li>
         <li>
           <i class="fas fa-download has-text-warning mr-2"></i>

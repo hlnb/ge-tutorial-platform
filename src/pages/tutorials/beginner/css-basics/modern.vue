@@ -817,7 +817,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 					</p>
 					<p class="mt-3">
 						<a
-							href="/tutorials/css-basics/responsive"
+							href="/tutorials/beginner/css-basics/responsive"
 							class="button is-warning"
 						>
 							Continue to Responsive Design →
@@ -842,7 +842,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 				review the content.
 			</p>
 			<p class="mt-3">
-				<a href="/tutorials/css-basics/responsive" class="button is-warning">
+				<a href="/tutorials/beginner/css-basics/responsive" class="button is-warning">
 					Continue to Responsive Design →
 				</a>
 			</p>
