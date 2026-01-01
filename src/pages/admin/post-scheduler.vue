@@ -92,8 +92,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { format } from 'date-fns';
-import { postScheduler } from '../../services/PostScheduler';
-import Post from '../../models/Post.js';
 
 // Component state
 const scheduledPosts = ref([]);
@@ -108,11 +106,13 @@ onMounted(async () => {
 
 async function loadScheduledPosts() {
 	try {
-		scheduledPosts.value = await Post.find({
-			status: { $in: ['scheduled', 'published'] },
-		}).sort({ publishDate: 1 });
+		// In a real implementation, this would call your API endpoint
+		// For now, using mock data or fetch from your backend API
+		const response = await fetch('/api/posts?status=scheduled,published');
+		scheduledPosts.value = await response.json();
 	} catch (error) {
 		console.error('Failed to load scheduled posts:', error);
+		scheduledPosts.value = []; // Fallback to empty array
 	}
 }
 
@@ -140,31 +140,36 @@ async function updateSchedule() {
 	try {
 		const publishDate = new Date(selectedPost.value.publishDate);
 		
-		await Post.findByIdAndUpdate(selectedPost.value._id, {
-			publishDate,
-			status: 'scheduled',
-		});
-
-		// Reschedule the post
-		postScheduler.schedulePost({
-			_id: selectedPost.value._id,
-			publishDate,
+		// Call API endpoint to update schedule
+		await fetch(`/api/posts/${selectedPost.value._id}/schedule`, {
+			method: 'PUT',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				publishDate,
+				status: 'scheduled',
+			}),
 		});
 
 		await loadScheduledPosts();
 		closeModal();
 	} catch (error) {
 		console.error('Failed to update schedule:', error);
+		alert('Failed to update schedule. Please try again.');
 	}
 }
 
 async function cancelSchedule(postId) {
 	if (confirm('Are you sure you want to cancel this scheduled post?')) {
 		try {
-			await postScheduler.cancelSchedule(postId);
+			// Call API endpoint to cancel schedule
+			await fetch(`/api/posts/${postId}/schedule`, {
+				method: 'DELETE',
+			});
+			
 			await loadScheduledPosts();
 		} catch (error) {
 			console.error('Failed to cancel schedule:', error);
+			alert('Failed to cancel schedule. Please try again.');
 		}
 	}
 }
