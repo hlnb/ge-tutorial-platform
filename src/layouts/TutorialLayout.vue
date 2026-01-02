@@ -170,24 +170,24 @@ const tutorialMap = {
 			title: 'How the Internet Works',
 		},
 		next: {
-			path: '/tutorials/getting-started/dev-environment',
-			title: 'Setting Up Your Environment',
-		},
-	},
-	'getting-started-dev-environment': {
-		prev: {
-			path: '/tutorials/getting-started/web-basics',
-			title: 'Web Basics',
-		},
-		next: {
 			path: '/tutorials/getting-started/text-editors',
 			title: 'Text Editors',
 		},
 	},
 	'getting-started-text-editors': {
 		prev: {
+			path: '/tutorials/getting-started/web-basics',
+			title: 'Web Basics',
+		},
+		next: {
 			path: '/tutorials/getting-started/dev-environment',
 			title: 'Setting Up Your Environment',
+		},
+	},
+	'getting-started-dev-environment': {
+		prev: {
+			path: '/tutorials/getting-started/text-editors',
+			title: 'Text Editors',
 		},
 		next: {
 			path: '/tutorials/getting-started/browser-tools',
@@ -196,8 +196,8 @@ const tutorialMap = {
 	},
 	'getting-started-browser-tools': {
 		prev: {
-			path: '/tutorials/getting-started/text-editors',
-			title: 'Text Editors',
+			path: '/tutorials/getting-started/dev-environment',
+			title: 'Setting Up Your Environment',
 		},
 		next: {
 			path: '/tutorials/getting-started/domain-hosting',

@@ -81,18 +81,6 @@
 
             <li>
                 <router-link
-                    to="/tutorials/getting-started/dev-environment"
-                    :class="{
-                        'is-active': isCurrentPath('/tutorials/getting-started/dev-environment'),
-                        'is-next': isNextPath('/tutorials/getting-started/dev-environment'),
-                    }"
-                >
-                    Setting Up Your Environment
-                </router-link>
-            </li>
-
-            <li>
-                <router-link
                     to="/tutorials/getting-started/text-editors"
                     :class="{
                         'is-active': isCurrentPath('/tutorials/getting-started/text-editors'),
@@ -100,6 +88,18 @@
                     }"
                 >
                     Text Editors
+                </router-link>
+            </li>
+
+            <li>
+                <router-link
+                    to="/tutorials/getting-started/dev-environment"
+                    :class="{
+                        'is-active': isCurrentPath('/tutorials/getting-started/dev-environment'),
+                        'is-next': isNextPath('/tutorials/getting-started/dev-environment'),
+                    }"
+                >
+                    Setting Up Your Environment
                 </router-link>
             </li>
 
