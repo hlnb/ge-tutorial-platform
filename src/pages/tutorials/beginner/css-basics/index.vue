@@ -1,7 +1,74 @@
 <script setup>
-import { ref, inject, onMounted } from 'vue';
+import { inject, onMounted } from 'vue';
 
 const pageSections = inject('pageSections');
+
+const tutorials = [
+	{
+		title: 'Introduction to CSS',
+		route: '/tutorials/beginner/css-basics/introduction',
+		duration: '15 mins',
+		focus: 'Theory',
+		focusTag: 'is-primary',
+		summary: 'Understand what CSS is, how it works with HTML, and why every site relies on it.',
+	},
+	{
+		title: 'Selectors & Properties',
+		route: '/tutorials/beginner/css-basics/selectors',
+		duration: '25 mins',
+		focus: 'Practice',
+		focusTag: 'is-success',
+		summary: 'Learn how to target elements with selectors and style them with core CSS properties.',
+	},
+	{
+		title: 'Colors & Typography',
+		route: '/tutorials/beginner/css-basics/colors',
+		duration: '30 mins',
+		focus: 'Design',
+		focusTag: 'is-link',
+		summary: 'Master color systems, custom fonts, and readable type scales for polished pages.',
+	},
+	{
+		title: 'Box Model',
+		route: '/tutorials/beginner/css-basics/box-model',
+		duration: '25 mins',
+		focus: 'Practice',
+		focusTag: 'is-success',
+		summary: 'Control spacing with margin, padding, borders, and sizing to tame every layout.',
+	},
+	{
+		title: 'Layout Fundamentals',
+		route: '/tutorials/beginner/css-basics/layout',
+		duration: '30 mins',
+		focus: 'Project',
+		focusTag: 'is-warning',
+		summary: 'Build multi-column layouts with floats, positioning, and modern best practices.',
+	},
+	{
+		title: 'Flexbox Basics',
+		route: '/tutorials/beginner/css-basics/flexbox',
+		duration: '25 mins',
+		focus: 'Practice',
+		focusTag: 'is-success',
+		summary: 'Use Flexbox utilities to align, distribute, and reorder content responsively.',
+	},
+	{
+		title: 'Responsive Design',
+		route: '/tutorials/beginner/css-basics/responsive',
+		duration: '30 mins',
+		focus: 'Project',
+		focusTag: 'is-warning',
+		summary: 'Combine media queries and modern units to make layouts adapt to any device.',
+	},
+	{
+		title: 'Modern CSS Features',
+		route: '/tutorials/beginner/css-basics/modern',
+		duration: '20 mins',
+		focus: 'Theory',
+		focusTag: 'is-primary',
+		summary: 'Explore CSS variables, logical properties, and cascade layers to future-proof styles.',
+	},
+];
 
 onMounted(() => {
 	pageSections.value = [
@@ -55,70 +122,31 @@ onMounted(() => {
 			<p><strong>Total Course Duration:</strong> Approximately 3 hours</p>
 		</div>
 
-		<div class="tutorial-grid">
-			<div class="columns is-multiline">
-				<div
-					v-for="(link, index) in [
-						{
-							path: '/tutorials/beginner/css-basics/introduction',
-							text: 'Introduction',
-							time: '15 minutes',
-						},
-						{
-							path: '/tutorials/beginner/css-basics/selectors',
-							text: 'Selectors & Properties',
-							time: '25 minutes',
-						},
-						{
-							path: '/tutorials/beginner/css-basics/colors',
-							text: 'Colors & Typography',
-							time: '30 minutes',
-						},
-						{
-							path: '/tutorials/beginner/css-basics/box-model',
-							text: 'Box Model',
-							time: '25 minutes',
-						},
-						{
-							path: '/tutorials/beginner/css-basics/layout',
-							text: 'Layout Fundamentals',
-							time: '30 minutes',
-						},
-						{
-							path: '/tutorials/beginner/css-basics/flexbox',
-							text: 'Flexbox Basics',
-							time: '25 minutes',
-						},
-						{
-							path: '/tutorials/beginner/css-basics/responsive',
-							text: 'Responsive Design',
-							time: '30 minutes',
-						},
-						{
-							path: '/tutorials/beginner/css-basics/modern',
-							text: 'Modern CSS Features',
-							time: '20 minutes',
-						},
-					]"
-					:key="index"
-					class="column is-one-third"
-				>
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4">
-								<router-link :to="link.path">{{
-									link.text
-								}}</router-link>
-							</h3>
-							<div class="tags">
-								<span class="tag is-warning">{{ link.time }}</span>
-								<span class="tag is-success">Theory</span>
-								<span class="tag is-primary">Practice</span>
-								<span class="tag is-link">Project</span>
-							</div>
-						</div>
-					</div>
+		<div class="tutorials-grid">
+			<div
+				v-for="tutorial in tutorials"
+				:key="tutorial.route"
+				class="box tutorial-card"
+			>
+				<h2 class="title is-4">
+					<router-link :to="tutorial.route">
+						{{ tutorial.title }}
+					</router-link>
+				</h2>
+				<div class="tags mb-4">
+					<span class="tag is-info">Beginner</span>
+					<span class="tag is-light">{{ tutorial.duration }}</span>
+					<span class="tag" :class="tutorial.focusTag">
+						{{ tutorial.focus }}
+					</span>
 				</div>
+				<p>{{ tutorial.summary }}</p>
+				<router-link
+					:to="tutorial.route"
+					class="button is-primary is-outlined mt-4"
+				>
+					Start Tutorial
+				</router-link>
 			</div>
 		</div>
 
@@ -150,6 +178,24 @@ onMounted(() => {
 						Style the restaurant website from our HTML tutorials with beautiful
 						CSS layouts and designs.
 					</p>
+					<div class="buttons mt-3">
+						<a
+							href="/projects/css-basics/black-swan-bistro/index.html"
+							target="_blank"
+							class="button is-primary"
+						>
+							<span class="icon"><i class="fas fa-external-link-alt"></i></span>
+							<span>View Styled CSS Project</span>
+						</a>
+						<a
+							href="/projects/css-basics/black-swan-bistro/README.md"
+							target="_blank"
+							class="button is-light"
+						>
+							<span class="icon"><i class="fas fa-book"></i></span>
+							<span>Project Documentation</span>
+						</a>
+					</div>
 				</div>
 
 				<div class="notification is-link is-light">
@@ -160,6 +206,24 @@ onMounted(() => {
 						Transform the tourism website with responsive designs and modern CSS
 						techniques.
 					</p>
+					<div class="buttons mt-3">
+						<a
+							href="/projects/css-basics/rotto-rocks/index.html"
+							target="_blank"
+							class="button is-link"
+						>
+							<span class="icon"><i class="fas fa-external-link-alt"></i></span>
+							<span>View Styled CSS Project</span>
+						</a>
+						<a
+							href="/projects/css-basics/rotto-rocks/README.md"
+							target="_blank"
+							class="button is-light"
+						>
+							<span class="icon"><i class="fas fa-book"></i></span>
+							<span>Project Documentation</span>
+						</a>
+					</div>
 				</div>
 
 				<div class="notification is-warning is-light mt-4">

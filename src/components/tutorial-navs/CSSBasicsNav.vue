@@ -10,7 +10,10 @@
       <li v-for="(item, index) in navItems" :key="index">
         <router-link
           :to="item.path"
-          :class="{ 'is-active': isActive(item.path) }"
+          :class="{
+            'is-active': isActive(item.path),
+            'is-next': isNextTutorial(index),
+          }"
         >
           <span class="nav-item">
             <i v-if="item.icon" :class="item.icon + ' nav-icon'"></i>
@@ -99,7 +102,6 @@ function isCurrentPath(path) {
   return route.path === path;
 }
 
-/* eslint-disable-next-line no-unused-vars */
 function isNextTutorial(index) {
   return index === currentIndex.value + 1;
 }

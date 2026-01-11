@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Black Swan Bistro - Fine dining experience in the heart of the city">
+    <title>Black Swan Bistro - Fine Dining Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <img src="../../../images/tutorials/html-basics/black-swan-logo.svg" alt="Black Swan Bistro logo" width="200">
+        <h1>Black Swan Bistro</h1>
+        <p>Fine Dining Experience</p>
+        
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#contact">Contact & Reservations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <img src="../../../images/tutorials/html-basics/black-swan-storefront.jpg" alt="Black Swan Bistro exterior at sunset" width="800">
+            <h2>Welcome to Black Swan Bistro</h2>
+            <p>Experience culinary excellence in an elegant atmosphere</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p>
+                Black Swan Bistro has been serving exquisite cuisine since 2010. 
+                Our commitment to fresh, locally-sourced ingredients and innovative 
+                recipes has made us a beloved destination for food enthusiasts.
+            </p>
+            <p>
+                Our chef, <strong>Maria Rodriguez</strong>, brings over 20 years of 
+                culinary experience from restaurants around the world. Every dish is 
+                crafted with passion and attention to detail.
+            </p>
+            
+            <figure>
+                <img src="../../../images/tutorials/html-basics/black-swan-interior.jpg" alt="Chef Maria Rodriguez in the kitchen" width="400">
+                <figcaption>Chef Maria Rodriguez preparing our signature dish</figcaption>
+            </figure>
+
+            <p>
+                <a href="about.html">Learn more about our story and team</a>
+            </p>
+        </section>
+
+        <!-- Menu Highlight Section -->
+        <section id="menu-preview">
+            <h2>Featured Menu Items</h2>
+            <p>
+                Explore our carefully crafted menu featuring the finest modern Australian cuisine.
+            </p>
+            
+            <article>
+                <h3>Signature Dishes</h3>
+                <ul>
+                    <li>
+                        <strong>Pan-Seared Salmon</strong> - Wild-caught salmon with seasonal vegetables 
+                        <em>$28</em>
+                    </li>
+                    <li>
+                        <strong>Ribeye Steak</strong> - 12oz premium ribeye with garlic mashed potatoes 
+                        <em>$35</em>
+                    </li>
+                    <li>
+                        <strong>Mushroom Risotto</strong> - Creamy arborio rice with wild mushrooms 
+                        <em>$22</em>
+                    </li>
+                </ul>
+            </article>
+
+            <figure>
+                <img src="../../../images/tutorials/html-basics/black-swan-lasagna.jpg" alt="Beautifully plated pan-seared salmon" width="600">
+                <figcaption>Our signature pan-seared salmon with seasonal vegetables</figcaption>
+            </figure>
+
+            <p>
+                <a href="menu.html">View our complete menu</a>
+            </p>
+        </section>
+
+        <!-- Hours Section -->
+        <section id="hours">
+            <h2>Hours of Operation</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Lunch</th>
+                        <th>Dinner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday - Friday</td>
+                        <td>11:30 AM - 2:30 PM</td>
+                        <td>5:00 PM - 10:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>12:00 PM - 3:00 PM</td>
+                        <td>5:00 PM - 11:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>10:00 AM - 3:00 PM (Brunch)</td>
+                        <td>5:00 PM - 9:00 PM</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Note:</strong> Reservations are recommended, especially for weekends.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            
+            <address>
+                <strong>Black Swan Bistro</strong><br>
+                123 Gourmet Lane<br>
+                Perth, WA 6000<br>
+                Australia
+            </address>
+
+            <p>
+                <strong>Phone:</strong> <a href="tel:+61892345678">(08) 9234 5678</a><br>
+                <strong>Email:</strong> <a href="mailto:info@blackswanbistro.com.au">info@blackswanbistro.com.au</a>
+            </p>
+
+            <!-- Reservation Form -->
+            <h3>Make a Reservation</h3>
+            <form action="/submit-reservation" method="post">
+                <fieldset>
+                    <legend>Your Information</legend>
+                    
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <br><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br><br>
+
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <br><br>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Reservation Details</legend>
+                    
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <br><br>
+
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+                    <br><br>
+
+                    <label for="guests">Number of Guests:</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Select...</option>
+                        <option value="1">1 person</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                        <option value="5">5 people</option>
+                        <option value="6">6 people</option>
+                        <option value="7">7+ people</option>
+                    </select>
+                    <br><br>
+
+                    <label for="occasion">Special Occasion:</label>
+                    <select id="occasion" name="occasion">
+                        <option value="">None</option>
+                        <option value="birthday">Birthday</option>
+                        <option value="anniversary">Anniversary</option>
+                        <option value="business">Business Dinner</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <br><br>
+
+                    <label for="requests">Special Requests:</label><br>
+                    <textarea id="requests" name="requests" rows="4" cols="50" 
+                              placeholder="Dietary restrictions, seating preferences, etc."></textarea>
+                    <br><br>
+                </fieldset>
+
+                <label>
+                    <input type="checkbox" name="newsletter" value="yes">
+                    Subscribe to our newsletter for special offers
+                </label>
+                <br><br>
+
+                <button type="submit">Submit Reservation</button>
+                <button type="reset">Clear Form</button>
+            </form>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>A glimpse into our dining experience</p>
+            
+            <figure>
+                <img src="../../../images/tutorials/html-basics/black-swan-interior.jpg" alt="Elegant dining room with modern decor" width="400">
+                <figcaption>Our beautifully appointed dining room</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../../../images/tutorials/html-basics/black-swan-pasta.jpg" alt="Well-stocked bar with wine collection" width="400">
+                <figcaption>Our extensive wine collection</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../../../images/tutorials/html-basics/black-swan-steak.jpg" alt="Dessert showcase" width="400">
+                <figcaption>Fresh desserts made daily</figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#hours">Hours</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div>
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="https://facebook.com/blackswanbistro" target="_blank" rel="noopener">Facebook</a></li>
+                <li><a href="https://instagram.com/blackswanbistro" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="https://twitter.com/blackswanbistro" target="_blank" rel="noopener">Twitter</a></li>
+            </ul>
+        </div>
+
+        <p>&copy; 2024 Black Swan Bistro. All rights reserved.</p>
+        <p>
+            <small>
+                <a href="/privacy">Privacy Policy</a> | 
+                <a href="/terms">Terms of Service</a>
+            </small>
+        </p>
+    </footer>
+</body>
+</html>
+index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About

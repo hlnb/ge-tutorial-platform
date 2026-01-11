@@ -180,7 +180,7 @@ defineExpose({
 			</nav>
 
 			<h1 class="title is-1">
-				<i class="fa-brands fa-css3-alt"></i>
+				<i class="fa-brands fa-css css-icon"></i>
 				CSS Selectors
 			</h1>
 

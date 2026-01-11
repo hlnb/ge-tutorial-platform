@@ -1262,6 +1262,9 @@ body {
 </template>
 
 <style scoped>
+.css-icon {
+	color: rebeccapurple;
+}
 .tutorial-header {
 	margin-bottom: 3rem;
 	padding-bottom: 2rem;

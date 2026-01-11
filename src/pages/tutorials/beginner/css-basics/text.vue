@@ -2300,6 +2300,9 @@ const rottoContentStyles = ref(`/* Content sections */
 </template>
 
 <style scoped>
+.css-icon {
+	color: rebeccapurple;
+}
 .content {
 	max-width: 960px;
 	margin: 0 auto;
