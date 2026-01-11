@@ -3,6 +3,11 @@ import { ref, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 // Define frontmatter
 const frontmatter = {
@@ -72,6 +77,73 @@ const sections = [
 ];
 
 const { pageSections } = usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question:
+			'What is the difference between font-size, line-height, and letter-spacing?',
+		answer:
+			`font-size controls the height of text characters, line-height controls the vertical space between lines of text (affecting readability), and letter-spacing adjusts horizontal space between characters. Together, they create typography rhythm and readability.`,
+	},
+	{
+		question: 'When should you use em versus rem units for font sizing?',
+		answer:
+			`rem units are relative to the root (html) font size and are predictable across the page. em units are relative to the parent element and compound, making them useful for component-level scaling but potentially confusing. rem is generally preferred for consistency.`,
+	},
+	{
+		question: 'What is the purpose of font fallback stacks in font-family?',
+		answer:
+			'Font fallback stacks provide alternative fonts if the primary font fails to load or is unavailable. Example: font-family: "Helvetica Neue", Arial, sans-serif; ensures text displays even if Helvetica Neue is missing. Always end with a generic font family for reliability.',
+	},
+	{
+		question:
+			'How do text-align and text-decoration affect readability and user experience?',
+		answer:
+			`text-align controls horizontal alignment (left, center, right, justify). Left alignment is most readable for body text in left-to-right languages. text-decoration adds underlines, overlines, or strikethroughs—use carefully as underlines imply links. Both affect readability and user expectations.`,
+	},
+];
+
+const closureKeyTakeaways = [
+	'font-family, font-size, font-weight, and font-style control typeface appearance and emphasis',
+	'line-height affects readability—1.5 to 1.6 is optimal for body text',
+	'letter-spacing and word-spacing adjust character and word spacing for visual effect',
+	'text-align, text-indent, and text-decoration control text layout and decoration',
+	'rem units provide consistent, predictable sizing relative to the root element',
+	'Web fonts via @font-face or Google Fonts expand typography options beyond system fonts',
+	'Good typography improves readability, hierarchy, and overall user experience',
+];
+
+const closureObjectives = [
+	'Master font properties: family, size, weight, style',
+	'Control text spacing with line-height, letter-spacing, word-spacing',
+	'Apply text alignment and decoration effectively',
+	'Use relative units (em, rem) for responsive typography',
+	'Load and use web fonts from Google Fonts or custom sources',
+	'Create readable, accessible typography hierarchies',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-font',
+		title: 'Typography Hierarchy',
+		questions: [
+			'How do font size, weight, and spacing create visual hierarchy?',
+			'What makes text readable and comfortable to read for long periods?',
+		],
+		content:
+			"Good typography guides users through content naturally. Use size and weight to establish hierarchy, adequate spacing for readability, and appropriate fonts for the content's tone and purpose.",
+	},
+	{
+		icon: 'fas fa-mobile-alt',
+		title: 'Responsive Typography',
+		questions: [
+			'Why are relative units important for responsive design?',
+			'How can typography adapt to different screen sizes?',
+		],
+		content:
+			"Responsive typography uses relative units and media queries to ensure readability across devices. Text that's perfect on desktop might be too small or too large on mobile. Plan typography for all screen sizes.",
+	},
+];
 
 // CodeMirror examples
 const fontStackExample = ref(`/* Modern system font stack */
@@ -411,38 +483,74 @@ const rottoContentStyles = ref(`/* Content sections */
 </script>
 
 <template>
-	<div class="tutorial-content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
-			<ul>
-				<li>
-					<router-link to="/"
-						><i class="fa-solid fa-house mr-2"></i> Home</router-link
-					>
-				</li>
-				<li><router-link to="/tutorials">Tutorials</router-link></li>
-				<li>
-					<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
-				</li>
-				<li class="is-active"><a href="#" aria-current="page">Box Model</a></li>
-			</ul>
-		</nav>
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<router-link to="/"
+							><i class="fa-solid fa-house mr-2"></i> Home</router-link
+						>
+					</li>
+					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
+					</li>
+					<li class="is-active"><a href="#" aria-current="page">Text Manipulation</a></li>
+				</ul>
+			</nav>
 
-		<header class="tutorial-header">
-			<div class="tags mb-4">
-				<span class="tag is-info">{{ frontmatter.difficulty }}</span>
-				<span class="tag is-warning">{{ frontmatter.duration }}</span>
-				<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
-					tag
-				}}</span>
-			</div>
-			<h1 class="title">
-				<i class="fa-brands fa-css css-icon"></i>
-				Text Manipulation with CSS
-			</h1>
-			<p class="subtitle">
-				Learn how to style and manipulate text using CSS properties
-			</p>
-		</header>
+			<header class="tutorial-header">
+				<div class="tags mb-4">
+					<span class="tag is-info">{{ frontmatter.difficulty }}</span>
+					<span class="tag is-warning">{{ frontmatter.duration }}</span>
+					<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
+						tag
+					}}</span>
+				</div>
+				<h1 class="title">
+					<i class="fa-brands fa-css css-icon"></i>
+					Text Manipulation with CSS
+				</h1>
+				<p class="subtitle">
+					Learn how to style and manipulate text using CSS properties
+				</p>
+			</header>
+
+			<AnticipatorySet
+				title="✍️ The Power of Typography"
+				:reflection-prompts="[
+					'Think about your favorite websites. What makes their text easy or difficult to read?',
+					'How do different fonts and text styles affect your perception of a brand or message?',
+					'What role does text styling play in making content accessible to all users?',
+				]"
+			>
+				<p>
+					Every day, we read thousands of words on screens—from social media posts to
+					online articles to text messages. But have you ever considered how the
+					<em>presentation</em> of those words affects your reading experience? The way
+					text is styled can make the difference between a website that's a pleasure to
+					read and one that makes your eyes hurt.
+				</p>
+				<p>
+					In this tutorial, you'll learn how to control every aspect of text appearance
+					using CSS—from choosing the right fonts to adjusting spacing, from controlling
+					line height to creating emphasis. These skills will help you create web content
+					that's not only beautiful but also readable and accessible.
+				</p>
+			</AnticipatorySet>
+
+			<LearningObjectives
+				:objectives="[
+					'Apply font families and font stacks for cross-browser text consistency',
+					'Control text size, weight, and style using appropriate CSS properties',
+					'Adjust line height and letter spacing to improve readability',
+					'Transform text case and add decorative effects like shadows',
+					'Create text alignment and indentation for professional layouts',
+					'Implement web fonts to expand typographic possibilities',
+					'Practice typography principles through real-world exercises',
+				]"
+			/>
 
 		<div id="typography-basics" class="box mt-4">
 			<h3 class="title is-4">Understanding Typography</h3>
@@ -2065,6 +2173,10 @@ const rottoContentStyles = ref(`/* Content sections */
 					</ul>
 				</div>
 			</section>
+
+			<!-- Hunter Element: Checkpoint -->
+			<CheckpointBox :questions="checkpointQuestions" />
+
 			<section id="exercises" class="mt-6">
 				<h2 id="practical-exercises" class="title is-3">Practical Exercises</h2>
 
@@ -2170,10 +2282,20 @@ const rottoContentStyles = ref(`/* Content sections */
 			</section>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Typography is fundamental to professional web design. Sites like Medium, The New York Times, and Stripe are renowned for their typography—careful font choices, spacing, and hierarchy that make content pleasant to read. Good typography isn't noticed; bad typography drives users away.</p><p>Modern web typography leverages variable fonts, fluid typography (responsive font sizing), and careful performance optimization to deliver beautiful, fast-loading text across all devices. Understanding CSS text properties is the foundation for these advanced techniques.</p>"
+			next-steps="<p>With typography mastered, you're ready to tackle CSS layout—one of the most powerful aspects of CSS. In the next lesson, you'll learn positioning, display modes, floats, and layout strategies that control where elements appear on the page.</p><p>Layout is what transforms static HTML into dynamic, visually interesting web pages. Understanding layout fundamentals prepares you for Flexbox, Grid, and modern CSS layout techniques.</p>"
+		/>
+
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />
 
 		<TutorialNavigation prev="css-basics-box-model" next="css-basics-layout" />
+	</div>
 	</div>
 </template>
 

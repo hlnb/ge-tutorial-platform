@@ -7,21 +7,34 @@ const currentUser = ref(null);
 const isAuthenticated = ref(false);
 
 // Listen to Firebase Auth state
-onAuthStateChanged(auth, async (user) => {
-  if (user) {
-    // Optionally fetch extra user data from Firestore
-    const userDoc = await getDoc(doc(db, 'users', user.uid));
-    currentUser.value = {
-      id: user.uid,
-      email: user.email,
-      name: user.displayName || (userDoc.exists() ? userDoc.data().name : ''),
-    };
-    isAuthenticated.value = true;
-  } else {
-    currentUser.value = null;
-    isAuthenticated.value = false;
-  }
-});
+if (auth) {
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      // Optionally fetch extra user data from Firestore
+      try {
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
+        currentUser.value = {
+          id: user.uid,
+          email: user.email,
+          name: user.displayName || (userDoc.exists() ? userDoc.data().name : ''),
+        };
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        currentUser.value = {
+          id: user.uid,
+          email: user.email,
+          name: user.displayName || '',
+        };
+      }
+      isAuthenticated.value = true;
+    } else {
+      currentUser.value = null;
+      isAuthenticated.value = false;
+    }
+  });
+} else {
+  console.warn('Firebase Auth not initialized');
+}
 
 class AuthService {
   async register(email, password, name) {

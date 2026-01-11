@@ -1,13 +1,11 @@
 <template>
-	<div class="tutorial-content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
-				import { ref, computed, onMounted, inject } from 'vue';
-				import progressService from '@/services/ProgressService';
-				import CodeMirror from '@/components/CodeMirror.vue';
-				import DOMPurify from 'dompurify';
-				import TutorialQuiz from '@/components/TutorialQuiz.vue';
+					<router-link to="/"
+						><i class="fa-solid fa-house mr-2"></i> Home</router-link
 					>
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
@@ -30,51 +28,33 @@
 			<i class="fab fa-html5 html-icon"></i> Links and Navigation
 		</h1>
 
-		<div class="box is-primary">
-			<h2 class="title is-4">
-				<i class="fas fa-graduation-cap"></i> Learning Goals
-			</h2>
-			<div class="content">
-				<p>After completing this tutorial, you will be able to:</p>
-				<ul>
-					<li>Create links to other pages within your website</li>
-					<li>Link to external websites and resources</li>
-					<li>Understand and use relative and absolute paths</li>
-					<li>Create navigation menus for your websites</li>
-					<li>Add links to specific parts of a page using IDs</li>
-					<li>Apply best practices for accessible link text</li>
-					<li>Implement different link states (hover, visited, active)</li>
-					<li>Create links to email addresses and phone numbers</li>
-					<li>Understand when to open links in new tabs</li>
-				</ul>
-			</div>
+		<!-- Hunter Element 1: Anticipatory Set -->
+		<AnticipatorySet
+			title="🔗 The Power of Links"
+			:hook="`<p>Links are what make the web a <em>web</em>! Without links, every website would be an isolated island. Links are literally the technology that connects the entire internet together.</p>
+			<p><strong>Fun fact:</strong> The first-ever website, created in 1991, was just a simple page with links. Today, Google processes over 8.5 billion searches per day, all built on the power of links connecting information.</p>`"
+			:reflection-prompts="[
+				'How many links do you click in a typical day online?',
+				'What makes a good link versus a frustrating one?',
+				'Why do some links open in new tabs while others replace the current page?'
+			]"
+			connection="In this tutorial, you'll learn to create the connections that make the web work—one of the most fundamental and powerful tools in web development."
+		/>
 
-			<div class="notification is-info is-light mt-4">
-				<h3 class="title is-5">
-					<i class="fas fa-book section-icon"></i> Additional Resources
-				</h3>
-				<ul>
-					<li>
-						<a
-							href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks"
-							target="_blank"
-							rel="noopener"
-						>
-							MDN: Creating Hyperlinks
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"
-							target="_blank"
-							rel="noopener"
-						>
-							MDN: The Anchor Element
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<!-- Hunter Element 2: Learning Objectives -->
+		<LearningObjectives
+			:objectives="[
+				'Create internal links to navigate within your website',
+				'Link to external websites and resources properly',
+				'Understand and apply relative vs absolute paths correctly',
+				'Build accessible navigation menus',
+				'Create anchor links to specific page sections',
+				'Write accessible and meaningful link text',
+				'Implement email and phone links',
+				'Apply best practices for opening links in new tabs'
+			]"
+			purpose="Links are the glue of the internet. Understanding how to create proper, accessible links is essential for building user-friendly websites that work for everyone and rank well in search engines."
+		/>
 
 		<div class="box">
 			<h2 id="what-makes-the-web-a-web" class="title is-3">
@@ -633,11 +613,22 @@
 			</div>
 		</div>
 
-		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-links'" />
+	<!-- Checkpoint: Check Understanding -->
+	<CheckpointBox
+		title="⏸️ Pause & Check: Links & Navigation"
+		description="Test your understanding of HTML links:"
+		:questions="checkpointQuestions"
+	/>
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+	<!-- Closure Section -->
+	<ClosureSection
+		title="🏁 Lesson Complete: You've Connected the Web!"
+		:key-takeaways="closureKeyTakeaways"
+		:objectives="closureObjectives"
+		:reflection-prompts="closureReflectionPrompts"
+		real-world-application="<p>Every website navigation menu, every &quot;Read More&quot; button, every table of contents—they're all built with the link techniques you learned today. You now understand the fundamental connection mechanism of the entire World Wide Web!</p>"
+		next-steps="<p>In the next lesson, <strong>Working with Images</strong>, you'll learn how to add visual content to your pages with the img element, alt text, and responsive images!</p>"
+	/>
 
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">
@@ -648,6 +639,7 @@
 				You've completed the tutorial on HTML Links and Navigation. Well done!
 			</p>
 		</div>
+		</div>
 	</div>
 </template>
 
@@ -657,6 +649,66 @@ import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+const checkpointQuestions = [
+	{
+		question: "What's the difference between relative and absolute URLs?",
+		answer:
+			'Relative URLs are paths relative to the current page (e.g., about.html, ../images/pic.jpg). Absolute URLs include the full address (https://example.com/page.html).',
+	},
+	{
+		question:
+			'When should you use target="_blank" and what should you include with it?',
+		answer:
+			'Use target="_blank" for external sites or documents. Always include rel="noopener noreferrer" for security and add aria-label to warn users the link opens in a new tab.',
+	},
+	{
+		question: 'How do you create an email link?',
+		answer:
+			'Use mailto: in the href: <a href="mailto:email@example.com">Contact</a>',
+	},
+	{
+		question: 'What makes a link accessible?',
+		answer:
+			'Descriptive text (not "click here"), proper color contrast, keyboard navigable, clear indication when focused, and ARIA labels when needed.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Links are what make the web a web—they connect pages and create navigation',
+	'Use relative URLs for internal links and absolute URLs for external resources',
+	'The href attribute is required; target, rel, and aria attributes enhance functionality and accessibility',
+	'Accessible link text describes the destination, not the action (avoid "click here")',
+	'Navigation menus, breadcrumbs, and internal links create a connected user experience',
+];
+
+const closureObjectives = [
+	'Create hyperlinks with proper href attributes',
+	'Use relative and absolute URLs appropriately',
+	'Implement accessible and user-friendly link text',
+	'Build navigation systems with lists and links',
+	'Apply target and rel attributes for external links',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: 'Navigation Thinking',
+		icon: '🧭check',
+		questions: [
+			'Look at the navigation menu on any major website. How is it structured with HTML?',
+			'Why do you think breadcrumb navigation (Home > Products > Shoes) is helpful for users?'
+		],
+	},
+	{
+		title: 'Accessibility Impact',
+		icon: '♿️',
+		content: `<p>Try navigating a website using only your keyboard (Tab key to move between links, Enter to click). This is how many users experience the web. Notice how important clear focus indicators and logical link order are!</p>`,
+	},
+];
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');

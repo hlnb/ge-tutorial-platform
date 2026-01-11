@@ -89,7 +89,36 @@ export function getRecommendationsFromProps(props, providedTutorial) {
  */
 const tutorialRecommendations = {
 	'html-basics': {
-		'first-page': {
+		'introduction': {
+			nextTutorial: {
+				path: '/tutorials/beginner/html-basics/html-first-page',
+				title: 'Your First HTML Page',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/web-basics',
+					title: 'Web Development Basics',
+				},
+				{
+					path: '/tutorials/getting-started/how-internet-works',
+					title: 'How the Internet Works',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Getting started with HTML',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started',
+					description: 'Comprehensive guide to HTML basics from Mozilla',
+				},
+				{
+					title: 'W3C HTML Specification',
+					url: 'https://www.w3.org/TR/html52/',
+					description: 'Official HTML specification from W3C',
+				},
+			],
+		},
+		'html-first-page': {
 			nextTutorial: {
 				path: '/tutorials/beginner/html-basics/html-text',
 				title: 'Working with Text',
@@ -129,7 +158,7 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		text: {
+		'html-text': {
 			nextTutorial: {
 				path: '/tutorials/beginner/html-basics/html-links',
 				title: 'Links & Navigation',
@@ -156,7 +185,7 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		links: {
+		'html-links': {
 			nextTutorial: {
 				path: '/tutorials/beginner/html-basics/html-images',
 				title: 'Working with Images',
@@ -183,7 +212,7 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		images: {
+		'html-images': {
 			nextTutorial: {
 				path: '/tutorials/beginner/html-basics/html-doc-structure',
 				title: 'Document Structure',
@@ -215,7 +244,7 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		'doc-structure': {
+		'html-doc-structure': {
 			nextTutorial: {
 				path: '/tutorials/beginner/html-basics/html-forms',
 				title: 'HTML Forms',
@@ -242,9 +271,9 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		forms: {
+		'html-forms': {
 			nextTutorial: {
-				path: '/tutorials/html-basics/html-emmet',
+				path: '/tutorials/beginner/html-basics/html-emmet',
 				title: 'HTML Emmet',
 			},
 			relatedTutorials: [

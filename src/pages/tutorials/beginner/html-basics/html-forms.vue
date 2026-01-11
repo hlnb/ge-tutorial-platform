@@ -1,6 +1,7 @@
 <template>
-	<div class="tutorial-content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
 					<router-link to="/"
@@ -29,17 +30,30 @@
 			<i class="fab fa-html5 html-icon"></i> HTML Forms
 		</h1>
 
-		<div class="box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-graduation-cap"></i> Learning Objectives
-			</h3>
-			<ul>
-				<li>Understand form structure and attributes</li>
-				<li>Learn different types of form inputs</li>
-				<li>Master form validation and submission</li>
-				<li>Create user-friendly forms</li>
-			</ul>
-		</div>
+		<!-- Hunter Element 1: Anticipatory Set -->
+		<AnticipatorySet
+			title="📋 Forms: The Gateway to User Interaction"
+			:hook="`<p>Every time you log in, search, comment, or buy something online, you're using a form. Forms are how users communicate with websites—they're the bridge between people and data.</p>
+			<p><strong>Think about it:</strong> Google's homepage is basically just a search form. Facebook is built around status update forms. Amazon's checkout is a multi-step form. Forms run the internet!</p>`"
+			:reflection-prompts="[
+				'How many forms have you filled out today online?',
+				'What makes a form frustrating versus easy to use?',
+				'Why do some forms catch your mistakes before you submit?'
+			]"
+			connection="In this comprehensive tutorial, you'll learn to build forms that collect user data effectively and provide a great user experience."
+		/>
+
+		<!-- Hunter Element 2: Learning Objectives -->
+		<LearningObjectives
+			:objectives="[
+				'Understand form structure, attributes, and how forms submit data',
+				'Master all HTML5 input types and when to use each',
+				'Implement client-side form validation for better UX',
+				'Create accessible forms with proper labels and structure',
+				'Build user-friendly forms that guide users to success'
+			]"
+			purpose="Forms are essential for any interactive website. Whether you're building a contact form, login page, or checkout process, understanding forms is crucial. This is one of the most practical and immediately useful skills in web development."
+		/>
 
 		<CodingOptions filename="form.html" />
 
@@ -222,6 +236,12 @@
 				</p>
 			</div>
 		</div>
+
+		<!-- Hunter Element: Checkpoint -->
+		<CheckpointBox
+			:questions="checkpointQuestions"
+		/>
+
 		<h2 class="title is-3 mt-6">Form Security Best Practices</h2>
 		<div class="box">
 			<div class="content">
@@ -330,6 +350,15 @@
 			</div>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Forms are the primary way users interact with web applications. Every login, search, comment, purchase, and profile update happens through a form. Major websites like Google, Facebook, Amazon, and GitHub rely on well-designed forms to deliver their core functionality.</p><p>Professional form development requires balancing user experience (clear labels, helpful validation, logical flow) with security (server-side validation, CSRF tokens, rate limiting). Understanding HTML form fundamentals is essential before adding JavaScript enhancements or integrating with backend systems.</p>"
+			next-steps="<p>Now that you understand forms, you're ready to learn about proper HTML document structure. In the next lesson, you'll discover semantic HTML5 elements like header, nav, main, article, section, aside, and footer that give your pages meaning and structure.</p><p>Semantic HTML is crucial for accessibility, SEO, and creating maintainable codebases that other developers can understand and work with effectively.</p>"
+		/>
+
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-forms'" />
 
@@ -347,6 +376,27 @@
 					Keep practicing to master HTML forms.
 				</p>
 			</div>
+
+			<div class="box has-background-warning-light mt-4">
+				<h3 class="title is-5">
+					<i class="fas fa-clipboard-list mr-2"></i> See Forms in Action
+				</h3>
+				<p class="mb-3">
+					Check out how forms are implemented in the complete projects. Both sites include 
+					fully functional forms using the concepts you just learned:
+				</p>
+				<div class="buttons">
+					<a href="/projects/html-basics/black-swan-bistro/index.html#contact" target="_blank" class="button is-primary is-small">
+						<span class="icon"><i class="fas fa-utensils"></i></span>
+						<span>Bistro Reservation Form</span>
+					</a>
+					<a href="/projects/html-basics/rotto-rocks/index.html#contact" target="_blank" class="button is-link is-small">
+						<span class="icon"><i class="fas fa-island-tropical"></i></span>
+						<span>Rotto Feedback Forms</span>
+					</a>
+				</div>
+			</div>
+		</div>
 		</div>
 	</div>
 </template>
@@ -359,6 +409,72 @@ import CodingOptions from '@/components/CodingOptions.vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+const checkpointQuestions = [
+	{
+		question: 'Why is the <label> element important for form accessibility?',
+		answer:
+			"The <label> element associates text with form controls, making forms accessible to screen readers. Using the for attribute that matches an input's id creates a clickable label that focuses the input, improving usability for all users.",
+	},
+	{
+		question: 'What is the difference between client-side and server-side form validation?',
+		answer:
+			'Client-side validation (HTML5 attributes, JavaScript) provides immediate feedback to users before submission, improving UX. Server-side validation is essential for security, as client-side validation can be bypassed. Both should be used together.',
+	},
+	{
+		question: 'When would you use the <select> element versus radio buttons?',
+		answer:
+			'<select> is best for lists with many options (5+) or when space is limited, as it creates a dropdown menu. Radio buttons work better for 2-4 options where all choices should be visible at once for easy comparison.',
+	},
+	{
+		question: 'What is the purpose of the name attribute in form elements?',
+		answer:
+			"The name attribute identifies the data when the form is submitted. It becomes the key in the key-value pairs sent to the server. Without a name attribute, the input's value will not be submitted with the form.",
+	},
+];
+
+const closureKeyTakeaways = [
+	'Forms use <form>, <input>, <label>, <textarea>, <select>, and <button> elements to collect user data',
+	'HTML5 provides input types like email, tel, date, and number with built-in validation',
+	'The name attribute is required for data submission; id and for attributes connect labels to inputs',
+	'Client-side validation improves UX but must be paired with server-side validation for security',
+	'Proper form accessibility requires labels, fieldsets, legends, and ARIA attributes when needed',
+];
+
+const closureObjectives = [
+	'Understand form structure, attributes, and how forms submit data',
+	'Master all HTML5 input types and when to use each',
+	'Implement proper labels and accessibility features',
+	'Use HTML5 validation attributes (required, pattern, min, max)',
+	'Build common form patterns (contact, registration, search forms)',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-universal-access',
+		title: 'Accessible Forms',
+		questions: [
+			'How would a screen reader user navigate your form?',
+			'Are all form controls properly labeled and associated?'
+		],
+		content:
+			'Form accessibility ensures everyone can use your website, regardless of ability. Proper labels, fieldsets, and error messages make forms usable by assistive technologies.',
+	},
+	{
+		icon: 'fas fa-shield-alt',
+		title: 'Security Mindset',
+		questions: [
+			'What could go wrong if you only validate forms on the client side?',
+			'How do you protect user data during form submission?'
+		],
+		content:
+			'Never trust user input. Always validate and sanitize data on the server, use HTTPS for transmission, implement CSRF protection, and follow security best practices to protect your users and your application.',
+	},
+];
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');

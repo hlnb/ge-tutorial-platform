@@ -1,7 +1,8 @@
 <template>
-	<!-- Main Content -->
-	<div class="tutorial-content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
+	<div class="container section">
+		<div class="content tutorial-content">
+			<!-- Breadcrumb -->
+			<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
 					<router-link to="/"
@@ -30,17 +31,29 @@
 			<i class="fab fa-html5"></i> Your First HTML Page
 		</h1>
 
-		<div class="box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-graduation-cap"></i> Learning Objectives
-			</h3>
-			<ul>
-				<li>Understand the basic structure of an HTML document</li>
-				<li>Learn about essential head elements</li>
-				<li>Create a complete restaurant web page</li>
-				<li>Practice with real-world content</li>
-			</ul>
-		</div>
+		<!-- Hunter Element 1: Anticipatory Set -->
+		<AnticipatorySet
+			title="Start Here: Your First Web Page"
+			:hook="`<p>Every website you've ever visited—from Google to YouTube to TikTok—started with someone writing their first HTML page. Today, that someone is YOU! In just 20 minutes, you'll create a real web page that actually works in a browser.</p>
+			<p><strong>Here's the exciting part:</strong> HTML is so forgiving that you can start creating right away, making mistakes along the way, and still end up with something awesome.</p>`"
+			:reflection-prompts="[
+				'Think about your favorite website. What information does it show in the browser tab at the top?',
+				'When you search on Google, how does the page title appear in search results?',
+				'What makes a web page look organized versus messy?'
+			]"
+			connection="In this tutorial, you'll learn the skeleton that holds every single web page together!"
+		/>
+
+		<!-- Hunter Element 2: Learning Objectives -->
+		<LearningObjectives
+			:objectives="[
+				'Understand the basic structure of an HTML document',
+				'Learn about essential head elements and why they matter',
+				'Create a complete restaurant web page from scratch',
+				'Practice with real-world content that could go live on the internet'
+			]"
+			purpose="Understanding HTML document structure is like learning the foundation of a house. Without it, nothing else works. This is the single most important concept in web development—master this, and you're ready to build anything on the web."
+		/>
 
 		<h2 id="basic-html-document-structure" class="title is-3">
 			Basic HTML Document Structure
@@ -111,6 +124,13 @@
 				for detailed information about these and other meta elements.
 			</p>
 		</div>
+
+		<!-- Hunter Element 3: Checkpoint -->
+		<CheckpointBox
+			title="⏸️ Quick Check: HTML Structure"
+			description="Before we continue, make sure you understand the basics:"
+			:questions="checkpointQuestions"
+		/>
 
 		<CodingOptions filename="index.html" class="mt-4" />
 
@@ -208,13 +228,16 @@ Best time to visit: September to May</pre
 			</p>
 		</div>
 
-		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-first-page'" />
+	<!-- Closure Section -->
+	<ClosureSection
+		title="🏁 Lesson Complete: You Built Your First Webpage!"
+		:key-takeaways="closureKeyTakeaways"
+		:objectives="closureObjectives"
+		:reflection-prompts="closureReflectionPrompts"
+		real-world-application="<p>The structure you learned today is the foundation of every professional website. From small business sites to major e-commerce platforms, they all follow this same basic pattern. You've just learned the building blocks used by millions of websites!</p>"
+		next-steps="<p>In the next lesson, <strong>Working with Text</strong>, you'll learn how to format text with bold, italics, emphasis, and more. You'll make your content not just structured, but styled for impact!</p>"
+	/>
 
-		<!-- Quiz Section -->
-		<QuizComponent
-			title="HTML Basics Quiz"
-			description="Test your understanding of HTML document structure and basic elements."
 			:questions="quizQuestions"
 			:tutorial-path="route.path"
 			@quiz-completed="handleQuizCompleted"
@@ -334,15 +357,8 @@ Best time to visit: September to May</pre
 		</div>
 
 		<!-- Add this at the end of the template, before the completion section -->
-		<section class="mt-6">
-			<h2 class="title is-3">Test Your Knowledge</h2>
-			<p class="mb-4">
-				Let's see how well you understand the concepts covered in this tutorial.
-				Take this quick quiz to test your knowledge!
-			</p>
 
-			<QuizComponent />
-		</section>
+		</div>
 	</div>
 </template>
 
@@ -355,6 +371,62 @@ import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
 import QuizComponent from '@/components/QuizComponent.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+const checkpointQuestions = [
+	{
+		question: 'What is the purpose of the DOCTYPE html declaration?',
+		answer: 'The DOCTYPE tells browsers this is an HTML5 document',
+		answerLabel: 'Answer',
+	},
+	{
+		question: 'Where should the charset meta tag be placed and why?',
+		answer:
+			'At the very top of the head section to ensure proper character encoding from the start',
+		answerLabel: 'Answer',
+	},
+	{
+		question: 'What goes in the head vs the body?',
+		answer:
+			'head contains metadata (invisible info for browsers and search engines), while body contains all visible content',
+		answerLabel: 'Answer',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Every HTML document needs a proper structure: DOCTYPE, html, head, and body elements',
+	'The head contains metadata like title and charset, while body contains visible content',
+	'Semantic HTML elements (header, main, footer, nav, article) give meaning to your content',
+	'Headings (h1-h6) create a hierarchy that helps both users and search engines understand your page',
+	'Building real projects (like Black Swan Bistro) helps reinforce what you learn',
+];
+
+const closureObjectives = [
+	'Create a complete HTML document with proper structure',
+	'Use semantic HTML5 elements to organize content meaningfully',
+	'Implement headings, paragraphs, and lists correctly',
+	'Build a real-world webpage for a restaurant',
+	'Understand the difference between metadata and visible content',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: 'Think About Structure',
+		icon: '🏗️',
+		questions: [
+			'How does using semantic elements like <header> and <footer> make your HTML more meaningful than just using <div>?',
+			'Why do you think search engines care about proper heading hierarchy?'
+		],
+	},
+	{
+		title: 'Real-World Connection',
+		icon: '💼',
+		content: `<p>Visit any restaurant or business website. View the page source (right-click → View Page Source). Can you spot the DOCTYPE, head, and body sections? Look for semantic elements like header, nav, and footer.</p>`,
+	},
+];
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');

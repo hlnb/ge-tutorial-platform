@@ -7,6 +7,10 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 // Define a ref for the code editor instances
 const codeEditors = ref([]);
@@ -57,6 +61,68 @@ const sections = [
 ];
 
 const { pageSections } = usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question: 'What happens when you set display: flex on a container?',
+		answer:
+			'Setting display: flex establishes a flex formatting context. The element becomes a flex container, its direct children become flex items, and layout shifts to using the main and cross axes for alignment and distribution.',
+	},
+	{
+		question: 'How do the main axis and cross axis differ in Flexbox?',
+		answer:
+			'The main axis follows flex-direction (row by default). justify-content aligns items along the main axis. The cross axis is perpendicular to the main axis; align-items and align-content control alignment along it. Changing flex-direction swaps the axes.',
+	},
+	{
+		question: 'When would you use justify-content vs align-items?',
+		answer:
+			'justify-content distributes extra space along the main axis (left/right in rows, top/bottom in columns). align-items controls alignment on the cross axis (vertical in rows, horizontal in columns). Use justify-content for spacing between items, align-items for baseline, center, or stretch alignment.',
+	},
+	{
+		question: 'What do flex-grow, flex-shrink, and flex-basis control?',
+		answer:
+			'flex-grow defines how extra space is distributed among items, flex-shrink controls how items shrink when space is limited, and flex-basis sets the initial size before growing or shrinking. Combined as flex: grow shrink basis, they create responsive components.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Flex containers are created with display: flex/inline-flex and control layout of direct children',
+	'flex-direction sets the main axis; justify-content and align-items manage spacing across axes',
+	'flex-wrap enables multi-line layouts; gap adds spacing without margins',
+	'flex-grow, flex-shrink, and flex-basis define how items scale in responsive layouts',
+	'Align-self overrides alignment per item; order rearranges items without changing HTML',
+];
+
+const closureObjectives = [
+	'Create flexible navigation bars, cards, and page sections with Flexbox',
+	'Control alignment, spacing, and wrapping along main/cross axes',
+	'Use flex shorthand to build responsive components quickly',
+	'Apply Flexbox to real projects like Black Swan Bistro and Rotto Rocks',
+	'Debug Flexbox layouts using browser DevTools',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-arrows-alt',
+		title: 'Axis Awareness',
+		questions: [
+			'What happens to alignment when you switch flex-direction to column?',
+			'How can you use gap and justify-content together to manage spacing?',
+		],
+		content:
+			'Draw the main and cross axes before writing CSS. Knowing which properties affect each axis prevents confusion and speeds up layout building.',
+	},
+	{
+		icon: 'fas fa-mobile-alt',
+		title: 'Responsive Mindset',
+		questions: [
+			'How do flex properties help components adapt across breakpoints?',
+			'When do you need media queries in addition to Flexbox?',
+		],
+		content:
+			'Flexbox handles many responsive cases automatically, but combining it with media queries lets you change direction, wrap behavior, and spacing for different screen sizes.',
+	},
+];
 
 const flexContainerHTML = `<div class="flex-container">
   <div class="flex-item">1</div>
@@ -261,42 +327,74 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 </script>
 
 <template>
-	<div class="content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
-			<ul>
-				<li>
-					<router-link to="/"
-						><i class="fa-solid fa-house mr-2"></i> Home</router-link
-					>
-				</li>
-				<li><router-link to="/tutorials">Tutorials</router-link></li>
-				<li>
-					<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
-				</li>
-				<li class="is-active">
-					<a href="#" aria-current="page">Flexbox Basics</a>
-				</li>
-			</ul>
-		</nav>
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<router-link to="/"
+							><i class="fa-solid fa-house mr-2"></i> Home</router-link
+						>
+					</li>
+					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
+					</li>
+					<li class="is-active">
+						<a href="#" aria-current="page">Flexbox Basics</a>
+					</li>
+				</ul>
+			</nav>
 
-		<header class="tutorial-header">
-			<div class="tags mb-4">
-				<span class="tag is-info">{{ frontmatter.difficulty }}</span>
-				<span class="tag is-warning">{{ frontmatter.duration }}</span>
-				<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
-					tag
-				}}</span>
-			</div>
+			<header class="tutorial-header">
+				<div class="tags mb-4">
+					<span class="tag is-info">{{ frontmatter.difficulty }}</span>
+					<span class="tag is-warning">{{ frontmatter.duration }}</span>
+					<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
+						tag
+					}}</span>
+				</div>
 
-			<h1 class="title is-1">
-				<i class="fa-brands fa-css css-icon"></i>
-				{{ frontmatter.title }}
-			</h1>
-			<p class="subtitle is-4">{{ frontmatter.description }}</p>
-		</header>
+				<h1 class="title is-1">
+					<i class="fa-brands fa-css css-icon"></i>
+					{{ frontmatter.title }}
+				</h1>
+				<p class="subtitle is-4">{{ frontmatter.description }}</p>
+			</header>
 
-		<!-- Tutorial Content -->
-		<div class="tutorial-content">
+			<AnticipatorySet
+				title="🔄 Layout Made Flexible"
+				:reflection-prompts="[
+					'Have you ever struggled to center something or create equal-height columns with CSS?',
+					'Think about app navigation bars. How do they keep the logo on the left and menu items on the right?',
+					'What happens to website layouts when you resize your browser window or rotate your phone?',
+				]"
+			>
+				<p>
+					For years, web developers struggled with CSS layouts. Creating a simple
+					horizontal navigation bar or centering content vertically required complicated
+					hacks and workarounds. Then Flexbox arrived and changed everything.
+				</p>
+				<p>
+					Flexbox (Flexible Box Layout) gives you powerful control over how elements are
+					distributed and aligned in one dimension—either horizontally or vertically. Once
+					you understand its mental model, tasks that were once frustrating become
+					trivial. In this tutorial, you'll master Flexbox and discover why it's become
+					one of the most essential tools in modern CSS.
+				</p>
+			</AnticipatorySet>
+
+			<LearningObjectives
+				:objectives="[
+					'Understand the Flexbox mental model of containers and items',
+					'Control flex direction to create row and column layouts',
+					'Master justify-content for main axis alignment and spacing',
+					'Use align-items and align-self for cross-axis positioning',
+					'Implement flex-wrap for responsive multi-line layouts',
+					'Apply flex-grow, flex-shrink, and flex-basis for flexible sizing',
+					'Build real-world components like navigation bars and card grids',
+				]"
+			/>
 			<section :id="sections[0].id" class="mb-6">
 				<h2 class="title is-2">{{ sections[0].title }}</h2>
 				<p>
@@ -646,6 +744,9 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 					</li>
 				</ul>
 			</section>
+
+			<!-- Hunter Element: Checkpoint -->
+			<CheckpointBox :questions="checkpointQuestions" />
 
 			<section id="flexbox-in-practice" class="mb-6">
 				<h2 class="title is-2">
@@ -1132,7 +1233,15 @@ body {
 					</a>
 				</div>
 			</section>
-		</div>
+
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Product teams use Flexbox for navigation bars, dashboards, pricing cards, and countless UI components. Frameworks like Bootstrap and Tailwind rely on Flexbox under the hood. Mastering Flexbox makes custom component work faster and helps you debug framework utilities with confidence.</p><p>Design systems often start with Flexbox primitives (stacks, clusters, sidebar layouts). Your ability to implement these patterns accurately ensures consistency across apps.</p>"
+			next-steps="<p>Next up is the modern CSS module, where you will learn advanced techniques (Grid, clamp(), container queries) building on Flexbox fundamentals. Continue practicing by recreating real-world layouts—Flexbox is foundational to all responsive design work.</p>"
+		/>
 
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/flexbox'" />
@@ -1149,14 +1258,10 @@ body {
 			</div>
 		</div>
 	</div>
+	</div>
 </template>
 
 <style scoped>
-.css-icon {
-	color: rebeccapurple;
-	margin-right: 0.5rem;
-}
-
 .tutorial-header {
 	margin-bottom: 3rem;
 	padding-bottom: 2rem;

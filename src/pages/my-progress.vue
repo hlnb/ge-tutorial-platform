@@ -30,7 +30,7 @@
 			<div v-else class="notification is-success">
 				<p>
 					<i class="fas fa-check-circle mr-2"></i>
-					<strong>Welcome, {{ currentUser.name }}!</strong> Your progress is
+					<strong>Welcome, {{ currentUser?.name || 'User' }}!</strong> Your progress is
 					being saved to your account.
 				</p>
 				<p class="mt-2">
@@ -40,7 +40,8 @@
 				</p>
 			</div>
 
-			<div v-else>
+			<!-- Main Progress Content (shown for all users) -->
+			<div>
 				<div class="progress-summary">
 					<div class="card">
 						<div class="card-content">
@@ -77,7 +78,19 @@
 				<div class="section-progress mt-6">
 					<h2 class="title is-3">Your Progress</h2>
 
-					<div v-if="Object.keys(progressBySection).length > 0">
+					<div v-if="completedTutorials === 0 && visitedTutorials === 0" class="notification is-info">
+						<p>
+							<i class="fas fa-info-circle mr-2"></i>
+							You haven't started any tutorials yet. Visit a tutorial and mark it complete to start tracking your progress!
+						</p>
+						<p class="mt-3">
+							<router-link to="/tutorials/getting-started" class="button is-primary">
+								Start Learning
+							</router-link>
+						</p>
+					</div>
+
+					<div v-else-if="Object.keys(progressBySection).length > 0">
 						<div
 							v-for="([sectionKey, section]) in Object.entries(progressBySection)"
 							:key="sectionKey"
@@ -278,24 +291,35 @@ import { ref, computed, onMounted } from 'vue';
 import { format } from 'date-fns';
 import { useProgress } from '@/composables/useProgress';
 import { clearUserProgress, getUserProgress } from '@/utils/progressUtils';
-import { useRouter } from 'vue-router';
 import authService from '@/services/AuthService';
 
 // Use the new progress composable
 const {
-	isAuthenticated: composableIsAuthenticated,
-	currentUser: composableCurrentUser,
 	progress,
-	summary,
 	reloadProgress,
+	fetchProgress,
 } = useProgress();
 
 const showResetConfirmation = ref(false);
-const router = useRouter();
 
 // Always use AuthService for authentication check
-const isAuthenticated = computed(() => authService.isUserAuthenticated());
-const currentUser = computed(() => authService.getCurrentUser());
+const isAuthenticated = computed(() => {
+	try {
+		return authService.isUserAuthenticated();
+	} catch (error) {
+		console.error('Auth check error:', error);
+		return false;
+	}
+});
+
+const currentUser = computed(() => {
+	try {
+		return authService.getCurrentUser() || { name: 'User' };
+	} catch (error) {
+		console.error('Get user error:', error);
+		return { name: 'User' };
+	}
+});
 
 // Tutorial metadata (static)
 const tutorialMetadata = ref({
@@ -350,7 +374,7 @@ const tutorialMetadata = ref({
 });
 
 // Map progress data to tutorial paths
-const progressData = computed(() => progress.value?.tutorialProgress || {});
+const progressData = computed(() => progress.value?.inProgressTutorials || progress.value?.tutorialProgress || {});
 const quizResults = computed(() => progress.value?.quizResults || {});
 
 // Progress statistics
@@ -381,15 +405,15 @@ const progressBySection = computed(() => {
 			completionPercentage: 0,
 		};
 		Object.entries(section.tutorials).forEach(([path, metadata]) => {
-			const progress = progressData.value[path] || {};
+			const tutorialProgress = progressData.value[path] || {};
 			const quiz = quizResults.value[path] || {};
 			const tutorial = {
 				path,
 				title: metadata.title,
-				visited: !!progress.visited,
+				visited: !!tutorialProgress.visited,
 				completed:
-					progress.value?.completedTutorials?.includes(path) || !!progress.completed,
-				lastVisited: progress.lastUpdated,
+					progress.value?.completedTutorials?.includes(path) || false,
+				lastVisited: tutorialProgress.lastUpdated,
 				quizCompleted: !!quiz.score,
 				quizScore: quiz.score || 0,
 				quizTotalQuestions: quiz.total || 0,
@@ -437,6 +461,11 @@ const getScoreMessage = (result) => {
 	if (pct >= 40) return 'Keep practicing!';
 	return 'Needs improvement';
 };
+
+// Fetch progress on mount
+onMounted(async () => {
+	await fetchProgress();
+});
 
 // Reset progress
 const resetProgress = async () => {

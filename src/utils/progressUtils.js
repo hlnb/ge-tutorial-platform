@@ -33,5 +33,5 @@ export async function completeQuiz(quizId, result) {
 
 // Clear all user progress
 export async function clearUserProgress() {
-    await ProgressService.clearProgress();
+    await ProgressService.clearAllProgress();
 }

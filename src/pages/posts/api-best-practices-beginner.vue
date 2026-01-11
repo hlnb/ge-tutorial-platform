@@ -24,6 +24,8 @@
 							</h2>
 						</div>
 
+				
+
 						<!-- Introduction -->
 						<p>You might have heard developers talk about APIs, or maybe you've used them without fully understanding what's happening behind the scenes. Think of an API like a restaurant's menu and ordering system—it's the way different software applications talk to each other and share information.</p>
 

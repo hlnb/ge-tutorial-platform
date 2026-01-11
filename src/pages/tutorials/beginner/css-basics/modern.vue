@@ -6,6 +6,10 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const progressEnabled = ref(true);
 
@@ -86,6 +90,69 @@ const sections = [
 ];
 
 const { pageSections } = usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question: 'Why use CSS custom properties instead of repeating values?',
+		answer:
+			'Custom properties store reusable values in one place (e.g., :root { --brand-primary: #1e3a8a; }). They support runtime changes, theming, and dynamic updates via JavaScript without recompiling CSS.',
+	},
+	{
+		question: 'How do :is() and :where() selectors help reduce specificity?',
+		answer:
+			':is() and :where() let you group selectors while writing one rule. :where() always has zero specificity, making it ideal for utility styles. :is() takes on the specificity of its most specific argument.',
+	},
+	{
+		question: 'When would you reach for clamp(min, preferred, max)?',
+		answer:
+			'clamp() creates fluid values that stay within boundaries (e.g., clamp(1rem, 2vw, 1.5rem) for responsive font-size). It replaces media queries for many responsive sizing scenarios.',
+	},
+	{
+		question: 'What problem do logical properties solve?',
+		answer:
+			'Logical properties (margin-inline, padding-block, inset-inline, etc.) adapt to writing modes. They prevent duplicated rules for left/right or top/bottom, making internationalization and RTL support easier.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'CSS custom properties enable theming, dark mode, and shared design tokens',
+	'Modern selectors (:is, :where, :has) reduce duplication and control specificity',
+	'Functions like calc(), min(), max(), and clamp() produce fluid, mathematical layouts',
+	'Modern units (vh, vw, vmin, vmax, ch) create responsive designs without constant breakpoints',
+	'Logical properties make internationalization and writing-mode support straightforward',
+	'Keeping up with browser support ensures you ship safe, progressive enhancements',
+];
+
+const closureObjectives = [
+	'Define and use CSS custom properties effectively',
+	'Apply modern selectors to target elements cleanly',
+	'Use CSS math functions for responsive sizing',
+	'Leverage new units and logical properties for global-ready layouts',
+	'Plan progressive enhancement strategies based on browser support',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-code-branch',
+		title: 'Progressive Enhancement',
+		questions: [
+			'How do you ship modern features while keeping fallbacks?',
+			'Which features require @supports checks in your projects?',
+		],
+		content:
+			'Use feature queries (@supports) and layered styles so older browsers still get a usable experience while modern browsers receive enhancements.',
+	},
+	{
+		icon: 'fas fa-globe',
+		title: 'Global Design',
+		questions: [
+			'How would logical properties simplify RTL support?',
+			'What design tokens should become CSS custom properties?',
+		],
+		content:
+			'Thinking globally early prevents rewrites later. Map design system tokens to CSS variables and prefer logical properties when spacing or aligning content.',
+	},
+];
 
 const customPropertiesExample = ref(`/* CSS Custom Properties (CSS Variables) */
 :root {
@@ -385,49 +452,85 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 </script>
 
 <template>
-	<div class="content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
-			<ul>
-				<li>
-					<router-link to="/"
-						><i class="fa-solid fa-house mr-2"></i> Home</router-link
-					>
-				</li>
-				<li><router-link to="/tutorials">Tutorials</router-link></li>
-				<li>
-					<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
-				</li>
-				<li class="is-active">
-					<a href="#" aria-current="page">Modern CSS</a>
-				</li>
-			</ul>
-		</nav>
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<router-link to="/"
+							><i class="fa-solid fa-house mr-2"></i> Home</router-link
+						>
+					</li>
+					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
+					</li>
+					<li class="is-active">
+						<a href="#" aria-current="page">Modern CSS</a>
+					</li>
+				</ul>
+			</nav>
 
-		<header class="tutorial-header">
-			<div class="tags mb-4">
-				<span class="tag is-info">{{ frontmatter.difficulty }}</span>
-				<span class="tag is-warning">{{ frontmatter.duration }}</span>
-				<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
-					tag
-				}}</span>
+			<header class="tutorial-header">
+				<div class="tags mb-4">
+					<span class="tag is-info">{{ frontmatter.difficulty }}</span>
+					<span class="tag is-warning">{{ frontmatter.duration }}</span>
+					<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
+						tag
+					}}</span>
+				</div>
+
+				<h1 class="title is-1">
+					<i class="fa-brands fa-css css-icon"></i>
+					Modern CSS
+				</h1>
+				<p class="subtitle is-4">
+					Learn about current CSS features and best practices that make styling
+					more maintainable and powerful.
+				</p>
+			</header>
+
+			<AnticipatorySet
+				title="🚀 CSS Has Evolved"
+				:reflection-prompts="[
+					'Have you ever copied the same color code or value multiple times across a stylesheet?',
+					'What happens when you need to change that value—how many places do you have to update?',
+					'How do modern development tools like JavaScript frameworks handle reusable values?',
+				]"
+			>
+				<p>
+					For years, CSS was criticized for lacking features that other languages took
+					for granted: variables, calculations, logical operators. Developers turned to
+					preprocessors like Sass and Less to fill these gaps. But CSS itself has
+					evolved dramatically.
+				</p>
+				<p>
+					Today's CSS includes custom properties (variables), powerful functions like
+					calc() and clamp(), modern selectors, logical properties, and sophisticated
+					layout systems. In this tutorial, you'll discover how these features can make
+					your stylesheets more maintainable, flexible, and powerful—without needing any
+					preprocessor.
+				</p>
+			</AnticipatorySet>
+
+			<LearningObjectives
+				:objectives="[
+					'Define and use CSS custom properties (variables) for maintainable code',
+					'Apply modern selectors like :is(), :where(), and :has() for efficient targeting',
+					'Utilize CSS functions (calc, clamp, min, max) for dynamic values',
+					'Work with modern units (ch, ex, vmin, vmax) for responsive designs',
+					'Implement logical properties for international layout support',
+					'Understand CSS Grid fundamentals as a modern layout system',
+					'Recognize when to use modern CSS features vs. preprocessors',
+				]"
+			/>
+
+			<div class="notification is-info is-light">
+				<p>
+					<strong>Prerequisites:</strong> Basic understanding of CSS and colors
+					(covered in previous tutorials)
+				</p>
 			</div>
-
-			<h1 class="title is-1">
-				<i class="fa-brands fa-css css-icon"></i>
-				Modern CSS
-			</h1>
-			<p class="subtitle is-4">
-				Learn about current CSS features and best practices that make styling
-				more maintainable and powerful.
-			</p>
-		</header>
-
-		<div class="notification is-info is-light">
-			<p>
-				<strong>Prerequisites:</strong> Basic understanding of CSS and colors
-				(covered in previous tutorials)
-			</p>
-		</div>
 
 		<section id="introduction">
 			<h2 class="title is-2">Introduction to Modern CSS</h2>
@@ -779,6 +882,9 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 			</div>
 		</section>
 
+		<!-- Hunter Element: Checkpoint -->
+		<CheckpointBox :questions="checkpointQuestions" />
+
 		<section id="summary" class="mt-6">
 			<h2 class="title is-2">Summary</h2>
 
@@ -827,6 +933,15 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 			</div>
 		</section>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Modern CSS powers design systems at companies like Shopify, GitHub, and Adobe. Teams rely on custom properties for theming, CSS math for fluid typography, and logical properties for global products. Staying current with CSS capabilities reduces dependency on heavy JS solutions and preprocessors.</p><p>Understanding modern CSS makes you more effective collaborating with designers and building performant interfaces.</p>"
+			next-steps="<p>With modern CSS fundamentals in place, you're ready for the Responsive Design tutorial. You'll combine Flexbox, Grid, clamp(), and logical properties to craft layouts that adapt beautifully to any screen.</p>"
+	/>
+
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/modern'" />
 
@@ -847,6 +962,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 				</a>
 			</p>
 		</div>
+	</div>
 	</div>
 </template>
 

@@ -13,9 +13,21 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
-const db = getFirestore(firebaseApp);
-// const analytics = getAnalytics(firebaseApp); // Optional
+let firebaseApp = null;
+let auth = null;
+let db = null;
+
+try {
+  // Only initialize if we have the required config
+  if (firebaseConfig.apiKey && firebaseConfig.projectId) {
+    firebaseApp = initializeApp(firebaseConfig);
+    auth = getAuth(firebaseApp);
+    db = getFirestore(firebaseApp);
+  } else {
+    console.warn('Firebase configuration incomplete. Some features may not work.');
+  }
+} catch (error) {
+  console.error('Error initializing Firebase:', error);
+}
 
 export { firebaseApp, auth, db };

@@ -1,6 +1,7 @@
 <template>
-	<div class="tutorial-content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
 					<router-link to="/"
@@ -27,60 +28,32 @@
 			<i class="fab fa-html5 html-icon"></i> Images in HTML
 		</h1>
 
-		<div class="box">
-			<h2 class="title is-4">
-				<i class="fas fa-graduation-cap section-icon"></i> Learning Goals
-			</h2>
-			<div class="tutorial-card">
-				<p>After completing this tutorial, you will be able to:</p>
-				<ul>
-					<li>Add images to your web pages using the img element</li>
-					<li>Write descriptive and accessible alt text for images</li>
-					<li>Choose appropriate image formats (JPG, PNG, SVG, WebP)</li>
-					<li>Optimize images for web performance</li>
-					<li>Create responsive images using srcset and sizes</li>
-					<li>Use figure and figcaption for image descriptions</li>
-					<li>Position and align images within your content</li>
-					<li>Implement decorative images appropriately</li>
-					<li>Handle image loading and errors gracefully</li>
-				</ul>
-			</div>
+		<!-- Hunter Element 1: Anticipatory Set -->
+		<AnticipatorySet
+			title="🖼️ A Picture is Worth 1000 Words"
+			:hook="`<p>Images make the web beautiful, engaging, and memorable. Studies show that people remember 80% of what they see compared to only 20% of what they read. That's why every successful website uses images strategically!</p>
+			<p><strong>Did you know?</strong> Images make up about 50% of the total bytes downloaded for an average web page. Learning to use images properly is crucial for creating fast, accessible, and beautiful websites.</p>`"
+			:reflection-prompts="[
+				'What grabs your attention more: a wall of text or an eye-catching image?',
+				'Have you noticed some websites load slowly because of too many large images?',
+				'How do blind users experience images on websites?'
+			]"
+			connection="In this lesson, you'll master adding images to your websites—from basic display to advanced optimization and accessibility."
+		/>
 
-			<div class="notification is-info is-light mt-4">
-				<h3 class="title is-5">
-					<i class="fas fa-book section-icon"></i> Additional Resources
-				</h3>
-				<ul>
-					<li>
-						<a
-							href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/images_in_HTML"
-							target="_blank"
-							rel="noopener"
-						>
-							MDN: Images in HTML
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"
-							target="_blank"
-							rel="noopener"
-						>
-							MDN: The Image Element
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://web.dev/learn/images/"
-							target="_blank"
-							rel="noopener"
-						>
-							web.dev: Image Optimization Guide
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<!-- Hunter Element 2: Learning Objectives -->
+		<LearningObjectives
+			:objectives="[
+				'Add images to web pages using the img element',
+				'Write descriptive and accessible alt text for screen readers',
+				'Choose the right image format (JPG, PNG, SVG, WebP)',
+				'Optimize images for faster page loading',
+				'Create responsive images that adapt to screen sizes',
+				'Use figure and figcaption for proper image captions',
+				'Implement best practices for image accessibility'
+			]"
+			purpose="Images are essential for modern web design, but they need to be implemented correctly for speed and accessibility. Master these skills and you'll create websites that look great, load fast, and work for everyone."
+		/>
 
 		<div class="box">
 			<h2 class="title is-3">Making Web Pages Visual</h2>
@@ -532,6 +505,11 @@
 					</ul>
 				</div>
 
+				<!-- Hunter Element: Checkpoint -->
+				<CheckpointBox
+					:questions="checkpointQuestions"
+				/>
+
 				<div class="box mt-6">
 					<h2 class="title is-3">
 						<i class="fas fa-forward"></i> What's Next?
@@ -542,9 +520,38 @@
 					</p>
 				</div>
 
+				<div class="box has-background-info-light mt-4">
+					<h3 class="title is-5">
+						<i class="fas fa-images mr-2"></i> See Images in the Complete Projects
+					</h3>
+					<p class="mb-3">
+						Want to see how images are used throughout complete websites? 
+						Check out the reference projects to see image galleries, logos, and figures in context:
+					</p>
+					<div class="buttons">
+						<a href="/projects/html-basics/black-swan-bistro/index.html" target="_blank" class="button is-primary is-small">
+							<span class="icon"><i class="fas fa-utensils"></i></span>
+							<span>Black Swan Bistro</span>
+						</a>
+						<a href="/projects/html-basics/rotto-rocks/index.html" target="_blank" class="button is-link is-small">
+							<span class="icon"><i class="fas fa-island-tropical"></i></span>
+							<span>Rotto Rocks</span>
+						</a>
+					</div>
+				</div>
+
 				<TutorialNavigation class="mt-6" />
 			</div>
 		</div>
+
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Images are essential for engaging users and conveying information quickly. Professional websites use images strategically: e-commerce sites showcase products, news sites illustrate stories, portfolio sites display work samples, and corporate sites build brand identity through visual elements.</p><p>Understanding image optimization and accessibility ensures your images enhance rather than hinder the user experience. Tools like TinyPNG, ImageOptim, and modern formats like WebP help keep your sites fast and responsive while maintaining visual quality.</p>"
+			next-steps="<p>With images mastered, you're ready to learn about HTML document structure and semantic elements. In the next lesson, you'll discover how to organize your HTML properly using header, nav, main, article, section, aside, and footer elements.</p><p>Understanding document structure is crucial for creating accessible, SEO-friendly websites that are easy to maintain and scale.</p>"
+		/>
 
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-images'" />
@@ -559,6 +566,7 @@
 			</h2>
 			<p>You've completed the tutorial on HTML Images. Great job!</p>
 		</div>
+		</div>
 	</div>
 </template>
 
@@ -570,6 +578,72 @@ import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodingOptions from '@/components/CodingOptions.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+const checkpointQuestions = [
+	{
+		question: 'What is the purpose of the alt attribute in the <img> element?',
+		answer:
+			"The alt attribute provides alternative text for images, which is crucial for accessibility (screen readers), SEO, and displaying text when images fail to load. It should describe the image's content or function.",
+	},
+	{
+		question: 'Which image format would you choose for a company logo, and why?',
+		answer:
+			'SVG (Scalable Vector Graphics) is ideal for logos because it stays sharp at any size, has a smaller file size for simple graphics, can be styled with CSS, and looks great on any screen resolution.',
+	},
+	{
+		question: 'What is the difference between a decorative image (alt="") and an informative image?',
+		answer:
+			'Decorative images (with empty alt="") are purely aesthetic and hidden from screen readers. Informative images convey content or information, requiring descriptive alt text that explains what the image shows or represents.',
+	},
+	{
+		question: 'How does lazy loading improve web page performance?',
+		answer:
+			'Lazy loading (loading="lazy") defers loading of images until they are near the viewport, reducing initial page load time, saving bandwidth, and improving performance, especially on pages with many images.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'The <img> element requires src and alt attributes for proper functionality and accessibility',
+	'Alt text should describe image content for screen readers, not just repeat nearby text',
+	'Different image formats serve different purposes: JPG for photos, PNG for transparency, SVG for logos, WebP for modern browsers',
+	'Lazy loading and proper sizing improve page performance and user experience',
+	'The <figure> and <figcaption> elements provide semantic structure for images with captions',
+];
+
+const closureObjectives = [
+	'Add images to web pages using the img element',
+	'Write descriptive and accessible alt text for screen readers',
+	'Choose the right image format (JPG, PNG, SVG, WebP)',
+	'Optimize images for faster page loading',
+	'Use figure and figcaption for semantic image markup',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-universal-access',
+		title: 'Accessibility First',
+		questions: [
+			"How would you describe an image to someone who can't see it?",
+			'When is it appropriate to use an empty alt="" attribute?'
+		],
+		content:
+			'Writing effective alt text is a skill that improves with practice. Consider the context and purpose of each image when crafting your descriptions.',
+	},
+	{
+		icon: 'fas fa-tachometer-alt',
+		title: 'Performance Matters',
+		questions: [
+			"How do large images affect your website's loading speed?",
+			'What strategies can you use to optimize images without sacrificing quality?'
+		],
+		content:
+			'Image optimization is crucial for user experience, especially on mobile devices with slower connections. Always balance quality with performance.',
+	},
+];
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');

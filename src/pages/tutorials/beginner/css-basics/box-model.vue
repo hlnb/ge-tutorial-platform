@@ -10,6 +10,10 @@ import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const frontmatter = {
 	title: 'The Box Model',
@@ -58,6 +62,72 @@ const sections = [
 ];
 
 const { pageSections } = usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question:
+			'What are the four parts of the CSS box model, from innermost to outermost?',
+		answer:
+			'The four parts are: 1) Content (the actual content like text or images), 2) Padding (space between content and border), 3) Border (line around the padding), 4) Margin (space outside the border, separating elements from each other).',
+	},
+	{
+		question:
+			'What is the difference between box-sizing: content-box and box-sizing: border-box?',
+		answer:
+			'content-box (default) adds padding and border to the width/height, making elements larger than specified. border-box includes padding and border within the width/height, making sizing predictable. border-box is preferred for most layouts.',
+	},
+	{
+		question: 'How do margins behave differently from padding?',
+		answer:
+			"Margins create space outside the element and can collapse (combine) with adjacent margins. Padding creates space inside the element, affecting its background and borders. Margins can be negative; padding cannot. Margins don't affect click areas; padding does.",
+	},
+	{
+		question: 'What is margin collapse and when does it occur?',
+		answer:
+			'Margin collapse happens when vertical margins of adjacent elements combine into a single margin equal to the larger of the two. It occurs between siblings, parent-child (when no padding/border separates them), and empty blocks. Horizontal margins never collapse.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'The CSS box model consists of content, padding, border, and margin working together to control element size and spacing',
+	'box-sizing: border-box makes sizing predictable by including padding and border in width/height calculations',
+	'Padding creates internal spacing within an element, while margins create external spacing between elements',
+	'Vertical margins collapse between adjacent elements, taking the larger of the two margins',
+	'Border properties control style, width, and color of element boundaries',
+	'The box model is fundamental to all CSS layouts—understanding it is essential for spacing and positioning',
+];
+
+const closureObjectives = [
+	'Understand the four parts of the box model: content, padding, border, margin',
+	'Use box-sizing: border-box for predictable element sizing',
+	'Apply padding and margins effectively for layout and spacing',
+	'Master border properties for visual element boundaries',
+	'Understand and work with margin collapse',
+	'Debug box model issues using browser DevTools',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-ruler-combined',
+		title: 'Layout Control',
+		questions: [
+			'Why is understanding the box model crucial for CSS layout?',
+			'When would you use padding versus margins to create spacing?',
+		],
+		content:
+			'The box model is the foundation of CSS layout. Every spacing, sizing, and positioning decision involves the box model. Mastering it allows you to create precise layouts and debug spacing issues quickly.',
+	},
+	{
+		icon: 'fas fa-tools',
+		title: 'DevTools Usage',
+		questions: [
+			'How can browser DevTools help you visualize the box model?',
+			'What box model issues can you diagnose using DevTools?',
+		],
+		content:
+			'Browser DevTools show the box model visually, displaying content, padding, border, and margin dimensions. This visualization is invaluable for debugging layout issues and understanding how elements occupy space.',
+	},
+];
 
 const margin = ref(20);
 const border = ref(2);
@@ -277,25 +347,25 @@ const rottoRocksExercise = ref(`/* Reset and Base Styles */
 </script>
 
 <template>
-	<div class="tutorial-content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
-			<ul>
-				<li>
-					<router-link to="/"
-						><i class="fa-solid fa-house mr-2"></i> Home</router-link
-					>
-				</li>
-				<li>
-					<router-link to="/tutorials">Tutorials</router-link>
-				</li>
-				<li>
-					<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
-				</li>
-				<li class="is-active"><a href="#" aria-current="page">Box Model</a></li>
-			</ul>
-		</nav>
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<router-link to="/"
+							><i class="fa-solid fa-house mr-2"></i> Home</router-link
+						>
+					</li>
+					<li>
+						<router-link to="/tutorials">Tutorials</router-link>
+					</li>
+					<li>
+						<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
+					</li>
+					<li class="is-active"><a href="#" aria-current="page">Box Model</a></li>
+				</ul>
+			</nav>
 
-		<header class="tutorial-header">
 			<div class="tags mb-4">
 				<span class="tag is-info">{{ frontmatter.difficulty }}</span>
 				<span class="tag is-warning">{{ frontmatter.duration }}</span>
@@ -305,11 +375,36 @@ const rottoRocksExercise = ref(`/* Reset and Base Styles */
 			</div>
 
 			<h1 class="title is-1">
-				<i class="fa-brands fa-css css-icon"></i>
+				<i class="fa-brands fa-css3-alt"></i>
 				{{ frontmatter.title }}
 			</h1>
-			<p class="subtitle is-4">{{ frontmatter.description }}</p>
-		</header>
+
+			<!-- Hunter Element 1: Anticipatory Set -->
+			<AnticipatorySet
+				title="📦 Every Element is a Box"
+				:hook="`<p>Have you ever wondered why adding padding or border to an element suddenly makes it overflow its container? Or why margins sometimes collapse? The answer lies in the CSS Box Model—one of the most important concepts in web development.</p>
+				<p><strong>Real-world impact:</strong> Professional developers spend significant time debugging layout issues. Almost all of them trace back to misunderstanding the box model.</p>`"
+				:reflection-prompts="[
+					'Have you ever added padding to an element and been surprised by its new size?',
+					'Why do you think understanding spacing is critical for layouts?',
+					'How might browsers calculate the total space an element takes up?'
+				]"
+				connection="In this tutorial, you'll understand exactly how browsers calculate element size and spacing. Master this, and layout problems become trivial."
+			/>
+
+			<!-- Hunter Element 2: Learning Objectives -->
+			<LearningObjectives
+				:objectives="[
+					'Understand the four layers of the box model: content, padding, border, margin',
+					'Calculate total element width and height including all box model components',
+					'Use box-sizing property to control sizing behavior',
+					'Apply padding, margin, and border properties effectively',
+					'Debug layout issues using browser dev tools box model inspector',
+					'Implement responsive spacing patterns',
+					'Understand margin collapse and how to control it'
+				]"
+				purpose="The box model is fundamental to CSS layout. Every layout problem, every spacing issue, every size calculation involves the box model. Understanding it deeply separates developers who struggle with CSS from those who master it."
+			/>
 
 		<div id="understanding-box-model" class="mt-6">
 			<h2 class="title is-3">Understanding the Box Model</h2>
@@ -924,6 +1019,9 @@ border: 10px solid black;
 			</div>
 		</div>
 
+		<!-- Hunter Element: Checkpoint -->
+		<CheckpointBox :questions="checkpointQuestions" />
+
 		<div id="exercises" class="mt-6">
 			<h2 class="title is-3">Exercises</h2>
 
@@ -1005,6 +1103,15 @@ border: 10px solid black;
 			</div>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Every professional website relies on the box model for layout control. Whether creating card components, navigation menus, or complex grid layouts, the box model determines how elements are sized and spaced. Companies like Netflix, Spotify, and Medium use box model mastery to create polished, pixel-perfect interfaces.</p><p>Modern CSS frameworks like Bootstrap and Tailwind abstract the box model with utility classes, but understanding the underlying principles allows you to customize layouts, debug issues, and create designs that frameworks can't easily provide.</p>"
+			next-steps="<p>With the box model mastered, you're ready to learn CSS typography and text styling. In the next lesson, you'll discover how to control fonts, sizes, spacing, alignment, and text effects to create beautiful, readable content.</p><p>Typography is crucial for user experience—it affects readability, hierarchy, and visual appeal. Great typography makes content accessible and engaging.</p>"
+		/>
+
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/box-model'" />
 
@@ -1037,6 +1144,7 @@ border: 10px solid black;
 			prev="css-basics-introduction"
 			next="css-basics-text-properties"
 		/>
+		</div>
 	</div>
 </template>
 

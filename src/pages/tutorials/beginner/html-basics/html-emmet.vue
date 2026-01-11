@@ -1,6 +1,7 @@
 <template>
-	<div class="content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
 					<router-link to="/"
@@ -27,17 +28,30 @@
 			<i class="fas fa-bolt"></i> Emmet: Write HTML & CSS Faster
 		</h1>
 
-		<div class="box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-graduation-cap"></i> Learning Objectives
-			</h3>
-			<ul>
-				<li>Understand Emmet syntax and abbreviations</li>
-				<li>Learn common Emmet shortcuts</li>
-				<li>Master nested elements and grouping</li>
-				<li>Use multiplication and numbering</li>
-			</ul>
-		</div>
+		<!-- Hunter Element 1: Anticipatory Set -->
+		<AnticipatorySet
+			title="⚡ Code at Lightning Speed"
+			:hook="`<p>Imagine typing <code>ul>li*5</code> and instantly getting a complete unordered list with 5 items. Or typing <code>nav>ul>li*3>a</code> and getting a full navigation structure. That's Emmet!</p>
+			<p><strong>Professional developers use Emmet every day.</strong> It can make you 10x faster at writing HTML and CSS. Once you learn it, you'll never want to hand-code HTML tags again!</p>`"
+			:reflection-prompts="[
+				'How much time do you spend typing opening and closing HTML tags?',
+				'What if you could write complex HTML structures in seconds?',
+				'Why do professional developers seem to code so much faster?'
+			]"
+			connection="In the next 20 minutes, you'll learn the productivity tool that professional developers rely on daily. This will change how you write code forever!"
+		/>
+
+		<!-- Hunter Element 2: Learning Objectives -->
+		<LearningObjectives
+			:objectives="[
+				'Understand Emmet syntax and how abbreviations expand',
+				'Master common Emmet shortcuts for rapid development',
+				'Create nested elements and grouped structures instantly',
+				'Use multiplication and automatic numbering',
+				'Apply Emmet to real-world coding scenarios'
+			]"
+			purpose="Emmet is an industry-standard tool used by developers worldwide. Learning it will dramatically speed up your workflow and make you more productive. This is a skill that will save you hundreds of hours over your career."
+		/>
 
 		<div class="notification is-success is-light mt-4">
 			<h4 class="title is-4">
@@ -325,6 +339,11 @@
 			</div>
 		</div>
 
+		<!-- Hunter Element: Checkpoint -->
+		<CheckpointBox
+			:questions="checkpointQuestions"
+		/>
+
 		<div class="box mt-6">
 			<h2 class="title is-3">
 				<i class="fas fa-book"></i> Additional Resources
@@ -348,8 +367,17 @@
 			</div>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Professional web developers use Emmet daily to scaffold HTML structures quickly. Whether building component templates, creating page layouts, or generating repetitive structures, Emmet is an essential tool in modern web development workflows.</p><p>Companies like Google, Microsoft, and Adobe incorporate Emmet into their development tools. Learning Emmet is a small time investment that pays dividends throughout your career, saving hours of repetitive typing and reducing syntax errors.</p>"
+			next-steps="<p>Congratulations! You've completed the HTML Basics series. You've learned HTML elements, semantic structure, forms, document organization, and now productivity tools like Emmet. You have a solid foundation in HTML.</p><p>Next, you're ready to move into CSS Basics, where you'll learn to style and layout the HTML structures you've been creating. CSS brings your semantic HTML to life with colors, layouts, typography, and responsive design.</p>"
+		/>
+
 		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/emmet'" />
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-emmet'" />
 
 		<!-- Add quiz before the completion section -->
 		<TutorialQuiz />
@@ -357,20 +385,72 @@
 		<!-- Completion Section -->
 		<div class="completion-section mt-6">
 			<h2 class="title is-3">
-				<i class="fas fa-graduation-cap"></i> Completion
+				<i class="fas fa-graduation-cap"></i> HTML Basics Series Complete!
 			</h2>
 			<div class="content">
 				<p>
-					Congratulations! You've completed the Emmet tutorial. We hope you've
-					learned a lot and are excited to start using Emmet in your projects.
+					Congratulations! You've completed the entire HTML Basics tutorial series. 
+					You now have a solid foundation in HTML and are ready to move on to CSS!
 				</p>
-				<div class="buttons">
-					<router-link to="/tutorials" class="button is-primary">
+
+				<div class="box has-background-success-light mt-4">
+					<h3 class="title is-4">
+						<i class="fas fa-trophy mr-2"></i> What You've Accomplished
+					</h3>
+					<ul>
+						<li><strong>8 tutorials completed</strong> covering all fundamental HTML concepts</li>
+						<li>Learned to create <strong>semantic, accessible HTML</strong></li>
+						<li>Built two complete projects: <strong>Black Swan Bistro</strong> and <strong>Rotto Rocks</strong></li>
+						<li>Mastered the <strong>Emmet workflow</strong> for faster development</li>
+					</ul>
+				</div>
+
+				<div class="box mt-4">
+					<h3 class="title is-4">
+						<i class="fas fa-external-link-alt mr-2"></i> Review Your Project Work
+					</h3>
+					<p class="mb-3">
+						Take a look at the complete HTML reference versions to see how all the concepts
+						you learned come together:
+					</p>
+					<div class="buttons">
+						<a href="/projects/html-basics/black-swan-bistro/index.html" target="_blank" class="button is-primary">
+							<span class="icon"><i class="fas fa-utensils"></i></span>
+							<span>Black Swan Bistro - Complete HTML</span>
+						</a>
+						<a href="/projects/html-basics/rotto-rocks/index.html" target="_blank" class="button is-link">
+							<span class="icon"><i class="fas fa-island-tropical"></i></span>
+							<span>Rotto Rocks - Complete HTML</span>
+						</a>
+					</div>
+					<p class="is-size-7 mt-2">
+						<em>Compare your work with these reference implementations to reinforce your learning!</em>
+					</p>
+				</div>
+
+				<div class="notification is-info mt-4">
+					<h3 class="title is-5">
+						<i class="fas fa-forward mr-2"></i> Next Steps: CSS Basics
+					</h3>
+					<p>
+						Now that you have solid HTML foundation, it's time to learn CSS to make
+						your websites beautiful! In the CSS Basics series, you'll style both
+						projects and transform them from plain HTML into visually stunning sites.
+					</p>
+					<router-link to="/tutorials/beginner/css-basics" class="button is-info mt-3">
+						<span class="icon"><i class="fab fa-css3-alt"></i></span>
+						<span>Start CSS Basics</span>
+					</router-link>
+				</div>
+
+				<div class="buttons mt-4">
+					<router-link to="/tutorials" class="button is-light">
 						<i class="fas fa-arrow-left mr-2"></i>
-						Back to Tutorials
+						Back to All Tutorials
 					</router-link>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 </template>
@@ -380,6 +460,72 @@ import { ref, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+const checkpointQuestions = [
+	{
+		question: 'What does the Emmet abbreviation "div>ul>li*3" expand to?',
+		answer:
+			'It creates a div containing a ul (unordered list) with 3 li (list items). The > operator creates child elements, and the * operator multiplies elements.',
+	},
+	{
+		question: 'How do you add a class name to an element using Emmet?',
+		answer:
+			'Use a dot (.) after the element name, like "div.container" which creates <div class="container"></div>. Multiple classes can be chained: "div.container.main".',
+	},
+	{
+		question: 'What is the difference between the + and > operators in Emmet?',
+		answer:
+			'The + operator creates sibling elements (at the same level), while the > operator creates child elements (nested inside). For example: "div>p+p" creates a div with two paragraph siblings inside it.',
+	},
+	{
+		question: 'How can Emmet improve your HTML workflow?',
+		answer:
+			'Emmet dramatically speeds up HTML writing by expanding abbreviations into full HTML code, reducing typing, minimizing errors, and allowing you to scaffold complex structures quickly. It helps you focus on structure and content rather than typing tags.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Emmet is a productivity toolkit that expands abbreviations into full HTML/CSS code',
+	'The > operator creates child elements, + creates siblings, and * multiplies elements',
+	'Use . for classes, # for IDs, and [] for custom attributes in Emmet abbreviations',
+	'Emmet is built into VS Code and most modern code editors, requiring no installation',
+	'Mastering Emmet abbreviations can speed up your HTML/CSS workflow by 50% or more',
+];
+
+const closureObjectives = [
+	'Understand what Emmet is and how it improves productivity',
+	'Use Emmet abbreviations to quickly generate HTML structures',
+	'Apply operators like >, +, *, (), and ^ to create complex nested structures',
+	'Add classes, IDs, and attributes using Emmet shortcuts',
+	'Practice common Emmet patterns for faster HTML development',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-bolt',
+		title: 'Productivity Boost',
+		questions: [
+			'How much time could you save by using Emmet for repetitive HTML structures?',
+			'Which Emmet abbreviations would be most useful for your projects?'
+		],
+		content:
+			'Emmet transforms the way you write HTML. Instead of typing opening tags, closing tags, and attributes manually, you express structure as abbreviations and let Emmet handle the details. This lets you think at a higher level about document structure.',
+	},
+	{
+		icon: 'fas fa-lightbulb',
+		title: 'Learning Process',
+		questions: [
+			"What's the best way to memorize Emmet abbreviations?",
+			'How can you practice Emmet to make it second nature?'
+		],
+		content:
+			"Start with basic abbreviations and gradually incorporate more complex patterns. Use Emmet every day, even for simple structures. Within a few weeks, common patterns become muscle memory and you'll wonder how you ever coded without it.",
+	},
+];
 
 // Get the pageSections array from the parent component (if provided)
 const pageSections = inject('pageSections', null);

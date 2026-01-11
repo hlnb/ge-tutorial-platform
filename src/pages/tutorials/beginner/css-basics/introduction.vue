@@ -1,6 +1,6 @@
 <template>
-	<div class="container">
-		<section class="section">
+	<div class="container section">
+		<div class="content tutorial-content">
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
 					<li>
@@ -20,21 +20,45 @@
 				</ul>
 			</nav>
 
-			<header class="tutorial-header">
-				<div class="tags mb-4">
-					<span class="tag is-info">{{ frontmatter.difficulty }}</span>
-					<span class="tag is-warning">{{ frontmatter.duration }}</span>
-					<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">
-						{{ tag }}
-					</span>
-				</div>
+			<div class="tags mb-4">
+				<span class="tag is-info">{{ frontmatter.difficulty }}</span>
+				<span class="tag is-warning">{{ frontmatter.duration }}</span>
+				<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">
+					{{ tag }}
+				</span>
+			</div>
 
-				<h1 class="title is-1">
-					<i class="fa-brands fa-css css-icon"></i>
-					{{ frontmatter.title }}
-				</h1>
-				<p class="subtitle is-4">{{ frontmatter.description }}</p>
-			</header>
+			<h1 class="title is-1">
+				<i class="fa-brands fa-css3-alt"></i>
+				{{ frontmatter.title }}
+			</h1>
+
+			<!-- Hunter Element 1: Anticipatory Set -->
+			<AnticipatorySet
+				title="🎨 Transforming the Web from Plain to Beautiful"
+				:hook="`<p>Every stunning website you've ever visited—from your favorite social media platform to beautifully designed portfolios—uses CSS to create its visual appeal. Without CSS, the web would be nothing but plain black text on white backgrounds.</p>
+				<p><strong>Think about it:</strong> Have you ever wondered how designers make buttons hover with color changes, create smooth animations, or ensure websites look perfect on both phones and desktops? The answer is CSS.</p>`"
+				:reflection-prompts="[
+					'What makes a website visually appealing to you?',
+					'Have you noticed how some websites adapt beautifully to your phone screen?',
+					'Why do you think separating content from design matters?'
+				]"
+				connection="In this tutorial, you'll learn the fundamental concepts of CSS and how to add professional styling to your web pages. This is where your journey into beautiful web design begins."
+			/>
+
+			<!-- Hunter Element 2: Learning Objectives -->
+			<LearningObjectives
+				:objectives="[
+					'Understand what CSS is and its role in web development',
+					'Learn the three different ways to add CSS to HTML documents',
+					'Master basic CSS syntax and selector usage',
+					'Apply CSS naming conventions for clean, maintainable code',
+					'Write your first CSS rules to style web content',
+					'Understand the cascade and how styles are applied',
+					'Use browser developer tools to inspect and modify CSS'
+				]"
+				purpose="CSS is the cornerstone of modern web design. Mastering these fundamentals will enable you to transform any HTML content into visually appealing, professional websites. Every web developer must understand CSS deeply—it's one of the three core technologies of the web."
+			/>
 
 			<article class="tutorial">
 				<!-- Introduction -->
@@ -331,7 +355,7 @@
 				</div>
 
 				<div class="box">
-					<h2 id="practice"class="title is-3">
+					<h2 id="practice" class="title is-3">
 						<i class="fas fa-laptop-code"></i> Getting Ready to Practice
 					</h2>
 
@@ -399,10 +423,18 @@
 					</p>
 				</div>
 			</article>
-		</section>
 
-		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/introduction'" />
+		<!-- Hunter Element: Checkpoint -->
+		<CheckpointBox :questions="checkpointQuestions" />
+
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Every professional website uses CSS to create its visual identity. Companies like Apple, Google, and Airbnb employ teams of CSS specialists to craft beautiful, consistent user experiences. CSS frameworks like Bootstrap and Tailwind CSS, used by millions of websites, are built on the same fundamental CSS principles you're learning now.</p><p>Understanding CSS fundamentals is crucial before using frameworks or preprocessors. These tools abstract CSS complexity, but when something breaks or needs customization, you need to understand the underlying CSS to fix it. Master the basics first, then explore advanced tools.</p>"
+			next-steps="<p>Now that you understand CSS fundamentals, you're ready to dive deeper into CSS selectors. In the next lesson, you'll master element selectors, class selectors, ID selectors, combinators, and pseudo-classes—giving you precise control over which elements receive styling.</p><p>Selectors are the foundation of CSS targeting. The better you understand selectors, the more efficiently you can write CSS and the less you'll need to modify HTML just to add styles.</p>"
+		/>
 
 		<section class="mt-6">
 			<h2 class="title is-3">Test Your Knowledge</h2>
@@ -422,6 +454,7 @@
 			</h2>
 			<p>You've completed the CSS Basics tutorial. Great job!</p>
 		</div>
+		</div>
 	</div>
 </template>
 
@@ -438,7 +471,12 @@ import { ref, computed, inject, onMounted, watch } from 'vue';
 import DOMPurify from 'dompurify';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { useRoute } from 'vue-router';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const frontmatter = {
 	title: 'Introduction to CSS',
@@ -474,6 +512,73 @@ const codeExamples = {
 .featured-article {} /* Clean naming */
 .site-navigation {} /* Clear purpose */`,
 };
+
+const checkpointQuestions = [
+	{
+		question:
+			'What are the three ways to add CSS to an HTML document, and when would you use each?',
+		answer:
+			'Inline CSS (style attribute) for single-element quick fixes; Internal CSS (<style> in <head>) for single-page styles; External CSS (separate .css file) for multi-page websites and best maintainability. External CSS is preferred for production websites.',
+	},
+	{
+		question: 'Explain the parts of a CSS rule: h1 { color: blue; }',
+		answer:
+			'h1 is the selector (targets which elements to style), color is the property (what aspect to change), and blue is the value (how to change it). The curly braces {} contain the declarations, and the semicolon ; separates multiple declarations.',
+	},
+	{
+		question: 'Why are naming conventions important in CSS?',
+		answer:
+			'Consistent naming conventions make code more readable, maintainable, and collaborative. They prevent naming conflicts, make it easier to find styles, and help teams work together effectively on large projects.',
+	},
+	{
+		question: 'What is the "cascade" in CSS?',
+		answer:
+			'The cascade determines which styles apply when multiple rules target the same element. It considers specificity (how specific the selector is), source order (later rules override earlier ones), and importance (!important). Understanding the cascade is crucial for controlling styles effectively.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'CSS (Cascading Style Sheets) separates presentation from content, making websites maintainable and flexible',
+	'The three ways to add CSS are: inline (style attribute), internal (<style> tag), and external (.css file)',
+	'CSS syntax consists of selectors, properties, and values: selector { property: value; }',
+	'Naming conventions (BEM, kebab-case, camelCase) keep CSS organized and prevent conflicts',
+	'The cascade determines which styles apply based on specificity, source order, and importance',
+	'Browser DevTools are essential for inspecting, testing, and debugging CSS in real-time',
+	'External stylesheets are the professional standard for multi-page websites',
+];
+
+const closureObjectives = [
+	'Understand what CSS is and its role in web development',
+	'Learn the three different ways to add CSS to HTML documents',
+	'Master basic CSS syntax and selector usage',
+	'Apply CSS naming conventions for clean, maintainable code',
+	'Write your first CSS rules to style web content',
+	'Understand the cascade and how styles are applied',
+	'Use browser developer tools to inspect and modify CSS',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-palette',
+		title: 'Design Thinking',
+		questions: [
+			'How does separating structure (HTML) from presentation (CSS) benefit web development?',
+			'What makes a website visually appealing while remaining accessible to all users?',
+		],
+		content:
+			"Good CSS isn't just about making things pretty—it creates experiences that work for everyone. Consider accessibility, performance, and maintainability from the start, not as afterthoughts.",
+	},
+	{
+		icon: 'fas fa-code',
+		title: 'Best Practices',
+		questions: [
+			'Why is external CSS preferred over inline or internal CSS for production websites?',
+			'How do naming conventions help when working in teams or revisiting code later?',
+		],
+		content:
+			'Professional CSS follows conventions and patterns that make code predictable and maintainable. Establishing good habits early—like using external stylesheets and consistent naming—saves countless hours in the long run.',
+	},
+];
 
 const inlineExample = ref(
 	`<p style="color: blue; font-size: 18px;">This is inline CSS</p>`,

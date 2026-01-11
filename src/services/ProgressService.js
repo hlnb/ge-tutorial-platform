@@ -14,50 +14,68 @@ const PROGRESS_STORAGE_KEY = 'tutorial_progress';
 const defaultProgress = {
 	completedTutorials: [],
 	tutorialProgress: {},
+	inProgressTutorials: {},
 	completedQuizzes: [],
 	quizResults: {},
+	lastVisited: null,
 };
 
 // Get current user ID
 function getCurrentUserId() {
-	return auth.currentUser ? auth.currentUser.uid : null;
+	if (!auth || !auth.currentUser) return null;
+	return auth.currentUser.uid;
 }
 
 // Load progress from Firestore or localStorage
 async function loadProgress() {
 	const userId = getCurrentUserId();
-	if (userId) {
+	let progress;
+	if (userId && db) {
 		// Authenticated: load from Firestore
 		try {
 			const docRef = doc(db, 'progress', userId);
 			const docSnap = await getDoc(docRef);
 			if (docSnap.exists()) {
-				return docSnap.data();
+				progress = docSnap.data();
+			} else {
+				progress = { ...defaultProgress };
 			}
-			return defaultProgress;
 		} catch (error) {
 			console.error('Error loading progress from Firestore:', error);
-			return defaultProgress;
+			progress = { ...defaultProgress };
 		}
 	} else {
 		// Guest: load from localStorage
 		try {
 			const savedProgress = localStorage.getItem(PROGRESS_STORAGE_KEY);
 			if (savedProgress) {
-				return JSON.parse(savedProgress);
+				progress = JSON.parse(savedProgress);
+			} else {
+				progress = { ...defaultProgress };
 			}
-			return defaultProgress;
 		} catch (error) {
 			console.error('Error loading progress from localStorage:', error);
-			return defaultProgress;
+			progress = { ...defaultProgress };
 		}
 	}
+	
+	// Ensure backward compatibility: map tutorialProgress to inProgressTutorials
+	if (!progress.inProgressTutorials && progress.tutorialProgress) {
+		progress.inProgressTutorials = progress.tutorialProgress;
+	}
+	if (!progress.tutorialProgress && progress.inProgressTutorials) {
+		progress.tutorialProgress = progress.inProgressTutorials;
+	}
+	// Ensure all default properties exist
+	progress = { ...defaultProgress, ...progress };
+	
+	return progress;
 }
 
 // Save progress to Firestore or localStorage
 async function saveProgress(progress) {
 	const userId = getCurrentUserId();
-	if (userId) {
+	if (userId && db) {
 		// Authenticated: save to Firestore
 		try {
 			const docRef = doc(db, 'progress', userId);
@@ -91,12 +109,7 @@ function enableProgressTracking() {
 	if (typeof window === 'undefined') return;
 
 	try {
-		localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify({
-			completedTutorials: [],
-			tutorialProgress: {},
-			completedQuizzes: [],
-			quizResults: {},
-		}));
+		localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(defaultProgress));
 	} catch (error) {
 		console.error('Error enabling progress tracking:', error);
 	}
@@ -127,6 +140,13 @@ async function markTutorialCompleted(tutorialPath) {
 		const progress = await loadProgress();
 		if (!progress.completedTutorials.includes(tutorialPath)) {
 			progress.completedTutorials.push(tutorialPath);
+			// Remove from in-progress when completed
+			if (progress.tutorialProgress && progress.tutorialProgress[tutorialPath]) {
+				delete progress.tutorialProgress[tutorialPath];
+			}
+			if (progress.inProgressTutorials && progress.inProgressTutorials[tutorialPath]) {
+				delete progress.inProgressTutorials[tutorialPath];
+			}
 			await saveProgress(progress);
 		}
 		return true;
@@ -142,10 +162,13 @@ async function updateTutorialProgress(tutorialPath, progressData) {
 
 	try {
 		const progress = await loadProgress();
-		progress.tutorialProgress[tutorialPath] = {
+		const updatedData = {
 			...progressData,
 			lastUpdated: new Date().toISOString()
 		};
+		progress.tutorialProgress[tutorialPath] = updatedData;
+		progress.inProgressTutorials[tutorialPath] = updatedData;
+		progress.lastVisited = tutorialPath;
 		await saveProgress(progress);
 		return true;
 	} catch (error) {
@@ -242,7 +265,8 @@ async function trackProgress(tutorialPath) {
 		// Update tutorial progress
 		await updateTutorialProgress(tutorialPath, {
 			visited: true,
-			lastVisited: new Date().toISOString()
+			lastVisited: new Date().toISOString(),
+			percentage: 0
 		});
 		
 		return true;
@@ -254,8 +278,8 @@ async function trackProgress(tutorialPath) {
 
 // Merge two progress objects, preferring the most recently updated fields
 function mergeProgress(local, remote) {
-	if (!local) return remote || defaultProgress;
-	if (!remote) return local || defaultProgress;
+	if (!local) return remote || { ...defaultProgress };
+	if (!remote) return local || { ...defaultProgress };
 	const merged = { ...remote };
 	// Merge completedTutorials and completedQuizzes as union
 	merged.completedTutorials = Array.from(new Set([...(local.completedTutorials || []), ...(remote.completedTutorials || [])]));
@@ -267,12 +291,34 @@ function mergeProgress(local, remote) {
 			merged.tutorialProgress[key] = local.tutorialProgress[key];
 		}
 	}
+	// Merge inProgressTutorials by most recent lastUpdated
+	merged.inProgressTutorials = { ...remote.inProgressTutorials };
+	for (const key in local.inProgressTutorials) {
+		if (!merged.inProgressTutorials[key] || new Date(local.inProgressTutorials[key].lastUpdated || 0) > new Date((merged.inProgressTutorials[key]||{}).lastUpdated || 0)) {
+			merged.inProgressTutorials[key] = local.inProgressTutorials[key];
+		}
+	}
+	// Ensure tutorialProgress and inProgressTutorials are in sync
+	if (!merged.inProgressTutorials || Object.keys(merged.inProgressTutorials).length === 0) {
+		merged.inProgressTutorials = merged.tutorialProgress;
+	}
+	if (!merged.tutorialProgress || Object.keys(merged.tutorialProgress).length === 0) {
+		merged.tutorialProgress = merged.inProgressTutorials;
+	}
 	// Merge quizResults by most recent completedAt
 	merged.quizResults = { ...remote.quizResults };
 	for (const key in local.quizResults) {
 		if (!merged.quizResults[key] || new Date(local.quizResults[key].completedAt || 0) > new Date((merged.quizResults[key]||{}).completedAt || 0)) {
 			merged.quizResults[key] = local.quizResults[key];
 		}
+	}
+	// Set lastVisited to the most recent
+	if (local.lastVisited && remote.lastVisited) {
+		const localTime = local.inProgressTutorials?.[local.lastVisited]?.lastUpdated || 0;
+		const remoteTime = remote.inProgressTutorials?.[remote.lastVisited]?.lastUpdated || 0;
+		merged.lastVisited = new Date(localTime) > new Date(remoteTime) ? local.lastVisited : remote.lastVisited;
+	} else {
+		merged.lastVisited = local.lastVisited || remote.lastVisited || null;
 	}
 	return merged;
 }

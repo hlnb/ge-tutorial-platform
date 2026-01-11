@@ -1,6 +1,7 @@
 <template>
-	<div class="tutorial-content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
 					<router-link to="/"
@@ -30,17 +31,29 @@
 				<i class="fab fa-html5 html-icon"></i> Working with Text Elements
 			</h1>
 
-			<div class="box mb-6">
-				<h3 class="title is-4">
-					<i class="fas fa-graduation-cap"></i> Learning Objectives
-				</h3>
-				<ul>
-					<li>Understand heading hierarchy (h1-h6)</li>
-					<li>Learn text formatting elements</li>
-					<li>Master basic text structure</li>
-					<li>Create organized content with lists</li>
-				</ul>
-			</div>
+			<!-- Hunter Element 1: Anticipatory Set -->
+			<AnticipatorySet
+				title="📝 Text is Everywhere"
+				:hook="`<p>Think about every website you visit: blogs, news sites, social media, online stores. What do they all have in common? <strong>Text!</strong> How that text looks and is organized makes the difference between a professional site and a messy one.</p>
+				<p>Did you know that 90% of web content is text-based? Learning to structure and format text properly is one of the most important skills in web development.</p>`"
+				:reflection-prompts="[
+					'Have you noticed how some websites have clear, organized text while others look cluttered?',
+					'Why do headings on a page get smaller as you go down?',
+					'How does proper text structure help people read faster?'
+				]"
+				connection="In this lesson, you'll master the art of organizing and formatting text—skills you'll use on every single website you build."
+			/>
+
+			<!-- Hunter Element 2: Learning Objectives -->
+			<LearningObjectives
+				:objectives="[
+					'Understand heading hierarchy (h1-h6) and why it matters for SEO and accessibility',
+					'Apply semantic text formatting elements (strong, em, mark) correctly',
+					'Create well-structured content with paragraphs and line breaks',
+					'Build organized lists (ordered, unordered, and description lists)'
+				]"
+				purpose="Text structure is the backbone of content on the web. Master this and you'll create websites that are easy to read, rank well in search engines, and are accessible to everyone—including people using screen readers."
+			/>
 
 			<!-- Practice Options -->
 			<CodingOptions filename="text.html" class="mt-4 mb-2" />
@@ -174,7 +187,12 @@
 					</ul>
 				</div>
 			</div>
-
+		<!-- Checkpoint: Check Understanding -->
+		<CheckpointBox
+			title="⏸️ Pause & Check: Text Formatting"
+			description="Before the practice exercise, test your understanding:"
+			:questions="checkpointQuestions"
+		/>
 			<div class="box is-info mt-4">
 				<h3 id="black-swan" class="title is-4">
 					<i class="fas fa-tasks"></i> Restaurant Menu Task
@@ -341,11 +359,17 @@ Soups & Salads
 		</section>
 	</div>
 
-	<!-- Add recommendations before navigation -->
-	<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-text'" />
+	<!-- Closure Section -->
+	<ClosureSection
+		title="🏁 Lesson Complete: You're a Text Master!"
+		:key-takeaways="closureKeyTakeaways"
+		:objectives="closureObjectives"
+		:reflection-prompts="closureReflectionPrompts"
+		real-world-application="<p>Every blog post, article, documentation page, and content-heavy website relies on the text formatting you learned today. These are the most frequently used HTML elements in professional web development!</p>"
+		next-steps="<p>In the next lesson, <strong>Working with Links</strong>, you'll learn how to connect pages together and create navigation—the foundation of the web itself!</p>"
+	/>
 
-	<!-- Main Tutorial Navigation -->
-	<TutorialNavigation />
+	</div>
 </template>
 
 <script setup>
@@ -359,6 +383,65 @@ import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import QuizComponent from '@/components/QuizComponent.vue';
 import { useRoute } from 'vue-router';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+const checkpointQuestions = [
+	{
+		question: "What's the difference between <strong> and <b> tags?",
+		answer:
+			`<strong> indicates semantic importance (meaning), while <b> is just visual boldness without meaning. Use <strong> for better accessibility and SEO.`,
+	},
+	{
+		question: 'When would you use <em> instead of <i>?',
+		answer:
+			'Use <em> when you want to emphasize something for meaning/importance. Use <i> for technical terms, foreign words, or titles where italics is just a visual style.',
+	},
+	{
+		question: 'How do you create a nested list (a list within a list)?',
+		answer:
+			'Place a complete <ul> or <ol> element inside an <li> element of the parent list.',
+	},
+	{
+		question: "What's the proper heading hierarchy and why does it matter?",
+		answer:
+			"Start with h1 (main title), then h2 (sections), h3 (subsections), etc. Don't skip levels. This helps screen readers, SEO, and logical document structure.",
+	},
+];
+
+const closureKeyTakeaways = [
+	'Semantic HTML elements like <strong> and <em> convey meaning, not just visual styling',
+	'Proper heading hierarchy (h1→h2→h3) creates accessible and SEO-friendly documents',
+	'Lists (ul, ol, dl) organize information clearly for both humans and machines',
+	'Text formatting elements make content scannable and emphasize important points',
+	'Combining these elements creates professional, well-structured content',
+];
+
+const closureObjectives = [
+	'Use semantic text elements for bold, italic, and emphasis',
+	'Create proper heading hierarchies in HTML documents',
+	'Build ordered, unordered, and description lists',
+	'Apply text formatting for readability and meaning',
+	'Structure restaurant menu content with proper HTML',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: 'Semantic Thinking',
+		icon: '🧠',
+		questions: [
+			'Look at a news article online. How many different heading levels can you spot?',
+			'Why do you think accessibility tools like screen readers need semantic HTML?'
+		],
+	},
+	{
+		title: 'Professional Practice',
+		icon: '💼',
+		content: `<p>Browse through some restaurant websites. Notice how they use headings, lists, and formatting. What makes some menus easier to read than others?</p>`,
+	},
+];
 
 useHead({
 	title: 'Working with Text - HTML Basics - GraphitEdge Tutorials',

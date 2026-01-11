@@ -1,6 +1,7 @@
 <template>
-	<div class="tutorial-content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
 					<router-link to="/"
@@ -27,34 +28,34 @@
 			<i class="fab fa-html5 html-icon"></i>Introduction to HTML
 		</h1>
 
-		<div class="box box-info mb-6">
-			<p>
-				<strong><i class="fas fa-bullseye"></i> Goal:</strong> Understand what
-				HTML is, its history, and how it works with HTTP to create web pages.
-			</p>
-		</div>
+		<!-- Hunter Element 1: Anticipatory Set -->
+		<AnticipatorySet
+			title="🌐 Welcome to the World of HTML"
+			:hook="`<p>Every single website you've ever visited—every social media post, every online game, every video you've watched—was built with HTML. It's the foundation of the entire web.</p>
+			<p><strong>Here's the amazing thing:</strong> HTML was created in 1989 by one person who just wanted scientists to share documents. Today, it powers billions of websites and connects the entire world.</p>`"
+			:reflection-prompts="[
+				'Have you ever right-clicked on a website and selected View Source?',
+				'What did all that code mean?',
+				'Why do some websites look complex while others are simple?'
+			]"
+			connection="In the next 15 minutes, you'll understand exactly what HTML is and why it's the most important language on the web."
+		/>
 
-		<div class="box is-info mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-clipboard-check"></i> Prerequisites
-			</h3>
-			<p>
-				If you've completed the Getting Started section, you'll already have:
-			</p>
-			<ul>
-				<li><i class="fas fa-check"></i> VS Code installed with extensions</li>
-				<li>
-					<i class="fas fa-check"></i> A basic understanding of web technologies
-				</li>
-				<li><i class="fas fa-check"></i> Browser developer tools ready</li>
-			</ul>
-			<p>
-				If you haven't completed Getting Started,
-				<router-link to="/tutorials/getting-started"
-					>start there first</router-link
-				>.
-			</p>
-		</div>
+		<!-- Hunter Element 2: Learning Objectives -->
+		<LearningObjectives
+			:objectives="[
+				'Understand what HTML is and its role in web development',
+				'Explain the history and evolution of HTML from 1989 to HTML5',
+				'Describe how HTML works with HTTP to deliver web pages',
+				'Identify the relationship between HTML structure and browser rendering'
+			]"
+			purpose="HTML is literally the foundation of every website. Without understanding HTML, you can't build anything on the web. This knowledge will unlock your ability to create, modify, and understand any website you encounter."
+			:prerequisites="[
+				{ topic: 'VS Code installed with extensions', link: '/tutorials/getting-started/text-editors' },
+				{ topic: 'Basic understanding of web technologies', link: '/tutorials/getting-started/web-basics' },
+				{ topic: 'Browser developer tools ready', link: '/tutorials/getting-started/browser-tools' }
+			]"
+		/>
 
 		<h2 id="what-is-html" class="title is-3">
 			<i class="fas fa-info-circle"></i> What is HTML?
@@ -444,7 +445,12 @@
 				while local development helps you learn real-world workflows.
 			</p>
 		</div>
-
+	<!-- Checkpoint: Check Understanding -->
+	<CheckpointBox
+		title="⏸️ Pause & Check: Do You Understand?"
+		description="Before moving forward, can you answer these?"
+		:questions="checkpointQuestions"
+	/>
 		<h2 id="try-it-yourself" class="title is-3">
 			<i class="fas fa-laptop-code"></i> Try It Yourself
 		</h2>
@@ -576,13 +582,44 @@
 					in the CSS tutorials.
 				</p>
 			</div>
+
+			<div class="box has-background-light mt-4">
+				<h4 class="title is-5">
+					<i class="fas fa-external-link-alt mr-2"></i> View Complete Reference Projects
+				</h4>
+				<p class="mb-3">
+					Want to see what you'll build? Check out the finished HTML versions of both projects.
+					These serve as reference implementations showing all the HTML concepts you'll learn.
+				</p>
+				<div class="buttons">
+					<a href="/projects/html-basics/black-swan-bistro/index.html" target="_blank" class="button is-primary">
+						<span class="icon"><i class="fas fa-utensils"></i></span>
+						<span>Black Swan Bistro HTML</span>
+					</a>
+					<a href="/projects/html-basics/rotto-rocks/index.html" target="_blank" class="button is-link">
+						<span class="icon"><i class="fas fa-island-tropical"></i></span>
+						<span>Rotto Rocks HTML</span>
+					</a>
+				</div>
+				<p class="is-size-7 mt-2">
+					<em>Note: These are HTML-only versions without styling. You'll add CSS in the CSS Basics series!</em>
+				</p>
+			</div>
 		</div>
 
-		<!-- Add recommendations before the quiz -->
-		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/introduction'" />
+		<!-- Closure Section -->
+		<ClosureSection
+			title="🏁 Lesson Complete: Your HTML Journey Begins!"
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Every website you've ever visited—from social media to online shopping—is built with HTML at its core. Understanding HTML gives you the power to create, modify, and understand the digital world around you.</p>"
+			next-steps="<p>In the next lesson, <strong>HTML: Your First Page</strong>, you'll create a complete HTML document from scratch with proper structure, headings, paragraphs, and links. You'll build something you can actually share!</p>"
+		/>
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+		<!-- Add recommendations -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/introduction'" />
+		</div>
 	</div>
 </template>
 
@@ -593,7 +630,66 @@ import DOMPurify from 'dompurify';
 import { useHead } from '@vueuse/head';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+const checkpointQuestions = [
+	{
+		question: 'What does HTML stand for and what is its primary purpose?',
+		answer:
+			'HTML stands for HyperText Markup Language. Its primary purpose is to structure and define the content of web pages using elements and tags.',
+	},
+	{
+		question: 'What are the three main parts of an HTML element?',
+		answer:
+			'Opening tag (e.g., <p>), content (the text or nested elements), and closing tag (e.g., </p>).',
+	},
+	{
+		question:
+			'Why is it important to use a text editor (like VS Code) instead of a word processor (like Microsoft Word)?',
+		answer:
+			'Text editors create plain text files without hidden formatting, which is required for HTML. Word processors add styling and formatting code that would break HTML files.',
+	},
+	{
+		question: 'Can you name at least three HTML elements and explain what they do?',
+		answer:
+			'Examples: <p> creates a paragraph, <h1> creates a main heading, <a> creates a hyperlink, <img> displays an image, <div> creates a container division.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'HTML is the backbone of all web pages, providing structure and meaning to content',
+	'HTML elements consist of opening tags, content, and closing tags (with some exceptions like <img>)',
+	'You can write HTML in any text editor and view results in any web browser',
+	'Proper HTML structure is essential for both visual rendering and accessibility',
+	'HTML works with CSS (styling) and JavaScript (interactivity) to create complete websites',
+];
+
+const closureObjectives = [
+	'Explain what HTML is and its role in web development',
+	'Identify the basic structure of HTML elements and tags',
+	'Set up a text editor and browser for HTML development',
+	'Create a simple HTML page with basic elements',
+	'Recognize common HTML elements and their purposes',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: 'Connect to Your Experience',
+		icon: '💭',
+		questions: [
+			'Think of a website you visit often. What HTML elements do you think make up its structure?',
+			'How has your understanding of web pages changed now that you know about HTML?'
+		],
+	},
+	{
+		title: 'Real-World Application',
+		icon: '🌍',
+		content: `<p>Next time you browse the web, try right-clicking on a page and selecting "View Page Source" or "Inspect Element". You'll see the HTML code behind the page. Notice how elements are nested and structured!</p>`,
+	},
+];
 
 const frontmatter = {
 	title: 'Introduction to HTML',

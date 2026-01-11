@@ -7,6 +7,10 @@ import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 // Define page sections
 const sections = [
@@ -52,6 +56,73 @@ const { pageSections } = usePageSections(sections);
 
 const route = useRoute();
 
+const checkpointQuestions = [
+	{
+		question:
+			'What is the difference between a class selector and an ID selector?',
+		answer:
+			'Class selectors (.) can be used on multiple elements and are reusable, while ID selectors (#) should only be used once per page. Classes are for styling groups of elements; IDs are for unique elements and have higher specificity.',
+	},
+	{
+		question:
+			'How does the descendant combinator (space) differ from the child combinator (>)?',
+		answer:
+			'The descendant combinator (space) selects all matching elements at any depth within an ancestor, while the child combinator (>) only selects direct children. For example, "div p" selects all p elements inside any div, but "div > p" only selects p elements that are immediate children of div.',
+	},
+	{
+		question: 'What is CSS specificity and why does it matter?',
+		answer:
+			"Specificity determines which CSS rule applies when multiple rules target the same element. It's calculated based on the types of selectors used: inline styles (1000), IDs (100), classes/attributes/pseudo-classes (10), and elements (1). Understanding specificity helps you control which styles apply without using !important.",
+	},
+	{
+		question: 'When would you use a pseudo-class like :hover or :nth-child()?',
+		answer:
+			'Pseudo-classes select elements based on their state or position. Use :hover for interactive styling when users mouse over elements, :nth-child() to select specific children by position (like every other row in a table), :first-child/:last-child for boundary elements, and :focus for keyboard navigation accessibility.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Element selectors target HTML tags, class selectors (.) target multiple elements, and ID selectors (#) target unique elements',
+	'Combinators control relationships: descendant (space), child (>), adjacent sibling (+), and general sibling (~)',
+	'Attribute selectors target elements based on attributes and values using [attribute], [attribute=value], and pattern matching',
+	'Pseudo-classes like :hover, :focus, :nth-child() select elements based on state or position',
+	'Specificity determines which styles apply: inline (1000) > IDs (100) > classes/attributes (10) > elements (1)',
+	'Combining selectors increases specificity and targeting precision',
+	'Writing specific, maintainable selectors is more important than using !important',
+];
+
+const closureObjectives = [
+	'Master basic selectors: element, class, ID, and universal (*)',
+	'Use combinators to target elements based on their relationships',
+	'Apply attribute selectors for flexible targeting',
+	'Understand and use pseudo-classes for state and position-based styling',
+	'Calculate and manage CSS specificity effectively',
+	'Write efficient, maintainable selectors following best practices',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-crosshairs',
+		title: 'Precision Targeting',
+		questions: [
+			'When should you use a class selector versus an ID selector?',
+			'How can you make selectors more specific without increasing complexity?',
+		],
+		content:
+			'Good selector strategy balances specificity with maintainability. Favor classes for reusability, avoid over-specific selectors that are hard to override, and structure your CSS to be predictable and scalable.',
+	},
+	{
+		icon: 'fas fa-layer-group',
+		title: 'Specificity Management',
+		questions: [
+			'What problems arise from specificity conflicts?',
+			'How can you avoid needing !important to override styles?',
+		],
+		content:
+			'Specificity wars lead to unmaintainable CSS filled with !important declarations. Plan your selector strategy early: keep specificity low and consistent, use methodologies like BEM, and reserve higher specificity for truly specific cases.',
+	},
+];
+
 // Example code
 const elementExample = ref(
 	'<!-- HTML -->\n' +
@@ -91,51 +162,59 @@ defineExpose({
 </script>
 
 <template>
-	<div class="content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
-			<ul>
-				<li>
-					<router-link to="/"
-						><i class="fa-solid fa-house mr-2"></i> Home</router-link
-					>
-				</li>
-				<li><router-link to="/tutorials">Tutorials</router-link></li>
-				<li>
-					<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
-				</li>
-				<li class="is-active"><a href="#" aria-current="page">Selectors</a></li>
-			</ul>
-		</nav>
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<router-link to="/"
+							><i class="fa-solid fa-house mr-2"></i> Home</router-link
+						>
+					</li>
+					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
+					</li>
+					<li class="is-active"><a href="#" aria-current="page">Selectors</a></li>
+				</ul>
+			</nav>
 
-		<h1 class="title is-1">
-			<i class="fa-brands fa-css css-icon"></i>
-			CSS Selectors
-		</h1>
+			<h1 class="title is-1">
+				<i class="fa-brands fa-css3-alt"></i>
+				CSS Selectors
+			</h1>
 
-		<p class="lead">
-			CSS selectors are patterns used to select and style HTML elements on a
-			webpage. Understanding selectors is key to writing effective CSS.
-		</p>
+			<!-- Hunter Element 1: Anticipatory Set -->
+			<AnticipatorySet
+				title="🎯 The Power of Precise Targeting"
+				:hook="`<p>Imagine you're decorating a house—you wouldn't paint every room the same color, right? CSS selectors are like having specific instructions: 'paint this bedroom blue,' 'make all kitchen walls white,' or 'add gold trim to the living room door.'</p>
+				<p><strong>Why selectors matter:</strong> Professional websites use hundreds of different styles. Selectors let you apply the right style to the right element without affecting anything else.</p>`"
+				:reflection-prompts="[
+					'How do you think websites apply different styles to different sections?',
+					'What would happen if you could only style ALL paragraphs the same way?',
+					'How might you target just one specific element among many similar ones?'
+				]"
+				connection="In this tutorial, you'll master CSS selectors—the foundation of precise, efficient styling. This is what separates beginners from professional developers."
+			/>
 
-		<div class="highlight-box">
-			<h3>In this tutorial, you'll learn:</h3>
-			<ul class="icon-list">
-				<li>
-					<i class="fas fa-code"></i> How to select elements by their type
-				</li>
-				<li>
-					<i class="fas fa-code"></i> How to use classes to style multiple
-					elements
-				</li>
-				<li>
-					<i class="fas fa-code"></i> How to style unique elements with IDs
-				</li>
-				<li>
-					<i class="fas fa-code"></i> How to combine selectors for more specific
-					styling
-				</li>
-			</ul>
-		</div>
+			<!-- Hunter Element 2: Learning Objectives -->
+			<LearningObjectives
+				:objectives="[
+					'Select elements by type, class, and ID with precision',
+					'Combine selectors to target specific elements',
+					'Use attribute selectors for dynamic styling',
+					'Apply pseudo-classes for interactive states',
+					'Understand selector specificity and the cascade',
+					'Write efficient, maintainable selector patterns',
+					'Debug selector issues using browser dev tools'
+				]"
+				purpose="Selectors are the most fundamental skill in CSS. Master them and you can style anything on the web with precision and confidence. Poor selector knowledge leads to messy, unmaintainable code—strong selector skills make you a CSS expert."
+			/>
+
+			<p class="lead">
+				CSS selectors are patterns used to select and style HTML elements on a
+				webpage. Understanding selectors is key to writing effective CSS.
+			</p>
 
 		<section id="basic-selectors">
 			<h2 class="title is-2 section-title">Basic Selectors</h2>
@@ -1164,6 +1243,9 @@ p:only-child {
 			</div>
 		</div>
 
+		<!-- Hunter Element: Checkpoint -->
+		<CheckpointBox :questions="checkpointQuestions" />
+
 		<div id="practical-exercises" class="mt-6">
 			<h2 id="practice" class="title is-3">Practical Exercises</h2>
 			<p>
@@ -1366,6 +1448,15 @@ footer {}
 			</ul>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Professional CSS relies heavily on selector strategy. Large codebases from companies like GitHub, Airbnb, and Shopify use methodologies like BEM (Block Element Modifier) to manage selector specificity and prevent conflicts. Understanding selectors deeply allows you to write CSS that scales from small projects to enterprise applications.</p><p>Modern CSS frameworks like Tailwind and CSS-in-JS solutions abstract selectors, but when debugging or customizing, you need to understand how selectors work. Mastering selectors makes you a more effective developer regardless of the tools you use.</p>"
+			next-steps="<p>With selectors mastered, you're ready to learn the CSS Box Model—one of the most fundamental concepts in CSS layout. The box model explains how elements occupy space, including content, padding, borders, and margins. Understanding the box model is essential for controlling layout and spacing.</p><p>Every CSS layout challenge involves the box model. Whether you're centering content, creating grids, or debugging spacing issues, box model knowledge is your foundation. Let's dive in!</p>"
+		/>
+
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/selectors'" />
 
@@ -1380,6 +1471,7 @@ footer {}
 				Feel free to explore more CSS tutorials or apply your new skills to
 				real-world projects.
 			</p>
+		</div>
 		</div>
 	</div>
 </template>

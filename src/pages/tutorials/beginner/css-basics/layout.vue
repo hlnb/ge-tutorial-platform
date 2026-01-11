@@ -6,6 +6,10 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const frontmatter = {
 	title: 'Layout Basics',
@@ -65,6 +69,71 @@ const sections = [
 ];
 
 const { pageSections } = usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question:
+			'What is the difference between display: block, display: inline, and display: inline-block?',
+		answer:
+			'block elements take full width and start on new lines (div, p, h1). inline elements only take needed space and flow with text (span, a, strong). inline-block combines both: flows inline but accepts width/height like blocks.',
+	},
+	{
+		question: 'How does position: relative differ from position: absolute?',
+		answer:
+			'relative positions elements relative to their normal position in the document flow, keeping their space reserved. absolute removes elements from the flow and positions them relative to the nearest positioned ancestor. relative is often used to create positioning contexts for absolute children.',
+	},
+	{
+		question: 'What is the purpose of z-index and when can it be used?',
+		answer:
+			"z-index controls stacking order of positioned elements (relative, absolute, fixed, or sticky). Higher values appear on top. z-index only works on positioned elements and creates stacking contexts. It's commonly used for modals, dropdowns, and overlays.",
+	},
+	{
+		question: 'When should you use floats in modern CSS?',
+		answer:
+			'Floats were historically used for layouts but are now primarily for text wrapping around images. Modern layouts should use Flexbox or Grid instead. Floats remove elements from normal flow and require clearfix techniques to contain them properly.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'display property controls how elements participate in layout (block, inline, inline-block, none)',
+	'position property offers five values: static (default), relative, absolute, fixed, sticky',
+	'z-index controls stacking order for positioned elements in the same stacking context',
+	'Floats remove elements from normal flow and were historically used for layouts',
+	'Modern layouts prefer Flexbox and Grid over floats for better control and maintainability',
+	'Understanding document flow and positioning is fundamental to CSS layout mastery',
+];
+
+const closureObjectives = [
+	'Master display values: block, inline, inline-block, and none',
+	'Understand position values: static, relative, absolute, fixed, sticky',
+	'Control stacking order with z-index',
+	'Use floats appropriately (primarily for text wrapping)',
+	'Understand document flow and how positioning affects it',
+	'Debug layout issues using browser DevTools',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-layer-group',
+		title: 'Layout Strategy',
+		questions: [
+			'How do display and position work together to create layouts?',
+			'When should you use absolute positioning versus Flexbox/Grid?',
+		],
+		content:
+			"Layout decisions depend on context. Absolute positioning works for overlays and tooltips. Flexbox excels at one-dimensional layouts. Grid handles two-dimensional layouts. Understanding each tool's strengths helps you choose wisely.",
+	},
+	{
+		icon: 'fas fa-stream',
+		title: 'Document Flow',
+		questions: [
+			'What happens to document flow when you use position: absolute?',
+			'How do floats affect surrounding elements?',
+		],
+		content:
+			'Understanding document flow—how elements naturally lay out—is crucial for predicting layout behavior. Positioning and floats remove elements from normal flow, which can solve problems but also create unexpected results if not understood.',
+	},
+];
 
 // Code examples
 const displayExample = ref(`/* Block elements take full width */
@@ -559,39 +628,75 @@ const clearExample = ref(`/* Clear example */
 </script>
 
 <template>
-	<div class="content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
-			<ul>
-				<li>
-					<router-link to="/"
-						><i class="fa-solid fa-house mr-2"></i> Home</router-link
-					>
-				</li>
-				<li><router-link to="/tutorials">Tutorials</router-link></li>
-				<li>
-					<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
-				</li>
-				<li class="is-active">
-					<a href="#" aria-current="page">Layout Fundamentals</a>
-				</li>
-			</ul>
-		</nav>
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<router-link to="/"
+							><i class="fa-solid fa-house mr-2"></i> Home</router-link
+						>
+					</li>
+					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
+					</li>
+					<li class="is-active">
+						<a href="#" aria-current="page">Layout Fundamentals</a>
+					</li>
+				</ul>
+			</nav>
 
-		<header class="tutorial-header">
-			<div class="tags mb-4">
-				<span class="tag is-info">{{ frontmatter.difficulty }}</span>
-				<span class="tag is-warning">{{ frontmatter.duration }}</span>
-				<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
-					tag
-				}}</span>
-			</div>
+			<header class="tutorial-header">
+				<div class="tags mb-4">
+					<span class="tag is-info">{{ frontmatter.difficulty }}</span>
+					<span class="tag is-warning">{{ frontmatter.duration }}</span>
+					<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
+						tag
+					}}</span>
+				</div>
 
-			<h1 class="title is-1">
-				<i class="fa-brands fa-css css-icon"></i>
-				{{ frontmatter.title }}
-			</h1>
-			<p class="subtitle is-4">{{ frontmatter.description }}</p>
-		</header>
+				<h1 class="title is-1">
+					<i class="fa-brands fa-css css-icon"></i>
+					{{ frontmatter.title }}
+				</h1>
+				<p class="subtitle is-4">{{ frontmatter.description }}</p>
+			</header>
+
+			<AnticipatorySet
+				title="🏗️ Building the Structure of Modern Websites"
+				:reflection-prompts="[
+					'Think about newspaper and magazine layouts. How do they organize information to guide your reading?',
+					'What makes some website layouts feel intuitive and others feel confusing?',
+					'How do layouts need to adapt when you switch from desktop to mobile?',
+				]"
+			>
+				<p>
+					Before CSS, web pages were essentially documents that flowed from top to
+					bottom. Tables were abused to create columns, and spacer GIFs were used to
+					create gaps. Today, CSS gives us powerful tools to position and arrange content
+					exactly how we want it.
+				</p>
+				<p>
+					In this tutorial, you'll master the fundamental layout techniques that have
+					shaped the web for decades: display properties, positioning, and floats. While
+					newer techniques like Flexbox and Grid have emerged, understanding these
+					foundations is essential for maintaining existing sites and grasping how modern
+					layouts evolved.
+				</p>
+			</AnticipatorySet>
+
+			<LearningObjectives
+				:objectives="[
+					'Understand how the display property controls element behavior in document flow',
+					'Master static, relative, absolute, and fixed positioning strategies',
+					'Create multi-column layouts using float-based techniques',
+					'Implement clearfix solutions to manage float behavior',
+					'Build classic layouts like the Holy Grail and sidebar patterns',
+					'Debug common layout issues with positioning and floats',
+					'Recognize when to use traditional layout methods vs. modern alternatives',
+				]"
+			/>
 		<section id="layout-fundamentals">
 			<h2 class="title is-3">Layout Fundamentals</h2>
 
@@ -1267,6 +1372,9 @@ const clearExample = ref(`/* Clear example */
 			</div>
 		</section>
 
+		<!-- Hunter Element: Checkpoint -->
+		<CheckpointBox :questions="checkpointQuestions" />
+
 		<section id="practical-exercises">
 			<h2 class="title is-3">Practical Exercises</h2>
 
@@ -1347,6 +1455,15 @@ const clearExample = ref(`/* Clear example */
 			</div>
 		</section>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Professional websites use a combination of layout techniques. Fixed navigation bars use position: fixed. Modal dialogs use position: absolute or fixed with high z-index. Content sections use Flexbox or Grid. Understanding when and why to use each technique separates good developers from great ones.</p><p>Modern CSS has evolved beyond floats for layout, but understanding legacy techniques helps you maintain older codebases and appreciate why Flexbox and Grid were revolutionary improvements to CSS layout capabilities.</p>"
+			next-steps="<p>Now that you understand layout fundamentals, you're ready to dive into CSS colors and backgrounds. In the next lesson, you'll master color systems (hex, RGB, HSL), opacity, gradients, and background properties that bring visual richness to your designs.</p><p>Color theory and background techniques are essential for creating visually appealing, accessible websites that capture attention and guide user focus.</p>"
+		/>
+
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/layout'" />
 
@@ -1416,6 +1533,7 @@ const clearExample = ref(`/* Clear example */
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </template>
 

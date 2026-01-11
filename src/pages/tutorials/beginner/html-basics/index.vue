@@ -53,62 +53,203 @@ onBeforeUnmount(() => {
 
 		<div class="tutorial-grid">
 			<div class="columns is-multiline">
-				<div
-					v-for="(link, index) in [
-						{
-							path: '/tutorials/beginner/html-basics/introduction',
-							text: 'Introduction',
-							time: '15 minutes',
-						},
-						{
-							path: '/tutorials/beginner/html-basics/html-first-page',
-							text: 'Your First HTML Page',
-							time: '20 minutes',
-						},
-						{
-							path: '/tutorials/beginner/html-basics/html-text',
-							text: 'Working with Text',
-							time: '30 minutes',
-						},
-						{
-							path: '/tutorials/beginner/html-basics/html-links',
-							text: 'Links & Navigation',
-							time: '30 minutes',
-						},
-						{
-							path: '/tutorials/beginner/html-basics/html-images',
-							text: 'Images',
-							time: '25 minutes',
-						},
-						{
-							path: '/tutorials/beginner/html-basics/html-doc-structure',
-							text: 'Document Structure',
-							time: '20 minutes',
-						},
-						{ path: '/tutorials/beginner/html-basics/html-forms', text: 'Forms', time: '35 minutes' },
-						{
-							path: '/tutorials/beginner/html-basics/html-emmet',
-							text: 'Emmet Workflow',
-							time: '20 minutes',
-						},
-					]"
-					:key="index"
-					class="column is-one-third"
-				>
-					<div class="card">
-						<div class="card-content">
-							<h3 class="title is-4">
-								<router-link :to="link.path">{{
-									link.text
-								}}</router-link>
-							</h3>
-							<div class="tags">
-								<span class="tag is-warning">{{ link.time }}</span>
-								<span class="tag is-success">Theory</span>
-								<span class="tag is-primary">Practice</span>
-								<span class="tag is-link">Project</span>
-							</div>
+				<!-- Introduction -->
+				<div class="column is-one-third">
+					<div class="box tutorial-card">
+						<h2 class="title is-4">
+							<router-link to="/tutorials/beginner/html-basics/introduction">
+								Introduction to HTML
+							</router-link>
+						</h2>
+						<div class="tags mb-4">
+							<span class="tag is-info">Beginner</span>
+							<span class="tag is-light">15 mins</span>
+							<span class="tag is-primary">Theory</span>
 						</div>
+						<p>
+							Get started with HTML and understand what it is and why it matters.
+						</p>
+						<router-link
+							to="/tutorials/beginner/html-basics/introduction"
+							class="button is-primary is-outlined mt-4"
+						>
+							Start Tutorial
+						</router-link>
+					</div>
+				</div>
+
+				<!-- Your First HTML Page -->
+				<div class="column is-one-third">
+					<div class="box tutorial-card">
+						<h2 class="title is-4">
+							<router-link to="/tutorials/beginner/html-basics/html-first-page">
+								Your First HTML Page
+							</router-link>
+						</h2>
+						<div class="tags mb-4">
+							<span class="tag is-info">Beginner</span>
+							<span class="tag is-light">20 mins</span>
+							<span class="tag is-success">Practice</span>
+						</div>
+						<p>
+							Create your very first HTML page and learn the basic structure.
+						</p>
+						<router-link
+							to="/tutorials/beginner/html-basics/html-first-page"
+							class="button is-primary is-outlined mt-4"
+						>
+							Start Tutorial
+						</router-link>
+					</div>
+				</div>
+
+				<!-- Working with Text -->
+				<div class="column is-one-third">
+					<div class="box tutorial-card">
+						<h2 class="title is-4">
+							<router-link to="/tutorials/beginner/html-basics/html-text">
+								Working with Text
+							</router-link>
+						</h2>
+						<div class="tags mb-4">
+							<span class="tag is-info">Beginner</span>
+							<span class="tag is-light">30 mins</span>
+							<span class="tag is-primary">Practice</span>
+						</div>
+						<p>
+							Master HTML text elements including headings, paragraphs, and formatting.
+						</p>
+						<router-link
+							to="/tutorials/beginner/html-basics/html-text"
+							class="button is-primary is-outlined mt-4"
+						>
+							Start Tutorial
+						</router-link>
+					</div>
+				</div>
+
+				<!-- Links & Navigation -->
+				<div class="column is-one-third">
+					<div class="box tutorial-card">
+						<h2 class="title is-4">
+							<router-link to="/tutorials/beginner/html-basics/html-links">
+								Links & Navigation
+							</router-link>
+						</h2>
+						<div class="tags mb-4">
+							<span class="tag is-info">Beginner</span>
+							<span class="tag is-light">30 mins</span>
+							<span class="tag is-primary">Practice</span>
+						</div>
+						<p>
+							Learn to create links that connect web pages and build navigation.
+						</p>
+						<router-link
+							to="/tutorials/beginner/html-basics/html-links"
+							class="button is-primary is-outlined mt-4"
+						>
+							Start Tutorial
+						</router-link>
+					</div>
+				</div>
+
+				<!-- Images -->
+				<div class="column is-one-third">
+					<div class="box tutorial-card">
+						<h2 class="title is-4">
+							<router-link to="/tutorials/beginner/html-basics/html-images">
+								Working with Images
+							</router-link>
+						</h2>
+						<div class="tags mb-4">
+							<span class="tag is-info">Beginner</span>
+							<span class="tag is-light">25 mins</span>
+							<span class="tag is-primary">Practice</span>
+						</div>
+						<p>
+							Add images to your web pages with proper accessibility and optimization.
+						</p>
+						<router-link
+							to="/tutorials/beginner/html-basics/html-images"
+							class="button is-primary is-outlined mt-4"
+						>
+							Start Tutorial
+						</router-link>
+					</div>
+				</div>
+
+				<!-- Document Structure -->
+				<div class="column is-one-third">
+					<div class="box tutorial-card">
+						<h2 class="title is-4">
+							<router-link to="/tutorials/beginner/html-basics/html-doc-structure">
+								Document Structure
+							</router-link>
+						</h2>
+						<div class="tags mb-4">
+							<span class="tag is-info">Beginner</span>
+							<span class="tag is-light">20 mins</span>
+							<span class="tag is-success">Theory</span>
+						</div>
+						<p>
+							Build properly structured HTML documents with semantic elements.
+						</p>
+						<router-link
+							to="/tutorials/beginner/html-basics/html-doc-structure"
+							class="button is-primary is-outlined mt-4"
+						>
+							Start Tutorial
+						</router-link>
+					</div>
+				</div>
+
+				<!-- Forms -->
+				<div class="column is-one-third">
+					<div class="box tutorial-card">
+						<h2 class="title is-4">
+							<router-link to="/tutorials/beginner/html-basics/html-forms">
+								HTML Forms
+							</router-link>
+						</h2>
+						<div class="tags mb-4">
+							<span class="tag is-info">Beginner</span>
+							<span class="tag is-light">35 mins</span>
+							<span class="tag is-primary">Practice</span>
+						</div>
+						<p>
+							Create interactive forms to collect user input and data.
+						</p>
+						<router-link
+							to="/tutorials/beginner/html-basics/html-forms"
+							class="button is-primary is-outlined mt-4"
+						>
+							Start Tutorial
+						</router-link>
+					</div>
+				</div>
+
+				<!-- Emmet Workflow -->
+				<div class="column is-one-third">
+					<div class="box tutorial-card">
+						<h2 class="title is-4">
+							<router-link to="/tutorials/beginner/html-basics/html-emmet">
+								Emmet Workflow
+							</router-link>
+						</h2>
+						<div class="tags mb-4">
+							<span class="tag is-info">Beginner</span>
+							<span class="tag is-light">20 mins</span>
+							<span class="tag is-link">Productivity</span>
+						</div>
+						<p>
+							Speed up your HTML coding with Emmet shortcuts and abbreviations.
+						</p>
+						<router-link
+							to="/tutorials/beginner/html-basics/html-emmet"
+							class="button is-primary is-outlined mt-4"
+						>
+							Start Tutorial
+						</router-link>
 					</div>
 				</div>
 			</div>
@@ -142,6 +283,16 @@ onBeforeUnmount(() => {
 						A restaurant website that grows with your knowledge. Perfect for
 						learning the basics!
 					</p>
+					<div class="buttons mt-3">
+						<a href="/projects/html-basics/black-swan-bistro/index.html" target="_blank" class="button is-primary">
+							<span class="icon"><i class="fas fa-external-link-alt"></i></span>
+							<span>View Complete HTML Project</span>
+						</a>
+						<a href="/projects/html-basics/black-swan-bistro/README.md" target="_blank" class="button is-light">
+							<span class="icon"><i class="fas fa-book"></i></span>
+							<span>Project Documentation</span>
+						</a>
+					</div>
 				</div>
 
 				<div class="notification is-link is-light">
@@ -152,6 +303,16 @@ onBeforeUnmount(() => {
 						A tourism website for Rottnest Island. This more complex project
 						will help you master HTML!
 					</p>
+					<div class="buttons mt-3">
+						<a href="/projects/html-basics/rotto-rocks/index.html" target="_blank" class="button is-link">
+							<span class="icon"><i class="fas fa-external-link-alt"></i></span>
+							<span>View Complete HTML Project</span>
+						</a>
+						<a href="/projects/html-basics/rotto-rocks/README.md" target="_blank" class="button is-light">
+							<span class="icon"><i class="fas fa-book"></i></span>
+							<span>Project Documentation</span>
+						</a>
+					</div>
 				</div>
 
 				<div class="notification is-warning is-light mt-4">

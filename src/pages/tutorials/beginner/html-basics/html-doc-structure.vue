@@ -1,7 +1,8 @@
 <template>
-	<div class="tutorial-content">
-		<!-- Breadcrumb -->
-		<nav class="breadcrumb" aria-label="breadcrumbs">
+	<div class="container section">
+		<div class="content tutorial-content">
+			<!-- Breadcrumb -->
+			<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
 					<router-link to="/"
@@ -29,83 +30,32 @@
 			<i class="fab fa-html5 html-icon"></i> HTML Document Structure
 		</h1>
 
-		<!-- 1. Learning Goals -->
-		<div class="box">
-			<h2 class="title is-4">
-				<i class="fas fa-graduation-cap section-icon"></i> Learning Goals
-			</h2>
-			<div class="tutorial-card">
-				<p>After completing this tutorial, you will be able to:</p>
-				<ul>
-					<li>
-						Create a properly structured HTML document with all required
-						elements
-					</li>
-					<li>Use semantic HTML elements to organize content meaningfully</li>
-					<li>
-						Understand and implement important metadata in the
-						<code>&lt;head&gt;</code> section
-					</li>
-					<li>Create accessible and SEO-friendly page structures</li>
-					<li>Apply common layout patterns using semantic HTML</li>
-					<li>
-						Use appropriate heading levels to create a clear document outline
-					</li>
-					<li>Implement basic WAI-ARIA roles for improved accessibility</li>
-					<li>Structure content for both human readers and search engines</li>
-					<li>Create responsive and mobile-friendly document structures</li>
-				</ul>
-			</div>
+		<!-- Hunter Element 1: Anticipatory Set -->
+		<AnticipatorySet
+			title="🏛️ Building the Foundation"
+			:hook="`<p>Think of HTML structure like building a house. You need a solid foundation, walls that make sense, and rooms organized logically. The same goes for web pages—proper structure is invisible but absolutely essential.</p>
+			<p><strong>Here's why this matters:</strong> Google and other search engines rely heavily on document structure to understand and rank your content. Screen readers use it to help blind users navigate. Poor structure = poor SEO + poor accessibility.</p>`"
+			:reflection-prompts="[
+				'Have you noticed that well-organized websites are easier to navigate?',
+				'Why do some websites rank higher in Google search results?',
+				'How do blind users navigate websites without seeing them?'
+			]"
+			connection="In this tutorial, you'll learn to build properly structured HTML documents that work beautifully for humans, search engines, and assistive technologies."
+		/>
 
-			<!-- MDN References -->
-			<div class="notification is-info is-light mt-4">
-				<h3 class="title is-5">
-					<i class="fas fa-book section-icon"></i> Additional Resources
-				</h3>
-				<ul>
-					<li>
-						<a
-							href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure"
-							target="_blank"
-							rel="noopener"
-						>
-							MDN: Document and Website Structure
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta"
-							target="_blank"
-							rel="noopener"
-						>
-							MDN: The Metadata Element
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics"
-							target="_blank"
-							rel="noopener"
-						>
-							MDN: HTML Semantics
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<!-- Prerequisites -->
-			<div class="notification is-warning is-light mt-4">
-				<h3 class="title is-5">
-					<i class="fas fa-clipboard-check section-icon"></i> Prerequisites
-				</h3>
-				<p>Before starting this tutorial, you should be familiar with:</p>
-				<ul>
-					<li>Basic HTML elements and tags</li>
-					<li>Working with text content</li>
-					<li>Creating links and adding images</li>
-				</ul>
-			</div>
-		</div>
+		<!-- Hunter Element 2: Learning Objectives -->
+		<LearningObjectives
+			:objectives="[
+				'Create a properly structured HTML document with all required elements',
+				'Use semantic HTML elements to organize content meaningfully',
+				'Implement important metadata in the head section for SEO',
+				'Build accessible and SEO-friendly page structures',
+				'Apply common layout patterns using semantic HTML',
+				'Use heading hierarchy to create clear document outlines',
+				'Implement WAI-ARIA roles for improved accessibility'
+			]"
+			purpose="Document structure is the invisible skeleton that holds everything together. Master this and your websites will be more accessible, rank better in search engines, and be easier to maintain. This is professional-level web development."
+		/>
 
 		<!-- 2. Document Structure Diagram -->
 		<div class="box mt-6">
@@ -1006,6 +956,11 @@
 			</div>
 		</div>
 
+		<!-- Hunter Element: Checkpoint -->
+		<CheckpointBox
+			:questions="checkpointQuestions"
+		/>
+
 		<!-- Add this section before the practice projects -->
 		<div class="box mt-6">
 			<h2 class="title is-3">
@@ -1311,6 +1266,15 @@ This is a new line
 			</div>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Professional websites rely on proper document structure for SEO, accessibility, and maintainability. Major sites like The New York Times, GitHub, and Medium use semantic HTML to organize content hierarchically, making it easy for both users and search engines to understand.</p><p>Proper structure also makes it easier for teams to collaborate on code. When structure follows semantic conventions, new developers can quickly understand how a page is organized without reading every line of code. This reduces bugs, speeds up development, and creates more maintainable projects.</p>"
+			next-steps="<p>Now that you understand proper HTML document structure, you're ready to learn Emmet—a powerful toolkit that helps you write HTML faster using shortcuts and abbreviations. Emmet will dramatically speed up your workflow while reinforcing the HTML patterns you've learned.</p><p>After mastering Emmet, you'll have completed the HTML Basics series and be ready to move into CSS, where you'll learn to style and lay out the semantic HTML structures you've been creating.</p>"
+		/>
+
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-doc-structure'" />
 
@@ -1329,6 +1293,7 @@ This is a new line
 		</div>
 
 		<TutorialNavigation class="mt-6" />
+		</div>
 	</div>
 </template>
 
@@ -1336,6 +1301,73 @@ This is a new line
 import { ref, onMounted, inject, computed } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+const checkpointQuestions = [
+	{
+		question:
+			'What is the purpose of semantic HTML5 elements like <header>, <nav>, <main>, and <footer>?',
+		answer:
+			'Semantic elements give meaning to content structure, making pages more accessible to screen readers, improving SEO, and creating more maintainable code. They describe the role and purpose of content sections rather than just visual presentation.',
+	},
+	{
+		question: 'Why should every HTML page have only one <main> element?',
+		answer:
+			'The <main> element identifies the primary content of a document. Having only one <main> helps assistive technologies skip directly to the main content and clearly defines what the page is about, which benefits both users and search engines.',
+	},
+	{
+		question: 'What is the difference between <article> and <section>?',
+		answer:
+			"<article> represents self-contained, independently distributable content (like blog posts or news articles). <section> groups related content together but isn't independently meaningful. An article could contain sections, and a section could contain articles.",
+	},
+	{
+		question: 'How does proper document structure benefit accessibility?',
+		answer:
+			'Proper structure with semantic elements, landmarks, headings hierarchy, and ARIA labels allows screen readers to create a page outline, enables keyboard navigation shortcuts, and helps users understand and navigate content efficiently without seeing the visual layout.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Semantic HTML5 elements like <header>, <nav>, <main>, <article>, <section>, <aside>, and <footer> give meaning to page structure',
+	'The <head> contains metadata (title, meta tags, links to CSS/JS) while <body> contains visible content',
+	'Proper heading hierarchy (h1-h6) creates document outlines for accessibility and SEO',
+	"ARIA landmarks and labels enhance accessibility for screen reader users when semantic elements aren't sufficient",
+	'Well-structured HTML documents are easier to style with CSS, maintain over time, and rank better in search engines',
+];
+
+const closureObjectives = [
+	'Structure complete HTML documents with head and body sections',
+	'Use semantic HTML5 elements appropriately (header, nav, main, article, section, aside, footer)',
+	'Implement proper heading hierarchy for accessibility and SEO',
+	'Add appropriate metadata and Open Graph tags',
+	'Apply ARIA landmarks and labels when needed',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-sitemap',
+		title: 'Document Organization',
+		questions: [
+			'How does semantic structure make your code easier to understand and maintain?',
+			'What would happen if you used only <div> elements instead of semantic elements?'
+		],
+		content:
+			'Semantic HTML is like using chapter titles and section headings in a book—it creates structure and meaning that helps everyone (humans and machines) understand your content better.',
+	},
+	{
+		icon: 'fas fa-universal-access',
+		title: 'Accessibility Impact',
+		questions: [
+			'How do screen readers use landmarks and heading structure?',
+			'Why is proper document structure a foundation for accessibility?'
+		],
+		content:
+			"Accessible websites benefit everyone. Good structure enables keyboard navigation, screen reader shortcuts, and search engine understanding. It's not just about compliance—it's about building a better web for all users.",
+	},
+];
 
 // (route not needed in this file)
 

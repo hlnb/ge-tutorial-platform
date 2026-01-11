@@ -7,6 +7,10 @@ import DOMPurify from 'dompurify';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const frontmatter = {
 	title: 'Working with Colors',
@@ -70,6 +74,70 @@ const sections = [
 ];
 
 const { pageSections } = usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question:
+			'What is the difference between HEX, RGB, and HSL color formats?',
+		answer:
+			'HEX uses hexadecimal values (#RRGGBB), RGB uses numeric values from 0-255 (rgb(114, 47, 55)), and HSL defines colors with hue (0-360°), saturation (%), and lightness (%). Choose the format that makes adjustments easiest for the situation.',
+	},
+	{
+		question: 'How do CSS custom properties (variables) help with color systems?',
+		answer:
+			'Defining colors as custom properties (e.g., :root { --brand-primary: #722f37; }) centralizes your palette. Reuse colors consistently, update themes in one place, and create light/dark modes without hunting through every rule.',
+	},
+	{
+		question: 'When would you use color versus background-color?',
+		answer:
+			"color sets the text (foreground) color, while background-color sets the element's background. Use them together to ensure adequate contrast. For buttons and cards, background-color defines the block, and color keeps text readable.",
+	},
+	{
+		question: 'What is contrast ratio and why is 4.5:1 important?',
+		answer:
+			'Contrast ratio measures the difference between text and background colors. WCAG recommends at least 4.5:1 for normal text and 3:1 for large text to ensure readability for users with low vision or when viewing screens in bright light.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'CSS supports multiple color models (HEX, RGB, HSL, named colors) for precise control',
+	'CSS custom properties help manage consistent color palettes and enable theming',
+	'color affects text, background-color affects element backgrounds—use both for contrast',
+	'Gradients, transparency, and overlays add depth while maintaining readability',
+	'Accessible color contrast (4.5:1 for text) is required for inclusive design',
+	'Global color tokens make large projects easier to maintain',
+];
+
+const closureObjectives = [
+	'Choose appropriate color formats for different scenarios',
+	'Create and use CSS custom properties for palettes',
+	'Apply colors to text, backgrounds, borders, and gradients',
+	'Ensure accessibility with contrast checking tools',
+	'Build cohesive brand palettes for sample projects',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-palette',
+		title: 'Design Intent',
+		questions: [
+			'How do your color choices support the story or brand?',
+			'Which colors communicate trust, excitement, or calm?',
+		],
+		content:
+			'Color choices influence emotion and usability. Tie palettes to brand adjectives and ensure they work consistently across UI components.',
+	},
+	{
+		icon: 'fas fa-universal-access',
+		title: 'Accessibility Lens',
+		questions: [
+			'Have you tested your palette with a contrast checker?',
+			'How would your colors appear to someone with color vision deficiency?',
+		],
+		content:
+			'Accessible colors improve readability for everyone. Consider color blindness simulators and provide non-color cues (icons, text) for state changes.',
+	},
+];
 
 // Code examples
 const rgbExample = ref(`/* RGB Color Examples */
@@ -279,50 +347,85 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 </script>
 
 <template>
-	<div class="content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
-			<ul>
-				<li>
-					<router-link to="/"
-						><i class="fa-solid fa-house mr-2"></i> Home</router-link
-					>
-				</li>
-				<li><router-link to="/tutorials">Tutorials</router-link></li>
-				<li>
-					<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
-				</li>
-				<li class="is-active">
-					<a href="#" aria-current="page">Working with Colors</a>
-				</li>
-			</ul>
-		</nav>
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<router-link to="/"
+							><i class="fa-solid fa-house mr-2"></i> Home</router-link
+						>
+					</li>
+					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
+					</li>
+					<li class="is-active">
+						<a href="#" aria-current="page">Working with Colors</a>
+					</li>
+				</ul>
+			</nav>
 
-		<header class="tutorial-header">
-			<div class="tags mb-4">
-				<span class="tag is-info">{{ frontmatter.difficulty }}</span>
-				<span class="tag is-warning">{{ frontmatter.duration }}</span>
-				<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
-					tag
-				}}</span>
+			<header class="tutorial-header">
+				<div class="tags mb-4">
+					<span class="tag is-info">{{ frontmatter.difficulty }}</span>
+					<span class="tag is-warning">{{ frontmatter.duration }}</span>
+					<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
+						tag
+					}}</span>
+				</div>
+
+				<h1 class="title is-1">
+					<i class="fa-brands fa-css css-icon"></i>
+					Working with Colors
+				</h1>
+				<p class="subtitle is-4">
+					Learn how to effectively use colors in your web designs using CSS
+				</p>
+			</header>
+
+			<AnticipatorySet
+				title="🎨 Color: The Language of Emotion and Meaning"
+				:reflection-prompts="[
+					'What emotions do different colors evoke in you? Why might red feel energetic while blue feels calm?',
+					'Think about brands you recognize. How do their color choices reflect their identity?',
+					'Have you ever struggled to read text on a website because of poor color contrast?',
+				]"
+			>
+				<p>
+					Color is one of the most powerful tools in web design. The right color palette
+					can make your site feel professional, welcoming, and memorable. The wrong colors
+					can make it feel amateurish or even impossible to use.
+				</p>
+				<p>
+					But working with color on the web involves more than just picking colors that
+					look nice together. You'll need to understand color models (RGB, hexadecimal,
+					HSL), create accessible contrast ratios, work with transparency, and build
+					cohesive color schemes. This tutorial will give you the knowledge and tools to
+					use color effectively in your web projects.
+				</p>
+			</AnticipatorySet>
+
+			<LearningObjectives
+				:objectives="[
+					'Master RGB, hexadecimal, and HSL color notation systems',
+					'Apply color theory principles to create harmonious color schemes',
+					'Use opacity and transparency effects with RGBA and HSLA',
+					'Create gradients and color transitions for visual interest',
+					'Ensure accessibility with proper color contrast ratios',
+					'Implement CSS custom properties for maintainable color systems',
+					'Build professional color palettes for real-world projects',
+				]"
+			/>
+
+			<div class="notification is-info is-light">
+				<p>
+					<strong>Note:</strong> While many English-speaking countries (including
+					Australia) spell "colour" with a "u", in web development we always use
+					the American spelling "color". This is because CSS properties and values
+					must use "color" to work correctly.
+				</p>
 			</div>
-
-			<h1 class="title is-1">
-				<i class="fa-brands fa-css css-icon"></i>
-				Working with Colors
-			</h1>
-			<p class="subtitle is-4">
-				Learn how to effectively use colors in your web designs using CSS
-			</p>
-		</header>
-
-		<div class="notification is-info is-light">
-			<p>
-				<strong>Note:</strong> While many English-speaking countries (including
-				Australia) spell "colour" with a "u", in web development we always use
-				the American spelling "color". This is because CSS properties and values
-				must use "color" to work correctly.
-			</p>
-		</div>
 
 		<section id="color-theory">
 			<h2 class="title is-2">Color Theory</h2>
@@ -994,6 +1097,9 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 			</section>
 		</section>
 
+		<!-- Hunter Element: Checkpoint -->
+		<CheckpointBox :questions="checkpointQuestions" />
+
 		<section id="practical-exercises" class="mt-6">
 			<h2 class="title is-2">Practical Exercises</h2>
 			<p>
@@ -1449,6 +1555,15 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 			</section>
 		</section>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Brand guidelines from companies like Airbnb, Shopify, and Spotify rely on carefully curated color systems powered by CSS variables. Product teams use palettes to signal states (success, warning, danger) and to create memorable identities. Mastering CSS colors lets you implement and maintain these systems at scale.</p><p>Advanced workflows use design tokens synced between design tools and code. Your ability to translate a palette into reusable CSS variables and utility classes makes collaboration with designers seamless.</p>"
+			next-steps="<p>Next up: Flexbox. After learning colors and typography, you're ready to master modern layout systems. Flexbox unlocks responsive navigation bars, cards, and component alignment with minimal code.</p><p>Understanding color foundations ensures your layouts are both functional and visually polished.</p>"
+		/>
+
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/colors'" />
 
@@ -1610,6 +1725,7 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </template>
 

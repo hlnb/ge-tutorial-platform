@@ -6,6 +6,10 @@ import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const frontmatter = {
 	title: 'Responsive Design',
@@ -89,6 +93,69 @@ const sections = [
 ];
 
 const { pageSections } = usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question: 'Why is mobile-first design considered best practice today?',
+		answer:
+			'Starting with mobile ensures core content, performance, and usability on the smallest screens. You progressively enhance for larger viewports instead of trying to retrofit desktop layouts for phones.',
+	},
+	{
+		question: 'When should you use min-width versus max-width media queries?',
+		answer:
+			'Use min-width for mobile-first designs (styles apply at and above a breakpoint). Use max-width when you need specific overrides below a size or when maintaining legacy desktop-first code.',
+	},
+	{
+		question: 'How do relative units (%, rem, vw) help with responsiveness?',
+		answer:
+			'Relative units scale with the viewport or root font size. For example, vw makes hero sections fluid, rem keeps typography proportional, and percentages allow fluid grids without hard pixel values.',
+	},
+	{
+		question: 'What techniques keep responsive images performant?',
+		answer:
+			'Use srcset/sizes or the <picture> element to serve appropriately sized images, compress files, and lazy-load non-critical media so mobile devices download only what they need.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Mobile-first strategy prioritizes core content and performance',
+	'Media queries, fluid units, and responsive images work together for flexible layouts',
+	'Common patterns (stack to columns, off-canvas nav, cards) simplify responsive thinking',
+	'Browser DevTools provide essential responsive testing tools',
+	'Best practices include performance budgeting, content priority, and real-device testing',
+];
+
+const closureObjectives = [
+	'Plan mobile-first breakpoints and layout progression',
+	'Write effective media queries using min-width and max-width',
+	'Use responsive units (%, vw, vh, rem, clamp)',
+	'Optimize images with srcset, sizes, and lazy loading',
+	'Implement common responsive navigation and card patterns',
+	'Test responsive designs across devices and network conditions',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-ruler-horizontal',
+		title: 'Breakpoint Strategy',
+		questions: [
+			'How many breakpoints does your project actually need?',
+			'Can clamp() or fluid units replace some media queries?',
+		],
+		content:
+			'Start with the content, not device widths. Use analytics to identify common breakpoints and keep your system simple.',
+	},
+	{
+		icon: 'fas fa-tachometer-alt',
+		title: 'Performance Mindset',
+		questions: [
+			'Are you shipping only the assets needed per device?',
+			'How will your layout behave on a 3G connection?',
+		],
+		content:
+			'Responsive design is about performance as much as layout. Audit images, fonts, and scripts to keep experiences fast everywhere.',
+	},
+];
 
 const responsiveHolyGrail = ref(`/* Holy Grail Layout - Responsive */
 @media (max-width: 768px) {
@@ -637,46 +704,82 @@ const navigationExample = ref(`/* Responsive Navigation */
 </script>
 
 <template>
-	<div class="content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
-			<ul>
-				<li>
-					<router-link to="/"
-						><i class="fa-solid fa-house mr-2"></i> Home</router-link
-					>
-				</li>
-				<li><router-link to="/tutorials">Tutorials</router-link></li>
-				<li>
-					<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
-				</li>
-				<li class="is-active">
-					<a href="#" aria-current="page">Responsive Design</a>
-				</li>
-			</ul>
-		</nav>
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<router-link to="/"
+							><i class="fa-solid fa-house mr-2"></i> Home</router-link
+						>
+					</li>
+					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/tutorials/beginner/css-basics/">CSS Basics</router-link>
+					</li>
+					<li class="is-active">
+						<a href="#" aria-current="page">Responsive Design</a>
+					</li>
+				</ul>
+			</nav>
 
-		<header class="tutorial-header">
-			<div class="tags mb-4">
-				<span class="tag is-info">{{ frontmatter.difficulty }}</span>
-				<span class="tag is-warning">{{ frontmatter.timeEstimate }}</span>
-				<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
-					tag
-				}}</span>
+			<header class="tutorial-header">
+				<div class="tags mb-4">
+					<span class="tag is-info">{{ frontmatter.difficulty }}</span>
+					<span class="tag is-warning">{{ frontmatter.timeEstimate }}</span>
+					<span v-for="tag in frontmatter.tags" :key="tag" class="tag is-light">{{
+						tag
+					}}</span>
+				</div>
+
+				<h1 class="title is-1">
+					<i class="fa-brands fa-css css-icon"></i>
+					{{ frontmatter.title }}
+				</h1>
+				<p class="subtitle is-4">{{ frontmatter.description }}</p>
+			</header>
+
+			<AnticipatorySet
+				title="📱 One Web, Many Screens"
+				:reflection-prompts="[
+					'How many different devices do you use to browse the web each day?',
+					'Have you ever visited a website on your phone that was clearly designed only for desktop?',
+					'What happens when you resize your browser window on a well-designed website vs. a poorly designed one?',
+				]"
+			>
+				<p>
+					In 2010, Ethan Marcotte coined the term "responsive web design" to describe
+					websites that adapt to different screen sizes. Today, with users browsing on
+					smartphones, tablets, laptops, desktops, and even smart TVs, responsive design
+					isn't optional—it's essential.
+				</p>
+				<p>
+					But responsive design is more than just "making things fit." It's about
+					thinking mobile-first, using media queries effectively, choosing responsive
+					units, and creating layouts that feel natural at any size. In this tutorial,
+					you'll learn the techniques that professional developers use to build websites
+					that work beautifully everywhere.
+				</p>
+			</AnticipatorySet>
+
+			<LearningObjectives
+				:objectives="[
+					'Apply mobile-first design principles to create adaptive layouts',
+					'Write media queries for different screen sizes and device capabilities',
+					'Choose appropriate responsive units (%, vw, vh, rem) for flexible sizing',
+					'Implement responsive images with srcset and picture elements',
+					'Build common responsive patterns like hamburger menus and card grids',
+					'Test and debug responsive designs across multiple devices',
+					'Optimize typography and spacing for different screen sizes',
+				]"
+			/>
+
+			<div class="notification is-info is-light">
+				<p>
+					<strong>Prerequisites:</strong> Understanding of basic CSS and modern
+					CSS features (covered in previous tutorials)
+				</p>
 			</div>
-
-			<h1 class="title is-1">
-				<i class="fa-brands fa-css css-icon"></i>
-				{{ frontmatter.title }}
-			</h1>
-			<p class="subtitle is-4">{{ frontmatter.description }}</p>
-		</header>
-
-		<div class="notification is-info is-light">
-			<p>
-				<strong>Prerequisites:</strong> Understanding of basic CSS and modern
-				CSS features (covered in previous tutorials)
-			</p>
-		</div>
 
 		<section id="introduction">
 			<h2 class="title is-2">Introduction to Responsive Design</h2>
@@ -753,6 +856,9 @@ const navigationExample = ref(`/* Responsive Navigation */
 					</div>
 				</div>
 			</section>
+
+			<!-- Hunter Element: Checkpoint -->
+			<CheckpointBox :questions="checkpointQuestions" />
 
 			<section id="mobile-first-practice" class="mt-5">
 				<h3 class="title is-3">Mobile-First in Practice</h3>
@@ -1270,6 +1376,15 @@ const navigationExample = ref(`/* Responsive Navigation */
 			</div>
 		</section>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Every modern product—from news sites to SaaS dashboards—ships with a responsive design system. Teams rely on shared breakpoints, design tokens, and documented patterns. Mastering these techniques lets you collaborate effectively with designers and ensures consistent quality across devices.</p><p>Responsive thinking is essential for accessibility, SEO, and conversion rates. Google prioritizes mobile-friendly sites, and users expect seamless experiences on any device.</p>"
+			next-steps="<p>With responsive fundamentals locked in, revisit Flexbox, Grid, and modern CSS utilities to refine your layouts. Combine these skills to build production-ready interfaces that feel native on every screen.</p>"
+	/>
+
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/responsive'" />
 
@@ -1287,6 +1402,7 @@ const navigationExample = ref(`/* Responsive Navigation */
 		</div>
 
 		<TutorialNavigation prev="modern" next="flexbox" />
+	</div>
 	</div>
 </template>
 
