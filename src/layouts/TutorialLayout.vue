@@ -1,20 +1,26 @@
 <template>
 	<div class="tutorial-layout" :class="{ 'full-width': isMainTutorialsPage }">
-		<!-- Hide sidebar on main tutorials page -->
-		<aside v-if="!isMainTutorialsPage" class="sidebar">
-			<!-- Dynamic navigation component -->
+		<aside v-if="!isMainTutorialsPage" class="sidebar desktop-sidebar">
 			<component :is="currentNav" v-if="currentNav" />
-
-			<!-- On this page navigation is now handled by the navigation components -->
 		</aside>
 
-		<!-- Main Content Area -->
 		<main class="main-content">
+			<button
+				v-if="showMobileNavTrigger"
+				class="tutorial-mobile-toggle"
+				type="button"
+				@click="toggleMobileNav"
+			>
+				<span class="icon" aria-hidden="true">
+					<i :class="['fas', isMobileNavOpen ? 'fa-times' : 'fa-bars']"></i>
+				</span>
+				<span>{{ isMobileNavOpen ? 'Hide Lesson Menu' : 'Lesson Menu' }}</span>
+			</button>
+
 			<div class="content">
 				<router-view />
 			</div>
 
-			<!-- Tutorial Navigation -->
 			<TutorialNavigation
 				v-if="!isMainTutorialsPage"
 				:prev="currentTutorial.prev"
@@ -23,6 +29,30 @@
 				:hide-quiz-indicator="shouldHideQuizIndicator"
 			/>
 		</main>
+
+		<transition name="tutorial-drawer">
+			<div
+				v-if="showMobileNavDrawer"
+				class="mobile-sidebar-drawer"
+				role="dialog"
+				aria-modal="true"
+				aria-label="Lesson menu"
+			>
+				<div class="mobile-drawer-header">
+					<h3>Lesson Menu</h3>
+					<button class="icon-button" type="button" aria-label="Close lesson menu" @click="closeMobileNav">
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+				<component :is="currentNav" v-if="currentNav" />
+			</div>
+		</transition>
+		<div
+			v-if="showMobileNavDrawer"
+			class="mobile-sidebar-backdrop"
+			@click="closeMobileNav"
+			aria-hidden="true"
+		></div>
 	</div>
 </template>
 
@@ -46,6 +76,21 @@ import { hasQuiz } from '@/utils/quizUtils';
 
 const route = useRoute();
 const pageSections = ref([]);
+const isMobileNavOpen = ref(false);
+
+const closeMobileNav = () => {
+	isMobileNavOpen.value = false;
+};
+
+const toggleMobileNav = () => {
+	isMobileNavOpen.value = !isMobileNavOpen.value;
+};
+
+const handleDrawerKeydown = (event) => {
+	if (event.key === 'Escape') {
+		closeMobileNav();
+	}
+};
 
 // Add scroll tracking variables
 const scrollThrottleTimeout = ref(null);
@@ -92,6 +137,7 @@ watch(
 	() => route.path,
 	() => {
 		pageSections.value = [];
+		closeMobileNav();
 	},
 );
 
@@ -410,20 +456,23 @@ const currentTutorial = computed(() => {
 // Add this after the currentNav computed property
 // no-op route name watcher removed to satisfy linter
 
-// Add this after the imports
 onMounted(() => {
 	// Add scroll event listener for progress tracking
 	window.addEventListener('scroll', handleScroll);
+	window.addEventListener('keydown', handleDrawerKeydown);
 });
 
-// Add this before the end of the script
 onBeforeUnmount(() => {
 	// Remove scroll event listener
 	window.removeEventListener('scroll', handleScroll);
+	window.removeEventListener('keydown', handleDrawerKeydown);
 
 	// Clear any pending throttle timeout
 	if (scrollThrottleTimeout.value) {
 		window.clearTimeout(scrollThrottleTimeout.value);
+	}
+	if (typeof document !== 'undefined') {
+		document.body.style.overflow = '';
 	}
 });
 
@@ -490,6 +539,19 @@ provide('hasQuiz', tutorialHasQuiz);
 
 // Provide the current tutorial info to child components
 provide('currentTutorial', currentTutorial);
+
+const showMobileNavTrigger = computed(() => {
+	return !isMainTutorialsPage.value && !!currentNav.value;
+});
+
+const showMobileNavDrawer = computed(() => {
+	return showMobileNavTrigger.value && isMobileNavOpen.value;
+});
+
+watch(showMobileNavDrawer, (isOpen) => {
+	if (typeof document === 'undefined') return;
+	document.body.style.overflow = isOpen ? 'hidden' : '';
+});
 </script>
 
 <style scoped>
@@ -532,6 +594,79 @@ provide('currentTutorial', currentTutorial);
 .content {
 	flex: 1;
 	margin-bottom: 2rem; /* Add margin to separate content from navigation */
+}
+
+.tutorial-mobile-toggle {
+	display: none;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0 0 1.5rem;
+	padding: 0.65rem 1.1rem;
+	border-radius: 999px;
+	border: 1px solid rgba(15, 23, 42, 0.15);
+	background: #ffffff;
+	font-weight: 600;
+	color: #111827;
+	cursor: pointer;
+}
+
+.icon-button {
+	border: none;
+	background: transparent;
+	font-size: 1.1rem;
+	color: #1f2933;
+}
+
+.mobile-sidebar-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(15, 23, 42, 0.45);
+	z-index: 40;
+}
+
+.mobile-sidebar-drawer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: min(420px, 90vw);
+	background: #ffffff;
+	box-shadow: 0 25px 45px rgba(15, 23, 42, 0.25);
+	z-index: 45;
+	padding: 1.5rem 1.25rem 2rem;
+	overflow-y: auto;
+}
+
+.mobile-drawer-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+.mobile-sidebar-drawer :deep(.tutorial-nav) {
+	box-shadow: none;
+	padding: 0;
+	background: transparent;
+}
+
+.mobile-sidebar-drawer :deep(.tutorial-nav .menu) {
+	padding: 0;
+}
+
+.mobile-sidebar-drawer :deep(.tutorial-nav .menu-list) {
+	max-height: none;
+}
+
+.tutorial-drawer-enter-from,
+.tutorial-drawer-leave-to {
+	transform: translateX(-24px);
+	opacity: 0;
+}
+
+.tutorial-drawer-enter-active,
+.tutorial-drawer-leave-active {
+	transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 /* On this page navigation */
@@ -605,20 +740,24 @@ provide('currentTutorial', currentTutorial);
 	color: #3273dc;
 }
 
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 1024px) {
 	.tutorial-layout {
 		grid-template-columns: 1fr;
+		padding: clamp(1.25rem, 5vw, 2rem);
 	}
 
 	.sidebar {
-		position: static;
-		max-height: none;
-		overflow-y: visible;
+		display: none;
 	}
 
 	.table-of-contents,
 	.on-this-page {
 		display: none;
+	}
+
+	.tutorial-mobile-toggle {
+		display: inline-flex;
 	}
 }
 </style>

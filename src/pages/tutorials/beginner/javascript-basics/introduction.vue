@@ -1,68 +1,67 @@
+
 <template>
-	<div class="content">
-		<nav class="breadcrumb" aria-label="breadcrumbs">
-			<ul>
-				<li>
-					<router-link to="/">
-						<i class="fa-solid fa-house mr-2"></i> Home
-					</router-link>
-				</li>
-				<li><router-link to="/tutorials">Tutorials</router-link></li>
-				<li>
-					<router-link to="/tutorials/javascript-basics">
-						JavaScript Basics
-					</router-link>
-				</li>
-				<li class="is-active">
-					<a href="#" aria-current="page">Introduction</a>
-				</li>
-			</ul>
-		</nav>
+	<div class="container section">
+		<div class="content tutorial-content">
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<router-link to="/">
+							<i class="fa-solid fa-house mr-2"></i> Home
+						</router-link>
+					</li>
+					<li><router-link to="/tutorials">Tutorials</router-link></li>
+					<li>
+						<router-link to="/tutorials/beginner/javascript-basics">
+							JavaScript Basics
+						</router-link>
+					</li>
+					<li class="is-active">
+						<a href="#" aria-current="page">Introduction</a>
+					</li>
+				</ul>
+			</nav>
 
-		<div class="tags">
-			<span class="tag is-info">Beginner</span>
-			<span class="tag is-warning">45 minutes</span>
-			<span class="tag is-success">JavaScript</span>
-			<span class="tag is-success">Level 1</span>
-		</div>
+			<div class="tags">
+				<span class="tag is-info">Beginner</span>
+				<span class="tag is-warning">45 minutes</span>
+				<span class="tag is-success">JavaScript</span>
+				<span class="tag is-success">Level 1</span>
+			</div>
 
-		<h1 class="title is-1">
-			<i class="fa-brands fa-js html-icon" aria-hidden="true"></i>
-			Foundation: Getting Started
-		</h1>
+			<h1 class="title is-1">
+				<span class="js-lesson-icon" aria-hidden="true">JS</span>
+				Foundation: Getting Started
+			</h1>
 
-		<!-- Enhanced Learning Objectives -->
-		<div class="box highlight-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-graduation-cap"></i> Learning Objectives
-			</h3>
-			<p>After completing this introduction, you'll be able to:</p>
-			<ul>
-				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand what JavaScript is and its role in web development</li>
-				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Add JavaScript to HTML pages using three different methods</li>
-				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Use the browser's developer console for debugging and testing</li>
-				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Write your first JavaScript statements</li>
-				<li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand basic JavaScript concepts and syntax</li>
-			</ul>
-		</div>
+			<!-- Prerequisites Check -->
+			<div class="box prerequisite-box mb-6">
+				<h3 class="title is-4">
+					<i class="fas fa-clipboard-check"></i> Before You Start
+				</h3>
+				<p>To get the most out of this tutorial, you should be familiar with:</p>
+				<ul>
+					<li>
+						<i class="fab fa-html5 has-text-danger mr-2"></i>
+						Basic HTML - <router-link to="/tutorials/beginner/html-basics/">Review HTML Basics</router-link>
+					</li>
+					<li>
+						<i class="fab fa-css3-alt has-text-info mr-2"></i>
+						Basic CSS - <router-link to="/tutorials/beginner/css-basics/">Review CSS Basics</router-link>
+					</li>
+				</ul>
+			</div>
 
-		<!-- Prerequisites Check -->
-		<div class="box prerequisite-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-clipboard-check"></i> Before You Start
-			</h3>
-			<p>To get the most out of this tutorial, you should be familiar with:</p>
-			<ul>
-				<li>
-					<i class="fab fa-html5 has-text-danger mr-2"></i>
-					Basic HTML - <router-link to="/tutorials/beginner/html-basics/">Review HTML Basics</router-link>
-				</li>
-				<li>
-					<i class="fab fa-css3-alt has-text-info mr-2"></i>
-					Basic CSS - <router-link to="/tutorials/beginner/css-basics/">Review CSS Basics</router-link>
-				</li>
-			</ul>
-		</div>
+			<AnticipatorySet
+				:title="anticipatorySet.title"
+				:hook="anticipatorySet.hook"
+				:reflection-prompts="anticipatorySet.reflectionPrompts"
+				:connection="anticipatorySet.connection"
+			/>
+
+			<LearningObjectives
+				:objectives="learningObjectives.objectives"
+				:purpose="learningObjectives.purpose"
+			/>
 
 		<!-- Engaging Introduction -->
 		<div class="notification is-info is-light">
@@ -159,6 +158,13 @@
 			</div>
 		</div>
 
+		<CheckpointBox
+			:title="foundationCheckpoint.title"
+			:questions="foundationCheckpoint.questions"
+			:tips="foundationCheckpoint.tips"
+			class="mb-6"
+		/>
+
 		<h2 id="adding-javascript" class="title is-2 mt-6">Adding JavaScript to HTML</h2>
 		<p>
 			There are three ways to add JavaScript to your webpage. Let's explore each method with practical examples:
@@ -249,19 +255,60 @@
 			</ul>
 		</div>
 
-		<!-- Tutorial Quiz -->
-		<TutorialQuiz />
+			<!-- Recommendations before quiz per Hunter structure -->
+			<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/introduction'" />
 
-		<!-- Tutorial Recommendations -->
-		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/introduction'" />
+			<TestYourKnowledgeSection
+				tutorial-path="/tutorials/beginner/javascript-basics/introduction"
+			/>
+		</div>
 	</div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+	import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const anticipatorySet = {
+	title: '🚀 Ignite Your Interactive Ideas',
+	hook: `<p>Every time you tap a button and a menu appears instantly, JavaScript is behind the magic. From Spotify playlists that update in real-time to flight trackers that never refresh the page, interactive experiences rely on this language.</p>`,
+	reflectionPrompts: [
+		'Which website interaction impressed you recently and why?',
+		'How could instant feedback make your own projects feel more alive?',
+		'What problems could you solve if pages responded to users automatically?'
+	],
+	connection: 'In this introduction you will see how JavaScript transforms static pages into living interfaces and take the first steps toward building your own responsive experiences.'
+};
+
+const learningObjectives = {
+	objectives: [
+		'Describe how JavaScript fits alongside HTML and CSS in web apps',
+		'Set up inline, internal, and external scripts safely',
+		'Navigate the browser console to inspect output and errors',
+		'Write and run small interactive snippets using DOM events',
+		'Explain real-world scenarios where JavaScript creates value'
+	],
+	purpose: 'These fundamentals ensure every future JavaScript concept—variables, logic, or complex apps—rests on a confident understanding of where and how code runs.'
+};
+
+const foundationCheckpoint = {
+	title: 'Checkpoint: Script Foundations',
+	questions: [
+		'Which script-loading approach would you choose for a large site and why?',
+		'How would you describe the role of the browser console to a teammate?',
+		'Where could inline JavaScript cause maintenance problems?'
+	],
+	tips: [
+		'Prefer external files for shared behavior and caching benefits.',
+		'Use console.log strategically to trace state changes.',
+		'Keep markup clean by separating logic from presentation.'
+	]
+};
 
 const frontmatter = {
 	title: 'Foundations-Getting Started',
@@ -366,19 +413,6 @@ export default {
 </script>
 
 <style scoped>
-.js-logo-container {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	margin-right: 10px;
-	vertical-align: middle;
-}
-
-.js-logo {
-	width: 100%;
-	height: 100%;
-}
-
 .highlight-box {
 	background-color: #fafafa;
 	border-left: 4px solid #f7df1e;
@@ -405,10 +439,4 @@ export default {
 	overflow: hidden;
 }
 
-.html-icon {
-	color: #f7df1f;
-	font-size: 3rem;
-	background-color: #000;
-	padding: 0;
-}
 </style>

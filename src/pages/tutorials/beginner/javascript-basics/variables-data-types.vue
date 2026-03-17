@@ -1,5 +1,6 @@
 <template>
-	<div class="content">
+	<div class="container section">
+		<div class="content tutorial-content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
@@ -9,7 +10,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link to="/tutorials/javascript-basics">
+					<router-link to="/tutorials/beginner/javascript-basics">
 						JavaScript Basics
 					</router-link>
 				</li>
@@ -19,34 +20,32 @@
 			</ul>
 		</nav>
 
-		<div class="tags">
+			<div class="tags">
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">45 minutes</span>
 			<span class="tag is-success">JavaScript</span>
 			<span class="tag is-success">Level 2</span>
 		</div>
 
-		<h1 class="title is-1">
-			<i class="fa-brands fa-js html-icon" aria-hidden="true"></i>
-			Variables and Data Types
-		</h1>
-		<p class="subtitle">
-			Learn how to store and work with different types of data in JavaScript.
-		</p>
+			<h1 class="title is-1">
+				<span class="js-lesson-icon" aria-hidden="true">JS</span>
+				Variables and Data Types
+			</h1>
+			<p class="subtitle">
+				Learn how to store and work with different types of data in JavaScript.
+			</p>
 
-		<div class="box highlight-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-lightbulb"></i> In this tutorial, you'll learn:
-			</h3>
-			<ul>
-				<li>How to declare and use variables effectively</li>
-				<li>Understanding different data types in JavaScript</li>
-				<li>Working with strings, numbers, and other primitive types</li>
-				<li>Using arrays and objects to organize data</li>
-				<li>Best practices for variable naming and usage</li>
-				<li>Common pitfalls and how to avoid them</li>
-			</ul>
-		</div>
+			<AnticipatorySet
+				:title="anticipatorySet.title"
+				:hook="anticipatorySet.hook"
+				:reflection-prompts="anticipatorySet.reflectionPrompts"
+				:connection="anticipatorySet.connection"
+			/>
+
+			<LearningObjectives
+				:objectives="learningObjectives.objectives"
+				:purpose="learningObjectives.purpose"
+			/>
 
 		<div class="notification is-info is-light">
 			<p>
@@ -86,6 +85,13 @@
 				</div>
 			</div>
 		</div>
+
+		<CheckpointBox
+			:title="variableCheckpoint.title"
+			:questions="variableCheckpoint.questions"
+			:tips="variableCheckpoint.tips"
+			class="mb-6"
+		/>
 
 		<h3 class="title is-4">Variable Declaration Examples</h3>
 		<CodeMirror
@@ -261,20 +267,62 @@
 			</ul>
 		</div>
 
-		<!-- Quiz section -->
-		<TutorialQuiz />
-
 		<!-- Tutorial Recommendations -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/variables-data-types'" />
+
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/variables-data-types"
+		/>
+		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { createCodeRunner } from '@/utils/codeRunner';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const anticipatorySet = {
+	title: '🍽️ Stocking the Digital Pantry',
+	hook: `<p>Before dinner service, chefs inventory every ingredient so the team knows exactly what's available, what's fresh, and what needs to be replenished. JavaScript variables work the same way—you label data so your app can grab the right "ingredient" the moment it's needed.</p>`,
+	reflectionPrompts: [
+		'What real-world information do you track every day (budgets, workouts, orders)?',
+		'When would you insist a value never change once set?',
+		'How could organized data make your next project easier to maintain?'
+	],
+	connection: 'In this lesson you will practice naming, storing, and organizing data so your future functions, components, and APIs always know where to find the right values.'
+};
+
+const learningObjectives = {
+	objectives: [
+		'Declare readable variables with let and const and explain when to use each',
+		'Distinguish JavaScript primitive types such as string, number, boolean, null, and undefined',
+		'Build and traverse arrays and objects to model grouped information',
+		'Apply template literals and type checks to avoid coercion surprises',
+		'Use the browser console to inspect values as they change',
+		'Organize small practice projects (like menus) using mixed data structures'
+	],
+	purpose: 'Clear objectives keep you focused on building mental models for data, which unlocks everything from conditionals to APIs later in the series.'
+};
+
+const variableCheckpoint = {
+	title: 'Checkpoint: Name It & Store It',
+	questions: [
+		'Can you explain the trade-offs between const and let to a teammate?',
+		'Which data type best represents menu availability or pricing in your practice project?',
+		'How would you restructure a long list of related variables into an object or array?'
+	],
+	tips: [
+		'Start with const, then switch to let only when reassignment is required.',
+		'Pair data with meaning—objects for labeled properties, arrays for ordered lists.',
+		'Log typeof checks in the console to verify assumptions before bugs grow.'
+	]
+};
 
 // Updated code examples with more practical scenarios
 const declaringVariablesCode = `// Menu item using let (value can change)
@@ -508,19 +556,6 @@ export default {
 </script>
 
 <style scoped>
-.js-logo-container {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	margin-right: 10px;
-	vertical-align: middle;
-}
-
-.js-logo {
-	width: 100%;
-	height: 100%;
-}
-
 .highlight-box {
 	background-color: #f0f8ff;
 	border-left: 5px solid #3273dc;
@@ -596,10 +631,4 @@ export default {
 	}
 }
 
-.html-icon {
-	color: #f7df1f;
-	font-size: 3rem;
-	background-color: #000;
-	padding: 0;
-}
 </style>

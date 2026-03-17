@@ -22,7 +22,7 @@
 		</div>
 
 		<h1 class="title is-1">
-			<i class="fa-brands fa-js html-icon"></i>		
+			<span class="js-lesson-icon" aria-hidden="true">JS</span>		
 			JavaScript Basics
 		</h1>
 
@@ -344,7 +344,11 @@
 				<div class="level-section">
 					<h3 class="title is-3">Level 1: Foundations</h3>
 					<div class="path-item">
-						<router-link to="introduction" class="box" :class="{ 'is-completed': isSectionCompleted('introduction') }">
+						<router-link
+							to="/tutorials/beginner/javascript-basics/introduction"
+							class="box"
+							:class="{ 'is-completed': isSectionCompleted('introduction') }"
+						>
 							<h4 class="title is-4">
 								<i class="fas fa-flag-checkered"></i> Getting Started
 								<span v-if="isSectionCompleted('introduction')" class="icon has-text-success">
@@ -364,7 +368,11 @@
 				<div class="level-section">
 					<h3 class="title is-3">Level 2: Basic Building Blocks</h3>
 					<div class="path-item">
-						<router-link to="variables-data-types" class="box" :class="{ 'is-completed': isSectionCompleted('variables-data-types') }">
+						<router-link
+							to="/tutorials/beginner/javascript-basics/variables-data-types"
+							class="box"
+							:class="{ 'is-completed': isSectionCompleted('variables-data-types') }"
+						>
 							<h4 class="title is-4">
 								<i class="fas fa-cube"></i> Variables & Data Types
 								<span v-if="isSectionCompleted('variables-data-types')" class="icon has-text-success">
@@ -385,7 +393,11 @@
 					<h3 class="title is-3">Level 3: Operations & Logic</h3>
 					<div class="columns">
 						<div class="column">
-							<router-link to="operators" class="box" :class="{ 'is-completed': isSectionCompleted('operators') }">
+							<router-link
+								to="/tutorials/beginner/javascript-basics/operators"
+								class="box"
+								:class="{ 'is-completed': isSectionCompleted('operators') }"
+							>
 								<h4 class="title is-4">
 									<i class="fas fa-calculator"></i> Operators
 									<span v-if="isSectionCompleted('operators')" class="icon has-text-success">
@@ -400,7 +412,11 @@
 							</router-link>
 						</div>
 						<div class="column">
-							<router-link to="conditionals" class="box" :class="{ 'is-completed': isSectionCompleted('conditionals') }">
+							<router-link
+								to="/tutorials/beginner/javascript-basics/conditionals"
+								class="box"
+								:class="{ 'is-completed': isSectionCompleted('conditionals') }"
+							>
 								<h4 class="title is-4">
 									<i class="fas fa-code-branch"></i> Conditionals
 									<span v-if="isSectionCompleted('conditionals')" class="icon has-text-success">
@@ -422,7 +438,11 @@
 					<h3 class="title is-3">Level 4: Repetition & Functions</h3>
 					<div class="columns">
 						<div class="column">
-							<router-link to="loops" class="box" :class="{ 'is-completed': isSectionCompleted('loops') }">
+							<router-link
+								to="/tutorials/beginner/javascript-basics/loops"
+								class="box"
+								:class="{ 'is-completed': isSectionCompleted('loops') }"
+							>
 								<h4 class="title is-4">
 									<i class="fas fa-redo"></i> Loops
 									<span v-if="isSectionCompleted('loops')" class="icon has-text-success">
@@ -437,7 +457,11 @@
 							</router-link>
 						</div>
 						<div class="column">
-							<router-link to="functions" class="box" :class="{ 'is-completed': isSectionCompleted('functions') }">
+							<router-link
+								to="/tutorials/beginner/javascript-basics/functions"
+								class="box"
+								:class="{ 'is-completed': isSectionCompleted('functions') }"
+							>
 								<h4 class="title is-4">
 									<i class="fas fa-box"></i> Functions
 									<span v-if="isSectionCompleted('functions')" class="icon has-text-success">
@@ -672,21 +696,6 @@ export default {
 </script>
 
 <style scoped>
-.js-logo-container {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	margin-right: 10px;
-	vertical-align: middle;
-}
-
-.html-icon {
-	color: #f7df1f;
-	font-size: 3rem;
-	background-color: #000;
-	padding: 0;
-}
-
 .tutorials-list .card {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

@@ -768,6 +768,10 @@ const tutorialRecommendations = {
 			],
 		},
 		'functions': {
+			nextTutorial: {
+				path: '/tutorials/beginner/dom-basics/introduction',
+				title: 'DOM Basics: Introduction',
+			},
 			relatedTutorials: [
 				{
 					path: '/tutorials/beginner/javascript-basics/variables-data-types',

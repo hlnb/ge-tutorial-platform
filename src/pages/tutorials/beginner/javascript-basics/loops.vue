@@ -1,11 +1,12 @@
 <template>
-	<div class="container">
+	<div class="container section">
+		<div class="content tutorial-content">
 		<!-- Breadcrumb navigation -->
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li><router-link to="/">Home</router-link></li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
-				<li><router-link to="/tutorials/javascript-basics">JavaScript Basics</router-link></li>
+				<li><router-link to="/tutorials/beginner/javascript-basics">JavaScript Basics</router-link></li>
 				<li class="is-active"><a href="#" aria-current="page">Loops</a></li>
 			</ul>
 		</nav>
@@ -20,26 +21,10 @@
 
 		<!-- Tutorial title -->
 		<h1 class="title is-1">
-			<i class="fa-brands fa-js html-icon mr-2"></i>		
+			<span class="js-lesson-icon" aria-hidden="true">JS</span>		
 			Loops in JavaScript
 		</h1>
 		<p class="subtitle is-3">Learn how to repeat actions and iterate through data</p>
-
-		<!-- Learning objectives -->
-		<div class="box highlight-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-bullseye page-icon"></i> Learning Objectives
-			</h3>
-			<p>By the end of this tutorial, you'll be able to:</p>
-			<ul>
-				<li>Understand the purpose of loops in programming</li>
-				<li>Use <code>for</code> loops to execute code a specific number of times</li>
-				<li>Use <code>while</code> and <code>do...while</code> loops for conditional iteration</li>
-				<li>Iterate through arrays and objects using loops</li>
-				<li>Use <code>break</code> and <code>continue</code> to control loop execution</li>
-				<li>Choose the appropriate loop for different scenarios</li>
-			</ul>
-		</div>
 
 		<!-- Prerequisites notification -->
 		<div class="notification is-info is-light">
@@ -50,6 +35,18 @@
 				<router-link to="/tutorials/beginner/javascript-basics/conditionals">Control Flow</router-link> tutorials first.
 			</p>
 		</div>
+
+		<AnticipatorySet
+			:title="anticipatorySet.title"
+			:hook="anticipatorySet.hook"
+			:reflection-prompts="anticipatorySet.reflectionPrompts"
+			:connection="anticipatorySet.connection"
+		/>
+
+		<LearningObjectives
+			:objectives="learningObjectives.objectives"
+			:purpose="learningObjectives.purpose"
+		/>
 
 		<!-- Introduction -->
 		<h2 class="title is-2">Introduction to Loops</h2>
@@ -79,6 +76,13 @@
 				</div>
 			</div>
 		</div>
+
+		<CheckpointBox
+			:title="loopsCheckpoint.title"
+			:questions="loopsCheckpoint.questions"
+			:tips="loopsCheckpoint.tips"
+			class="mb-6"
+		/>
 
 		<!-- For Loop -->
 		<h2 class="title is-2">The for Loop</h2>
@@ -275,17 +279,57 @@
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/loops'" />
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/loops"
+		/>
+		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { getTutorialRecommendations } from '@/utils/tutorialUtils';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const anticipatorySet = {
+	title: '🔁 Prep Like a Pro Line Cook',
+	hook: `<p>Imagine prepping 50 identical salads before guests arrive. You could write each instruction separately, or you could repeat the same block with a loop. Restaurants thrive on repeatable systems—so do JavaScript apps.</p>`,
+	reflectionPrompts: [
+		'Where do you perform the same action more than twice in your projects?',
+		'What happens when you forget to stop a repetitive task (like a timer or subscription)?',
+		'How could loops help you explore large datasets or UI collections faster?'
+	],
+	connection: 'This lesson helps you convert repetitive work into efficient loops so data lists, UI grids, and API responses become effortless to process.'
+};
+
+const learningObjectives = {
+	objectives: [
+		'Explain when to choose for, while, do...while, and for...of loops',
+		'Iterate through arrays and objects without off-by-one errors',
+		'Control loop execution with break and continue to guard edge cases',
+		'Build nested loops responsibly for grid or seating assignments',
+		'Troubleshoot infinite loops with clear exit conditions'
+	],
+	purpose: 'These objectives emphasize practical repetition skills that unlock data handling, rendering lists, and asynchronous polling later in the track.'
+};
+
+const loopsCheckpoint = {
+	title: 'Checkpoint: Loop Intentionality',
+	questions: [
+		'Which loop structure best fits the menu-prep scenario you just read?',
+		'How would you detect and fix an infinite loop before it freezes the UI?',
+		'Where could break or continue simplify your table-assignment logic?'
+	],
+	tips: [
+		'Sketch loop flow (init → condition → increment) before coding.',
+		'Log counters or array lengths while debugging long iterations.',
+		'Encapsulate loop bodies into helper functions when they grow.'
+	]
+};
 
 // Example code snippets
 const withoutLoopsExample = `// Without loops - repetitive and error-prone
@@ -364,18 +408,6 @@ for (let tableNum = 1; tableNum <= 10; tableNum++) {
 </script>
 
 <style scoped>
-.js-logo-container {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	margin-right: 10px;
-	vertical-align: middle;
-}
-
-.js-logo {
-	width: 100%;
-	height: 100%;
-}
 .page-icon{
 	width: 1em;
 	height: 1em;
@@ -413,9 +445,4 @@ svg text {
 	display: block;
 	margin: 0.5rem 0;
 }
-	.html-icon {
-		color: #f7df1f;
-		background-color: #000;
-		padding: 0;
-	}
 </style> 

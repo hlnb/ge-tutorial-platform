@@ -1,5 +1,6 @@
 <template>
-	<div class="content">
+	<div class="container section">
+		<div class="content tutorial-content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
@@ -9,7 +10,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link to="/tutorials/javascript-basics">
+					<router-link to="/tutorials/beginner/javascript-basics">
 						JavaScript Basics
 					</router-link>
 				</li>
@@ -19,28 +20,16 @@
 			</ul>
 		</nav>
 
-		<div class="tags">
+			<div class="tags">
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">45 minutes</span>
 			<span class="tag is-success">JavaScript</span>
 			<span class="tag is-success">Level 4</span>
 		</div>
 
-		<h1 class="title is-1">
-			<i class="fa-brands fa-js html-icon mr-2"></i>
-			JavaScript Functions</h1>
-
-		<div class="box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-graduation-cap"></i> Learning Objectives
-			</h3>
-			<ul>
-				<li>How to declare functions</li>
-				<li>Function parameters and return values</li>
-				<li>Arrow functions</li>
-				<li>Function scope</li>
-			</ul>
-		</div>
+			<h1 class="title is-1">
+				<span class="js-lesson-icon" aria-hidden="true">JS</span>
+				JavaScript Functions</h1>
 
 		<div class="notification is-info is-light">
 			<p>
@@ -49,12 +38,31 @@
 			</p>
 		</div>
 
+			<AnticipatorySet
+				:title="anticipatorySet.title"
+				:hook="anticipatorySet.hook"
+				:reflection-prompts="anticipatorySet.reflectionPrompts"
+				:connection="anticipatorySet.connection"
+			/>
+
+			<LearningObjectives
+				:objectives="learningObjectives.objectives"
+				:purpose="learningObjectives.purpose"
+			/>
+
 		<h2 class="title is-2">Function Basics</h2>
 		
 		<div class="box mb-6">
 			<FunctionBasicsDiagram />
 			<p class="mt-4">A function is like a recipe - it takes ingredients (parameters) and produces a result (return value).</p>
 		</div>
+
+		<CheckpointBox
+			:title="functionsCheckpoint.title"
+			:questions="functionsCheckpoint.questions"
+			:tips="functionsCheckpoint.tips"
+			class="mb-6"
+		/>
 
 		<div class="box">
 			<h3 class="title is-4">Function Declaration</h3>
@@ -149,16 +157,16 @@
 		</div>
 
 		<div class="notification is-warning is-light mt-6">
-			<p>
+			<p class="mb-2">
 				<i class="fas fa-exclamation-triangle mr-2"></i>
 				<strong>Common Issues:</strong>
-				<ul>
-					<li>Function not defined: Make sure you declared the function before calling it</li>
-					<li>NaN results: Check if all your numbers are actually numbers, not strings</li>
-					<li>Undefined values: Verify all parameters are passed when calling functions</li>
-					<li>Scope errors: Make sure you're not trying to access variables outside their scope</li>
-				</ul>
 			</p>
+			<ul>
+				<li>Function not defined: Make sure you declared the function before calling it</li>
+				<li>NaN results: Check if all your numbers are actually numbers, not strings</li>
+				<li>Undefined values: Verify all parameters are passed when calling functions</li>
+				<li>Scope errors: Make sure you're not trying to access variables outside their scope</li>
+			</ul>
 		</div>
 
 		<h2 class="title is-2">Why Use Functions?</h2>
@@ -275,7 +283,10 @@
 
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/functions'" />
 
-		<TutorialQuiz />
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/functions"
+		/>
+		</div>
 	</div>
 </template>
 
@@ -283,10 +294,49 @@
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import FunctionBasicsDiagram from '@/components/diagrams/FunctionBasicsDiagram.vue';
 import FunctionFlowDiagram from '@/components/diagrams/FunctionFlowDiagram.vue';
 import ArrowFunctionDiagram from '@/components/diagrams/ArrowFunctionDiagram.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const anticipatorySet = {
+	title: '👩‍🍳 Signature Recipes on Repeat',
+	hook: `<p>Restaurants rely on detailed recipes so every dish tastes the same no matter who is cooking. Functions give your codebase that same consistency—wrap a process once, reuse it everywhere.</p>`,
+	reflectionPrompts: [
+		'Which steps in your current project do you repeat in multiple files?',
+		'How could reusable functions reduce bugs when requirements change?',
+		'What information (parameters) do your "recipes" always need to succeed?'
+	],
+	connection: 'Mastering functions lets you compose complex features from reliable, testable building blocks rather than rewriting logic each time.'
+};
+
+const learningObjectives = {
+	objectives: [
+		'Declare named and anonymous functions that accept meaningful parameters',
+		'Return values intentionally and understand when side effects are acceptable',
+		'Leverage arrow functions for concise callbacks and array helpers',
+		'Explain scope, closures, and how they affect variable access',
+		'Compose small utilities into larger workflows such as calculators or galleries'
+	],
+	purpose: 'These objectives keep your focus on writing functions that are reusable, testable, and expressive.'
+};
+
+const functionsCheckpoint = {
+	title: 'Checkpoint: Reusability Audit',
+	questions: [
+		'Where could a helper function replace duplicated logic above?',
+		'What data should be passed as parameters versus captured from outer scope?',
+		'How will you document the purpose and expected return value of each function?'
+	],
+	tips: [
+		'Keep each function responsible for one task—compose instead of nesting.',
+		'Default parameters make helpers more resilient to missing data.',
+		'Name functions with verbs so their intent is obvious in call sites.'
+	]
+};
 
 const basicFunctionExample = ref(`function greetCustomer() {
     console.log('Welcome to Black Swan Bistro!');
@@ -459,10 +509,4 @@ const runGalleryExample = () => {
 	color: #fff;
 }
 
-.html-icon {
-  color: #f7df1f;
-  font-size: 3rem;
-  background-color: #000;
-  padding: 0;
-}
 </style> 

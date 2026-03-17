@@ -8,8 +8,8 @@
     </h3>
     <aside class="menu tutorial-nav">
       <ul class="menu-list">
-        <li v-for="item in navItems" :key="item.path">
-          <router-link :to="item.path" :class="{ 'is-active': isActive(item.path) }">
+        <li v-for="(item, index) in navItems" :key="item.path">
+          <router-link :to="item.path" :class="{ 'is-active': isActive(item.path), 'isnext': isNextTutorial(index) }">
             <i :class="['fas', item.icon]"></i> {{ item.title }}
           </router-link>
           <div v-if="isActive(item.path) && hasPageSections" class="page-sections mt-2">
@@ -67,6 +67,12 @@ const navItems = [
 
 function isCurrentPath(path) { return route.path === path; }
 function isActive(path) { return route.path === path; }
+const currentIndex = computed(() => navItems.findIndex((item) => isCurrentPath(item.path)));
+function isNextTutorial(index) {
+  return currentIndex.value === -1
+    ? index === 0
+    : index === currentIndex.value + 1;
+}
 const openSubsections = ref({});
 function toggleSubsection(id) { openSubsections.value[id] = !openSubsections.value[id]; }
 function isSubsectionOpen(id) { return !!openSubsections.value[id]; }
@@ -132,5 +138,5 @@ background-color: #000;
   outline-offset: 2px;
 }
 
-.tutorial-nav .menu-list a.is-next { border-left-color: var(--tutorial-accent); }
+.tutorial-nav .menu-list a.isnext { border-left-color: var(--tutorial-accent); }
 </style>

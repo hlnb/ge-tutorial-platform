@@ -105,19 +105,30 @@ export function getQuizQuestions(section, tutorial) {
 	}
 
 	// Return the questions for the specific tutorial or an empty array if not found
-	const questions = quizCollection[tutorial] || [];
-	
-	// Transform DOM basics quiz format if needed
-	if (section === 'dom-basics' && questions.length > 0) {
-		return questions.map(q => ({
-			question: q.text,
-			options: q.options,
-			correctAnswer: q.correctAnswer,
-			explanation: q.explanation
-		}));
+	const tutorialEntry = quizCollection[tutorial];
+	let questions = [];
+
+	if (Array.isArray(tutorialEntry)) {
+		questions = tutorialEntry;
+	} else if (tutorialEntry && Array.isArray(tutorialEntry.questions)) {
+		questions = tutorialEntry.questions;
 	}
 
-	return questions;
+	if (!questions.length) {
+		return [];
+	}
+
+	// Normalize question shape (older quizzes used `text` instead of `question`)
+	return questions.map((question) => {
+		if (question && typeof question.question === 'string') {
+			return question;
+		}
+		if (question && typeof question.text === 'string') {
+			const { text, ...rest } = question;
+			return { ...rest, question: text };
+		}
+		return question;
+	});
 }
 
 /**

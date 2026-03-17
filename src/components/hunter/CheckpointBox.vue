@@ -3,11 +3,12 @@
 		<div class="box checkpoint">
 			<h3>{{ icon }} {{ title }}</h3>
 			<p v-if="description"><strong>{{ description }}</strong></p>
-			
-			<!-- Questions Format -->
-			<ol v-if="questions && questions.length > 0" class="checkpoint-questions">
+
+			<!-- Questions Format (supports string or object entries) -->
+			<ol v-if="hasQuestions" class="checkpoint-questions">
 				<li v-for="(question, index) in questions" :key="index">
-					{{ question.question }}
+					<span v-if="typeof question === 'string'">{{ question }}</span>
+					<span v-else>{{ question.question }}</span>
 				</li>
 			</ol>
 
@@ -21,22 +22,30 @@
 					</details>
 				</div>
 			</div>
-			
+
+			<!-- Tips Section -->
+			<div v-if="tips && tips.length > 0" class="checkpoint-tips">
+				<p class="has-text-weight-semibold">Tips to Remember:</p>
+				<ul>
+					<li v-for="(tip, index) in tips" :key="`tip-${index}`">{{ tip }}</li>
+				</ul>
+			</div>
+
 			<!-- Answers Section -->
-			<details v-if="questions && questions.length > 0 && !hideAnswers">
+			<details v-if="hasAnswerKey && !hideAnswers">
 				<summary class="button is-info is-light mt-3">
 					<i class="fas fa-eye"></i> {{ answersButtonText }}
 				</summary>
 				<div class="answer-key mt-3">
 					<ol>
-						<li v-for="(question, index) in questions" :key="index">
+						<li v-for="(question, index) in questionsWithAnswers" :key="`answer-${index}`">
 							<strong v-if="question.answerLabel">{{ question.answerLabel }}:</strong>
 							{{ question.answer }}
 						</li>
 					</ol>
 				</div>
 			</details>
-			
+
 			<!-- Self Assessment -->
 			<div v-if="showSelfAssessment" class="self-assessment mt-4">
 				<p><strong>{{ selfAssessmentPrompt }}</strong></p>
@@ -47,7 +56,9 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue';
+
+const props = defineProps({
 	title: {
 		type: String,
 		default: 'Pause & Check: Do You Understand?'
@@ -65,6 +76,10 @@ defineProps({
 		default: () => []
 	},
 	quizQuestions: {
+		type: Array,
+		default: () => []
+	},
+	tips: {
 		type: Array,
 		default: () => []
 	},
@@ -89,6 +104,17 @@ defineProps({
 		default: '😕 Still confused | 🤔 Getting there | 😊 Got it! | 🎉 Could explain it to a friend!'
 	}
 });
+
+const hasQuestions = computed(() => props.questions && props.questions.length > 0);
+const questionsWithAnswers = computed(() =>
+	props.questions.filter(
+		(question) =>
+			typeof question === 'object' &&
+			question !== null &&
+			(question.answer || question.answerLabel)
+	)
+);
+const hasAnswerKey = computed(() => questionsWithAnswers.value.length > 0);
 </script>
 
 <style scoped>
@@ -122,6 +148,17 @@ defineProps({
 .checkpoint-questions li {
 	margin: 0.75rem 0;
 	line-height: 1.6;
+}
+
+.checkpoint-tips {
+	background: #e0f2fe;
+	padding: 1rem;
+	border-radius: 6px;
+	margin: 1.5rem 0;
+}
+
+.checkpoint-tips ul {
+	margin-left: 1.25rem;
 }
 
 .quiz-questions {

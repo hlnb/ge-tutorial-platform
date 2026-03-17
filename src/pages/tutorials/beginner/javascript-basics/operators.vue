@@ -1,5 +1,6 @@
 <template>
-	<div class="content">
+	<div class="container section">
+		<div class="content tutorial-content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
@@ -15,34 +16,21 @@
 			</ul>
 		</nav>
 
-		<div class="tags">
+			<div class="tags">
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">30 minutes</span>
 			<span class="tag is-success">JavaScript</span>
 			<span class="tag is-success">Level 3</span>
 		</div>
 
-		<h1 class="title is-1">
-			<i class="fa-brands fa-js html-icon" aria-hidden="true"></i>
-			Operators & Expressions in JavaScript
-		</h1>
-		<p class="subtitle">
-			Learn how to perform calculations, compare values, and build expressions
-			in JavaScript.
-		</p>
-
-		<div class="box highlight-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-lightbulb"></i> In this tutorial, you'll learn:
-			</h3>
-			<ul>
-				<li>Arithmetic operators for mathematical calculations</li>
-				<li>Comparison operators for testing conditions</li>
-				<li>Logical operators for combining conditions</li>
-				<li>Assignment operators for efficient coding</li>
-				<li>How to build and evaluate expressions</li>
-			</ul>
-		</div>
+			<h1 class="title is-1">
+				<span class="js-lesson-icon" aria-hidden="true">JS</span>
+				Operators & Expressions in JavaScript
+			</h1>
+			<p class="subtitle">
+				Learn how to perform calculations, compare values, and build expressions
+				in JavaScript.
+			</p>
 
 		<div class="notification is-info is-light">
 			<p>
@@ -55,6 +43,18 @@
 				tutorial to understand the concepts used here.
 			</p>
 		</div>
+
+			<AnticipatorySet
+				:title="anticipatorySet.title"
+				:hook="anticipatorySet.hook"
+				:reflection-prompts="anticipatorySet.reflectionPrompts"
+				:connection="anticipatorySet.connection"
+			/>
+
+			<LearningObjectives
+				:objectives="learningObjectives.objectives"
+				:purpose="learningObjectives.purpose"
+			/>
 
 		<h2 class="title is-2">What are Operators?</h2>
 		<p>
@@ -184,6 +184,13 @@
 				relevant to our restaurant theme.
 			</p>
 		</div>
+
+		<CheckpointBox
+			:title="operatorsCheckpoint.title"
+			:questions="operatorsCheckpoint.questions"
+			:tips="operatorsCheckpoint.tips"
+			class="mb-6"
+		/>
 
 		<h2 id="arithmetic-operators" class="title is-2">Arithmetic Operators</h2>
 		<p>
@@ -2731,11 +2738,13 @@ function safeDivide(numerator, denominator) {
 			</div>
 		</div>
 
-		<!-- Quiz section -->
-		<TutorialQuiz />
-
 		<!-- Recommendations for next steps -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/operators'" />
+
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/operators"
+		/>
+		</div>
 	</div>
 </template>
 
@@ -2743,8 +2752,48 @@ function safeDivide(numerator, denominator) {
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import { usePageSections } from '@/composables/usePageSections';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const anticipatorySet = {
+	title: '🧮 Calculating Every Check',
+	hook: `<p>Before the dining room opens, managers run numbers: expected guests, revenue goals, discounts, and staffing needs. Every decision relies on operators—add, compare, and evaluate data quickly so the night runs smoothly.</p>`,
+	reflectionPrompts: [
+		'When was the last time you split a bill or calculated a tip in your head?',
+		'How do you currently compare options (prices, routes, schedules) when making decisions?',
+		'Which everyday rules could be expressed as AND/OR logic?'
+	],
+	connection: 'Mastering JavaScript operators gives you the mental calculator needed to build responsive UI, pricing tools, and decision logic throughout the rest of this series.'
+};
+
+const learningObjectives = {
+	objectives: [
+		'Use arithmetic operators to model totals, discounts, and remainders',
+		'Choose strict versus loose comparison operators to avoid coercion bugs',
+		'Combine conditions with logical AND/OR/NOT to mirror business rules',
+		'Apply assignment operators to update state efficiently',
+		'Explain operator precedence and control it with parentheses',
+		'Practice short interactive examples using the browser console'
+	],
+	purpose: 'These objectives focus your practice so operators become everyday tools rather than syntax to memorize.'
+};
+
+const operatorsCheckpoint = {
+	title: 'Checkpoint: Operator Strategy',
+	questions: [
+		'Which operator family would you reach for to implement a loyalty discount?',
+		'How do you decide between == and === in new code?',
+		'Where could a logical OR save repeated if statements in your project?'
+	],
+	tips: [
+		'Write expressions in plain language first, then map them to symbols.',
+		'Prefer strict equality to prevent hidden type coercion.',
+		'Group related updates with compound assignment to stay readable.'
+	]
+};
 
 const sections = [
   {
@@ -3331,19 +3380,6 @@ export default {
 	border-left: 5px solid #363636;
 }
 
-.js-logo-container {
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	margin-right: 10px;
-	vertical-align: middle;
-}
-
-.js-logo {
-	width: 100%;
-	height: 100%;
-}
-
 .operators-diagram {
 	max-width: 600px;
 	margin: 0 auto;
@@ -3436,13 +3472,6 @@ export default {
 
 .button {
 	margin-top: auto;
-}
-/* small icon for JS logo */
-.html-icon {
-	color: #f7df1f;
-	font-size: 3rem;
-	background-color: #000;
-	padding: 0;
 }
 </style>
 

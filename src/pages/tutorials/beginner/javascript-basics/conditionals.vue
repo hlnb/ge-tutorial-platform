@@ -1,5 +1,6 @@
 <template>
-	<div class="content">
+	<div class="container section">
+		<div class="content tutorial-content">
 		<nav class="breadcrumb" aria-label="breadcrumbs">
 			<ul>
 				<li>
@@ -9,7 +10,7 @@
 				</li>
 				<li><router-link to="/tutorials">Tutorials</router-link></li>
 				<li>
-					<router-link to="/tutorials/javascript-basics">
+					<router-link to="/tutorials/beginner/javascript-basics">
 						JavaScript Basics
 					</router-link>
 				</li>
@@ -19,20 +20,20 @@
 			</ul>
 		</nav>
 
-		<div class="tags">
+			<div class="tags">
 			<span class="tag is-info">Beginner</span>
 			<span class="tag is-warning">45 minutes</span>
 			<span class="tag is-success">JavaScript</span>
 			<span class="tag is-success">Level 3</span>
 		</div>
 
-		<h1 class="title is-1">
-			<i class="fa-brands fa-js html-icon mr-2"></i>
-			Control Flow in JavaScript
-		</h1>
-		<p class="subtitle">
-			Learn how to make decisions and repeat actions in your code.
-		</p>
+			<h1 class="title is-1">
+				<span class="js-lesson-icon" aria-hidden="true">JS</span>
+				Control Flow in JavaScript
+			</h1>
+			<p class="subtitle">
+				Learn how to make decisions and repeat actions in your code.
+			</p>
 
 		<div class="notification is-info is-light">
 			<p>
@@ -50,20 +51,19 @@
 			</p>
 		</div>
 
-		<div class="box highlight-box mb-6">
-			<h3 class="title is-4">
-				<i class="fas fa-lightbulb fa-sm"></i> In this tutorial, you'll learn:
-			</h3>
-			<ul>
-				<li>How to make decisions in your code using if statements</li>
-				<li>When and how to use else if for multiple conditions</li>
-				<li>How to use switch statements for multiple choices</li>
-				<li>Understanding and using the ternary operator</li>
-				<li>Working with truthy and falsy values</li>
-				<li>Best practices for writing conditional logic</li>
-				<li>Real-world applications of control flow</li>
-			</ul>
-		</div>
+		<AnticipatorySet
+			:title="anticipatorySet.title"
+			:hook="anticipatorySet.hook"
+			:reflection-prompts="anticipatorySet.reflectionPrompts"
+			:connection="anticipatorySet.connection"
+		/>
+
+		<LearningObjectives
+			:objectives="learningObjectives.objectives"
+			:purpose="learningObjectives.purpose"
+		/>
+
+
 
 		<h2 id="if-statements" class="title is-2">Conditions with If Statements</h2>
 		<p>
@@ -102,6 +102,13 @@
 				<text x="160" y="170" fill="#f14668">False (skip)</text>
 			</svg>
 		</div>
+
+		<CheckpointBox
+			:title="conditionalCheckpoint.title"
+			:questions="conditionalCheckpoint.questions"
+			:tips="conditionalCheckpoint.tips"
+			class="mb-6"
+		/>
 
 		<CodeMirror
 			:code="basicIfCode"
@@ -708,11 +715,13 @@
 			</div>
 		</div>
 
-		<!-- Quiz section -->
-		<TutorialQuiz />
-
 		<!-- Recommendations for next steps -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/conditionals'" />
+
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/conditionals"
+		/>
+		</div>
 	</div>
 </template>
 
@@ -720,9 +729,49 @@
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import { createCodeRunner } from '@/utils/codeRunner';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const anticipatorySet = {
+	title: '🧭 Routing the Dinner Rush',
+	hook: `<p>Hosts decide where every party sits, kitchens switch menus midday, and chefs handle dietary requests—all by evaluating conditions in seconds. Control flow is the mental playbook that keeps service smooth.</p>`,
+	reflectionPrompts: [
+		'When have you needed different outcomes based on time, size, or preference?',
+		'How do you personally keep track of multiple "if this, then that" rules?',
+		'Which user actions in your project should branch into unique experiences?'
+	],
+	connection: 'This lesson teaches you to translate real-world branching logic into JavaScript so your apps can react thoughtfully in every situation.'
+};
+
+const learningObjectives = {
+	objectives: [
+		'Write readable if/else and else-if ladders for multi-step decisions',
+		'Choose switch statements when comparing a single value across many cases',
+		'Use the ternary operator for concise assignments and UI strings',
+		'Explain truthy/falsy conversions and guard against unexpected coercion',
+		'Apply logical operators to combine business rules and validations',
+		'Practice building control-flow challenges that mirror restaurant scenarios'
+	],
+	purpose: 'Clear objectives keep you focused on crafting logic a teammate (or future you) can follow.'
+};
+
+const conditionalCheckpoint = {
+	title: 'Checkpoint: Branching Basics',
+	questions: [
+		'Where would a switch statement simplify the menus or pricing examples above?',
+		'Can you verbalize when a ternary operator improves readability versus hurts it?',
+		'How would you safeguard a condition that depends on user input being truthy?'
+	],
+	tips: [
+		'Start with plain-language rules, then convert them into code.',
+		'Group related conditions into helper functions to avoid deep nesting.',
+		'Pair console logs with conditional branches while debugging to confirm paths taken.'
+	]
+};
 
 // Toggle solution visibility
 const showSolution = ref(false);
@@ -1341,12 +1390,6 @@ export default {
 </script>
 
 <style scoped>
-.html-icon {
-		color: #f7df1f;
-		font-size: 3rem;
-		background-color: #000;
-		padding: 0;
-	}
 .highlight-box {
 	background-color: #f0f8ff;
 	border-left: 5px solid #3273dc;
@@ -1374,18 +1417,6 @@ export default {
 .svg-inline--fa{
 	width: 1em;
 	height: 1em;
-}
-.js-logo-container {
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	margin-right: 10px;
-	vertical-align: middle;
-}
-
-.js-logo {
-	width: 100%;
-	height: 100%;
 }
 
 .box h3 {
