@@ -24,22 +24,21 @@
 
     <div class="content">
       <h1>
-        <i class="fas fa-sitemap fa-rotate-270" style="color: #ffd43b; margin-right: 0.5rem;"></i>
+        <span class="js-lesson-icon" aria-hidden="true">DOM</span>
         Introduction to the Document Object Model (DOM)
       </h1>
 
-      <div class="box box-info mb-6">
-        <h3 class="title is-4">
-          <i class="fas fa-graduation-cap"></i> Learning Objectives
-        </h3>
-        <p>After completing this introduction, you'll be able to:</p>
-        <ul>
-          <li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand what the DOM is and its role in web development</li>
-          <li><i class="fas fa-check-circle has-text-success mr-2"></i>Navigate and manipulate the DOM tree structure</li>
-          <li><i class="fas fa-check-circle has-text-success mr-2"></i>Select and modify HTML elements using JavaScript</li>
-          <li><i class="fas fa-check-circle has-text-success mr-2"></i>Handle user interactions with event listeners</li>
-        </ul>
-      </div>
+      <AnticipatorySet
+        :title="anticipatorySet.title"
+        :hook="anticipatorySet.hook"
+        :reflection-prompts="anticipatorySet.reflectionPrompts"
+        :connection="anticipatorySet.connection"
+      />
+
+      <LearningObjectives
+        :objectives="learningObjectives.objectives"
+        :purpose="learningObjectives.purpose"
+      />
 
       <div class="box is-info mb-6" style="background-color: #f1f8ff;">
         <h3 class="title is-4">
@@ -228,11 +227,18 @@ document
         </div>
       </section>
 
-      <!-- Add quiz before the tutorial recommendations -->
-      <TutorialQuiz />
+      <CheckpointBox
+        class="mb-6"
+        :title="domIntroCheckpoint.title"
+        :questions="domIntroCheckpoint.questions"
+        :tips="domIntroCheckpoint.tips"
+      />
 
-      <!-- Tutorial recommendations -->
       <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/introduction'" />
+
+      <TestYourKnowledgeSection
+        tutorial-path="/tutorials/beginner/dom-basics/introduction"
+      />
     </div>
   </div>
 </template>
@@ -278,8 +284,46 @@ export const frontmatter = {
 <script setup>
 import { ref, onMounted } from 'vue'
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
-import TutorialQuiz from '@/components/TutorialQuiz.vue'
 import { usePageSections } from '@/composables/usePageSections'
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue'
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue'
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
+
+const anticipatorySet = {
+  title: '🧭 Mapping the Invisible Interface',
+  hook: `<p>Product teams sketch site maps before writing a single line of code so everyone understands how the interface connects. The DOM is that live map for your browser - inspect it, and you can reroute, restyle, or rebuild in real time.</p>`,
+  reflectionPrompts: [
+    'When have you traced a complex system (a commute, workflow, or recipe) to understand how each step connects?',
+    'What parts of a web page do you want to toggle, restyle, or personalize for your users?',
+    'How could a live "map" of the page help you debug faster when layouts shift unexpectedly?'
+  ],
+  connection: 'This lesson shows you how to read that map so your JavaScript can confidently select, inspect, and modify any piece of the page.'
+};
+
+const learningObjectives = {
+  objectives: [
+    'Explain what the DOM is and why browsers represent pages as node trees',
+    'Compare how HTML, SVG, and XML documents appear inside the DOM',
+    'Navigate parent/child/sibling relationships to target exactly the right element',
+    'Experiment with DOM APIs to update content, styles, and interactivity in real time'
+  ],
+  purpose: 'Keeping these targets in sight helps you focus on transferable skills that power every interactive project you build next.'
+};
+
+const domIntroCheckpoint = {
+  title: 'Checkpoint: Reading the DOM Map',
+  questions: [
+    'Can you describe the difference between the source HTML and the live DOM tree?',
+    'Which DOM method will you reach for first when you only know an element\'s class or data attribute?',
+    'How would you inspect whether a node represents HTML, SVG, or XML content?'
+  ],
+  tips: [
+    'Open DevTools Elements panel and narrate what each parent/child hop reveals.',
+    'Sketch the DOM hierarchy for today\'s practice page to cement how nodes relate.',
+    'Toggle between textContent and innerHTML in the console to see how the DOM interprets each.'
+  ]
+};
 
 // Initialize page sections
 const sections = [

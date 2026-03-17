@@ -24,22 +24,21 @@
 
       <div class="content">
         <h1>
-          <i class="fas fa-sitemap fa-rotate-270" style="color: #ffd43b; margin-right: 0.5rem;"></i>
+          <span class="js-lesson-icon" aria-hidden="true">DOM</span>
           Arrays and Array Methods in JavaScript
         </h1>
         
-        <div class="box box-info mb-6">
-          <h3 class="title is-4">
-            <i class="fas fa-graduation-cap"></i> Learning Objectives
-          </h3>
-          <p>After completing this tutorial, you'll be able to:</p>
-          <ul>
-            <li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand how arrays store data in memory</li>
-            <li><i class="fas fa-check-circle has-text-success mr-2"></i>Work with multiple DOM elements using array methods</li>
-            <li><i class="fas fa-check-circle has-text-success mr-2"></i>Convert DOM collections to arrays</li>
-            <li><i class="fas fa-check-circle has-text-success mr-2"></i>Manipulate multiple elements efficiently</li>
-          </ul>
-        </div>
+        <AnticipatorySet
+          :title="anticipatorySet.title"
+          :hook="anticipatorySet.hook"
+          :reflection-prompts="anticipatorySet.reflectionPrompts"
+          :connection="anticipatorySet.connection"
+        />
+
+        <LearningObjectives
+          :objectives="learningObjectives.objectives"
+          :purpose="learningObjectives.purpose"
+        />
         
         <div class="box is-info mb-6" style="background-color: #f1f8ff;">
           <h3 class="title is-4">
@@ -345,6 +344,13 @@ Array.isArray(numbers);  // true</code></pre>
           </div>
         </section>
 
+        <CheckpointBox
+          class="mb-6"
+          :title="arraysCheckpoint.title"
+          :questions="arraysCheckpoint.questions"
+          :tips="arraysCheckpoint.tips"
+        />
+
         <!-- Practice Exercise -->
         <section id="practice" class="exercise-section mb-6">
           <h2>Practice Exercise: DOM Manipulation</h2>
@@ -371,20 +377,58 @@ Array.isArray(numbers);  // true</code></pre>
           </div>
         </section>
 
-        <!-- Add quiz before the tutorial recommendations -->
-        <TutorialQuiz />
-
-        <!-- Tutorial recommendations -->
         <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/arrays'" />
+
+        <TestYourKnowledgeSection
+          tutorial-path="/tutorials/beginner/dom-basics/arrays"
+        />
       </div>
     </div>
   </template>
   
   <script setup>
-  import { ref, computed } from 'vue';
-  import TutorialQuiz from '@/components/TutorialQuiz.vue';
+  import { ref } from 'vue';
   import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
   import { usePageSections } from '@/composables/usePageSections';
+  import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+  import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+  import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+  import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+  const anticipatorySet = {
+    title: '🥗 Plating a Full Service',
+    hook: `<p>Line cooks track dozens of identical plates at once - salads, entrees, and desserts move down the rail in order so nothing goes missing. Arrays give you that same orderly lane for DOM elements so you can update everything in one pass.</p>`,
+    reflectionPrompts: [
+      'Where do you already manage repeating items (orders, tickets, tasks) that demand a clear sequence?',
+      'Which UI elements in your project always change together (nav links, cards, list rows)?',
+      'How would your debugging improve if you could loop over those pieces intentionally instead of one-off edits?'
+    ],
+    connection: 'Mastering arrays lets you select, store, and transform groups of DOM nodes with the same confidence a chef has while plating service for a crowd.'
+  };
+
+  const learningObjectives = {
+    objectives: [
+      'Describe how contiguous memory makes arrays ideal for grouped data',
+      'Convert NodeList and HTMLCollection results into real arrays for iteration',
+      'Use core methods like map, filter, and forEach to manipulate DOM-backed data',
+      'Build interactive tools that add, remove, and reorder items with minimal code'
+    ],
+    purpose: 'These objectives keep you focused on habits that scale: reading collections, choosing the right helper method, and shipping reliable UI updates.'
+  };
+
+  const arraysCheckpoint = {
+    title: 'Checkpoint: Collections in Motion',
+    questions: [
+      'Can you explain why NodeList is often static while HTMLCollection updates live?',
+      'Which array helper would you choose to restyle only the longest labels in a list?',
+      'How will you guard against mutating the original collection when you only need a copy?'
+    ],
+    tips: [
+      'Practice converting the same DOM selection with Array.from() and the spread operator.',
+      'Narrate out loud what map, filter, and forEach return so side effects stay intentional.',
+      'Keep the browser console open and log intermediate arrays before touching the DOM.'
+    ]
+  };
 
   const sections = [
     {

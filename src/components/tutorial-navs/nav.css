@@ -109,7 +109,13 @@
 .tutorial-nav .page-sections ul ul { margin-left: 1.5rem; font-size: 0.9em; }
 .tutorial-nav .page-sections li { margin: 0.5rem 0; }
 
-.tutorial-nav .sidebar-footer { padding: 1rem; border-top: 1px solid #dbdbdb; }
+.tutorial-nav .sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid #dbdbdb;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .tutorial-nav .sidebar-footer .button { display: flex; align-items: center; justify-content: center; }
 .tutorial-nav .sidebar-footer .button i { margin-right: 0.5rem; }
 

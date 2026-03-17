@@ -1,12 +1,16 @@
 <template>
   <div class="menu tutorial-nav">
     <h2 class="nav-title">
-      <i class="fas fa-sitemap fa-rotate-270 dom-icon"></i>
+      <span class="js-lesson-icon dom-nav-icon" aria-hidden="true">DOM</span>
       DOM Basics
     </h2>
     <ul class="menu-list">
       <li v-for="(item, index) in navItems" :key="index">
-        <router-link v-if="!item.comingSoon" :to="item.path" :class="{ 'is-active': isActive(item.path) }">
+        <router-link
+          v-if="!item.comingSoon"
+          :to="item.path"
+          :class="{ 'is-active': isActive(item.path), isnext: isNextTutorial(index) }"
+        >
           <span class="nav-item">
             <i v-if="item.icon" :class="item.icon + ' nav-icon'"></i>
             <span>{{ item.title }}</span>
@@ -82,7 +86,53 @@ export default {};
 <style scoped>
 @import './nav.css';
 
-/* DOM accent (purple) */
-.dom-icon { color: #6f42c1; margin-right: 0.4rem; }
-.tutorial-nav { --tutorial-accent: #6f42c1; }
+/* DOM accent updated to JavaScript yellow */
+.tutorial-nav {
+  --tutorial-accent: #f7df1e;
+  --tutorial-accent-hover: #e6c813;
+  --tutorial-accent-hover-active: #c9b00f;
+}
+
+.dom-nav-icon {
+  margin-right: 0.5rem;
+}
+
+.tutorial-nav .menu-list a {
+  color: #2b2b2b;
+}
+
+.tutorial-nav .menu-list a .nav-icon,
+.tutorial-nav .menu-list a i {
+  color: #323330;
+}
+
+.tutorial-nav .menu-list a:hover,
+.tutorial-nav .menu-list a:focus {
+  background-color: var(--tutorial-accent-hover);
+  color: #111;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.tutorial-nav .menu-list a:hover .nav-icon,
+.tutorial-nav .menu-list a:focus .nav-icon,
+.tutorial-nav .menu-list a:hover i,
+.tutorial-nav .menu-list a:focus i {
+  color: #111;
+}
+
+.tutorial-nav .menu-list a.is-active {
+  background-color: var(--tutorial-accent);
+  color: #111;
+  font-weight: 600;
+}
+
+.tutorial-nav .menu-list a.is-active .nav-icon,
+.tutorial-nav .menu-list a.is-active i {
+  color: #111;
+}
+
+.tutorial-nav .menu-list a.is-active:hover,
+.tutorial-nav .menu-list a.is-active:focus {
+  background-color: var(--tutorial-accent-hover-active);
+}
 </style>

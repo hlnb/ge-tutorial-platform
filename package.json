@@ -13,6 +13,7 @@
 		"preview": "vite preview",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix",
 		"format": "prettier --write src/",
+		"generate:sitemap": "node scripts/generate-sitemap.js",
 		"migrate:content": "node scripts/migrate-to-markdown.js",
 		"migrate:tutorials": "node scripts/migrate-to-markdown.js --type=tutorials",
 		"migrate:posts": "node scripts/migrate-to-markdown.js --type=posts",

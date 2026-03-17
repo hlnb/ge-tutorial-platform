@@ -394,6 +394,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/sitemap': RouteRecordInfo<
+      '/sitemap',
+      '/sitemap',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/terms': RouteRecordInfo<
       '/terms',
       '/terms',
@@ -1233,6 +1240,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/projects/todo-list-enhanced.vue': {
       routes:
         | '/projects/todo-list-enhanced'
+      views:
+        | never
+    }
+    'src/pages/sitemap.vue': {
+      routes:
+        | '/sitemap'
       views:
         | never
     }

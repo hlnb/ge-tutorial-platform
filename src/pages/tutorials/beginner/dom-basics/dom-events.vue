@@ -18,8 +18,21 @@
 
     <div class="tutorial-content">
       <h1 class="title is-1">
-        <i class="fas fa-mouse-pointer"></i> DOM Events
+        <span class="js-lesson-icon" aria-hidden="true">DOM</span>
+        DOM Events
       </h1>
+
+      <AnticipatorySet
+        :title="anticipatorySet.title"
+        :hook="anticipatorySet.hook"
+        :reflection-prompts="anticipatorySet.reflectionPrompts"
+        :connection="anticipatorySet.connection"
+      />
+
+      <LearningObjectives
+        :objectives="learningObjectives.objectives"
+        :purpose="learningObjectives.purpose"
+      />
       
       <section id="what-are-events">
         <h2>What Are Events?</h2>
@@ -258,6 +271,13 @@ boxes.forEach(box => {
           </div>
         </div>
       </section>
+
+      <CheckpointBox
+        class="mb-6"
+        :title="eventCheckpoint.title"
+        :questions="eventCheckpoint.questions"
+        :tips="eventCheckpoint.tips"
+      />
 
       <section id="keyboard-events">
         <h2>Keyboard Events</h2>
@@ -1037,23 +1057,61 @@ touchDemo?.addEventListener('touchstart', (e) => {
         </div>
       </section>
 
-      <!-- Add recommendations section before the quiz -->
       <section id="next-steps">
         <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/dom-events'" />
       </section>
 
-      <!-- Quiz section -->
-      <tutorial-quiz :quiz-data="quizData" />
+      <TestYourKnowledgeSection
+        tutorial-path="/tutorials/beginner/dom-basics/dom-events"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { getQuizQuestionsForPath } from '@/utils/quizUtils'
-import TutorialQuiz from '@/components/TutorialQuiz.vue'
+import { onMounted } from 'vue'
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
 import { usePageSections } from '@/composables/usePageSections'
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue'
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue'
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
+
+const anticipatorySet = {
+  title: '🎛️ Running the Control Booth',
+  hook: `<p>Great stage managers coordinate lights, sound, and sets the moment the audience reacts. Web apps rely on that same choreography: every click, keypress, and swipe fires off a signal your code can capture, reroute, or silence.</p>`,
+  reflectionPrompts: [
+    'Which parts of your product feel sluggish or unpredictable when multiple events fire?',
+    'When did a missing event handler break an otherwise solid feature for you?',
+    'How do you currently trace the path of an interaction from the element clicked to the final side effects?'
+  ],
+  connection: 'Learning how events travel, bubble, and trigger logic prepares you to design interfaces that respond instantly and reliably.'
+};
+
+const learningObjectives = {
+  objectives: [
+    'Explain the lifecycle of DOM events across capturing, target, and bubbling phases',
+    'Attach, remove, and delegate listeners for clicks, keyboard input, forms, and touch gestures',
+    'Read the event object to access targets, modifiers, and default behaviors',
+    'Throttle, debounce, or prevent events to protect performance and accessibility',
+    'Troubleshoot propagation issues and conflicting listeners in complex layouts'
+  ],
+  purpose: 'Keep these goals in mind so every demo reinforces how events power real collaboration between users and your UI.'
+};
+
+const eventCheckpoint = {
+  title: 'Checkpoint: Own the Event Flow',
+  questions: [
+    'How would you describe the difference between event.target and event.currentTarget?',
+    'Which interactions in this lesson would benefit from delegation instead of individual listeners?',
+    'When should you call preventDefault versus stopPropagation, and what does each guarantee?'
+  ],
+  tips: [
+    'Console.log the target, currentTarget, and phase whenever debugging nested listeners.',
+    'Annotate diagrams of the capturing and bubbling path for tricky components like modals.',
+    'Wrap expensive handlers with throttle or debounce helpers before performance issues appear.'
+  ]
+};
 
 // Define sections for sidebar navigation
 const sections = [
@@ -1109,9 +1167,6 @@ const sections = [
 
 // Provide sections data for the page navigation
 const { pageSections } = usePageSections(sections);
-
-// Quiz data
-const quizData = ref(getQuizQuestionsForPath('/tutorials/beginner/dom-basics/dom-events'))
 
 
 

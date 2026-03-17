@@ -24,23 +24,21 @@
 
     <div class="content">
       <h1>
-        <i class="fas fa-sitemap fa-rotate-270" style="color: #ffd43b; margin-right: 0.5rem;"></i>
+        <span class="js-lesson-icon" aria-hidden="true">DOM</span>
         DOM Manipulation: Creating Dynamic Web Pages
       </h1>
       
-      <div class="box box-info mb-6">
-        <h3 class="title is-4">
-          <i class="fas fa-graduation-cap"></i> Learning Objectives
-        </h3>
-        <p>After completing this tutorial, you'll be able to:</p>
-        <ul>
-          <li><i class="fas fa-check-circle has-text-success mr-2"></i>Create and modify DOM elements dynamically</li>
-          <li><i class="fas fa-check-circle has-text-success mr-2"></i>Update element attributes and styles</li>
-          <li><i class="fas fa-check-circle has-text-success mr-2"></i>Insert and remove elements from the DOM</li>
-          <li><i class="fas fa-check-circle has-text-success mr-2"></i>Work with element classes and CSS</li>
-          <li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand DOM traversal methods</li>
-        </ul>
-      </div>
+      <AnticipatorySet
+        :title="anticipatorySet.title"
+        :hook="anticipatorySet.hook"
+        :reflection-prompts="anticipatorySet.reflectionPrompts"
+        :connection="anticipatorySet.connection"
+      />
+
+      <LearningObjectives
+        :objectives="learningObjectives.objectives"
+        :purpose="learningObjectives.purpose"
+      />
       
       <div class="box is-info mb-6" style="background-color: #f1f8ff;">
         <h3 class="title is-4">
@@ -364,6 +362,13 @@
           </div>
         </div>
       </section>
+
+      <CheckpointBox
+        class="mb-6"
+        :title="domManipulationCheckpoint.title"
+        :questions="domManipulationCheckpoint.questions"
+        :tips="domManipulationCheckpoint.tips"
+      />
 
       <section id="practical-exercise" class="mb-6">
         <h2 class="title is-3">Practical Exercise</h2>
@@ -1420,26 +1425,61 @@ container.appendChild(fragment);  // Single reflow
         </div>
       </section>
 
-      <section id="quiz" class="mb-6">
-        <!-- Add Quiz Section -->
-        <tutorial-quiz
-          title="Test Your Knowledge"
-          description="Let's see how well you've understood DOM Manipulation concepts. Try this quick quiz to test your knowledge!"
-        />
-      </section>
-      <!-- Add Tutorial Recommendations -->
       <section id="next-steps" class="mb-6">
-        <tutorial-recommendations :current-path="'/tutorials/beginner/dom-basics/dom-manipulation'" />
+        <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/dom-manipulation'" />
       </section>
+
+      <TestYourKnowledgeSection
+        tutorial-path="/tutorials/beginner/dom-basics/dom-manipulation"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import TutorialQuiz from '@/components/TutorialQuiz.vue'
 import { usePageSections } from '@/composables/usePageSections'
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue'
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue'
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
+
+const anticipatorySet = {
+  title: '🛠️ Resetting the Dining Room in Seconds',
+  hook: `<p>Event crews flip a dining room between ceremonies by swapping signs, centerpieces, and lighting without taking the building offline. DOM manipulation gives you that same superpower inside the browser: restructure markup, swap styles, and wire new behavior without a redeploy.</p>`,
+  reflectionPrompts: [
+    'When have you had to reorganize content on a page after new requirements landed late?',
+    'Which UI elements in your app need to appear, disappear, or restyle based on user actions?',
+    'How quickly can you diagnose whether a broken interaction is caused by HTML, CSS, or JavaScript changes?'
+  ],
+  connection: 'By mastering core DOM methods you can update experiences on demand instead of waiting for rebuilds or designer handoffs.'
+};
+
+const learningObjectives = {
+  objectives: [
+    'Create, clone, and insert elements dynamically with clear structure',
+    'Update attributes, classes, and inline styles without breaking accessibility',
+    'Remove or reorder nodes cleanly to avoid memory leaks',
+    'Traverse parents, children, and siblings to grab exactly the right element',
+    'Pair DOM APIs with defensive checks so runtime errors stay rare'
+  ],
+  purpose: 'Use these targets to keep your practice grounded in the skills teams lean on during production incidents and UI experiments.'
+};
+
+const domManipulationCheckpoint = {
+  title: 'Checkpoint: Build, Style, and Rebuild',
+  questions: [
+    'What steps do you check before calling innerHTML, and when would textContent be safer?',
+    'How would you explain the difference between append, prepend, and insertBefore to a teammate?',
+    'When you remove nodes, how do you confirm listeners or timers are cleaned up too?'
+  ],
+  tips: [
+    'Console.log newly created elements before appending them so structure mistakes surface early.',
+    'Favor classList helpers for visual states so CSS and JS stay loosely coupled.',
+    'Wrap DOM writes in guard clauses that confirm the target element exists to avoid TypeErrors.'
+  ]
+};
 
 const sections = [
   {
@@ -1496,98 +1536,6 @@ const sections = [
     id: 'next-steps',
     title: 'Next Steps',
     subsections: []
-  }
-]
-
-// Quiz questions for the DOM Manipulation tutorial
-const quizQuestions = [
-  {
-    question: "Which method is used to create a new DOM element?",
-    options: [
-      "document.makeElement()",
-      "document.createElement()",
-      "document.newElement()",
-      "document.addElement()"
-    ],
-    answer: 1,
-    explanation: "document.createElement() is the standard method for creating new DOM elements, which can then be inserted into the document."
-  },
-  {
-    question: "How do you add a newly created element to the DOM?",
-    options: [
-      "document.addElement(newElement)",
-      "document.insertElement(newElement)",
-      "parentElement.appendChild(newElement)",
-      "parentElement.insertElement(newElement)"
-    ],
-    answer: 2,
-    explanation: "The appendChild() method adds a node as the last child of the specified parent node."
-  },
-  {
-    question: "Which property is used to get all direct child elements of a node?",
-    options: [
-      "node.childElements",
-      "node.children",
-      "node.childNodes",
-      "node.elements"
-    ],
-    answer: 1,
-    explanation: "The children property returns a live HTMLCollection of all direct child elements of a node, excluding text and comment nodes."
-  },
-  {
-    question: "What's the difference between innerHTML and textContent?",
-    options: [
-      "innerHTML works faster than textContent",
-      "textContent only works on paragraph elements",
-      "innerHTML parses content as HTML, while textContent treats it as plain text",
-      "No difference, they are aliases of the same property"
-    ],
-    answer: 2,
-    explanation: "innerHTML parses its content as HTML, which means it will render any HTML tags, while textContent treats its content as plain text and is safer when handling user input."
-  },
-  {
-    question: "Which method allows you to insert an element before another element?",
-    options: [
-      "parentElement.insertAfter(newElement, referenceElement)",
-      "parentElement.insertBefore(newElement, referenceElement)",
-      "parentElement.addBefore(newElement, referenceElement)",
-      "referenceElement.insertBefore(newElement)"
-    ],
-    answer: 1,
-    explanation: "The insertBefore() method inserts a node before a reference node as a child of a specified parent node."
-  },
-  {
-    question: "What is the best way to modify multiple CSS properties of an element?",
-    options: [
-      "element.css = { color: 'red', fontSize: '14px' }",
-      "element.style.cssText = 'color: red; font-size: 14px;'",
-      "element.setCSS('color: red; font-size: 14px;')",
-      "element.modifyStyles({ color: 'red', fontSize: '14px' })"
-    ],
-    answer: 1,
-    explanation: "The cssText property of the style object allows you to set multiple CSS properties at once using a string of CSS declarations."
-  },
-  {
-    question: "How do you access the parent element of a DOM node?",
-    options: [
-      "node.parent",
-      "node.parentElement",
-      "node.getParent()",
-      "node.root"
-    ],
-    answer: 1,
-    explanation: "The parentElement property returns the parent element of the specified node, or null if the node has no parent or if the parent is not an element."
-  },
-  {
-    question: "Which method is used to remove a DOM element?",
-    options: [
-      "element.delete()",
-      "element.remove()",
-      "document.removeElement(element)",
-      "element.parentNode.removeChild(element)"
-    ],
-    answer: 1,
-    explanation: "The remove() method removes the element from the DOM. Alternatively, removeChild() can be used from the parent element."
   }
 ]
 

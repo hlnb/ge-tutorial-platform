@@ -17,7 +17,7 @@
     </nav>
 
     <h1>
-      <i class="fa-solid fa-sitemap fa-rotate-270 mr-2 page-icon" style="color: #ffd43b;"></i>
+      <span class="js-lesson-icon" aria-hidden="true">DOM</span>
       Document Object Model
     </h1>
 
@@ -150,10 +150,6 @@ export default {
 </script>
 
 <style scoped>
-.page-icon {
-  font-size: 2rem;
-}
-
 .level-section {
   margin-bottom: 2rem;
 }
