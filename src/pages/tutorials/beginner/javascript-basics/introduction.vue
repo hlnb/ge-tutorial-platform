@@ -255,6 +255,10 @@
 			</ul>
 		</div>
 
+			<TestYourKnowledgeSection
+				tutorial-path="/tutorials/beginner/javascript-basics/introduction"
+			/>
+
 			<!-- Hunter Element: Closure -->
 			<ClosureSection
 				:key-takeaways="closureKeyTakeaways"
@@ -267,9 +271,8 @@
 			<!-- Recommendations before quiz per Hunter structure -->
 			<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/introduction'" />
 
-			<TestYourKnowledgeSection
-				tutorial-path="/tutorials/beginner/javascript-basics/introduction"
-			/>
+			<!-- Tutorial Completion -->
+			<TutorialCompletion tutorial-path="/tutorials/beginner/javascript-basics/introduction" />
 		</div>
 	</div>
 </template>
@@ -283,6 +286,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 
 const sections = [

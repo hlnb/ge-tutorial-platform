@@ -1265,7 +1265,9 @@ This is a new line
 				</div>
 			</div>
 		</div>
-
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-doc-structure"
+                />
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -1278,14 +1280,11 @@ This is a new line
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-doc-structure'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/html-basics/html-doc-structure"
-                />
+
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-doc-structure" />
 
-		<TutorialNavigation class="mt-6" />
 		</div>
 	</div>
 </template>

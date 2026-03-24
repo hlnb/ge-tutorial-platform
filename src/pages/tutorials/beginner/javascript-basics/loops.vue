@@ -276,6 +276,10 @@
 			</div>
 		</div>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/loops"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -288,9 +292,8 @@
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/loops'" />
 
-		<TestYourKnowledgeSection
-			tutorial-path="/tutorials/beginner/javascript-basics/loops"
-		/>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/javascript-basics/loops" />
 		</div>
 	</div>
 </template>
@@ -304,6 +307,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 
 const sections = [

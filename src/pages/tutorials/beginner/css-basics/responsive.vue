@@ -10,6 +10,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const frontmatter = {
 	title: 'Responsive Design',
@@ -1340,6 +1341,10 @@ const navigationExample = ref(`/* Responsive Navigation */
 			</div>
 		</section>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/css-basics/responsive"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -1352,19 +1357,9 @@ const navigationExample = ref(`/* Responsive Navigation */
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/responsive'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/css-basics/responsive"
-                />
 
-		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 class="title is-2">Completion</h2>
-			<div class="box">
-				<h3 class="title is-4">Congratulations!</h3>
-				<p>You've completed the Responsive Design tutorial.</p>
-				<p>Your progress has been recorded. Keep up the good work!</p>
-			</div>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/responsive" />
 
 		<TutorialNavigation prev="modern" next="flexbox" />
 	</div>

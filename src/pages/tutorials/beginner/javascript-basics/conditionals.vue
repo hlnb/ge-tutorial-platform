@@ -715,6 +715,10 @@
 			</div>
 		</div>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/conditionals"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -727,9 +731,8 @@
 		<!-- Recommendations for next steps -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/conditionals'" />
 
-		<TestYourKnowledgeSection
-			tutorial-path="/tutorials/beginner/javascript-basics/conditionals"
-		/>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/javascript-basics/conditionals" />
 		</div>
 	</div>
 </template>
@@ -744,6 +747,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 
 const anticipatorySet = {

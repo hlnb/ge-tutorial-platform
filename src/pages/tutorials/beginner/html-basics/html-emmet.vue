@@ -344,29 +344,11 @@
 			:questions="checkpointQuestions"
 		/>
 
-		<div class="box mt-6">
-			<h2 class="title is-3">
-				<i class="fas fa-book"></i> Additional Resources
-			</h2>
-			<div class="content">
-				<ul>
-					<li>
-						<a href="https://docs.emmet.io/" target="_blank">
-							Official Emmet Documentation
-						</a>
-					</li>
-					<li>
-						<a
-							href="https://code.visualstudio.com/docs/editor/emmet"
-							target="_blank"
-						>
-							VS Code Emmet Support
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+		
 
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-emmet"
+                />
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -379,9 +361,6 @@
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-emmet'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/html-basics/html-emmet"
-                />
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-emmet" />

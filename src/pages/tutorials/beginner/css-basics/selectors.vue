@@ -11,6 +11,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 // Define page sections
 const sections = [
@@ -1448,6 +1449,10 @@ footer {}
 			</ul>
 		</div>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/css-basics/selectors"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -1460,19 +1465,9 @@ footer {}
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/selectors'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/css-basics/selectors"
-                />
 
-		<!-- Completion Section -->
-		<div class="completion-section mt-6">
-			<h2 class="title is-3">Completion</h2>
-			<p>Congratulations! You've completed the CSS selectors tutorial.</p>
-			<p>
-				Feel free to explore more CSS tutorials or apply your new skills to
-				real-world projects.
-			</p>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/selectors" />
 		</div>
 	</div>
 </template>

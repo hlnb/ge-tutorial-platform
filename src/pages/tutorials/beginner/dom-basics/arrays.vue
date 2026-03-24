@@ -377,6 +377,10 @@ Array.isArray(numbers);  // true</code></pre>
           </div>
         </section>
 
+        <TestYourKnowledgeSection
+          tutorial-path="/tutorials/beginner/dom-basics/arrays"
+        />
+
         <!-- Hunter Element: Closure -->
         <ClosureSection
           :key-takeaways="closureKeyTakeaways"
@@ -388,9 +392,8 @@ Array.isArray(numbers);  // true</code></pre>
 
         <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/arrays'" />
 
-        <TestYourKnowledgeSection
-          tutorial-path="/tutorials/beginner/dom-basics/arrays"
-        />
+        <!-- Tutorial Completion -->
+        <TutorialCompletion tutorial-path="/tutorials/beginner/dom-basics/arrays" />
       </div>
     </div>
   </template>
@@ -403,6 +406,7 @@ Array.isArray(numbers);  // true</code></pre>
   import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
   import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
   import ClosureSection from '@/components/hunter/ClosureSection.vue';
+  import TutorialCompletion from '@/components/TutorialCompletion.vue';
   import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 
   const closureKeyTakeaways = [

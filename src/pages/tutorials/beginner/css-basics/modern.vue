@@ -10,6 +10,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const progressEnabled = ref(true);
 
@@ -881,6 +882,10 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 		<!-- Hunter Element: Checkpoint -->
 		<CheckpointBox :questions="checkpointQuestions" />
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/css-basics/modern"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -893,24 +898,9 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/modern'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/css-basics/modern"
-                />
 
-		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 id="completion" class="title is-2">Completion</h2>
-			<p>Congratulations! You've completed the Modern CSS tutorial.</p>
-			<p>
-				Your progress has been saved. You can continue to the next tutorial or
-				review the content.
-			</p>
-			<p class="mt-3">
-				<a href="/tutorials/beginner/css-basics/responsive" class="button is-warning">
-					Continue to Responsive Design →
-				</a>
-			</p>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/modern" />
 	</div>
 	</div>
 </template>

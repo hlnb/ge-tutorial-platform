@@ -8,6 +8,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 // Define frontmatter
 const frontmatter = {
@@ -2282,6 +2283,10 @@ const rottoContentStyles = ref(`/* Content sections */
 			</section>
 		</div>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/css-basics/text"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -2294,9 +2299,9 @@ const rottoContentStyles = ref(`/* Content sections */
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/text'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/css-basics/text"
-                />
+
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/text" />
 
 		<TutorialNavigation prev="css-basics-box-model" next="css-basics-layout" />
 	</div>

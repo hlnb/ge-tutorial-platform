@@ -10,6 +10,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const frontmatter = {
 	title: 'Layout Basics',
@@ -1455,6 +1456,10 @@ const clearExample = ref(`/* Clear example */
 			</div>
 		</section>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/css-basics/layout"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -1467,73 +1472,9 @@ const clearExample = ref(`/* Clear example */
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/layout'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/css-basics/layout"
-                />
 
-		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 id="summary" class="title is-3">Summary</h2>
-
-			<div class="content">
-				<h3 id="what-we-ve-learned" class="title is-4">What We've Learned</h3>
-				<ul>
-					<li>
-						<strong>Display Properties</strong>: Understanding block, inline,
-						and inline-block elements
-					</li>
-					<li>
-						<strong>Positioning</strong>: How to control element placement with
-						static, relative, and absolute positioning
-					</li>
-					<li>
-						<strong>Float and Clear</strong>: Using floats for layout and
-						clearing them properly
-					</li>
-					<li>
-						<strong>Basic Layout Patterns</strong>:
-						<ul>
-							<li>The Stack Pattern for vertical layouts</li>
-							<li>The Box Pattern for contained content</li>
-							<li>The Center Pattern for alignment</li>
-						</ul>
-					</li>
-					<li>
-						<strong>Common Structures</strong>:
-						<ul>
-							<li>Two-column layouts</li>
-							<li>Holy Grail layout</li>
-							<li>Sidebar patterns</li>
-						</ul>
-					</li>
-				</ul>
-
-				<div class="next-steps mt-6">
-					<h3 id="where-to-next" class="title is-4">Where to Next?</h3>
-					<p>
-						Now that you understand how to structure and layout your web pages,
-						it's time to make them visually appealing! In the next tutorial,
-						we'll cover:
-					</p>
-					<ul>
-						<li>Color theory basics</li>
-						<li>CSS color properties and values</li>
-						<li>Working with background colors</li>
-						<li>Creating effective color schemes</li>
-						<li>Applying colors to enhance your layouts</li>
-					</ul>
-
-					<div class="notification is-info is-light mt-4">
-						<p>
-							<strong>Next Tutorial:</strong>
-							<router-link to="/tutorials/beginner/css-basics/colors"
-								>Working with Colors</router-link
-							>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/layout" />
 	</div>
 	</div>
 </template>

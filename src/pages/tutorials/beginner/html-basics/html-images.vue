@@ -543,7 +543,9 @@
 				<TutorialNavigation class="mt-6" />
 			</div>
 		</div>
-
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-images"
+                />
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -556,9 +558,7 @@
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-images'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/html-basics/html-images"
-                />
+
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-images" />

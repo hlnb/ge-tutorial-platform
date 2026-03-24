@@ -228,6 +228,9 @@ Best time to visit: September to May</pre
 			</p>
 		</div>
 
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-first-page"
+                />
 	<!-- Closure Section -->
 	<ClosureSection
 		title="🏁 Lesson Complete: You Built Your First Webpage!"
@@ -243,9 +246,6 @@ Best time to visit: September to May</pre
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-first-page'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/html-basics/html-first-page"
-                />
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-first-page" />

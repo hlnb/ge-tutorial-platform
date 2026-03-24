@@ -14,6 +14,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const frontmatter = {
 	title: 'The Box Model',
@@ -1103,6 +1104,10 @@ border: 10px solid black;
 			</div>
 		</div>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/css-basics/box-model"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -1115,32 +1120,9 @@ border: 10px solid black;
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/box-model'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/css-basics/box-model"
-                />
 
-		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
-			<div class="box has-text-centered">
-				<h3 class="title is-4">Congratulations!</h3>
-				<p class="subtitle">You've completed the tutorial</p>
-				<div class="content">
-					<p>You've learned about:</p>
-					<ul>
-						<li>The CSS Box Model</li>
-						<li>Padding, margins, borders, and element sizing</li>
-						<li>Box Sizing Behavior</li>
-						<li>Practical Usage</li>
-					</ul>
-				</div>
-				<router-link
-					:to="'/tutorials/beginner/css-basics/text'"
-					class="button is-primary is-medium"
-				>
-					Continue to Text Properties →
-				</router-link>
-			</div>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/box-model" />
 		<TutorialNavigation
 			prev="css-basics-introduction"
 			next="css-basics-text"

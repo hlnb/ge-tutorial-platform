@@ -11,6 +11,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const frontmatter = {
 	title: 'Working with Colors',
@@ -1555,6 +1556,10 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 			</section>
 		</section>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/css-basics/colors"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -1567,165 +1572,9 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/colors'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/css-basics/colors"
-                />
 
-		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 class="title is-2">Summary</h2>
-
-			<div class="box">
-				<h3 class="title is-4">What You've Learned</h3>
-				<div class="content">
-					<ul>
-						<li>
-							<strong>Color Fundamentals</strong>
-							<ul>
-								<li>
-									Different ways to specify colors in CSS (keywords, hex, RGB,
-									HSL)
-								</li>
-								<li>Understanding opacity and transparency</li>
-								<li>Working with gradients and overlays</li>
-							</ul>
-						</li>
-						<li>
-							<strong>Color Management</strong>
-							<ul>
-								<li>
-									Using CSS Custom Properties for consistent color schemes
-								</li>
-								<li>Creating color variations for different states</li>
-								<li>Implementing dark mode alternatives</li>
-							</ul>
-						</li>
-						<li>
-							<strong>Accessibility</strong>
-							<ul>
-								<li>Ensuring sufficient color contrast</li>
-								<li>Making content readable for all users</li>
-								<li>Following WCAG guidelines</li>
-							</ul>
-						</li>
-						<li>
-							<strong>Practical Applications</strong>
-							<ul>
-								<li>Building cohesive color schemes</li>
-								<li>Applying colors effectively in layouts</li>
-								<li>Using color to enhance user experience</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-
-				<div class="notification is-info is-light mt-5">
-					<h4 class="title is-5">Helpful Resources</h4>
-					<div class="content">
-						<h5 class="title is-6">Color Tools</h5>
-						<ul>
-							<li>
-								<a href="https://coolors.co" target="_blank" rel="noopener"
-									>Coolors</a
-								>
-								- Color scheme generator
-							</li>
-							<li>
-								<a
-									href="https://color.adobe.com/create"
-									target="_blank"
-									rel="noopener"
-									>Adobe Color</a
-								>
-								- Color wheel and palette creation
-							</li>
-							<li>
-								<a href="https://mycolor.space" target="_blank" rel="noopener"
-									>ColorSpace</a
-								>
-								- Color palette generator with gradients
-							</li>
-						</ul>
-
-						<h5 class="title is-6 mt-4">Accessibility Tools</h5>
-						<ul>
-							<li>
-								<a
-									href="https://webaim.org/resources/contrastchecker/"
-									target="_blank"
-									rel="noopener"
-									>WebAIM Contrast Checker</a
-								>
-								- Verify color contrast ratios
-							</li>
-							<li>
-								<a
-									href="https://www.whocanuse.com"
-									target="_blank"
-									rel="noopener"
-									>WhoCanUse</a
-								>
-								- Color accessibility visualization
-							</li>
-							<li>
-								<a
-									href="https://colorable.jxnblk.com"
-									target="_blank"
-									rel="noopener"
-									>Colorable</a
-								>
-								- Color combination accessibility testing
-							</li>
-						</ul>
-
-						<h5 class="title is-6 mt-4">Further Reading</h5>
-						<ul>
-							<li>
-								<a
-									href="https://web.dev/learn/css/color"
-									target="_blank"
-									rel="noopener"
-									>web.dev: CSS Color Guide</a
-								>
-							</li>
-							<li>
-								<a
-									href="https://www.smashingmagazine.com/2016/04/web-developer-guide-color"
-									target="_blank"
-									rel="noopener"
-									>Smashing Magazine: A Web Developer's Guide to Color</a
-								>
-							</li>
-							<li>
-								<a
-									href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
-									target="_blank"
-									rel="noopener"
-									>WCAG Color Contrast Guidelines</a
-								>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="notification is-warning is-light mt-5">
-					<h4 class="title is-5">Next Steps</h4>
-					<p>Now that you understand colors in CSS, you can:</p>
-					<ul>
-						<li>Create your own color schemes for future projects</li>
-						<li>Implement accessible color combinations</li>
-						<li>Use CSS Custom Properties for dynamic theming</li>
-						<li>Experiment with gradients and overlays</li>
-					</ul>
-					<p class="mt-3">
-						Continue to the Modern CSS tutorial to learn about current CSS
-						features and best practices, including more ways to use the CSS
-						Custom Properties we explored here. This will prepare you for
-						responsive design and Flexbox in the following tutorials!
-					</p>
-				</div>
-			</div>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/colors" />
 	</div>
 	</div>
 </template>

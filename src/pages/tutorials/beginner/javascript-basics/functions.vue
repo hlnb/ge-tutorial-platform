@@ -281,6 +281,10 @@
 			<button class="button mt-3" @click="runGalleryExample">Try it</button>
 		</div>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/functions"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -292,9 +296,8 @@
 
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/functions'" />
 
-		<TestYourKnowledgeSection
-			tutorial-path="/tutorials/beginner/javascript-basics/functions"
-		/>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/javascript-basics/functions" />
 		</div>
 	</div>
 </template>
@@ -311,6 +314,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 
 const sections = [

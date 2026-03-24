@@ -619,7 +619,9 @@
 		description="Test your understanding of HTML links:"
 		:questions="checkpointQuestions"
 	/>
-
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-links"
+                />
 	<!-- Closure Section -->
 	<ClosureSection
 		title="🏁 Lesson Complete: You've Connected the Web!"
@@ -633,9 +635,7 @@
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-links'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/html-basics/html-links"
-                />
+
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-links" />

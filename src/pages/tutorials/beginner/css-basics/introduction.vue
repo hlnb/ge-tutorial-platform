@@ -427,6 +427,10 @@
 		<!-- Hunter Element: Checkpoint -->
 		<CheckpointBox :questions="checkpointQuestions" />
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/css-basics/introduction"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -439,17 +443,9 @@
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/introduction'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/css-basics/introduction"
-                />
 
-		<!-- Completion Section -->
-		<div class="completion-section mt-6">
-			<h2 class="title is-3">
-				<i class="fas fa-check-circle"></i> Congratulations!
-			</h2>
-			<p>You've completed the CSS Basics tutorial. Great job!</p>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/introduction" />
 		</div>
 	</div>
 </template>
@@ -473,6 +469,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const frontmatter = {
 	title: 'Introduction to CSS',

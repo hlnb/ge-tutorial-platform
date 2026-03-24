@@ -349,7 +349,9 @@
 				</ul>
 			</div>
 		</div>
-
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-forms"
+                />
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -362,9 +364,7 @@
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-forms'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/html-basics/html-forms"
-                />
+
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-forms" />

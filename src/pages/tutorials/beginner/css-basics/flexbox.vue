@@ -11,6 +11,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 // Define a ref for the code editor instances
 const codeEditors = ref([]);
@@ -1207,6 +1208,10 @@ body {
 				</div>
 			</section>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/css-basics/flexbox"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -1219,18 +1224,9 @@ body {
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/flexbox'" />
 
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/css-basics/flexbox"
-                />
 
-		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 class="title is-2">Congratulations!</h2>
-			<p>You've completed the tutorial. Great job!</p>
-			<div class="has-text-centered">
-				<a href="#" class="button is-primary is-large"> Return to Dashboard </a>
-			</div>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/flexbox" />
 	</div>
 	</div>
 </template>

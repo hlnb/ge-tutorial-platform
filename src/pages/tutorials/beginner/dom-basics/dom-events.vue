@@ -1057,6 +1057,10 @@ touchDemo?.addEventListener('touchstart', (e) => {
         </div>
       </section>
 
+      <TestYourKnowledgeSection
+        tutorial-path="/tutorials/beginner/dom-basics/dom-events"
+      />
+
       <!-- Hunter Element: Closure -->
       <ClosureSection
         :key-takeaways="closureKeyTakeaways"
@@ -1070,9 +1074,8 @@ touchDemo?.addEventListener('touchstart', (e) => {
         <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/dom-events'" />
       </section>
 
-      <TestYourKnowledgeSection
-        tutorial-path="/tutorials/beginner/dom-basics/dom-events"
-      />
+      <!-- Tutorial Completion -->
+      <TutorialCompletion tutorial-path="/tutorials/beginner/dom-basics/dom-events" />
     </div>
   </div>
 </template>
@@ -1085,6 +1088,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue'
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue'
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
 import ClosureSection from '@/components/hunter/ClosureSection.vue'
+import TutorialCompletion from '@/components/TutorialCompletion.vue'
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 const closureKeyTakeaways = [

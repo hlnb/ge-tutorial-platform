@@ -347,7 +347,9 @@ Soups & Salads
 			</div>
 		</section>
 	</div>
-
+<TestYourKnowledgeSection
+          tutorial-path="/tutorials/beginner/html-basics/html-text"
+        />
 	<!-- Closure Section -->
 	<ClosureSection
 		title="🏁 Lesson Complete: You're a Text Master!"
@@ -361,9 +363,7 @@ Soups & Salads
 	<!-- Add recommendations before the quiz -->
 	<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-text'" />
 
-<TestYourKnowledgeSection
-          tutorial-path="/tutorials/beginner/html-basics/html-text"
-        />
+
 
 	<!-- Tutorial Completion -->
 	<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-text" />

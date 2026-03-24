@@ -1425,6 +1425,10 @@ container.appendChild(fragment);  // Single reflow
         </div>
       </section>
 
+      <TestYourKnowledgeSection
+        tutorial-path="/tutorials/beginner/dom-basics/dom-manipulation"
+      />
+
       <!-- Hunter Element: Closure -->
       <ClosureSection
         :key-takeaways="closureKeyTakeaways"
@@ -1438,9 +1442,8 @@ container.appendChild(fragment);  // Single reflow
         <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/dom-manipulation'" />
       </section>
 
-      <TestYourKnowledgeSection
-        tutorial-path="/tutorials/beginner/dom-basics/dom-manipulation"
-      />
+      <!-- Tutorial Completion -->
+      <TutorialCompletion tutorial-path="/tutorials/beginner/dom-basics/dom-manipulation" />
     </div>
   </div>
 </template>
@@ -1453,6 +1456,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue'
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue'
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
 import ClosureSection from '@/components/hunter/ClosureSection.vue'
+import TutorialCompletion from '@/components/TutorialCompletion.vue'
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 const closureKeyTakeaways = [

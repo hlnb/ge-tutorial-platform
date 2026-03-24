@@ -267,6 +267,10 @@
 			</ul>
 		</div>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/variables-data-types"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -279,9 +283,8 @@
 		<!-- Tutorial Recommendations -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/variables-data-types'" />
 
-		<TestYourKnowledgeSection
-			tutorial-path="/tutorials/beginner/javascript-basics/variables-data-types"
-		/>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/javascript-basics/variables-data-types" />
 		</div>
 	</div>
 </template>
@@ -296,6 +299,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 
 const sections = [

@@ -2738,6 +2738,10 @@ function safeDivide(numerator, denominator) {
 			</div>
 		</div>
 
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/javascript-basics/operators"
+		/>
+
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -2750,9 +2754,8 @@ function safeDivide(numerator, denominator) {
 		<!-- Recommendations for next steps -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/operators'" />
 
-		<TestYourKnowledgeSection
-			tutorial-path="/tutorials/beginner/javascript-basics/operators"
-		/>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/javascript-basics/operators" />
 		</div>
 	</div>
 </template>
@@ -2766,6 +2769,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 
 const anticipatorySet = {
