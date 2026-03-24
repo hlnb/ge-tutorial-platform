@@ -104,7 +104,7 @@ export const tutorials = [
   {
     id: 'how-the-web-works',
     title: 'How the Web Actually Works',
-    slug: 'how-the-web-works',
+    slug: 'getting-started/how-internet-works',
     summary:
       'Understand browsers, servers, HTTP, and what happens when you type a URL.',
     level: 'foundation',
@@ -126,7 +126,7 @@ export const tutorials = [
   {
     id: 'domains-dns-hosting',
     title: 'Domains, DNS, and Hosting',
-    slug: 'domains-dns-hosting',
+    slug: 'getting-started/domain-hosting',
     summary:
       'Learn how domain names, DNS records, and web hosting work together.',
     level: 'foundation',
@@ -170,7 +170,7 @@ export const tutorials = [
   {
     id: 'html-essentials',
     title: 'HTML Essentials',
-    slug: 'html-essentials',
+    slug: 'beginner/html-basics',
     summary:
       'The essential HTML elements, attributes, and document structure you need to know.',
     level: 'beginner',
@@ -192,7 +192,7 @@ export const tutorials = [
   {
     id: 'css-essentials',
     title: 'CSS Essentials',
-    slug: 'css-essentials',
+    slug: 'beginner/css-basics',
     summary:
       'Selectors, properties, the box model, and how to make things look good.',
     level: 'beginner',
@@ -236,7 +236,7 @@ export const tutorials = [
   {
     id: 'javascript-essentials',
     title: 'JavaScript Essentials',
-    slug: 'javascript-essentials',
+    slug: 'beginner/javascript-basics',
     summary:
       'Variables, functions, events, and DOM basics — just enough JS to be dangerous.',
     level: 'beginner',
@@ -372,7 +372,7 @@ export const tutorials = [
   {
     id: 'flexbox-vs-grid',
     title: 'Flexbox vs Grid: When to Use Each (In Real Projects)',
-    slug: 'flexbox-vs-grid',
+    slug: 'beginner/css-basics/flexbox',
     summary:
       'Practical comparison with side-by-side examples so you always pick the right tool.',
     level: 'intermediate',
@@ -460,7 +460,7 @@ export const tutorials = [
   {
     id: 'page-layout-systems',
     title: 'Page Layout Systems',
-    slug: 'page-layout-systems',
+    slug: 'beginner/css-basics/layout',
     summary:
       'Understand CSS Grid and Flexbox layout systems for full-page designs.',
     level: 'intermediate',
@@ -548,7 +548,7 @@ export const tutorials = [
   {
     id: 'design-to-code-project',
     title: 'Design-to-Code Project',
-    slug: 'design-to-code-project',
+    slug: 'ai-assisted/design-to-code',
     summary:
       'Take a provided design file and build it into a fully coded web page.',
     level: 'intermediate',
@@ -574,7 +574,7 @@ export const tutorials = [
   {
     id: 'git-github-basics',
     title: 'Git & GitHub Basics',
-    slug: 'git-github-basics',
+    slug: 'intermediate/git-basics',
     summary:
       'Version control fundamentals — init, add, commit, push, pull, and branches.',
     level: 'intermediate',
@@ -640,7 +640,7 @@ export const tutorials = [
   {
     id: 'hosting-and-deployment',
     title: 'Hosting and Deployment',
-    slug: 'hosting-and-deployment',
+    slug: 'deployments/vercel-netlify',
     summary:
       'Deploy to Netlify, Vercel, or GitHub Pages — step by step.',
     level: 'advanced',
@@ -772,7 +772,7 @@ export const tutorials = [
   {
     id: 'seo-fundamentals',
     title: 'SEO Fundamentals',
-    slug: 'seo-fundamentals',
+    slug: 'seo-analytics/on-page-seo',
     summary:
       'Title tags, meta descriptions, headings, image alt text, and structured data basics.',
     level: 'advanced',
