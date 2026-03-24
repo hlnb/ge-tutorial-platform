@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="tutorial-content">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
@@ -27,38 +27,32 @@
       Introduction to Git
     </h1>
 
-    <!-- Enhanced Learning Objectives -->
-    <div class="box highlight-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-graduation-cap"></i> Learning Objectives
-      </h3>
-      <p>After completing this introduction, you'll be able to:</p>
-      <ul>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand what version control is and why it's important</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Explain what Git is and how it differs from other version control systems</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Identify the three main states of Git (modified, staged, committed)</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand basic Git terminology and concepts</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Recognize the value Git adds to your development workflow</li>
-      </ul>
-    </div>
+    <!-- Hunter Element 1: Anticipatory Set -->
+    <AnticipatorySet
+      title="Start Here"
+      :hook="`<p>Every professional developer uses version control. Imagine writing an essay and accidentally deleting a paragraph—wouldn't it be great to have an &quot;undo history&quot; that goes back forever? That's exactly what Git does for your code.</p><p>Git is the most widely used version control system in the world, and understanding it is essential for any developer.</p>`"
+      :reflection-prompts="[
+        'Have you ever lost work because you saved over an important file?',
+        'How do you currently keep track of changes to your projects?'
+      ]"
+      connection="In this lesson, you'll discover how Git solves these problems and why it's a must-have skill for developers."
+    />
 
-    <!-- Prerequisites Check -->
-    <div class="box prerequisite-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-clipboard-check"></i> Before You Start
-      </h3>
-      <p>To get the most out of this tutorial, you should be familiar with:</p>
-      <ul>
-        <li>
-          <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Basic command line usage
-        </li>
-        <li>
-          <i class="fas fa-folder has-text-warning mr-2"></i>
-          Basic file system operations (creating, moving, and deleting files)
-        </li>
-      </ul>
-    </div>
+    <!-- Hunter Element 2: Learning Objectives -->
+    <LearningObjectives
+      :objectives="[
+        'Understand what version control is and why it is important',
+        'Explain what Git is and how it differs from other version control systems',
+        'Identify the three main states of Git (modified, staged, committed)',
+        'Understand basic Git terminology and concepts',
+        'Recognize the value Git adds to your development workflow'
+      ]"
+      :prerequisites="[
+        'Basic command line usage',
+        'Basic file system operations (creating, moving, and deleting files)'
+      ]"
+      purpose="Git is used by virtually every software team in the world. Learning it now will prepare you for collaboration, open-source contributions, and professional development workflows."
+    />
 
     <div class="notification is-info is-light">
       <p>
@@ -524,48 +518,66 @@
       </button>
     </div>
 
-    <!-- Tutorial Quiz -->
-    <div class="quiz-box mt-6">
-      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Introduction to Git</h2>
-      <TutorialQuiz :quiz-id="'git-basics-introduction'" />
-    </div>
+    <!-- Hunter Bottom Components -->
+    <TestYourKnowledgeSection tutorial-path="/tutorials/intermediate/git-basics/introduction" />
 
-    <!-- Tutorial Recommendations -->
+    <ClosureSection
+      title="🏁 Lesson Complete: Introduction to Git"
+      :key-takeaways="closureKeyTakeaways"
+      :objectives="closureObjectives"
+      :reflection-prompts="closureReflectionPrompts"
+      :next-steps="`<p>Now that you understand what Git is and why it matters, the next step is to <strong>install Git</strong> on your computer and configure it for use.</p>`"
+    />
+
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/introduction'" />
 
-    <div class="level mt-6">
-      <div class="level-left">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics" class="button is-info">
-            <i class="fas fa-arrow-left mr-2"></i> Tutorial Home
-          </router-link>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/installation" class="button is-success">
-            Next: Installation & Setup <i class="fas fa-arrow-right ml-2"></i>
-          </router-link>
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgress } from '@/composables/useProgress';
-import { usePageSections } from '@/composables/usePageSections'; // Import usePageSections from @
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
+import { usePageSections } from '@/composables/usePageSections';
+
+const closureKeyTakeaways = [
+  'Version control tracks changes to files over time so you can recall specific versions later',
+  'Git is a distributed version control system where every developer has a full copy of the repository',
+  'Files in Git exist in three states: modified, staged, and committed',
+  'Key concepts include repositories, commits, branches, and merges',
+  'Learning Git is essential for professional software development',
+];
+
+const closureObjectives = [
+  'Understand what version control is and why it is important',
+  'Explain what Git is and how it differs from other version control systems',
+  'Identify the three main states of Git',
+  'Understand basic Git terminology and concepts',
+];
+
+const closureReflectionPrompts = [
+  {
+    title: '\ud83d\udcad Reflection Questions',
+    questions: [
+      'How could version control benefit a project you are currently working on?',
+      'What problems might Git solve for you as a developer?',
+      'Why is distributed version control better than just saving copies of files?',
+    ],
+  },
+];
 
 const frontmatter = {
   title: 'Introduction to Git',
   description: 'Learn the basics of Git version control system',
   category: 'Git Basics',
   level: 'Beginner',
-  order: 1,
+  order: 3,
   tags: ['git', 'version control', 'tutorial', 'beginner'],
   lastUpdated: '2025-05-12',
 };
@@ -585,13 +597,6 @@ const sections = [
 const { pageSections,} = usePageSections(sections); 
 
 
-
-// Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgress();
-
-onMounted(() => {
-  trackTutorial('/tutorials/intermediate/git-basics/introduction');
-});
 
 // Interactive Git timeline demo
 const currentCommit = ref(1);
@@ -719,7 +724,7 @@ export default {
     description: 'Learn the basics of Git version control system',
     category: 'Git Basics',
     level: 'Beginner',
-    order: 1,
+    order: 3,
     tags: ['git', 'version control', 'tutorial', 'beginner'],
     lastUpdated: '2025-05-12',
   },

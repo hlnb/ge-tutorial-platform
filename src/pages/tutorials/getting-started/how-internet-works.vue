@@ -35,51 +35,28 @@
 
 			<h1>How the Internet Works</h1>
 
-		<!-- HUNTER ELEMENT 1: ANTICIPATORY SET -->
-		<section class="anticipatory-set">
-			<div class="box engagement-hook">
-				<h3>🌍 Start Here: A Mind-Blowing Fact</h3>
-				<p>
-					You just opened this page. In less than a second, data traveled through cables under oceans, 
-					bounced between satellites, passed through dozens of routers, and arrived at your screen. 
-					How did that happen? More importantly, why do you need to know?
-				</p>
-				
-				<div class="reflection-prompt">
-					<strong>Quick Reflection:</strong> Think about your daily internet use...
-					<ul>
-						<li>When you type "google.com," how does your computer know where to go?</li>
-						<li>Why does some content load instantly while other sites take forever?</li>
-						<li>What makes a website "secure" with that padlock icon?</li>
-					</ul>
-					<p><em>Understanding the internet isn't just theory - it's the foundation for building better, faster, safer websites.</em></p>
-				</div>
-			</div>
-		</section>
+		<!-- Hunter Element 1: Anticipatory Set -->
+		<AnticipatorySet
+			title="Start Here: A Mind-Blowing Fact"
+			:hook="`<p>You just opened this page. In less than a second, data traveled through cables under oceans, bounced between satellites, passed through dozens of routers, and arrived at your screen. How did that happen? More importantly, why do you need to know?</p>`"
+			:reflection-prompts="[
+				'When you type &quot;google.com,&quot; how does your computer know where to go?',
+				'Why does some content load instantly while other sites take forever?',
+				'What makes a website &quot;secure&quot; with that padlock icon?'
+			]"
+			connection="Understanding the internet isn't just theory - it's the foundation for building better, faster, safer websites."
+		/>
 
-		<!-- HUNTER ELEMENT 2: OBJECTIVES & PURPOSE -->
-		<section class="objectives">
-			<div class="box highlight-box">
-				<h3><i class="fas fa-graduation-cap"></i> Learning Objectives</h3>
-				<p><strong>By the end of this lesson, you'll be able to:</strong></p>
-				<ul class="objectives-list">
-					<li>✓ <strong>Explain</strong> how data travels across the internet using packets and IP addresses</li>
-					<li>✓ <strong>Describe</strong> the DNS lookup process and why domain names exist</li>
-					<li>✓ <strong>Identify</strong> the difference between HTTP and HTTPS and when each is used</li>
-					<li>✓ <strong>Understand</strong> how web servers process requests and deliver content</li>
-				</ul>
-				
-				<div class="purpose-statement">
-					<h4><i class="fas fa-lightbulb"></i> Why This Matters:</h4>
-					<p>
-						Every website performance issue, security vulnerability, and user experience problem 
-						traceback to how the internet works. Knowing this helps you debug faster, optimize better, 
-						and make smarter architectural decisions. This isn't background knowledge - it's your 
-						superpower as a developer.
-					</p>
-				</div>
-			</div>
-		</section>
+		<!-- Hunter Element 2: Learning Objectives -->
+		<LearningObjectives
+			:objectives="[
+				'Explain how data travels across the internet using packets and IP addresses',
+				'Describe the DNS lookup process and why domain names exist',
+				'Identify the difference between HTTP and HTTPS and when each is used',
+				'Understand how web servers process requests and deliver content'
+			]"
+			purpose="Every website performance issue, security vulnerability, and user experience problem traces back to how the internet works. Knowing this helps you debug faster, optimize better, and make smarter architectural decisions. This isn't background knowledge - it's your superpower as a developer."
+		/>
 
 			<div class="image-container">
 				<img
@@ -120,36 +97,12 @@
 				</ul>
 			</div>
 
-		<!-- HUNTER ELEMENT 5: CHECKING FOR UNDERSTANDING #1 -->
-		<section class="check-understanding">
-			<div class="box checkpoint">
-				<h3>⏸️ Pause & Check: Network Basics</h3>
-				<p><strong>Before we continue, can you explain:</strong></p>
-				<ol>
-					<li>What is an IP address and why does every device need one?</li>
-					<li>Why is data sent in "packets" instead of all at once?</li>
-					<li>Using the postal system analogy, what would a "router" do?</li>
-				</ol>
-				
-				<details>
-					<summary class="button is-info is-light mt-3">
-						<i class="fas fa-eye"></i> Check Your Answers
-					</summary>
-					<div class="answer-key mt-3">
-						<ol>
-							<li><strong>IP Address:</strong> Like a mailing address for computers. Every device needs a unique identifier so data knows where to go and where it came from.</li>
-							<li><strong>Packets:</strong> Breaking data into small pieces allows for efficient routing (different packets can take different paths), error recovery (if one packet fails, just resend that piece), and sharing bandwidth (packets from many users can share the same connection).</li>
-							<li><strong>Routers:</strong> Like post offices, routers receive packets, read the destination address, and forward them to the next stop on their journey to the destination.</li>
-						</ol>
-					</div>
-				</details>
-				
-				<div class="self-assessment mt-4">
-					<p><strong>Confidence check:</strong></p>
-					<p class="confidence-scale">😕 Still fuzzy | 🤔 Making connections | 😊 Clear picture | 🎉 Could teach this!</p>
-				</div>
-			</div>
-		</section>
+		<!-- Hunter Element 3: Checkpoint -->
+		<CheckpointBox
+			title="Pause & Check: Network Basics"
+			description="Before we continue, can you explain:"
+			:questions="checkpointQuestions1"
+		/>
 
 
 			<h3>DNS Hierarchy</h3>
@@ -217,29 +170,12 @@
 				<li>Handle multiple users</li>
 			</ul>
 
-		<!-- HUNTER ELEMENT 5: CHECKING FOR UNDERSTANDING #2 -->
-		<section class="check-understanding">
-			<div class="box checkpoint">
-				<h3>⏸️ Quick Knowledge Check</h3>
-				<p><strong>Test your understanding:</strong></p>
-				<div class="quiz-questions">
-					<div class="question-box">
-						<p><strong>Question:</strong> When you type "github.com" in your browser, what happens first?</p>
-						<details>
-							<summary class="button is-info is-light is-small">Show Answer</summary>
-							<p class="mt-2"><strong>Answer:</strong> DNS lookup! Your computer doesn't know where "github.com" is, so it asks DNS servers to translate that domain name into an IP address (like 140.82.121.4). Only then can it make the actual HTTP request.</p>
-						</details>
-					</div>
-					<div class="question-box mt-3">
-						<p><strong>Question:</strong> Why should you use HTTPS instead of HTTP for a login form?</p>
-						<details>
-							<summary class="button is-info is-light is-small">Show Answer</summary>
-							<p class="mt-2"><strong>Answer:</strong> HTTPS encrypts the data being sent. With HTTP, passwords travel as plain text that anyone monitoring the network can read. HTTPS ensures even if someone intercepts the packets, they can't read the password.</p>
-						</details>
-					</div>
-				</div>
-			</div>
-		</section>
+		<!-- Hunter Element 3: Checkpoint 2 -->
+		<CheckpointBox
+			title="Quick Knowledge Check"
+			description="Test your understanding:"
+			:questions="checkpointQuestions2"
+		/>
 
 		<!-- HUNTER ELEMENT 6 & 7: GUIDED & INDEPENDENT PRACTICE -->
 		<h2>🧑‍🏫 Hands-On Exploration</h2>
@@ -433,14 +369,73 @@
 				</div>
 			</div>
 		</section>
-			<!-- Navigation -->
-			<TutorialNavigation />
+
 		</div>
 	</div>
 </template>
 
 <script setup>
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+const checkpointQuestions1 = [
+	{
+		question: 'What is an IP address and why does every device need one?',
+		answer: 'Like a mailing address for computers. Every device needs a unique identifier so data knows where to go and where it came from.',
+	},
+	{
+		question: 'Why is data sent in "packets" instead of all at once?',
+		answer: 'Breaking data into small pieces allows for efficient routing (different packets can take different paths), error recovery (if one packet fails, just resend that piece), and sharing bandwidth (packets from many users can share the same connection).',
+	},
+	{
+		question: 'Using the postal system analogy, what would a "router" do?',
+		answer: 'Like post offices, routers receive packets, read the destination address, and forward them to the next stop on their journey to the destination.',
+	},
+];
+
+const checkpointQuestions2 = [
+	{
+		question: 'When you type "github.com" in your browser, what happens first?',
+		answer: 'DNS lookup! Your computer doesn\'t know where "github.com" is, so it asks DNS servers to translate that domain name into an IP address (like 140.82.121.4). Only then can it make the actual HTTP request.',
+	},
+	{
+		question: 'Why should you use HTTPS instead of HTTP for a login form?',
+		answer: 'HTTPS encrypts the data being sent. With HTTP, passwords travel as plain text that anyone monitoring the network can read. HTTPS ensures even if someone intercepts the packets, they can\'t read the password.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'The internet is a network of networks where data travels in packets between IP addresses',
+	'DNS is the internet\'s phonebook - converting memorable domain names into computer-readable IP addresses',
+	'HTTP transfers data while HTTPS adds encryption for security (always use HTTPS for sensitive data!)',
+	'Web servers are always listening, waiting to process your requests and send back responses',
+	'Every website interaction involves: DNS lookup \u2192 Connect to IP \u2192 HTTP request \u2192 Server processing \u2192 Response delivery',
+];
+
+const closureObjectives = [
+	'Explain how data travels using packets and IP addresses',
+	'Describe the DNS lookup process',
+	'Identify HTTP vs HTTPS differences',
+	'Understand how servers work',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: '\ud83d\udcad Reflection Questions',
+		questions: [
+			'What surprised you most about how the internet works?',
+			'How will understanding DNS help you as a web developer?',
+			'Why is HTTPS more important today than ever?',
+			'If you had to explain the internet to someone, what analogy would you use?',
+		],
+	},
+];
 </script>
 
 <style scoped>

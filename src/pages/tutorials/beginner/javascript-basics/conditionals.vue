@@ -1434,7 +1434,7 @@ export default {
 		description: 'Learn how to control program flow with conditions and loops',
 		category: 'JavaScript',
 		level: 'Beginner',
-		order: 3,
+		order: 4,
 		tags: ['javascript', 'control flow', 'conditions', 'loops'],
 		lastUpdated: '2023-10-15',
 	},

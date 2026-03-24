@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="tutorial-content">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
@@ -27,37 +27,31 @@
       Basic Git Commands
     </h1>
 
-    <!-- Learning Objectives -->
-    <div class="box highlight-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-graduation-cap"></i> Learning Objectives
-      </h3>
-      <p>After completing this section, you'll be able to:</p>
-      <ul>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Initialize a Git repository</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Stage and commit changes</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Check the status of your repository</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>View commit history</li>
-      </ul>
-    </div>
+    <!-- Hunter Element 1: Anticipatory Set -->
+    <AnticipatorySet
+      title="Start Here"
+      :hook="`<p>You've got Git installed—now it's time to actually USE it! Think of these commands as the basic vocabulary of a new language. Once you learn these few essential words, you can start having conversations with Git.</p>`"
+      :reflection-prompts="[
+        'Have you ever wanted to undo changes you made to a file?',
+        'How do you currently save different versions of your work?'
+      ]"
+      connection="These four commands (init, status, add, commit) are the foundation of everything you will do with Git."
+    />
 
-    <!-- Prerequisites -->
-    <div class="box prerequisite-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-clipboard-check"></i> Before You Start
-      </h3>
-      <p>To get the most out of this section, you should:</p>
-      <ul>
-        <li>
-          <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Have Git installed and configured - <router-link to="/tutorials/intermediate/git-basics/installation">Review Installation</router-link>
-        </li>
-        <li>
-          <i class="fas fa-folder has-text-warning mr-2"></i>
-          Have a project folder ready to use for practice
-        </li>
-      </ul>
-    </div>
+    <!-- Hunter Element 2: Learning Objectives -->
+    <LearningObjectives
+      :objectives="[
+        'Initialize a Git repository',
+        'Stage and commit changes',
+        'Check the status of your repository',
+        'View commit history'
+      ]"
+      :prerequisites="[
+        'Have Git installed and configured',
+        'Have a project folder ready to use for practice'
+      ]"
+      purpose="These basic commands are the ones you will use every single day as a developer. Mastering them now builds the muscle memory you need for efficient version control."
+    />
 
     <h2 class="title is-2">Step 1: Initialize a Repository</h2>
              <p>
@@ -188,47 +182,58 @@
       Install the <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory" target="_blank">Git History</a> extension to view your commit history in a visual format. This can be helpful for tracking changes and understanding your project's timeline.
     </p>
 
-    <!-- Tutorial Quiz -->
-    <div class="quiz-box mt-6">
-      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Basic Git Commands</h2>
-      <TutorialQuiz :quiz-id="'git-basics-basic-commands'" />
-    </div>
+    <!-- Hunter Bottom Components -->
+    <TestYourKnowledgeSection tutorial-path="/tutorials/intermediate/git-basics/basic-commands" />
 
-    <!-- Tutorial Recommendations -->
+    <ClosureSection
+      title="🏁 Lesson Complete: Basic Git Commands"
+      :key-takeaways="closureKeyTakeaways"
+      :objectives="closureObjectives"
+      :reflection-prompts="closureReflectionPrompts"
+      :next-steps="`<p>Now that you know the basic commands, you're ready to learn about <strong>branching</strong>—one of Git's most powerful features for working on multiple things at once.</p>`"
+    />
+
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/basic-commands'" />
 
-    <div class="level mt-6">
-      <div class="level-left">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/installation" class="button is-info">
-            <i class="fas fa-arrow-left mr-2"></i> Previous: Installation
-          </router-link>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/branching" class="button is-success">
-            Next: Branching <i class="fas fa-arrow-right ml-2"></i>
-          </router-link>
-        </div>
-      </div>
-    </div>
+    <TutorialCompletion tutorial-path="/tutorials/intermediate/git-basics/basic-commands" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgress } from '@/composables/useProgress';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
-// Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgress();
+const closureKeyTakeaways = [
+  'git init creates a new repository in your project folder',
+  'git status shows you which files are modified, staged, or untracked',
+  'git add stages files to prepare them for committing',
+  'git commit saves a snapshot of your staged changes with a descriptive message',
+  'git log shows your commit history so you can review past changes',
+];
 
-onMounted(() => {
-  trackTutorial('/tutorials/intermediate/git-basics/basic-commands');
-});
+const closureObjectives = [
+  'Initialize a Git repository',
+  'Stage and commit changes',
+  'Check the status of your repository',
+  'View commit history',
+];
+
+const closureReflectionPrompts = [
+  {
+    title: '\ud83d\udcad Reflection Questions',
+    questions: [
+      'What is the difference between staging and committing?',
+      'Why is it important to write clear commit messages?',
+      'How often should you commit your changes?',
+    ],
+  },
+];
 
 const onQuizCompleted = (results) => {
   saveQuizResult('git-basics-basic-commands-quiz', results);
@@ -243,7 +248,7 @@ export default {
     description: 'Learn the basic Git commands to initialize, stage, commit, and view history',
     category: 'Git Basics',
     level: 'Beginner',
-    order: 3,
+    order: 4,
     tags: ['git', 'commands', 'beginner', 'tutorial'],
     lastUpdated: '2025-05-12',
   },

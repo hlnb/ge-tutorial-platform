@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="tutorial-content">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
@@ -27,41 +27,32 @@
       Remote Repositories
     </h1>
 
-    <!-- Learning Objectives -->
-    <div class="box highlight-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-graduation-cap"></i> Learning Objectives
-      </h3>
-      <p>After completing this section, you'll be able to:</p>
-      <ul>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand what remote repositories are and why they are useful</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Set up an account on GitHub or GitLab</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Connect a local repository to a remote repository</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Push and pull changes between local and remote repositories</li>
-      </ul>
-    </div>
+    <!-- Hunter Element 1: Anticipatory Set -->
+    <AnticipatorySet
+      title="Start Here"
+      :hook="`<p>So far, your Git repository lives only on your computer. But what if your hard drive fails? What if you want to collaborate with others? Remote repositories solve both problems—they're copies of your project hosted online that you can push to and pull from.</p>`"
+      :reflection-prompts="[
+        'Have you ever lost work because it was only saved on one device?',
+        'How do teams currently share code with each other?'
+      ]"
+      connection="Let's learn how to connect your local Git repository to the cloud using GitHub or GitLab."
+    />
 
-    <!-- Prerequisites -->
-    <div class="box prerequisite-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-clipboard-check"></i> Before You Start
-      </h3>
-      <p>To get the most out of this section, you should:</p>
-      <ul>
-        <li>
-          <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Be familiar with basic Git commands - <router-link to="/tutorials/intermediate/git-basics/basic-commands">Review Basic Commands</router-link>
-        </li>
-        <li>
-          <i class="fas fa-folder has-text-warning mr-2"></i>
-          Have a Git repository ready to practice with
-        </li>
-        <li>
-          <i class="fas fa-user has-text-info mr-2"></i>
-          Create an account on <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://gitlab.com" target="_blank">GitLab</a>
-        </li>
-      </ul>
-    </div>
+    <!-- Hunter Element 2: Learning Objectives -->
+    <LearningObjectives
+      :objectives="[
+        'Understand what remote repositories are and why they are useful',
+        'Set up an account on GitHub or GitLab',
+        'Connect a local repository to a remote repository',
+        'Push and pull changes between local and remote repositories'
+      ]"
+      :prerequisites="[
+        'Be familiar with basic Git commands',
+        'Have a Git repository ready to practice with',
+        'Create an account on GitHub or GitLab'
+      ]"
+      purpose="Remote repositories are how real teams collaborate. Understanding push, pull, and remote connections is essential for contributing to any project."
+    />
 
     <h2 class="title is-2">What is a Remote Repository?</h2>
     <p>
@@ -207,47 +198,58 @@
     <p>
       Install the <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory" target="_blank">Git History</a> extension to view your commit history in a visual format. This can be helpful for tracking changes and understanding your project's timeline.
     </p>
-    <!-- Tutorial Quiz -->
-    <div class="quiz-box mt-6">
-      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Remote Repositories</h2>
-      <TutorialQuiz :quiz-id="'git-basics-remote-repositories'" />
-    </div>
+    <!-- Hunter Bottom Components -->
+    <TestYourKnowledgeSection tutorial-path="/tutorials/intermediate/git-basics/remote-repositories" />
 
-    <!-- Tutorial Recommendations -->
+    <ClosureSection
+      title="🏁 Lesson Complete: Remote Repositories"
+      :key-takeaways="closureKeyTakeaways"
+      :objectives="closureObjectives"
+      :reflection-prompts="closureReflectionPrompts"
+      :next-steps="`<p>Now that you can work with remote repositories, you're ready to learn the complete <strong>Git workflow</strong> that professional teams use every day.</p>`"
+    />
+
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/remote-repositories'" />
 
-    <div class="level mt-6">
-      <div class="level-left">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/merging" class="button is-info">
-            <i class="fas fa-arrow-left mr-2"></i> Previous: Branching
-          </router-link>
-        </div>
-      </div>
-            <div class="level-right">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/workflow" class="button is-success">
-            Next: Workflow <i class="fas fa-arrow-right ml-2"></i>
-          </router-link>
-        </div>
-      </div>
-    </div>
+    <TutorialCompletion tutorial-path="/tutorials/intermediate/git-basics/remote-repositories" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgress } from '@/composables/useProgress';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
-// Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgress();
+const closureKeyTakeaways = [
+  'Remote repositories are copies of your project hosted online (GitHub, GitLab, Bitbucket)',
+  'git remote add origin connects your local repo to a remote one',
+  'git push uploads your commits to the remote repository',
+  'git pull fetches and merges remote changes into your local branch',
+  'VS Code has built-in support for pushing, pulling, and managing remotes',
+];
 
-onMounted(() => {
-  trackTutorial('/tutorials/intermediate/git-basics/remote-repositories');
-});
+const closureObjectives = [
+  'Understand what remote repositories are and why they are useful',
+  'Set up an account on GitHub or GitLab',
+  'Connect a local repository to a remote repository',
+  'Push and pull changes between local and remote repositories',
+];
+
+const closureReflectionPrompts = [
+  {
+    title: '\ud83d\udcad Reflection Questions',
+    questions: [
+      'What are the advantages of having your code hosted on a remote platform?',
+      'When should you push your changes to a remote repository?',
+      'How does pulling changes help when working on a team?',
+    ],
+  },
+];
 
 const onQuizCompleted = (results) => {
   saveQuizResult('git-basics-remote-repositories-quiz', results);
@@ -262,7 +264,7 @@ export default {
     description: 'Learn how to connect your local Git repository to a remote repository on GitHub or GitLab',
     category: 'Git Basics',
     level: 'Beginner',
-    order: 5,
+    order: 7,
     tags: ['git', 'remote repositories', 'github', 'gitlab', 'tutorial'],
     lastUpdated: '2025-05-12',
   },

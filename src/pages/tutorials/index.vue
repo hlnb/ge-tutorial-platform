@@ -97,7 +97,7 @@
 					</h4>
 					<p>Master the basics of styling and layout</p>
 					<div class="tags">
-						<span class="tag is-light">10 tutorials</span>
+						<span class="tag is-light">9 tutorials</span>
 						<span class="tag is-light">4-5 hours</span>
 						<span class="tag is-success">Available Now</span>
 					</div>
@@ -121,7 +121,7 @@
 					</h4>
 					<p>Learn interactive web programming with JavaScript</p>
 					<div class="tags">
-						<span class="tag is-light">5 tutorials</span>
+						<span class="tag is-light">6 tutorials</span>
 						<span class="tag is-light">4-5 hours</span>
 						<span class="tag is-success">Available Now</span>
 					</div>
@@ -131,6 +131,7 @@
 						<li><i class="fas fa-check"></i> Operators & Expressions</li>
 						<li><i class="fas fa-check"></i> Conditionals</li>
 						<li><i class="fas fa-check"></i> Loops</li>
+						<li><i class="fas fa-check"></i> Functions</li>
 					</ul>
 					<router-link
 						:to="'/tutorials/beginner/javascript-basics/'"
@@ -144,8 +145,8 @@
 					</h4>
 					<p>Master DOM manipulation and dynamic web content</p>
 					<div class="tags">
-						<span class="tag is-light">6 tutorials</span>
-						<span class="tag is-light">4-5 hours</span>
+						<span class="tag is-light">4 tutorials</span>
+						<span class="tag is-light">3-4 hours</span>
 						<span class="tag is-success">Available Now</span>
 					</div>
 					<ul class="tutorial-topics mt-3">
@@ -153,8 +154,6 @@
 						<li><i class="fas fa-check"></i> Arrays & DOM Collections</li>
 						<li><i class="fas fa-check"></i> DOM Manipulation</li>
 						<li><i class="fas fa-check"></i> Event Handling</li>
-						<li><i class="fas fa-check"></i> DOM Traversal</li>
-						<li><i class="fas fa-check"></i> Practice Projects</li>
 					</ul>
 					<router-link
 						:to="'/tutorials/beginner/dom-basics/'"
@@ -207,16 +206,17 @@
 					</h4>
 					<p>Version control and collaboration with Git</p>
 					<div class="tags">
-						<span class="tag is-light">5 tutorials</span>
-						<span class="tag is-light">3-4 hours</span>
+						<span class="tag is-light">9 tutorials</span>
+						<span class="tag is-light">5-6 hours</span>
 						<span class="tag is-success">Available Now</span>
 					</div>
 					<ul class="tutorial-topics mt-3">
+						<li><i class="fas fa-check"></i> Installation & Setup</li>
 						<li><i class="fas fa-check"></i> Introduction to Git</li>
 						<li><i class="fas fa-check"></i> Basic Commands</li>
 						<li><i class="fas fa-check"></i> Branching & Merging</li>
 						<li><i class="fas fa-check"></i> Remote Repositories</li>
-						<li><i class="fas fa-check"></i> Best Practices</li>
+						<li><i class="fas fa-check"></i> Git Workflow</li>
 					</ul>
 					<router-link
 						:to="'/tutorials/intermediate/git-basics/'"

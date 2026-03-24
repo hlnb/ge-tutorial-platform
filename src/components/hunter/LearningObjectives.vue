@@ -22,8 +22,8 @@
 				<ul>
 					<li v-for="(prereq, index) in prerequisites" :key="index">
 						<i class="fas fa-check-circle has-text-success"></i>
-						{{ prereq.topic }}
-						<router-link v-if="prereq.link" :to="prereq.link" class="ml-2">
+						{{ typeof prereq === 'string' ? prereq : prereq.topic }}
+						<router-link v-if="typeof prereq === 'object' && prereq.link" :to="prereq.link" class="ml-2">
 							Review here
 						</router-link>
 					</li>

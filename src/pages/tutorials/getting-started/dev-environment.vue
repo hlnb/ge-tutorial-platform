@@ -40,42 +40,27 @@
 				efficiently. Let's set up the essential tools you'll need.
 			</p>
 
-			<!-- Anticipatory Set -->
-			<section class="anticipatory-set">
-				<div class="box engagement-hook">
-					<h3>🎯 Start Here</h3>
-					<p>Imagine an artist without a canvas, or a carpenter without tools. As a web developer, your tools are just as important as your skills!</p>
-					<p>Your development environment is the foundation of everything you'll build. Setting it up correctly from the start will save you countless hours of frustration.</p>
-					
-					<div class="reflection-prompt">
-						<strong>Quick Reflection:</strong>
-						<ul>
-							<li>Have you ever tried to code in a plain text editor like Notepad? What was difficult about it?</li>
-							<li>What makes a workspace comfortable and productive for you?</li>
-						</ul>
-						<p><em>By the end of this lesson, you'll have a professional development setup that makes coding a joy!</em></p>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element 1: Anticipatory Set -->
+			<AnticipatorySet
+				title="Start Here"
+				:hook="`<p>Imagine an artist without a canvas, or a carpenter without tools. As a web developer, your tools are just as important as your skills!</p><p>Your development environment is the foundation of everything you'll build. Setting it up correctly from the start will save you countless hours of frustration.</p>`"
+				:reflection-prompts="[
+					'Have you ever tried to code in a plain text editor like Notepad? What was difficult about it?',
+					'What makes a workspace comfortable and productive for you?'
+				]"
+				connection="By the end of this lesson, you'll have a professional development setup that makes coding a joy!"
+			/>
 
-			<!-- Learning Objectives -->
-			<section class="objectives">
-				<div class="box highlight-box">
-					<h3><i class="fas fa-graduation-cap"></i> Learning Objectives</h3>
-					<p><strong>By the end of this lesson, you'll be able to:</strong></p>
-					<ul class="objectives-list">
-						<li>✓ <strong>Install</strong> Chrome browser for testing web pages</li>
-						<li>✓ <strong>Download and configure</strong> Visual Studio Code for web development</li>
-						<li>✓ <strong>Add</strong> essential VS Code extensions that enhance productivity</li>
-						<li>✓ <strong>Verify</strong> your setup is working correctly</li>
-					</ul>
-					
-					<div class="purpose-statement">
-						<h4><i class="fas fa-lightbulb"></i> Why This Matters:</h4>
-						<p>Your development environment is where you'll spend most of your time as a developer. A proper setup provides syntax highlighting to catch typos, live previews to see changes instantly, and debugging tools to fix errors quickly. This one-time setup will pay dividends for your entire coding journey.</p>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element 2: Learning Objectives -->
+			<LearningObjectives
+				:objectives="[
+					'Install Chrome browser for testing web pages',
+					'Download and configure Visual Studio Code for web development',
+					'Add essential VS Code extensions that enhance productivity',
+					'Verify your setup is working correctly'
+				]"
+				purpose="Your development environment is where you'll spend most of your time as a developer. A proper setup provides syntax highlighting to catch typos, live previews to see changes instantly, and debugging tools to fix errors quickly. This one-time setup will pay dividends for your entire coding journey."
+			/>
 
 			<h2 id="web-browser">Web Browser</h2>
 			<p>
@@ -105,27 +90,12 @@
 				</ul>
 			</div>
 
-			<!-- Checkpoint #1 -->
-			<section class="check-understanding">
-				<div class="box checkpoint">
-					<h3>⏸️ Quick Check: Browser Setup</h3>
-					<p><strong>Before moving on:</strong></p>
-					<ol class="checkpoint-questions">
-						<li>Why do we recommend Chrome for web development? (Hint: Developer tools!)</li>
-						<li>Should you install multiple browsers? Why or why not?</li>
-					</ol>
-					
-					<details>
-						<summary class="button is-info is-light mt-3"><i class="fas fa-eye"></i> Check Your Answers</summary>
-						<div class="answer-key mt-3">
-							<ol>
-								<li><strong>Answer:</strong> Chrome has excellent built-in developer tools for inspecting elements, debugging JavaScript, and monitoring network activity. It also has the largest market share, so you'll be testing with what most users see.</li>
-								<li><strong>Answer:</strong> Yes! Good developers test their sites in multiple browsers because each renders pages slightly differently. Install at least 2-3 different browsers for cross-browser testing.</li>
-							</ol>
-						</div>
-					</details>
-				</div>
-			</section>
+			<!-- Hunter Element 3: Checkpoint -->
+			<CheckpointBox
+				title="Quick Check: Browser Setup"
+				description="Before moving on:"
+				:questions="checkpointQuestions"
+			/>
 
 			<h2 id="code-editor">Code Editor</h2>
 			<p>
@@ -295,58 +265,72 @@
 				</div>
 			</div>
 
-			<!-- Closure -->
-			<section class="closure">
-				<div class="box closure-section">
-					<h2><i class="fas fa-flag-checkered"></i> Lesson Complete: Your Dev Environment is Ready!</h2>
-					
-					<div class="key-takeaways">
-						<h3><i class="fas fa-star"></i> Key Takeaways:</h3>
-						<ul>
-							<li>Chrome provides excellent developer tools that help you inspect, debug, and test your websites</li>
-							<li>VS Code is free, powerful, and the most popular code editor among web developers</li>
-							<li>Extensions like Live Server dramatically improve your workflow by showing changes instantly</li>
-							<li>A proper workspace setup (organized folders, good tools) makes coding more enjoyable and productive</li>
-							<li>This one-time setup will serve you throughout your entire development journey</li>
-						</ul>
-					</div>
-					
-					<div class="objectives-review mt-5">
-						<h3><i class="fas fa-check-double"></i> Learning Objectives Review:</h3>
-						<p>Look back at what you set out to learn. Can you now:</p>
-						<ul class="objectives-checklist">
-							<li>✅ Install Chrome browser for testing web pages <span class="has-text-success">Check!</span></li>
-							<li>✅ Download and configure Visual Studio Code <span class="has-text-success">Done!</span></li>
-							<li>✅ Add essential VS Code extensions <span class="has-text-success">Got them!</span></li>
-							<li>✅ Verify your setup is working correctly <span class="has-text-success">Tested!</span></li>
-						</ul>
-						<p class="mt-3">If your Live Server is running and showing your page, you're all set!</p>
-					</div>
-					
-					<div class="reflection-prompts mt-5">
-						<h3><i class="fas fa-brain"></i> Think & Reflect:</h3>
-						<div class="reflection-questions">
-							<div class="question-card">
-								<p><strong>💭 Compare Before & After:</strong></p>
-								<ul>
-									<li>Think about trying to code in Notepad vs. VS Code with Live Server. What's the biggest difference?</li>
-									<li>How will seeing your changes instantly help you learn faster?</li>
-								</ul>
-							</div>
-							<div class="question-card">
-								<p><strong>🚀 Next Steps:</strong></p>
-							<p>With your development environment ready, you're all set to start coding! Next, we'll explore Browser Developer Tools—your secret weapon for inspecting, debugging, and understanding websites like a pro!</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			<!-- Test Your Knowledge -->
+			<TestYourKnowledgeSection
+				tutorial-path="/tutorials/getting-started/dev-environment"
+			/>
+
+			<!-- Hunter Element: Closure -->
+			<ClosureSection
+				title="🏁 Lesson Complete: Your Dev Environment is Ready!"
+				:key-takeaways="closureKeyTakeaways"
+				:objectives="closureObjectives"
+				:reflection-prompts="closureReflectionPrompts"
+				next-steps="<p>With your development environment ready, you're all set to start coding! Next, we'll explore <strong>Browser Developer Tools</strong>—your secret weapon for inspecting, debugging, and understanding websites like a pro!</p>"
+			/>
+
+			<TutorialRecommendations :current-path="'/tutorials/getting-started/dev-environment'" />
+
+			<TutorialCompletion tutorial-path="/tutorials/getting-started/dev-environment" />
 		</div>
 	</div>
 </template>
 
 <script setup>
 import { usePageSections } from '@/composables/usePageSections';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+const checkpointQuestions = [
+	{
+		question: 'Why do we recommend Chrome for web development? (Hint: Developer tools!)',
+		answer: 'Chrome has excellent built-in developer tools for inspecting elements, debugging JavaScript, and monitoring network activity. It also has the largest market share, so you\'ll be testing with what most users see.',
+	},
+	{
+		question: 'Should you install multiple browsers? Why or why not?',
+		answer: 'Yes! Good developers test their sites in multiple browsers because each renders pages slightly differently. Install at least 2-3 different browsers for cross-browser testing.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Chrome provides excellent developer tools that help you inspect, debug, and test your websites',
+	'VS Code is free, powerful, and the most popular code editor among web developers',
+	'Extensions like Live Server dramatically improve your workflow by showing changes instantly',
+	'A proper workspace setup (organized folders, good tools) makes coding more enjoyable and productive',
+	'This one-time setup will serve you throughout your entire development journey',
+];
+
+const closureObjectives = [
+	'Install Chrome browser for testing web pages',
+	'Download and configure Visual Studio Code',
+	'Add essential VS Code extensions',
+	'Verify your setup is working correctly',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: '💭 Compare Before & After',
+		questions: [
+			'Think about trying to code in Notepad vs. VS Code with Live Server. What\'s the biggest difference?',
+			'How will seeing your changes instantly help you learn faster?',
+		],
+	},
+];
 
 const frontmatter = {
 	title: 'Setting Up Your Development Environment',

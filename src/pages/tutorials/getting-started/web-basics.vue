@@ -35,58 +35,29 @@
 
 			<h1>Understanding Web Development Basics</h1>
 
-		<!-- ═══════════════════════════════════════════════════ -->
-		<!-- HUNTER ELEMENT 1: ANTICIPATORY SET -->
-		<!-- Hook + Prior Knowledge Activation -->
-		<!-- ═══════════════════════════════════════════════════ -->
-		<section class="anticipatory-set">
-			<div class="box engagement-hook">
-				<h3>🌐 Start Here: A Quick Challenge</h3>
-				<p>
-					Right now, you're reading this tutorial on a screen. But have you ever 
-					wondered what's actually happening behind the scenes? How did this page 
-					travel from a computer somewhere in the world to appear on YOUR device 
-					in less than a second?
-				</p>
-				
-				<div class="reflection-prompt">
-					<strong>Quick Reflection:</strong> Think about your favorite website...
-					<ul>
-						<li>How does clicking a button make something happen instantly?</li>
-						<li>Why do some websites look beautiful while others look plain?</li>
-						<li>What makes a website "interactive" versus just displaying text?</li>
-					</ul>
-					<p><em>In the next 45 minutes, you'll discover the answers to all of these questions.</em></p>
-				</div>
-			</div>
-		</section>
+		<!-- Hunter Element 1: Anticipatory Set -->
+		<AnticipatorySet
+			title="Start Here: A Quick Challenge"
+			icon="🌐"
+			:hook="`<p>Right now, you're reading this tutorial on a screen. But have you ever wondered what's actually happening behind the scenes? How did this page travel from a computer somewhere in the world to appear on YOUR device in less than a second?</p>`"
+			:reflection-prompts="[
+				'How does clicking a button make something happen instantly?',
+				'Why do some websites look beautiful while others look plain?',
+				'What makes a website interactive versus just displaying text?'
+			]"
+			connection="In the next 45 minutes, you'll discover the answers to all of these questions."
+		/>
 
-		<!-- ═══════════════════════════════════════════════════ -->
-		<!-- HUNTER ELEMENT 2: OBJECTIVES & PURPOSE -->
-		<!-- Clear Learning Goals + Why It Matters -->
-		<!-- ═══════════════════════════════════════════════════ -->
-		<section class="objectives">
-			<div class="box highlight-box">
-				<h3><i class="fas fa-graduation-cap"></i> Learning Objectives</h3>
-				<p><strong>By the end of this lesson, you'll be able to:</strong></p>
-				<ul class="objectives-list">
-					<li>✓ <strong>Explain</strong> the 4-step process of how websites load and display in your browser</li>
-					<li>✓ <strong>Identify</strong> the role of HTML, CSS, and JavaScript and how they work together</li>
-					<li>✓ <strong>Describe</strong> the client-server model using real-world examples</li>
-					<li>✓ <strong>Demonstrate</strong> using browser DevTools to inspect any webpage</li>
-				</ul>
-				
-				<div class="purpose-statement">
-					<h4><i class="fas fa-lightbulb"></i> Why This Matters:</h4>
-					<p>
-						Understanding how the web works is like gaining X-ray vision for the internet. 
-						You'll see past the polished surfaces of websites and understand the technology 
-						that powers everything from social media to online shopping to this very tutorial. 
-						This foundation is essential for EVERY web developer, regardless of what you build later.
-					</p>
-				</div>
-			</div>
-		</section>
+		<!-- Hunter Element 2: Learning Objectives -->
+		<LearningObjectives
+			:objectives="[
+				'Explain the 4-step process of how websites load and display in your browser',
+				'Identify the role of HTML, CSS, and JavaScript and how they work together',
+				'Describe the client-server model using real-world examples',
+				'Demonstrate using browser DevTools to inspect any webpage'
+			]"
+			purpose="Understanding how the web works is like gaining X-ray vision for the internet. You'll see past the polished surfaces of websites and understand the technology that powers everything from social media to online shopping to this very tutorial. This foundation is essential for EVERY web developer, regardless of what you build later."
+		/>
 
 		<!-- ═══════════════════════════════════════════════════ -->
 		<!-- HUNTER ELEMENT 3: INPUT -->
@@ -126,39 +97,13 @@
 			</ul>
 		</div>
 
-		<!-- ═══════════════════════════════════════════════════ -->
-		<!-- HUNTER ELEMENT 5: CHECKING FOR UNDERSTANDING #1 -->
-		<!-- Formative Assessment Checkpoint -->
-		<!-- ═══════════════════════════════════════════════════ -->
-		<section class="check-understanding">
-			<div class="box checkpoint">
-				<h3>⏸️ Pause & Check: Do You Understand?</h3>
-				<p><strong>Before moving forward, can you answer these?</strong></p>
-				<ol>
-					<li>In your own words, what are the 4 steps that happen when you visit a website?</li>
-					<li>Using the restaurant analogy, what does the "server" do?</li>
-					<li>Why can't you see a website without a browser?</li>
-				</ol>
-				
-				<details>
-					<summary class="button is-info is-light mt-3">
-						<i class="fas fa-eye"></i> Check Your Answers
-					</summary>
-					<div class="answer-key mt-3">
-						<ol>
-							<li><strong>The 4 steps:</strong> Request (browser asks for page) → Processing (server prepares it) → Response (server sends HTML/CSS/JS) → Rendering (browser displays it)</li>
-							<li><strong>Server role:</strong> Like a kitchen, it stores website files, processes requests, and sends back the files needed to display the page</li>
-							<li><strong>Why browsers are needed:</strong> Browsers interpret HTML, CSS, and JavaScript code and render it into the visual webpage you see. Without a browser, you'd just see raw code!</li>
-						</ol>
-					</div>
-				</details>
-				
-				<div class="self-assessment mt-4">
-					<p><strong>How confident are you with this concept?</strong></p>
-					<p class="confidence-scale">😕 Still confused | 🤔 Getting there | 😊 Got it! | 🎉 Could explain it to a friend!</p>
-				</div>
-			</div>
-		</section>
+		<!-- Hunter Element 5: Checking for Understanding #1 -->
+		<CheckpointBox
+			title="⏸️ Pause & Check: Do You Understand?"
+			description="Before moving forward, can you answer these?"
+			:questions="checkpointQuestions1"
+			:show-self-assessment="true"
+		/>
 
 		<h2 id="core-web-technologies">Core Web Technologies</h2>
 
@@ -241,32 +186,12 @@ alert('Hello!');
 			</ul>
 		</div>
 
-		<!-- ═══════════════════════════════════════════════════ -->
-		<!-- HUNTER ELEMENT 5: CHECKING FOR UNDERSTANDING #2 -->
-		<!-- Formative Assessment Checkpoint -->
-		<!-- ═══════════════════════════════════════════════════ -->
-		<section class="check-understanding">
-			<div class="box checkpoint">
-				<h3>⏸️ Quick Knowledge Check</h3>
-				<p><strong>Test your understanding of web technologies:</strong></p>
-				<div class="quiz-questions">
-					<div class="question-box">
-						<p><strong>Question:</strong> If you wanted to change the color of text on a webpage, which technology would you use?</p>
-						<details>
-							<summary class="button is-info is-light is-small">Show Answer</summary>
-							<p class="mt-2"><strong>Answer:</strong> CSS (Cascading Style Sheets) - it controls all visual styling including colors, fonts, layouts, and more.</p>
-						</details>
-					</div>
-					<div class="question-box mt-3">
-						<p><strong>Question:</strong> What would happen if a webpage had HTML and JavaScript but no CSS?</p>
-						<details>
-							<summary class="button is-info is-light is-small">Show Answer</summary>
-							<p class="mt-2"><strong>Answer:</strong> The page would still work functionally - content would display and buttons would work - but it would look plain with default browser styling (black text, Times New Roman font, no colors or layout).</p>
-						</details>
-					</div>
-				</div>
-			</div>
-		</section>
+		<!-- Hunter Element 5: Checking for Understanding #2 -->
+		<CheckpointBox
+			title="⏸️ Quick Knowledge Check"
+			description="Test your understanding of web technologies:"
+			:questions="checkpointQuestions2"
+		/>
 
 		<h2 id="browser-process">How Browsers Work</h2>
 
@@ -366,77 +291,21 @@ alert('Hello!');
 				<dd>Service that stores website files</dd>
 			</dl>
 
-		<!-- ═══════════════════════════════════════════════════ -->
-		<!-- HUNTER ELEMENT 8: CLOSURE -->
-		<!-- Summary, Reflection, Connection -->
-		<!-- ═══════════════════════════════════════════════════ -->
-		<section class="closure">
-			<div class="box closure-section">
-				<h2><i class="fas fa-flag-checkered"></i> Lesson Complete: What You Discovered</h2>
-				
-				<!-- Summary -->
-				<div class="key-takeaways">
-					<h3><i class="fas fa-star"></i> Key Takeaways:</h3>
-					<ul>
-						<li>Websites work through a <strong>4-step process</strong>: Request → Processing → Response → Rendering</li>
-						<li><strong>HTML structures content</strong> (the skeleton), <strong>CSS styles it</strong> (the paint), and <strong>JavaScript makes it interactive</strong> (the electrical system)</li>
-						<li>The <strong>client-server model</strong> is like a restaurant: you (client/browser) order, the kitchen (server) prepares, and the internet delivers</li>
-						<li>Browsers are incredibly powerful - they parse HTML, apply CSS, execute JavaScript, and render everything in milliseconds</li>
-						<li>During development, your computer acts as BOTH client and server</li>
-					</ul>
-				</div>
-				
-				<!-- Objectives Review -->
-				<div class="objectives-review mt-5">
-					<h3><i class="fas fa-check-double"></i> Learning Objectives Review:</h3>
-					<p>Look back at what you set out to learn. Can you now:</p>
-					<ul class="objectives-checklist">
-						<li>✅ <strong>Explain</strong> the 4-step process of how websites load? <span class="has-text-success">Check!</span></li>
-						<li>✅ <strong>Identify</strong> the role of HTML, CSS, and JavaScript? <span class="has-text-success">Got it!</span></li>
-						<li>✅ <strong>Describe</strong> the client-server model? <span class="has-text-success">Can explain it!</span></li>
-						<li>✅ <strong>Demonstrate</strong> using browser DevTools? <span class="has-text-success">Hands-on experience!</span></li>
-					</ul>
-					<p class="mt-3">If you can confidently answer "yes" to most of these, you're ready to move forward! If not, that's okay - review the sections you found challenging.</p>
-				</div>
-				
-				<!-- Real-World Application -->
-				<div class="reflection-prompts mt-5">
-					<h3><i class="fas fa-brain"></i> Think & Reflect:</h3>
-					<div class="reflection-questions">
-						<div class="question-card">
-							<p><strong>🤔 Real-World Test:</strong> Next time you visit ANY website, try this:</p>
-							<ol>
-								<li>Right-click → View Page Source and identify the HTML, CSS, and JavaScript</li>
-								<li>Open DevTools → Network tab and watch the files load</li>
-								<li>Right-click → Inspect and change some text (just for fun!)</li>
-							</ol>
-							<p class="has-text-success"><strong>You now see the web differently than 99% of people!</strong></p>
-						</div>
-						
-						<div class="question-card mt-4">
-							<p><strong>💭 Reflection Questions:</strong></p>
-							<ul>
-								<li>What surprised you most about how websites work?</li>
-								<li>How does understanding the client-server model change how you think about the internet?</li>
-								<li>What's one concept you want to remember from today?</li>
-								<li>What would you tell a friend who asks "how do websites work?"</li>
-							</ul>
-						</div>
+		<!-- Hunter Element 8: Closure -->
+		<TestYourKnowledgeSection tutorial-path="/tutorials/getting-started/web-basics" />
 
-						<div class="question-card mt-4">
-							<p><strong>🎯 Looking Ahead:</strong></p>
-							<p>Now that you understand HOW the web works, you're ready to start BUILDING for the web! In the next lessons, you'll:</p>
-							<ul>
-								<li>Write your first HTML code</li>
-								<li>Style pages with CSS</li>
-								<li>Make things interactive with JavaScript</li>
-							</ul>
-							<p><em>The journey from "user" to "creator" starts now!</em></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<ClosureSection
+			title="🏁 Lesson Complete: What You Discovered"
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			:real-world-application="`<p><strong>Next time you visit ANY website, try this:</strong></p><ol><li>Right-click → View Page Source and identify the HTML, CSS, and JavaScript</li><li>Open DevTools → Network tab and watch the files load</li><li>Right-click → Inspect and change some text (just for fun!)</li></ol><p>You now see the web differently than 99% of people!</p>`"
+			:next-steps="`<p>Now that you understand HOW the web works, you're ready to start BUILDING for the web! In the next lessons, you'll write your first HTML code, style pages with CSS, and make things interactive with JavaScript.</p>`"
+		/>
+
+		<TutorialRecommendations :current-path="'/tutorials/getting-started/web-basics'" />
+
+		<TutorialCompletion tutorial-path="/tutorials/getting-started/web-basics" />
 	</div>
 </div>
 </template>
@@ -444,6 +313,66 @@ alert('Hello!');
 <script setup>
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+const checkpointQuestions1 = [
+	{
+		question: 'In your own words, what are the 4 steps that happen when you visit a website?',
+		answer: 'Request (browser asks for page) → Processing (server prepares it) → Response (server sends HTML/CSS/JS) → Rendering (browser displays it)',
+	},
+	{
+		question: 'Using the restaurant analogy, what does the server do?',
+		answer: 'Like a kitchen, it stores website files, processes requests, and sends back the files needed to display the page.',
+	},
+	{
+		question: "Why can't you see a website without a browser?",
+		answer: "Browsers interpret HTML, CSS, and JavaScript code and render it into the visual webpage you see. Without a browser, you'd just see raw code!",
+	},
+];
+
+const checkpointQuestions2 = [
+	{
+		question: 'If you wanted to change the color of text on a webpage, which technology would you use?',
+		answer: 'CSS (Cascading Style Sheets) - it controls all visual styling including colors, fonts, layouts, and more.',
+	},
+	{
+		question: 'What would happen if a webpage had HTML and JavaScript but no CSS?',
+		answer: 'The page would still work functionally - content would display and buttons would work - but it would look plain with default browser styling (black text, Times New Roman font, no colors or layout).',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Websites work through a 4-step process: Request → Processing → Response → Rendering',
+	'HTML structures content (the skeleton), CSS styles it (the paint), and JavaScript makes it interactive (the electrical system)',
+	'The client-server model is like a restaurant: you (client/browser) order, the kitchen (server) prepares, and the internet delivers',
+	'Browsers are incredibly powerful - they parse HTML, apply CSS, execute JavaScript, and render everything in milliseconds',
+	'During development, your computer acts as BOTH client and server',
+];
+
+const closureObjectives = [
+	'Explain the 4-step process of how websites load',
+	'Identify the role of HTML, CSS, and JavaScript',
+	'Describe the client-server model',
+	'Demonstrate using browser DevTools',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: '💭 Reflection Questions',
+		questions: [
+			'What surprised you most about how websites work?',
+			'How does understanding the client-server model change how you think about the internet?',
+			"What's one concept you want to remember from today?",
+			'What would you tell a friend who asks how do websites work?',
+		],
+	},
+];
 
 const frontmatter = {
 	title: 'Web Basics',

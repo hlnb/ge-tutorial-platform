@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="tutorial-content">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
@@ -27,37 +27,31 @@
       Git Branching
     </h1>
 
-    <!-- Learning Objectives -->
-    <div class="box highlight-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-graduation-cap"></i> Learning Objectives
-      </h3>
-      <p>After completing this section, you'll be able to:</p>
-      <ul>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand what branches are and why they are useful</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Create and switch between branches</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Merge branches to combine changes</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Resolve merge conflicts</li>
-      </ul>
-    </div>
+    <!-- Hunter Element 1: Anticipatory Set -->
+    <AnticipatorySet
+      title="Start Here"
+      :hook="`<p>Imagine you're writing an essay and want to try a completely different approach—but you don't want to lose your current version. What if you could create a copy, experiment freely, and merge the best parts back? That's exactly what Git branches let you do with code!</p>`"
+      :reflection-prompts="[
+        'Have you ever wanted to try something new in a project without risking breaking what already works?',
+        'How do you think teams work on different features at the same time without stepping on each other\'s toes?'
+      ]"
+      connection="Branching is one of Git's most powerful features. Let's learn how to use it."
+    />
 
-    <!-- Prerequisites -->
-    <div class="box prerequisite-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-clipboard-check"></i> Before You Start
-      </h3>
-      <p>To get the most out of this section, you should:</p>
-      <ul>
-        <li>
-          <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Be familiar with basic Git commands - <router-link to="/tutorials/intermediate/git-basics/basic-commands">Review Basic Commands</router-link>
-        </li>
-        <li>
-          <i class="fas fa-folder has-text-warning mr-2"></i>
-          Have a Git repository ready to practice with
-        </li>
-      </ul>
-    </div>
+    <!-- Hunter Element 2: Learning Objectives -->
+    <LearningObjectives
+      :objectives="[
+        'Understand what branches are and why they are useful',
+        'Create and switch between branches',
+        'Merge branches to combine changes',
+        'Resolve merge conflicts'
+      ]"
+      :prerequisites="[
+        'Be familiar with basic Git commands',
+        'Have a Git repository ready to practice with'
+      ]"
+      purpose="Branching is how professional teams work on features, fix bugs, and experiment—all without breaking the main codebase. It's a skill you'll use every day."
+    />
 
     <h2 class="title is-2">What is a Branch?</h2>
     <p>
@@ -203,47 +197,58 @@
     <p>
       Install the <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory" target="_blank">Git History</a> extension to view your commit history in a visual format. This can be helpful for tracking changes and understanding your project's timeline.
     </p>
-    <!-- Tutorial Quiz -->
-    <div class="quiz-box mt-6">
-      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Git Branching</h2>
-      <TutorialQuiz :quiz-id="'git-basics-branching'" />
-    </div>
+    <!-- Hunter Bottom Components -->
+    <TestYourKnowledgeSection tutorial-path="/tutorials/intermediate/git-basics/branching" />
 
-    <!-- Tutorial Recommendations -->
+    <ClosureSection
+      title="🏁 Lesson Complete: Git Branching"
+      :key-takeaways="closureKeyTakeaways"
+      :objectives="closureObjectives"
+      :reflection-prompts="closureReflectionPrompts"
+      :next-steps="`<p>Now that you understand branching, the next step is to learn about <strong>merging</strong>—how to combine branch changes and handle conflicts.</p>`"
+    />
+
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/branching'" />
 
-    <div class="level mt-6">
-      <div class="level-left">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/basic-commands" class="button is-info">
-            <i class="fas fa-arrow-left mr-2"></i> Previous: Basic Commands
-          </router-link>
-        </div>
-      </div>
-            <div class="level-right">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/merging" class="button is-success">
-            Next: Remote Repositories <i class="fas fa-arrow-right ml-2"></i>
-          </router-link>
-        </div>
-      </div>
-    </div>
+    <TutorialCompletion tutorial-path="/tutorials/intermediate/git-basics/branching" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgress } from '@/composables/useProgress';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
-// Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgress();
+const closureKeyTakeaways = [
+  'Branches let you work on features or fixes without affecting the main codebase',
+  'Use git branch to create branches and git checkout (or git switch) to switch between them',
+  'git checkout -b creates and switches to a new branch in one step',
+  'Merging combines changes from one branch into another',
+  'Merge conflicts happen when the same lines change in both branches and must be resolved manually',
+];
 
-onMounted(() => {
-  trackTutorial('/tutorials/intermediate/git-basics/branching');
-});
+const closureObjectives = [
+  'Understand what branches are and why they are useful',
+  'Create and switch between branches',
+  'Merge branches to combine changes',
+  'Resolve merge conflicts',
+];
+
+const closureReflectionPrompts = [
+  {
+    title: '\ud83d\udcad Reflection Questions',
+    questions: [
+      'When would you create a new branch instead of committing directly to main?',
+      'What naming convention would you use for your branches?',
+      'How does branching make team collaboration easier?',
+    ],
+  },
+];
 
 const onQuizCompleted = (results) => {
   saveQuizResult('git-basics-branching-quiz', results);
@@ -258,7 +263,7 @@ export default {
     description: 'Learn how to create, switch, and merge branches in Git',
     category: 'Git Basics',
     level: 'Beginner',
-    order: 4,
+    order: 5,
     tags: ['git', 'branching', 'version control', 'tutorial'],
     lastUpdated: '2025-05-12',
   },

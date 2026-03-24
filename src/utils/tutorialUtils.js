@@ -88,6 +88,128 @@ export function getRecommendationsFromProps(props, providedTutorial) {
  * Organized by section and tutorial
  */
 const tutorialRecommendations = {
+	'getting-started': {
+		'how-internet-works': {
+			nextTutorial: {
+				path: '/tutorials/getting-started/web-basics',
+				title: 'Web Basics',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/dev-environment',
+					title: 'Setting Up Your Environment',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: How the Web Works',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works',
+					description: 'An overview of how the web works from MDN.',
+				},
+			],
+		},
+		'web-basics': {
+			nextTutorial: {
+				path: '/tutorials/getting-started/text-editors',
+				title: 'Text Editors',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/how-internet-works',
+					title: 'How the Internet Works',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Getting Started with the Web',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web',
+					description: 'MDN beginner guide to web development.',
+				},
+			],
+		},
+		'text-editors': {
+			nextTutorial: {
+				path: '/tutorials/getting-started/dev-environment',
+				title: 'Setting Up Your Environment',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/browser-tools',
+					title: 'Browser Development Tools',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'VS Code Documentation',
+					url: 'https://code.visualstudio.com/docs',
+					description: 'Official VS Code documentation and tutorials.',
+				},
+			],
+		},
+		'dev-environment': {
+			nextTutorial: {
+				path: '/tutorials/getting-started/browser-tools',
+				title: 'Browser Development Tools',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/text-editors',
+					title: 'Text Editors',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Setting Up a Development Environment',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software',
+					description: 'Guide to setting up basic development software.',
+				},
+			],
+		},
+		'browser-tools': {
+			nextTutorial: {
+				path: '/tutorials/getting-started/domain-hosting',
+				title: 'Domain Names & Web Hosting',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/dev-environment',
+					title: 'Setting Up Your Environment',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'Chrome DevTools Documentation',
+					url: 'https://developer.chrome.com/docs/devtools/',
+					description: 'Official Chrome DevTools documentation.',
+				},
+			],
+		},
+		'domain-hosting': {
+			nextTutorial: {
+				path: '/tutorials/beginner/html-basics',
+				title: 'HTML Basics',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/how-internet-works',
+					title: 'How the Internet Works',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: What is a Domain Name?',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name',
+					description: 'Understanding domain names and how they work.',
+				},
+			],
+		},
+	},
 	'html-basics': {
 		'introduction': {
 			nextTutorial: {
@@ -947,6 +1069,10 @@ const tutorialRecommendations = {
 			]
 		},
 		'dom-events': {
+			nextTutorial: {
+				path: '/tutorials/intermediate/git-basics',
+				title: 'Git Basics',
+			},
 			relatedTutorials: [
 				{
 					path: '/tutorials/beginner/dom-basics/dom-manipulation',
@@ -979,7 +1105,7 @@ const tutorialRecommendations = {
 	'git-basics': {
 		'install': {
 			nextTutorial: {
-				path: '/tutorials/git-basics/introduction',
+				path: '/tutorials/intermediate/git-basics/introduction',
 				title: 'Introduction to Git',
 			},
 			relatedTutorials: [
@@ -1027,12 +1153,12 @@ const tutorialRecommendations = {
 		},
 		'introduction': {
 			nextTutorial: {
-				path: '/tutorials/git-basics/basic-commands',
+				path: '/tutorials/intermediate/git-basics/basic-commands',
 				title: 'Basic Commands',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/git-basics/branching',
+					path: '/tutorials/intermediate/git-basics/branching',
 					title: 'Branching & Merging',
 				},
 			],
@@ -1054,12 +1180,12 @@ const tutorialRecommendations = {
 		},
 		'basic-commands': {
 			nextTutorial: {
-				path: '/tutorials/git-basics/branching',
+				path: '/tutorials/intermediate/git-basics/branching',
 				title: 'Branching & Merging',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/git-basics/remote-repositories',
+					path: '/tutorials/intermediate/git-basics/remote-repositories',
 					title: 'Remote Repositories',
 				},
 			],
@@ -1081,12 +1207,12 @@ const tutorialRecommendations = {
 		},
 		'branching': {
 			nextTutorial: {
-				path: '/tutorials/git-basics/merging',
+				path: '/tutorials/intermediate/git-basics/merging',
 				title: 'Merging',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/git-basics/workflow',
+					path: '/tutorials/intermediate/git-basics/workflow',
 					title: 'Workflow Best Practices',
 				},
 			],
@@ -1108,12 +1234,12 @@ const tutorialRecommendations = {
 		},
 		'merging': {
 			nextTutorial: {
-				path: '/tutorials/git-basics/remote-repositories',
+				path: '/tutorials/intermediate/git-basics/remote-repositories',
 				title: 'Remote Repositories',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/git-basics/branching',
+					path: '/tutorials/intermediate/git-basics/branching',
 					title: 'Branching & Merging',
 				},
 			],
@@ -1135,12 +1261,12 @@ const tutorialRecommendations = {
 		},
 		'remote-repositories': {
 			nextTutorial: {
-				path: '/tutorials/git-basics/workflow',
+				path: '/tutorials/intermediate/git-basics/workflow',
 				title: 'Workflow Best Practices',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/git-basics/introduction',
+					path: '/tutorials/intermediate/git-basics/introduction',
 					title: 'Introduction to Git',
 				},
 			],

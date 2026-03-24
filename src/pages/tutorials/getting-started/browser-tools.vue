@@ -1,6 +1,6 @@
 <template>
 	<div class="container section">
-		<div class="content">
+		<div class="tutorial-content">
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
 					<li>
@@ -31,43 +31,28 @@
 
 			<h1 class="title is-1">Browser Developer Tools</h1>
 
-			<!-- Anticipatory Set -->
-			<section class="anticipatory-set">
-				<div class="box engagement-hook">
-					<h3>🎯 Start Here</h3>
-					<p>Imagine being a detective investigating a crime scene, but instead of clues, you're hunting for why a website looks broken or why a button won't click. That's exactly what browser developer tools let you do!</p>
-					<p>Every professional developer spends hours in DevTools every day. It's like having X-ray vision for websites—you can see exactly how they're built, what's broken, and how to fix it.</p>
-					
-					<div class="reflection-prompt">
-						<strong>Quick Reflection:</strong>
-						<ul>
-							<li>Have you ever seen a website with something broken and wondered "why does this look weird?"</li>
-							<li>What if you could peek "under the hood" of any website and see exactly how it works?</li>
-						</ul>
-						<p><em>That's what you'll learn today—and it's easier than you think!</em></p>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element 1: Anticipatory Set -->
+			<AnticipatorySet
+				title="Start Here"
+				:hook="`<p>Imagine being a detective investigating a crime scene, but instead of clues, you're hunting for why a website looks broken or why a button won't click. That's exactly what browser developer tools let you do!</p><p>Every professional developer spends hours in DevTools every day. It's like having X-ray vision for websites\u2014you can see exactly how they're built, what's broken, and how to fix it.</p>`"
+				:reflection-prompts="[
+					'Have you ever seen a website with something broken and wondered &quot;why does this look weird?&quot;',
+					'What if you could peek &quot;under the hood&quot; of any website and see exactly how it works?'
+				]"
+				connection="That's what you'll learn today—and it's easier than you think!"
+			/>
 
-			<!-- Learning Objectives -->
-			<section class="objectives">
-				<div class="box highlight-box">
-					<h3><i class="fas fa-graduation-cap"></i> Learning Objectives</h3>
-					<p><strong>By the end of this lesson, you'll be able to:</strong></p>
-					<ul class="objectives-list">
-						<li>✓ <strong>Open</strong> DevTools using multiple methods (right-click, keyboard, menu)</li>
-						<li>✓ <strong>Inspect</strong> HTML elements and modify styles in real-time using the Elements panel</li>
-						<li>✓ <strong>Debug</strong> JavaScript using the Console panel</li>
-						<li>✓ <strong>Analyze</strong> network requests and page loading performance</li>
-						<li>✓ <strong>Test</strong> responsive designs using the Device Toolbar</li>
-					</ul>
-					
-					<div class="purpose-statement">
-						<h4><i class="fas fa-lightbulb"></i> Why This Matters:</h4>
-						<p>DevTools are the most important tool in a web developer's arsenal. They help you understand how websites work, debug problems in seconds instead of hours, and learn from the best websites on the internet. Every single professional developer uses these tools daily—they're not optional, they're essential.</p>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element 2: Learning Objectives -->
+			<LearningObjectives
+				:objectives="[
+					'Open DevTools using multiple methods (right-click, keyboard, menu)',
+					'Inspect HTML elements and modify styles in real-time using the Elements panel',
+					'Debug JavaScript using the Console panel',
+					'Analyze network requests and page loading performance',
+					'Test responsive designs using the Device Toolbar'
+				]"
+				purpose="DevTools are the most important tool in a web developer's arsenal. They help you understand how websites work, debug problems in seconds instead of hours, and learn from the best websites on the internet. Every single professional developer uses these tools daily—they're not optional, they're essential."
+			/>
 
 			<h2 id="what-are-browser-developer-tools" class="title is-3">
 				What are Browser Developer Tools?
@@ -105,32 +90,12 @@
 				</li>
 			</ul>
 
-			<!-- Checkpoint #1 -->
-			<section class="check-understanding">
-				<div class="box checkpoint">
-					<h3>⏸️ Quick Check: Opening DevTools</h3>
-					<p><strong>Can you open DevTools right now?</strong></p>
-					<ol class="checkpoint-questions">
-						<li>What are 3 different ways to open Developer Tools?</li>
-						<li>Try opening DevTools on this page right now. Which method did you use?</li>
-					</ol>
-					
-					<details>
-						<summary class="button is-info is-light mt-3"><i class="fas fa-eye"></i> Check Your Answers</summary>
-						<div class="answer-key mt-3">
-							<ol>
-								<li><strong>Answer:</strong> (1) Right-click → Inspect, (2) F12 or Ctrl+Shift+I (Cmd+Option+I on Mac), (3) Browser menu (Tools → Developer Tools)</li>
-								<li><strong>Answer:</strong> Any method works! Most developers prefer keyboard shortcuts because they're fastest. F12 is the universal shortcut across all browsers.</li>
-							</ol>
-						</div>
-					</details>
-					
-					<div class="self-assessment mt-4">
-						<p><strong>How confident are you with this?</strong></p>
-						<p class="confidence-scale">😕 Need to practice | 🤔 Got it once | 😊 Can do it easily | 🎉 Can teach someone else!</p>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element 3: Checkpoint -->
+			<CheckpointBox
+				title="Quick Check: Opening DevTools"
+				description="Can you open DevTools right now?"
+				:questions="checkpointQuestions1"
+			/>
 
 			<h2 id="key-features" class="title is-3">Key Features</h2>
 
@@ -172,29 +137,12 @@
 				<li>Test mobile-specific features</li>
 			</ul>
 
-			<!-- Checkpoint #2 -->
-			<section class="check-understanding">
-				<div class="box checkpoint">
-					<h3>⏸️ Pause & Check: Understanding DevTools Panels</h3>
-					<p><strong>Test your understanding of the key features:</strong></p>
-					<ol class="checkpoint-questions">
-						<li>Which panel would you use to change the color of text on a webpage?</li>
-						<li>Where would you go to see JavaScript errors?</li>
-						<li>If you want to see how long it takes an image to load, which panel helps with that?</li>
-					</ol>
-					
-					<details>
-						<summary class="button is-info is-light mt-3"><i class="fas fa-eye"></i> Check Your Answers</summary>
-						<div class="answer-key mt-3">
-							<ol>
-								<li><strong>Answer:</strong> Elements panel—it shows HTML and CSS, letting you inspect and modify styles in real-time.</li>
-								<li><strong>Answer:</strong> Console panel—it displays all JavaScript errors, warnings, and log messages.</li>
-								<li><strong>Answer:</strong> Network panel—it monitors all network requests and shows loading times, file sizes, and performance data.</li>
-							</ol>
-						</div>
-					</details>
-				</div>
-			</section>
+			<!-- Hunter Element 3: Checkpoint 2 -->
+			<CheckpointBox
+				title="Pause & Check: Understanding DevTools Panels"
+				description="Test your understanding of the key features:"
+				:questions="checkpointQuestions2"
+			/>
 
 			<h2 id="practice-exercise" class="title is-3">Practice Exercise</h2>
 			<div class="box">
@@ -227,6 +175,24 @@
 					>
 				</li>
 			</ul>
+
+			<!-- Test Your Knowledge -->
+			<TestYourKnowledgeSection
+				tutorial-path="/tutorials/getting-started/browser-tools"
+			/>
+
+			<!-- Hunter Element: Closure -->
+			<ClosureSection
+				title="🏁 Lesson Complete: You've Got X-Ray Vision!"
+				:key-takeaways="closureKeyTakeaways"
+				:objectives="closureObjectives"
+				:reflection-prompts="closureReflectionPrompts"
+				next-steps="<p>Now that you can inspect any website, you're ready to learn about <strong>Domain Names &amp; Web Hosting</strong>—how to make your websites available to the world!</p>"
+			/>
+
+			<TutorialRecommendations :current-path="'/tutorials/getting-started/browser-tools'" />
+
+			<TutorialCompletion tutorial-path="/tutorials/getting-started/browser-tools" />
 		</div>
 	</div>
 </template>
@@ -234,6 +200,65 @@
 <script setup>
 import { useHead } from '@vueuse/head';
 import { usePageSections } from '@/composables/usePageSections';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+const checkpointQuestions1 = [
+	{
+		question: 'What are 3 different ways to open Developer Tools?',
+		answer: '(1) Right-click \u2192 Inspect, (2) F12 or Ctrl+Shift+I (Cmd+Option+I on Mac), (3) Browser menu (Tools \u2192 Developer Tools)',
+	},
+	{
+		question: 'Try opening DevTools on this page right now. Which method did you use?',
+		answer: 'Any method works! Most developers prefer keyboard shortcuts because they\'re fastest. F12 is the universal shortcut across all browsers.',
+	},
+];
+
+const checkpointQuestions2 = [
+	{
+		question: 'Which panel would you use to change the color of text on a webpage?',
+		answer: 'Elements panel\u2014it shows HTML and CSS, letting you inspect and modify styles in real-time.',
+	},
+	{
+		question: 'Where would you go to see JavaScript errors?',
+		answer: 'Console panel\u2014it displays all JavaScript errors, warnings, and log messages.',
+	},
+	{
+		question: 'If you want to see how long it takes an image to load, which panel helps with that?',
+		answer: 'Network panel\u2014it monitors all network requests and shows loading times, file sizes, and performance data.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'DevTools are built into every modern browser and are essential for web development',
+	'The Elements panel lets you inspect and modify HTML/CSS in real-time',
+	'The Console panel is your go-to for JavaScript debugging and testing',
+	'The Network panel helps you analyze loading performance and debug requests',
+	'The Device Toolbar lets you test responsive designs without needing multiple devices',
+];
+
+const closureObjectives = [
+	'Open DevTools using multiple methods',
+	'Inspect and modify elements with the Elements panel',
+	'Debug JavaScript with the Console panel',
+	'Analyze network requests and performance',
+	'Test responsive designs with the Device Toolbar',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: '\ud83d\udcad Real-World Connection',
+		questions: [
+			'Visit your favorite website and use DevTools to inspect how it\'s built. What did you discover?',
+			'How will DevTools help you learn faster as you build your own websites?',
+		],
+	},
+];
 
 useHead({
 	title: 'Browser Developer Tools - GraphitEdge Tutorials',

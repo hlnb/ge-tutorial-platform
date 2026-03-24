@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="tutorial-content">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
@@ -27,22 +27,26 @@
       Conclusion
     </h1>
 
-    <div class="box highlight-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-graduation-cap"></i> Congratulations!
-      </h3>
-      <p>
-        You've completed the Git Basics tutorial! Here's a quick summary of what you've learned:
-      </p>
-      <ul>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i> How to install and configure Git</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i> Basic Git commands for staging, committing, and viewing history</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i> How to create and manage branches</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i> How to merge branches and resolve conflicts</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i> How to work with remote repositories</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i> The typical Git workflow for collaboration</li>
-      </ul>
-    </div>
+    <!-- Hunter Element 1: Anticipatory Set -->
+    <AnticipatorySet
+      title="Start Here"
+      :hook="`<p>You've made it through the entire Git Basics series! Before we wrap up, let's take a moment to reflect on everything you've learned and see just how far you've come.</p>`"
+      :reflection-prompts="[
+        'Which Git concept was the most surprising or interesting to you?',
+        'How confident do you feel using Git in your own projects now?'
+      ]"
+      connection="Let's review everything you've accomplished and look at what comes next."
+    />
+
+    <!-- Hunter Element 2: Learning Objectives -->
+    <LearningObjectives
+      :objectives="[
+        'Review all the key Git concepts covered in this series',
+        'Identify next steps for continuing your Git learning journey',
+        'Know where to practice and apply your Git skills'
+      ]"
+      purpose="Reflecting on what you've learned helps solidify the concepts and prepares you for the next stage of your development journey."
+    />
 
     <h2 class="title is-2">Next Steps</h2>
     <p>
@@ -82,39 +86,59 @@
       We'd love to hear your thoughts on this tutorial! If you have any feedback or suggestions, please <router-link to="/contact">contact us</router-link>.
     </p>
 
-    <TutorialQuiz :quiz-id="'git-basics-conclusion'" />
+    <!-- Hunter Bottom Components -->
+    <TestYourKnowledgeSection tutorial-path="/tutorials/intermediate/git-basics/conclusion" />
 
-    <div class="level mt-6">
-      <div class="level-left">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/workflow" class="button is-info">
-            <i class="fas fa-arrow-left mr-2"></i> Previous: Workflow
-          </router-link>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <router-link to="/tutorials" class="button is-success">
-            Back to Tutorials <i class="fas fa-arrow-right ml-2"></i>
-          </router-link>
-        </div>
-      </div>
-    </div>
+    <ClosureSection
+      title="🎓 Series Complete: Git Basics"
+      :key-takeaways="closureKeyTakeaways"
+      :objectives="closureObjectives"
+      :reflection-prompts="closureReflectionPrompts"
+      :next-steps="`<p>You now have a strong Git foundation. Continue practicing by contributing to open-source projects or setting up team workflows with pull requests and code reviews.</p>`"
+    />
+
+    <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/conclusion'" />
+
+    <TutorialCompletion tutorial-path="/tutorials/intermediate/git-basics/conclusion" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useProgress } from '@/composables/useProgress';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import { ref } from 'vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
-// Initialize progress tracking
-const { trackTutorial } = useProgress();
+const closureKeyTakeaways = [
+  'Install and configure Git on any operating system',
+  'Use basic commands: init, add, commit, status, and log',
+  'Create and manage branches for organized development',
+  'Merge branches and resolve conflicts confidently',
+  'Connect to remote repositories and push/pull changes',
+  'Follow a professional Git workflow for collaboration',
+];
 
-// Track tutorial on mount
-onMounted(() => {
-  trackTutorial('/tutorials/intermediate/git-basics/conclusion');
-});
+const closureObjectives = [
+  'Review all the key Git concepts covered in this series',
+  'Identify next steps for continuing your Git learning journey',
+  'Know where to practice and apply your Git skills',
+];
+
+const closureReflectionPrompts = [
+  {
+    title: '\ud83d\udcad Reflection Questions',
+    questions: [
+      'Which Git skill are you most excited to use in a real project?',
+      'What would you do differently now compared to before this series?',
+      'How would you explain Git to someone who has never heard of it?',
+    ],
+  },
+];
+
+
 </script>
 
 <script>
@@ -125,16 +149,10 @@ export default {
     description: 'Wrap up the Git Basics tutorial with a summary and next steps',
     category: 'Git Basics',
     level: 'Beginner',
-    order: 7,
+    order: 9,
     tags: ['git', 'conclusion', 'tutorial'],
     lastUpdated: '2025-05-12',
   },
 };
 </script>
 
-<style scoped>
-.highlight-box {
-  background-color: #fafafa;
-  border-left: 4px solid #f05033;
-}
-</style>

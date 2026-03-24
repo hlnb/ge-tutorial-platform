@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="tutorial-content">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
@@ -27,37 +27,31 @@
       Installing Git & Recommended Tools
     </h1>
 
-    <!-- Learning Objectives -->
-    <div class="box highlight-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-graduation-cap"></i> Learning Objectives
-      </h3>
-      <p>After completing this section, you'll be able to:</p>
-      <ul>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Install Git on your operating system</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Configure Git with your name and email</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Verify your Git installation</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Explore recommended GUI tools for Git</li>
-      </ul>
-    </div>
+    <!-- Hunter Element 1: Anticipatory Set -->
+    <AnticipatorySet
+      title="Start Here"
+      :hook="`<p>Before you can start tracking your code, you need the right tools installed. Think of this like a carpenter setting up their workshop—you need your tools ready before you can build anything.</p><p>The good news? Installing Git takes just a few minutes, and once it's done, you're ready to start versioning your projects!</p>`"
+      :reflection-prompts="[
+        'Have you ever installed a command-line tool before?',
+        'Do you know which operating system you are using?'
+      ]"
+      connection="Let's get Git installed and configured so you can start using it right away."
+    />
 
-    <!-- Prerequisites -->
-    <div class="box prerequisite-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-clipboard-check"></i> Before You Start
-      </h3>
-      <p>To get the most out of this section, you should:</p>
-      <ul>
-        <li>
-          <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Be comfortable using the command line
-        </li>
-        <li>
-          <i class="fas fa-download has-text-warning mr-2"></i>
-          Have administrator privileges on your computer
-        </li>
-      </ul>
-    </div>
+    <!-- Hunter Element 2: Learning Objectives -->
+    <LearningObjectives
+      :objectives="[
+        'Install Git on your operating system',
+        'Configure Git with your name and email',
+        'Verify your Git installation',
+        'Explore recommended GUI tools for Git'
+      ]"
+      :prerequisites="[
+        'Be comfortable using the command line',
+        'Have administrator privileges on your computer'
+      ]"
+      purpose="Having Git properly installed and configured is the foundation for everything else in this tutorial series. A correct setup now prevents frustrating issues later."
+    />
 
     <h2 class="title is-2">Step 1: Install Git</h2>
     <p>
@@ -219,47 +213,58 @@ git config --global user.email 'your.email@example.com'`"
     <p>
       Install the <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory" target="_blank">Git History</a> extension to view your commit history in a visual format. This can be helpful for tracking changes and understanding your project's timeline.
     </p>
-    <!-- Tutorial Quiz -->
-    <div class="quiz-box mt-6">
-      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Installing Git</h2>
-      <TutorialQuiz :quiz-id="'git-basics-installation'" />
-    </div>
+    <!-- Hunter Bottom Components -->
+    <TestYourKnowledgeSection tutorial-path="/tutorials/intermediate/git-basics/installation" />
 
-    <!-- Tutorial Recommendations -->
+    <ClosureSection
+      title="🏁 Lesson Complete: Git Installation"
+      :key-takeaways="closureKeyTakeaways"
+      :objectives="closureObjectives"
+      :reflection-prompts="closureReflectionPrompts"
+      :next-steps="`<p>Now that Git is installed and configured, you're ready to learn the <strong>basic Git commands</strong> for tracking your code changes.</p>`"
+    />
+
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/installation'" />
 
-    <div class="level mt-6">
-      <div class="level-left">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/introduction" class="button is-info">
-            <i class="fas fa-arrow-left mr-2"></i> Previous: Introduction
-          </router-link>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/basic-commands" class="button is-success">
-            Next: Basic Commands <i class="fas fa-arrow-right ml-2"></i>
-          </router-link>
-        </div>
-      </div>
-    </div>
+    <TutorialCompletion tutorial-path="/tutorials/intermediate/git-basics/installation" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgress } from '@/composables/useProgress';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
-// Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgress();
+const closureKeyTakeaways = [
+  'Git can be installed on Windows, macOS, and Linux with just a few steps',
+  'Configuring your name and email is essential so Git can identify your commits',
+  'Use git --version to verify your installation is working',
+  'GUI tools like VS Code, Sourcetree, and GitKraken make Git more visual and beginner-friendly',
+  'VS Code has built-in Git support for staging, committing, pushing, and pulling',
+];
 
-onMounted(() => {
-  trackTutorial('/tutorials/intermediate/git-basics/installation');
-});
+const closureObjectives = [
+  'Install Git on your operating system',
+  'Configure Git with your name and email',
+  'Verify your Git installation',
+  'Explore recommended GUI tools for Git',
+];
+
+const closureReflectionPrompts = [
+  {
+    title: '\ud83d\udcad Reflection Questions',
+    questions: [
+      'Were you able to install Git without issues? If not, what problems did you encounter?',
+      'Do you prefer using Git from the command line or a GUI tool?',
+      'Why is it important to set your name and email in Git?',
+    ],
+  },
+];
 
 const onQuizCompleted = (results) => {
   saveQuizResult('git-basics-installation-quiz', results);

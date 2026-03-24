@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="tutorial-content">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
@@ -27,40 +27,31 @@
       Git Workflow
     </h1>
 
-    <!-- Learning Objectives -->
-    <div class="box highlight-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-graduation-cap"></i> Learning Objectives
-      </h3>
-      <p>After completing this section, you'll be able to:</p>
-      <ul>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand the typical Git workflow</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Use Git commands to stage, commit, push, and pull changes</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Collaborate with others using Git</li>
-      </ul>
-    </div>
+    <!-- Hunter Element 1: Anticipatory Set -->
+    <AnticipatorySet
+      title="Start Here"
+      :hook="`<p>You've learned individual Git commands—but how do they all fit together in practice? Professional developers follow a consistent workflow every day: make changes, stage, commit, push, pull. Understanding this flow is what separates knowing Git commands from actually using Git effectively.</p>`"
+      :reflection-prompts="[
+        'What steps do you currently take when you finish working on a feature?',
+        'How do teams keep their code in sync when multiple people are working at the same time?'
+      ]"
+      connection="Let's put everything together into the workflow you will use every day as a developer."
+    />
 
-    <!-- Prerequisites -->
-    <div class="box prerequisite-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-clipboard-check"></i> Before You Start
-      </h3>
-      <p>To get the most out of this section, you should:</p>
-      <ul>
-        <li>
-          <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Be familiar with basic Git commands - <router-link to="/tutorials/intermediate/git-basics/basic-commands">Review Basic Commands</router-link>
-        </li>
-        <li>
-          <i class="fas fa-code-branch has-text-success mr-2"></i>
-          Understand Git branching - <router-link to="/tutorials/intermediate/git-basics/branching">Review Branching</router-link>
-        </li>
-        <li>
-          <i class="fas fa-cloud-upload-alt has-text-info mr-2"></i>
-          Know how to connect to a remote repository - <router-link to="/tutorials/intermediate/git-basics/remote-repositories">Review Remote Repositories</router-link>
-        </li>
-      </ul>
-    </div>
+    <!-- Hunter Element 2: Learning Objectives -->
+    <LearningObjectives
+      :objectives="[
+        'Understand the typical Git workflow',
+        'Use Git commands to stage, commit, push, and pull changes',
+        'Collaborate with others using Git'
+      ]"
+      :prerequisites="[
+        'Be familiar with basic Git commands',
+        'Understand Git branching',
+        'Know how to connect to a remote repository'
+      ]"
+      purpose="The Git workflow is the daily routine of every professional developer. Mastering it makes collaboration seamless and keeps your projects organized."
+    />
 
     <h2 class="title is-2">What is a Git Workflow?</h2>
     <p>
@@ -220,47 +211,57 @@
       />
     </div>
 
-    <!-- Tutorial Quiz -->
-    <div class="quiz-box mt-6">
-      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Git Workflow</h2>
-      <TutorialQuiz :quiz-id="'git-basics-workflow'" />
-    </div>
+    <!-- Hunter Bottom Components -->
+    <TestYourKnowledgeSection tutorial-path="/tutorials/intermediate/git-basics/workflow" />
 
-    <!-- Tutorial Recommendations -->
+    <ClosureSection
+      title="🏁 Lesson Complete: Git Workflow"
+      :key-takeaways="closureKeyTakeaways"
+      :objectives="closureObjectives"
+      :reflection-prompts="closureReflectionPrompts"
+      :next-steps="`<p>You've now learned the complete Git workflow! Head to the <strong>conclusion</strong> to review everything you've learned across the entire Git Basics series.</p>`"
+    />
+
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/workflow'" />
 
-    <div class="level mt-6">
-      <div class="level-left">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/remote-repositories" class="button is-info">
-            <i class="fas fa-arrow-left mr-2"></i> Previous: Remote Repositories
-          </router-link>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/conclusion" class="button is-success">
-            Next: Conclusion <i class="fas fa-arrow-right ml-2"></i>
-          </router-link>
-        </div>
-      </div>
-    </div>
+    <TutorialCompletion tutorial-path="/tutorials/intermediate/git-basics/workflow" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgress } from '@/composables/useProgress';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
-// Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgress();
+const closureKeyTakeaways = [
+  'The Git workflow is: make changes, stage, commit, push, and pull',
+  'Always pull the latest changes before starting new work',
+  'Use branches for features and bug fixes, then merge when done',
+  'Write clear, descriptive commit messages for every commit',
+  'Resolve merge conflicts promptly to keep the team moving',
+];
 
-onMounted(() => {
-  trackTutorial('/tutorials/intermediate/git-basics/workflow');
-});
+const closureObjectives = [
+  'Understand the typical Git workflow',
+  'Use Git commands to stage, commit, push, and pull changes',
+  'Collaborate with others using Git',
+];
+
+const closureReflectionPrompts = [
+  {
+    title: '\ud83d\udcad Reflection Questions',
+    questions: [
+      'How does this workflow compare to how you currently manage your projects?',
+      'What part of the Git workflow do you think you will use the most?',
+      'How would you explain this workflow to a teammate who has never used Git?',
+    ],
+  },
+];
 
 const onQuizCompleted = (results) => {
   saveQuizResult('git-basics-workflow-quiz', results);
@@ -275,7 +276,7 @@ export default {
     description: 'Learn the typical Git workflow for managing changes and collaborating with others',
     category: 'Git Basics',
     level: 'Beginner',
-    order: 6,
+    order: 8,
     tags: ['git', 'workflow', 'collaboration', 'tutorial'],
     lastUpdated: '2025-05-12',
   },

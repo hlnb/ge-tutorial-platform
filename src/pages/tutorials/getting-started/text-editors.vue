@@ -38,42 +38,27 @@
 				the right one for your needs.
 			</p>
 
-			<!-- Anticipatory Set -->
-			<section class="anticipatory-set">
-				<div class="box engagement-hook">
-					<h3>🎯 Start Here</h3>
-					<p>Imagine trying to write a novel using sticky notes, or building a house with the wrong tools. Just like writers need word processors and carpenters need the right equipment, web developers need the right text editor.</p>
-					<p>But with dozens of editors available—some free, some paid, some simple, some complex—how do you choose?</p>
-					
-					<div class="reflection-prompt">
-						<strong>Quick Reflection:</strong>
-						<ul>
-							<li>Have you ever used Notepad or TextEdit to write something? What was missing?</li>
-							<li>What features would make writing code easier than writing in a basic text file?</li>
-						</ul>
-						<p><em>By the end of this lesson, you'll know exactly which editor fits your needs and how to start using it like a pro!</em></p>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element 1: Anticipatory Set -->
+			<AnticipatorySet
+				title="Start Here"
+				:hook="`<p>Imagine trying to write a novel using sticky notes, or building a house with the wrong tools. Just like writers need word processors and carpenters need the right equipment, web developers need the right text editor.</p><p>But with dozens of editors available\u2014some free, some paid, some simple, some complex\u2014how do you choose?</p>`"
+				:reflection-prompts="[
+					'Have you ever used Notepad or TextEdit to write something? What was missing?',
+					'What features would make writing code easier than writing in a basic text file?'
+				]"
+				connection="By the end of this lesson, you'll know exactly which editor fits your needs and how to start using it like a pro!"
+			/>
 
-			<!-- Learning Objectives -->
-			<section class="objectives">
-				<div class="box highlight-box">
-					<h3><i class="fas fa-graduation-cap"></i> Learning Objectives</h3>
-					<p><strong>By the end of this lesson, you'll be able to:</strong></p>
-					<ul class="objectives-list">
-						<li>✓ <strong>Identify</strong> the differences between simple text editors, code editors, and IDEs</li>
-						<li>✓ <strong>Explain</strong> key features that make coding easier (syntax highlighting, code completion, etc.)</li>
-						<li>✓ <strong>Evaluate</strong> which text editor best fits your needs and workflow</li>
-						<li>✓ <strong>Install</strong> and configure Visual Studio Code with essential extensions</li>
-					</ul>
-					
-					<div class="purpose-statement">
-						<h4><i class="fas fa-lightbulb"></i> Why This Matters:</h4>
-						<p>Your text editor is where you'll spend most of your time as a developer. Choosing the right one can boost your productivity by 10x, make learning easier, and actually make coding enjoyable. The right tool helps you catch errors before they happen, write code faster, and focus on solving problems instead of fighting with your tools.</p>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element 2: Learning Objectives -->
+			<LearningObjectives
+				:objectives="[
+					'Identify the differences between simple text editors, code editors, and IDEs',
+					'Explain key features that make coding easier (syntax highlighting, code completion, etc.)',
+					'Evaluate which text editor best fits your needs and workflow',
+					'Install and configure Visual Studio Code with essential extensions'
+				]"
+				purpose="Your text editor is where you'll spend most of your time as a developer. Choosing the right one can boost your productivity by 10x, make learning easier, and actually make coding enjoyable. The right tool helps you catch errors before they happen, write code faster, and focus on solving problems instead of fighting with your tools."
+			/>
 
 			<h2 id="introduction">Introduction to Text Editors</h2>
 
@@ -130,33 +115,12 @@
 			</ul>
 
 			<!-- Checkpoint #1 -->
-			<section class="check-understanding">
-				<div class="box checkpoint">
-					<h3>⏸️ Pause & Check: Understanding Editor Types</h3>
-					<p><strong>Before moving forward, can you answer these?</strong></p>
-					<ol class="checkpoint-questions">
-						<li>What's the main difference between a simple text editor (like Notepad) and a code editor (like VS Code)?</li>
-						<li>When might you choose an IDE over a code editor?</li>
-						<li>Name three code editors mentioned in this section.</li>
-					</ol>
-					
-					<details>
-						<summary class="button is-info is-light mt-3"><i class="fas fa-eye"></i> Check Your Answers</summary>
-						<div class="answer-key mt-3">
-							<ol>
-								<li><strong>Answer:</strong> Simple text editors lack features designed for coding like syntax highlighting, code completion, and debugging tools. Code editors are specifically built for programming and include these productivity features.</li>
-								<li><strong>Answer:</strong> You might choose an IDE when working on large, complex projects that benefit from comprehensive features like built-in compilers, debuggers, and project management tools all in one place. IDEs are especially useful for enterprise development.</li>
-								<li><strong>Answer:</strong> Visual Studio Code, Sublime Text, Atom, and Notepad++ (any three of these).</li>
-							</ol>
-						</div>
-					</details>
-					
-					<div class="self-assessment mt-4">
-						<p><strong>How confident are you with this concept?</strong></p>
-						<p class="confidence-scale">😕 Still confused | 🤔 Getting there | 😊 Got it! | 🎉 Could explain it to a friend!</p>
-					</div>
-				</div>
-			</section>
+			<CheckpointBox
+				title="⏸️ Pause & Check: Understanding Editor Types"
+				description="Before moving forward, can you answer these?"
+				:questions="checkpointQuestions1"
+				:show-self-assessment="true"
+			/>
 
 			<h2 id="features">Key Features to Look For</h2>
 
@@ -208,26 +172,11 @@
 			</div>
 
 			<!-- Checkpoint #2 -->
-			<section class="check-understanding">
-				<div class="box checkpoint">
-					<h3>⏸️ Pause & Check: Key Features</h3>
-					<p><strong>Quick self-check on editor features:</strong></p>
-					<ol class="checkpoint-questions">
-						<li>What does syntax highlighting do and why is it helpful?</li>
-						<li>How do extensions/plugins enhance a text editor?</li>
-					</ol>
-					
-					<details>
-						<summary class="button is-info is-light mt-3"><i class="fas fa-eye"></i> Check Your Answers</summary>
-						<div class="answer-key mt-3">
-							<ol>
-								<li><strong>Answer:</strong> Syntax highlighting colors different parts of your code (keywords, strings, variables) to make it more readable and help you quickly identify errors like missing quotes or brackets.</li>
-								<li><strong>Answer:</strong> Extensions add extra functionality tailored to your specific needs—like support for new programming languages, code formatters, themes, Git tools, or live preview features—without bloating the base editor.</li>
-							</ol>
-						</div>
-					</details>
-				</div>
-			</section>
+			<CheckpointBox
+				title="⏸️ Pause & Check: Key Features"
+				description="Quick self-check on editor features:"
+				:questions="checkpointQuestions2"
+			/>
 
 			<h2 id="vs-code">Visual Studio Code: A Closer Look</h2>
 
@@ -457,52 +406,20 @@
 				</div>
 			</div>
 
-			<!-- Closure -->
-			<section class="closure">
-				<div class="box closure-section">
-					<h2><i class="fas fa-flag-checkered"></i> Lesson Complete: What You Learned</h2>
-					
-					<div class="key-takeaways">
-						<h3><i class="fas fa-star"></i> Key Takeaways:</h3>
-						<ul>
-							<li>Text editors range from simple (Notepad) to specialized code editors (VS Code) to full IDEs (WebStorm)</li>
-							<li>Essential features like syntax highlighting, code completion, and extensions make coding dramatically easier</li>
-							<li>VS Code is free, powerful, and widely used—making it an excellent choice for beginners</li>
-							<li>The "best" editor is subjective—choose based on your needs, preferences, and workflow</li>
-							<li>Learning keyboard shortcuts can 10x your productivity</li>
-						</ul>
-					</div>
-					
-					<div class="objectives-review mt-5">
-						<h3><i class="fas fa-check-double"></i> Learning Objectives Review:</h3>
-						<p>Look back at what you set out to learn. Can you now:</p>
-						<ul class="objectives-checklist">
-							<li>✅ Identify the differences between simple text editors, code editors, and IDEs <span class="has-text-success">Check!</span></li>
-							<li>✅ Explain key features that make coding easier <span class="has-text-success">Got it!</span></li>
-							<li>✅ Evaluate which text editor best fits your needs <span class="has-text-success">Can explain it!</span></li>
-							<li>✅ Install and configure Visual Studio Code with extensions <span class="has-text-success">Could teach this!</span></li>
-						</ul>
-						<p class="mt-3">If you can confidently answer "yes" to most of these, you're ready to move on!</p>
-					</div>
-					
-					<div class="reflection-prompts mt-5">
-						<h3><i class="fas fa-brain"></i> Think & Reflect:</h3>
-						<div class="reflection-questions">
-							<div class="question-card">
-								<p><strong>💭 What surprised you?</strong></p>
-								<ul>
-									<li>Were you surprised by how many features modern code editors have?</li>
-									<li>Which feature do you think will save you the most time?</li>
-								</ul>
-							</div>
-							<div class="question-card">
-								<p><strong>� Next Steps:</strong></p>
-								<p>Now that you understand text editors and their features, you're ready to set up your complete development environment. Next, we'll walk through installing and configuring everything you need to start coding!</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element: Closure + Bottom Components -->
+			<TestYourKnowledgeSection tutorial-path="/tutorials/getting-started/text-editors" />
+
+			<ClosureSection
+				title="🏁 Lesson Complete: What You Learned"
+				:key-takeaways="closureKeyTakeaways"
+				:objectives="closureObjectives"
+				:reflection-prompts="closureReflectionPrompts"
+				:next-steps="`<p>Now that you understand text editors and their features, you're ready to set up your complete development environment. Next, we'll walk through installing and configuring everything you need to start coding!</p>`"
+			/>
+
+			<TutorialRecommendations :current-path="'/tutorials/getting-started/text-editors'" />
+
+			<TutorialCompletion tutorial-path="/tutorials/getting-started/text-editors" />
 
 			<h2 id="next-steps">Next Steps</h2>
 
@@ -515,6 +432,64 @@
 
 <script setup>
 import { usePageSections } from '@/composables/usePageSections';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+const checkpointQuestions1 = [
+	{
+		question: "What's the main difference between a simple text editor (like Notepad) and a code editor (like VS Code)?",
+		answer: 'Simple text editors lack features designed for coding like syntax highlighting, code completion, and debugging tools. Code editors are specifically built for programming and include these productivity features.',
+	},
+	{
+		question: 'When might you choose an IDE over a code editor?',
+		answer: 'You might choose an IDE when working on large, complex projects that benefit from comprehensive features like built-in compilers, debuggers, and project management tools all in one place. IDEs are especially useful for enterprise development.',
+	},
+	{
+		question: 'Name three code editors mentioned in this section.',
+		answer: 'Visual Studio Code, Sublime Text, Atom, and Notepad++ (any three of these).',
+	},
+];
+
+const checkpointQuestions2 = [
+	{
+		question: 'What does syntax highlighting do and why is it helpful?',
+		answer: 'Syntax highlighting colors different parts of your code (keywords, strings, variables) to make it more readable and help you quickly identify errors like missing quotes or brackets.',
+	},
+	{
+		question: 'How do extensions/plugins enhance a text editor?',
+		answer: 'Extensions add extra functionality tailored to your specific needs\u2014like support for new programming languages, code formatters, themes, Git tools, or live preview features\u2014without bloating the base editor.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Text editors range from simple (Notepad) to specialized code editors (VS Code) to full IDEs (WebStorm)',
+	'Essential features like syntax highlighting, code completion, and extensions make coding dramatically easier',
+	'VS Code is free, powerful, and widely used\u2014making it an excellent choice for beginners',
+	'The best editor is subjective\u2014choose based on your needs, preferences, and workflow',
+	'Learning keyboard shortcuts can 10x your productivity',
+];
+
+const closureObjectives = [
+	'Identify the differences between simple text editors, code editors, and IDEs',
+	'Explain key features that make coding easier',
+	'Evaluate which text editor best fits your needs',
+	'Install and configure Visual Studio Code with extensions',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: '\ud83d\udcad Reflection Questions',
+		questions: [
+			'Were you surprised by how many features modern code editors have?',
+			'Which feature do you think will save you the most time?',
+		],
+	},
+];
 
 const frontmatter = {
 	title: 'Text Editors',

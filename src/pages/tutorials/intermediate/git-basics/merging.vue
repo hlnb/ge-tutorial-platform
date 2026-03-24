@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="tutorial-content">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
@@ -27,37 +27,31 @@
       Merging in Git
     </h1>
 
-    <!-- Learning Objectives -->
-    <div class="box highlight-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-graduation-cap"></i> Learning Objectives
-      </h3>
-      <p>After completing this section, you'll be able to:</p>
-      <ul>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Understand what merging is and why it's important</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Merge branches in Git</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Resolve merge conflicts</li>
-        <li><i class="fas fa-check-circle has-text-success mr-2"></i>Follow best practices for merging</li>
-      </ul>
-    </div>
+    <!-- Hunter Element 1: Anticipatory Set -->
+    <AnticipatorySet
+      title="Start Here"
+      :hook="`<p>You've learned how to create branches and work on separate features. But what happens when it's time to bring everything together? Merging is how you combine work from different branches—and knowing how to handle conflicts when they arise is a critical developer skill.</p>`"
+      :reflection-prompts="[
+        'What do you think happens when two people edit the same line of code?',
+        'How would you decide which changes to keep and which to discard?'
+      ]"
+      connection="Let's learn how Git merging works and how to resolve conflicts like a pro."
+    />
 
-    <!-- Prerequisites -->
-    <div class="box prerequisite-box mb-6">
-      <h3 class="title is-4">
-        <i class="fas fa-clipboard-check"></i> Before You Start
-      </h3>
-      <p>To get the most out of this section, you should:</p>
-      <ul>
-        <li>
-          <i class="fas fa-terminal has-text-dark mr-2"></i>
-          Be familiar with Git branching - <router-link to="/tutorials/intermediate/git-basics/branching">Review Branching</router-link>
-        </li>
-        <li>
-          <i class="fas fa-folder has-text-warning mr-2"></i>
-          Have a Git repository with multiple branches to practice merging
-        </li>
-      </ul>
-    </div>
+    <!-- Hunter Element 2: Learning Objectives -->
+    <LearningObjectives
+      :objectives="[
+        'Understand what merging is and why it is important',
+        'Merge branches in Git',
+        'Resolve merge conflicts',
+        'Follow best practices for merging'
+      ]"
+      :prerequisites="[
+        'Be familiar with Git branching',
+        'Have a Git repository with multiple branches to practice merging'
+      ]"
+      purpose="Merging is how collaborative development works. Every pull request, every feature—they all end with a merge. Understanding this process is essential for working on any team."
+    />
 
     <h2 class="title is-2">What is Merging?</h2>
     <p>
@@ -110,47 +104,58 @@
       <li>Write clear commit messages when resolving conflicts</li>
     </ul>
 
-    <!-- Tutorial Quiz -->
-    <div class="quiz-box mt-6">
-      <h2 class="title is-4"><i class="fas fa-question-circle"></i> Quick Quiz: Merging in Git</h2>
-      <TutorialQuiz :quiz-id="'git-basics-merging'" />
-    </div>
+    <!-- Hunter Bottom Components -->
+    <TestYourKnowledgeSection tutorial-path="/tutorials/intermediate/git-basics/merging" />
 
-    <!-- Tutorial Recommendations -->
+    <ClosureSection
+      title="🏁 Lesson Complete: Git Merging"
+      :key-takeaways="closureKeyTakeaways"
+      :objectives="closureObjectives"
+      :reflection-prompts="closureReflectionPrompts"
+      :next-steps="`<p>Now that you can merge branches and resolve conflicts, it's time to learn about <strong>remote repositories</strong>—how to share your code with the world using GitHub or GitLab.</p>`"
+    />
+
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/merging'" />
 
-    <div class="level mt-6">
-      <div class="level-left">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/branching" class="button is-info">
-            <i class="fas fa-arrow-left mr-2"></i> Previous: Branching
-          </router-link>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <router-link to="/tutorials/intermediate/git-basics/remote-repositories" class="button is-success">
-            Next: Remote Repositories <i class="fas fa-arrow-right ml-2"></i>
-          </router-link>
-        </div>
-      </div>
-    </div>
+    <TutorialCompletion tutorial-path="/tutorials/intermediate/git-basics/merging" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useProgress } from '@/composables/useProgress';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
-// Initialize progress tracking
-const { trackTutorial, saveQuizResult } = useProgress();
+const closureKeyTakeaways = [
+  'Merging combines changes from one branch into another',
+  'Always switch to the target branch (e.g., main) before running git merge',
+  'Merge conflicts occur when the same lines are changed in both branches',
+  'Resolve conflicts by editing the file, then staging and committing',
+  'Best practices: pull latest changes before merging, test after merging, write clear commit messages',
+];
 
-onMounted(() => {
-  trackTutorial('/tutorials/intermediate/git-basics/merging');
-});
+const closureObjectives = [
+  'Understand what merging is and why it is important',
+  'Merge branches in Git',
+  'Resolve merge conflicts',
+  'Follow best practices for merging',
+];
+
+const closureReflectionPrompts = [
+  {
+    title: '\ud83d\udcad Reflection Questions',
+    questions: [
+      'What strategies can you use to minimize merge conflicts?',
+      'Why should you test your code after a merge?',
+      'How does merging relate to the pull request workflow?',
+    ],
+  },
+];
 
 const onQuizCompleted = (results) => {
   saveQuizResult('git-basics-merging-quiz', results);
@@ -165,7 +170,7 @@ export default {
     description: 'Learn how to merge branches and resolve conflicts in Git',
     category: 'Git Basics',
     level: 'Beginner',
-    order: 5,
+    order: 6,
     tags: ['git', 'merging', 'conflict', 'tutorial'],
     lastUpdated: '2025-05-27',
   },

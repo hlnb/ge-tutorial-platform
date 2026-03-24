@@ -41,43 +41,28 @@
 				website's files live).
 			</p>
 
-			<!-- Anticipatory Set -->
-			<section class="anticipatory-set">
-				<div class="box engagement-hook">
-					<h3>🎯 Start Here</h3>
-					<p>You've built your website, but right now it only lives on your computer. How do you make it visible to the world?</p>
-					<p>Think of it like opening a store: you need both a physical address (domain name) and a building where your products live (web hosting). Without both, customers can't find you!</p>
-					
-					<div class="reflection-prompt">
-						<strong>Quick Reflection:</strong>
-						<ul>
-							<li>When you type "google.com" in your browser, what do you think happens behind the scenes?</li>
-							<li>Why do some websites have extensions like .com, .org, or .com.au?</li>
-						</ul>
-						<p><em>By the end of this lesson, you'll know exactly how to launch your site to the world!</em></p>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element 1: Anticipatory Set -->
+			<AnticipatorySet
+				title="Start Here"
+				:hook="`<p>You've built your website, but right now it only lives on your computer. How do you make it visible to the world?</p><p>Think of it like opening a store: you need both a physical address (domain name) and a building where your products live (web hosting). Without both, customers can't find you!</p>`"
+				:reflection-prompts="[
+					'When you type &quot;google.com&quot; in your browser, what do you think happens behind the scenes?',
+					'Why do some websites have extensions like .com, .org, or .com.au?'
+				]"
+				connection="By the end of this lesson, you'll know exactly how to launch your site to the world!"
+			/>
 
-			<!-- Learning Objectives -->
-			<section class="objectives">
-				<div class="box highlight-box">
-					<h3><i class="fas fa-graduation-cap"></i> Learning Objectives</h3>
-					<p><strong>By the end of this lesson, you'll be able to:</strong></p>
-					<ul class="objectives-list">
-						<li>✓ <strong>Explain</strong> what domain names and DNS do</li>
-						<li>✓ <strong>Identify</strong> different types of web hosting and their use cases</li>
-						<li>✓ <strong>Choose</strong> appropriate domain registrars and hosting providers</li>
-						<li>✓ <strong>Connect</strong> a domain name to a hosting service</li>
-						<li>✓ <strong>Evaluate</strong> hosting options based on your project needs</li>
-					</ul>
-					
-					<div class="purpose-statement">
-						<h4><i class="fas fa-lightbulb"></i> Why This Matters:</h4>
-						<p>Understanding domains and hosting is essential for launching any website. Whether you're building a personal portfolio, starting a business, or creating an app, you need to know how to make it accessible to users around the world. Making the right choices here can save you hundreds of dollars and countless hours of frustration.</p>
-					</div>
-				</div>
-			</section>
+			<!-- Hunter Element 2: Learning Objectives -->
+			<LearningObjectives
+				:objectives="[
+					'Explain what domain names and DNS do',
+					'Identify different types of web hosting and their use cases',
+					'Choose appropriate domain registrars and hosting providers',
+					'Connect a domain name to a hosting service',
+					'Evaluate hosting options based on your project needs'
+				]"
+				purpose="Understanding domains and hosting is essential for launching any website. Whether you're building a personal portfolio, starting a business, or creating an app, you need to know how to make it accessible to users around the world. Making the right choices here can save you hundreds of dollars and countless hours of frustration."
+			/>
 
 			<p>In this tutorial, you'll learn:</p>
 			<ul>
@@ -161,34 +146,12 @@
 			</div>
 		</section>
 
-		<!-- Checkpoint #1 -->
-		<section class="check-understanding">
-			<div class="box checkpoint">
-				<h3>⏸️ Pause & Check: Domain Names</h3>
-				<p><strong>Test your understanding of domain names:</strong></p>
-				<ol class="checkpoint-questions">
-					<li>What are the two main parts of a domain name? (Give an example)</li>
-					<li>Why is DNS important for the internet?</li>
-					<li>What's special about .com.au domains in Australia?</li>
-				</ol>
-				
-				<details>
-					<summary class="button is-info is-light mt-3"><i class="fas fa-eye"></i> Check Your Answers</summary>
-					<div class="answer-key mt-3">
-						<ol>
-							<li><strong>Answer:</strong> (1) Second-level domain (e.g., "graphitedge") and (2) Top-level domain or TLD (e.g., ".com"). Together they form "graphitedge.com"</li>
-							<li><strong>Answer:</strong> DNS (Domain Name System) translates human-friendly domain names like "google.com" into IP addresses that computers use to find each other on the network.</li>
-							<li><strong>Answer:</strong> .com.au domains require an ABN (Australian Business Number) or ACN (Australian Company Number) to register, so they're primarily for Australian businesses and organizations.</li>
-						</ol>
-					</div>
-				</details>
-				
-				<div class="self-assessment mt-4">
-					<p><strong>How confident are you?</strong></p>
-					<p class="confidence-scale">😕 Still confused | 🤔 Getting there | 😊 Clear now | 🎉 Could explain to someone!</p>
-				</div>
-			</div>
-		</section>
+		<!-- Hunter Element 3: Checkpoint -->
+		<CheckpointBox
+			title="Pause & Check: Domain Names"
+			description="Test your understanding of domain names:"
+			:questions="checkpointQuestions1"
+		/>
 
 		<section id="web-hosting">
 			<h2 class="title is-2">Web Hosting Explained</h2>
@@ -247,29 +210,12 @@
 			</div>
 		</section>
 
-		<!-- Checkpoint #2 -->
-		<section class="check-understanding">
-			<div class="box checkpoint">
-				<h3>⏸️ Quick Check: Hosting Types</h3>
-				<p><strong>Match the hosting type to the scenario:</strong></p>
-				<ol class="checkpoint-questions">
-					<li>You're building a simple portfolio website with HTML/CSS. Which hosting type is best?</li>
-					<li>Your website gets 100,000 visitors per day and needs maximum performance. What should you use?</li>
-					<li>What's the main advantage of shared hosting?</li>
-				</ol>
-				
-				<details>
-					<summary class="button is-info is-light mt-3"><i class="fas fa-eye"></i> Check Your Answers</summary>
-					<div class="answer-key mt-3">
-						<ol>
-							<li><strong>Answer:</strong> Static hosting (like GitHub Pages or Netlify) is perfect for simple HTML/CSS/JS sites. It's often free and very fast!</li>
-							<li><strong>Answer:</strong> Dedicated hosting or Cloud hosting would be best for high-traffic sites that need dedicated resources and scalability.</li>
-							<li><strong>Answer:</strong> Shared hosting is the most economical option ($3-10/month), making it great for beginners and small websites with lower traffic.</li>
-						</ol>
-					</div>
-				</details>
-			</div>
-		</section>
+		<!-- Hunter Element 3: Checkpoint 2 -->
+		<CheckpointBox
+			title="Quick Check: Hosting Types"
+			description="Match the hosting type to the scenario:"
+			:questions="checkpointQuestions2"
+		/>
 
 		<section id="hosting-providers">
 			<h2 class="title is-2">Recommended Hosting Providers</h2>
@@ -515,53 +461,23 @@
 			</div>
 		</div>
 
-		<!-- Closure -->
-		<section class="closure">
-			<div class="box closure-section">
-				<h2><i class="fas fa-flag-checkered"></i> You're Ready to Launch!</h2>
-				
-				<div class="key-takeaways">
-					<h3><i class="fas fa-star"></i> Key Takeaways:</h3>
-					<ul>
-						<li>Domain names are your website's address; DNS translates them into IP addresses</li>
-						<li>Web hosting stores your website files and serves them to visitors 24/7</li>
-						<li>For beginners, free options like GitHub Pages and Netlify are excellent starting points</li>
-						<li>Different hosting types serve different needs—choose based on your project requirements</li>
-						<li>Connecting domains to hosting involves DNS configuration and waiting for propagation</li>
-						<li>Always enable SSL/HTTPS and two-factor authentication for security</li>
-					</ul>
-				</div>
-				
-				<div class="objectives-review mt-5">
-					<h3><i class="fas fa-check-double"></i> Learning Objectives Review:</h3>
-					<p>Can you now confidently:</p>
-					<ul class="objectives-checklist">
-						<li>✅ Explain what domain names and DNS do <span class="has-text-success">DNS expert!</span></li>
-						<li>✅ Identify different types of web hosting <span class="has-text-success">Know the options!</span></li>
-						<li>✅ Choose appropriate registrars and hosting providers <span class="has-text-success">Ready to decide!</span></li>
-						<li>✅ Connect a domain to hosting <span class="has-text-success">Can configure DNS!</span></li>
-						<li>✅ Evaluate hosting based on project needs <span class="has-text-success">Smart choices!</span></li>
-					</ul>
-				</div>
-				
-				<div class="reflection-prompts mt-5">
-					<h3><i class="fas fa-brain"></i> Think & Reflect:</h3>
-					<div class="reflection-questions">
-						<div class="question-card">
-							<p><strong>💭 Real-World Connection:</strong></p>
-							<ul>
-								<li>How does understanding domains and hosting change the way you think about websites?</li>
-								<li>Why might a business want to own multiple domain names?</li>
-							</ul>
-						</div>
-						<div class="question-card">
-							<p><strong>🚀 Next Steps:</strong></p>
-							<p>With domains and hosting understood, you're ready to build! The next section covers HTML basics, where you'll learn to create the structure of web pages. If you've already registered a domain, you'll soon deploy your first real website to it!</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<!-- Test Your Knowledge -->
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/getting-started/domain-hosting"
+		/>
+
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			title="🏁 You're Ready to Launch!"
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			next-steps="<p>With domains and hosting understood, you're ready to build! The next section covers <strong>HTML Basics</strong>, where you'll learn to create the structure of web pages. If you've already registered a domain, you'll soon deploy your first real website to it!</p>"
+		/>
+
+		<TutorialRecommendations :current-path="'/tutorials/getting-started/domain-hosting'" />
+
+		<TutorialCompletion tutorial-path="/tutorials/getting-started/domain-hosting" />
 
 		<section id="next-steps">
 			<h2 class="title is-2">Next Steps</h2>
@@ -603,6 +519,70 @@ export default {
 
 <script setup>
 import { onMounted, inject } from 'vue';
+import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+const checkpointQuestions1 = [
+	{
+		question: 'What are the two main parts of a domain name? (Give an example)',
+		answer: '(1) Second-level domain (e.g., "graphitedge") and (2) Top-level domain or TLD (e.g., ".com"). Together they form "graphitedge.com"',
+	},
+	{
+		question: 'Why is DNS important for the internet?',
+		answer: 'DNS (Domain Name System) translates human-friendly domain names like "google.com" into IP addresses that computers use to find each other on the network.',
+	},
+	{
+		question: 'What\'s special about .com.au domains in Australia?',
+		answer: '.com.au domains require an ABN (Australian Business Number) or ACN (Australian Company Number) to register, so they\'re primarily for Australian businesses and organizations.',
+	},
+];
+
+const checkpointQuestions2 = [
+	{
+		question: 'You\'re building a simple portfolio website with HTML/CSS. Which hosting type is best?',
+		answer: 'Static hosting (like GitHub Pages or Netlify) is perfect for simple HTML/CSS/JS sites. It\'s often free and very fast!',
+	},
+	{
+		question: 'Your website gets 100,000 visitors per day and needs maximum performance. What should you use?',
+		answer: 'Dedicated hosting or Cloud hosting would be best for high-traffic sites that need dedicated resources and scalability.',
+	},
+	{
+		question: 'What\'s the main advantage of shared hosting?',
+		answer: 'Shared hosting is the most economical option ($3-10/month), making it great for beginners and small websites with lower traffic.',
+	},
+];
+
+const closureKeyTakeaways = [
+	'Domain names are your website\'s address; DNS translates them into IP addresses',
+	'Web hosting stores your website files and serves them to visitors 24/7',
+	'For beginners, free options like GitHub Pages and Netlify are excellent starting points',
+	'Different hosting types serve different needs\u2014choose based on your project requirements',
+	'Connecting domains to hosting involves DNS configuration and waiting for propagation',
+	'Always enable SSL/HTTPS and two-factor authentication for security',
+];
+
+const closureObjectives = [
+	'Explain what domain names and DNS do',
+	'Identify different types of web hosting',
+	'Choose appropriate registrars and hosting providers',
+	'Connect a domain to hosting',
+	'Evaluate hosting based on project needs',
+];
+
+const closureReflectionPrompts = [
+	{
+		title: '\ud83d\udcad Real-World Connection',
+		questions: [
+			'How does understanding domains and hosting change the way you think about websites?',
+			'Why might a business want to own multiple domain names?',
+		],
+	},
+];
 
 // Get the pageSections array from the parent component
 const pageSections = inject('pageSections');
