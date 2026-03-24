@@ -649,7 +649,7 @@
               <h3 class="title is-4 mb-3">
                 <i class="fas fa-browser fa-lg mr-2"></i> Method Support
               </h3>
-              <div class="compatibility-table">
+              <div class="table-container">
                 <table class="table is-fullwidth is-bordered">
                   <thead>
                     <tr>

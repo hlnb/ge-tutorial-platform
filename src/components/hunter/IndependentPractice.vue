@@ -31,6 +31,7 @@
 		<!-- Rubric -->
 		<div v-if="rubric && rubric.length > 0" class="rubric">
 			<h4>{{ rubricTitle }}</h4>
+			<div class="table-container">
 			<table class="table is-bordered">
 				<thead>
 					<tr>
@@ -45,6 +46,7 @@
 					</tr>
 				</tbody>
 			</table>
+			</div>
 		</div>
 
 		<!-- Optional Code Area -->

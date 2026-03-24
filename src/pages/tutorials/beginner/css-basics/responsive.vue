@@ -1506,6 +1506,7 @@ const navigationExample = ref(`/* Responsive Navigation */
 
 .units-table {
 	margin-bottom: 1rem;
+	overflow-x: auto;
 }
 
 .units-table table {

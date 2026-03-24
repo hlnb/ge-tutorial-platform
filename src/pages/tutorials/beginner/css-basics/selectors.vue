@@ -1607,6 +1607,12 @@ footer {}
 	padding: 1rem;
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	overflow-x: auto;
+}
+
+.css-rule-diagram svg {
+	max-width: 100%;
+	height: auto;
 }
 
 pre {
@@ -1643,6 +1649,7 @@ code {
 .specificity-diagram {
 	text-align: center;
 	padding: 2rem;
+	overflow-x: auto;
 }
 
 .specificity-diagram svg {

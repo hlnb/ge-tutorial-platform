@@ -1163,6 +1163,12 @@ border: 10px solid black;
 	background: white;
 	padding: 1rem;
 	border-radius: 8px;
+	overflow-x: auto;
+}
+
+.box-model-diagram svg {
+	max-width: 100%;
+	height: auto;
 }
 
 .layer-label {

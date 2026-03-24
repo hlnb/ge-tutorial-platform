@@ -249,6 +249,7 @@
 			<h2 id="shortcuts" class="title is-3 mt-6">Common Emmet Shortcuts</h2>
 		<div class="box">
 			<div class="content">
+				<div class="table-container">
 				<table class="table is-fullwidth">
 					<thead>
 						<tr>
@@ -285,6 +286,7 @@
 						</tr>
 					</tbody>
 				</table>
+				</div>
 			</div>
 		</div>
 

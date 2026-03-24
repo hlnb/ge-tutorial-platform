@@ -1146,6 +1146,7 @@ const rottoContentStyles = ref(`/* Content sections */
 				</div>
 				<div id="font-categories" class="font-table mt-4">
 					<h5 class="title is-5">Common Web Safe Fonts by Category</h5>
+					<div class="table-container">
 					<table class="table is-fullwidth">
 						<thead>
 							<tr>
@@ -1188,6 +1189,7 @@ const rottoContentStyles = ref(`/* Content sections */
 							</tr>
 						</tbody>
 					</table>
+					</div>
 				</div>
 
 				<div class="notification is-warning is-light mt-4">
@@ -1224,6 +1226,7 @@ const rottoContentStyles = ref(`/* Content sections */
 									with specific browser support and use cases:
 								</p>
 
+								<div class="table-container">
 								<table class="table is-fullwidth">
 									<thead>
 										<tr>
@@ -1259,6 +1262,7 @@ const rottoContentStyles = ref(`/* Content sections */
 										</tr>
 									</tbody>
 								</table>
+								</div>
 
 								<div class="code-example mt-4">
 									<h5 class="title is-6">Using @font-face</h5>

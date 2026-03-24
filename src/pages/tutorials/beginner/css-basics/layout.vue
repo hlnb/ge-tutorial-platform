@@ -1496,6 +1496,7 @@ const clearExample = ref(`/* Clear example */
 	padding: 1.5rem;
 	border-radius: 8px;
 	margin-top: 1.5rem;
+	overflow-x: auto;
 }
 
 .demo {
@@ -1663,6 +1664,12 @@ const clearExample = ref(`/* Clear example */
 	margin: 2rem 0;
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	overflow-x: auto;
+}
+
+.positioning-diagram svg {
+	max-width: 100%;
+	height: auto;
 }
 
 .diagram-group text {
@@ -1671,6 +1678,8 @@ const clearExample = ref(`/* Clear example */
 }
 
 .example-container svg {
+	max-width: 100%;
+	height: auto;
 	background: white;
 	border-radius: 4px;
 	margin: 1rem 0;
