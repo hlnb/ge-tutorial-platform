@@ -66,7 +66,7 @@
 		</div>
 
 		<div class="box">
-			<h2 class="title is-3">
+			<h2 id="introduction" class="title is-3">
 				<i class="fas fa-code"></i> Editors with Built-in Emmet Support
 			</h2>
 			<div class="content">
@@ -167,7 +167,7 @@
 		</div>
 
 		<div class="box">
-			<h2 class="title is-3">
+			<h2 id="cheat-sheet" class="title is-3">
 				<i class="fas fa-download"></i> Get the Cheat Sheet
 			</h2>
 			<div class="content">
@@ -195,7 +195,7 @@
 			</div>
 		</div>
 
-		<h2 class="title is-3">Basic Emmet Syntax</h2>
+			<h2 id="basic-syntax" class="title is-3">Basic Emmet Syntax</h2>
 		<p>
 			Emmet allows you to create HTML elements quickly by typing a single
 			abbreviation and pressing <kbd>Tab</kbd>. Please use your editor's Emmet
@@ -223,7 +223,7 @@
 			</div>
 		</div>
 
-		<h2 class="title is-3 mt-6">Nested Elements</h2>
+			<h2 id="nesting-operators" class="title is-3 mt-6">Nested Elements</h2>
 		<div class="box">
 			<h4 class="title is-4">Child Elements</h4>
 			<div class="codemirror-wrapper">
@@ -246,7 +246,7 @@
 			</div>
 		</div>
 
-		<h2 class="title is-3 mt-6">Common Emmet Shortcuts</h2>
+			<h2 id="shortcuts" class="title is-3 mt-6">Common Emmet Shortcuts</h2>
 		<div class="box">
 			<div class="content">
 				<table class="table is-fullwidth">
@@ -288,7 +288,7 @@
 			</div>
 		</div>
 
-		<h2 class="title is-3 mt-6">Practice Examples</h2>
+			<h2 id="practice" class="title is-3 mt-6">Practice Examples</h2>
 		<div class="box">
 			<h4 class="title is-4">Try These Emmet Expressions:</h4>
 			<div class="content">
@@ -383,75 +383,9 @@
                   tutorial-path="/tutorials/beginner/html-basics/html-emmet"
                 />
 
-		<!-- Completion Section -->
-		<div class="completion-section mt-6">
-			<h2 class="title is-3">
-				<i class="fas fa-graduation-cap"></i> HTML Basics Series Complete!
-			</h2>
-			<div class="content">
-				<p>
-					Congratulations! You've completed the entire HTML Basics tutorial series. 
-					You now have a solid foundation in HTML and are ready to move on to CSS!
-				</p>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-emmet" />
 
-				<div class="box has-background-success-light mt-4">
-					<h3 class="title is-4">
-						<i class="fas fa-trophy mr-2"></i> What You've Accomplished
-					</h3>
-					<ul>
-						<li><strong>8 tutorials completed</strong> covering all fundamental HTML concepts</li>
-						<li>Learned to create <strong>semantic, accessible HTML</strong></li>
-						<li>Built two complete projects: <strong>Black Swan Bistro</strong> and <strong>Rotto Rocks</strong></li>
-						<li>Mastered the <strong>Emmet workflow</strong> for faster development</li>
-					</ul>
-				</div>
-
-				<div class="box mt-4">
-					<h3 class="title is-4">
-						<i class="fas fa-external-link-alt mr-2"></i> Review Your Project Work
-					</h3>
-					<p class="mb-3">
-						Take a look at the complete HTML reference versions to see how all the concepts
-						you learned come together:
-					</p>
-					<div class="buttons">
-						<a href="/projects/html-basics/black-swan-bistro/index.html" target="_blank" class="button is-primary">
-							<span class="icon"><i class="fas fa-utensils"></i></span>
-							<span>Black Swan Bistro - Complete HTML</span>
-						</a>
-						<a href="/projects/html-basics/rotto-rocks/index.html" target="_blank" class="button is-link">
-							<span class="icon"><i class="fas fa-island-tropical"></i></span>
-							<span>Rotto Rocks - Complete HTML</span>
-						</a>
-					</div>
-					<p class="is-size-7 mt-2">
-						<em>Compare your work with these reference implementations to reinforce your learning!</em>
-					</p>
-				</div>
-
-				<div class="notification is-info mt-4">
-					<h3 class="title is-5">
-						<i class="fas fa-forward mr-2"></i> Next Steps: CSS Basics
-					</h3>
-					<p>
-						Now that you have solid HTML foundation, it's time to learn CSS to make
-						your websites beautiful! In the CSS Basics series, you'll style both
-						projects and transform them from plain HTML into visually stunning sites.
-					</p>
-					<router-link to="/tutorials/beginner/css-basics" class="button is-info mt-3">
-						<span class="icon"><i class="fab fa-css3-alt"></i></span>
-						<span>Start CSS Basics</span>
-					</router-link>
-				</div>
-
-				<div class="buttons mt-4">
-					<router-link to="/tutorials" class="button is-light">
-						<i class="fas fa-arrow-left mr-2"></i>
-						Back to All Tutorials
-					</router-link>
-				</div>
-			</div>
-		</div>
 		</div>
 	</div>
 </template>
@@ -465,6 +399,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const checkpointQuestions = [
 	{
@@ -536,49 +471,36 @@ if (pageSections) {
 	pageSections.value = [
 		{
 			id: 'introduction',
-			title: 'Introduction to Emmet',
+			title: 'Editors with Emmet Support',
 			subsections: [],
 		},
-			{
-				id: 'basic-syntax',
-				title: 'Basic Emmet Syntax',
-				subsections: [],
-			},
-			{
-				id: 'nesting-operators',
-				title: 'Nesting Operators',
-				subsections: [
-					{ id: 'child-operator', title: 'Child Operator (>)' },
-					{ id: 'sibling-operator', title: 'Sibling Operator (+)' },
-					{ id: 'climb-up-operator', title: 'Climb-up Operator (^)' },
-					{
-						id: 'multiplication-operator',
-						title: 'Multiplication Operator (*)',
-					},
-				],
-			},
-			{
-				id: 'attributes-ids-classes',
-				title: 'Attributes, IDs, and Classes',
-				subsections: [],
-			},
-			{
-				id: 'text-content',
-				title: 'Text Content',
-				subsections: [],
-			},
-			{
-				id: 'practice',
-				title: 'Practice Exercise',
-				subsections: [],
-			},
-			{
-				id: 'cheat-sheet',
-				title: 'Emmet Cheat Sheet',
-				subsections: [],
-			},
-		];
-	}
+		{
+			id: 'cheat-sheet',
+			title: 'Get the Cheat Sheet',
+			subsections: [],
+		},
+		{
+			id: 'basic-syntax',
+			title: 'Basic Emmet Syntax',
+			subsections: [],
+		},
+		{
+			id: 'nesting-operators',
+			title: 'Nested Elements',
+			subsections: [],
+		},
+		{
+			id: 'shortcuts',
+			title: 'Common Emmet Shortcuts',
+			subsections: [],
+		},
+		{
+			id: 'practice',
+			title: 'Practice Examples',
+			subsections: [],
+		},
+	];
+}
 
 const basicExample = ref(`<!-- Type 'div' and press Tab -->
 <div></div>

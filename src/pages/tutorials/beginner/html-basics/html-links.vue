@@ -637,22 +637,15 @@
                   tutorial-path="/tutorials/beginner/html-basics/html-links"
                 />
 
-		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 class="title is-3">
-				<i class="fas fa-check-circle"></i> Congratulations!
-			</h2>
-			<p>
-				You've completed the tutorial on HTML Links and Navigation. Well done!
-			</p>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-links" />
+
 		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, inject } from 'vue';
-import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
@@ -661,6 +654,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const checkpointQuestions = [
 	{
@@ -726,38 +720,42 @@ onMounted(() => {
 	if (pageSections) {
 		pageSections.value = [
 			{
-				id: 'introduction',
+				id: 'what-makes-the-web-a-web',
 				title: 'Introduction to HTML Links',
 				subsections: [],
 			},
 			{
-				id: 'basic-link-syntax',
-				title: 'Basic Link Syntax',
+				id: 'understanding-links',
+				title: 'Understanding Links',
 				subsections: [],
 			},
 			{
-				id: 'link-attributes',
-				title: 'Link Attributes',
-				subsections: [
-					{ id: 'target-attribute', title: 'Target Attribute' },
-					{ id: 'rel-attribute', title: 'Rel Attribute' },
-				],
-			},
-			{
-				id: 'internal-links',
-				title: 'Internal Links',
-				subsections: [
-					{ id: 'page-sections', title: 'Linking to Page Sections' },
-					{ id: 'other-pages', title: 'Linking to Other Pages' },
-				],
-			},
-			{
-				id: 'email-links',
-				title: 'Email Links',
+				id: 'types-of-links',
+				title: 'Types of Links',
 				subsections: [],
 			},
 			{
-				id: 'practice',
+				id: 'accessible-links',
+				title: 'Accessible Links',
+				subsections: [],
+			},
+			{
+				id: 'link-states-and-styling',
+				title: 'Link States and Styling',
+				subsections: [],
+			},
+			{
+				id: 'link-types-and-attributes',
+				title: 'Link Types and Attributes',
+				subsections: [],
+			},
+			{
+				id: 'navigation-structures',
+				title: 'Navigation Structures',
+				subsections: [],
+			},
+			{
+				id: 'your-task',
 				title: 'Practice Exercise',
 				subsections: [],
 			},
@@ -791,10 +789,6 @@ const sanitizedPracticePreview = computed(() =>
 	DOMPurify.sanitize(practiceCode.value),
 );
 
-// Progress tracking flag (used in template)
-const progressEnabled = computed(() =>
-	progressService.isProgressTrackingEnabled(),
-);
 
 const internalLinks = ref(
 	`<!-- Basic internal link -->

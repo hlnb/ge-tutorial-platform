@@ -238,125 +238,7 @@ Best time to visit: September to May</pre
 		next-steps="<p>In the next lesson, <strong>Working with Text</strong>, you'll learn how to format text with bold, italics, emphasis, and more. You'll make your content not just structured, but styled for impact!</p>"
 	/>
 
-			:questions="quizQuestions"
-			:tutorial-path="route.path"
-			@quiz-completed="handleQuizCompleted"
-		/>
 
-		<!-- Tutorial Completion Section -->
-		<div class="completion-section mt-6 mb-6">
-			<h2 class="title is-3">
-				<i class="fas fa-trophy"></i> Tutorial Complete!
-			</h2>
-			<p>
-				Congratulations on completing this tutorial! You've learned how to
-				create your first HTML page and built a simple restaurant website.
-			</p>
-
-			<div v-if="!progressEnabled" class="mt-4">
-				<p class="has-text-warning">
-					<i class="fas fa-exclamation-triangle"></i>
-					Progress tracking is disabled. Enable it to track your completed
-					tutorials.
-				</p>
-				<button class="button is-primary mt-2" @click="openCookieSettings">
-					Enable Progress Tracking
-				</button>
-			</div>
-
-			<div v-else-if="isCompleted" class="mt-4">
-				<p class="has-text-success">
-					<i class="fas fa-check-circle"></i>
-					You've marked this tutorial as completed!
-				</p>
-				<button class="button is-light mt-2" @click="markAsIncomplete">
-					Mark as Incomplete
-				</button>
-			</div>
-
-			<div v-else class="mt-4">
-				<p>
-					Don't forget to mark this tutorial as completed to track your
-					progress.
-				</p>
-				<button class="button is-primary mt-2" @click="markAsCompleted">
-					Mark as Completed
-				</button>
-			</div>
-		</div>
-
-		<!-- Cookie Settings Modal -->
-		<div class="modal" :class="{ 'is-active': showCookieSettings }">
-			<div class="modal-background" @click="showCookieSettings = false"></div>
-			<div class="modal-card">
-				<header class="modal-card-head">
-					<p class="modal-card-title">Cookie Settings</p>
-					<button
-						class="delete"
-						aria-label="close"
-						@click="showCookieSettings = false"
-					></button>
-				</header>
-				<section class="modal-card-body">
-					<div class="cookie-settings">
-						<div class="cookie-setting-item">
-							<div class="cookie-setting-header">
-								<label class="checkbox">
-									<input
-										v-model="cookieSettings.essential"
-										type="checkbox"
-										disabled
-									/>
-									<span>Essential Cookies</span>
-								</label>
-								<span class="tag is-info is-light">Required</span>
-							</div>
-							<p class="cookie-setting-description">
-								These cookies are necessary for the website to function and
-								cannot be switched off.
-							</p>
-						</div>
-
-						<div class="cookie-setting-item">
-							<div class="cookie-setting-header">
-								<label class="checkbox">
-									<input v-model="cookieSettings.progress" type="checkbox" />
-									<span>Progress Tracking</span>
-								</label>
-								<span class="tag is-success is-light">Recommended</span>
-							</div>
-							<p class="cookie-setting-description">
-								These cookies allow us to track your progress through tutorials
-								and remember where you left off.
-							</p>
-						</div>
-
-						<div class="cookie-setting-item">
-							<div class="cookie-setting-header">
-								<label class="checkbox">
-									<input v-model="cookieSettings.preferences" type="checkbox" />
-									<span>Preferences</span>
-								</label>
-							</div>
-							<p class="cookie-setting-description">
-								These cookies allow us to remember your preferences and
-								settings.
-							</p>
-						</div>
-					</div>
-				</section>
-				<footer class="modal-card-foot">
-					<button class="button is-primary" @click="saveCookieSettings">
-						Save Settings
-					</button>
-					<button class="button" @click="showCookieSettings = false">
-						Cancel
-					</button>
-				</footer>
-			</div>
-		</div>
-
-		<!-- Add this at the end of the template, before the completion section -->
 
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-first-page'" />
@@ -365,19 +247,20 @@ Best time to visit: September to May</pre
                   tutorial-path="/tutorials/beginner/html-basics/html-first-page"
                 />
 
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-first-page" />
+
 		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, inject } from 'vue';
-import { useRoute } from 'vue-router';
-import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
-import QuizComponent from '@/components/QuizComponent.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
@@ -467,8 +350,7 @@ onMounted(() => {
 	}
 
 	// Load cookie settings and check completion status
-	loadCookieSettings();
-	checkCompletionStatus();
+
 });
 
 const basicTemplate = ref(`<!DOCTYPE html>
@@ -546,144 +428,8 @@ const updateExercisePreview = () => {
 	// Preview updates automatically through computed property
 };
 
-const route = useRoute();
-const isCompleted = ref(false);
-const progressEnabled = computed(() =>
-	progressService.isProgressTrackingEnabled(),
-);
-const showCookieSettings = ref(false);
-const cookieSettings = ref({
-	essential: true,
-	progress: true,
-	preferences: true,
-});
 
-// Check if tutorial is completed
-const checkCompletionStatus = () => {
-	if (!progressEnabled.value) return;
 
-	const progress = progressService.getProgress();
-	if (progress && progress.completedTutorials) {
-		isCompleted.value = progress.completedTutorials.includes(route.path);
-	}
-};
-
-// Mark tutorial as completed
-const markAsCompleted = () => {
-	if (!progressEnabled.value) {
-		openCookieSettings();
-		return;
-	}
-
-	progressService.markTutorialCompleted(route.path);
-	isCompleted.value = true;
-};
-
-// Mark tutorial as incomplete
-const markAsIncomplete = () => {
-	if (!progressEnabled.value) return;
-
-	const progress = progressService.getProgress();
-	if (progress && progress.completedTutorials) {
-		// Remove from completed tutorials
-		const index = progress.completedTutorials.indexOf(route.path);
-		if (index > -1) {
-			progress.completedTutorials.splice(index, 1);
-			progressService.saveProgress(progress);
-			isCompleted.value = false;
-		}
-	}
-};
-
-// Open cookie settings
-const openCookieSettings = () => {
-	showCookieSettings.value = true;
-};
-
-// Save cookie settings
-const saveCookieSettings = () => {
-	localStorage.setItem('cookieSettings', JSON.stringify(cookieSettings.value));
-	showCookieSettings.value = false;
-
-	// Check completion status after settings are saved
-	checkCompletionStatus();
-};
-
-// Load cookie settings
-const loadCookieSettings = () => {
-	try {
-		const storedSettings = JSON.parse(localStorage.getItem('cookieSettings'));
-		if (storedSettings) {
-			cookieSettings.value = { ...cookieSettings.value, ...storedSettings };
-		}
-	} catch (e) {
-		console.error('Error loading cookie settings', e);
-	}
-};
-
-// Quiz questions
-const quizQuestions = [
-	{
-		text: 'What does the <!DOCTYPE html> declaration do?',
-		options: [
-			'Creates an HTML document',
-			'Tells browsers this is an HTML5 document',
-			'Defines the document title',
-			'Creates the root element',
-		],
-		correctAnswer: 1,
-		explanation:
-			'The <!DOCTYPE html> declaration tells browsers that this document is using HTML5, which helps them render the page correctly.',
-	},
-	{
-		text: 'Which element is the root element of an HTML page?',
-		options: ['<body>', '<head>', '<html>', '<main>'],
-		correctAnswer: 2,
-		explanation:
-			'The <html> element is the root element that contains all other elements on the page.',
-	},
-	{
-		text: 'Where should the charset meta tag be placed in an HTML document?',
-		options: [
-			'Anywhere in the <head> section',
-			'As the first element in the <head> section',
-			'In the <body> section',
-			'After the title tag',
-		],
-		correctAnswer: 1,
-		explanation:
-			'The charset meta tag should be the first element in the <head> section to ensure proper character encoding.',
-	},
-	{
-		text: 'What is the purpose of the viewport meta tag?',
-		options: [
-			'To set the page title',
-			'To define the character encoding',
-			'To help with mobile responsiveness',
-			'To link to external stylesheets',
-		],
-		correctAnswer: 2,
-		explanation:
-			'The viewport meta tag is crucial for responsive design on mobile devices, helping to control how the page is displayed on different screen sizes.',
-	},
-	{
-		text: 'Which tag is used for line breaks in HTML?',
-		options: ['<lb>', '<break>', '<nl>', '<br>'],
-		correctAnswer: 3,
-		explanation: 'The <br> tag is used to create a line break in HTML content.',
-	},
-];
-
-// Handle quiz completion
-const handleQuizCompleted = (result) => {
-	console.log(
-		'Quiz completed with score:',
-		result.score,
-		'out of',
-		result.total,
-	);
-	// You can add additional logic here if needed
-};
 </script>
 
 <script>

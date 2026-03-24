@@ -57,7 +57,7 @@
 
 		<CodingOptions filename="form.html" />
 
-		<h2 class="title is-3">Basic Form Structure</h2>
+		<h2 id="form-basics" class="title is-3">Basic Form Structure</h2>
 		<p>
 			Forms are used to collect user input. Let's start with a basic form
 			structure:
@@ -83,7 +83,7 @@
 			></div>
 		</div>
 
-		<h2 class="title is-3 mt-6">Common Input Types</h2>
+		<h2 id="input-types" class="title is-3 mt-6">Common Input Types</h2>
 		<p>
 			HTML5 provides many specialized input types for different kinds of data:
 		</p>
@@ -116,7 +116,7 @@
 			</p>
 		</div>
 
-		<h2 class="title is-3 mt-6">Select Menus and Radio Buttons</h2>
+		<h2 id="select-menus" class="title is-3 mt-6">Select Menus and Radio Buttons</h2>
 		<p>For options and choices, use select menus and radio buttons:</p>
 
 		<div class="box">
@@ -139,7 +139,7 @@
 			></div>
 		</div>
 
-		<h2 class="title is-3 mt-6">Form Validation</h2>
+		<h2 id="form-validation" class="title is-3 mt-6">Form Validation</h2>
 		<p>HTML5 provides built-in form validation features:</p>
 
 		<div class="box">
@@ -162,7 +162,7 @@
 			></div>
 		</div>
 
-		<h2 class="title is-3 mt-6">Form Accessibility</h2>
+		<h2 id="form-accessibility" class="title is-3 mt-6">Form Accessibility</h2>
 		<div class="box">
 			<h3 class="title is-4">Best Practices:</h3>
 			<ul>
@@ -213,7 +213,7 @@
 			</div>
 		</div>
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="practice" class="title is-3">
 				<i class="fas fa-laptop-code"></i> Practice Exercise
 			</h2>
 			<p>
@@ -366,45 +366,15 @@
                   tutorial-path="/tutorials/beginner/html-basics/html-forms"
                 />
 
-		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 class="title is-3"><i class="fas fa-check-circle"></i> Completion</h2>
-			<p>Congratulations! You've completed the HTML Forms tutorial.</p>
-			<div class="notification is-success is-light">
-				<p>
-					<strong>Next Steps:</strong>
-					<br />
-					Keep practicing to master HTML forms.
-				</p>
-			</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-forms" />
 
-			<div class="box has-background-warning-light mt-4">
-				<h3 class="title is-5">
-					<i class="fas fa-clipboard-list mr-2"></i> See Forms in Action
-				</h3>
-				<p class="mb-3">
-					Check out how forms are implemented in the complete projects. Both sites include 
-					fully functional forms using the concepts you just learned:
-				</p>
-				<div class="buttons">
-					<a href="/projects/html-basics/black-swan-bistro/index.html#contact" target="_blank" class="button is-primary is-small">
-						<span class="icon"><i class="fas fa-utensils"></i></span>
-						<span>Bistro Reservation Form</span>
-					</a>
-					<a href="/projects/html-basics/rotto-rocks/index.html#contact" target="_blank" class="button is-link is-small">
-						<span class="icon"><i class="fas fa-island-tropical"></i></span>
-						<span>Rotto Feedback Forms</span>
-					</a>
-				</div>
-			</div>
-		</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, inject } from 'vue';
-import progressService from '@/services/ProgressService';
 import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
 import CodeMirror from '@/components/CodeMirror.vue';
@@ -414,6 +384,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const checkpointQuestions = [
 	{
@@ -485,23 +456,15 @@ onMounted(() => {
 	if (pageSections) {
 		pageSections.value = [
 			{
-				id: 'introduction',
-				title: 'Introduction to HTML Forms',
-				subsections: [],
-			},
-			{
 				id: 'form-basics',
-				title: 'Form Basics',
+				title: 'Basic Form Structure',
 				subsections: [],
 			},
 			{
 				id: 'input-types',
-				title: 'Input Types',
+				title: 'Common Input Types',
 				subsections: [
-					{ id: 'text-inputs', title: 'Text Inputs' },
-					{ id: 'radio-checkboxes', title: 'Radio Buttons and Checkboxes' },
-					{ id: 'select-menus', title: 'Select Menus' },
-					{ id: 'other-inputs', title: 'Other Input Types' },
+					{ id: 'select-menus', title: 'Select Menus and Radio Buttons' },
 				],
 			},
 			{
@@ -510,8 +473,8 @@ onMounted(() => {
 				subsections: [],
 			},
 			{
-				id: 'form-styling',
-				title: 'Form Styling',
+				id: 'form-accessibility',
+				title: 'Form Accessibility',
 				subsections: [],
 			},
 			{
@@ -887,7 +850,6 @@ const rottoContactForm =
   <button type="submit">Send Inquiry</button>
 </form>`);
 
-const progressEnabled = ref(progressService.isProgressTrackingEnabled());
 </script>
 
 <script>

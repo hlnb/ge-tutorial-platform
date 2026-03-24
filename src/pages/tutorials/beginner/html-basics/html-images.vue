@@ -56,7 +56,7 @@
 		/>
 
 		<div class="box">
-			<h2 class="title is-3">Making Web Pages Visual</h2>
+			<h2 id="introduction" class="title is-3">Making Web Pages Visual</h2>
 			<p>
 				Images make web pages engaging and help convey information effectively.
 				They can be photos, illustrations, icons, or any other visual content.
@@ -74,7 +74,7 @@
 		<CodingOptions filename="images.html" class="mt-4" />
 
 		<div class="box mt-4">
-			<h2 class="title is-3">Adding Images to Your Page</h2>
+			<h2 id="basic-image-syntax" class="title is-3">Adding Images to Your Page</h2>
 			<p>
 				The <code>&lt;img&gt;</code> element is used to embed images. Unlike
 				most elements, it's self-closing and requires specific attributes:
@@ -85,7 +85,7 @@
 					<CodeMirror v-model="basicImage" :height="100" :readonly="true" />
 				</div>
 
-				<h3 class="title is-4 mt-5">Essential Image Attributes</h3>
+				<h3 id="image-attributes" class="title is-4 mt-5">Essential Image Attributes</h3>
 				<ul>
 					<li><code>src</code> - The source URL of your image (required)</li>
 					<li>
@@ -102,7 +102,7 @@
 			<h2 class="title is-3">Image Best Practices</h2>
 
 			<div class="content">
-				<h3 class="title is-4">1. Always Include Alt Text</h3>
+				<h3 id="alt-attribute" class="title is-4">1. Always Include Alt Text</h3>
 				<CodeMirror v-model="altTextExample" :height="150" :readonly="true" />
 				<p class="mt-3">Good alt text:</p>
 				<ul>
@@ -125,7 +125,7 @@
 		</div>
 
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="image-formats" class="title is-3">
 				<i class="fas fa-file-image section-icon"></i> Image Formats and
 				Optimization
 			</h2>
@@ -202,7 +202,7 @@
 		</div>
 
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="responsive-images" class="title is-3">
 				<i class="fas fa-mobile-alt section-icon"></i> Responsive Images
 			</h2>
 
@@ -454,7 +454,7 @@
 			</div>
 
 			<div class="box mt-6">
-				<h2 class="title is-3">
+				<h2 id="practice" class="title is-3">
 					<i class="fas fa-camera"></i> Practice Project: Rottnest Island
 					Gallery
 				</h2>
@@ -560,20 +560,15 @@
                   tutorial-path="/tutorials/beginner/html-basics/html-images"
                 />
 
-		<!-- Completion Section -->
-		<div v-if="progressEnabled" class="completion-section mt-6">
-			<h2 class="title is-3">
-				<i class="fas fa-check-circle"></i> Congratulations!
-			</h2>
-			<p>You've completed the tutorial on HTML Images. Great job!</p>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-images" />
+
 		</div>
 	</div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, inject } from 'vue';
-import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodingOptions from '@/components/CodingOptions.vue';
@@ -583,6 +578,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const checkpointQuestions = [
 	{
@@ -668,7 +664,6 @@ onMounted(() => {
 				title: 'Image Attributes',
 				subsections: [
 					{ id: 'alt-attribute', title: 'Alt Attribute' },
-					{ id: 'width-height', title: 'Width and Height' },
 				],
 			},
 			{
@@ -895,10 +890,6 @@ const backgroundImage = ref(
 </div>`,
 );
 
-// Progress tracking flag (used in template)
-const progressEnabled = computed(() =>
-	progressService.isProgressTrackingEnabled(),
-);
 </script>
 
 <script>

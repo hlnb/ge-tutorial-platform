@@ -5,7 +5,7 @@
 
 export const htmlBasicsQuizzes = {
 	// First Page quiz
-	'first-page': [
+	'html-first-page': [
 		{
 			text: 'What does HTML stand for?',
 			options: [
@@ -59,7 +59,7 @@ export const htmlBasicsQuizzes = {
 	],
 
 	// Text quiz
-	text: [
+	'html-text': [
 		{
 			text: 'Which HTML element is used for the largest heading?',
 			options: ['<h6>', '<heading>', '<h1>', '<head>'],
@@ -96,7 +96,7 @@ export const htmlBasicsQuizzes = {
 	],
 
 	// Links quiz
-	links: [
+	'html-links': [
 		{
 			text: 'What HTML element is used to create a hyperlink?',
 			options: ['<link>', '<a>', '<href>', '<hyperlink>'],
@@ -150,7 +150,7 @@ export const htmlBasicsQuizzes = {
 	],
 
 	// Images quiz
-	images: [
+	'html-images': [
 		{
 			text: 'Which HTML element is used to insert an image?',
 			options: ['<picture>', '<image>', '<img>', '<src>'],
@@ -192,7 +192,7 @@ export const htmlBasicsQuizzes = {
 	],
 
 	// Document Structure quiz
-	'doc-structure': [
+	'html-doc-structure': [
 		{
 			text: 'Which HTML element is used to create a section header?',
 			options: ['<section>', '<header>', '<head>', '<heading>'],
@@ -230,7 +230,7 @@ export const htmlBasicsQuizzes = {
 	],
 
 	// Forms quiz
-	forms: [
+	'html-forms': [
 		{
 			text: 'Which HTML element is used to create a form?',
 			options: ['<input>', '<form>', '<field>', '<formfield>'],

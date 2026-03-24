@@ -59,7 +59,7 @@
 
 		<!-- 2. Document Structure Diagram -->
 		<div class="box mt-6">
-			<h2 class="title is-3">Building a Proper HTML Document</h2>
+			<h2 id="introduction" class="title is-3">Building a Proper HTML Document</h2>
 			<p>
 				Every HTML page needs a proper structure to work correctly. Let's
 				visualize how different elements work together to create a complete
@@ -377,7 +377,7 @@
 
 		<!-- 4. Semantic HTML -->
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="semantic-elements" class="title is-3">
 				<i class="fas fa-puzzle-piece section-icon"></i> Semantic HTML
 			</h2>
 			<p>
@@ -416,7 +416,7 @@
 
 		<!-- 5. Common Page Layouts -->
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="common-layouts" class="title is-3">
 				<i class="fas fa-columns section-icon"></i> Common Page Layouts
 			</h2>
 
@@ -963,7 +963,7 @@
 
 		<!-- Add this section before the practice projects -->
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="common-mistakes" class="title is-3">
 				<i class="fas fa-exclamation-triangle section-icon"></i> Common Mistakes
 				to Avoid
 			</h2>
@@ -1129,7 +1129,7 @@ This is a new line
 
 		<!-- 6. Practice Projects -->
 		<div class="box mt-6">
-			<h2 class="title is-3">
+			<h2 id="practice" class="title is-3">
 				<i class="fas fa-utensils section-icon"></i> Project: Black Swan Bistro
 			</h2>
 			<p>
@@ -1282,16 +1282,8 @@ This is a new line
                   tutorial-path="/tutorials/beginner/html-basics/html-doc-structure"
                 />
 
-		<!-- Completion Section -->
-		<div class="completion-section mt-6">
-			<h2 class="title is-3">
-				<i class="fas fa-check-circle section-icon"></i> Congratulations!
-			</h2>
-			<p>
-				You've completed the HTML Document Structure tutorial. Keep practicing
-				and you'll continue to improve your skills.
-			</p>
-		</div>
+		<!-- Tutorial Completion -->
+		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-doc-structure" />
 
 		<TutorialNavigation class="mt-6" />
 		</div>
@@ -1308,6 +1300,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const checkpointQuestions = [
 	{
@@ -1387,35 +1380,27 @@ onMounted(() => {
 		pageSections.value = [
 			{
 				id: 'introduction',
-				title: 'Introduction to Document Structure',
+				title: 'Building a Proper HTML Document',
 				subsections: [],
 			},
 			{
 				id: 'semantic-elements',
-				title: 'Semantic HTML Elements',
-				subsections: [
-					{ id: 'header', title: 'Header Element' },
-					{ id: 'nav', title: 'Navigation Element' },
-					{ id: 'main', title: 'Main Element' },
-					{ id: 'section', title: 'Section Element' },
-					{ id: 'article', title: 'Article Element' },
-					{ id: 'aside', title: 'Aside Element' },
-					{ id: 'footer', title: 'Footer Element' },
-				],
+				title: 'Semantic HTML',
+				subsections: [],
 			},
 			{
-				id: 'document-outline',
-				title: 'Document Outline',
+				id: 'common-layouts',
+				title: 'Common Page Layouts',
+				subsections: [],
+			},
+			{
+				id: 'common-mistakes',
+				title: 'Common Mistakes to Avoid',
 				subsections: [],
 			},
 			{
 				id: 'practice',
 				title: 'Practice Exercise',
-				subsections: [],
-			},
-			{
-				id: 'next-steps',
-				title: 'Next Steps',
 				subsections: [],
 			},
 		];

@@ -261,16 +261,6 @@ Soups & Salads
 				</div>
 			</div>
 
-			<!-- Add this before the completion section -->
-			<!-- Quiz Section -->
-			<QuizComponent
-				title="Text Elements Quiz"
-				description="Test your understanding of HTML text elements and formatting."
-				:questions="quizQuestions"
-				:tutorial-path="route.path"
-				@quiz-completed="handleQuizCompleted"
-			/>
-
 			<!-- Tutorial Completion Section -->
 			<div class="box mt-6">
 				<h2 id="solutions" class="title is-3 mt-6">Exercise Solutions</h2>
@@ -345,7 +335,6 @@ Soups & Salads
 						</div>
 					</div>
 
-					Swan Bistro a
 					<div class="notification is-success is-light mt-4">
 						<p>
 							<strong>Pro Tip:</strong> Practice what you've learned by updating
@@ -376,6 +365,9 @@ Soups & Salads
           tutorial-path="/tutorials/beginner/html-basics/html-text"
         />
 
+	<!-- Tutorial Completion -->
+	<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-text" />
+
 	</div>
 </template>
 
@@ -386,15 +378,13 @@ import DOMPurify from 'dompurify';
 import { useHead } from '@vueuse/head';
 import CodingOptions from '@/components/CodingOptions.vue';
 import SolutionViewer from '@/components/SolutionViewer.vue';
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
-import QuizComponent from '@/components/QuizComponent.vue';
-import { useRoute } from 'vue-router';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const checkpointQuestions = [
 	{
@@ -469,7 +459,6 @@ onMounted(() => {
 	pageSections.value = [
 		{ id: 'concept', title: 'Concept Explanation' },
 		{ id: 'black-swan', title: 'Black Swan Bistro Exercise' },
-		{ id: 'rotto-rocks', title: 'Project: Rotto Rocks' },
 		{
 			id: 'solutions',
 			title: 'Example Solutions',
@@ -601,64 +590,6 @@ const explanation = ref(`
   <strong>Pro Tip:</strong> Notice how proper heading levels (h1 → h4) create a natural content hierarchy that's both visually appealing and great for accessibility.
 </div>
 `);
-
-// Quiz questions
-const quizQuestions = [
-	{
-		text: 'Which heading element has the largest font size by default?',
-		options: ['<h6>', '<h4>', '<h2>', '<h1>'],
-		correctAnswer: 3,
-		explanation:
-			'The <h1> element is the highest level heading and has the largest default font size.',
-	},
-	{
-		text: 'Which element is used to emphasize text with italics?',
-		options: ['<strong>', '<em>', '<i>', '<mark>'],
-		correctAnswer: 1,
-		explanation:
-			'The <em> element is used for emphasis and is typically displayed as italic text.',
-	},
-	{
-		text: 'What is the correct HTML element for creating an unordered list?',
-		options: ['<ol>', '<li>', '<ul>', '<list>'],
-		correctAnswer: 2,
-		explanation:
-			'The <ul> element creates an unordered list, while <li> is used for individual list items.',
-	},
-	{
-		text: 'Which element creates a horizontal rule (line) across the page?',
-		options: ['<line>', '<hr>', '<br>', '<divider>'],
-		correctAnswer: 1,
-		explanation:
-			'The <hr> element creates a horizontal rule or thematic break in an HTML page.',
-	},
-	{
-		text: 'What is the best practice for heading hierarchy?',
-		options: [
-			'Use headings based on their appearance',
-			'Skip heading levels for better design',
-			'Use multiple <h1> elements on a page',
-			'Follow a logical structure without skipping levels',
-		],
-		correctAnswer: 3,
-		explanation:
-			'For proper document structure and accessibility, headings should follow a logical hierarchy without skipping levels.',
-	},
-];
-
-// Add the useRoute import and route constant
-const route = useRoute();
-
-// Handle quiz completion
-const handleQuizCompleted = (result) => {
-	console.log(
-		'Quiz completed with score:',
-		result.score,
-		'out of',
-		result.total,
-	);
-	// You can add additional logic here if needed
-};
 </script>
 
 <style scoped>
