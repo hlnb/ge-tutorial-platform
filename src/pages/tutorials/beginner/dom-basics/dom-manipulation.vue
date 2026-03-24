@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="tutorial-content">
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>

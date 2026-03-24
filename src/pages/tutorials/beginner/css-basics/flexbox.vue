@@ -329,7 +329,7 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 
 <template>
 	<div class="container section">
-		<div class="content tutorial-content">
+		<div class="tutorial-content">
 			<nav class="breadcrumb" aria-label="breadcrumbs">
 				<ul>
 					<li>
