@@ -165,7 +165,7 @@ const tutorialRecommendations = {
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/beginner/css-basics/text-properties',
+					path: '/tutorials/beginner/css-basics/text',
 					title: 'CSS Text Properties',
 				},
 			],
@@ -311,7 +311,7 @@ const tutorialRecommendations = {
 		},
 		'html-emmet': {
 			nextTutorial: {
-				path: '/tutorials/css-basics',
+				path: '/tutorials/beginner/css-basics',
 				title: 'CSS Basics Introduction',
 			},
 			relatedTutorials: [
@@ -411,8 +411,8 @@ const tutorialRecommendations = {
 		},
 		'box-model': {
 			nextTutorial: {
-				path: '/tutorials/beginner/css-basics/layout',
-				title: 'CSS Layout',
+				path: '/tutorials/beginner/css-basics/text',
+				title: 'Text Properties',
 			},
 			relatedTutorials: [
 				{
@@ -444,8 +444,8 @@ const tutorialRecommendations = {
 		},
 		'layout': {
 			nextTutorial: {
-				path: '/tutorials/beginner/css-basics/typography',
-				title: 'Typography',
+				path: '/tutorials/beginner/css-basics/colors',
+				title: 'Working with Colors',
 			},
 			relatedTutorials: [
 				{
@@ -475,15 +475,15 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		'typography': {
+		'text': {
 			nextTutorial: {
-				path: '/tutorials/beginner/css-basics/colors',
-				title: 'Colors & Backgrounds',
+				path: '/tutorials/beginner/css-basics/layout',
+				title: 'Layout Basics',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/beginner/css-basics/layout',
-					title: 'CSS Layout',
+					path: '/tutorials/beginner/css-basics/box-model',
+					title: 'CSS Box Model',
 				},
 			],
 			practiceProjects: [
@@ -504,13 +504,13 @@ const tutorialRecommendations = {
 		},
 		'colors': {
 			nextTutorial: {
-				path: '/tutorials/beginner/css-basics/animations',
-				title: 'Animations & Transitions',
+				path: '/tutorials/beginner/css-basics/modern',
+				title: 'Modern CSS',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/beginner/css-basics/typography',
-					title: 'Typography',
+					path: '/tutorials/beginner/css-basics/layout',
+					title: 'Layout Basics',
 				},
 			],
 			practiceProjects: [
@@ -529,7 +529,7 @@ const tutorialRecommendations = {
 				},
 			],
 		},
-		'animations': {
+		'modern': {
 			nextTutorial: {
 				path: '/tutorials/beginner/css-basics/responsive',
 				title: 'Responsive Design',
@@ -537,7 +537,7 @@ const tutorialRecommendations = {
 			relatedTutorials: [
 				{
 					path: '/tutorials/beginner/css-basics/colors',
-					title: 'Colors & Backgrounds',
+					title: 'Working with Colors',
 				},
 			],
 			practiceProjects: [
@@ -564,13 +564,13 @@ const tutorialRecommendations = {
 		},
 		'responsive': {
 			nextTutorial: {
-				path: '/tutorials/beginner/css-basics/frameworks',
-				title: 'CSS Frameworks',
+				path: '/tutorials/beginner/css-basics/flexbox',
+				title: 'Flexbox Basics',
 			},
 			relatedTutorials: [
 				{
-					path: '/tutorials/beginner/css-basics/animations',
-					title: 'Animations & Transitions',
+					path: '/tutorials/beginner/css-basics/modern',
+					title: 'Modern CSS',
 				},
 			],
 			practiceProjects: [
@@ -592,6 +592,33 @@ const tutorialRecommendations = {
 					title: 'MDN: Responsive design',
 					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design',
 					description: 'Guide to responsive design',
+				},
+			],
+		},
+		'flexbox': {
+			nextTutorial: {
+				path: '/tutorials/beginner/javascript-basics',
+				title: 'JavaScript Basics',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/beginner/css-basics/responsive',
+					title: 'Responsive Design',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'Flexbox Layout Challenge',
+					description: 'Practice Flexbox alignment and distribution techniques',
+					tags: ['CSS', 'Flexbox', 'Layout'],
+					path: '/projects/flexbox-challenge',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Flexbox',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox',
+					description: 'Guide to CSS Flexbox layout',
 				},
 			],
 		},
@@ -769,8 +796,8 @@ const tutorialRecommendations = {
 		},
 		'functions': {
 			nextTutorial: {
-				path: '/tutorials/beginner/dom-basics/introduction',
-				title: 'DOM Basics: Introduction',
+				path: '/tutorials/beginner/dom-basics',
+				title: 'DOM Basics',
 			},
 			relatedTutorials: [
 				{
@@ -823,6 +850,10 @@ const tutorialRecommendations = {
 	},
 	'dom-basics': {
 		'introduction': {
+			nextTutorial: {
+				path: '/tutorials/beginner/dom-basics/arrays',
+				title: 'Arrays and Methods'
+			},
 			relatedTutorials: [
 				{
 					path: '/tutorials/beginner/javascript-basics/introduction',

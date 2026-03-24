@@ -12,22 +12,17 @@
 				</span>
 			</div>
 			<p class="knowledge-copy">
-				Strengthen your understanding of {{ tutorialTitle || 'this lesson' }} by previewing the
-				core concepts that show up on the quiz.
+				Strengthen your understanding of {{ tutorialTitle || 'this lesson' }} by answering
+				the quiz below.
 			</p>
-			<ul v-if="sampleQuestions.length" class="sample-questions">
-				<li v-for="(question, index) in sampleQuestions" :key="index">
-					<i class="fas fa-check-circle"></i>
-					<span>{{ question }}</span>
-				</li>
-			</ul>
-		</div>
 
-		<TutorialQuiz
-			:title="quizTitle"
-			:description="quizDescription"
-			:tutorial-path="tutorialPath"
-		/>
+			<TutorialQuiz
+				:title="quizTitle"
+				:description="quizDescription"
+				:tutorial-path="tutorialPath"
+				hide-header
+			/>
+		</div>
 	</section>
 </template>
 
@@ -49,9 +44,6 @@ const props = defineProps({
 
 const questions = computed(() => getQuizQuestionsForPath(props.tutorialPath) || []);
 const questionCount = computed(() => questions.value.length);
-const sampleQuestions = computed(() =>
-	questions.value.slice(0, 3).map((question) => question.question)
-);
 const tutorialTitle = computed(() => getTutorialTitle(props.tutorialPath));
 
 const quizTitle = computed(() => {

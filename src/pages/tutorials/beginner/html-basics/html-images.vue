@@ -556,8 +556,9 @@
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-images'" />
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-images"
+                />
 
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">
@@ -576,7 +577,7 @@ import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import CodingOptions from '@/components/CodingOptions.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';

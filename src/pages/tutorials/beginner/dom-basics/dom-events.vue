@@ -1057,6 +1057,15 @@ touchDemo?.addEventListener('touchstart', (e) => {
         </div>
       </section>
 
+      <!-- Hunter Element: Closure -->
+      <ClosureSection
+        :key-takeaways="closureKeyTakeaways"
+        :objectives="closureObjectives"
+        :reflection-prompts="closureReflectionPrompts"
+        real-world-application="<p>Every interactive feature on the web — button clicks, drag-and-drop, infinite scroll, keyboard shortcuts — is powered by event handling. Understanding how events propagate, how to delegate listeners, and how to prevent default behaviour gives you the control to build polished, accessible user interfaces.</p>"
+        next-steps="<p>Congratulations — you've completed the DOM Basics series! You now have the skills to select elements, manipulate content, and respond to user actions. Consider revisiting the practice projects or exploring more advanced topics like asynchronous JavaScript and API integration.</p>"
+      />
+
       <section id="next-steps">
         <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/dom-events'" />
       </section>
@@ -1075,7 +1084,45 @@ import { usePageSections } from '@/composables/usePageSections'
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue'
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue'
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
+import ClosureSection from '@/components/hunter/ClosureSection.vue'
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
+
+const closureKeyTakeaways = [
+  'addEventListener attaches behaviour without overwriting existing handlers',
+  'Events bubble up from the target through ancestor elements by default',
+  'Event delegation lets you handle events on dynamically created children via a single parent listener',
+  'preventDefault() stops default browser actions like form submission or link navigation',
+  'stopPropagation() prevents an event from reaching ancestor handlers when needed',
+]
+
+const closureObjectives = [
+  'Attach and remove event listeners using addEventListener and removeEventListener',
+  'Explain event bubbling, capturing, and the target vs currentTarget distinction',
+  'Implement event delegation to handle clicks on dynamic lists',
+  'Use preventDefault and stopPropagation appropriately',
+  'Build interactive form validation using keyboard, focus, and submit events',
+]
+
+const closureReflectionPrompts = [
+  {
+    icon: 'fas fa-bullseye',
+    title: 'Event Flow',
+    questions: [
+      'How does event bubbling help you write fewer event listeners?',
+      'When would you use the capture phase instead of the default bubble phase?',
+    ],
+    content: 'Understanding how events travel through the DOM tree lets you choose the most efficient place to listen, reducing code duplication and improving performance.',
+  },
+  {
+    icon: 'fas fa-tasks',
+    title: 'Delegation & Performance',
+    questions: [
+      'Why is attaching one listener to a parent often better than one per child?',
+      'What challenges does event delegation introduce for elements added or removed later?',
+    ],
+    content: 'Event delegation is a key pattern in every production codebase. It scales cleanly with dynamic content and minimises memory usage from excess listeners.',
+  },
+]
 
 const anticipatorySet = {
   title: '🎛️ Running the Control Booth',
@@ -1803,22 +1850,6 @@ section {
   padding: 20px;
   border-radius: 8px;
   margin: 20px 0;
-}
-
-.tutorial-recommendations {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.recommendation-card {
-  text-decoration: none;
-  color: inherit;
-  background-color: #f5f5f5;
-  padding: 20px;
-  border-radius: 8px;
-  transition: transform 0.2s;
 }
 
 .recommendation-card:hover {

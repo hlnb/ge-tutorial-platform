@@ -234,6 +234,15 @@ document
         :tips="domIntroCheckpoint.tips"
       />
 
+      <!-- Hunter Element: Closure -->
+      <ClosureSection
+        :key-takeaways="closureKeyTakeaways"
+        :objectives="closureObjectives"
+        :reflection-prompts="closureReflectionPrompts"
+        real-world-application="<p>The DOM is the backbone of every interactive website. Whether you're building a simple contact form or a complex single-page application, understanding how the browser represents your HTML as a tree of objects is essential. Every framework — React, Vue, Angular — ultimately works by manipulating the DOM on your behalf.</p>"
+        next-steps="<p>Now that you understand the DOM's structure and how JavaScript can access it, you're ready to learn about arrays and array methods. In the next lesson, you'll discover how to work with collections of DOM elements efficiently.</p>"
+      />
+
       <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/introduction'" />
 
       <TestYourKnowledgeSection
@@ -288,7 +297,45 @@ import { usePageSections } from '@/composables/usePageSections'
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue'
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue'
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
+import ClosureSection from '@/components/hunter/ClosureSection.vue'
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
+
+const closureKeyTakeaways = [
+  'The DOM is a tree-like representation of an HTML document that JavaScript can read and modify',
+  'Every HTML element becomes a node (object) in the DOM tree',
+  'JavaScript uses methods like getElementById and querySelector to access DOM nodes',
+  'Changes to the DOM are reflected immediately in the browser without a page reload',
+  'Understanding the DOM is the foundation for building any interactive web application',
+]
+
+const closureObjectives = [
+  'Explain what the DOM is and how it relates to HTML',
+  'Describe the parent-child-sibling relationships in the DOM tree',
+  'Use basic DOM selection methods to access elements',
+  'Inspect and navigate the DOM using browser developer tools',
+  'Identify how the DOM bridges static HTML and dynamic JavaScript behaviour',
+]
+
+const closureReflectionPrompts = [
+  {
+    icon: 'fas fa-sitemap',
+    title: 'Understanding the Tree',
+    questions: [
+      'How does thinking of HTML as a tree help you plan which elements to select and modify?',
+      'What happens to child nodes when you remove or replace their parent?',
+    ],
+    content: 'Visualising the DOM as a tree clarifies why some operations affect entire subtrees and helps you write more targeted, efficient code.',
+  },
+  {
+    icon: 'fas fa-search',
+    title: 'Selecting Elements',
+    questions: [
+      'When would you choose querySelector over getElementById?',
+      'How can the Elements panel in DevTools speed up your debugging workflow?',
+    ],
+    content: 'Choosing the right selector and inspecting the live DOM are everyday skills that make feature work and debugging dramatically faster.',
+  },
+]
 
 const anticipatorySet = {
   title: '🧭 Mapping the Invisible Interface',

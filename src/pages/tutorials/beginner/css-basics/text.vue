@@ -2,7 +2,7 @@
 import { ref, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
@@ -2291,8 +2291,12 @@ const rottoContentStyles = ref(`/* Content sections */
 			next-steps="<p>With typography mastered, you're ready to tackle CSS layout—one of the most powerful aspects of CSS. In the next lesson, you'll learn positioning, display modes, floats, and layout strategies that control where elements appear on the page.</p><p>Layout is what transforms static HTML into dynamic, visually interesting web pages. Understanding layout fundamentals prepares you for Flexbox, Grid, and modern CSS layout techniques.</p>"
 		/>
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/text'" />
+
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/css-basics/text"
+                />
 
 		<TutorialNavigation prev="css-basics-box-model" next="css-basics-layout" />
 	</div>

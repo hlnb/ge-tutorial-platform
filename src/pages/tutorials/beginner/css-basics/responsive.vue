@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
@@ -85,10 +85,6 @@ const sections = [
 	{
 		id: 'testing',
 		title: 'Testing Responsive Designs',
-	},
-	{
-		id: 'summary',
-		title: 'Summary',
 	},
 ];
 
@@ -1344,38 +1340,6 @@ const navigationExample = ref(`/* Responsive Navigation */
 			</div>
 		</section>
 
-		<section id="summary" class="mt-6">
-			<h2 class="title is-2">Summary</h2>
-			<div class="box">
-				<h3 class="title is-4">Key Takeaways</h3>
-				<ul>
-					<li>
-						Mobile-first design is the foundation of modern responsive design
-					</li>
-					<li>Media queries help create breakpoint-based layouts</li>
-					<li>Responsive units enable fluid and flexible designs</li>
-					<li>Images require special handling for responsive layouts</li>
-					<li>
-						Common patterns help solve recurring responsive design challenges
-					</li>
-				</ul>
-
-				<div class="notification is-warning is-light mt-4">
-					<h4 class="title is-5">Next Steps</h4>
-					<p>
-						Now that you understand responsive design principles, you're ready
-						to learn about Flexbox! Flexbox will give you even more tools for
-						creating flexible, responsive layouts.
-					</p>
-					<p class="mt-3">
-						<a href="/tutorials/beginner/css-basics/flexbox" class="button is-warning">
-							Continue to Flexbox →
-						</a>
-					</p>
-				</div>
-			</div>
-		</section>
-
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -1388,8 +1352,9 @@ const navigationExample = ref(`/* Responsive Navigation */
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/responsive'" />
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/css-basics/responsive"
+                />
 
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">

@@ -493,9 +493,9 @@
 				<div v-if="completedSections < totalSections" class="mt-4">
 					<p class="has-text-centered">
 						<strong>Next up:</strong> 
-						<span v-if="nextSection" class="tag is-primary is-medium">
+						<router-link v-if="nextSection" :to="nextSection.path" class="tag is-primary is-medium">
 							{{ nextSection.name }}
-						</span>
+						</router-link>
 					</p>
 				</div>
 				<div v-else class="mt-4">

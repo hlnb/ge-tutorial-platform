@@ -209,7 +209,7 @@
 			</ul>
 		</div>
 
-		<h2 class="title is-2">Interactive Practice: Restaurant Menu System</h2>
+		<h2 id="practice" class="title is-2">Interactive Practice: Restaurant Menu System</h2>
 		<p>Let's put everything together by creating a simple restaurant menu system:</p>
 
 		<div class="box practice-box">
@@ -267,6 +267,15 @@
 			</ul>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Every web application relies on variables and data types to manage information—from e-commerce shopping carts tracking item prices and quantities, to social media platforms storing user profiles as objects. Understanding how to choose the right data type and organize information with arrays and objects is essential for building any real-world application.</p>"
+			next-steps="<p>Now that you can store and organize data, you're ready to learn about operators. In the next lesson, you'll discover how to perform calculations, make comparisons, and combine conditions—the building blocks of program logic.</p>"
+		/>
+
 		<!-- Tutorial Recommendations -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/variables-data-types'" />
 
@@ -282,10 +291,20 @@ import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { createCodeRunner } from '@/utils/codeRunner';
+import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const sections = [
+	{ id: 'variables', title: 'Understanding Variables' },
+	{ id: 'data-types', title: 'JavaScript Data Types' },
+	{ id: 'practice', title: 'Interactive Practice' },
+];
+
+const { pageSections } = usePageSections(sections);
 
 const anticipatorySet = {
 	title: '🍽️ Stocking the Digital Pantry',
@@ -323,6 +342,45 @@ const variableCheckpoint = {
 		'Log typeof checks in the console to verify assumptions before bugs grow.'
 	]
 };
+
+const closureKeyTakeaways = [
+	'Variables declared with let can be reassigned; const variables cannot be reassigned',
+	'JavaScript has primitive types: strings, numbers, booleans, null, and undefined',
+	'Arrays store ordered collections of values accessed by index (zero-based)',
+	'Objects store key-value pairs for labeling and grouping related data',
+	'Template literals (backticks) allow embedding expressions inside strings',
+	'Using typeof helps verify data types and prevent coercion bugs',
+];
+
+const closureObjectives = [
+	'Declare readable variables with let and const and explain when to use each',
+	'Distinguish JavaScript primitive types such as string, number, boolean, null, and undefined',
+	'Build and traverse arrays and objects to model grouped information',
+	'Apply template literals and type checks to avoid coercion surprises',
+	'Use the browser console to inspect values as they change',
+	'Organize small practice projects using mixed data structures',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-database',
+		title: 'Data Modelling',
+		questions: [
+			'When would you choose an array over an object to store information?',
+			'How does picking the right data type early prevent bugs later?',
+		],
+		content: 'Thinking about data structure before writing code leads to cleaner, more maintainable programs. Arrays suit ordered lists; objects suit labelled records.',
+	},
+	{
+		icon: 'fas fa-shield-alt',
+		title: 'Best Practices',
+		questions: [
+			'Why should you default to const and only switch to let when needed?',
+			'How do naming conventions for variables improve code readability?',
+		],
+		content: 'Consistent use of const signals intent, reduces accidental mutations, and makes code easier for teammates to reason about.',
+	},
+];
 
 // Updated code examples with more practical scenarios
 const declaringVariablesCode = `// Menu item using let (value can change)

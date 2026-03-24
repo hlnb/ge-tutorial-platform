@@ -313,7 +313,7 @@
 					<i class="fas fa-info-circle mr-2"></i>
 					<strong>Next Steps:</strong> After completing this project, you might
 					want to check out the
-					<router-link to="/tutorials/beginner/css-basics/text-properties"
+					<router-link to="/tutorials/beginner/css-basics/text"
 						>CSS Text Properties</router-link
 					>
 					tutorial to learn more ways to enhance the typography in your cards.

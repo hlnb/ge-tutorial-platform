@@ -50,7 +50,7 @@
 				:purpose="learningObjectives.purpose"
 			/>
 
-		<h2 class="title is-2">Function Basics</h2>
+		<h2 id="function-basics" class="title is-2">Function Basics</h2>
 		
 		<div class="box mb-6">
 			<FunctionBasicsDiagram />
@@ -117,7 +117,7 @@
 			<button class="button mt-3" @click="runReturnExample">Try it</button>
 		</div>
 
-		<h2 class="title is-2 mt-6">Arrow Functions</h2>
+		<h2 id="arrow-functions" class="title is-2 mt-6">Arrow Functions</h2>
 		<div class="box">
 			<ArrowFunctionDiagram />
 			<p class="mt-4">Arrow functions provide a shorter syntax for writing function expressions.</p>
@@ -131,7 +131,7 @@
 			/>
 		</div>
 
-		<h2 class="title is-2 mt-6">Function Scope</h2>
+		<h2 id="function-scope" class="title is-2 mt-6">Function Scope</h2>
 		<p>Variables inside functions are only accessible within that function:</p>
 		<div class="codemirror-wrapper">
 			<CodeMirror
@@ -142,7 +142,7 @@
 			/>
 		</div>
 
-		<h2 class="title is-2 mt-6">Practice Exercise: Restaurant Calculator</h2>
+		<h2 id="practice" class="title is-2 mt-6">Practice Exercise: Restaurant Calculator</h2>
 		<div class="box">
 			<h3 class="title is-4">Step 1: Basic Price Calculator</h3>
 			<div class="codemirror-wrapper">
@@ -169,7 +169,7 @@
 			</ul>
 		</div>
 
-		<h2 class="title is-2">Why Use Functions?</h2>
+		<h2 id="why-functions" class="title is-2">Why Use Functions?</h2>
 		<div class="box">
 			<h3 class="title is-4">Benefits of Functions</h3>
 			<div class="content">
@@ -182,7 +182,7 @@
 			</div>
 		</div>
 
-		<h2 class="title is-2 mt-6">Modern Function Patterns</h2>
+		<h2 id="modern-patterns" class="title is-2 mt-6">Modern Function Patterns</h2>
 		
 		<div class="box">
 			<h3 class="title is-4">Default Parameters</h3>
@@ -281,6 +281,15 @@
 			<button class="button mt-3" @click="runGalleryExample">Try it</button>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Functions are the backbone of every JavaScript application. React components are functions. Express route handlers are functions. Event listeners, array methods like map and filter, API calls—all built on functions. Professional codebases are organized entirely around well-named, focused functions that compose together to create complex features from simple, testable parts.</p>"
+			next-steps="<p>Congratulations on completing JavaScript Basics! You're now ready to move on to DOM Basics, where you'll learn how to use JavaScript to interact with HTML elements on the page—selecting elements, changing content, and responding to user events to build truly interactive web applications.</p>"
+		/>
+
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/functions'" />
 
 		<TestYourKnowledgeSection
@@ -297,10 +306,23 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import FunctionBasicsDiagram from '@/components/diagrams/FunctionBasicsDiagram.vue';
 import FunctionFlowDiagram from '@/components/diagrams/FunctionFlowDiagram.vue';
 import ArrowFunctionDiagram from '@/components/diagrams/ArrowFunctionDiagram.vue';
+import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const sections = [
+	{ id: 'function-basics', title: 'Function Basics' },
+	{ id: 'arrow-functions', title: 'Arrow Functions' },
+	{ id: 'function-scope', title: 'Function Scope' },
+	{ id: 'practice', title: 'Practice Exercise' },
+	{ id: 'why-functions', title: 'Why Use Functions?' },
+	{ id: 'modern-patterns', title: 'Modern Function Patterns' },
+];
+
+const { pageSections } = usePageSections(sections);
 
 const anticipatorySet = {
 	title: '👩‍🍳 Signature Recipes on Repeat',
@@ -337,6 +359,44 @@ const functionsCheckpoint = {
 		'Name functions with verbs so their intent is obvious in call sites.'
 	]
 };
+
+const closureKeyTakeaways = [
+	'Functions package reusable logic that can be called by name with different arguments',
+	'Parameters let functions accept input; return values send results back to the caller',
+	'Arrow functions provide concise syntax especially useful for callbacks and array methods',
+	'Scope determines where variables are accessible—function scope keeps data private',
+	'Default and rest parameters make functions more flexible and resilient',
+	'Closures allow inner functions to remember variables from their outer scope',
+];
+
+const closureObjectives = [
+	'Declare named and anonymous functions that accept meaningful parameters',
+	'Return values intentionally and understand when side effects are acceptable',
+	'Leverage arrow functions for concise callbacks and array helpers',
+	'Explain scope, closures, and how they affect variable access',
+	'Compose small utilities into larger workflows such as calculators or galleries',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-cubes',
+		title: 'Reusability',
+		questions: [
+			'Which repeated patterns in your code could be extracted into a reusable function?',
+			'How does the Single Responsibility Principle apply to function design?',
+		],
+		content: 'Well-designed functions do one thing and do it well. Composing small, focused functions together is the key to building maintainable applications.',
+	},
+	{
+		icon: 'fas fa-project-diagram',
+		title: 'Modern Patterns',
+		questions: [
+			'When would you choose an arrow function over a traditional function declaration?',
+			'How do closures help with data privacy and encapsulation?',
+		],
+		content: 'Arrow functions shine in callbacks and array methods. Closures enable patterns like private counters and factory functions that are cornerstones of professional JavaScript.',
+	},
+];
 
 const basicFunctionExample = ref(`function greetCustomer() {
     console.log('Welcome to Black Swan Bistro!');

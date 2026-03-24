@@ -49,7 +49,7 @@
 		/>
 
 		<!-- Introduction -->
-		<h2 class="title is-2">Introduction to Loops</h2>
+		<h2 id="introduction-to-loops" class="title is-2">Introduction to Loops</h2>
 		<p>
 			Imagine you're a chef at the Black Swan Bistro, and you need to prepare 10 identical salads for a large party. Would you write out each step 10 times? Of course not! You'd create a process and repeat it 10 times.
 		</p>
@@ -85,7 +85,7 @@
 		/>
 
 		<!-- For Loop -->
-		<h2 class="title is-2">The for Loop</h2>
+		<h2 id="for-loop" class="title is-2">The for Loop</h2>
 		<p>
 			The <code>for</code> loop is perfect when you know exactly how many times you want to repeat something.
 			Think of it like a recipe with a specific number of servings.
@@ -147,7 +147,7 @@
 		</div>
 
 		<!-- While Loop -->
-		<h2 class="title is-2">The while Loop</h2>
+		<h2 id="while-loop" class="title is-2">The while Loop</h2>
 		<p>
 			Use a <code>while</code> loop when you don't know exactly how many iterations you need.
 			It's like cooking pasta until it's al dente - you check the condition each time.
@@ -182,7 +182,7 @@
 		</div>
 
 		<!-- Do...While Loop -->
-		<h2 class="title is-2">The do...while Loop</h2>
+		<h2 id="do-while-loop" class="title is-2">The do...while Loop</h2>
 		<p>
 			A <code>do...while</code> loop is like a while loop, but it always runs at least once.
 			Think of it as taking the first order of the day before checking if the restaurant is actually open.
@@ -217,7 +217,7 @@
 		</div>
 
 		<!-- Loop Control -->
-		<h2 class="title is-2">Loop Control Statements</h2>
+		<h2 id="loop-control" class="title is-2">Loop Control Statements</h2>
 		<p>
 			Sometimes you need to change how your loop behaves. JavaScript provides two special statements:
 		</p>
@@ -248,7 +248,7 @@
 		</div>
 
 		<!-- Common Pitfalls -->
-		<h2 class="title is-2">Common Pitfalls</h2>
+		<h2 id="common-pitfalls" class="title is-2">Common Pitfalls</h2>
 		<div class="box">
 			<h3 class="title is-4">Watch Out For:</h3>
 			<ul>
@@ -260,7 +260,7 @@
 		</div>
 
 		<!-- Practice Time -->
-		<h2 class="title is-2">Practice Time!</h2>
+		<h2 id="practice" class="title is-2">Practice Time!</h2>
 		<div class="box">
 			<h3 class="title is-4">Try These Exercises:</h3>
 			<ol>
@@ -276,6 +276,15 @@
 			</div>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Loops drive the core of data-heavy applications. Social media feeds loop through posts to render your timeline. E-commerce sites iterate over product catalogs to display search results. Game engines use loops to update every frame. Understanding loops means you can process any collection of data efficiently, from rendering UI lists to batch-processing API responses.</p>"
+			next-steps="<p>Now that you can repeat actions efficiently, you're ready to learn about functions. In the next lesson, you'll discover how to package reusable blocks of logic, pass data in and get results back, and organize your code into clean, maintainable building blocks.</p>"
+		/>
+
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/loops'" />
 
@@ -290,10 +299,24 @@
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const sections = [
+	{ id: 'introduction-to-loops', title: 'Introduction to Loops' },
+	{ id: 'for-loop', title: 'The for Loop' },
+	{ id: 'while-loop', title: 'The while Loop' },
+	{ id: 'do-while-loop', title: 'The do...while Loop' },
+	{ id: 'loop-control', title: 'Loop Control Statements' },
+	{ id: 'common-pitfalls', title: 'Common Pitfalls' },
+	{ id: 'practice', title: 'Practice Time' },
+];
+
+const { pageSections } = usePageSections(sections);
 
 const anticipatorySet = {
 	title: '🔁 Prep Like a Pro Line Cook',
@@ -330,6 +353,44 @@ const loopsCheckpoint = {
 		'Encapsulate loop bodies into helper functions when they grow.'
 	]
 };
+
+const closureKeyTakeaways = [
+	'for loops are ideal when you know the exact number of iterations needed',
+	'while loops run as long as a condition is true—useful when the count is unknown',
+	'do...while loops guarantee at least one execution before checking the condition',
+	'break exits a loop immediately; continue skips to the next iteration',
+	'Always ensure loops have a clear exit condition to prevent infinite loops',
+	'Nested loops multiply iterations—use them carefully for grids or combinations',
+];
+
+const closureObjectives = [
+	'Explain when to choose for, while, do...while, and for...of loops',
+	'Iterate through arrays and objects without off-by-one errors',
+	'Control loop execution with break and continue to guard edge cases',
+	'Build nested loops responsibly for grid or seating assignments',
+	'Troubleshoot infinite loops with clear exit conditions',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-sync-alt',
+		title: 'Loop Selection',
+		questions: [
+			'How do you decide which loop type fits a given task?',
+			'When would a for...of loop be more readable than a traditional for loop?',
+		],
+		content: 'Choosing the right loop structure signals intent. for loops suit counted iterations, while loops suit condition-driven repetition, and for...of loops suit iterating collections.',
+	},
+	{
+		icon: 'fas fa-exclamation-triangle',
+		title: 'Safety & Performance',
+		questions: [
+			'What strategies help you avoid infinite loops?',
+			'How can you optimise loops that process large datasets?',
+		],
+		content: 'Always verify your exit condition before running a loop. For large arrays, consider early exits with break or functional methods like find and some that stop when a match is found.',
+	},
+];
 
 // Example code snippets
 const withoutLoopsExample = `// Without loops - repetitive and error-prone

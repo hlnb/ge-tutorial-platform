@@ -379,8 +379,9 @@
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-emmet'" />
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-emmet"
+                />
 
 		<!-- Completion Section -->
 		<div class="completion-section mt-6">
@@ -458,7 +459,7 @@
 <script setup>
 import { ref, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';

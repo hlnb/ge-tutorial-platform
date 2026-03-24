@@ -255,6 +255,15 @@
 			</ul>
 		</div>
 
+			<!-- Hunter Element: Closure -->
+			<ClosureSection
+				:key-takeaways="closureKeyTakeaways"
+				:objectives="closureObjectives"
+				:reflection-prompts="closureReflectionPrompts"
+				real-world-application="<p>JavaScript powers virtually every modern website and application. From Gmail's real-time email interface to Netflix's recommendation engine, JavaScript enables the interactive experiences billions of people use daily. Understanding how to add and organize scripts is the foundation for building any web application.</p>"
+				next-steps="<p>Now that you understand what JavaScript is and how to add it to your pages, you're ready to learn about variables and data types. In the next lesson, you'll discover how to store and work with different kinds of information in your programs.</p>"
+			/>
+
 			<!-- Recommendations before quiz per Hunter structure -->
 			<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/introduction'" />
 
@@ -269,10 +278,27 @@
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
-	import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+const sections = [
+	{ id: 'what-is-javascript', title: 'What is JavaScript?' },
+	{
+		id: 'adding-javascript',
+		title: 'Adding JavaScript to HTML',
+		subsections: [
+			{ id: 'inline-javascript', title: 'Inline JavaScript' },
+			{ id: 'internal-javascript', title: 'Internal JavaScript' },
+			{ id: 'external-javascript', title: 'External JavaScript' },
+		],
+	},
+];
+
+const { pageSections } = usePageSections(sections);
 
 const anticipatorySet = {
 	title: '🚀 Ignite Your Interactive Ideas',
@@ -309,6 +335,43 @@ const foundationCheckpoint = {
 		'Keep markup clean by separating logic from presentation.'
 	]
 };
+
+const closureKeyTakeaways = [
+	'JavaScript is the programming language that makes websites interactive and dynamic',
+	'There are three ways to add JavaScript: inline, internal (<script> tag), and external (.js file)',
+	'External JavaScript files are the professional standard for organized, maintainable code',
+	'The browser console is an essential tool for testing code and debugging errors',
+	'JavaScript works alongside HTML (structure) and CSS (presentation) to create complete web experiences',
+];
+
+const closureObjectives = [
+	'Describe how JavaScript fits alongside HTML and CSS in web apps',
+	'Set up inline, internal, and external scripts safely',
+	'Navigate the browser console to inspect output and errors',
+	'Write and run small interactive snippets using DOM events',
+	'Explain real-world scenarios where JavaScript creates value',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-rocket',
+		title: 'Getting Started',
+		questions: [
+			'Which method of adding JavaScript would you choose for a multi-page website and why?',
+			'How does separating JavaScript into external files improve collaboration?',
+		],
+		content: 'Choosing the right script-loading strategy from the start saves refactoring time later. External files enable caching, team collaboration, and clear separation of concerns.',
+	},
+	{
+		icon: 'fas fa-tools',
+		title: 'Developer Tools',
+		questions: [
+			'How can the browser console help you understand what your code is doing?',
+			'What debugging strategies would you use when a script does not work as expected?',
+		],
+		content: 'The console is your best friend for development. Learning to read error messages and use console.log effectively will accelerate your learning throughout this series.',
+	},
+];
 
 const frontmatter = {
 	title: 'Foundations-Getting Started',

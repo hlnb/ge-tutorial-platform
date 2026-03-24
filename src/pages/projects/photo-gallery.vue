@@ -517,7 +517,7 @@ const objectives = ref([
 const prerequisites = ref([
 	{
 		title: 'HTML Basics',
-		path: '/tutorials/html-basics'
+		path: '/tutorials/beginner/html-basics'
 	},
 	{
 		title: 'HTML Images',

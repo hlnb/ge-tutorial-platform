@@ -204,7 +204,7 @@ export const domBasicsQuizzes = {
     ],
 
     // Event Handling quiz
-    'event-handling': [
+    'dom-events': [
         {
             text: 'What is the correct way to add an event listener to an element?',
             options: [

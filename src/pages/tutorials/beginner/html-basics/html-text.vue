@@ -369,6 +369,13 @@ Soups & Salads
 		next-steps="<p>In the next lesson, <strong>Working with Links</strong>, you'll learn how to connect pages together and create navigation—the foundation of the web itself!</p>"
 	/>
 
+	<!-- Add recommendations before the quiz -->
+	<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-text'" />
+
+<TestYourKnowledgeSection
+          tutorial-path="/tutorials/beginner/html-basics/html-text"
+        />
+
 	</div>
 </template>
 
@@ -383,6 +390,7 @@ import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import QuizComponent from '@/components/QuizComponent.vue';
 import { useRoute } from 'vue-router';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';

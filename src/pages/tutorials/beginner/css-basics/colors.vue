@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -1567,8 +1567,9 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/colors'" />
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/css-basics/colors"
+                />
 
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">

@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
@@ -82,10 +82,6 @@ const sections = [
 	{
 		id: 'browser-support',
 		title: 'Browser Compatibility',
-	},
-	{
-		id: 'summary',
-		title: 'Summary',
 	},
 ];
 
@@ -885,54 +881,6 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 		<!-- Hunter Element: Checkpoint -->
 		<CheckpointBox :questions="checkpointQuestions" />
 
-		<section id="summary" class="mt-6">
-			<h2 class="title is-2">Summary</h2>
-
-			<div class="box">
-				<h3 class="title is-4">What We've Learned</h3>
-				<ul>
-					<li>
-						<strong>CSS Custom Properties:</strong> Create reusable values and
-						enable dynamic styling
-					</li>
-					<li>
-						<strong>Modern Selectors:</strong> Write more efficient and
-						maintainable selectors
-					</li>
-					<li>
-						<strong>CSS Functions:</strong> Perform calculations and create
-						responsive values
-					</li>
-					<li>
-						<strong>Modern Units:</strong> Use viewport and container-relative
-						measurements
-					</li>
-					<li>
-						<strong>Logical Properties:</strong> Write direction-independent
-						layouts
-					</li>
-				</ul>
-
-				<div class="notification is-warning is-light mt-4">
-					<h4 id="next-steps" class="title is-5">Next Steps</h4>
-					<p>
-						Now that you understand modern CSS features, you're ready to learn
-						about responsive design! These modern tools will help you create
-						flexible, maintainable layouts that work across different screen
-						sizes.
-					</p>
-					<p class="mt-3">
-						<a
-							href="/tutorials/beginner/css-basics/responsive"
-							class="button is-warning"
-						>
-							Continue to Responsive Design →
-						</a>
-					</p>
-				</div>
-			</div>
-		</section>
-
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -945,8 +893,9 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/modern'" />
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/css-basics/modern"
+                />
 
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">

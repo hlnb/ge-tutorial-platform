@@ -8,7 +8,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { usePageSections } from '@/composables/usePageSections';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
@@ -1115,8 +1115,9 @@ border: 10px solid black;
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/box-model'" />
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/css-basics/box-model"
+                />
 
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">
@@ -1142,7 +1143,7 @@ border: 10px solid black;
 		</div>
 		<TutorialNavigation
 			prev="css-basics-introduction"
-			next="css-basics-text-properties"
+			next="css-basics-text"
 		/>
 		</div>
 	</div>

@@ -436,16 +436,12 @@
 			next-steps="<p>Now that you understand CSS fundamentals, you're ready to dive deeper into CSS selectors. In the next lesson, you'll master element selectors, class selectors, ID selectors, combinators, and pseudo-classes—giving you precise control over which elements receive styling.</p><p>Selectors are the foundation of CSS targeting. The better you understand selectors, the more efficiently you can write CSS and the less you'll need to modify HTML just to add styles.</p>"
 		/>
 
-		<section class="mt-6">
-			<h2 class="title is-3">Test Your Knowledge</h2>
-			<p class="mb-4">
-				Let's see how well you understand the concepts covered in this tutorial.
-				Take this quick quiz to test your knowledge!
-			</p>
-		</section>
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/introduction'" />
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/css-basics/introduction"
+                />
 
 		<!-- Completion Section -->
 		<div class="completion-section mt-6">
@@ -470,7 +466,7 @@ import { format } from 'date-fns';
 import { ref, computed, inject, onMounted, watch } from 'vue';
 import DOMPurify from 'dompurify';
 import { usePageSections } from '@/composables/usePageSections';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { useRoute } from 'vue-router';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';

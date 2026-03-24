@@ -377,6 +377,15 @@ Array.isArray(numbers);  // true</code></pre>
           </div>
         </section>
 
+        <!-- Hunter Element: Closure -->
+        <ClosureSection
+          :key-takeaways="closureKeyTakeaways"
+          :objectives="closureObjectives"
+          :reflection-prompts="closureReflectionPrompts"
+          real-world-application="<p>Arrays are the workhorse behind every list-based UI you see on the web — product catalogues, search results, notification feeds, and dashboard tables all store their items in arrays. Knowing how to filter, map, and sort arrays means you can transform raw data into polished user experiences with just a few lines of code.</p>"
+          next-steps="<p>With arrays under your belt, you're ready to tackle DOM manipulation directly. In the next lesson you'll learn how to create, modify, and remove HTML elements on the fly — turning static pages into fully dynamic interfaces.</p>"
+        />
+
         <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/arrays'" />
 
         <TestYourKnowledgeSection
@@ -393,7 +402,45 @@ Array.isArray(numbers);  // true</code></pre>
   import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
   import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
   import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+  import ClosureSection from '@/components/hunter/ClosureSection.vue';
   import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+  const closureKeyTakeaways = [
+    'Arrays store ordered collections of values accessible by index',
+    'Methods like forEach, map, and filter let you process every element in one pass',
+    'querySelectorAll returns a NodeList you can convert to a real array with Array.from()',
+    'Chaining array methods keeps transformations readable and declarative',
+    'Understanding arrays is essential for managing groups of DOM elements efficiently',
+  ]
+
+  const closureObjectives = [
+    'Create, read, update, and delete items in a JavaScript array',
+    'Use forEach, map, filter, and reduce to transform data',
+    'Convert NodeLists into arrays for full method access',
+    'Apply array methods to batch-update multiple DOM elements',
+    'Combine sorting and filtering to build dynamic list interfaces',
+  ]
+
+  const closureReflectionPrompts = [
+    {
+      icon: 'fas fa-layer-group',
+      title: 'Working with Collections',
+      questions: [
+        'When would you choose map over forEach to process a list of elements?',
+        'How does converting a NodeList to an array unlock more powerful operations?',
+      ],
+      content: 'Selecting the right iteration method avoids side-effects and keeps your intent clear, especially when the list length is unpredictable.',
+    },
+    {
+      icon: 'fas fa-filter',
+      title: 'Filtering & Sorting',
+      questions: [
+        'How would you combine filter and sort to build a live search feature?',
+        'What performance considerations arise when chaining multiple array methods on large datasets?',
+      ],
+      content: 'Real-world UIs constantly filter and reorder data. Practising these patterns now prepares you for building responsive, data-driven interfaces.',
+    },
+  ]
 
   const anticipatorySet = {
     title: '🥗 Plating a Full Service',

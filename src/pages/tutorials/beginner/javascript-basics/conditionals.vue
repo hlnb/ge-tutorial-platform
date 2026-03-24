@@ -715,6 +715,15 @@
 			</div>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Conditionals power every decision your applications make. From showing different content based on user roles, to validating form inputs before submission, to toggling dark mode based on user preference—if/else logic is everywhere. Games use conditionals to determine win/lose states, and APIs use them to return appropriate responses based on request parameters.</p>"
+			next-steps="<p>Now that your programs can make decisions, you're ready to learn about loops. In the next lesson, you'll discover how to repeat actions efficiently—processing arrays of data, iterating through lists, and automating repetitive tasks that would be impractical to write out one by one.</p>"
+		/>
+
 		<!-- Recommendations for next steps -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/conditionals'" />
 
@@ -734,6 +743,7 @@ import { createCodeRunner } from '@/utils/codeRunner';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 
 const anticipatorySet = {
@@ -961,6 +971,44 @@ console.log('Available items:', getAvailableItems());
 console.log('Seafood items:', getItemsByCategory('Seafood'));
 console.log('Items $15-$25:', getItemsByPriceRange(15, 25));
 console.log('Low stock items:', getLowStockItems(3));`;
+
+const closureKeyTakeaways = [
+	'if/else statements let your code choose different paths based on conditions',
+	'switch statements provide a cleaner alternative when comparing one value against many cases',
+	'The ternary operator (condition ? a : b) offers a concise inline conditional expression',
+	'Truthy and falsy values determine how non-boolean values behave in conditions',
+	'Combining conditionals with logical operators enables complex decision-making',
+	'Guard clauses (early returns) keep code flat and readable',
+];
+
+const closureObjectives = [
+	'Write if, else if, and else blocks to handle multiple scenarios',
+	'Use switch statements for clean multi-case comparisons',
+	'Apply the ternary operator for concise conditional expressions',
+	'Identify truthy and falsy values in JavaScript',
+	'Combine conditionals with logical operators for complex rules',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-code-branch',
+		title: 'Decision Design',
+		questions: [
+			'When would you choose a switch statement over a chain of if/else blocks?',
+			'How do guard clauses reduce nesting and improve readability?',
+		],
+		content: 'Choosing the right conditional structure makes your intent clear to other developers. Flat, well-named conditions are easier to test and maintain than deeply nested blocks.',
+	},
+	{
+		icon: 'fas fa-bug',
+		title: 'Common Pitfalls',
+		questions: [
+			'What unexpected results can truthy/falsy values cause if you are not careful?',
+			'How can you avoid accidentally falling through switch cases?',
+		],
+		content: 'Understanding falsy values (0, "", null, undefined, NaN) prevents subtle bugs. Always include break in switch cases unless fall-through is intentional.',
+	},
+];
 
 const sections = [
   {

@@ -630,6 +630,13 @@
 		next-steps="<p>In the next lesson, <strong>Working with Images</strong>, you'll learn how to add visual content to your pages with the img element, alt text, and responsive images!</p>"
 	/>
 
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-links'" />
+
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-links"
+                />
+
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">
 			<h2 class="title is-3">
@@ -648,7 +655,8 @@ import { ref, computed, onMounted, inject } from 'vue';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';

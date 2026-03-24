@@ -1425,6 +1425,15 @@ container.appendChild(fragment);  // Single reflow
         </div>
       </section>
 
+      <!-- Hunter Element: Closure -->
+      <ClosureSection
+        :key-takeaways="closureKeyTakeaways"
+        :objectives="closureObjectives"
+        :reflection-prompts="closureReflectionPrompts"
+        real-world-application="<p>Every time you see a modal pop up, a toast notification slide in, or a shopping cart update without a page refresh, DOM manipulation is at work. Mastering createElement, appendChild, and classList gives you the low-level control that even modern frameworks rely on under the hood.</p>"
+        next-steps="<p>You can now build and reshape page content on the fly. Next, you'll learn how to respond to user actions — clicks, key presses, form submissions — through DOM event handling, completing the loop between user and interface.</p>"
+      />
+
       <section id="next-steps" class="mb-6">
         <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/dom-manipulation'" />
       </section>
@@ -1443,7 +1452,45 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue'
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue'
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
+import ClosureSection from '@/components/hunter/ClosureSection.vue'
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
+
+const closureKeyTakeaways = [
+  'createElement and appendChild let you build new DOM nodes entirely in JavaScript',
+  'innerHTML is convenient but poses XSS risks — prefer textContent or createElement for user-supplied data',
+  'classList.add, remove, and toggle give you fine-grained control over element styling',
+  'setAttribute and removeAttribute manage any HTML attribute dynamically',
+  'Removing elements with remove() or removeChild() keeps the DOM clean and performant',
+]
+
+const closureObjectives = [
+  'Create, insert, and remove DOM elements programmatically',
+  'Modify text content, HTML, and attributes of existing elements',
+  'Toggle CSS classes to control appearance without inline styles',
+  'Clone nodes and move elements within the DOM tree',
+  'Explain the security implications of innerHTML versus textContent',
+]
+
+const closureReflectionPrompts = [
+  {
+    icon: 'fas fa-hammer',
+    title: 'Building Dynamic UI',
+    questions: [
+      'When is createElement + appendChild a better choice than setting innerHTML?',
+      'How would you structure code that builds a complex component (e.g., a card) from data?',
+    ],
+    content: 'Choosing the right creation method balances readability, security, and performance — a judgement call you will make daily in production work.',
+  },
+  {
+    icon: 'fas fa-shield-alt',
+    title: 'Security & Performance',
+    questions: [
+      'What risks arise when you insert user-provided text with innerHTML?',
+      'How can batching DOM updates reduce layout thrashing?',
+    ],
+    content: 'Defensive DOM manipulation prevents XSS vulnerabilities and avoids costly, unnecessary browser reflows that slow down your application.',
+  },
+]
 
 const anticipatorySet = {
   title: '🛠️ Resetting the Dining Room in Seconds',

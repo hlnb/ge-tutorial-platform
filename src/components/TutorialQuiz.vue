@@ -1,7 +1,9 @@
 <template>
 	<section v-if="quizAvailable" class="tutorial-quiz mt-6">
-		<h2 class="title is-3">{{ title }}</h2>
-		<p class="mb-4">{{ description }}</p>
+		<template v-if="!hideHeader">
+			<h2 class="title is-3">{{ title }}</h2>
+			<p class="mb-4">{{ description }}</p>
+		</template>
 
 		<QuizComponent
 			:title="quizTitle"
@@ -42,6 +44,10 @@ const props = defineProps({
 	tutorialPath: {
 		type: String,
 		default: null,
+	},
+	hideHeader: {
+		type: Boolean,
+		default: false,
 	},
 });
 

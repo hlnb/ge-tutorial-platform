@@ -358,6 +358,13 @@ Best time to visit: September to May</pre
 
 		<!-- Add this at the end of the template, before the completion section -->
 
+		<!-- Add recommendations before the quiz -->
+		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-first-page'" />
+
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/html-basics/html-first-page"
+                />
+
 		</div>
 	</div>
 </template>
@@ -371,6 +378,7 @@ import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
 import QuizComponent from '@/components/QuizComponent.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
@@ -453,11 +461,6 @@ onMounted(() => {
 			{
 				id: 'practice',
 				title: 'Practice',
-				subsections: [],
-			},
-			{
-				id: 'whats-next',
-				title: "What's Next?",
 				subsections: [],
 			},
 		];

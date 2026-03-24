@@ -2738,6 +2738,15 @@ function safeDivide(numerator, denominator) {
 			</div>
 		</div>
 
+		<!-- Hunter Element: Closure -->
+		<ClosureSection
+			:key-takeaways="closureKeyTakeaways"
+			:objectives="closureObjectives"
+			:reflection-prompts="closureReflectionPrompts"
+			real-world-application="<p>Operators are at the heart of every interactive feature on the web. E-commerce sites use arithmetic operators to calculate totals and discounts. Login systems use comparison operators to validate credentials. Search filters use logical operators to combine multiple criteria. Mastering operators means you can build the decision-making logic behind any application.</p>"
+			next-steps="<p>Now that you can perform calculations and comparisons, you're ready to learn about conditionals. In the next lesson, you'll use if statements, switch cases, and ternary operators to make your programs respond differently based on conditions—bringing true decision-making to your code.</p>"
+		/>
+
 		<!-- Recommendations for next steps -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/operators'" />
 
@@ -2756,6 +2765,7 @@ import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 
 const anticipatorySet = {
@@ -2794,6 +2804,45 @@ const operatorsCheckpoint = {
 		'Group related updates with compound assignment to stay readable.'
 	]
 };
+
+const closureKeyTakeaways = [
+	'Arithmetic operators (+, -, *, /, %) perform calculations on numbers',
+	'Comparison operators (===, !==, <, >, <=, >=) return true or false',
+	'Always prefer strict equality (===) over loose equality (==) to avoid type coercion bugs',
+	'Logical operators (&&, ||, !) combine or invert boolean conditions',
+	'Compound assignment operators (+=, -=, *=) provide concise update syntax',
+	'Operator precedence determines evaluation order; use parentheses to be explicit',
+];
+
+const closureObjectives = [
+	'Use arithmetic operators to model totals, discounts, and remainders',
+	'Choose strict versus loose comparison operators to avoid coercion bugs',
+	'Combine conditions with logical AND/OR/NOT to mirror business rules',
+	'Apply assignment operators to update state efficiently',
+	'Explain operator precedence and control it with parentheses',
+	'Practice short interactive examples using the browser console',
+];
+
+const closureReflectionPrompts = [
+	{
+		icon: 'fas fa-calculator',
+		title: 'Practical Calculations',
+		questions: [
+			'Which arithmetic operators would you combine to build a tip calculator?',
+			'How does the modulo operator help with alternating row styles or pagination?',
+		],
+		content: 'Operators are the building blocks of every formula in your applications. Practising with real scenarios like pricing and discounts cements their use.',
+	},
+	{
+		icon: 'fas fa-balance-scale',
+		title: 'Comparisons & Logic',
+		questions: [
+			'Why does strict equality prevent subtle bugs that loose equality allows?',
+			'How would you express a multi-condition filter using logical operators?',
+		],
+		content: 'Clear, predictable comparisons are the foundation of conditionals and loops. Building the habit of strict equality now saves debugging time in every future project.',
+	},
+];
 
 const sections = [
   {

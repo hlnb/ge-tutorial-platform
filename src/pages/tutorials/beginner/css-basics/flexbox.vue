@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
+import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
@@ -692,33 +692,6 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 				</div>
 			</section>
 
-			<section id="summary" class="mb-6">
-				<h2 class="title is-2">Summary</h2>
-				<p>
-					Flexbox is a powerful layout tool that makes it easy to create
-					flexible, responsive designs. Key takeaways:
-				</p>
-				<ul>
-					<li>Use <code>display: flex</code> to create a flex container</li>
-					<li>Control the direction with <code>flex-direction</code></li>
-					<li>
-						Align items along the main axis with
-						<code>justify-content</code>
-					</li>
-					<li>
-						Align items along the cross axis with <code>align-items</code>
-					</li>
-					<li>
-						Control individual items with properties like <code>flex</code>,
-						<code>align-self</code>, and <code>order</code>
-					</li>
-				</ul>
-				<p>
-					With these properties, you can create complex layouts that adapt to
-					different screen sizes without relying on floats or positioning.
-				</p>
-			</section>
-
 			<section id="further-resources" class="mb-6">
 				<h2 class="title is-2">Further Resources</h2>
 				<ul>
@@ -1246,8 +1219,9 @@ body {
 		<!-- Add recommendations before the quiz -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/css-basics/flexbox'" />
 
-		<!-- Add quiz before the completion section -->
-		<TutorialQuiz />
+<TestYourKnowledgeSection
+                  tutorial-path="/tutorials/beginner/css-basics/flexbox"
+                />
 
 		<!-- Completion Section -->
 		<div v-if="progressEnabled" class="completion-section mt-6">
