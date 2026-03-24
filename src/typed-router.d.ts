@@ -422,6 +422,55 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/advanced/accessibility-essentials': RouteRecordInfo<
+      '/tutorials/advanced/accessibility-essentials',
+      '/tutorials/advanced/accessibility-essentials',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/advanced/black-swan-bistro-part-5': RouteRecordInfo<
+      '/tutorials/advanced/black-swan-bistro-part-5',
+      '/tutorials/advanced/black-swan-bistro-part-5',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/advanced/black-swan-bistro-part-6': RouteRecordInfo<
+      '/tutorials/advanced/black-swan-bistro-part-6',
+      '/tutorials/advanced/black-swan-bistro-part-6',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/advanced/black-swan-bistro-part-7': RouteRecordInfo<
+      '/tutorials/advanced/black-swan-bistro-part-7',
+      '/tutorials/advanced/black-swan-bistro-part-7',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/advanced/do-you-need-a-cms': RouteRecordInfo<
+      '/tutorials/advanced/do-you-need-a-cms',
+      '/tutorials/advanced/do-you-need-a-cms',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/advanced/domains-dns-going-live': RouteRecordInfo<
+      '/tutorials/advanced/domains-dns-going-live',
+      '/tutorials/advanced/domains-dns-going-live',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/advanced/website-care-and-feeding': RouteRecordInfo<
+      '/tutorials/advanced/website-care-and-feeding',
+      '/tutorials/advanced/website-care-and-feeding',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/ai-assisted/': RouteRecordInfo<
       '/tutorials/ai-assisted/',
       '/tutorials/ai-assisted',
@@ -509,6 +558,13 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/backend/rest-apis': RouteRecordInfo<
       '/tutorials/backend/rest-apis',
       '/tutorials/backend/rest-apis',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/beginner/black-swan-bistro-part-1': RouteRecordInfo<
+      '/tutorials/beginner/black-swan-bistro-part-1',
+      '/tutorials/beginner/black-swan-bistro-part-1',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -681,6 +737,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/beginner/idea-to-live-website': RouteRecordInfo<
+      '/tutorials/beginner/idea-to-live-website',
+      '/tutorials/beginner/idea-to-live-website',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/beginner/javascript-basics/': RouteRecordInfo<
       '/tutorials/beginner/javascript-basics/',
       '/tutorials/beginner/javascript-basics',
@@ -726,6 +789,13 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/beginner/javascript-basics/variables-data-types': RouteRecordInfo<
       '/tutorials/beginner/javascript-basics/variables-data-types',
       '/tutorials/beginner/javascript-basics/variables-data-types',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/beginner/why-your-css-isnt-working': RouteRecordInfo<
+      '/tutorials/beginner/why-your-css-isnt-working',
+      '/tutorials/beginner/why-your-css-isnt-working',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -800,6 +870,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/getting-started/files-folders-project-structure': RouteRecordInfo<
+      '/tutorials/getting-started/files-folders-project-structure',
+      '/tutorials/getting-started/files-folders-project-structure',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/getting-started/how-internet-works': RouteRecordInfo<
       '/tutorials/getting-started/how-internet-works',
       '/tutorials/getting-started/how-internet-works',
@@ -817,6 +894,48 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/getting-started/web-basics': RouteRecordInfo<
       '/tutorials/getting-started/web-basics',
       '/tutorials/getting-started/web-basics',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/black-swan-bistro-part-2': RouteRecordInfo<
+      '/tutorials/intermediate/black-swan-bistro-part-2',
+      '/tutorials/intermediate/black-swan-bistro-part-2',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/black-swan-bistro-part-3': RouteRecordInfo<
+      '/tutorials/intermediate/black-swan-bistro-part-3',
+      '/tutorials/intermediate/black-swan-bistro-part-3',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/black-swan-bistro-part-4': RouteRecordInfo<
+      '/tutorials/intermediate/black-swan-bistro-part-4',
+      '/tutorials/intermediate/black-swan-bistro-part-4',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/breaking-layouts-into-sections': RouteRecordInfo<
+      '/tutorials/intermediate/breaking-layouts-into-sections',
+      '/tutorials/intermediate/breaking-layouts-into-sections',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/building-reusable-components': RouteRecordInfo<
+      '/tutorials/intermediate/building-reusable-components',
+      '/tutorials/intermediate/building-reusable-components',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/debug-broken-web-page': RouteRecordInfo<
+      '/tutorials/intermediate/debug-broken-web-page',
+      '/tutorials/intermediate/debug-broken-web-page',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -880,6 +999,34 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/intermediate/git-basics/workflow': RouteRecordInfo<
       '/tutorials/intermediate/git-basics/workflow',
       '/tutorials/intermediate/git-basics/workflow',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/how-to-read-a-design': RouteRecordInfo<
+      '/tutorials/intermediate/how-to-read-a-design',
+      '/tutorials/intermediate/how-to-read-a-design',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/multi-page-structure': RouteRecordInfo<
+      '/tutorials/intermediate/multi-page-structure',
+      '/tutorials/intermediate/multi-page-structure',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/think-about-layouts': RouteRecordInfo<
+      '/tutorials/intermediate/think-about-layouts',
+      '/tutorials/intermediate/think-about-layouts',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/working-with-vite': RouteRecordInfo<
+      '/tutorials/intermediate/working-with-vite',
+      '/tutorials/intermediate/working-with-vite',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1267,6 +1414,48 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/advanced/accessibility-essentials.vue': {
+      routes:
+        | '/tutorials/advanced/accessibility-essentials'
+      views:
+        | never
+    }
+    'src/pages/tutorials/advanced/black-swan-bistro-part-5.vue': {
+      routes:
+        | '/tutorials/advanced/black-swan-bistro-part-5'
+      views:
+        | never
+    }
+    'src/pages/tutorials/advanced/black-swan-bistro-part-6.vue': {
+      routes:
+        | '/tutorials/advanced/black-swan-bistro-part-6'
+      views:
+        | never
+    }
+    'src/pages/tutorials/advanced/black-swan-bistro-part-7.vue': {
+      routes:
+        | '/tutorials/advanced/black-swan-bistro-part-7'
+      views:
+        | never
+    }
+    'src/pages/tutorials/advanced/do-you-need-a-cms.vue': {
+      routes:
+        | '/tutorials/advanced/do-you-need-a-cms'
+      views:
+        | never
+    }
+    'src/pages/tutorials/advanced/domains-dns-going-live.vue': {
+      routes:
+        | '/tutorials/advanced/domains-dns-going-live'
+      views:
+        | never
+    }
+    'src/pages/tutorials/advanced/website-care-and-feeding.vue': {
+      routes:
+        | '/tutorials/advanced/website-care-and-feeding'
+      views:
+        | never
+    }
     'src/pages/tutorials/ai-assisted/index.vue': {
       routes:
         | '/tutorials/ai-assisted/'
@@ -1342,6 +1531,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/backend/rest-apis.vue': {
       routes:
         | '/tutorials/backend/rest-apis'
+      views:
+        | never
+    }
+    'src/pages/tutorials/beginner/black-swan-bistro-part-1.vue': {
+      routes:
+        | '/tutorials/beginner/black-swan-bistro-part-1'
       views:
         | never
     }
@@ -1489,6 +1684,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/beginner/idea-to-live-website.vue': {
+      routes:
+        | '/tutorials/beginner/idea-to-live-website'
+      views:
+        | never
+    }
     'src/pages/tutorials/beginner/javascript-basics/index.vue': {
       routes:
         | '/tutorials/beginner/javascript-basics/'
@@ -1528,6 +1729,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/beginner/javascript-basics/variables-data-types.vue': {
       routes:
         | '/tutorials/beginner/javascript-basics/variables-data-types'
+      views:
+        | never
+    }
+    'src/pages/tutorials/beginner/why-your-css-isnt-working.vue': {
+      routes:
+        | '/tutorials/beginner/why-your-css-isnt-working'
       views:
         | never
     }
@@ -1591,6 +1798,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/getting-started/files-folders-project-structure.vue': {
+      routes:
+        | '/tutorials/getting-started/files-folders-project-structure'
+      views:
+        | never
+    }
     'src/pages/tutorials/getting-started/how-internet-works.vue': {
       routes:
         | '/tutorials/getting-started/how-internet-works'
@@ -1606,6 +1819,42 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/getting-started/web-basics.vue': {
       routes:
         | '/tutorials/getting-started/web-basics'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/black-swan-bistro-part-2.vue': {
+      routes:
+        | '/tutorials/intermediate/black-swan-bistro-part-2'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/black-swan-bistro-part-3.vue': {
+      routes:
+        | '/tutorials/intermediate/black-swan-bistro-part-3'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/black-swan-bistro-part-4.vue': {
+      routes:
+        | '/tutorials/intermediate/black-swan-bistro-part-4'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/breaking-layouts-into-sections.vue': {
+      routes:
+        | '/tutorials/intermediate/breaking-layouts-into-sections'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/building-reusable-components.vue': {
+      routes:
+        | '/tutorials/intermediate/building-reusable-components'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/debug-broken-web-page.vue': {
+      routes:
+        | '/tutorials/intermediate/debug-broken-web-page'
       views:
         | never
     }
@@ -1660,6 +1909,30 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/git-basics/workflow.vue': {
       routes:
         | '/tutorials/intermediate/git-basics/workflow'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/how-to-read-a-design.vue': {
+      routes:
+        | '/tutorials/intermediate/how-to-read-a-design'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/multi-page-structure.vue': {
+      routes:
+        | '/tutorials/intermediate/multi-page-structure'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/think-about-layouts.vue': {
+      routes:
+        | '/tutorials/intermediate/think-about-layouts'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/working-with-vite.vue': {
+      routes:
+        | '/tutorials/intermediate/working-with-vite'
       views:
         | never
     }

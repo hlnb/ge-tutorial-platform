@@ -148,7 +148,7 @@ export const tutorials = [
   {
     id: 'files-folders-project-structure',
     title: 'Files, Folders, and Project Structure',
-    slug: 'files-folders-project-structure',
+    slug: 'getting-started/files-folders-project-structure',
     summary:
       'How to organise files, name them properly, and set up a project folder.',
     level: 'foundation',
@@ -214,7 +214,7 @@ export const tutorials = [
   {
     id: 'why-your-css-isnt-working',
     title: 'Why Your CSS Isn\'t Working (And How to Fix It)',
-    slug: 'why-your-css-isnt-working',
+    slug: 'beginner/why-your-css-isnt-working',
     summary:
       'Common CSS pitfalls — specificity, inheritance, typos — and how to debug them.',
     level: 'beginner',
@@ -258,7 +258,7 @@ export const tutorials = [
   {
     id: 'idea-to-live-website',
     title: 'From Idea to Live Website: The Full Journey Explained',
-    slug: 'idea-to-live-website',
+    slug: 'beginner/idea-to-live-website',
     summary:
       'A high-level walkthrough of the entire process from concept to deployment.',
     level: 'beginner',
@@ -280,7 +280,7 @@ export const tutorials = [
   {
     id: 'bsb-part-1',
     title: 'Black Swan Bistro — Part 1 (Build Your First Web Page)',
-    slug: 'black-swan-bistro-part-1',
+    slug: 'beginner/black-swan-bistro-part-1',
     summary:
       'Create a real restaurant homepage from scratch using HTML and CSS.',
     level: 'beginner',
@@ -306,7 +306,7 @@ export const tutorials = [
   {
     id: 'think-about-layouts',
     title: 'How to Think About Layouts (Before You Write Any Code)',
-    slug: 'think-about-layouts',
+    slug: 'intermediate/think-about-layouts',
     summary:
       'A mental model for breaking a design into rows, columns, and sections.',
     level: 'intermediate',
@@ -328,7 +328,7 @@ export const tutorials = [
   {
     id: 'how-to-read-a-design',
     title: 'How to Read a Design',
-    slug: 'how-to-read-a-design',
+    slug: 'intermediate/how-to-read-a-design',
     summary:
       'Learn to extract spacing, colours, typography, and structure from a mockup.',
     level: 'intermediate',
@@ -350,7 +350,7 @@ export const tutorials = [
   {
     id: 'breaking-layouts-into-sections',
     title: 'Breaking Layouts into Sections',
-    slug: 'breaking-layouts-into-sections',
+    slug: 'intermediate/breaking-layouts-into-sections',
     summary:
       'Divide a full-page design into header, hero, content sections, and footer.',
     level: 'intermediate',
@@ -394,7 +394,7 @@ export const tutorials = [
   {
     id: 'bsb-part-2',
     title: 'Black Swan Bistro — Part 2 (Layout & Sections)',
-    slug: 'black-swan-bistro-part-2',
+    slug: 'intermediate/black-swan-bistro-part-2',
     summary:
       'Add a proper layout with header, hero, menu sections, and footer.',
     level: 'intermediate',
@@ -416,7 +416,7 @@ export const tutorials = [
   {
     id: 'building-reusable-components',
     title: 'Building Reusable Components',
-    slug: 'building-reusable-components',
+    slug: 'intermediate/building-reusable-components',
     summary:
       'Create cards, buttons, and navbars you can reuse across pages.',
     level: 'intermediate',
@@ -438,7 +438,7 @@ export const tutorials = [
   {
     id: 'bsb-part-3',
     title: 'Black Swan Bistro — Part 3 (Components)',
-    slug: 'black-swan-bistro-part-3',
+    slug: 'intermediate/black-swan-bistro-part-3',
     summary:
       'Refactor the bistro site into reusable menu cards, nav bar, and footer components.',
     level: 'intermediate',
@@ -482,7 +482,7 @@ export const tutorials = [
   {
     id: 'multi-page-structure',
     title: 'Multi-page Structure',
-    slug: 'multi-page-structure',
+    slug: 'intermediate/multi-page-structure',
     summary:
       'Organise a website with multiple linked pages, shared navigation, and consistent styles.',
     level: 'intermediate',
@@ -504,7 +504,7 @@ export const tutorials = [
   {
     id: 'bsb-part-4',
     title: 'Black Swan Bistro — Part 4 (Multi-page Site)',
-    slug: 'black-swan-bistro-part-4',
+    slug: 'intermediate/black-swan-bistro-part-4',
     summary:
       'Expand the bistro into a multi-page site with menu, about, and contact pages.',
     level: 'intermediate',
@@ -526,7 +526,7 @@ export const tutorials = [
   {
     id: 'debug-broken-web-page',
     title: 'How to Debug a Broken Web Page (Step-by-Step)',
-    slug: 'debug-broken-web-page',
+    slug: 'intermediate/debug-broken-web-page',
     summary:
       'A systematic approach to finding and fixing HTML, CSS, and JS bugs.',
     level: 'intermediate',
@@ -596,7 +596,7 @@ export const tutorials = [
   {
     id: 'working-with-vite',
     title: 'Working with Vite',
-    slug: 'working-with-vite',
+    slug: 'intermediate/working-with-vite',
     summary:
       'Set up a modern dev environment with Vite — hot reload, builds, and plugins.',
     level: 'intermediate',
@@ -618,7 +618,7 @@ export const tutorials = [
   {
     id: 'bsb-part-5',
     title: 'Black Swan Bistro — Part 5 (Prepare for Deployment)',
-    slug: 'black-swan-bistro-part-5',
+    slug: 'advanced/black-swan-bistro-part-5',
     summary:
       'Optimise assets, add meta tags, and prepare the bistro site for production.',
     level: 'advanced',
@@ -662,7 +662,7 @@ export const tutorials = [
   {
     id: 'bsb-part-6',
     title: 'Black Swan Bistro — Part 6 (Deploy the Site)',
-    slug: 'black-swan-bistro-part-6',
+    slug: 'advanced/black-swan-bistro-part-6',
     summary:
       'Push the bistro project to GitHub and deploy it live on the web.',
     level: 'advanced',
@@ -684,7 +684,7 @@ export const tutorials = [
   {
     id: 'domains-dns-going-live',
     title: 'Domains, DNS, and Going Live',
-    slug: 'domains-dns-going-live',
+    slug: 'advanced/domains-dns-going-live',
     summary:
       'Point a custom domain to your hosted site and go live.',
     level: 'advanced',
@@ -706,7 +706,7 @@ export const tutorials = [
   {
     id: 'do-you-need-a-cms',
     title: 'Do You Actually Need a CMS?',
-    slug: 'do-you-need-a-cms',
+    slug: 'advanced/do-you-need-a-cms',
     summary:
       'Understand when a CMS makes sense — and when static HTML is just fine.',
     level: 'advanced',
@@ -728,7 +728,7 @@ export const tutorials = [
   {
     id: 'bsb-part-7',
     title: 'Black Swan Bistro — Part 7 (Maintain & Improve)',
-    slug: 'black-swan-bistro-part-7',
+    slug: 'advanced/black-swan-bistro-part-7',
     summary:
       'Add analytics, update content, improve performance, and keep the site healthy.',
     level: 'advanced',
@@ -750,7 +750,7 @@ export const tutorials = [
   {
     id: 'website-care-and-feeding',
     title: 'Website Care and Feeding',
-    slug: 'website-care-and-feeding',
+    slug: 'advanced/website-care-and-feeding',
     summary:
       'Ongoing maintenance tasks — backups, updates, uptime monitoring, and more.',
     level: 'advanced',
@@ -794,7 +794,7 @@ export const tutorials = [
   {
     id: 'accessibility-essentials',
     title: 'Accessibility Essentials',
-    slug: 'accessibility-essentials',
+    slug: 'advanced/accessibility-essentials',
     summary:
       'Semantic HTML, ARIA, colour contrast, keyboard navigation, and screen reader basics.',
     level: 'advanced',
