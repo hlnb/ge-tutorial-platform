@@ -1071,8 +1071,8 @@ const tutorialRecommendations = {
 		},
 		'dom-manipulation': {
 			nextTutorial: {
-				path: '/tutorials/beginner/dom-basics/dom-events',
-				title: 'DOM Events'
+				path: '/tutorials/beginner/dom-basics/dom-traversal',
+				title: 'DOM Traversal'
 			},
 			relatedTutorials: [
 				{
@@ -1102,15 +1102,35 @@ const tutorialRecommendations = {
 				}
 			]
 		},
-		'dom-events': {
+		'dom-traversal': {
 			nextTutorial: {
-				path: '/tutorials/intermediate/git-basics',
-				title: 'Git Basics',
+				path: '/tutorials/beginner/dom-basics/dom-events',
+				title: 'Event Handling'
 			},
 			relatedTutorials: [
 				{
 					path: '/tutorials/beginner/dom-basics/dom-manipulation',
 					title: 'DOM Manipulation'
+				}
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Traversing the DOM',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces',
+					description: 'Guide to navigating DOM node relationships'
+				}
+			]
+		},
+		'dom-events': {
+			nextTutorial: {
+				path: '/tutorials/beginner/dom-basics/advanced-events',
+				title: 'Advanced Event Handling',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/beginner/dom-basics/dom-traversal',
+					title: 'DOM Traversal'
 				}
 			],
 			practiceProjects: [
@@ -1132,6 +1152,50 @@ const tutorialRecommendations = {
 					title: 'MDN: Event Reference',
 					url: 'https://developer.mozilla.org/en-US/docs/Web/Events',
 					description: 'Complete reference for DOM events'
+				}
+			]
+		},
+		'advanced-events': {
+			nextTutorial: {
+				path: '/tutorials/beginner/dom-basics/dynamic-content',
+				title: 'Dynamic Content'
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/beginner/dom-basics/dom-events',
+					title: 'Event Handling'
+				}
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Creating and triggering events',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events',
+					description: 'Guide to custom events and dispatching'
+				}
+			]
+		},
+		'dynamic-content': {
+			nextTutorial: {
+				path: '/tutorials/intermediate/git-basics',
+				title: 'Git Basics'
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/beginner/dom-basics/advanced-events',
+					title: 'Advanced Event Handling'
+				},
+				{
+					path: '/tutorials/beginner/dom-basics/dom-manipulation',
+					title: 'DOM Manipulation'
+				}
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Document.createElement()',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement',
+					description: 'Reference for creating DOM elements'
 				}
 			]
 		}

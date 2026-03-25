@@ -653,6 +653,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/beginner/dom-basics/advanced-events': RouteRecordInfo<
+      '/tutorials/beginner/dom-basics/advanced-events',
+      '/tutorials/beginner/dom-basics/advanced-events',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/beginner/dom-basics/arrays': RouteRecordInfo<
       '/tutorials/beginner/dom-basics/arrays',
       '/tutorials/beginner/dom-basics/arrays',
@@ -670,6 +677,20 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/beginner/dom-basics/dom-manipulation': RouteRecordInfo<
       '/tutorials/beginner/dom-basics/dom-manipulation',
       '/tutorials/beginner/dom-basics/dom-manipulation',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/beginner/dom-basics/dom-traversal': RouteRecordInfo<
+      '/tutorials/beginner/dom-basics/dom-traversal',
+      '/tutorials/beginner/dom-basics/dom-traversal',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/beginner/dom-basics/dynamic-content': RouteRecordInfo<
+      '/tutorials/beginner/dom-basics/dynamic-content',
+      '/tutorials/beginner/dom-basics/dynamic-content',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1619,6 +1640,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/beginner/dom-basics/advanced-events.vue': {
+      routes:
+        | '/tutorials/beginner/dom-basics/advanced-events'
+      views:
+        | never
+    }
     'src/pages/tutorials/beginner/dom-basics/arrays.vue': {
       routes:
         | '/tutorials/beginner/dom-basics/arrays'
@@ -1634,6 +1661,18 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/beginner/dom-basics/dom-manipulation.vue': {
       routes:
         | '/tutorials/beginner/dom-basics/dom-manipulation'
+      views:
+        | never
+    }
+    'src/pages/tutorials/beginner/dom-basics/dom-traversal.vue': {
+      routes:
+        | '/tutorials/beginner/dom-basics/dom-traversal'
+      views:
+        | never
+    }
+    'src/pages/tutorials/beginner/dom-basics/dynamic-content.vue': {
+      routes:
+        | '/tutorials/beginner/dom-basics/dynamic-content'
       views:
         | never
     }

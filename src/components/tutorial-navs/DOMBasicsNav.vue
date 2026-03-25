@@ -62,7 +62,10 @@ const navItems = [
   { path: '/tutorials/beginner/dom-basics/introduction', title: 'Introduction' },
   { path: '/tutorials/beginner/dom-basics/arrays', title: 'Arrays and Methods', icon: 'fas fa-list-ol' },
   { path: '/tutorials/beginner/dom-basics/dom-manipulation', title: 'DOM Manipulation', icon: 'fas fa-code' },
+  { path: '/tutorials/beginner/dom-basics/dom-traversal', title: 'DOM Traversal', icon: 'fas fa-sitemap' },
   { path: '/tutorials/beginner/dom-basics/dom-events', title: 'Event Handling', icon: 'fas fa-bolt' },
+  { path: '/tutorials/beginner/dom-basics/advanced-events', title: 'Advanced Events', icon: 'fas fa-bolt' },
+  { path: '/tutorials/beginner/dom-basics/dynamic-content', title: 'Dynamic Content', icon: 'fas fa-layer-group' },
 ];
 
 const currentIndex = computed(() => navItems.findIndex((item) => isCurrentPath(item.path)));

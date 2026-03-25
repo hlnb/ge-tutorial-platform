@@ -428,10 +428,22 @@ const tutorialMap = {
 	},
 	'dom-basics-dom-manipulation': {
 		prev: { path: '/tutorials/beginner/dom-basics/arrays',title: 'Arrays and Methods' },
+		next: { path: '/tutorials/beginner/dom-basics/dom-traversal',title: 'DOM Traversal' }
+	},
+	'dom-basics-dom-traversal': {
+		prev: { path: '/tutorials/beginner/dom-basics/dom-manipulation',title: 'DOM Manipulation' },
 		next: { path: '/tutorials/beginner/dom-basics/dom-events',title: 'Event Handling' }
 	},
 	'dom-basics-dom-events': {
-		prev: { path: '/tutorials/beginner/dom-basics/dom-manipulation',title: 'DOM Manipulation' },
+		prev: { path: '/tutorials/beginner/dom-basics/dom-traversal',title: 'DOM Traversal' },
+		next: { path: '/tutorials/beginner/dom-basics/advanced-events',title: 'Advanced Events' }
+	},
+	'dom-basics-advanced-events': {
+		prev: { path: '/tutorials/beginner/dom-basics/dom-events',title: 'Event Handling' },
+		next: { path: '/tutorials/beginner/dom-basics/dynamic-content',title: 'Dynamic Content' }
+	},
+	'dom-basics-dynamic-content': {
+		prev: { path: '/tutorials/beginner/dom-basics/advanced-events',title: 'Advanced Events' },
 		next: { path: '/tutorials',title: 'Tutorials Home' }
 	},
 	// Git Basics routes
@@ -501,6 +513,12 @@ const currentTutorial = computed(() => {
 		if (pathSegments.length === 3) {
 			const section = pathSegments[2]; // e.g., 'html-basics'
 			routeKey = `${section}-index`; // e.g., 'html-basics-index'
+		}
+		// For deeper paths like /tutorials/beginner/dom-basics/advanced-events
+		else if (pathSegments.length >= 5) {
+			const section = pathSegments[pathSegments.length - 2]; // e.g., 'dom-basics'
+			const subsection = pathSegments[pathSegments.length - 1]; // e.g., 'advanced-events'
+			routeKey = `${section}-${subsection}`;
 		}
 		// For subsection pages like /tutorials/html-basics/first-page
 		else if (pathSegments.length >= 4) {

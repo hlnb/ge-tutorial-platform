@@ -141,8 +141,10 @@
             <div class="card">
               <div class="card-content">
                 <h5 class="title is-6">Advanced Events</h5>
-                <p>Learn event bubbling, capturing, and custom events.</p>
-                <span class="tag is-warning">Coming Soon</span>
+                <p>Learn custom events, throttle, debounce, and focus trapping.</p>
+                <router-link to="/tutorials/beginner/dom-basics/advanced-events" class="button is-primary is-small">
+                  Start Learning
+                </router-link>
               </div>
             </div>
           </div>
@@ -158,7 +160,9 @@
               <div class="card-content">
                 <h5 class="title is-6">DOM Traversal</h5>
                 <p>Navigate and manipulate complex DOM structures.</p>
-                <span class="tag is-warning">Coming Soon</span>
+                <router-link to="/tutorials/beginner/dom-basics/dom-traversal" class="button is-primary is-small">
+                  Start Learning
+                </router-link>
               </div>
             </div>
           </div>
@@ -166,8 +170,10 @@
             <div class="card">
               <div class="card-content">
                 <h5 class="title is-6">Dynamic Content</h5>
-                <p>Create and manage dynamic content efficiently.</p>
-                <span class="tag is-warning">Coming Soon</span>
+                <p>Create, insert, clone, and manage DOM elements dynamically.</p>
+                <router-link to="/tutorials/beginner/dom-basics/dynamic-content" class="button is-primary is-small">
+                  Start Learning
+                </router-link>
               </div>
             </div>
           </div>
