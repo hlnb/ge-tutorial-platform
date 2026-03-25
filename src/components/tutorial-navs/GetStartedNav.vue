@@ -126,6 +126,18 @@
                     Domain Names & Web Hosting
                 </router-link>
             </li>
+
+            <li>
+                <router-link
+                    to="/tutorials/getting-started/files-folders-project-structure"
+                    :class="{
+                        'is-active': isCurrentPath('/tutorials/getting-started/files-folders-project-structure'),
+                        'is-next': isNextPath('/tutorials/getting-started/files-folders-project-structure'),
+                    }"
+                >
+                    Files, Folders & Project Structure
+                </router-link>
+            </li>
         </ul>
 
         <div class="sidebar-footer">
@@ -160,6 +172,7 @@ const tutorialOrder = [
     '/tutorials/getting-started/text-editors',
     '/tutorials/getting-started/browser-tools',
     '/tutorials/getting-started/domain-hosting',
+    '/tutorials/getting-started/files-folders-project-structure',
 ];
 
 function isCurrentPath(path) {

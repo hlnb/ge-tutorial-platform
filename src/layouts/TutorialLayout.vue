@@ -50,8 +50,8 @@
 		<div
 			v-if="showMobileNavDrawer"
 			class="mobile-sidebar-backdrop"
-			@click="closeMobileNav"
 			aria-hidden="true"
+			@click="closeMobileNav"
 		></div>
 	</div>
 </template>
@@ -255,7 +255,17 @@ const tutorialMap = {
 			path: '/tutorials/getting-started/browser-tools',
 			title: 'Browser Development Tools',
 		},
-		next: { path: '/tutorials/beginner/html-basics',title: 'HTML Basics' },
+		next: {
+			path: '/tutorials/getting-started/files-folders-project-structure',
+			title: 'Files, Folders & Project Structure',
+		},
+	},
+	'getting-started-files-folders-project-structure': {
+		prev: {
+			path: '/tutorials/getting-started/domain-hosting',
+			title: 'Domain Names & Web Hosting',
+		},
+		next: { path: '/tutorials/beginner/html-basics', title: 'HTML Basics' },
 	},
 
 	// CSS Basics routes
@@ -447,6 +457,35 @@ const tutorialMap = {
 	'git-basics-workflow': {
 		prev: { path: '/tutorials/git-basics/remote',title: 'Remote Repositories' },
 		next: { path: '/tutorials',title: 'Tutorials Home' }
+	},
+	// Black Swan Bistro project (7 parts spanning beginner → advanced)
+	'beginner-black-swan-bistro-part-1': {
+		prev: { path: '/tutorials',title: 'Tutorials Home' },
+		next: { path: '/tutorials/intermediate/black-swan-bistro-part-2',title: 'BSB Part 2 — Layout & Sections' }
+	},
+	'intermediate-black-swan-bistro-part-2': {
+		prev: { path: '/tutorials/beginner/black-swan-bistro-part-1',title: 'BSB Part 1 — First Page' },
+		next: { path: '/tutorials/intermediate/black-swan-bistro-part-3',title: 'BSB Part 3 — Components' }
+	},
+	'intermediate-black-swan-bistro-part-3': {
+		prev: { path: '/tutorials/intermediate/black-swan-bistro-part-2',title: 'BSB Part 2 — Layout & Sections' },
+		next: { path: '/tutorials/intermediate/black-swan-bistro-part-4',title: 'BSB Part 4 — Multi-page Site' }
+	},
+	'intermediate-black-swan-bistro-part-4': {
+		prev: { path: '/tutorials/intermediate/black-swan-bistro-part-3',title: 'BSB Part 3 — Components' },
+		next: { path: '/tutorials/advanced/black-swan-bistro-part-5',title: 'BSB Part 5 — Prepare for Deployment' }
+	},
+	'advanced-black-swan-bistro-part-5': {
+		prev: { path: '/tutorials/intermediate/black-swan-bistro-part-4',title: 'BSB Part 4 — Multi-page Site' },
+		next: { path: '/tutorials/advanced/black-swan-bistro-part-6',title: 'BSB Part 6 — Deploy the Site' }
+	},
+	'advanced-black-swan-bistro-part-6': {
+		prev: { path: '/tutorials/advanced/black-swan-bistro-part-5',title: 'BSB Part 5 — Prepare for Deployment' },
+		next: { path: '/tutorials/advanced/black-swan-bistro-part-7',title: 'BSB Part 7 — Maintain & Improve' }
+	},
+	'advanced-black-swan-bistro-part-7': {
+		prev: { path: '/tutorials/advanced/black-swan-bistro-part-6',title: 'BSB Part 6 — Deploy the Site' },
+		next: { path: '/tutorials',title: 'Tutorials Home' }
 	}
 
 };
@@ -552,7 +591,14 @@ const shouldHideCompletion = computed(() => {
 		'/tutorials/beginner/html-basics/html-doc-structure',
 		'/tutorials/beginner/html-basics/html-forms',
 		'/tutorials/beginner/html-basics/html-emmet',
-		// Add other routes here as needed
+		'/tutorials/getting-started/how-internet-works',
+		'/tutorials/getting-started/web-basics',
+		'/tutorials/getting-started/text-editors',
+		'/tutorials/getting-started/dev-environment',
+		'/tutorials/getting-started/browser-tools',
+		'/tutorials/getting-started/domain-hosting',
+		'/tutorials/getting-started/files-folders-project-structure',
+		'/tutorials/beginner/black-swan-bistro-part-1',		// Add other routes here as needed
 	];
 
 	return routesWithCustomCompletion.includes(route.path);

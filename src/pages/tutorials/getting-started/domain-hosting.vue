@@ -472,32 +472,13 @@
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			next-steps="<p>With domains and hosting understood, you're ready to build! The next section covers <strong>HTML Basics</strong>, where you'll learn to create the structure of web pages. If you've already registered a domain, you'll soon deploy your first real website to it!</p>"
+			:real-world-application="`<p><strong>After setting up your domain and hosting, don&rsquo;t forget these important steps:</strong></p><ul><li>Set up an SSL certificate (often free with Let&rsquo;s Encrypt) so your site uses HTTPS</li><li>Configure email if needed</li><li>Test your website on different devices and browsers</li><li>Set up regular backups</li></ul>`"
+			:next-steps="`<p>Now that you understand how to get your website online, the next tutorial covers <strong>Files, Folders &amp; Project Structure</strong> &mdash; how to organise your project files with proper naming conventions before you start writing code.</p>`"
 		/>
 
-		<TutorialRecommendations :current-path="'/tutorials/getting-started/domain-hosting'" />
+		<TutorialRecommendations current-path="/tutorials/getting-started/domain-hosting" />
 
 		<TutorialCompletion tutorial-path="/tutorials/getting-started/domain-hosting" />
-
-		<section id="next-steps">
-			<h2 class="title is-2">Next Steps</h2>
-			<p>After setting up your domain and hosting:</p>
-			<ul>
-				<li>Set up SSL certificate (often free with Let's Encrypt)</li>
-				<li>Configure email if needed</li>
-				<li>Test your website on different devices</li>
-				<li>Set up regular backups</li>
-			</ul>
-			<p class="mt-4">
-				Now that you understand the basics of domain names and web hosting,
-				you're ready to move on to learning HTML, the foundation of all
-				websites.
-			</p>
-			<p>
-				In the next section, we'll begin our journey into HTML basics, where
-				you'll learn how to create your first web page.
-			</p>
-		</section>
 	</div>
 </template>
 
@@ -622,11 +603,6 @@ onMounted(() => {
 			{
 				id: 'setup-process',
 				title: 'Connecting Domain to Hosting',
-				subsections: [],
-			},
-			{
-				id: 'next-steps',
-				title: 'Next Steps',
 				subsections: [],
 			},
 		];

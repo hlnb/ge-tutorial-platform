@@ -26,6 +26,9 @@
       <span v-if="tutorial.isProject && tutorial.projectPart" class="tag is-dark">
         Part {{ tutorial.projectPart }}
       </span>
+      <span v-if="tutorial.lessonCount" class="tag is-info is-light">
+        <i class="fas fa-layer-group"></i>&nbsp;{{ tutorial.lessonCount }} lessons
+      </span>
     </div>
 
     <!-- Tags -->

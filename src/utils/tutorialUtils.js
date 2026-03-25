@@ -191,8 +191,8 @@ const tutorialRecommendations = {
 		},
 		'domain-hosting': {
 			nextTutorial: {
-				path: '/tutorials/beginner/html-basics',
-				title: 'HTML Basics',
+				path: '/tutorials/getting-started/files-folders-project-structure',
+				title: 'Files, Folders & Project Structure',
 			},
 			relatedTutorials: [
 				{
@@ -206,6 +206,40 @@ const tutorialRecommendations = {
 					title: 'MDN: What is a Domain Name?',
 					url: 'https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name',
 					description: 'Understanding domain names and how they work.',
+				},
+			],
+		},
+		'files-folders-project-structure': {
+			nextTutorial: {
+				path: '/tutorials/beginner/html-basics',
+				title: 'HTML Essentials',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/getting-started/text-editors',
+					title: 'Text Editors',
+				},
+				{
+					path: '/tutorials/getting-started/dev-environment',
+					title: 'Setting Up Your Environment',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Dealing with Files',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files',
+					description: 'How to set up a sensible file structure for your website.',
+				},
+				{
+					title: 'MDN: A Typical HTTP Session',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Session',
+					description: 'How browsers request and receive files from servers.',
+				},
+				{
+					title: 'File Paths Explained (CSS-Tricks)',
+					url: 'https://css-tricks.com/quick-reminder-about-file-paths/',
+					description: 'Quick visual reference for relative and absolute file paths.',
 				},
 			],
 		},
@@ -1101,6 +1135,178 @@ const tutorialRecommendations = {
 				}
 			]
 		}
+	},
+	// Black Swan Bistro project (spans beginner → intermediate → advanced)
+	'beginner': {
+		'black-swan-bistro-part-1': {
+			nextTutorial: {
+				path: '/tutorials/intermediate/black-swan-bistro-part-2',
+				title: 'BSB Part 2 — Layout & Sections',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/beginner/html-basics/html-first-page',
+					title: 'Your First HTML Page',
+				},
+				{
+					path: '/tutorials/beginner/html-basics/html-doc-structure',
+					title: 'HTML Document Structure',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Getting started with HTML',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started',
+					description: 'Comprehensive guide to HTML basics from Mozilla.',
+				},
+			],
+		},
+	},
+	'intermediate': {
+		'black-swan-bistro-part-2': {
+			nextTutorial: {
+				path: '/tutorials/intermediate/black-swan-bistro-part-3',
+				title: 'BSB Part 3 — Components',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/intermediate/breaking-layouts-into-sections',
+					title: 'Breaking Layouts into Sections',
+				},
+				{
+					path: '/tutorials/beginner/css-basics/layout',
+					title: 'CSS Layout',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Document and website structure',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure',
+					description: 'How to plan and structure a website with semantic HTML.',
+				},
+			],
+		},
+		'black-swan-bistro-part-3': {
+			nextTutorial: {
+				path: '/tutorials/intermediate/black-swan-bistro-part-4',
+				title: 'BSB Part 4 — Multi-page Site',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/intermediate/building-reusable-components',
+					title: 'Building Reusable Components',
+				},
+				{
+					path: '/tutorials/beginner/css-basics/flexbox',
+					title: 'Flexbox',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'CSS-Tricks: A Complete Guide to Flexbox',
+					url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/',
+					description: 'Visual guide to every Flexbox property.',
+				},
+			],
+		},
+		'black-swan-bistro-part-4': {
+			nextTutorial: {
+				path: '/tutorials/advanced/black-swan-bistro-part-5',
+				title: 'BSB Part 5 — Prepare for Deployment',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/intermediate/multi-page-structure',
+					title: 'Multi-page Structure',
+				},
+				{
+					path: '/tutorials/beginner/html-basics/html-links',
+					title: 'HTML Links',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Creating hyperlinks',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks',
+					description: 'How to create effective links between pages.',
+				},
+			],
+		},
+	},
+	'advanced': {
+		'black-swan-bistro-part-5': {
+			nextTutorial: {
+				path: '/tutorials/advanced/black-swan-bistro-part-6',
+				title: 'BSB Part 6 — Deploy the Site',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/deployments/vercel-netlify',
+					title: 'Hosting and Deployment',
+				},
+				{
+					path: '/tutorials/seo-analytics/on-page-seo',
+					title: 'SEO Fundamentals',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'web.dev: Performance',
+					url: 'https://web.dev/performance/',
+					description: 'Google\'s guide to web performance optimisation.',
+				},
+			],
+		},
+		'black-swan-bistro-part-6': {
+			nextTutorial: {
+				path: '/tutorials/advanced/black-swan-bistro-part-7',
+				title: 'BSB Part 7 — Maintain & Improve',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/intermediate/git-basics/introduction',
+					title: 'Git & GitHub Basics',
+				},
+				{
+					path: '/tutorials/advanced/domains-dns-going-live',
+					title: 'Domains, DNS & Going Live',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'GitHub Pages Documentation',
+					url: 'https://docs.github.com/en/pages',
+					description: 'Official guide to deploying with GitHub Pages.',
+				},
+			],
+		},
+		'black-swan-bistro-part-7': {
+			nextTutorial: null,
+			relatedTutorials: [
+				{
+					path: '/tutorials/advanced/website-care-and-feeding',
+					title: 'Website Care and Feeding',
+				},
+				{
+					path: '/tutorials/seo-analytics/on-page-seo',
+					title: 'SEO Fundamentals',
+				},
+			],
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'web.dev: Lighthouse',
+					url: 'https://developer.chrome.com/docs/lighthouse/',
+					description: 'Audit your site for performance, accessibility, and SEO.',
+				},
+			],
+		},
 	},
 	'git-basics': {
 		'install': {
