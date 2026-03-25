@@ -70,6 +70,7 @@ import BackendNav from '@/components/tutorial-navs/BackendNav.vue';
 import DeploymentsNav from '@/components/tutorial-navs/DeploymentsNav.vue';
 import SeoAnalyticsNav from '@/components/tutorial-navs/SeoAnalyticsNav.vue';
 import CapstoneNav from '@/components/tutorial-navs/CapstoneNav.vue';
+import StandaloneNav from '@/components/tutorial-navs/StandaloneNav.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import progressService from '@/services/ProgressService';
 import { hasQuiz } from '@/utils/quizUtils';
@@ -129,7 +130,7 @@ const currentNav = computed(() => {
 	} else if (path.includes('/capstone')) {
 		return CapstoneNav;
 	}
-	return null;
+	return StandaloneNav;
 });
 
 // Reset pageSections when route changes

@@ -233,6 +233,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/projects/css-debug-practice': RouteRecordInfo<
+      '/projects/css-debug-practice',
+      '/projects/css-debug-practice',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/projects/git-branch': RouteRecordInfo<
       '/projects/git-branch',
       '/projects/git-branch',
@@ -1249,6 +1256,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/projects/color-switcher.vue': {
       routes:
         | '/projects/color-switcher'
+      views:
+        | never
+    }
+    'src/pages/projects/css-debug-practice.vue': {
+      routes:
+        | '/projects/css-debug-practice'
       views:
         | never
     }

@@ -1162,6 +1162,46 @@ const tutorialRecommendations = {
 				},
 			],
 		},
+		'why-your-css-isnt-working': {
+			nextTutorial: {
+				path: '/tutorials/beginner/css-basics/flexbox',
+				title: 'CSS Flexbox',
+			},
+			relatedTutorials: [
+				{
+					path: '/tutorials/beginner/css-basics/introduction',
+					title: 'Introduction to CSS',
+				},
+				{
+					path: '/tutorials/beginner/css-basics/selectors',
+					title: 'CSS Selectors',
+				},
+				{
+					path: '/tutorials/beginner/css-basics/box-model',
+					title: 'The Box Model',
+				},
+			],
+			practiceProjects: [
+				{
+					title: 'CSS Debug Practice',
+					description: 'A broken stylesheet with 4 bugs to find and fix using DevTools.',
+					tags: ['CSS', 'Debugging'],
+					path: '/projects/css-debug-practice',
+				},
+			],
+			resources: [
+				{
+					title: 'MDN: Debugging CSS',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS',
+					description: 'Mozilla\'s guide to diagnosing and fixing CSS problems.',
+				},
+				{
+					title: 'Chrome DevTools: CSS Reference',
+					url: 'https://developer.chrome.com/docs/devtools/css',
+					description: 'Official guide to inspecting and editing CSS in Chrome DevTools.',
+				},
+			],
+		},
 	},
 	'intermediate': {
 		'black-swan-bistro-part-2': {

@@ -1,0 +1,30 @@
+/* ============================================
+   CSS Debug Practice — Guided Practice
+   This stylesheet has 4 intentional bugs.
+   Use your debugging checklist to find
+   and fix each one!
+   ============================================ */
+
+/* Bug 1: Missing closing bracket */
+h1 {
+    color: navy;
+    font-size: 2.5rem;
+
+/* Bug 2: Selector typo (underscore vs hyphen) */
+.hero_section {
+    background-color: #f0f0f0;
+    padding: 3rem;
+}
+
+/* Bug 3: Missing colon */
+nav ul {
+    list-style none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Bug 4: Space in value */
+.intro {
+    font-size: 1.2 rem;
+    line-height: 1.8;
+}
