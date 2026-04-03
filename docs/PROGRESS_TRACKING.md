@@ -1,74 +1,100 @@
-# Student Progress Tracking System
+# Progress Tracking
 
-## Overview
+Status: partially current. The core storage and progress services are present in the repo, but some earlier descriptions were too broad or too confident about behavior that should still be treated as implementation-specific.
 
-This document describes the new student progress tracking system for the tutorial platform. The system now uses a hybrid approach: progress is stored in Firebase Firestore for authenticated users and in localStorage for guests. This replaces the previous Redis-based solution.
+## Current Overview
 
-## Key Features
+Progress tracking in the current repository is centered on:
 
-- **Hybrid Storage:**
-  - **Authenticated users:** Progress is stored in Firestore, associated with their user account.
-  - **Guest users:** Progress is stored in the browser's localStorage.
-- **Automatic Sync:**
-  - When a user logs in, their progress is loaded from Firestore.
-  - When a user logs out, progress is saved to localStorage.
-- **Unified API:**
-  - All progress-related utilities and composables use a single API, abstracting away storage details.
-- **Real-Time Updates:**
-  - Progress updates are reflected immediately in the UI for both guests and authenticated users.
+- `src/services/ProgressService.js`
+- `src/utils/progressUtils.js`
+- `src/composables/useProgress.js`
+- `src/pages/my-progress.vue`
 
-## Data Model
+Related UI/supporting files include:
 
-Progress is tracked per user (or per browser for guests) and includes:
+- `src/components/ProgressSectionList.vue`
+- tutorial completion and quiz components
 
-- `completedTutorials`: Array of completed tutorial paths.
-- `tutorialProgress`: Object mapping tutorial paths to progress details (e.g., percentage, last section, last updated).
-- `completedQuizzes`: Array of completed quiz IDs.
-- `quizResults`: Object mapping quiz IDs to result details (score, total, completedAt).
+## Current Storage Model
 
-## How It Works
+The live code supports a hybrid model:
 
-- **Saving Progress:**
-  - When a user completes a tutorial or quiz, or makes progress, the system saves the update to Firestore (if logged in) or localStorage (if a guest).
-- **Loading Progress:**
-  - On page load, the system loads progress from the appropriate source.
-- **Clearing Progress:**
-  - Users can clear all progress, which removes their data from Firestore or localStorage.
-- **Exporting Progress:**
-  - Users can export their progress as a JSON file for backup.
+- authenticated users: progress stored in Firestore
+- guests: progress stored in browser `localStorage`
 
-## Developer Notes
+This behavior is implemented in:
 
-- All progress logic is handled by `src/services/ProgressService.js`.
-- Utilities in `src/utils/progressUtils.js` and the `useProgress` composable provide a unified interface for components.
-- UI components (e.g., `StudentProgressPage.vue`, `ProgressSectionList.vue`) use the new composable/utilities and do not interact with storage directly.
-- All Redis-related code and documentation have been removed.
+- `src/services/ProgressService.js`
 
-## Migration Notes
+## Tracked Data
 
-- If you are upgrading from the Redis-based system, ensure all references to Redis and the old API are removed.
-- The new system is fully client-driven and requires no server-side API for progress.
-- Firestore security rules should be configured to protect user data.
+The current progress model includes fields such as:
 
-## File References
+- `completedTutorials`
+- `tutorialProgress`
+- `inProgressTutorials`
+- `completedQuizzes`
+- `quizResults`
+- `lastVisited`
 
-- `src/services/ProgressService.js`: Main logic for progress storage and retrieval.
-- `src/utils/progressUtils.js`: Utility functions for progress actions.
-- `src/composables/useProgress.js`: Vue composable for progress state and actions.
-- `src/pages/StudentProgressPage.vue`: Main UI for displaying student progress.
-- `src/components/ProgressSectionList.vue`: Section progress display component.
+The service also tracks scroll progress for tutorials through the shared tutorial layout.
 
-## FAQ
+## Current UI
 
-**Q: What happens if a guest user logs in?**
-A: Their local progress is not automatically synced to Firestore. (Future enhancements may add this feature.)
+The main visible progress page in the current repo is:
 
-**Q: Is progress lost if a guest clears their browser storage?**
-A: Yes. Only authenticated users have persistent, cloud-backed progress.
+- `src/pages/my-progress.vue`
 
-**Q: Can users export and import progress?**
-A: Export is supported. Import is not currently available.
+Current UI features visible in that file include:
 
----
+- auth-aware messaging
+- tutorial/quiz summary stats
+- section progress views
+- quiz result review
+- export progress action
+- reset progress action
 
-For further details, see the code comments in the referenced files.
+## Current Behavior Notes
+
+Progress-related behavior currently includes:
+
+- quiz completion tracking
+- tutorial completion tracking
+- scroll progress updates from `TutorialLayout`
+- summary/stat calculation via the progress service
+
+The `useProgress` composable provides a convenience layer for components but does not replace the service itself.
+
+## Known Limits And Cautions
+
+Treat the following carefully:
+
+- not every earlier doc claim should be assumed accurate unless visible in current code
+- auth sync behavior should be verified against the live service implementation, not just older narrative docs
+- export/reset UI is present in `my-progress.vue`, but any broader import/export claims should only be documented if clearly implemented
+
+## Best Current Practice
+
+When editing progress-related features:
+
+- start with `src/services/ProgressService.js`
+- verify how `useProgress` is currently used in the UI
+- check `my-progress.vue` for actual user-facing behavior
+- confirm tutorial components and layout interactions before changing progress assumptions
+
+## Troubleshooting
+
+If progress appears wrong:
+
+1. inspect `src/services/ProgressService.js`
+2. inspect `src/utils/progressUtils.js`
+3. inspect `src/composables/useProgress.js`
+4. inspect `src/pages/my-progress.vue`
+5. verify whether the user is authenticated or using local device storage
+
+## Important Documentation Note
+
+This system should be documented from the code outward.
+
+Where docs and implementation disagree, trust the current service/UI code until the architecture is intentionally changed.

@@ -1,145 +1,115 @@
 # Setup Guide
 
-## Prerequisites
+Status: transitional. This file now describes the current project setup at a high level and flags older setup assumptions that are no longer part of the active workflow.
 
-- Node.js 16+
-- npm or yarn
-- Vue 3
-- Vite
-- Existing project structure
+## Current Local Setup
 
-## Installation Steps
+### Requirements
 
-1. Add Post Metadata Support
-2. Add Image Configuration
-3. Add Post Scheduling System
-4. Add Post Visibility System
-5. Add Post Navigation System
-6. Add Post Search System
+- Node.js `22.x`
+- npm
 
-## Post System Setup
+### Install Dependencies
 
-### 1. Directory Structure
-
-Ensure these directories exist in your project:
-bash
-public/
-└── images/
-└── posts/ # Public post images
-src/
-├── assets/
-│ └── images/
-│ └── posts/ # Asset post images
-└── pages/
-└── posts/ # Post .vue files
-
-### 2. Post Template
-
-Create a template file
-touch src/pages/posts/template.vue
-
-### 3. Router Configuration
-
-```javascript
-// src/router.js
-{
-path: '/posts/:slug',
-component: () => import('./pages/posts/[slug].vue')
-}
+```bash
+npm install
 ```
 
-### 4. Post Template Structure
+### Run The Project
 
-```vue
-<template>
-	<div class="content">
-		<!-- Hero Image -->
-		<div class="post-hero">
-			<img
-				src="/images/posts/your-post-image.svg"
-				alt="Post Illustration"
-				class="hero-image"
-			/>
-		</div>
+Frontend plus local API:
 
-		<h1 class="title is-1">
-			<i class="fas fa-icon section-icon"></i> Your Post Title
-		</h1>
-
-		<!-- Post content -->
-	</div>
-</template>
-
-<script setup>
-const postMetadata = {
-	title: 'Your Post Title',
-	description: 'Brief description of your post',
-	publishDate: 'YYYY-MM-DDTHH:mm:ssZ',
-	author: 'Your Name',
-	status: 'draft', // or "scheduled" or "published"
-	tags: ['Tag1', 'Tag2'],
-	readingTime: 'X min',
-};
-</script>
+```bash
+npm run dev
 ```
 
-## Development Workflow
+Frontend only:
 
-1. Create new post file in `src/pages/posts/`
-2. Add post metadata
-3. Add post content
-4. Add images to appropriate directory
-5. Test locally using `npm run dev`
+```bash
+npm run dev:vite
+```
 
-## Best Practices
+API only:
 
-### 1. Images
+```bash
+npm run dev:api
+```
 
-- Use SVG for illustrations when possible
-- Optimize images for web
-- Include meaningful alt text
+CMS-related local workflow currently present in the repo:
 
-### 2. Content
+```bash
+npm run dev:cms
+```
 
-- Use semantic HTML
-- Include code examples where relevant
-- Break content into logical sections
+## Active Project Shape
 
-### 3. Metadata
+The current app is organized around page files and shared components, not around a template-copy system.
 
-- Use consistent date format
-- Include all required fields
-- Tag posts appropriately
+Relevant live locations include:
 
-## Troubleshooting
+- `src/pages/tutorials`
+- `src/pages/posts`
+- `src/pages/projects`
+- `src/layouts`
+- `src/components`
+- `src/data`
+- `src/assets`
 
-### Common Issues
+Routing is generated from the page files in `src/pages` through the current Vite/router setup.
 
-1. Images Not Loading
+## Tutorial System Setup Notes
 
-- Check image path is correct
-- Verify file exists in correct directory
-- Check file permissions
+The tutorial experience already has shared structure in the repo.
 
-2. Post Not Visible
+Important current files:
 
-- Verify status is "published" or "scheduled"
-- Check publishDate format
-- Compare publishDate with current date
+- `src/layouts/TutorialLayout.vue`
+- `src/components/tutorial-navs/*`
+- `src/components/TutorialNavigation.vue`
+- `src/components/TutorialRecommendations.vue`
+- `src/components/TutorialCompletion.vue`
+- `src/components/TestYourKnowledgeSection.vue`
+- `src/assets/styles/tutorials.css`
 
-3. Styling Issues
+When working on tutorials:
 
-- Check class names match your CSS
-- Verify Bulma classes are applied correctly
-- Test responsive breakpoints
+- reuse this existing system
+- preserve the existing Bulma-plus-custom-CSS approach
+- prefer incremental cleanup over introducing a parallel structure
 
-## Testing Checklist
+## Environment And Services
 
-- [ ] Post metadata complete
-- [ ] Images load correctly
-- [ ] Content renders properly
-- [ ] Responsive layout works
-- [ ] Links function correctly
-- [ ] Code snippets formatted properly
+The repository includes:
 
-Need help? Contact the development team for support.
+- Firebase initialization in `src/services/firebase.js`
+- auth-related pages and services under `src/pages/auth` and `src/services/AuthService.js`
+- a local API server under `api/`
+
+Environment-specific setup should be derived from the code actually in use and the deployment environment being targeted.
+
+## Legacy Notes
+
+The repository does not currently use `src/templates` as part of the active content workflow.
+
+Older setup patterns that should not be treated as current unless reintroduced deliberately:
+
+- manual router entry creation for each page
+- template-copy instructions based on `src/templates`
+- post-only setup guidance that ignores tutorials/projects/current routing
+
+## Basic First Check After Setup
+
+After installing dependencies:
+
+1. run `npm run dev`
+2. open `http://localhost:5173`
+3. check the home page
+4. check `/tutorials`
+5. check one representative deep tutorial route
+
+If anything fails, inspect:
+
+- `package.json`
+- `vite.config.js`
+- `src/router/index.js`
+- `vercel.json` for production behavior assumptions

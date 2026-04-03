@@ -1,138 +1,112 @@
-# Adding Quizzes to Tutorials
+# Quiz System
 
-This document explains how to add quizzes to tutorial pages in the GraphiteEdge platform.
+Status: partially current. The underlying quiz system described here exists in the repository, but the preferred page-level lesson pattern has shifted toward `TestYourKnowledgeSection`.
 
-## Overview
+## Current Implementation
 
-The quiz system allows you to add interactive quizzes to any tutorial page. Quizzes help students test their knowledge and reinforce learning. The system includes:
+The current quiz system is built from:
 
-- Pre-defined quiz questions for HTML and CSS tutorials
-- A reusable quiz component
-- Progress tracking for completed quizzes
-- Automatic quiz detection based on the tutorial path
+- `src/components/TutorialQuiz.vue`
+- `src/components/QuizComponent.vue`
+- `src/components/TestYourKnowledgeSection.vue`
+- `src/utils/quizUtils.js`
+- `src/data/quizzes/*.js`
 
-## Adding a Quiz to a Tutorial Page
+Key behavior visible in the current repo:
 
-### Method 1: Using the TutorialQuiz Component (Recommended)
+- quiz availability is determined from tutorial path data
+- quiz questions are loaded from section quiz data files
+- `TutorialQuiz` is the reusable quiz wrapper component
+- `TestYourKnowledgeSection` is the current learner-facing assessment block that renders `TutorialQuiz`
 
-The easiest way to add a quiz to a tutorial page is to use the `TutorialQuiz` component:
+## Preferred Lesson Pattern
 
-```vue
-<template>
-	<!-- Tutorial content -->
+For tutorial pages, prefer:
 
-	<!-- Add quiz at the end of the tutorial -->
-	<TutorialQuiz />
-</template>
+- `TestYourKnowledgeSection`
 
-<script setup>
-import TutorialQuiz from '@/components/TutorialQuiz.vue';
-</script>
-```
+instead of inserting a bare `TutorialQuiz` directly into the lesson unless there is a specific reason to do so.
 
-### Method 2: Using the QuizComponent Directly
+Why:
 
-For more control, you can use the `QuizComponent` directly:
+- it gives the learner a clearer assessment section
+- it standardizes the visual and instructional framing around the quiz
+- it matches the direction already present in the live component structure
 
-```vue
-<template>
-	<!-- Tutorial content -->
+Preferred placement in a lesson:
 
-	<section class="mt-6">
-		<h2 class="title is-3">Test Your Knowledge</h2>
-		<p class="mb-4">
-			Let's see how well you understand the concepts covered in this tutorial.
-		</p>
+1. recommendations
+2. `TestYourKnowledgeSection`
+3. Hunter summary/closure section
 
-		<QuizComponent />
-	</section>
-</template>
+## Quiz Data Files
 
-<script setup>
-import QuizComponent from '@/components/QuizComponent.vue';
-</script>
-```
+Quiz questions are currently stored in:
 
-## Adding Custom Quiz Questions
+- `src/data/quizzes/html-basics.js`
+- `src/data/quizzes/css-basics.js`
+- `src/data/quizzes/javascript-basics.js`
+- `src/data/quizzes/dom-basics.js`
+- `src/data/quizzes/git-basics.js`
 
-Quiz questions are defined in the following files:
+Only describe or update quiz data that actually exists in the current repo.
 
-- `src/data/quizzes/html-basics.js` - Questions for HTML tutorials
-- `src/data/quizzes/css-basics.js` - Questions for CSS tutorials
+## Adding Or Updating Questions
 
-To add questions for a new tutorial, edit the appropriate file and add a new entry:
+To add quiz questions for a tutorial:
 
-```javascript
-// Example: Adding questions for a new HTML tutorial
-'new-tutorial': [
-  {
-    text: "What is the question?",
-    options: [
-      "Option A",
-      "Option B",
-      "Option C",
-      "Option D"
-    ],
-    correctAnswer: 1, // Index of the correct option (0-based)
-    explanation: "Explanation of why this answer is correct."
-  },
-  // Add more questions...
-]
-```
+1. find the matching section quiz file in `src/data/quizzes`
+2. add or update the entry that matches the tutorial slug/path convention used by that section
+3. verify `quizUtils.js` can resolve the questions for the target route
 
-## Quiz Component Props
+Current caution:
 
-The `QuizComponent` accepts the following props:
+- different tutorial sections have some variation in how quiz data has been authored over time
+- `quizUtils.js` already contains normalization logic for older question shapes
 
-- `title` - The title of the quiz (default: auto-generated based on tutorial name)
-- `description` - The description of the quiz (default: auto-generated)
-- `questions` - Array of quiz questions (default: auto-loaded based on tutorial path)
-- `tutorialPath` - The path of the tutorial (default: current route path)
+## Question Format
 
-## Quiz Question Format
+The current system supports question objects with fields such as:
 
-Each quiz question should have the following format:
+- `text` or normalized `question`
+- `options`
+- `correctAnswer`
+- optional explanation text
 
-```javascript
-{
-  text: "The question text",
-  options: [
-    "Option A",
-    "Option B",
-    "Option C",
-    "Option D"
-  ],
-  correctAnswer: 0, // Index of the correct option (0-based)
-  explanation: "Explanation of why this answer is correct."
-}
-```
-
-## Quiz Events
-
-The `QuizComponent` emits the following events:
-
-- `quiz-started` - Emitted when the quiz is started
-- `quiz-completed` - Emitted when the quiz is completed, with the score and total
-- `quiz-reset` - Emitted when the quiz is reset
+Use the same data shape already used in the quiz file you are editing rather than inventing a new structure.
 
 ## Progress Tracking
 
-Quiz completion is automatically tracked using the `ProgressService`. When a student completes a quiz, the following information is saved:
+Quiz completion is tied into the current progress tracking system through:
 
-- The tutorial path is added to the `completedQuizzes` array
-- The quiz result (score, total, completion date) is saved in the `quizResults` object
+- `src/services/ProgressService.js`
+- `src/utils/progressUtils.js`
 
-This information is displayed on the student progress page.
+The quiz system should be treated as part of the broader tutorial progress flow rather than a standalone feature.
 
 ## Quiz Indicator
 
-A quiz indicator is automatically shown on tutorial pages that have quizzes. This indicator can be hidden if the page has its own custom quiz indicator by adding the tutorial path to the `routesWithCustomQuizIndicators` array in `TutorialLayout.vue`.
+The tutorial layout currently supports quiz indication through:
+
+- `src/layouts/TutorialLayout.vue`
+
+This is still partly route-specific and transitional.
+
+## Best Current Practice
+
+When updating quizzes:
+
+- keep one learner-facing assessment block per tutorial unless there is a clear reason otherwise
+- prefer `TestYourKnowledgeSection` for page composition
+- verify the tutorial path matches the quiz lookup behavior
+- verify the quiz appears in the right position in the lesson
 
 ## Troubleshooting
 
-If a quiz is not appearing on a tutorial page, check the following:
+If a quiz does not appear:
 
-1. Make sure the tutorial path matches the key in the quiz data file
-2. Check that the quiz questions are properly formatted
-3. Verify that the `QuizComponent` or `TutorialQuiz` component is properly imported
-4. Check the browser console for any errors
+1. check the tutorial path
+2. check the section quiz file
+3. check `src/utils/quizUtils.js`
+4. confirm the page is rendering `TestYourKnowledgeSection` or the intended quiz wrapper
+5. check for console warnings or component import issues

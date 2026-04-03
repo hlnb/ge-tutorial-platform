@@ -1,189 +1,157 @@
 # Tutorial Site Diagrams
 
-This document provides visual diagrams of the tutorial site structure and component relationships using Mermaid.
+Status: partially current. These diagrams reflect the current tutorial system and the clarified pathway direction, while noting that some sequence/navigation logic is still transitional in the codebase.
 
-## Site Structure
-
-```mermaid
-graph TD
-    Home[Home Page] --> Tutorials[Tutorials Page]
-    Tutorials --> Beginner[Beginner Tutorials]
-    Tutorials --> Intermediate[Intermediate Tutorials]
-    Tutorials --> Advanced[Advanced Tutorials]
-    
-    Beginner --> HTML[HTML Basics]
-    Beginner --> CSS[CSS Basics]
-    Beginner --> JS[JavaScript Basics]
-    Beginner --> DOM[DOM Basics]
-    
-    HTML --> HTMLFirst[First Page]
-    HTML --> HTMLText[Text Elements]
-    HTML --> HTMLEmmet[Emmet]
-    
-    CSS --> CSSFirst[First Page]
-    CSS --> CSSSelectors[Selectors]
-    CSS --> CSSBox[Box Model]
-    
-    JS --> JSFirst[First Page]
-    JS --> JSConditionals[Conditionals]
-    JS --> JSLoops[Loops]
-    
-    DOM --> DOMFirst[First Page]
-    DOM --> DOMEvents[Events]
-    DOM --> DOMManipulation[Manipulation]
-```
-
-## Component Relationships
+## Pathway Structure
 
 ```mermaid
 graph TD
-    subgraph Layout
-        TL[TutorialLayout.vue]
-        SN[Sidebar Navigation]
-        MC[Main Content Area]
-    end
-    
-    subgraph Tutorial Page
-        TP[Tutorial Page Component]
-        BN[Breadcrumb Navigation]
-        CS[Content Sections]
-        QS[Quiz Section]
-        RS[Recommendations Section]
-        NS[Navigation Section]
-    end
-    
-    subgraph Components
-        TQ[TutorialQuiz]
-        QC[QuizComponent]
-        TR[TutorialRecommendations]
-        TN[TutorialNavigation]
-    end
-    
-    subgraph Services
-        PS[ProgressService]
-        QU[quizUtils.js]
-        TU[tutorialUtils.js]
-        PU[progressUtils.js]
-    end
-    
-    TL --> SN
-    TL --> MC
-    MC --> TP
-    
-    TP --> BN
-    TP --> CS
-    TP --> QS
-    TP --> RS
-    TP --> NS
-    
-    QS --> TQ
-    TQ --> QC
-    
-    RS --> TR
-    NS --> TN
-    
-    TP --> PS
-    TQ --> QU
-    TR --> TU
-    TN --> PU
+    Home["Home"] --> Tutorials["/tutorials (Primary Pathway Hub)"]
+
+    Tutorials --> Foundation["Foundation"]
+    Tutorials --> Beginner["Beginner"]
+    Tutorials --> Intermediate["Intermediate"]
+    Tutorials --> Advanced["Advanced"]
+
+    Foundation --> GettingStarted["Getting Started"]
+
+    Beginner --> HTML["HTML Basics"]
+    Beginner --> CSS["CSS Basics"]
+    Beginner --> JS["JavaScript Basics"]
+    Beginner --> DOM["DOM Basics"]
+
+    Intermediate --> Git["Git Basics"]
+    Intermediate --> Builder["Builder / Black Swan Bistro Parts 2–4"]
+
+    Advanced --> Deploy["Deployments / Going Live"]
+    Advanced --> Care["Accessibility / Maintenance / Advanced Site Care"]
+
+    GettingStarted --> GSIndex["Section Page"]
+    HTML --> HTMLIndex["Section Page"]
+    CSS --> CSSIndex["Section Page"]
+    JS --> JSIndex["Section Page"]
+    DOM --> DOMIndex["Section Page"]
+    Git --> GitIndex["Section Page"]
+
+    GSIndex --> GSIntro["Hand-written section intro"]
+    GSIndex --> GSCards["Lesson cards (currently hand-authored, intended to be generated)"]
+
+    HTMLIndex --> HTMLIntro["Hand-written section intro"]
+    HTMLIndex --> HTMLCards["Lesson cards (currently hand-authored, intended to be generated)"]
 ```
 
-## Data Flow
+## Shared Tutorial System
+
+```mermaid
+graph TD
+    App["src/App.vue"] --> TutorialLayout["src/layouts/TutorialLayout.vue"]
+    App --> TutorialsHub["src/pages/tutorials/index.vue"]
+
+    TutorialLayout --> SidebarNav["Section Nav Component"]
+    TutorialLayout --> MainContent["Tutorial Page Content"]
+    TutorialLayout --> PrevNext["TutorialNavigation"]
+    TutorialLayout --> Progress["Scroll Progress Tracking"]
+
+    SidebarNav --> PageSections["Injected pageSections"]
+
+    MainContent --> Breadcrumbs["Breadcrumbs / Title / Tags"]
+    MainContent --> Hunter["Hunter Components"]
+    MainContent --> Recommendations["TutorialRecommendations"]
+    MainContent --> Assessment["TestYourKnowledgeSection"]
+    MainContent --> Closure["Closure / Completion Content"]
+
+    Assessment --> TutorialQuiz["TutorialQuiz"]
+    TutorialQuiz --> QuizComponent["QuizComponent"]
+```
+
+## Current Data And Logic Split
+
+```mermaid
+graph TD
+    Curriculum["src/data/tutorials.js"] --> TutorialsHubData["/tutorials pathway data"]
+
+    TutorialUtils["src/utils/tutorialUtils.js"] --> Recommendations["Recommendation data"]
+    TutorialLayout["src/layouts/TutorialLayout.vue"] --> PrevNext["Prev / Next mapping"]
+    SectionNavs["src/components/tutorial-navs/*"] --> SidebarOrder["Section link order"]
+    SectionPages["src/pages/tutorials/**/index.vue"] --> LandingCards["Landing page cards"]
+
+    Curriculum -. intended consolidation .-> PrevNext
+    Curriculum -. intended consolidation .-> SidebarOrder
+    Curriculum -. intended consolidation .-> LandingCards
+    Curriculum -. intended consolidation .-> Recommendations
+```
+
+## Assessment And Recommendation Flow
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant TP as Tutorial Page
-    participant PS as ProgressService
-    participant QU as QuizUtils
-    participant TU as TutorialUtils
-    
-    User->>TP: Visits Tutorial Page
-    TP->>PS: Track Progress
-    TP->>TU: Load Recommendations
-    
-    User->>TP: Starts Quiz
-    TP->>QU: Load Questions
-    User->>TP: Answers Questions
-    TP->>PS: Save Quiz Results
-    
-    User->>TP: Completes Tutorial
-    TP->>PS: Mark as Complete
-    TP->>TU: Update Recommendations
+    participant Lesson as Tutorial Lesson
+    participant Rec as TutorialRecommendations
+    participant Assess as TestYourKnowledgeSection
+    participant Quiz as TutorialQuiz
+    participant Progress as ProgressService
+
+    User->>Lesson: Read tutorial content
+    Lesson->>Rec: Show next steps / related content
+    Lesson->>Assess: Show learner-facing assessment block
+    Assess->>Quiz: Render quiz UI
+    User->>Quiz: Complete quiz
+    Quiz->>Progress: Save quiz result
+    Lesson->>Progress: Continue completion/progress tracking
 ```
 
-## Component State Management
-
-```mermaid
-stateDiagram-v2
-    [*] --> TutorialPage
-    
-    TutorialPage --> LoadingContent: Initialize
-    LoadingContent --> ContentLoaded: Content Ready
-    
-    ContentLoaded --> QuizAvailable: Has Quiz
-    ContentLoaded --> NoQuiz: No Quiz
-    
-    QuizAvailable --> QuizStarted: Start Quiz
-    QuizStarted --> QuizCompleted: Submit Answers
-    QuizCompleted --> ContentLoaded: Reset Quiz
-    
-    NoQuiz --> TutorialComplete: Mark Complete
-    QuizCompleted --> TutorialComplete: Mark Complete
-    
-    TutorialComplete --> [*]
-```
-
-## File Structure
+## File Structure Snapshot
 
 ```mermaid
 graph TD
-    subgraph src
-        subgraph pages
-            subgraph tutorials
-                subgraph beginner
-                    subgraph dom-basics
-                        DE[dom-events.vue]
-                        DM[dom-manipulation.vue]
-                    end
-                    subgraph html-basics
-                        HF[HTMLFirstPage.vue]
-                        HE[HTMLEmmet.vue]
-                    end
-                end
-            end
-        end
-        
-        subgraph components
-            TQ[TutorialQuiz.vue]
-            QC[QuizComponent.vue]
-            TR[TutorialRecommendations.vue]
-            TN[TutorialNavigation.vue]
-        end
-        
-        subgraph utils
-            QU[quizUtils.js]
-            TU[tutorialUtils.js]
-            PU[progressUtils.js]
-        end
-        
-        subgraph services
-            PS[ProgressService.js]
-        end
+    subgraph "src/pages/tutorials"
+        TutorialsIndex["index.vue"]
+        GettingStarted["getting-started/*"]
+        BeginnerHTML["beginner/html-basics/*"]
+        BeginnerCSS["beginner/css-basics/*"]
+        BeginnerJS["beginner/javascript-basics/*"]
+        BeginnerDOM["beginner/dom-basics/*"]
+        IntermediateGit["intermediate/git-basics/*"]
+        IntermediateBuilder["intermediate/*"]
+        AdvancedPages["advanced/*"]
+    end
+
+    subgraph "src/components"
+        TutorialNavigation["TutorialNavigation.vue"]
+        TutorialRecommendations["TutorialRecommendations.vue"]
+        TutorialQuiz["TutorialQuiz.vue"]
+        TestYourKnowledge["TestYourKnowledgeSection.vue"]
+        TutorialNavs["tutorial-navs/*"]
+        Hunter["hunter/*"]
+    end
+
+    subgraph "src/data and utils"
+        TutorialsData["data/tutorials.js"]
+        QuizData["data/quizzes/*"]
+        TutorialUtils["utils/tutorialUtils.js"]
+        QuizUtils["utils/quizUtils.js"]
+        ProgressUtils["utils/progressUtils.js"]
+    end
+
+    subgraph "src/services and layouts"
+        ProgressService["services/ProgressService.js"]
+        TutorialLayout["layouts/TutorialLayout.vue"]
     end
 ```
 
-## Notes
+## Important Notes
 
-1. The diagrams use Mermaid syntax and can be rendered by any Markdown viewer that supports Mermaid.
-2. The site structure diagram shows the main navigation hierarchy.
-3. The component relationships diagram shows how different components interact.
-4. The data flow diagram illustrates the sequence of operations during user interaction.
-5. The state diagram shows the different states a tutorial page can be in.
-6. The file structure diagram shows the physical organization of the codebase.
+- `/tutorials` is the primary pathway entry point.
+- Section pages are secondary drill-down pages.
+- Git Basics is positioned under the intermediate level in the current project direction.
+- `TestYourKnowledgeSection` is the preferred learner-facing assessment wrapper.
+- Some sequence, recommendation, and landing-page logic is still duplicated in the codebase and has not yet been fully centralized into `src/data/tutorials.js`.
 
-## Related Documentation
+## Related Docs
 
-- [TUTORIAL_STRUCTURE.md](./TUTORIAL_STRUCTURE.md) - Detailed component documentation
-- [QUIZZES.md](./QUIZZES.md) - Quiz system documentation
-- [RECOMMENDATIONS.md](./RECOMMENDATIONS.md) - Recommendations system documentation 
+- [TUTORIAL_STRUCTURE.md](./TUTORIAL_STRUCTURE.md)
+- [CREATE_NEW_TUTORIAL.md](./CREATE_NEW_TUTORIAL.md)
+- [QUIZZES.md](./QUIZZES.md)
+- [RECOMMENDATIONS.md](./RECOMMENDATIONS.md)
+- [roadmap.md](./roadmap.md)

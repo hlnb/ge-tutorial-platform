@@ -1,153 +1,102 @@
 # Deployment Guide
 
-## Vercel Configuration
+Status: current for the Vercel and Vite configuration visible in this repository.
 
-### Environment Setup
+## Current Deployment Target
 
-- Node.js version: 18.x (specified in package.json)
-- Build Command: `npm run build`
-- Output Directory: `dist`
-- Framework Preset: Vite
+GraphiteEdge is configured for deployment on Vercel as a Vite application.
 
-### Configuration Files
+Current deployment files/config:
 
-#### vercel.json
+- `vercel.json`
+- `package.json`
+- `vite.config.js`
+
+## Current Build Settings
+
+From the live repository:
+
+- Framework: `vite`
+- Build command: `npm run build`
+- Output directory: `dist`
+
+These settings are declared in `vercel.json`.
+
+## Routing And Rewrites
+
+The current Vercel configuration uses a rewrite:
 
 ```json
 {
-	"routes": [
-		{ "handle": "filesystem" },
-		{ "src": "/(.)", "dest": "/index.html" }
-	]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
 ```
 
-## Deployment Process
+This is the current SPA routing behavior in production.
 
-### Initial Setup
+It means:
 
-1. Connect GitHub repository to Vercel
-2. Configure build settings:
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-   - Install Command: `npm install`
+- direct visits to app routes are rewritten to `index.html`
+- client-side routing then resolves the actual page
 
-### Continuous Deployment
+If route behavior changes in the app, this rewrite strategy should be reviewed alongside the client router setup.
 
-1. Push changes to main branch
-2. Vercel automatically deploys
-3. Check build logs for any errors
-4. Verify changes on production site
+## Vite Build Notes
 
-### Manual Deployment
+Current build-related settings visible in `vite.config.js`:
 
-```bash
-# Install Vercel CLI
-npm i -g vercel
+- output directory: `dist`
+- assets directory: `assets`
+- build target: `es2015`
+- route generation via `unplugin-vue-router`
 
-# Login to Vercel
-vercel login
+There is also a local development-only server middleware for `/admin` handling in `vite.config.js`.
+That middleware is part of the local dev setup and should not be confused with Vercel routing rules.
 
-# Deploy
-vercel
-```
+## Node Version
 
-## Common Issues & Solutions
+The repository currently declares:
 
-### 404 Errors on Routes
+- Node.js `22.x` in `package.json`
 
-- Check vercel.json configuration
-- Verify router setup
-- Ensure history mode is properly configured
+Any deployment documentation should follow the repo’s declared runtime expectation unless the deployment platform is intentionally configured otherwise.
 
-### Missing Styles
+## Standard Deployment Flow
 
-- Ensure Bulma is imported correctly
-- Check global CSS imports
-- Verify build output includes CSS
+Typical workflow:
 
-### Blank Pages
+1. push changes to the connected branch
+2. Vercel runs `npm install`
+3. Vercel runs `npm run build`
+4. Vercel serves the generated `dist` output
 
-- Check component mounting
-- Verify data loading
-- Review console for errors
+## Environment Notes
 
-## Build Configuration
+The repo includes Firebase-related code and other environment-sensitive services.
 
-### vite.config.js
+Before production deployment, confirm any required environment variables are configured in Vercel for the target environment.
 
-```javascript
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
-export default defineConfig({
-	plugins: [vue()],
-	resolve: {
-		alias: {
-			'@': resolve(dirname, 'src'),
-			'~': resolve(dirname, 'src'),
-		},
-	},
-	build: {
-		target: 'es2015',
-		outDir: 'dist',
-		assetsDir: 'assets',
-	},
-});
-```
+This doc does not list variable names beyond what is explicitly present in the repo configuration, because missing or environment-specific values should not be invented.
 
-## Post-Deployment Checklist
+## Verification Checklist
 
-### Verify
+After deployment, verify:
 
-1. Homepage loads correctly
-2. All routes work (tutorials, blog posts)
-3. Assets load (images, styles)
-4. Forms function properly
-5. Meta tags are present
-6. Mobile responsiveness
+1. the home page loads
+2. `/tutorials` loads
+3. a representative tutorial route loads directly
+4. static assets load correctly
+5. navigation works after direct refresh on deep routes
+6. any changed pages render without obvious layout breakage
+7. browser console does not show critical runtime errors
 
-### Monitor
+## Known Documentation Drift Resolved Here
 
-1. Check Vercel analytics
-2. Review build logs
-3. Test performance (Lighthouse)
-4. Verify SSL/HTTPS
+Older deployment notes in this repo referred to:
 
-## Performance Optimization
+- `routes`-based Vercel config
+- Node `18.x`
 
-### Build Optimization
-
-1. Enable gzip compression
-2. Implement code splitting
-3. Optimize asset loading
-4. Use production builds
-
-### Cache Strategy
-
-1. Configure cache headers
-2. Use asset versioning
-
-## Security Considerations
-
-### Environment Variables
-
-1. Set up in Vercel dashboard
-2. Never commit .env files
-3. Use proper naming convention: `VITE_APP_*`
-
-## Rollback Procedure
-
-### If Deployment Fails
-
-1. Access Vercel dashboard
-2. Locate previous successful deployment
-3. Click "View Build"
-4. Select "Redeploy"
-
-### Emergency Rollback
-
-```bash
-# Using Vercel CLI
-vercel rollback
-```
+Those descriptions do not match the current repository and should be treated as outdated.

@@ -1,274 +1,131 @@
-# Tutorial Enhancement Prompt
+# Hunter Tutorial Workflow
 
-**Reusable prompt for updating tutorials with Hunter teaching methodology components and ensuring proper quiz/recommendation functionality.**
+Status: transitional workflow guidance. This document is intended as an internal guide for improving tutorials with Hunter-style teaching components while staying aligned with the current GraphiteEdge codebase.
 
----
+## Purpose
 
-## Usage
+Use this workflow when updating tutorial pages to:
 
-**Update the [TUTORIAL_SECTION] tutorial series to integrate Hunter teaching methodology components and ensure proper quiz/recommendation functionality.**
+- strengthen lesson structure
+- improve learner clarity and reinforcement
+- keep quiz/recommendation placement consistent
+- work within the existing GraphiteEdge tutorial system instead of creating a parallel one
 
-Replace [TUTORIAL_SECTION] with the actual section name (e.g., "CSS Basics", "JavaScript Basics", "DOM Manipulation") and provide this prompt to the assistant along with the section path.
+## Core Rule
 
----
+Treat the existing tutorial layout, shared components, and custom CSS as intentional.
 
-## Requirements
+That means:
 
-### 1. Layout Structure
+- reuse current structures where they exist
+- improve consistency incrementally
+- avoid rewriting a tutorial section just to make it look “cleaner” on paper
 
-Ensure all tutorial files use the container/section wrapper:
+## Recommended Lesson Order
 
-```vue
-<div class="container section">
-  <div class="content tutorial-content">
-    <!-- content here -->
-  </div>
-</div>
-```
+For most fully developed lessons, the preferred order is:
 
-### 2. Hunter Components Integration
+1. breadcrumb navigation
+2. tags and title
+3. `AnticipatorySet`
+4. `LearningObjectives`
+5. core lesson content
+6. `CheckpointBox` where useful
+7. `TutorialRecommendations`
+8. `TestYourKnowledgeSection`
+9. Hunter closure/summary section
+10. completion content where the page uses it
 
-For each tutorial file, add after the breadcrumb/tags section:
+This ordering reflects the clarified project direction and the current live `TestYourKnowledgeSection` component.
 
-**AnticipatorySet**: Engaging hook with reflection prompts
+## Hunter Components In Current Use
 
-- Should include a compelling title (with emoji)
-- Real-world connection in the hook
-- 2-3 reflection prompts
-- Connection statement linking to the tutorial
+Current Hunter-style components in the repo include:
 
-**LearningObjectives**: Clear, actionable objectives
+- `src/components/hunter/AnticipatorySet.vue`
+- `src/components/hunter/LearningObjectives.vue`
+- `src/components/hunter/CheckpointBox.vue`
+- `src/components/hunter/ClosureSection.vue`
 
-- 5-7 specific learning objectives
-- Purpose statement explaining why these skills matter
+Use them to support teaching, not to decorate the page.
 
-**CheckpointBox** (optional): Mid-tutorial formative assessments
+## Assessment Placement
 
-- Add strategically after major concept sections
-- Include reflection questions and self-check items
+Preferred learner-facing assessment pattern:
 
-### 3. Component Imports
+- `src/components/TestYourKnowledgeSection.vue`
 
-Ensure script section includes:
+That component already renders:
 
-```javascript
-import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
-import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
-import CheckpointBox from '@/components/hunter/CheckpointBox.vue'; // if used
-```
+- `TutorialQuiz`
 
-### 4. Quiz Configuration
+So, for page composition:
 
-- Check if tutorial has quiz defined in `/src/data/quizzes/[section].js`
-- If quiz exists, ensure `<TutorialQuiz />` component is present at bottom
-- If no quiz exists, either:
-  - Create quiz questions in the quizzes file, OR
-  - Remove TutorialQuiz component from template
-- Verify only ONE quiz component per tutorial
+- prefer `TestYourKnowledgeSection`
+- place it before the closure/summary section
+- avoid duplicate quiz blocks in the same lesson
 
-### 5. Recommendations Configuration
+## Recommendations Placement
 
-- Check `/src/utils/tutorialUtils.js` for recommendations entry
-- Ensure tutorial key matches filename (e.g., 'html-text' not 'text')
-- Each tutorial should have:
-  - `nextTutorial`: Path and title of next lesson
-  - `relatedTutorials`: 1-2 related lessons (optional)
-  - `practiceProjects`: Suggested projects (optional)
-  - `resources`: 2-3 external learning resources
-- Ensure `<TutorialRecommendations :current-path="'/tutorials/[section]/[tutorial]'" />` is present
+Recommendation display currently uses:
 
-### 6. Bottom Section Order
+- `src/components/TutorialRecommendations.vue`
 
-Ensure proper ordering at end of tutorial:
+Place recommendations before the assessment block unless there is a strong lesson-specific reason not to.
 
-```vue
-<!-- Recommendations -->
-<TutorialRecommendations :current-path="..." />
+## Navigation And Section Context
 
-<!-- Quiz (if applicable) -->
-<TutorialQuiz />
+Tutorial pages should continue to work with:
 
-<!-- Completion Section (optional) -->
-<div class="completion-section mt-6">...</div>
-```
+- `src/layouts/TutorialLayout.vue`
+- `src/components/tutorial-navs/*`
+- injected `pageSections`
 
-### 7. Error Prevention Checklist
+When updating a lesson:
 
-- [ ] No orphaned closing tags from old content
-- [ ] All Hunter components properly imported
-- [ ] Recommendation path matches actual file path
-- [ ] Tutorial key in tutorialUtils.js matches filename
-- [ ] No duplicate quiz components
-- [ ] Breadcrumb navigation has proper Home link structure
-- [ ] All opening tags have matching closing tags
+- confirm the page defines sections for sidebar navigation where needed
+- prefer existing section/page patterns already used in that part of the repo
 
-### 8. Validation Steps
+## Recommendation And Sequence Data
 
-After updates:
+Current behavior is still transitional.
 
-1. Run dev server and check for template parsing errors
-2. Navigate to each tutorial and verify:
-   - Hunter components render properly
-   - No console warnings about unresolved components
-   - Recommendations section displays with content
-   - Quiz loads (if applicable)
-   - Progress tracking marks completion correctly
+Live sequence/recommendation logic currently spans:
 
----
+- `src/layouts/TutorialLayout.vue`
+- `src/utils/tutorialUtils.js`
+- `src/data/tutorials.js`
 
-## Example Implementation
+Confirmed direction:
 
-For tutorial: `/tutorials/beginner/css-basics/introduction`
+- `src/data/tutorials.js` should become the curriculum source of truth
 
-1. Check file exists and note structure
-2. Add Hunter components after intro section
-3. Verify imports in script section
-4. Check `/src/data/quizzes/css-basics.js` has 'introduction' key
-5. Check `/src/utils/tutorialUtils.js` has 'css-basics' → 'introduction' entry
-6. Verify TutorialRecommendations path: `'/tutorials/beginner/css-basics/introduction'`
-7. Test in browser
+Until that work is complete, do not assume every lesson can be updated by changing only one file.
 
----
+## Practical Checklist When Enhancing A Tutorial
 
-## Hunter Teaching Methodology Components
+1. inspect the existing lesson structure first
+2. preserve the current route and section placement
+3. add or refine Hunter components where they improve teaching clarity
+4. verify recommendation placement
+5. verify assessment placement
+6. confirm there is only one learner-facing assessment block
+7. check page sections/sidebar navigation still work
+8. test the route in the running app when possible
 
-### AnticipatorySet
+## Common Failure Modes
 
-**Purpose**: Hook learners' attention and activate prior knowledge
+- adding Hunter components mechanically without improving the lesson
+- duplicating quiz UI by rendering both `TestYourKnowledgeSection` and standalone `TutorialQuiz`
+- assuming recommendation or sequence data comes from one central place already
+- changing paths/titles without checking the live route structure
+- treating older docs as more authoritative than the current code
 
-**Props**:
+## Best Current Practice
 
-- `title` (String): Engaging title with emoji
-- `hook` (String): HTML content with real-world connection
-- `reflectionPrompts` (Array): 2-3 questions to activate thinking
-- `connection` (String): Bridge to tutorial content
+The safest approach is:
 
-**Example**:
-
-```vue
-<AnticipatorySet
-	title="🎨 Making the Web Beautiful"
-	:hook="`<p>Every beautiful website you've ever visited uses CSS...</p>`"
-	:reflection-prompts="[
-		'What makes a website visually appealing?',
-		'How do designers create consistent branding?',
-	]"
-	connection="In this tutorial, you'll master CSS selectors..."
-/>
-```
-
-### LearningObjectives
-
-**Purpose**: Set clear expectations for learning outcomes
-
-**Props**:
-
-- `objectives` (Array): 5-7 specific, measurable objectives
-- `purpose` (String): Why these skills matter
-
-**Example**:
-
-```vue
-<LearningObjectives
-	:objectives="[
-		'Apply CSS selectors to target specific elements',
-		'Use class and ID selectors effectively',
-		'Understand specificity and the cascade',
-	]"
-	purpose="Selectors are the foundation of CSS styling..."
-/>
-```
-
-### CheckpointBox
-
-**Purpose**: Mid-tutorial formative assessment
-
-**Props**:
-
-- `title` (String): Checkpoint name
-- `questions` (Array): Self-check questions
-- `tips` (Array): Key takeaways or tips
-
-**Example**:
-
-```vue
-<CheckpointBox
-	title="Quick Check: CSS Basics"
-	:questions="[
-		'Can you explain what a CSS selector does?',
-		'What is the difference between class and ID selectors?',
-	]"
-	:tips="[
-		'Classes can be reused, IDs should be unique',
-		'Specificity matters when styles conflict',
-	]"
-/>
-```
-
----
-
-## Common Issues and Solutions
-
-### Issue: "Failed to resolve component: AnticipatorySet"
-
-**Solution**: Add import statement in script section:
-
-```javascript
-import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
-```
-
-### Issue: "No recommendations found for tutorial: [name]"
-
-**Solution**: Check tutorial key in `/src/utils/tutorialUtils.js` matches the filename exactly
-
-### Issue: Orphaned closing tags causing parsing errors
-
-**Solution**: Search for isolated `</div>`, `</li>`, `</ul>` tags and remove them
-
-### Issue: Quiz not displaying
-
-**Solution**:
-
-1. Check if quiz exists in `/src/data/quizzes/[section].js`
-2. Verify TutorialQuiz component is imported
-3. Ensure only one TutorialQuiz component in template
-
-### Issue: Progress not tracking completion
-
-**Solution**: Verify TutorialCompletion component or progress tracking is properly integrated in the tutorial layout
-
----
-
-## File Structure Reference
-
-```
-src/
-├── components/
-│   └── hunter/
-│       ├── AnticipatorySet.vue
-│       ├── LearningObjectives.vue
-│       └── CheckpointBox.vue
-├── data/
-│   └── quizzes/
-│       ├── html-basics.js
-│       ├── css-basics.js
-│       └── ...
-├── pages/
-│   └── tutorials/
-│       ├── getting-started/
-│       └── beginner/
-│           ├── html-basics/
-│           └── css-basics/
-└── utils/
-    └── tutorialUtils.js  (recommendations config)
-```
-
----
-
-## Notes
-
-- Hunter methodology improves engagement and learning outcomes
-- Each component serves a specific pedagogical purpose
-- Consistency across tutorials improves user experience
-- Always test in browser after making changes
-- Check browser console for any Vue warnings
+- inspect the live lesson
+- follow existing section conventions
+- move the page toward the agreed structure without forcing a rewrite
+- document any remaining inconsistency rather than hiding it

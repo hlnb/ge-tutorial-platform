@@ -1,177 +1,163 @@
-# Tutorial Page Structure
+# Tutorial Architecture
 
-This document outlines the component hierarchy and architecture of tutorial pages in the GraphiteEdge platform.
+Status: partially current. This document describes the live tutorial system in the repository and notes where the architecture is still transitional.
 
-## Overview
+## Current Overview
 
-Tutorial pages are built with a modular architecture that combines reusable components, interactive elements, and progress tracking. The structure ensures a consistent learning experience while maintaining flexibility for different types of content.
+GraphiteEdge tutorial pages are built on top of an existing shared tutorial system.
 
-## Component Hierarchy
+The core live pieces are:
 
-```
-TutorialLayout.vue (Main Layout)
-├── Sidebar Navigation
-│   └── Dynamic Navigation Components (HTMLBasicsNav, CSSBasicsNav, etc.)
-│
-└── Main Content Area
-    └── Tutorial Page (e.g., dom-events.vue)
-        ├── Breadcrumb Navigation
-        │
-        ├── Tutorial Content Sections
-        │   ├── Introduction
-        │   ├── Main Content Sections
-        │   └── Interactive Demos
-        │
-        ├── Quiz Section
-        │   └── TutorialQuiz Component
-        │       └── QuizComponent
-        │           ├── Quiz Questions
-        │           ├── Answer Selection
-        │           └── Results Display
-        │
-        ├── Recommendations Section
-        │   └── TutorialRecommendations Component
-        │       ├── Next Tutorial
-        │       ├── Related Tutorials
-        │       ├── Practice Projects
-        │       └── Additional Resources
-        │
-        └── Navigation Section
-            └── TutorialNavigation Component
-                ├── Previous Tutorial Link
-                ├── Next Tutorial Link
-                └── Quiz Indicator
-```
+- `src/layouts/TutorialLayout.vue`
+- `src/components/tutorial-navs/*`
+- `src/components/TutorialNavigation.vue`
+- `src/components/TutorialRecommendations.vue`
+- `src/components/TutorialCompletion.vue`
+- `src/components/TestYourKnowledgeSection.vue`
+- `src/components/TutorialQuiz.vue`
+- `src/services/ProgressService.js`
+- `src/utils/quizUtils.js`
+- `src/utils/tutorialUtils.js`
+- `src/composables/usePageSections.js`
 
-## Supporting Services & Utilities
+Tutorial pages themselves live under `src/pages/tutorials/**`.
 
-```
-Supporting Services & Utilities
-=============================
-├── ProgressService
-│   ├── Track Tutorial Progress
-│   ├── Save Quiz Results
-│   └── Manage Completion Status
-│
-├── quizUtils.js
-│   ├── Get Quiz Questions
-│   ├── Check Quiz Availability
-│   └── Format Quiz Data
-│
-├── tutorialUtils.js
-│   └── Get Tutorial Recommendations
-│
-└── progressUtils.js
-    ├── Track Tutorial Progress
-    ├── Mark Tutorial Completion
-    └── Save Quiz Results
-```
+## Shared Layout
 
-## Data Flow
+The reusable tutorial layout lives in:
 
-### 1. Tutorial Page Load
-- Loads tutorial content
-- Initializes interactive demos
-- Sets up navigation
+- `src/layouts/TutorialLayout.vue`
 
-### 2. Quiz Interaction
-- User starts quiz
-- Answers questions
-- Submits answers
-- Results saved to ProgressService
+This layout currently provides:
 
-### 3. Progress Tracking
-- Tracks visited sections
-- Records quiz completion
-- Updates student progress
+- section-specific sidebar navigation
+- a mobile lesson menu/drawer
+- injected `pageSections` for “On This Page” style navigation
+- previous/next tutorial navigation
+- quiz indicator support
+- completion display support
+- scroll-based progress tracking
 
-### 4. Recommendations
-- Loads based on current tutorial
-- Shows next tutorial in sequence
-- Displays related content
+The layout is used from:
 
-## Component Details
+- `src/App.vue`
 
-### TutorialLayout.vue
-The main layout component that provides the overall structure for tutorial pages. It includes:
-- Sidebar navigation
-- Main content area
-- Responsive design handling
+Current route behavior:
 
-### Tutorial Page Components
-Each tutorial page is composed of several key components:
+- tutorial routes under `/tutorials/...` use the shared tutorial layout
+- `/tutorials` itself is handled separately as the pathway landing page
 
-#### Breadcrumb Navigation
-- Shows the current location in the tutorial hierarchy
-- Provides easy navigation back to previous levels
+## Tutorial Page Structure In Practice
 
-#### Content Sections
-- Structured content with clear headings
-- Interactive demos and examples
-- Code snippets and explanations
+Most lesson pages currently follow this broad pattern:
 
-#### Quiz Section
-The quiz system includes:
-- Interactive question display
-- Answer selection interface
-- Immediate feedback
-- Progress tracking
-- Score calculation and display
+1. breadcrumb navigation
+2. tags and title
+3. tutorial teaching content
+4. Hunter components where used
+5. optional code examples, diagrams, or guided practice
+6. recommendations
+7. assessment
+8. closure/completion content
 
-#### Recommendations Section
-Provides personalized content suggestions:
-- Next tutorial in sequence
-- Related tutorials
-- Practice projects
-- Additional resources
+However, this is not yet fully standardized across all tutorial files.
 
-#### Navigation Section
-Handles movement between tutorials:
-- Previous/Next tutorial links
-- Quiz availability indicator
-- Progress tracking integration
+Current reality:
 
-## Services and Utilities
+- some pages use `usePageSections(sections)`
+- some pages still inject and assign `pageSections` manually
+- some pages are more fully built out than others
+- some intermediate/advanced pages are still lighter or stub-like
 
-### ProgressService
-Manages student progress tracking:
-- Records visited sections
-- Stores quiz results
-- Tracks completion status
-- Provides progress analytics
+## Assessment Pattern
 
-### quizUtils.js
-Handles quiz-related functionality:
-- Question management
-- Quiz availability checking
-- Data formatting
-- Score calculation
+The current learner-facing assessment wrapper is:
 
-### tutorialUtils.js
-Manages tutorial-specific features:
-- Content recommendations
-- Navigation structure
-- Section organization
+- `src/components/TestYourKnowledgeSection.vue`
 
-### progressUtils.js
-Provides progress tracking utilities:
-- Progress recording
-- Completion status management
-- Progress analytics
+That component already renders:
 
-## Best Practices
+- `TutorialQuiz`
 
-When creating new tutorial pages:
-1. Follow the established component hierarchy
-2. Implement all required sections (introduction, content, quiz, recommendations)
-3. Use the provided utilities for consistent functionality
-4. Ensure proper progress tracking integration
-5. Include interactive elements where appropriate
-6. Maintain consistent styling and layout
+This means the quiz system is still reusable internally through `TutorialQuiz`, but the preferred page-level assessment pattern is the `TestYourKnowledgeSection` block rather than dropping a raw `TutorialQuiz` into the page by itself.
 
-## Related Documentation
+## Recommendations And Navigation
 
-- [QUIZZES.md](./QUIZZES.md) - Detailed information about the quiz system
-- [RECOMMENDATIONS.md](./RECOMMENDATIONS.md) - Tutorial recommendation system
-- [CONTENT.md](./CONTENT.md) - Content creation guidelines
-- [STYLE.md](./STYLE.md) - Styling and design guidelines 
+Current recommendation display uses:
+
+- `src/components/TutorialRecommendations.vue`
+
+Current recommendation data is still partly maintained in:
+
+- `src/utils/tutorialUtils.js`
+
+Current previous/next tutorial flow is still partly maintained inside:
+
+- `src/layouts/TutorialLayout.vue`
+
+This is one of the major transitional areas in the system.
+
+## Progress Tracking
+
+Current progress tracking is handled primarily through:
+
+- `src/services/ProgressService.js`
+- `src/utils/progressUtils.js`
+- `src/composables/useProgress.js`
+
+The tutorial layout currently participates in progress tracking by monitoring scroll progress and exposing tutorial context used by other tutorial components.
+
+## Curriculum And Pathways
+
+The strongest current curriculum registry is:
+
+- `src/data/tutorials.js`
+
+This file already contains structured pathway, level, and tutorial metadata for the pathway landing page and related tutorial browsing components.
+
+Current pathway landing page implementation is centered on:
+
+- `src/pages/tutorials/index.vue`
+- `src/components/tutorials/TutorialsPage.vue`
+- `src/components/tutorials/*`
+
+## Confirmed Direction
+
+The following direction has been clarified and should guide future architecture work:
+
+- `src/data/tutorials.js` should become the source of truth for curriculum data
+- `/tutorials` should remain the main entry point for learning pathways
+- section landing pages should become secondary drill-down pages
+- section landing pages should keep hand-written introductory content
+- section landing page tutorial cards should be generated from source-of-truth curriculum data
+- section navs and previous/next navigation should move toward reading from the same curriculum source
+- Git Basics belongs under the intermediate level
+
+## Current Gaps
+
+The system is not yet fully centralized.
+
+Important areas of drift visible in the code:
+
+- tutorial sequence is maintained in more than one place
+- recommendation data and curriculum data are separate
+- section page card grids are still hand-authored in several section `index.vue` files
+- not all tutorials use the same page composition pattern
+- some route-specific logic in tutorial navigation/layout still reflects older structures
+
+## Best Current Practice
+
+When editing or creating tutorials in the current repository:
+
+- reuse the existing tutorial layout and components
+- preserve the Bulma-plus-custom-CSS layering
+- treat `src/data/tutorials.js` as the long-term curriculum registry
+- avoid introducing new parallel tutorial patterns unless necessary
+- improve consistency incrementally rather than rewriting the system wholesale
+
+## Related Docs
+
+- [CREATE_NEW_TUTORIAL.md](./CREATE_NEW_TUTORIAL.md)
+- [QUIZZES.md](./QUIZZES.md)
+- [RECOMMENDATIONS.md](./RECOMMENDATIONS.md)
+- [HUNTER_TUTORIAL_ENHANCEMENT.md](./HUNTER_TUTORIAL_ENHANCEMENT.md)

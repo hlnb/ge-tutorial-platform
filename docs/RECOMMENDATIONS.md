@@ -1,217 +1,100 @@
-# Adding Tutorial Recommendations
+# Recommendation System
 
-This document explains how to add personalized recommendations to tutorial pages in the GraphiteEdge platform.
+Status: transitional. Recommendations currently work through the live component/utilities in the repo, but the agreed direction is to align them more closely with curriculum data in `src/data/tutorials.js`.
 
-## Overview
+## Current Implementation
 
-The tutorial recommendation system helps guide users to relevant content after completing a tutorial. It provides:
+Recommendations are currently displayed through:
 
-- Next tutorial in sequence
-- Related tutorials on similar topics
-- Practice projects to apply what they've learned
-- Additional resources for deeper learning
+- `src/components/TutorialRecommendations.vue`
 
-## Adding Recommendations to a Tutorial Page
+Current supporting utility:
 
-### Method 1: Using the TutorialRecommendations Component (Recommended)
+- `src/utils/tutorialUtils.js`
 
-The easiest way to add recommendations to a tutorial page is to use the `TutorialRecommendations` component:
+Current behavior visible in the repo:
 
-```vue
-<template>
-	<!-- Tutorial content -->
+- a page can pass recommendation props directly
+- if it does not, the component can look up recommendations from utility data
+- the component can also use injected tutorial context from the shared tutorial layout
 
-	<!-- Add recommendations before the quiz -->
-	<TutorialRecommendations />
+The recommendation block can currently display:
 
-	<!-- Quiz and completion sections -->
-</template>
+- next tutorial
+- related tutorials
+- practice projects
+- additional resources
 
-<script setup>
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-// Other imports...
-</script>
-```
+## Current Source Of Truth Problem
 
-### Method 2: Using the TutorialRecommendations Component with Custom Recommendations
+At the moment, recommendation and sequence information is not fully centralized.
 
-For more control, you can pass custom recommendations directly to the component:
+Related tutorial flow is currently split across more than one place, including:
 
-```vue
-<template>
-	<!-- Tutorial content -->
+- `src/utils/tutorialUtils.js`
+- `src/layouts/TutorialLayout.vue`
+- section nav components
+- section landing pages
+- `src/data/tutorials.js`
 
-	<TutorialRecommendations
-		:next-tutorial="nextTutorial"
-		:related-tutorials="relatedTutorials"
-		:practice-projects="practiceProjects"
-		:resources="resources"
-	/>
+This is one of the key architectural drift points in the tutorial system.
 
-	<!-- Quiz and completion sections -->
-</template>
+## Confirmed Direction
 
-<script setup>
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-// Other imports...
+The agreed direction for the project is:
 
-// Custom recommendations
-const nextTutorial = {
-	path: '/tutorials/html-basics/text',
-	title: 'Working with Text',
-};
+- `src/data/tutorials.js` should be the source of truth for curriculum data
+- pathway and sequence logic should align with that data
+- `/tutorials` should be the main entry point for pathways
+- section landing pages should act as secondary drill-down pages
 
-const relatedTutorials = [
-	{
-		path: '/tutorials/getting-started/web-basics',
-		title: 'Web Basics',
-	},
-];
+Applied to recommendations, that means:
 
-const practiceProjects = [
-	{
-		title: 'Personal Profile Page',
-		description:
-			'Create a simple personal profile page with basic HTML structure',
-		tags: ['HTML', 'Beginner', 'Structure'],
-		path: '/projects/personal-profile',
-	},
-];
+- “next tutorial” should move toward curriculum-driven sequence
+- pathway progression should shape recommendation behavior
+- related tutorials and resource suggestions can remain partly editorial where helpful
 
-const resources = [
-	{
-		title: 'MDN: Getting started with HTML',
-		url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started',
-		description: 'Comprehensive guide to HTML basics',
-	},
-];
-</script>
-```
+## What Should Come From Curriculum Data
 
-## Adding Global Recommendations
+These parts are strong candidates to derive from `src/data/tutorials.js`:
 
-To add or update global recommendations for all tutorials, edit the `tutorialRecommendations` object in `src/utils/tutorialUtils.js`.
+- next lesson in sequence
+- section and level relationships
+- pathway grouping
+- project progression where applicable
 
-### Recommendation Structure
+## What Can Stay Editorial
 
-The recommendations are organized by section and tutorial:
+These parts may still make sense as editorial additions even after curriculum alignment:
 
-```javascript
-const tutorialRecommendations = {
-	'html-basics': {
-		'first-page': {
-			nextTutorial: {
-				path: '/tutorials/html-basics/text',
-				title: 'Working with Text',
-			},
-			relatedTutorials: [
-				{
-					path: '/tutorials/getting-started/web-basics',
-					title: 'Web Basics',
-				},
-			],
-			practiceProjects: [
-				{
-					title: 'Personal Profile Page',
-					description:
-						'Create a simple personal profile page with basic HTML structure',
-					tags: ['HTML', 'Beginner', 'Structure'],
-					path: '/projects/personal-profile',
-				},
-			],
-			resources: [
-				{
-					title: 'MDN: Getting started with HTML',
-					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started',
-					description: 'Comprehensive guide to HTML basics',
-				},
-			],
-		},
-		// More tutorials...
-	},
-	// More sections...
-};
-```
+- extra related tutorials outside the immediate sequence
+- practice project suggestions
+- external resources
+- hand-curated “use this next if you struggled with X” notes
 
-## Recommendation Types
+## Current Best Practice
 
-### Next Tutorial
+Until the architecture is further centralized:
 
-The next tutorial in the learning sequence:
+- update the existing recommendation structures only where the current section actually depends on them
+- do not assume recommendation data is already derived from the curriculum registry
+- verify route paths and titles against the live repo, not older examples
 
-```javascript
-nextTutorial: {
-  path: '/tutorials/html-basics/text',
-  title: 'Working with Text'
-}
-```
+## Placement In Lessons
 
-### Related Tutorials
+Current preferred lesson flow:
 
-Other tutorials that complement the current one:
-
-```javascript
-relatedTutorials: [
-	{
-		path: '/tutorials/getting-started/web-basics',
-		title: 'Web Basics',
-	},
-	{
-		path: '/tutorials/css-basics/text-properties',
-		title: 'CSS Text Properties',
-	},
-];
-```
-
-### Practice Projects
-
-Projects that help apply the concepts learned:
-
-```javascript
-practiceProjects: [
-	{
-		title: 'Personal Profile Page',
-		description:
-			'Create a simple personal profile page with basic HTML structure',
-		tags: ['HTML', 'Beginner', 'Structure'],
-		path: '/projects/personal-profile', // Internal link
-	},
-	{
-		title: 'CSS Zen Garden',
-		description: 'Practice CSS by styling the same HTML in different ways',
-		tags: ['CSS', 'Design', 'Creativity'],
-		url: 'http://www.csszengarden.com/', // External link
-	},
-];
-```
-
-### Resources
-
-Additional learning resources:
-
-```javascript
-resources: [
-	{
-		title: 'MDN: Getting started with HTML',
-		url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started',
-		description: 'Comprehensive guide to HTML basics',
-	},
-];
-```
-
-## Best Practices
-
-1. **Relevance**: Ensure recommendations are directly relevant to the current tutorial
-2. **Progression**: The next tutorial should follow a logical learning progression
-3. **Variety**: Include a mix of related tutorials, projects, and external resources
-4. **Quality**: Only link to high-quality, up-to-date external resources
-5. **Consistency**: Maintain a consistent style and format across all recommendations
+1. tutorial content
+2. `TutorialRecommendations`
+3. `TestYourKnowledgeSection`
+4. Hunter closure/summary
 
 ## Troubleshooting
 
-If recommendations are not appearing:
+If recommendations do not appear:
 
-1. Check that the `TutorialRecommendations` component is properly imported
-2. Verify the tutorial path is correctly formatted in `tutorialUtils.js`
-3. Ensure the recommendations object has the correct structure
-4. Check the browser console for any errors
+1. check whether the page passes direct props
+2. check `src/utils/tutorialUtils.js`
+3. check the current tutorial path
+4. check whether injected tutorial context from `TutorialLayout` is available
+5. confirm the links and paths match real routes in `src/pages`

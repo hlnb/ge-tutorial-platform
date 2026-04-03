@@ -1,191 +1,173 @@
 # Development Guide
 
-## Initial Setup
+Status: current for the repository structure and scripts visible in this codebase as of this update.
 
-### Requirements
+## Stack
 
-- Node.js 18.x
-- npm (comes with Node.js)
-- Git
-- Code editor (VS Code recommended)
+GraphiteEdge currently uses:
 
-### First-Time Setup
+- Vue 3
+- Vite
+- Vue Router with `unplugin-vue-router` auto-routes
+- Bulma CSS, extended with local custom CSS
+- Vercel for deployment
+- Firebase for auth/data where relevant
 
-1. Clone the repository:
+Additional project features visible in the repo include:
 
-   ```bash
-   git clone [repository-url]
-   cd ge-tutorial-platform
-   ```
+- tutorial pages under `src/pages/tutorials`
+- blog/post pages under `src/pages/posts`
+- project/practice pages under `src/pages/projects`
+- a local API server used in development via `api/server.js`
 
-2. Install dependencies:
+## Requirements
 
-   ```bash
-   npm install
-   ```
+- Node.js `22.x`
+  This matches the `engines.node` field in `package.json`.
+- npm
 
-3. Create necessary environment variables:
-   ```env
-   VITE_APP_TITLE=GraphiteEdge Tutorial Platform
-   ```
+## Install
 
-## Development Workflow
+```bash
+npm install
+```
 
-### Running Locally
+## Running Locally
 
-1. Start development server:
-   ```bash
-   npm run dev
-   ```
-2. Access site at `http://localhost:5173`
+Available scripts from `package.json`:
 
-### Building for Production
+- `npm run dev`
+  Runs both the Vite app and the local API server.
+- `npm run dev:vite`
+  Runs the Vite frontend only.
+- `npm run dev:api`
+  Runs the local API server only.
+- `npm run dev:cms`
+  Runs the Vite app together with the CMS proxy workflow currently configured in the repo.
+- `npm run build`
+  Builds the app for production.
+- `npm run preview`
+  Previews the production build locally.
+- `npm run lint`
+  Runs ESLint with the current repo configuration.
 
-1. Create production build:
-   ```bash
-   npm run build
-   ```
-2. Preview production build:
-   ```bash
-   npm run preview
-   ```
+Default local app URL:
+
+- `http://localhost:5173`
+
+The local API server is proxied from Vite through `/api` to `http://localhost:3000` in `vite.config.js`.
 
 ## Project Structure
 
-### Key Directories
+Key active areas in the current repo:
 
-```
+```text
 src/
-├── assets/ # Static assets (images, styles)
-├── components/ # Reusable Vue components
-├── pages/ # Page components and routes
-│ ├── posts/ # Blog posts
-│ └── tutorials/ # Tutorial content
-├── templates/ # Template files for new content
-└── router/ # Vue router configuration
-
+├── assets/
+│   ├── images/
+│   └── styles/
+├── components/
+├── composables/
+├── data/
+├── layouts/
+├── pages/
+│   ├── posts/
+│   ├── projects/
+│   └── tutorials/
+├── router/
+├── services/
+└── utils/
 ```
 
-## Content Creation
+Other important folders:
 
-### Creating a New Blog Post
+- `docs/`
+  Project documentation
+- `public/`
+  Static public assets and admin files
+- `api/`
+  Local development API server
 
-1. Copy the post template:
+## Routing
 
-   ```bash
-   cp src/templates/post-template.vue src/pages/posts/your-post-name.vue
-   ```
+The project uses file-based routing through `unplugin-vue-router`.
 
-2. Update frontmatter:
+Current source files involved:
 
-   ```javascript
-   export const frontmatter = {
-   	title: 'Your Post Title',
-   	date: '2024-00-00',
-   	description: 'Post description',
-   	tags: ['Tag1', 'Tag2'],
-   };
-   ```
+- `vite.config.js`
+- `src/router/index.js`
+- `src/pages/**`
 
-3. Add your content in the template section
-4. Test locally
-5. Commit and push changes
+Practical implications:
 
-### Component Guidelines
+- new page routes come from files under `src/pages`
+- route generation is automatic
+- some page-level navigation behavior is still managed manually inside app code, especially in tutorial-specific layout/navigation logic
 
-#### Naming Conventions
+## Tutorial Workflow
 
-- Components: PascalCase (e.g., `MainLayout.vue`)
-- Pages: kebab-case (e.g., `about-us.vue`)
-- Posts: kebab-case (e.g., `my-first-post.vue`)
+Tutorial pages are currently built on top of an existing tutorial system rather than a blank page workflow.
 
-#### Component Structure
+Key live files include:
 
-```
-vue
-<template>
-<!-- Template content -->
-</template>
-<script>
-// Exports (if any)
-export const someData = {};
-</script>
-<script setup>
-// Imports
-import { ref } from 'vue'
-import ComponentName from './ComponentName.vue'
-// Component logic
-</script>
-<style scoped>
-/ Component styles /
-</style>
-```
+- `src/layouts/TutorialLayout.vue`
+- `src/components/TutorialNavigation.vue`
+- `src/components/TutorialRecommendations.vue`
+- `src/components/TutorialCompletion.vue`
+- `src/components/TestYourKnowledgeSection.vue`
+- `src/components/tutorial-navs/*`
+- `src/assets/styles/tutorials.css`
 
-## Testing
+Current expectation for tutorial work:
 
-### Manual Testing Checklist
+- reuse the existing tutorial layout and components
+- preserve the existing tutorial/custom CSS layering alongside Bulma
+- prefer improving current patterns over replacing them
+- treat tutorial architecture as transitional where the code shows mixed older and newer patterns
 
-1. Content renders correctly
-2. Links work properly
-3. Images load
-4. Responsive design works
-5. Newsletter form functions
-6. Navigation works
-7. Meta tags are correct
+## Styling
 
-## Common Issues
+Bulma is part of the current live setup, but it is not the only styling layer.
 
-### Build Errors
+Active styling files visible in the repo include:
 
-1. Sass/SCSS related:
+- `src/assets/main.css`
+- `src/assets/styles/main.css`
+- `src/assets/styles/tutorials.css`
+- `src/components/tutorial-navs/nav.css`
 
-   - Solution: Use CSS imports from Bulma
+Treat this Bulma-plus-custom-CSS setup as intentional unless and until the codebase is deliberately consolidated.
 
-2. Path Resolution:
+## Content Authoring Notes
 
-   - Use `@/` for src directory imports
-   - Escape asterisks in glob patterns
+This repository does not currently use `src/templates` as part of the active workflow.
 
-3. Component Loading:
-   - Check import paths
-   - Verify component registration
+When creating or editing site content:
 
-### Development Tips
+- use the existing file-based page structure
+- follow current tutorial/post/project placement in `src/pages`
+- reuse existing components and layout systems where available
+- verify routing and rendering through the current page files rather than older template-copy instructions
 
-1. Use Vue DevTools for debugging
-2. Check console for errors
-3. Test in multiple browsers
-4. Verify mobile responsiveness
-5. Run build before committing
+## Validation Before Finishing Work
 
-## Git Workflow
+Before wrapping up changes, prefer to:
 
-### Branch Strategy
+1. run `npm run build`
+2. run `npm run lint`
+3. verify any changed tutorial or page routes still render correctly
+4. check for obvious content/layout breakage
 
-1. `main` - production branch
-2. Create feature branches for new work
-3. Use pull requests for reviews
+If build or lint cannot be completed because of environment issues, note that clearly in the handoff.
 
-### Commit Guidelines
+## Transitional Notes
 
-- Use descriptive commit messages
-- Include related issue numbers
-- Keep commits focused and atomic
+There is still some drift between docs and code in the wider `docs/` folder.
 
-## Performance Considerations
+In particular:
 
-### Optimization Tips
+- some older docs still mention manual router setup
+- some older docs still mention template-based content creation
+- tutorial architecture is partly standardized and partly hand-maintained
 
-1. Optimize images before adding
-2. Use lazy loading for images
-3. Keep component dependencies minimal
-4. Use code splitting where appropriate
-
-## Security
-
-### Best Practices
-
-1. No sensitive data in source code
-2. Validate form inputs
-3. Use HTTPS for external resources
-4. Keep dependencies updated
+When in doubt, trust the current codebase over older documentation.

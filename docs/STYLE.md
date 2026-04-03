@@ -1,225 +1,130 @@
 # Styling Guide
 
-## CSS Architecture
+Status: partially current. This guide reflects the live styling layers in the repository and notes where the CSS setup still has overlap or duplication.
 
-### Global Styles
+## Styling Approach
 
-Location: `src/assets/styles/global.css`
+GraphiteEdge currently uses:
 
-````css
-/ Global CSS imports /
-@import './vendor/bulma.min.css';
-/ Global custom styles /
-:root {
---color-red-berry: #8A0303;
---color-mine-shaft: #3D3D3D;
---color-snow: #FCFCFC;
-}
+- Bulma as a base styling layer
+- local custom CSS for site-specific layout, typography, tutorial styling, and navigation polish
 
+This mixed approach is intentional in the current codebase.
 
-### Component-Level Styles
-- Use `<style scoped>` in components
-- Follow BEM methodology
-- Leverage CSS variables for consistency
- - Tutorial nav components use the `--tutorial-accent` CSS variable to set per-section colors (e.g. `.tutorial-nav { --tutorial-accent: #f7df1e; }`).
+Do not assume Bulma alone should replace the local CSS files.
 
-## Brand Colors
+## Active Style Files
 
-### Primary Colors
-```css
-:root {
---color-red-berry: #8A0303; / Primary brand color /
---color-mine-shaft: #3D3D3D; / Text color /
---color-snow: #FCFCFC; / Background color /
-}
-```
+Important current styling entry points and shared files include:
 
-### Usage
+- `src/main.js`
+  Imports Bulma and `src/assets/main.css`
+- `src/assets/main.css`
+  Global width/spacing and shared layout adjustments
+- `src/assets/styles/main.css`
+  design tokens, typography, and additional global styling
+- `src/assets/styles/tutorials.css`
+  tutorial-specific styling
+- `src/components/tutorial-navs/nav.css`
+  shared tutorial navigation styling
 
-```css
-.element {
-	color: var(--color-red-berry);
-	background-color: var(--color-snow);
-}
-```
+There is also:
 
-## Typography
+- `src/assets/styles/global.css`
 
-### Font Stack
+but it is not the primary styling entry point used by `src/main.js`.
 
-```css
-body {
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-}
-```
+## Bulma And Custom CSS
 
-### Text Sizes
+The current site layers Bulma with local CSS rather than choosing one or the other.
 
-```css
-/* Headings */
-h1 {
-	font-size: 2.5rem;
-}
-h2 {
-	font-size: 1.8rem;
-}
-h3 {
-	font-size: 1.5rem;
-}
+In practice:
 
-/* Body text */
-p {
-	font-size: 1.1rem;
-	line-height: 1.6;
-}
-```
+- Bulma provides the base component and layout vocabulary
+- local CSS refines spacing, width, typography, colors, and tutorial-specific presentation
 
-## Layout Components
+Examples of live Bulma-plus-custom-CSS behavior include:
 
-### Container
-```css
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 1rem;
-}
-```
+- `.container`, `.content`, and `.section` adjustments in `src/assets/main.css` and `src/assets/styles/main.css`
+- tutorial card/grid styling in `src/assets/styles/tutorials.css`
+- section-specific nav accents in `src/components/tutorial-navs/nav.css`
 
-### Grid System
-- Utilize Bulma's grid system
-- Use flexbox for custom layouts
+## CSS Variables And Tokens
 
-## Responsive Design
+The repository currently defines color and font variables in:
 
-### Breakpoints
-```css
-/* Mobile first approach */
-/* Small devices (phones) */
-@media (min-width: 576px) { }
+- `src/assets/styles/main.css`
 
-/* Medium devices (tablets) */
-@media (min-width: 768px) { }
+These include:
 
-/* Large devices (desktops) */
-@media (min-width: 992px) { }
+- brand and neutral color tokens
+- font-family variables
+- utility-style shared values used across the site
 
-/* Extra large devices */
-@media (min-width: 1200px) { }
-```
+Tutorial nav components also use:
 
-### Common Responsive Patterns
-```css
-/* Example of responsive container */
-.container {
-  width: 100%;
-  padding: 1rem;
-}
+- `--tutorial-accent`
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
+to set per-section accent colors in the shared nav CSS.
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-```
+## Tutorial Styling
 
-## Components
+Tutorial styling is currently split between:
 
-### Buttons
-```css
-.button {
-  background-color: var(--color-red-berry);
-  color: var(--color-snow);
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
+- shared global/site styles
+- tutorial-specific styles
+- per-component scoped styles inside tutorial pages and components
 
-.button:hover {
-  opacity: 0.9;
-}
-```
+Treat the current tutorial CSS as part of the live system, not as accidental leftovers.
 
-### Cards
-```css
-.card {
-  background: var(--color-snow);
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-```
+Important current tutorial-related files include:
 
-## Blog Post Styles
+- `src/assets/styles/tutorials.css`
+- `src/components/tutorial-navs/nav.css`
+- scoped styles inside tutorial pages/components where needed
 
-### Content Formatting
-```css
-.blog-post {
-  max-width: 80vw;
-  margin: 0 auto;
-  padding: 2rem;
-}
+## Current Drift And Overlap
 
-.blog-post h1 {
-  color: var(--color-red-berry);
-  margin-bottom: 2rem;
-}
+The current styling system is functional, but not fully consolidated.
 
-.blog-post p {
-  margin-bottom: 1.5rem;
-}
-```
+Visible overlap in the repo includes:
 
-## Animations
+- Bulma imported in more than one place
+- `.container`, `.content`, `.section`, and `.box` styling defined in more than one CSS file
+- tutorial grid/card styles duplicated inside `src/assets/styles/tutorials.css`
 
-### Transitions
-```css
-/* Default transition */
-.transition-default {
-  transition: all 0.3s ease;
-}
+This should be improved incrementally rather than treated as a reason to replace the styling system wholesale.
 
-/* Fade effect */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
+## Best Current Practice
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-```
+When editing styles:
 
-## Best Practices
+- preserve the current Bulma-plus-custom-CSS layering
+- prefer small consolidations over broad restyling
+- reuse existing CSS variables where practical
+- keep tutorial styling calm, readable, and consistent
+- avoid introducing Tailwind or a new styling framework unless explicitly requested
 
-### CSS Organization
-1. Use consistent naming conventions
-2. Group related styles
-3. Comment complex selectors
-4. Minimize nesting
-5. Use CSS variables for repeated values
+## Component-Level Styling
 
-### Performance
-1. Avoid universal selectors
-2. Minimize use of !important
-3. Use efficient selectors
-4. Optimize media queries
-5. Consider CSS load time
+Component-scoped styles are used throughout the app and are part of the current implementation pattern.
 
-### Accessibility
-1. Maintain color contrast ratios
-2. Use relative units (rem/em)
-3. Support reduced motion
-4. Ensure focus states are visible
-```
+Use scoped styles when:
 
-````
+- a component has clearly local presentation concerns
+- the style does not belong in a shared global/tutorial stylesheet
+
+Prefer shared files when:
+
+- multiple tutorial pages/components rely on the same pattern
+- a style is part of the site-wide or section-wide system
+
+## Responsive Behavior
+
+The repo currently relies on a mix of:
+
+- Bulma responsive utilities/layout
+- custom media queries in shared CSS
+- component-level responsive adjustments
+
+When adjusting responsive behavior, inspect the current live component/styles before adding a new breakpoint strategy.

@@ -1,127 +1,89 @@
-# File-Based Routing Migration
+# File-Based Routing
 
-## What Changed
+Status: current for the route generation setup, but not a complete description of every navigation behavior in the app.
 
-Migrated from manual route definitions to **automatic file-based routing** using `unplugin-vue-router`.
+## Current Setup
 
-## Benefits
+The repository uses:
 
-### ✅ For CMS Content Creation
+- `unplugin-vue-router`
 
-- **NEW:** Files created via CMS automatically get routes
-- **No manual updates needed** to router/index.js
-- Create `/posts/my-new-post.vue` → Route instantly available at `/posts/my-new-post`
+through the current Vite config in:
 
-### ✅ For Development
+- `vite.config.js`
 
-- **Less code to maintain** - routes auto-generated from file structure
-- **Fewer errors** - no forgetting to add routes
-- **TypeScript support** - auto-generated route types
+The application router uses:
 
-## How It Works
+- `src/router/index.js`
 
-**Old Way (Manual):**
+and imports auto-generated routes from:
 
-```javascript
-{
-  path: 'design-to-code',
-  component: () => import('../pages/posts/design-to-code.vue'),
-}
-```
+- `vue-router/auto-routes`
 
-**New Way (Automatic):**
+## What Is Automatic
 
-- Just create: `src/pages/posts/design-to-code.vue`
-- Route automatically created: `/posts/design-to-code`
+Page files in:
 
-## File Structure = Routes
+- `src/pages/**`
 
-```
-src/pages/
-├── index.vue          → /
-├── about.vue          → /about
-├── posts/
-│   ├── index.vue      → /posts
-│   ├── my-post.vue    → /posts/my-post
-├── tutorials/
-│   ├── index.vue      → /tutorials
-│   └── beginner/
-│       └── html-basics/
-│           ├── index.vue           → /tutorials/beginner/html-basics
-│           └── introduction.vue    → /tutorials/beginner/html-basics/introduction
-```
+generate routes automatically.
 
-## Configuration
+Examples from the current repo:
 
-**vite.config.js:**
+- `src/pages/index.vue` → `/`
+- `src/pages/about.vue` → `/about`
+- `src/pages/tutorials/index.vue` → `/tutorials`
+- `src/pages/tutorials/beginner/html-basics/introduction.vue` → `/tutorials/beginner/html-basics/introduction`
+- `src/pages/posts/design-to-code.vue` → `/posts/design-to-code`
 
-```javascript
-VueRouter({
-	routesFolder: 'src/pages', // Where to scan for pages
-	extensions: ['.vue'], // File types to include
-	exclude: ['**/components/**', '**/layouts/**'], // Folders to ignore
-});
-```
+## What Is Still Manual
 
-## Preserved Features
+File-based routing does not mean the whole site is fully configuration-free.
 
-All existing functionality still works:
+The current app still contains manual route-dependent behavior in places such as:
 
-- ✅ Post access control (draft/published)
-- ✅ RSS feed generation
-- ✅ Scroll behavior
-- ✅ Error handling
-- ✅ Nested routes
-- ✅ Route meta data
+- `src/App.vue`
+  tutorial pages are conditionally wrapped in `TutorialLayout`
+- `src/layouts/TutorialLayout.vue`
+  tutorial-specific navigation and route-based layout behavior
+- tutorial nav components in `src/components/tutorial-navs/*`
+- older tutorial sequence and recommendation logic that still depends on route patterns
 
-## Creating New Content
+So:
 
-### Via CMS
+- page route creation is automatic
+- tutorial behavior and navigation are still partly hand-managed
 
-1. Go to `/admin/`
-2. Create new post/tutorial/project
-3. CMS saves file to `src/pages/{type}/{slug}.vue`
-4. **Route automatically available** - no code changes needed!
+## Current Configuration
 
-### Manually
+Live config in `vite.config.js` includes:
 
-1. Create file in `src/pages/` folder
-2. Route automatically generated
-3. That's it!
+- `routesFolder: 'src/pages'`
+- `extensions: ['.vue']`
+- `exclude: ['**/components/**', '**/layouts/**']`
+- route type generation into `src/typed-router.d.ts`
 
-## Migration Status
+## Practical Contributor Notes
 
-- [x] Install unplugin-vue-router
-- [x] Update vite.config.js
-- [x] Create new router with auto-routes
-- [x] Backup old router
-- [x] Test file-based routing
-- [ ] Deploy and verify production
+When creating a new page:
 
-## Rollback Plan
+1. place the `.vue` file under the correct `src/pages` folder
+2. confirm the generated route is what you expect
+3. check whether any additional manual tutorial/navigation/config updates are still needed for that specific area
 
-If needed, revert with:
+Do not assume that creating a new tutorial page fully wires it into sequence, sidebar navigation, recommendations, or curriculum metadata automatically.
 
-```bash
-mv src/router/index-old.js src/router/index.js
-git revert HEAD
-```
+## Admin And Local Dev Note
 
-Backup available at: `src/router/index-backup.js`
+The current Vite config also includes a local development middleware for `/admin`.
 
-## Testing
+That is part of the current development setup and is separate from normal page route generation.
 
-To test the new routing:
+## Best Current Practice
 
-1. Start dev server: `npm run dev`
-2. Navigate to existing routes (should work identically)
-3. Create a test file in `src/pages/test.vue`
-4. Visit `/test` - should load automatically
-5. Delete test file when done
+Treat file-based routing as:
 
-## Next Steps
+- authoritative for page route creation
+- not yet authoritative for the full tutorial information architecture
 
-1. Test all existing routes work
-2. Test CMS file creation
-3. Remove old router files once confirmed working
-4. Update documentation for contributors
+Always check the surrounding tutorial/layout code when adding or moving tutorial pages.
