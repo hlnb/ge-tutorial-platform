@@ -1,5 +1,7 @@
 <template>
-  <div v-if="isMainProjectsPage" class="projects-page container section">
+  <router-view v-if="!isMainProjectsPage" />
+
+  <div v-else class="projects-page container section">
     <section class="projects-hero">
       <h1 class="title is-1">Projects by pathway</h1>
       <p class="subtitle is-4">

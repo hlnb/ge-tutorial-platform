@@ -27,54 +27,54 @@ These stubs are covered in `TUTORIAL_WRITING_SCHEDULE.md` with dates, source con
 | `advanced/accessibility-essentials`           | Week 5, Day 21 |
 | BSB Parts 2–7                                 | Weeks 2–5      |
 
-### NOT on the Writing Schedule (need to be added)
+### NOT on the Writing Schedule (decisioned from audit)
 
-These stubs exist as pages but aren't in the current schedule. Decide: write them, merge them into existing tutorials, or remove them.
+These stubs exist as pages but are not part of the current 21-tutorial writing schedule. The table below records what should happen next so the tutorial system can be cleaned up intentionally instead of leaving ambiguous placeholders in place.
 
 #### AI-Assisted (7 stubs — all ~9 lines)
 
-| File                                         | Content    | Decision                           |
-| -------------------------------------------- | ---------- | ---------------------------------- |
-| `ai-assisted/introduction.vue`               | Title only | [ ] Write / [ ] Merge / [ ] Remove |
-| `ai-assisted/workflow-integration.vue`       | Title only | [ ] Write / [ ] Merge / [ ] Remove |
-| `ai-assisted/building-with-ai.vue`           | Title only | [ ] Write / [ ] Merge / [ ] Remove |
-| `ai-assisted/design-to-code.vue`             | Title only | [ ] Write / [ ] Merge / [ ] Remove |
-| `ai-assisted/custom-gpt-automation.vue`      | Title only | [ ] Write / [ ] Merge / [ ] Remove |
-| `ai-assisted/projects/ai-landing-page.vue`   | Title only | [ ] Write / [ ] Merge / [ ] Remove |
-| `ai-assisted/projects/ai-component-docs.vue` | Title only | [ ] Write / [ ] Merge / [ ] Remove |
+| File                                         | Pathway role                           | Decision     | Content treatment                                   |
+| -------------------------------------------- | -------------------------------------- | ------------ | --------------------------------------------------- |
+| `ai-assisted/introduction.vue`               | Section opener for builder learners    | Merge        | Fold into section overview copy, then remove stub   |
+| `ai-assisted/workflow-integration.vue`       | Practical builder-path tutorial        | Keep later   | Write full tutorial after core builder path matures |
+| `ai-assisted/building-with-ai.vue`           | AI usage principles                    | Merge        | Merge into workflow-focused lesson                  |
+| `ai-assisted/design-to-code.vue`             | Design-to-build workflow support       | Keep later   | Write full tutorial tied to builder projects        |
+| `ai-assisted/custom-gpt-automation.vue`      | Niche/tool-specific extension          | Remove       | Remove until the pathway needs a concrete version   |
+| `ai-assisted/projects/ai-landing-page.vue`   | Project example, not tutorial          | Merge        | Represent as project metadata, not a stub lesson    |
+| `ai-assisted/projects/ai-component-docs.vue` | Project example, not tutorial          | Merge        | Represent as project metadata, not a stub lesson    |
 
 #### Backend (4 stubs — all ~9-15 lines)
 
-| File                      | Content        | Decision                           |
-| ------------------------- | -------------- | ---------------------------------- |
-| `backend/index.vue`       | Category index | [ ] Write / [ ] Merge / [ ] Remove |
-| `backend/node-basics.vue` | Title only     | [ ] Write / [ ] Merge / [ ] Remove |
-| `backend/rest-apis.vue`   | Title only     | [ ] Write / [ ] Merge / [ ] Remove |
-| `backend/databases.vue`   | Title only     | [ ] Write / [ ] Merge / [ ] Remove |
+| File                      | Pathway role                         | Decision   | Content treatment                                         |
+| ------------------------- | ------------------------------------ | ---------- | --------------------------------------------------------- |
+| `backend/index.vue`       | Advanced section overview            | Keep       | Keep as section landing page                              |
+| `backend/node-basics.vue` | Foundational backend concept         | Keep later | Write as a full tutorial when deployment path expands     |
+| `backend/rest-apis.vue`   | Full-stack systems concept           | Keep later | Write as a full tutorial when backend pathway is staffed  |
+| `backend/databases.vue`   | Data layer introduction              | Keep later | Write as a full tutorial when backend pathway is staffed  |
 
 #### Deployments (4 stubs — all ~9-15 lines)
 
-| File                                | Content        | Decision                           |
-| ----------------------------------- | -------------- | ---------------------------------- |
-| `deployments/index.vue`             | Category index | [ ] Write / [ ] Merge / [ ] Remove |
-| `deployments/vercel-netlify.vue`    | Title only     | [ ] Write / [ ] Merge / [ ] Remove |
-| `deployments/firebase-hosting.vue`  | Title only     | [ ] Write / [ ] Merge / [ ] Remove |
-| `deployments/static-vs-dynamic.vue` | Title only     | [ ] Write / [ ] Merge / [ ] Remove |
+| File                                | Pathway role                          | Decision   | Content treatment                                                  |
+| ----------------------------------- | ------------------------------------- | ---------- | ------------------------------------------------------------------ |
+| `deployments/index.vue`             | Advanced section overview             | Keep       | Keep as section landing page                                       |
+| `deployments/vercel-netlify.vue`    | Hosting comparison                    | Keep later | Write as a full deployment tutorial                                |
+| `deployments/firebase-hosting.vue`  | Platform-specific deployment option   | Merge      | Merge into a broader hosting-comparison lesson until justified     |
+| `deployments/static-vs-dynamic.vue` | Systems concept for going live        | Keep later | Write as a full tutorial connected to deployment decision-making   |
 
 #### SEO & Analytics (3 stubs — all ~9-11 lines)
 
-| File                                | Content        | Decision                           |
-| ----------------------------------- | -------------- | ---------------------------------- |
-| `seo-analytics/index.vue`           | Category index | [ ] Write / [ ] Merge / [ ] Remove |
-| `seo-analytics/on-page-seo.vue`     | Title only     | [ ] Write / [ ] Merge / [ ] Remove |
-| `seo-analytics/analytics-setup.vue` | Title only     | [ ] Write / [ ] Merge / [ ] Remove |
+| File                                | Pathway role                      | Decision   | Content treatment                                               |
+| ----------------------------------- | --------------------------------- | ---------- | --------------------------------------------------------------- |
+| `seo-analytics/index.vue`           | Advanced section overview         | Keep       | Keep as section landing page                                    |
+| `seo-analytics/on-page-seo.vue`     | Core live-site improvement topic  | Keep later | Write as a full tutorial for the deployment pathway             |
+| `seo-analytics/analytics-setup.vue` | Measurement and feedback topic    | Keep later | Write as a full tutorial for the deployment pathway             |
 
 #### Other (2 stubs)
 
-| File                 | Content                    | Decision                           |
-| -------------------- | -------------------------- | ---------------------------------- |
-| `capstone/index.vue` | Category index (~13 lines) | [ ] Write / [ ] Merge / [ ] Remove |
-| `capstone/spec.vue`  | Brief spec (~12 lines)     | [ ] Write / [ ] Merge / [ ] Remove |
+| File                 | Pathway role                    | Decision   | Content treatment                                         |
+| -------------------- | ------------------------------- | ---------- | --------------------------------------------------------- |
+| `capstone/index.vue` | Final advanced section overview | Keep       | Keep as section landing page                              |
+| `capstone/spec.vue`  | Capstone brief / project spec   | Keep later | Expand into a real capstone spec when the pathway is ready |
 
 ---
 
@@ -190,9 +190,9 @@ The Hunter framework (AnticipatorySet, LearningObjectives, GuidedPractice, Check
 
 ### Immediate (before starting the writing schedule)
 
-- [ ] Decide on stubs not on the writing schedule — write, merge, or remove?
-- [ ] Decide on project display approach — Hunter components, ProjectShowcase, or simple page?
-- [ ] Decide on project index page location — static HTML, Vue page, or gallery?
+- [x] Decide on stubs not on the writing schedule
+- [x] Decide on project display approach — dedicated project pages, not Hunter lessons
+- [x] Decide on project index page location — Vue project landing page grouped by pathways
 
 ### During writing schedule
 
@@ -202,6 +202,6 @@ The Hunter framework (AnticipatorySet, LearningObjectives, GuidedPractice, Check
 
 ### After writing schedule
 
-- [ ] Build project index/showcase pages
+- [x] Build project index/showcase pages
 - [ ] Remove any stubs that were marked for removal
 - [ ] Final cross-reference audit between tutorials and projects

@@ -529,14 +529,14 @@
 						Check out the reference projects to see image galleries, logos, and figures in context:
 					</p>
 					<div class="buttons">
-						<a href="/projects/html-basics/black-swan-bistro/index.html" target="_blank" class="button is-primary is-small">
+						<router-link to="/projects/black-swan-bistro" class="button is-primary is-small">
 							<span class="icon"><i class="fas fa-utensils"></i></span>
 							<span>Black Swan Bistro</span>
-						</a>
-						<a href="/projects/html-basics/rotto-rocks/index.html" target="_blank" class="button is-link is-small">
+						</router-link>
+						<router-link to="/projects/rotto-rocks" class="button is-link is-small">
 							<span class="icon"><i class="fas fa-island-tropical"></i></span>
 							<span>Rotto Rocks</span>
-						</a>
+						</router-link>
 					</div>
 				</div>
 

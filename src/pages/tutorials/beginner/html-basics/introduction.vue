@@ -592,14 +592,14 @@
 					These serve as reference implementations showing all the HTML concepts you'll learn.
 				</p>
 				<div class="buttons">
-					<a href="/projects/html-basics/black-swan-bistro/index.html" target="_blank" class="button is-primary">
+					<router-link to="/projects/black-swan-bistro" class="button is-primary">
 						<span class="icon"><i class="fas fa-utensils"></i></span>
 						<span>Black Swan Bistro HTML</span>
-					</a>
-					<a href="/projects/html-basics/rotto-rocks/index.html" target="_blank" class="button is-link">
+					</router-link>
+					<router-link to="/projects/rotto-rocks" class="button is-link">
 						<span class="icon"><i class="fas fa-island-tropical"></i></span>
 						<span>Rotto Rocks HTML</span>
-					</a>
+					</router-link>
 				</div>
 				<p class="is-size-7 mt-2">
 					<em>Note: These are HTML-only versions without styling. You'll add CSS in the CSS Basics series!</em>
