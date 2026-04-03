@@ -1,0 +1,23 @@
+# Repo-scoped Codex settings for GraphiteEdge
+
+model = "gpt-5"
+model_reasoning_effort = "medium"
+
+# Be cautious with code execution and keep approvals sensible for an active website.
+approval_policy = "untrusted"
+
+# Treat git repo as the root.
+project_root_markers = [".git"]
+
+[tools]
+web_search = true
+
+[profiles.deep-review]
+model = "gpt-5-pro"
+model_reasoning_effort = "high"
+approval_policy = "untrusted"
+
+[profiles.quick-edit]
+model = "gpt-5"
+model_reasoning_effort = "low"
+approval_policy = "untrusted"
