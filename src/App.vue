@@ -9,6 +9,9 @@
 			<TutorialLayout v-if="isTutorialPage">
 				<router-view></router-view>
 			</TutorialLayout>
+			<ProjectLayout v-else-if="isProjectPage">
+				<router-view></router-view>
+			</ProjectLayout>
 			<!-- Other pages render directly -->
 			<router-view v-else></router-view>
 		</main>
@@ -28,6 +31,7 @@ import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 import CookieConsent from '@/components/CookieConsent.vue';
 import TutorialLayout from '@/layouts/TutorialLayout.vue';
+import ProjectLayout from '@/layouts/ProjectLayout.vue';
 
 const route = useRoute();
 
@@ -36,6 +40,11 @@ const isTutorialPage = computed(() => {
 	const path = route.path;
 	// Tutorial pages are under /tutorials/ but not the main index
 	return path.startsWith('/tutorials/') && path !== '/tutorials/';
+});
+
+const isProjectPage = computed(() => {
+	const path = route.path;
+	return path.startsWith('/projects/') && path !== '/projects/';
 });
 
 // Handle consent update

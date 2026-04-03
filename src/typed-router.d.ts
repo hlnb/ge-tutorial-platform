@@ -205,6 +205,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/projects/black-swan-bistro': RouteRecordInfo<
+      '/projects/black-swan-bistro',
+      '/projects/black-swan-bistro',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/projects/calculator': RouteRecordInfo<
       '/projects/calculator',
       '/projects/calculator',
@@ -362,6 +369,13 @@ declare module 'vue-router/auto-routes' {
     '/projects/recipe-page': RouteRecordInfo<
       '/projects/recipe-page',
       '/projects/recipe-page',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/projects/rotto-rocks': RouteRecordInfo<
+      '/projects/rotto-rocks',
+      '/projects/rotto-rocks',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1256,6 +1270,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/projects/black-swan-bistro.vue': {
+      routes:
+        | '/projects/black-swan-bistro'
+      views:
+        | never
+    }
     'src/pages/projects/calculator.vue': {
       routes:
         | '/projects/calculator'
@@ -1391,6 +1411,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/projects/recipe-page.vue': {
       routes:
         | '/projects/recipe-page'
+      views:
+        | never
+    }
+    'src/pages/projects/rotto-rocks.vue': {
+      routes:
+        | '/projects/rotto-rocks'
       views:
         | never
     }
