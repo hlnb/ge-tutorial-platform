@@ -1,4 +1,4 @@
-fix the <template>
+<template>
   <!-- ============================================================
        TutorialsPage — Curriculum map with learning pathways
        ============================================================ -->

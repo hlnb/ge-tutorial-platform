@@ -1,4 +1,34 @@
 
+<script setup>
+import '@/assets/styles/tutorials.css';
+import { computed } from 'vue';
+import { useHead } from '@vueuse/head';
+import TutorialCard from '@/components/tutorials/TutorialCard.vue';
+import { sections, tutorials } from '@/data/tutorials';
+
+const sectionMeta = sections.find((section) => section.id === 'dom-basics');
+
+const sectionTutorials = computed(() => {
+  return tutorials
+    .filter(
+      (tutorial) =>
+        tutorial.section === 'dom-basics' && tutorial.slug !== sectionMeta?.slug,
+    )
+    .sort((a, b) => a.stage - b.stage);
+});
+
+useHead({
+  title: `${sectionMeta?.introCopy?.title || 'DOM Basics'} - GraphiteEdge Tutorials`,
+  meta: [
+    {
+      name: 'description',
+      content:
+        sectionMeta?.introCopy?.summary ||
+        'Learn how JavaScript works with page elements, events, and dynamic content.',
+    },
+  ],
+});
+</script>
 
 <template>
   <div class="content">
@@ -16,9 +46,9 @@
       </ul>
     </nav>
 
-    <h1>
+    <h1 class="title is-1">
       <span class="js-lesson-icon" aria-hidden="true">DOM</span>
-      Document Object Model
+      {{ sectionMeta?.title || 'Document Object Model' }}
     </h1>
 
     <!-- Introduction to the DOM -->
@@ -73,111 +103,14 @@
       <h3 class="title is-4">
         <i class="fas fa-graduation-cap"></i> Learning Path
       </h3>
-      <p>Master DOM manipulation through our structured learning path:</p>
-      
-      <!-- Foundation -->
-      <div class="level-section">
-        <h4 class="title is-5">Foundation: Getting Started</h4>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="card">
-              <div class="card-content">
-                <h5 class="title is-6">Introduction to DOM</h5>
-                <p>Learn the basics of Document Object Model and its structure.</p>
-                <router-link to="/tutorials/beginner/dom-basics/introduction" class="button is-primary is-small">
-                  Start Learning
-                </router-link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p>{{ sectionMeta?.introCopy?.description }}</p>
 
-      <!-- Level 1 -->
-      <div class="level-section">
-        <h4 class="title is-5">Level 1: Basic Manipulation</h4>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="card">
-              <div class="card-content">
-                <h5 class="title is-6">Arrays and Methods</h5>
-                <p>Master JavaScript arrays and their methods for data management.</p>
-                <router-link to="/tutorials/beginner/dom-basics/arrays" class="button is-primary is-small">
-                  Start Learning
-                </router-link>
-              </div>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="card">
-              <div class="card-content">
-                <h5 class="title is-6">DOM Manipulation</h5>
-                <p>Learn to select and modify HTML elements dynamically.</p>
-                <router-link to="/tutorials/beginner/dom-basics/dom-manipulation" class="button is-primary is-small">
-                  Start Learning
-                </router-link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Level 2 -->
-      <div class="level-section">
-        <h4 class="title is-5">Level 2: Event Handling</h4>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="card">
-              <div class="card-content">
-                <h5 class="title is-6">Event Handling</h5>
-                <p>Master event handling, form validation, and event delegation.</p>
-                <router-link to="/tutorials/beginner/dom-basics/dom-events" class="button is-primary is-small">
-                  Start Learning
-                </router-link>
-              </div>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="card">
-              <div class="card-content">
-                <h5 class="title is-6">Advanced Events</h5>
-                <p>Learn custom events, throttle, debounce, and focus trapping.</p>
-                <router-link to="/tutorials/beginner/dom-basics/advanced-events" class="button is-primary is-small">
-                  Start Learning
-                </router-link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Level 3 -->
-      <div class="level-section">
-        <h4 class="title is-5">Level 3: Advanced DOM</h4>
-        <div class="columns is-multiline">
-          <div class="column is-6">
-            <div class="card">
-              <div class="card-content">
-                <h5 class="title is-6">DOM Traversal</h5>
-                <p>Navigate and manipulate complex DOM structures.</p>
-                <router-link to="/tutorials/beginner/dom-basics/dom-traversal" class="button is-primary is-small">
-                  Start Learning
-                </router-link>
-              </div>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="card">
-              <div class="card-content">
-                <h5 class="title is-6">Dynamic Content</h5>
-                <p>Create, insert, clone, and manage DOM elements dynamically.</p>
-                <router-link to="/tutorials/beginner/dom-basics/dynamic-content" class="button is-primary is-small">
-                  Start Learning
-                </router-link>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="tutorials-grid">
+        <TutorialCard
+          v-for="tutorial in sectionTutorials"
+          :key="tutorial.id"
+          :tutorial="tutorial"
+        />
       </div>
     </div>
 
@@ -192,8 +125,6 @@
   </div>
 </template>
 
-<script setup>
-</script>
 <script>
 export default {
   name: 'DOMBasicsOverview'

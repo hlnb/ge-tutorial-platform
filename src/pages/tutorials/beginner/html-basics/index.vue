@@ -1,9 +1,31 @@
 <script setup>
-import { onBeforeUnmount } from 'vue';
+import '@/assets/styles/tutorials.css';
+import { computed } from 'vue';
+import { useHead } from '@vueuse/head';
+import TutorialCard from '@/components/tutorials/TutorialCard.vue';
+import { sections, tutorials } from '@/data/tutorials';
 
-// Clean up any side effects when component unmounts
-onBeforeUnmount(() => {
-	// Any cleanup code if needed
+const sectionMeta = sections.find((section) => section.id === 'html-basics');
+
+const sectionTutorials = computed(() => {
+	return tutorials
+		.filter(
+			(tutorial) =>
+				tutorial.section === 'html-basics' && tutorial.slug !== sectionMeta?.slug,
+		)
+		.sort((a, b) => a.stage - b.stage);
+});
+
+useHead({
+	title: `${sectionMeta?.introCopy?.title || 'HTML Basics'} - GraphiteEdge Tutorials`,
+	meta: [
+		{
+			name: 'description',
+			content:
+				sectionMeta?.introCopy?.summary ||
+				'Learn the fundamentals of HTML structure and elements.',
+		},
+	],
 });
 </script>
 
@@ -30,10 +52,14 @@ onBeforeUnmount(() => {
 		</div>
 
 		<h1 class="title is-1">
-			<i class="fab fa-html5 html-icon"></i> HTML Basics
+			<i class="fab fa-html5 html-icon"></i>
+			{{ sectionMeta?.introCopy?.title || 'HTML Basics' }}
 		</h1>
 		<p class="subtitle is-4 mb-6">
-			Learn the fundamentals of HTML structure and elements
+			{{
+				sectionMeta?.introCopy?.summary ||
+				'Learn the fundamentals of HTML structure and elements.'
+			}}
 		</p>
 			<h3 class="title is-5 mb-2">What You'll Learn</h3>
 			<ul>
@@ -51,208 +77,12 @@ onBeforeUnmount(() => {
 			</p>
 		</div>
 
-		<div class="tutorial-grid">
-			<div class="columns is-multiline">
-				<!-- Introduction -->
-				<div class="column is-one-third">
-					<div class="box tutorial-card">
-						<h2 class="title is-4">
-							<router-link to="/tutorials/beginner/html-basics/introduction">
-								Introduction to HTML
-							</router-link>
-						</h2>
-						<div class="tags mb-4">
-							<span class="tag is-info">Beginner</span>
-							<span class="tag is-light">15 mins</span>
-							<span class="tag is-primary">Theory</span>
-						</div>
-						<p>
-							Get started with HTML and understand what it is and why it matters.
-						</p>
-						<router-link
-							to="/tutorials/beginner/html-basics/introduction"
-							class="button is-primary is-outlined mt-4"
-						>
-							Start Tutorial
-						</router-link>
-					</div>
-				</div>
-
-				<!-- Your First HTML Page -->
-				<div class="column is-one-third">
-					<div class="box tutorial-card">
-						<h2 class="title is-4">
-							<router-link to="/tutorials/beginner/html-basics/html-first-page">
-								Your First HTML Page
-							</router-link>
-						</h2>
-						<div class="tags mb-4">
-							<span class="tag is-info">Beginner</span>
-							<span class="tag is-light">20 mins</span>
-							<span class="tag is-success">Practice</span>
-						</div>
-						<p>
-							Create your very first HTML page and learn the basic structure.
-						</p>
-						<router-link
-							to="/tutorials/beginner/html-basics/html-first-page"
-							class="button is-primary is-outlined mt-4"
-						>
-							Start Tutorial
-						</router-link>
-					</div>
-				</div>
-
-				<!-- Working with Text -->
-				<div class="column is-one-third">
-					<div class="box tutorial-card">
-						<h2 class="title is-4">
-							<router-link to="/tutorials/beginner/html-basics/html-text">
-								Working with Text
-							</router-link>
-						</h2>
-						<div class="tags mb-4">
-							<span class="tag is-info">Beginner</span>
-							<span class="tag is-light">30 mins</span>
-							<span class="tag is-primary">Practice</span>
-						</div>
-						<p>
-							Master HTML text elements including headings, paragraphs, and formatting.
-						</p>
-						<router-link
-							to="/tutorials/beginner/html-basics/html-text"
-							class="button is-primary is-outlined mt-4"
-						>
-							Start Tutorial
-						</router-link>
-					</div>
-				</div>
-
-				<!-- Links & Navigation -->
-				<div class="column is-one-third">
-					<div class="box tutorial-card">
-						<h2 class="title is-4">
-							<router-link to="/tutorials/beginner/html-basics/html-links">
-								Links & Navigation
-							</router-link>
-						</h2>
-						<div class="tags mb-4">
-							<span class="tag is-info">Beginner</span>
-							<span class="tag is-light">30 mins</span>
-							<span class="tag is-primary">Practice</span>
-						</div>
-						<p>
-							Learn to create links that connect web pages and build navigation.
-						</p>
-						<router-link
-							to="/tutorials/beginner/html-basics/html-links"
-							class="button is-primary is-outlined mt-4"
-						>
-							Start Tutorial
-						</router-link>
-					</div>
-				</div>
-
-				<!-- Images -->
-				<div class="column is-one-third">
-					<div class="box tutorial-card">
-						<h2 class="title is-4">
-							<router-link to="/tutorials/beginner/html-basics/html-images">
-								Working with Images
-							</router-link>
-						</h2>
-						<div class="tags mb-4">
-							<span class="tag is-info">Beginner</span>
-							<span class="tag is-light">25 mins</span>
-							<span class="tag is-primary">Practice</span>
-						</div>
-						<p>
-							Add images to your web pages with proper accessibility and optimization.
-						</p>
-						<router-link
-							to="/tutorials/beginner/html-basics/html-images"
-							class="button is-primary is-outlined mt-4"
-						>
-							Start Tutorial
-						</router-link>
-					</div>
-				</div>
-
-				<!-- Document Structure -->
-				<div class="column is-one-third">
-					<div class="box tutorial-card">
-						<h2 class="title is-4">
-							<router-link to="/tutorials/beginner/html-basics/html-doc-structure">
-								Document Structure
-							</router-link>
-						</h2>
-						<div class="tags mb-4">
-							<span class="tag is-info">Beginner</span>
-							<span class="tag is-light">20 mins</span>
-							<span class="tag is-success">Theory</span>
-						</div>
-						<p>
-							Build properly structured HTML documents with semantic elements.
-						</p>
-						<router-link
-							to="/tutorials/beginner/html-basics/html-doc-structure"
-							class="button is-primary is-outlined mt-4"
-						>
-							Start Tutorial
-						</router-link>
-					</div>
-				</div>
-
-				<!-- Forms -->
-				<div class="column is-one-third">
-					<div class="box tutorial-card">
-						<h2 class="title is-4">
-							<router-link to="/tutorials/beginner/html-basics/html-forms">
-								HTML Forms
-							</router-link>
-						</h2>
-						<div class="tags mb-4">
-							<span class="tag is-info">Beginner</span>
-							<span class="tag is-light">35 mins</span>
-							<span class="tag is-primary">Practice</span>
-						</div>
-						<p>
-							Create interactive forms to collect user input and data.
-						</p>
-						<router-link
-							to="/tutorials/beginner/html-basics/html-forms"
-							class="button is-primary is-outlined mt-4"
-						>
-							Start Tutorial
-						</router-link>
-					</div>
-				</div>
-
-				<!-- Emmet Workflow -->
-				<div class="column is-one-third">
-					<div class="box tutorial-card">
-						<h2 class="title is-4">
-							<router-link to="/tutorials/beginner/html-basics/html-emmet">
-								Emmet Workflow
-							</router-link>
-						</h2>
-						<div class="tags mb-4">
-							<span class="tag is-info">Beginner</span>
-							<span class="tag is-light">20 mins</span>
-							<span class="tag is-link">Productivity</span>
-						</div>
-						<p>
-							Speed up your HTML coding with Emmet shortcuts and abbreviations.
-						</p>
-						<router-link
-							to="/tutorials/beginner/html-basics/html-emmet"
-							class="button is-primary is-outlined mt-4"
-						>
-							Start Tutorial
-						</router-link>
-					</div>
-				</div>
-			</div>
+		<div class="tutorial-grid tutorials-grid">
+			<TutorialCard
+				v-for="tutorial in sectionTutorials"
+				:key="tutorial.id"
+				:tutorial="tutorial"
+			/>
 		</div>
 
 		<div class="box box-info mt-6">

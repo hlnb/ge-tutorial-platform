@@ -156,144 +156,19 @@
                 </div>
             </div>
 
-            <!-- Learning Path -->
             <div class="learning-path">
                 <h2 class="title is-2">
                     <i class="fas fa-map-signs"></i> Learning Path
                 </h2>
-                
-                <!-- Level 1: Foundations -->
-                <div class="level-section">
-                    <h3 class="title is-3">Level 1: Foundations</h3>
-                    <div class="path-item">
-                        <router-link to="/tutorials/intermediate/git-basics/introduction" class="box" :class="{ 'is-completed': isSectionCompleted('introduction') }">
-                            <h4 class="title is-4">
-                                <i class="fas fa-flag-checkered"></i> Getting Started
-                                <span v-if="isSectionCompleted('introduction')" class="icon has-text-success">
-                                    <i class="fas fa-check-circle"></i>
-                                </span>
-                            </h4>
-                            <p>Learn what Git is and why it's essential for modern development.</p>
-                            <div class="tags">
-                                <span class="tag is-success">Beginner Friendly</span>
-                                <span class="tag is-info">15 minutes</span>
-                            </div>
-                        </router-link>
-                    </div>
-                </div>
-
-                <!-- Level 2: Basic Concepts -->
-                <div class="level-section">
-                    <h3 class="title is-3">Level 2: Basic Concepts</h3>
-                    <div class="path-item">
-                        <router-link to="/tutorials/intermediate/git-basics/installation" class="box" :class="{ 'is-completed': isSectionCompleted('installation') }">
-                            <h4 class="title is-4">
-                                <i class="fas fa-download"></i> Installation & Setup
-                                <span v-if="isSectionCompleted('installation')" class="icon has-text-success">
-                                    <i class="fas fa-check-circle"></i>
-                                </span>
-                            </h4>
-                            <p>Install Git and configure your identity.</p>
-                            <div class="tags">
-                                <span class="tag is-warning">Core Concept</span>
-                                <span class="tag is-info">20 minutes</span>
-                            </div>
-                        </router-link>
-                    </div>
-                </div>
-
-                <!-- Level 3: Basic Commands -->
-                <div class="level-section">
-                    <h3 class="title is-3">Level 3: Basic Commands</h3>
-                    <div class="columns">
-                        <div class="column">
-                            <router-link to="/tutorials/intermediate/git-basics/basic-commands" class="box" :class="{ 'is-completed': isSectionCompleted('basic-commands') }">
-                                <h4 class="title is-4">
-                                    <i class="fas fa-terminal"></i> Basic Commands
-                                    <span v-if="isSectionCompleted('basic-commands')" class="icon has-text-success">
-                                        <i class="fas fa-check-circle"></i>
-                                    </span>
-                                </h4>
-                                <p>Learn essential Git commands for tracking changes.</p>
-                                <div class="tags">
-                                    <span class="tag is-warning">Core Concept</span>
-                                    <span class="tag is-info">30 minutes</span>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="column">
-                            <router-link to="/tutorials/intermediate/git-basics/branching" class="box" :class="{ 'is-completed': isSectionCompleted('branching') }">
-                                <h4 class="title is-4">
-                                    <i class="fas fa-code-branch"></i> Branching
-                                    <span v-if="isSectionCompleted('branching')" class="icon has-text-success">
-                                        <i class="fas fa-check-circle"></i>
-                                    </span>
-                                </h4>
-                                <p>Create and manage branches for feature development.</p>
-                                <div class="tags">
-                                    <span class="tag is-warning">Core Concept</span>
-                                    <span class="tag is-info">45 minutes</span>
-                                </div>
-                            </router-link>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Level 4: Collaboration -->
-                <div class="level-section">
-                    <h3 class="title is-3">Level 4: Collaboration</h3>
-                    <div class="columns">
-                        <div class="column">
-                            <router-link to="/tutorials/intermediate/git-basics/merging" class="box" :class="{ 'is-completed': isSectionCompleted('merging') }">
-                                <h4 class="title is-4">
-                                    <i class="fas fa-object-group"></i> Merging
-                                    <span v-if="isSectionCompleted('merging')" class="icon has-text-success">
-                                        <i class="fas fa-check-circle"></i>
-                                    </span>
-                                </h4>
-                                <p>Combine changes from different branches.</p>
-                                <div class="tags">
-                                    <span class="tag is-warning">Core Concept</span>
-                                    <span class="tag is-info">30 minutes</span>
-                                </div>
-                            </router-link>
-                        </div>
-                        <div class="column">
-                            <router-link to="/tutorials/intermediate/git-basics/remote-repositories" class="box" :class="{ 'is-completed': isSectionCompleted('remote-repositories') }">
-                                <h4 class="title is-4">
-                                    <i class="fas fa-cloud"></i> Remote Repositories
-                                    <span v-if="isSectionCompleted('remote-repositories')" class="icon has-text-success">
-                                        <i class="fas fa-check-circle"></i>
-                                    </span>
-                                </h4>
-                                <p>Work with GitHub, GitLab, or other remote repositories.</p>
-                                <div class="tags">
-                                    <span class="tag is-warning">Core Concept</span>
-                                    <span class="tag is-info">45 minutes</span>
-                                </div>
-                            </router-link>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Level 5: Best Practices -->
-                <div class="level-section">
-                    <h3 class="title is-3">Level 5: Best Practices</h3>
-                    <div class="path-item">
-                        <router-link to="/tutorials/intermediate/git-basics/workflow" class="box" :class="{ 'is-completed': isSectionCompleted('workflow') }">
-                            <h4 class="title is-4">
-                                <i class="fas fa-sitemap"></i> Git Workflow
-                                <span v-if="isSectionCompleted('workflow')" class="icon has-text-success">
-                                    <i class="fas fa-check-circle"></i>
-                                </span>
-                            </h4>
-                            <p>Learn common Git workflows and best practices.</p>
-                            <div class="tags">
-                                <span class="tag is-warning">Core Concept</span>
-                                <span class="tag is-info">30 minutes</span>
-                            </div>
-                        </router-link>
-                    </div>
+                <p class="mb-4">
+                    {{ sectionMeta?.introCopy?.description }}
+                </p>
+                <div class="tutorials-grid">
+                    <TutorialCard
+                        v-for="tutorial in sectionTutorials"
+                        :key="tutorial.id"
+                        :tutorial="tutorial"
+                    />
                 </div>
             </div>
 
@@ -357,23 +232,47 @@
 </template>
 
 <script setup>
+import '@/assets/styles/tutorials.css';
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { useHead } from '@vueuse/head';
+import TutorialCard from '@/components/tutorials/TutorialCard.vue';
+import { sections, tutorials } from '@/data/tutorials';
 
 const route = useRoute();
+const sectionMeta = sections.find((section) => section.id === 'git-basics');
 
-// Tutorial sections in order
-const tutorialSections = [
-    { id: 'introduction', name: 'Introduction', path: '/tutorials/intermediate/git-basics/introduction' },
-    { id: 'installation', name: 'Installation & Setup', path: '/tutorials/intermediate/git-basics/installation' },
-    { id: 'basic-commands', name: 'Basic Commands', path: '/tutorials/intermediate/git-basics/basic-commands' },
-    { id: 'branching', name: 'Branching', path: '/tutorials/intermediate/git-basics/branching' },
-    { id: 'merging', name: 'Merging', path: '/tutorials/intermediate/git-basics/merging' },
-    { id: 'remote-repositories', name: 'Remote Repositories', path: '/tutorials/intermediate/git-basics/remote-repositories' },
-    { id: 'workflow', name: 'Git Workflow', path: '/tutorials/intermediate/git-basics/workflow' }
-];
+const sectionTutorials = computed(() => {
+    return tutorials
+        .filter(
+            (tutorial) =>
+                tutorial.section === 'git-basics' &&
+                tutorial.slug !== sectionMeta?.slug,
+        )
+        .sort((a, b) => a.stage - b.stage);
+});
 
-const totalSections = tutorialSections.length;
+useHead({
+    title: `${sectionMeta?.introCopy?.title || 'Git Basics'} - GraphiteEdge Tutorials`,
+    meta: [
+        {
+            name: 'description',
+            content:
+                sectionMeta?.introCopy?.summary ||
+                'Learn version control workflows for real development projects.',
+        },
+    ],
+});
+
+const tutorialSections = computed(() => {
+    return sectionTutorials.value.map((tutorial) => ({
+        id: tutorial.slug.split('/').pop(),
+        name: tutorial.title,
+        path: `/tutorials/${tutorial.slug}`,
+    }));
+});
+
+const totalSections = computed(() => tutorialSections.value.length);
 const completedSections = ref(0);
 
 // Check all possible localStorage keys to help debug
@@ -464,38 +363,16 @@ const saveProgress = (progress) => {
     }
 };
 
-// Check if a section is completed
-const isSectionCompleted = (sectionId) => {
-    const progress = loadProgress();
-    return progress.completed.includes(sectionId);
-};
-
-// Mark a section as completed
-const markSectionCompleted = (sectionId) => {
-    const progress = loadProgress();
-    if (!progress.completed.includes(sectionId)) {
-        progress.completed.push(sectionId);
-        completedSections.value = progress.completed.length;
-        saveProgress(progress);
-    }
-};
-
 // Computed properties
 const progressPercentage = computed(() => {
-    return Math.round((completedSections.value / totalSections) * 100);
-});
-
-const currentProgress = computed(() => {
-    return {
-        completed: completedSections.value,
-        total: totalSections,
-        percentage: progressPercentage.value
-    };
+    return totalSections.value
+        ? Math.round((completedSections.value / totalSections.value) * 100)
+        : 0;
 });
 
 const nextSection = computed(() => {
     const progress = loadProgress();
-    const nextUncompletedSection = tutorialSections.find(section => 
+    const nextUncompletedSection = tutorialSections.value.find(section => 
         !progress.completed.includes(section.id)
     );
     return nextUncompletedSection;

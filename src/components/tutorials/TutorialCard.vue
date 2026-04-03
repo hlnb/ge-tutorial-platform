@@ -18,7 +18,7 @@
     <!-- Meta row: time + difficulty -->
     <div class="tutorial-card__meta">
       <span class="tag is-light">
-        <i class="far fa-clock"></i>&nbsp;{{ tutorial.estimatedTime }}
+        <i class="far fa-clock"></i>&nbsp;{{ tutorial.duration || tutorial.estimatedTime }}
       </span>
       <span class="tag" :class="difficultyTagClass">
         {{ tutorial.difficulty }}

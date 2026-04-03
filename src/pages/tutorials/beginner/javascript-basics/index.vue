@@ -334,148 +334,19 @@
 				</div>
 			</div>
 
-			<!-- Learning Path -->
 			<div class="learning-path">
 				<h2 class="title is-2">
 					<i class="fas fa-map-signs"></i> Learning Path
 				</h2>
-				
-				<!-- Level 1: Foundations -->
-				<div class="level-section">
-					<h3 class="title is-3">Level 1: Foundations</h3>
-					<div class="path-item">
-						<router-link
-							to="/tutorials/beginner/javascript-basics/introduction"
-							class="box"
-							:class="{ 'is-completed': isSectionCompleted('introduction') }"
-						>
-							<h4 class="title is-4">
-								<i class="fas fa-flag-checkered"></i> Getting Started
-								<span v-if="isSectionCompleted('introduction')" class="icon has-text-success">
-									<i class="fas fa-check-circle"></i>
-								</span>
-							</h4>
-							<p>Learn what JavaScript is and how it powers the modern web.</p>
-							<div class="tags">
-								<span class="tag is-success">Beginner Friendly</span>
-								<span class="tag is-info">15 minutes</span>
-							</div>
-						</router-link>
-					</div>
-				</div>
-
-				<!-- Level 2: Basic Building Blocks -->
-				<div class="level-section">
-					<h3 class="title is-3">Level 2: Basic Building Blocks</h3>
-					<div class="path-item">
-						<router-link
-							to="/tutorials/beginner/javascript-basics/variables-data-types"
-							class="box"
-							:class="{ 'is-completed': isSectionCompleted('variables-data-types') }"
-						>
-							<h4 class="title is-4">
-								<i class="fas fa-cube"></i> Variables & Data Types
-								<span v-if="isSectionCompleted('variables-data-types')" class="icon has-text-success">
-									<i class="fas fa-check-circle"></i>
-								</span>
-							</h4>
-							<p>Store and work with different types of data in JavaScript.</p>
-							<div class="tags">
-								<span class="tag is-warning">Core Concept</span>
-								<span class="tag is-info">30 minutes</span>
-							</div>
-						</router-link>
-					</div>
-				</div>
-
-				<!-- Level 3: Operations & Logic -->
-				<div class="level-section">
-					<h3 class="title is-3">Level 3: Operations & Logic</h3>
-					<div class="columns">
-						<div class="column">
-							<router-link
-								to="/tutorials/beginner/javascript-basics/operators"
-								class="box"
-								:class="{ 'is-completed': isSectionCompleted('operators') }"
-							>
-								<h4 class="title is-4">
-									<i class="fas fa-calculator"></i> Operators
-									<span v-if="isSectionCompleted('operators')" class="icon has-text-success">
-										<i class="fas fa-check-circle"></i>
-									</span>
-								</h4>
-								<p>Perform calculations and combine values.</p>
-								<div class="tags">
-									<span class="tag is-warning">Core Concept</span>
-									<span class="tag is-info">30 minutes</span>
-								</div>
-							</router-link>
-						</div>
-						<div class="column">
-							<router-link
-								to="/tutorials/beginner/javascript-basics/conditionals"
-								class="box"
-								:class="{ 'is-completed': isSectionCompleted('conditionals') }"
-							>
-								<h4 class="title is-4">
-									<i class="fas fa-code-branch"></i> Conditionals
-									<span v-if="isSectionCompleted('conditionals')" class="icon has-text-success">
-										<i class="fas fa-check-circle"></i>
-									</span>
-								</h4>
-								<p>Make decisions in your code.</p>
-								<div class="tags">
-									<span class="tag is-warning">Core Concept</span>
-									<span class="tag is-info">45 minutes</span>
-								</div>
-							</router-link>
-						</div>
-					</div>
-				</div>
-
-				<!-- Level 4: Repetition & Functions -->
-				<div class="level-section">
-					<h3 class="title is-3">Level 4: Repetition & Functions</h3>
-					<div class="columns">
-						<div class="column">
-							<router-link
-								to="/tutorials/beginner/javascript-basics/loops"
-								class="box"
-								:class="{ 'is-completed': isSectionCompleted('loops') }"
-							>
-								<h4 class="title is-4">
-									<i class="fas fa-redo"></i> Loops
-									<span v-if="isSectionCompleted('loops')" class="icon has-text-success">
-										<i class="fas fa-check-circle"></i>
-									</span>
-								</h4>
-								<p>Repeat actions efficiently.</p>
-								<div class="tags">
-									<span class="tag is-warning">Core Concept</span>
-									<span class="tag is-info">45 minutes</span>
-								</div>
-							</router-link>
-						</div>
-						<div class="column">
-							<router-link
-								to="/tutorials/beginner/javascript-basics/functions"
-								class="box"
-								:class="{ 'is-completed': isSectionCompleted('functions') }"
-							>
-								<h4 class="title is-4">
-									<i class="fas fa-box"></i> Functions
-									<span v-if="isSectionCompleted('functions')" class="icon has-text-success">
-										<i class="fas fa-check-circle"></i>
-									</span>
-								</h4>
-								<p>Create reusable blocks of code.</p>
-								<div class="tags">
-									<span class="tag is-warning">Core Concept</span>
-									<span class="tag is-info">60 minutes</span>
-								</div>
-							</router-link>
-						</div>
-					</div>
+				<p class="mb-4">
+					{{ sectionMeta?.introCopy?.description }}
+				</p>
+				<div class="tutorials-grid">
+					<TutorialCard
+						v-for="tutorial in sectionTutorials"
+						:key="tutorial.id"
+						:tutorial="tutorial"
+					/>
 				</div>
 			</div>
 
@@ -538,20 +409,46 @@
 </template>
 
 <script setup>
+import '@/assets/styles/tutorials.css';
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { useHead } from '@vueuse/head';
+import TutorialCard from '@/components/tutorials/TutorialCard.vue';
+import { sections, tutorials } from '@/data/tutorials';
 
-// Tutorial sections in order
-const tutorialSections = [
-	{ id: 'introduction', name: 'Introduction', path: '/tutorials/beginner/javascript-basics/introduction' },
-	{ id: 'variables-data-types', name: 'Variables & Data Types', path: '/tutorials/beginner/javascript-basics/variables-data-types' },
-	{ id: 'operators', name: 'Operators', path: '/tutorials/beginner/javascript-basics/operators' },
-	{ id: 'conditionals', name: 'Conditionals', path: '/tutorials/beginner/javascript-basics/conditionals' },
-	{ id: 'loops', name: 'Loops', path: '/tutorials/beginner/javascript-basics/loops' },
-	{ id: 'functions', name: 'Functions', path: '/tutorials/beginner/javascript-basics/functions' }
-];
+const sectionMeta = sections.find((section) => section.id === 'javascript-basics');
 
-const totalSections = tutorialSections.length;
+const sectionTutorials = computed(() => {
+	return tutorials
+		.filter(
+			(tutorial) =>
+				tutorial.section === 'javascript-basics' &&
+				tutorial.slug !== sectionMeta?.slug,
+		)
+		.sort((a, b) => a.stage - b.stage);
+});
+
+useHead({
+	title: `${sectionMeta?.introCopy?.title || 'JavaScript Basics'} - GraphiteEdge Tutorials`,
+	meta: [
+		{
+			name: 'description',
+			content:
+				sectionMeta?.introCopy?.summary ||
+				'Learn the core language features that power interactivity on the web.',
+		},
+	],
+});
+
+const tutorialSections = computed(() => {
+	return sectionTutorials.value.map((tutorial) => ({
+		id: tutorial.slug.split('/').pop(),
+		name: tutorial.title,
+		path: `/tutorials/${tutorial.slug}`,
+	}));
+});
+
+const totalSections = computed(() => tutorialSections.value.length);
 const completedSections = ref(0);
 const route = useRoute();
 
@@ -644,22 +541,17 @@ const saveProgress = (progress) => {
 	}
 };
 
-// Check if a section is completed
-const isSectionCompleted = (sectionId) => {
-	const progress = loadProgress();
-	return progress.completed.includes(sectionId);
-};
-
-
 // Computed properties
 const progressPercentage = computed(() => {
-	return Math.round((completedSections.value / totalSections) * 100);
+	return totalSections.value
+		? Math.round((completedSections.value / totalSections.value) * 100)
+		: 0;
 });
 
 
 const nextSection = computed(() => {
 	const progress = loadProgress();
-	const nextUncompletedSection = tutorialSections.find(section => 
+	const nextUncompletedSection = tutorialSections.value.find(section => 
 		!progress.completed.includes(section.id)
 	);
 	return nextUncompletedSection;

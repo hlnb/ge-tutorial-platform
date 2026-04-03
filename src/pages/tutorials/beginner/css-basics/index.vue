@@ -1,74 +1,21 @@
 <script setup>
-import { inject, onMounted } from 'vue';
+import '@/assets/styles/tutorials.css';
+import { computed, inject, onMounted } from 'vue';
+import { useHead } from '@vueuse/head';
+import TutorialCard from '@/components/tutorials/TutorialCard.vue';
+import { sections, tutorials } from '@/data/tutorials';
 
 const pageSections = inject('pageSections');
+const sectionMeta = sections.find((section) => section.id === 'css-basics');
 
-const tutorials = [
-	{
-		title: 'Introduction to CSS',
-		route: '/tutorials/beginner/css-basics/introduction',
-		duration: '15 mins',
-		focus: 'Theory',
-		focusTag: 'is-primary',
-		summary: 'Understand what CSS is, how it works with HTML, and why every site relies on it.',
-	},
-	{
-		title: 'Selectors & Properties',
-		route: '/tutorials/beginner/css-basics/selectors',
-		duration: '25 mins',
-		focus: 'Practice',
-		focusTag: 'is-success',
-		summary: 'Learn how to target elements with selectors and style them with core CSS properties.',
-	},
-	{
-		title: 'Colors & Typography',
-		route: '/tutorials/beginner/css-basics/colors',
-		duration: '30 mins',
-		focus: 'Design',
-		focusTag: 'is-link',
-		summary: 'Master color systems, custom fonts, and readable type scales for polished pages.',
-	},
-	{
-		title: 'Box Model',
-		route: '/tutorials/beginner/css-basics/box-model',
-		duration: '25 mins',
-		focus: 'Practice',
-		focusTag: 'is-success',
-		summary: 'Control spacing with margin, padding, borders, and sizing to tame every layout.',
-	},
-	{
-		title: 'Layout Fundamentals',
-		route: '/tutorials/beginner/css-basics/layout',
-		duration: '30 mins',
-		focus: 'Project',
-		focusTag: 'is-warning',
-		summary: 'Build multi-column layouts with floats, positioning, and modern best practices.',
-	},
-	{
-		title: 'Flexbox Basics',
-		route: '/tutorials/beginner/css-basics/flexbox',
-		duration: '25 mins',
-		focus: 'Practice',
-		focusTag: 'is-success',
-		summary: 'Use Flexbox utilities to align, distribute, and reorder content responsively.',
-	},
-	{
-		title: 'Responsive Design',
-		route: '/tutorials/beginner/css-basics/responsive',
-		duration: '30 mins',
-		focus: 'Project',
-		focusTag: 'is-warning',
-		summary: 'Combine media queries and modern units to make layouts adapt to any device.',
-	},
-	{
-		title: 'Modern CSS Features',
-		route: '/tutorials/beginner/css-basics/modern',
-		duration: '20 mins',
-		focus: 'Theory',
-		focusTag: 'is-primary',
-		summary: 'Explore CSS variables, logical properties, and cascade layers to future-proof styles.',
-	},
-];
+const sectionTutorials = computed(() => {
+	return tutorials
+		.filter(
+			(tutorial) =>
+				tutorial.section === 'css-basics' && tutorial.slug !== sectionMeta?.slug,
+		)
+		.sort((a, b) => a.stage - b.stage);
+});
 
 onMounted(() => {
 	pageSections.value = [
@@ -77,6 +24,18 @@ onMounted(() => {
 		{ id: 'adding-css', title: 'Adding CSS to HTML' },
 		{ id: 'next-steps', title: 'Next Steps' },
 	];
+});
+
+useHead({
+	title: `${sectionMeta?.introCopy?.title || 'CSS Basics'} - GraphiteEdge Tutorials`,
+	meta: [
+		{
+			name: 'description',
+			content:
+				sectionMeta?.introCopy?.summary ||
+				'Learn how to style pages with selectors, layout, colour, and responsive design.',
+		},
+	],
 });
 </script>
 
@@ -101,10 +60,14 @@ onMounted(() => {
 		</div>
 
 		<h1 class="title is-1">
-			<i class="fa-brands fa-css css-icon"></i> CSS Basics
+			<i class="fa-brands fa-css css-icon"></i>
+			{{ sectionMeta?.introCopy?.title || 'CSS Basics' }}
 		</h1>
 		<p class="subtitle is-4 mb-6">
-			Master the art of styling web pages with CSS
+			{{
+				sectionMeta?.introCopy?.summary ||
+				'Learn how to style pages with selectors, layout, colour, and responsive design.'
+			}}
 		</p>
 
 		<div class="box box-info mb-6">
@@ -123,31 +86,11 @@ onMounted(() => {
 		</div>
 
 		<div class="tutorials-grid">
-			<div
-				v-for="tutorial in tutorials"
-				:key="tutorial.route"
-				class="box tutorial-card"
-			>
-				<h2 class="title is-4">
-					<router-link :to="tutorial.route">
-						{{ tutorial.title }}
-					</router-link>
-				</h2>
-				<div class="tags mb-4">
-					<span class="tag is-info">Beginner</span>
-					<span class="tag is-light">{{ tutorial.duration }}</span>
-					<span class="tag" :class="tutorial.focusTag">
-						{{ tutorial.focus }}
-					</span>
-				</div>
-				<p>{{ tutorial.summary }}</p>
-				<router-link
-					:to="tutorial.route"
-					class="button is-primary is-outlined mt-4"
-				>
-					Start Tutorial
-				</router-link>
-			</div>
+			<TutorialCard
+				v-for="tutorial in sectionTutorials"
+				:key="tutorial.id"
+				:tutorial="tutorial"
+			/>
 		</div>
 
 		<div class="box box-info mt-6">
