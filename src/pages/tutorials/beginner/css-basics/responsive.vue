@@ -1360,8 +1360,6 @@ const navigationExample = ref(`/* Responsive Navigation */
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/responsive" />
-
-		<TutorialNavigation prev="modern" next="flexbox" />
 	</div>
 	</div>
 </template>

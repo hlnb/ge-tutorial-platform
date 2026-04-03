@@ -45,6 +45,7 @@
 
 <script setup>
 import { defineProps } from 'vue';
+import { getSectionByPath, getTutorialByPath } from '@/data/tutorials';
 
 const { tutorials, sectionPath } = defineProps({
 	tutorials: {
@@ -58,11 +59,15 @@ const { tutorials, sectionPath } = defineProps({
 });
 
 function getTutorialTitle(path) {
-	// Extract the last part of the path
+	const tutorial = getTutorialByPath(path);
+	if (tutorial) return tutorial.title;
+
+	const section = getSectionByPath(path);
+	if (section) return section.introCopy?.title || section.title;
+
 	const parts = path.split('/');
 	const lastPart = parts[parts.length - 1];
 
-	// Convert to title case with spaces
 	return lastPart.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
 }
 

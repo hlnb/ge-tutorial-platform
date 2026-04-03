@@ -104,6 +104,7 @@ export const sections = [
     id: 'getting-started',
     title: 'Getting Started',
     slug: 'getting-started',
+    stage: 1,
     level: 'foundation',
     topic: 'foundation',
     pathways: ['beginner'],
@@ -118,6 +119,7 @@ export const sections = [
     id: 'html-basics',
     title: 'HTML Basics',
     slug: 'beginner/html-basics',
+    stage: 2,
     level: 'beginner',
     topic: 'html',
     pathways: ['beginner'],
@@ -132,6 +134,7 @@ export const sections = [
     id: 'css-basics',
     title: 'CSS Basics',
     slug: 'beginner/css-basics',
+    stage: 3,
     level: 'beginner',
     topic: 'css',
     pathways: ['beginner'],
@@ -146,6 +149,7 @@ export const sections = [
     id: 'javascript-basics',
     title: 'JavaScript Basics',
     slug: 'beginner/javascript-basics',
+    stage: 4,
     level: 'beginner',
     topic: 'javascript',
     pathways: ['beginner'],
@@ -160,6 +164,7 @@ export const sections = [
     id: 'dom-basics',
     title: 'DOM Basics',
     slug: 'beginner/dom-basics',
+    stage: 5,
     level: 'beginner',
     topic: 'javascript',
     pathways: ['beginner'],
@@ -174,6 +179,7 @@ export const sections = [
     id: 'git-basics',
     title: 'Git Basics',
     slug: 'intermediate/git-basics',
+    stage: 1,
     level: 'intermediate',
     topic: 'git',
     pathways: ['deployment'],
@@ -188,6 +194,7 @@ export const sections = [
     id: 'ai-assisted',
     title: 'AI-Assisted Development',
     slug: 'ai-assisted',
+    stage: 1,
     level: 'intermediate',
     topic: 'tooling',
     pathways: ['builder'],
@@ -202,6 +209,7 @@ export const sections = [
     id: 'backend',
     title: 'Backend Development Basics',
     slug: 'backend',
+    stage: 3,
     level: 'advanced',
     topic: 'backend',
     pathways: ['deployment'],
@@ -216,6 +224,7 @@ export const sections = [
     id: 'deployments',
     title: 'Deployments',
     slug: 'deployments',
+    stage: 2,
     level: 'advanced',
     topic: 'deployment',
     pathways: ['deployment'],
@@ -230,6 +239,7 @@ export const sections = [
     id: 'seo-analytics',
     title: 'SEO & Analytics',
     slug: 'seo-analytics',
+    stage: 4,
     level: 'advanced',
     topic: 'seo',
     pathways: ['deployment'],
@@ -244,6 +254,7 @@ export const sections = [
     id: 'capstone',
     title: 'Capstone',
     slug: 'capstone',
+    stage: 5,
     level: 'advanced',
     topic: 'project',
     pathways: ['deployment'],
@@ -334,7 +345,7 @@ const tutorialRecords = [
     levelTitle: 'Foundation',
     levelDescription: 'Core concepts every web developer needs.',
     pathways: ['beginner'],
-    stage: 1.5,
+    stage: 1.2,
     difficulty: 'easy',
     estimatedTime: '25 min',
     tags: ['html', 'css', 'javascript', 'overview'],
@@ -357,7 +368,7 @@ const tutorialRecords = [
     levelTitle: 'Foundation',
     levelDescription: 'Core concepts every web developer needs.',
     pathways: ['beginner', 'deployment'],
-    stage: 2,
+    stage: 1.6,
     difficulty: 'easy',
     estimatedTime: '25 min',
     tags: ['dns', 'domains', 'hosting', 'theory'],
@@ -380,7 +391,7 @@ const tutorialRecords = [
     levelTitle: 'Foundation',
     levelDescription: 'Core concepts every web developer needs.',
     pathways: ['beginner'],
-    stage: 3,
+    stage: 1.7,
     difficulty: 'easy',
     estimatedTime: '20 min',
     tags: ['files', 'folders', 'organisation', 'setup'],
@@ -403,7 +414,7 @@ const tutorialRecords = [
     levelTitle: 'Foundation',
     levelDescription: 'Core concepts every web developer needs.',
     pathways: ['beginner'],
-    stage: 3.5,
+    stage: 1.3,
     difficulty: 'easy',
     estimatedTime: '25 min',
     tags: ['vs-code', 'editor', 'tools', 'setup'],
@@ -426,7 +437,7 @@ const tutorialRecords = [
     levelTitle: 'Foundation',
     levelDescription: 'Core concepts every web developer needs.',
     pathways: ['beginner'],
-    stage: 3.6,
+    stage: 1.4,
     difficulty: 'easy',
     estimatedTime: '30 min',
     tags: ['node', 'terminal', 'setup', 'environment'],
@@ -449,7 +460,7 @@ const tutorialRecords = [
     levelTitle: 'Foundation',
     levelDescription: 'Core concepts every web developer needs.',
     pathways: ['beginner'],
-    stage: 3.7,
+    stage: 1.5,
     difficulty: 'easy',
     estimatedTime: '25 min',
     tags: ['devtools', 'chrome', 'debugging', 'inspector'],
@@ -1281,7 +1292,7 @@ const tutorialRecords = [
     levelTitle: 'Beginner',
     levelDescription: 'Your first lines of code.',
     pathways: ['beginner'],
-    stage: 5.5,
+    stage: 5.6,
     difficulty: 'easy',
     estimatedTime: '25 min',
     tags: ['css', 'flexbox', 'layout', 'practice'],
@@ -1373,7 +1384,7 @@ const tutorialRecords = [
     levelTitle: 'Beginner',
     levelDescription: 'Your first lines of code.',
     pathways: ['beginner'],
-    stage: 5.6,
+    stage: 5.5,
     difficulty: 'easy',
     estimatedTime: '30 min',
     tags: ['css', 'layout', 'columns', 'project'],
@@ -1906,7 +1917,7 @@ const tutorialRecords = [
     levelTitle: 'Advanced',
     levelDescription: 'Deployment, domains, and long-term site care.',
     pathways: ['deployment'],
-    stage: 4.5,
+    stage: 4.6,
     difficulty: 'medium',
     estimatedTime: '25 min',
     tags: ['static', 'dynamic', 'architecture', 'hosting'],
@@ -1929,7 +1940,7 @@ const tutorialRecords = [
     levelTitle: 'Advanced',
     levelDescription: 'Deployment, domains, and long-term site care.',
     pathways: ['deployment'],
-    stage: 4.6,
+    stage: 4.5,
     difficulty: 'medium',
     estimatedTime: '30 min',
     tags: ['firebase', 'hosting', 'google', 'deployment'],
@@ -2267,6 +2278,138 @@ const tutorialRecords = [
 ];
 
 export const tutorials = tutorialRecords.map(enrichTutorial);
+
+const normalizeTutorialPath = (path) => {
+  if (!path) return '';
+  const normalized = path.replace(/\/+$/, '');
+  return normalized || '/';
+};
+
+export function getSectionById(sectionId) {
+  return sections.find((section) => section.id === sectionId) || null;
+}
+
+export function getSectionByPath(path) {
+  const normalizedPath = normalizeTutorialPath(path);
+  return (
+    sections.find(
+      (section) => `/tutorials/${section.slug}` === normalizedPath,
+    ) || null
+  );
+}
+
+export function getTutorialByPath(path) {
+  const normalizedPath = normalizeTutorialPath(path);
+  return (
+    tutorials.find(
+      (tutorial) => `/tutorials/${tutorial.slug}` === normalizedPath,
+    ) || null
+  );
+}
+
+export function getSectionLessons(sectionId) {
+  const section = getSectionById(sectionId);
+
+  if (!section) return [];
+
+  return tutorials
+    .filter(
+      (tutorial) =>
+        tutorial.section === sectionId && tutorial.slug !== section.slug,
+    )
+    .sort((a, b) => a.stage - b.stage);
+}
+
+export function getSectionOverviewPath(sectionId) {
+  const section = getSectionById(sectionId);
+  return section ? `/tutorials/${section.slug}` : null;
+}
+
+export function getSectionNavItems(
+  sectionId,
+  { includeOverview = true, overviewTitle = 'Overview' } = {},
+) {
+  const section = getSectionById(sectionId);
+  if (!section) return [];
+
+  const navItems = getSectionLessons(sectionId).map((tutorial) => ({
+    path: `/tutorials/${tutorial.slug}`,
+    title: tutorial.title,
+  }));
+
+  if (includeOverview) {
+    navItems.unshift({
+      path: `/tutorials/${section.slug}`,
+      title: overviewTitle,
+    });
+  }
+
+  return navItems;
+}
+
+function getPathwaySections(pathwayId) {
+  return sections
+    .filter((section) => section.pathways.includes(pathwayId))
+    .sort((a, b) => (a.stage ?? Number.MAX_SAFE_INTEGER) - (b.stage ?? Number.MAX_SAFE_INTEGER));
+}
+
+function buildPathwayFlow(pathwayId) {
+  return getPathwaySections(pathwayId).flatMap((section) => {
+    const overviewTitle = section.id === 'getting-started' ? 'Introduction' : section.title;
+    return getSectionNavItems(section.id, {
+      includeOverview: true,
+      overviewTitle,
+    });
+  });
+}
+
+function buildProjectFlow(projectId) {
+  return tutorials
+    .filter((tutorial) => tutorial.project === projectId)
+    .sort((a, b) => (a.projectPart ?? 0) - (b.projectPart ?? 0))
+    .map((tutorial) => ({
+      path: `/tutorials/${tutorial.slug}`,
+      title: tutorial.title,
+    }));
+}
+
+export function getTutorialNavigationByPath(path) {
+  const normalizedPath = normalizeTutorialPath(path);
+  const tutorial = getTutorialByPath(normalizedPath);
+
+  if (tutorial?.project) {
+    const projectFlow = buildProjectFlow(tutorial.project);
+    const currentIndex = projectFlow.findIndex((item) => item.path === normalizedPath);
+
+    if (currentIndex >= 0) {
+      return {
+        prev: projectFlow[currentIndex - 1] || null,
+        next: projectFlow[currentIndex + 1] || null,
+      };
+    }
+  }
+
+  const section =
+    getSectionByPath(normalizedPath) ||
+    (tutorial?.section ? getSectionById(tutorial.section) : null);
+
+  if (!section) {
+    return { prev: null, next: null };
+  }
+
+  const primaryPathway = section.pathways[0];
+  const pathwayFlow = buildPathwayFlow(primaryPathway);
+  const currentIndex = pathwayFlow.findIndex((item) => item.path === normalizedPath);
+
+  if (currentIndex === -1) {
+    return { prev: null, next: null };
+  }
+
+  return {
+    prev: pathwayFlow[currentIndex - 1] || null,
+    next: pathwayFlow[currentIndex + 1] || null,
+  };
+}
 
 // ---------------------------------------------------------------------------
 // Tutorial type filter definitions (used by TutorialTypeFilters)

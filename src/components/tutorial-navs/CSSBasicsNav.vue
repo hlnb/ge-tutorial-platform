@@ -66,6 +66,7 @@
 import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
+import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
 const { pageSections, hasPageSections } = usePageNavigation();
@@ -76,18 +77,7 @@ const isMainExpanded = ref(true);
 const expandedSections = ref(new Set()); // Track expanded sections
 
 // Single source of truth for navigation items
-const navItems = [
-  { path: '/tutorials/beginner/css-basics/', title: 'Overview', icon: 'fas fa-home' },
-  { path: '/tutorials/beginner/css-basics/introduction', title: 'Introduction to CSS', icon: 'fas fa-info-circle' },
-  { path: '/tutorials/beginner/css-basics/selectors', title: 'CSS Selectors', icon: 'fas fa-mouse-pointer' },
-  { path: '/tutorials/beginner/css-basics/box-model', title: 'The Box Model', icon: 'fas fa-th' },
-  { path: '/tutorials/beginner/css-basics/text', title: 'Typography & Text', icon: 'fas fa-font' },
-  { path: '/tutorials/beginner/css-basics/layout', title: 'Layout Basics' },
-  { path: '/tutorials/beginner/css-basics/colors', title: 'Working with Colors' },
-  { path: '/tutorials/beginner/css-basics/modern', title: 'Modern CSS' },
-  { path: '/tutorials/beginner/css-basics/responsive', title: 'Responsive Design' },
-  { path: '/tutorials/beginner/css-basics/flexbox', title: 'Flexbox' },
-];
+const navItems = getSectionNavItems('css-basics');
 
 // The following computed values and helpers are present for future
 // functionality and are intentionally unused at the moment. Silence

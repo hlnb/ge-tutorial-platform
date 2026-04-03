@@ -292,6 +292,7 @@ import { format } from 'date-fns';
 import { useProgress } from '@/composables/useProgress';
 import { clearUserProgress, getUserProgress } from '@/utils/progressUtils';
 import authService from '@/services/AuthService';
+import { sections, tutorials } from '@/data/tutorials';
 
 // Use the new progress composable
 const {
@@ -321,56 +322,40 @@ const currentUser = computed(() => {
 	}
 });
 
-// Tutorial metadata (static)
-const tutorialMetadata = ref({
-	'getting-started': {
-		title: 'Getting Started',
-		tutorials: {
-			'/tutorials/getting-started': { title: 'Introduction' },
-			'/tutorials/getting-started/how-internet-works': {
-				title: 'How the Internet Works',
-			},
-			'/tutorials/getting-started/web-basics': { title: 'Web Basics' },
-			'/tutorials/getting-started/dev-environment': {
-				title: 'Development Environment',
-			},
-			'/tutorials/getting-started/browser-tools': { title: 'Browser Tools' },
-			'/tutorials/getting-started/text-editors': { title: 'Text Editors' },
-			'/tutorials/getting-started/domain-hosting': {
-				title: 'Domain Names & Hosting',
-			},
-		},
-	},
-	'html-basics': {
-		title: 'HTML Basics',
-		tutorials: {
-			'/tutorials/beginner/html-basics/': { title: 'Introduction' },
-			'/tutorials/beginner/html-basics/html-first-page': { title: 'Your First HTML Page' },
-			'/tutorials/beginner/html-basics/html-text': { title: 'Working with Text' },
-			'/tutorials/beginner/html-basics/html-links': { title: 'Links & Navigation' },
-			'/tutorials/beginner/html-basics/html-images': { title: 'Images' },
-			'/tutorials/beginner/html-basics/html-doc-structure': { title: 'Document Structure' },
-			'/tutorials/beginner/html-basics/html-forms': { title: 'Forms' },
-			'/tutorials/beginner/html-basics/html-emmet': { title: 'HTML Emmet' },
-		},
-	},
-	'css-basics': {
-		title: 'CSS Basics',
-		tutorials: {
-			'/tutorials/beginner/css-basics/': { title: 'Introduction' },
-			'/tutorials/beginner/css-basics/introduction': {
-				title: 'Getting Started with CSS',
-			},
-			'/tutorials/beginner/css-basics/selectors': { title: 'CSS Selectors' },
-			'/tutorials/beginner/css-basics/box-model': { title: 'The Box Model' },
-			'/tutorials/beginner/css-basics/text': { title: 'Text Properties' },
-			'/tutorials/beginner/css-basics/layout': { title: 'Layout Basics' },
-			'/tutorials/beginner/css-basics/colors': { title: 'Working with Colors' },
-			'/tutorials/beginner/css-basics/modern': { title: 'Modern CSS' },
-			'/tutorials/beginner/css-basics/responsive': { title: 'Responsive Design' },
-			'/tutorials/beginner/css-basics/flexbox': { title: 'Flexbox' },
-		},
-	},
+const normalizePath = (path) => path?.replace(/\/+$/, '') || '';
+
+const tutorialMetadata = computed(() => {
+	return sections
+		.slice()
+		.sort((a, b) => a.stage - b.stage)
+		.reduce((metadata, section) => {
+			const overviewPath = `/tutorials/${section.slug}`;
+			const lessonEntries = tutorials
+				.filter(
+					(tutorial) =>
+						tutorial.section === section.id && tutorial.slug !== section.slug,
+				)
+				.sort((a, b) => a.stage - b.stage)
+				.map((tutorial) => ({
+					path: `/tutorials/${tutorial.slug}`,
+					title: tutorial.title,
+				}));
+
+			metadata[section.id] = {
+				title: section.introCopy?.title || section.title,
+				tutorials: [
+					{
+						path: overviewPath,
+						title: section.id === 'getting-started'
+							? 'Introduction'
+							: section.introCopy?.title || section.title,
+					},
+					...lessonEntries,
+				],
+			};
+
+			return metadata;
+		}, {});
 });
 
 // Map progress data to tutorial paths
@@ -395,24 +380,29 @@ const hasQuizResults = computed(() => Object.keys(quizResults.value).length > 0)
 // Section progress
 const progressBySection = computed(() => {
 	const sections = {};
-	Object.keys(tutorialMetadata.value).forEach((sectionKey) => {
-		const section = tutorialMetadata.value[sectionKey];
+	Object.entries(tutorialMetadata.value).forEach(([sectionKey, section]) => {
 		sections[sectionKey] = {
 			title: section.title,
 			tutorials: [],
 			completedCount: 0,
-			totalCount: Object.keys(section.tutorials).length,
+			totalCount: section.tutorials.length,
 			completionPercentage: 0,
 		};
-		Object.entries(section.tutorials).forEach(([path, metadata]) => {
-			const tutorialProgress = progressData.value[path] || {};
-			const quiz = quizResults.value[path] || {};
+
+		section.tutorials.forEach(({ path, title }) => {
+			const normalizedPath = normalizePath(path);
+			const tutorialProgress =
+				progressData.value[path] || progressData.value[normalizedPath] || {};
+			const quiz =
+				quizResults.value[path] || quizResults.value[normalizedPath] || {};
 			const tutorial = {
 				path,
-				title: metadata.title,
+				title,
 				visited: !!tutorialProgress.visited,
 				completed:
-					progress.value?.completedTutorials?.includes(path) || false,
+					progress.value?.completedTutorials?.some(
+						(completedPath) => normalizePath(completedPath) === normalizedPath,
+					) || false,
 				lastVisited: tutorialProgress.lastUpdated,
 				quizCompleted: !!quiz.score,
 				quizScore: quiz.score || 0,
@@ -437,8 +427,12 @@ const formatSectionTitle = (sectionKey) => {
 	return tutorialMetadata.value[sectionKey]?.title || sectionKey.replace(/-/g, ' ');
 };
 const getTutorialTitle = (path) => {
+	const normalizedPath = normalizePath(path);
 	for (const section of Object.values(tutorialMetadata.value)) {
-		if (section.tutorials[path]) return section.tutorials[path].title;
+		const match = section.tutorials.find(
+			(tutorial) => normalizePath(tutorial.path) === normalizedPath,
+		);
+		if (match) return match.title;
 	}
 	return path;
 };

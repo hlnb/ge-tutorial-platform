@@ -15,11 +15,12 @@
 
     <header class="sitemap-hero box">
       <div class="hero-copy">
-        <p class="eyebrow">Global Navigation</p>
+        <p class="eyebrow">Comprehensive Site Map</p>
         <h1>Site Map</h1>
         <p>
-          Explore every major corner of the Graphite Edge tutorial platform. Use this structured index to
-          jump directly to tutorials, projects, resources, and support pages.
+          Explore the full GraphiteEdge site structure in one place. This map is designed for both people
+          and search engines, with section overviews, lesson pages, projects, resources, and support links
+          grouped by how the site is actually organised.
         </p>
       </div>
       <div class="hero-stats">
@@ -54,11 +55,11 @@
 
     <section class="tracks" aria-label="Tutorial tracks">
       <div class="track-header">
-        <h2><i class="fas fa-graduation-cap"></i> Tutorial Tracks</h2>
-        <p>Every learning path grouped by difficulty and focus area.</p>
+        <h2><i class="fas fa-graduation-cap"></i> Tutorial Sections</h2>
+        <p>Every tutorial section and lesson in curriculum order.</p>
       </div>
       <div class="track-grid">
-        <article v-for="track in tutorialTracks" :key="track.title" class="track-card">
+        <article v-for="track in tutorialTracks" :key="track.id" class="track-card">
           <div class="track-title">
             <router-link :to="track.base" class="track-link">
               <span>{{ track.title }}</span>
@@ -120,10 +121,25 @@
 </template>
 
 <script setup>
+import {
+  getSectionNavItems,
+  levels,
+  pathways,
+  sections,
+  tutorials,
+} from '@/data/tutorials';
+
+const levelTitleById = Object.fromEntries(levels.map((level) => [level.id, level.title]));
+
+function getOverviewLabel(section) {
+  const sectionTitle = section.introCopy?.title || section.title;
+  return section.id === 'getting-started' ? `${sectionTitle} Overview` : `${sectionTitle} Overview`;
+}
+
 const heroStats = [
-  { label: 'Tutorial lessons', value: '60+' },
-  { label: 'Practice projects', value: '20+' },
-  { label: 'Active tracks', value: '10' },
+  { label: 'Tutorial Pages', value: String(tutorials.length) },
+  { label: 'Tutorial Sections', value: String(sections.length) },
+  { label: 'Learning Pathways', value: String(pathways.length) },
 ];
 
 const quickSections = [
@@ -140,15 +156,15 @@ const quickSections = [
     ],
   },
   {
-    title: 'Getting Started',
-    description: 'Orientation resources for brand-new learners.',
+    title: 'Start Here',
+    description: 'Entry points for understanding the curriculum and beginning the first pathway.',
     icon: 'fas fa-rocket',
     links: [
-      { label: 'Platform Overview', to: '/tutorials/getting-started' },
-      { label: 'How the Internet Works', to: '/tutorials/getting-started/how-internet-works' },
-      { label: 'Web Basics', to: '/tutorials/getting-started/web-basics' },
-      { label: 'Developer Tools', to: '/tutorials/getting-started/dev-environment' },
-      { label: 'Browser Tools', to: '/tutorials/getting-started/browser-tools' },
+      { label: 'Tutorials Overview', to: '/tutorials' },
+      { label: 'Getting Started Overview', to: '/tutorials/getting-started' },
+      { label: 'How the Web Actually Works', to: '/tutorials/getting-started/how-internet-works' },
+      { label: 'Web Development Basics', to: '/tutorials/getting-started/web-basics' },
+      { label: 'Files, Folders, and Project Structure', to: '/tutorials/getting-started/files-folders-project-structure' },
     ],
   },
   {
@@ -165,87 +181,22 @@ const quickSections = [
   },
 ];
 
-const tutorialTracks = [
-  {
-    title: 'Beginner · HTML Basics',
-    base: '/tutorials/beginner/html-basics',
-    description: 'Structure, semantic tags, links, images, and forms.',
-    items: [
-      { label: 'Introduction', to: '/tutorials/beginner/html-basics/introduction' },
-      { label: 'Document Structure', to: '/tutorials/beginner/html-basics/html-doc-structure' },
-      { label: 'Links & Navigation', to: '/tutorials/beginner/html-basics/html-links' },
-      { label: 'Images & Media', to: '/tutorials/beginner/html-basics/html-images' },
-    ],
-  },
-  {
-    title: 'Beginner · CSS Basics',
-    base: '/tutorials/beginner/css-basics',
-    description: 'Color, typography, layout, and responsive design.',
-    items: [
-      { label: 'Introduction', to: '/tutorials/beginner/css-basics/introduction' },
-      { label: 'Colors & Typography', to: '/tutorials/beginner/css-basics/colors' },
-      { label: 'Box Model', to: '/tutorials/beginner/css-basics/box-model' },
-      { label: 'Flexbox', to: '/tutorials/beginner/css-basics/flexbox' },
-    ],
-  },
-  {
-    title: 'Beginner · JavaScript Basics',
-    base: '/tutorials/beginner/javascript-basics',
-    description: 'Variables, functions, logic, and loops.',
-    items: [
-      { label: 'Introduction', to: '/tutorials/beginner/javascript-basics/introduction' },
-      { label: 'Variables & Data Types', to: '/tutorials/beginner/javascript-basics/variables-data-types' },
-      { label: 'Functions', to: '/tutorials/beginner/javascript-basics/functions' },
-      { label: 'Loops', to: '/tutorials/beginner/javascript-basics/loops' },
-    ],
-  },
-  {
-    title: 'Beginner · DOM Basics',
-    base: '/tutorials/beginner/dom-basics',
-    description: 'Hunter-mode lessons covering arrays, manipulation, and events.',
-    items: [
-      { label: 'Overview', to: '/tutorials/beginner/dom-basics' },
-      { label: 'Introduction to DOM', to: '/tutorials/beginner/dom-basics/introduction' },
-      { label: 'Arrays & Methods', to: '/tutorials/beginner/dom-basics/arrays' },
-      { label: 'DOM Manipulation', to: '/tutorials/beginner/dom-basics/dom-manipulation' },
-      { label: 'Event Handling', to: '/tutorials/beginner/dom-basics/dom-events' },
-    ],
-  },
-  {
-    title: 'Intermediate · Git Basics',
-    base: '/tutorials/intermediate/git-basics',
-    description: 'Branching, merging, workflows, and collaboration.',
-    items: [
-      { label: 'Installation', to: '/tutorials/intermediate/git-basics/installation' },
-      { label: 'Branching', to: '/tutorials/intermediate/git-basics/branching' },
-      { label: 'Merging', to: '/tutorials/intermediate/git-basics/merging' },
-      { label: 'Workflow', to: '/tutorials/intermediate/git-basics/workflow' },
-    ],
-  },
-  {
-    title: 'Backend & Deployments',
-    base: '/tutorials/backend',
-    description: 'Server fundamentals, databases, and deployment strategies.',
-    items: [
-      { label: 'Backend Overview', to: '/tutorials/backend' },
-      { label: 'Node Basics', to: '/tutorials/backend/node-basics' },
-      { label: 'Databases', to: '/tutorials/backend/databases' },
-      { label: 'Deployments', to: '/tutorials/deployments' },
-      { label: 'Vercel & Netlify', to: '/tutorials/deployments/vercel-netlify' },
-    ],
-  },
-  {
-    title: 'Advanced & Capstone',
-    base: '/tutorials/capstone',
-    description: 'Portfolio projects, SEO, AI, and launch prep.',
-    items: [
-      { label: 'Capstone Overview', to: '/tutorials/capstone' },
-      { label: 'Capstone Spec', to: '/tutorials/capstone/spec' },
-      { label: 'AI-Assisted Track', to: '/tutorials/ai-assisted' },
-      { label: 'SEO & Analytics', to: '/tutorials/seo-analytics' },
-    ],
-  },
-];
+const tutorialTracks = sections
+  .slice()
+  .sort((a, b) => (a.stage ?? Number.MAX_SAFE_INTEGER) - (b.stage ?? Number.MAX_SAFE_INTEGER))
+  .map((section) => ({
+    id: section.id,
+    title: `${levelTitleById[section.level] || 'Curriculum'} · ${section.introCopy?.title || section.title}`,
+    base: `/tutorials/${section.slug}`,
+    description: section.introCopy?.description || section.introCopy?.summary || '',
+    items: getSectionNavItems(section.id, {
+      includeOverview: true,
+      overviewTitle: getOverviewLabel(section),
+    }).map((item) => ({
+      label: item.title,
+      to: item.path,
+    })),
+  }));
 
 const practiceLinks = [
   { label: 'Practice Overview', to: '/tutorials/practice' },

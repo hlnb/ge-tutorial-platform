@@ -38,6 +38,7 @@
 import { ref, computed, inject, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
+import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
 const isMainExpanded = ref(true);
@@ -45,17 +46,7 @@ const expandedSections = ref(new Set());
 const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
-const navItems = [
-  { path: '/tutorials/intermediate/git-basics', title: 'Overview' },
-  { path: '/tutorials/intermediate/git-basics/installation', title: 'Installation & Setup' },
-  { path: '/tutorials/intermediate/git-basics/introduction', title: 'Introduction to Git' },
-  { path: '/tutorials/intermediate/git-basics/basic-commands', title: 'Basic Commands' },
-  { path: '/tutorials/intermediate/git-basics/branching', title: 'Branching & Merging' },
-  { path: '/tutorials/intermediate/git-basics/merging', title: 'Merging' },
-  { path: '/tutorials/intermediate/git-basics/remote-repositories', title: 'Remote Repositories' },
-  { path: '/tutorials/intermediate/git-basics/workflow', title: 'Git Workflow' },
-  { path: '/tutorials/intermediate/git-basics/conclusion', title: 'Conclusion' }
-];
+const navItems = getSectionNavItems('git-basics');
 
 const currentIndex = computed(() => navItems.findIndex((item) => isCurrentPath(item.path)));
 

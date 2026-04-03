@@ -1123,10 +1123,6 @@ border: 10px solid black;
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/box-model" />
-		<TutorialNavigation
-			prev="css-basics-introduction"
-			next="css-basics-text"
-		/>
 		</div>
 	</div>
 </template>

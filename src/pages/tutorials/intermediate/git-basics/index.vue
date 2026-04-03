@@ -233,13 +233,12 @@
 
 <script setup>
 import '@/assets/styles/tutorials.css';
-import { ref, onMounted, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { onMounted, computed } from 'vue';
 import { useHead } from '@vueuse/head';
 import TutorialCard from '@/components/tutorials/TutorialCard.vue';
 import { sections, tutorials } from '@/data/tutorials';
+import { useProgress } from '@/composables/useProgress';
 
-const route = useRoute();
 const sectionMeta = sections.find((section) => section.id === 'git-basics');
 
 const sectionTutorials = computed(() => {
@@ -266,102 +265,22 @@ useHead({
 
 const tutorialSections = computed(() => {
     return sectionTutorials.value.map((tutorial) => ({
-        id: tutorial.slug.split('/').pop(),
         name: tutorial.title,
         path: `/tutorials/${tutorial.slug}`,
     }));
 });
 
+const normalizePath = (path) => path?.replace(/\/+$/, '') || '';
+const { progress, fetchProgress } = useProgress();
 const totalSections = computed(() => tutorialSections.value.length);
-const completedSections = ref(0);
-
-// Check all possible localStorage keys to help debug
-const debugLocalStorage = () => {
-    console.log('All localStorage keys:');
-    for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        console.log(`${key}:`, localStorage.getItem(key));
-    }
-};
-
-// Load progress from localStorage
-const loadProgress = () => {
-    try {
-        debugLocalStorage();
-        
-        // Get cookie consent and settings
-        const consent = localStorage.getItem('cookieConsent');
-        const settingsStr = localStorage.getItem('cookieSettings');
-        
-        console.log('Cookie Consent:', consent);
-        console.log('Cookie Settings:', settingsStr);
-        
-        // Check if progress tracking should be enabled
-        const isTrackingEnabled = () => {
-            try {
-                if (consent !== 'true') return false;
-                
-                const settings = JSON.parse(settingsStr);
-                const isEnabled = settings && settings.progress === true;
-                console.log('Progress tracking enabled:', isEnabled);
-                return isEnabled;
-            } catch (error) {
-                console.error('Error parsing cookie settings:', error);
-                return false;
-            }
-        };
-
-        if (!isTrackingEnabled()) {
-            console.warn('Progress tracking is disabled.');
-            return { completed: [], lastVisited: null };
-        }
-
-        const savedProgress = localStorage.getItem('git-basics-progress');
-        if (savedProgress) {
-            const progress = JSON.parse(savedProgress);
-            completedSections.value = progress.completed.length;
-            console.log('Loaded progress:', progress);
-            return progress;
-        }
-    } catch (error) {
-        console.error('Error loading progress:', error);
-        console.error('Error details:', {
-            message: error.message,
-            stack: error.stack
-        });
-    }
-    return { completed: [], lastVisited: null };
-};
-
-// Save progress to localStorage
-const saveProgress = (progress) => {
-    try {
-        const consent = localStorage.getItem('cookieConsent');
-        const settingsStr = localStorage.getItem('cookieSettings');
-        
-        // Check if progress tracking should be enabled
-        const isTrackingEnabled = () => {
-            try {
-                if (consent !== 'true') return false;
-                
-                const settings = JSON.parse(settingsStr);
-                return settings && settings.progress === true;
-            } catch {
-                return false;
-            }
-        };
-
-        if (!isTrackingEnabled()) {
-            console.warn('Cannot save progress: tracking is disabled');
-            return;
-        }
-
-        localStorage.setItem('git-basics-progress', JSON.stringify(progress));
-        console.log('Saved progress:', progress);
-    } catch (error) {
-        console.error('Error saving progress:', error);
-    }
-};
+const completedPaths = computed(() => {
+    return (progress.value?.completedTutorials || []).map(normalizePath);
+});
+const completedSections = computed(() => {
+    return tutorialSections.value.filter((section) =>
+        completedPaths.value.includes(normalizePath(section.path)),
+    ).length;
+});
 
 // Computed properties
 const progressPercentage = computed(() => {
@@ -371,24 +290,14 @@ const progressPercentage = computed(() => {
 });
 
 const nextSection = computed(() => {
-    const progress = loadProgress();
-    const nextUncompletedSection = tutorialSections.value.find(section => 
-        !progress.completed.includes(section.id)
+    return tutorialSections.value.find((section) =>
+        !completedPaths.value.includes(normalizePath(section.path)),
     );
-    return nextUncompletedSection;
 });
 
 // Initialize progress on component mount
 onMounted(() => {
-    const progress = loadProgress();
-    completedSections.value = progress.completed.length;
-    
-    // Update last visited section
-    const currentSection = route.path.split('/').pop();
-    if (currentSection) {
-        progress.lastVisited = currentSection;
-        saveProgress(progress);
-    }
+    fetchProgress();
 });
 </script>
 

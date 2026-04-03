@@ -2306,8 +2306,6 @@ const rottoContentStyles = ref(`/* Content sections */
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/css-basics/text" />
-
-		<TutorialNavigation prev="css-basics-box-model" next="css-basics-layout" />
 	</div>
 	</div>
 </template>

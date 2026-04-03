@@ -1,17 +1,35 @@
 <template>
-  <aside class="menu module-nav">
+  <aside class="menu tutorial-nav module-nav">
     <p class="menu-label">SEO & Analytics</p>
     <ul class="menu-list">
-      <li><router-link :to="'/tutorials/seo-analytics/on-page'">On-page SEO</router-link></li>
-      <li><router-link :to="'/tutorials/seo-analytics/analytics-setup'">Analytics Setup</router-link></li>
+      <li v-for="(item, index) in navItems" :key="item.path">
+        <router-link
+          :to="item.path"
+          :class="{ 'is-active': isActive(item.path), 'is-next': isNextTutorial(index) }"
+        >
+          {{ item.title }}
+        </router-link>
+      </li>
     </ul>
   </aside>
 </template>
 
-<script>
-export default {
-  name: 'SeoAnalyticsNav',
-};
+<script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { getSectionNavItems } from '@/data/tutorials';
+
+const route = useRoute();
+const navItems = getSectionNavItems('seo-analytics', { includeOverview: false });
+const currentIndex = computed(() => navItems.findIndex((item) => item.path === route.path));
+
+function isActive(path) {
+  return route.path === path;
+}
+
+function isNextTutorial(index) {
+  return index === currentIndex.value + 1;
+}
 </script>
 
 <style scoped>

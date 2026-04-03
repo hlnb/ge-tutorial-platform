@@ -3,51 +3,97 @@
  * Helper functions for working with tutorials
  */
 
+import {
+	getSectionLessons,
+	getTutorialByPath,
+	getTutorialNavigationByPath,
+} from '@/data/tutorials';
+
+function createEmptyRecommendations() {
+	return {
+		nextTutorial: null,
+		relatedTutorials: [],
+		practiceProjects: [],
+		resources: [],
+	};
+}
+
+function normalizeRecommendationPath(path) {
+	if (!path) return null;
+
+	const [cleanPath] = path.split(/[?#]/);
+	const trimmedPath = cleanPath.endsWith('/') && cleanPath.length > 1
+		? cleanPath.slice(0, -1)
+		: cleanPath;
+
+	return trimmedPath.startsWith('/') ? trimmedPath : `/${trimmedPath}`;
+}
+
+function cloneRecommendations(recommendations = createEmptyRecommendations()) {
+	return {
+		nextTutorial: recommendations.nextTutorial ? { ...recommendations.nextTutorial } : null,
+		relatedTutorials: recommendations.relatedTutorials.map((tutorial) => ({ ...tutorial })),
+		practiceProjects: recommendations.practiceProjects.map((project) => ({ ...project })),
+		resources: recommendations.resources.map((resource) => ({ ...resource })),
+	};
+}
+
+function getEditorialRecommendations(path) {
+	const normalizedPath = normalizeRecommendationPath(path);
+
+	if (!normalizedPath) {
+		return createEmptyRecommendations();
+	}
+
+	const pathParts = normalizedPath.split('/').filter(Boolean);
+	const section = pathParts[pathParts.length - 2];
+	const tutorial = pathParts[pathParts.length - 1];
+
+	const tutorialRecs = tutorialRecommendations[section]?.[tutorial];
+
+	return tutorialRecs ? cloneRecommendations(tutorialRecs) : createEmptyRecommendations();
+}
+
+function getCurriculumNextTutorial(path) {
+	const navigation = getTutorialNavigationByPath(path);
+	return navigation.next ? { ...navigation.next } : null;
+}
+
+function getCurriculumRelatedTutorials(path, limit = 3) {
+	const tutorial = getTutorialByPath(path);
+
+	if (!tutorial?.section) {
+		return [];
+	}
+
+	const lessons = getSectionLessons(tutorial.section)
+		.filter((lesson) => lesson.slug !== tutorial.slug)
+		.slice(0, limit);
+
+	return lessons.map((lesson) => ({
+		path: `/tutorials/${lesson.slug}`,
+		title: lesson.title,
+	}));
+}
+
 /**
  * Get recommendations for a tutorial based on its path
  * @param {string} path - The current tutorial path
  * @returns {Object} - Object containing next tutorial, related tutorials, practice projects, and resources
  */
 export function getTutorialRecommendations(path) {
-	// Return empty recommendations if path is null or undefined
-	if (!path) {
-		return {
-			nextTutorial: null,
-			relatedTutorials: [],
-			practiceProjects: [],
-			resources: []
-		};
+	const normalizedPath = normalizeRecommendationPath(path);
+	const recommendations = getEditorialRecommendations(normalizedPath);
+
+	if (!recommendations.nextTutorial) {
+		recommendations.nextTutorial = getCurriculumNextTutorial(normalizedPath);
 	}
 
-	// Extract section and tutorial from path
-	const pathParts = path.split('/').filter(Boolean);
-	const section = pathParts[pathParts.length - 2]; // e.g., 'dom-basics'
-	const tutorial = pathParts[pathParts.length - 1]; // e.g., 'introduction'
-
-	// Get recommendations for the section and tutorial
-	const sectionRecs = tutorialRecommendations[section];
-	if (!sectionRecs) {
-		console.warn(`No recommendations found for section: ${section}`);
-		return {
-			nextTutorial: null,
-			relatedTutorials: [],
-			practiceProjects: [],
-			resources: []
-		};
+	if (recommendations.relatedTutorials.length === 0) {
+		recommendations.relatedTutorials = getCurriculumRelatedTutorials(normalizedPath);
 	}
 
-	const tutorialRecs = sectionRecs[tutorial];
-	if (!tutorialRecs) {
-		console.warn(`No recommendations found for tutorial: ${tutorial} in section: ${section}`);
-		return {
-			nextTutorial: null,
-			relatedTutorials: [],
-			practiceProjects: [],
-			resources: []
-		};
-	}
-
-	return tutorialRecs;
+	return recommendations;
 }
 
 /**
@@ -74,7 +120,7 @@ export function getRecommendationsFromProps(props, providedTutorial) {
 		// Get recommendations from utility
 		const recs = getTutorialRecommendations(props.currentPath);
 
-		// If no next tutorial is found in recommendations but we have one from the parent, use that
+		// Parent-provided next links still act as a final fallback during migration.
 		if (!recs.nextTutorial && providedTutorial && providedTutorial.next) {
 			recs.nextTutorial = providedTutorial.next;
 		}

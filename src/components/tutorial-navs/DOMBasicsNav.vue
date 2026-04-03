@@ -50,6 +50,7 @@
 import { ref, computed, inject, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
+import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
 const isMainExpanded = ref(true);
@@ -57,16 +58,18 @@ const expandedSections = ref(new Set());
 const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
-const navItems = [
-  { path: '/tutorials/beginner/dom-basics/', title: 'Overview' },
-  { path: '/tutorials/beginner/dom-basics/introduction', title: 'Introduction' },
-  { path: '/tutorials/beginner/dom-basics/arrays', title: 'Arrays and Methods', icon: 'fas fa-list-ol' },
-  { path: '/tutorials/beginner/dom-basics/dom-manipulation', title: 'DOM Manipulation', icon: 'fas fa-code' },
-  { path: '/tutorials/beginner/dom-basics/dom-traversal', title: 'DOM Traversal', icon: 'fas fa-sitemap' },
-  { path: '/tutorials/beginner/dom-basics/dom-events', title: 'Event Handling', icon: 'fas fa-bolt' },
-  { path: '/tutorials/beginner/dom-basics/advanced-events', title: 'Advanced Events', icon: 'fas fa-bolt' },
-  { path: '/tutorials/beginner/dom-basics/dynamic-content', title: 'Dynamic Content', icon: 'fas fa-layer-group' },
-];
+const navItems = getSectionNavItems('dom-basics').map((item) => ({
+  ...item,
+  icon:
+    {
+      arrays: 'fas fa-list-ol',
+      'dom-manipulation': 'fas fa-code',
+      'dom-traversal': 'fas fa-sitemap',
+      'dom-events': 'fas fa-bolt',
+      'advanced-events': 'fas fa-bolt',
+      'dynamic-content': 'fas fa-layer-group',
+    }[item.path.split('/').pop()] || null,
+}));
 
 const currentIndex = computed(() => navItems.findIndex((item) => isCurrentPath(item.path)));
 

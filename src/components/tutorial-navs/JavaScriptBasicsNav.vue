@@ -48,6 +48,7 @@
 import { ref, computed, inject, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
+import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
 const isMainExpanded = ref(true);
@@ -55,15 +56,20 @@ const expandedSections = ref(new Set());
 const { pageSections, hasPageSections } = usePageNavigation();
 const pageSectionsInject = inject('pageSections', ref([]));
 
-const navItems = [
-  { path: '/tutorials/beginner/javascript-basics/', title: 'Overview', icon: 'fa-home' },
-  { path: '/tutorials/beginner/javascript-basics/introduction', title: 'Getting  Started', icon: 'fa-flag' },
-  { path: '/tutorials/beginner/javascript-basics/variables-data-types', title: 'Variables & Data Types', icon: 'fa-cube' },
-  { path: '/tutorials/beginner/javascript-basics/operators', title: 'Operators & Expressions', icon: 'fa-calculator' },
-  { path: '/tutorials/beginner/javascript-basics/conditionals', title: 'Control Flow', icon: 'fa-code-branch' },
-  { path: '/tutorials/beginner/javascript-basics/loops', title: 'Loops', icon: 'fa-sync' },
-  { path: '/tutorials/beginner/javascript-basics/functions', title: 'Functions', icon: 'fa-cogs' },
-];
+const navItems = getSectionNavItems('javascript-basics').map((item, index) => ({
+  ...item,
+  icon:
+    index === 0
+      ? 'fa-home'
+      : {
+          introduction: 'fa-flag',
+          'variables-data-types': 'fa-cube',
+          operators: 'fa-calculator',
+          conditionals: 'fa-code-branch',
+          loops: 'fa-sync',
+          functions: 'fa-cogs',
+        }[item.path.split('/').pop()] || 'fa-book',
+}));
 
 function isCurrentPath(path) { return route.path === path; }
 function isActive(path) { return route.path === path; }

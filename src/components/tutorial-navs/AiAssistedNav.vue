@@ -1,12 +1,15 @@
 <template>
-  <aside class="menu module-nav">
+  <aside class="menu tutorial-nav module-nav">
     <p class="menu-label">AI-Assisted</p>
     <ul class="menu-list">
-      <li><router-link :to="'/tutorials/ai-assisted/introduction'">Introduction</router-link></li>
-      <li><router-link :to="'/tutorials/ai-assisted/workflow-integration'">Workflow Integration</router-link></li>
-      <li><router-link :to="'/tutorials/ai-assisted/building-with-ai'">Building with AI</router-link></li>
-      <li><router-link :to="'/tutorials/ai-assisted/design-to-code'">Design to Code</router-link></li>
-      <li><router-link :to="'/tutorials/ai-assisted/custom-gpt-automation'">Custom GPTs & Automation</router-link></li>
+      <li v-for="(item, index) in navItems" :key="item.path">
+        <router-link
+          :to="item.path"
+          :class="{ 'is-active': isActive(item.path), 'is-next': isNextTutorial(index) }"
+        >
+          {{ item.title }}
+        </router-link>
+      </li>
       <li class="mt-3"><strong>Projects</strong>
         <ul>
           <li><router-link :to="'/projects/'">AI Landing Page</router-link></li>
@@ -16,10 +19,22 @@
   </aside>
 </template>
 
-<script>
-export default {
-  name: 'AiAssistedNav',
-};
+<script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { getSectionNavItems } from '@/data/tutorials';
+
+const route = useRoute();
+const navItems = getSectionNavItems('ai-assisted', { includeOverview: false });
+const currentIndex = computed(() => navItems.findIndex((item) => item.path === route.path));
+
+function isActive(path) {
+  return route.path === path;
+}
+
+function isNextTutorial(index) {
+  return index === currentIndex.value + 1;
+}
 </script>
 
 <style scoped>

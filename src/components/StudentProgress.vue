@@ -377,6 +377,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import progressService from '@/services/ProgressService';
+import { getSectionByPath, getTutorialByPath, tutorials } from '@/data/tutorials';
 
 // State
 const loading = ref(true);
@@ -425,28 +426,30 @@ const formatDate = (date) => {
 	});
 };
 
-// Get tutorial title from path
-const getTutorialTitle = (path) => {
-	// This is a placeholder - in a real implementation, you would have
-	// a mapping of paths to titles or fetch the title from the router
+const getContentTitle = (path) => {
+	const tutorial = getTutorialByPath(path);
+	if (tutorial) return tutorial.title;
 
-	// Extract the last part of the path
+	const section = getSectionByPath(path);
+	if (section) return section.introCopy?.title || section.title;
+
 	const parts = path.split('/');
 	const lastPart = parts[parts.length - 1];
 
-	// Convert to title case
 	return lastPart
 		.split('-')
 		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
 		.join(' ');
 };
 
+// Get tutorial title from path
+const getTutorialTitle = (path) => {
+	return getContentTitle(path);
+};
+
 // Get quiz title from ID
 const getQuizTitle = (quizId) => {
-	// This is a placeholder - in a real implementation, you would have
-	// a mapping of quiz IDs to titles
-
-	return `Quiz: ${quizId}`;
+	return `${getContentTitle(quizId)} Quiz`;
 };
 
 // Get score class based on percentage
@@ -462,7 +465,7 @@ const calculateOverallProgress = computed(() => {
 	// This is a simplified calculation - in a real implementation,
 	// you would have a more sophisticated algorithm
 
-	const totalTutorials = 20; // Placeholder - total number of tutorials
+	const totalTutorials = tutorials.length;
 	const completed = summary.value.completedCount;
 
 	// Calculate in-progress percentage contribution

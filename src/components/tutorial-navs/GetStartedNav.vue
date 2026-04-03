@@ -4,23 +4,20 @@
             <i class="fa-solid fa-rocket getting-started-icon"></i> Getting Started
         </h2>
 
-        <!-- Main Tutorial Navigation -->
         <ul class="menu-list">
-            <!-- Manually list each tutorial in the correct order -->
-            <li>
+            <li v-for="(tutorial, index) in tutorials" :key="tutorial.path">
                 <router-link
-                    to="/tutorials/getting-started"
+                    :to="tutorial.path"
                     :class="{
-                        'is-active': isCurrentPath('/tutorials/getting-started'),
-                        'is-next': isNextPath('/tutorials/getting-started'),
+                        'is-active': isCurrentPath(tutorial.path),
+                        'is-next': isNextTutorial(index),
                     }"
                 >
-                    Introduction
+                    {{ tutorial.title }}
                 </router-link>
 
-                <!-- On this page navigation for Introduction -->
                 <div
-                    v-if="isActive('/tutorials/getting-started') && hasPageSections"
+                    v-if="isActive(tutorial.path) && hasPageSections"
                     class="page-sections mt-2"
                 >
                     <div class="page-sections-header">
@@ -53,91 +50,6 @@
                     </ul>
                 </div>
             </li>
-
-            <!-- Additional tutorial links (copied from original GetStartedNav) -->
-            <li>
-                <router-link
-                    to="/tutorials/getting-started/how-internet-works"
-                    :class="{
-                        'is-active': isCurrentPath('/tutorials/getting-started/how-internet-works'),
-                        'is-next': isNextPath('/tutorials/getting-started/how-internet-works'),
-                    }"
-                >
-                    How the Internet Works
-                </router-link>
-            </li>
-
-            <li>
-                <router-link
-                    to="/tutorials/getting-started/web-basics"
-                    :class="{
-                        'is-active': isCurrentPath('/tutorials/getting-started/web-basics'),
-                        'is-next': isNextPath('/tutorials/getting-started/web-basics'),
-                    }"
-                >
-                    Web Basics
-                </router-link>
-            </li>
-
-            <li>
-                <router-link
-                    to="/tutorials/getting-started/text-editors"
-                    :class="{
-                        'is-active': isCurrentPath('/tutorials/getting-started/text-editors'),
-                        'is-next': isNextPath('/tutorials/getting-started/text-editors'),
-                    }"
-                >
-                    Text Editors
-                </router-link>
-            </li>
-
-            <li>
-                <router-link
-                    to="/tutorials/getting-started/dev-environment"
-                    :class="{
-                        'is-active': isCurrentPath('/tutorials/getting-started/dev-environment'),
-                        'is-next': isNextPath('/tutorials/getting-started/dev-environment'),
-                    }"
-                >
-                    Setting Up Your Environment
-                </router-link>
-            </li>
-
-            <li>
-                <router-link
-                    to="/tutorials/getting-started/browser-tools"
-                    :class="{
-                        'is-active': isCurrentPath('/tutorials/getting-started/browser-tools'),
-                        'is-next': isNextPath('/tutorials/getting-started/browser-tools'),
-                    }"
-                >
-                    Browser Development Tools
-                </router-link>
-            </li>
-
-            <li>
-                <router-link
-                    to="/tutorials/getting-started/domain-hosting"
-                    :class="{
-                        'is-active': isCurrentPath('/tutorials/getting-started/domain-hosting'),
-                        'is-next': isNextPath('/tutorials/getting-started/domain-hosting'),
-                    }"
-                >
-                    Domain Names & Web Hosting
-                </router-link>
-            </li>
-
-            <li>
-                <router-link
-                    to="/tutorials/getting-started/files-folders-project-structure"
-                    :class="{
-                        'is-active': isCurrentPath('/tutorials/getting-started/files-folders-project-structure'),
-                        'is-next': isNextPath('/tutorials/getting-started/files-folders-project-structure'),
-                    }"
-                >
-                    Files, Folders & Project Structure
-                </router-link>
-            </li>
         </ul>
 
         <div class="sidebar-footer">
@@ -155,6 +67,7 @@
 import { ref, inject, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
+import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
 const expandedSections = ref(new Set()); // Track expanded sections
@@ -163,26 +76,17 @@ const { pageSections, hasPageSections } = usePageNavigation();
 // Inject pageSections from the current tutorial
 const pageSectionsInject = inject('pageSections', ref([]));
 
-// Define the order of tutorials for next/prev navigation
-const tutorialOrder = [
-    '/tutorials/getting-started/introduction',
-    '/tutorials/getting-started/how-internet-works',
-    '/tutorials/getting-started/web-basics',
-    '/tutorials/getting-started/dev-environment',
-    '/tutorials/getting-started/text-editors',
-    '/tutorials/getting-started/browser-tools',
-    '/tutorials/getting-started/domain-hosting',
-    '/tutorials/getting-started/files-folders-project-structure',
-];
+const tutorials = getSectionNavItems('getting-started', {
+    overviewTitle: 'Introduction',
+});
 
 function isCurrentPath(path) {
     return route.path === path;
 }
 
-function isNextPath(path) {
-    const currentIndex = tutorialOrder.indexOf(route.path);
-    const pathIndex = tutorialOrder.indexOf(path);
-    return pathIndex === currentIndex + 1;
+function isNextTutorial(index) {
+    const currentIndex = tutorials.findIndex((tutorial) => tutorial.path === route.path);
+    return index === currentIndex + 1;
 }
 
 function isActive(path) {

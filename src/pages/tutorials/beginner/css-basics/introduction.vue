@@ -654,18 +654,6 @@ const goodNamingExample = ref(`.header {} /* Lowercase */
 .featured-article {} /* Clean naming */
 .site-navigation {} /* Clear purpose */`);
 
-// Update the navigation links
-const navigationLinks = {
-	prev: {
-		path: '/tutorials/beginner/css-basics',
-		title: 'CSS Basics Overview',
-	},
-	next: {
-		path: '/tutorials/beginner/css-basics/selectors',
-		title: 'CSS Selectors',
-	},
-};
-
 const sections = [
 	{
 		id: 'what-is-css',

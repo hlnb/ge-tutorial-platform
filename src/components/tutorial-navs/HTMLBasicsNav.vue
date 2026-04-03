@@ -57,6 +57,7 @@
 import { ref, computed, inject, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
+import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
 const expandedSections = ref(new Set()); // Track expanded sections
@@ -65,16 +66,7 @@ const { pageSections, hasPageSections } = usePageNavigation();
 // Inject pageSections from the current tutorial
 const pageSectionsInject = inject('pageSections', ref([]));
 
-const tutorials = [
-  { path: '/tutorials/beginner/html-basics/introduction', title: 'Introduction', icon: 'fab fa-html5' },
-  { path: '/tutorials/beginner/html-basics/html-first-page', title: 'Your First HTML Page', icon: 'fas fa-file-code' },
-  { path: '/tutorials/beginner/html-basics/html-text', title: 'Working with Text' },
-  { path: '/tutorials/beginner/html-basics/html-links', title: 'Links & Navigation' },
-  { path: '/tutorials/beginner/html-basics/html-images', title: 'Images' },
-  { path: '/tutorials/beginner/html-basics/html-doc-structure', title: 'Document Structure' },
-  { path: '/tutorials/beginner/html-basics/html-forms', title: 'Forms' },
-  { path: '/tutorials/beginner/html-basics/html-emmet', title: 'HTML Emmet' },
-];
+const tutorials = getSectionNavItems('html-basics', { includeOverview: false });
 
 const currentIndex = computed(() => tutorials.findIndex((tutorial) => isCurrentPath(tutorial.path)));
 
