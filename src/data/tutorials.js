@@ -287,6 +287,105 @@ function buildProjectGrouping(tutorial) {
   };
 }
 
+const tutorialsWithCustomCompletion = new Set([
+  'getting-started/how-internet-works',
+  'getting-started/web-basics',
+  'getting-started/domain-hosting',
+  'getting-started/files-folders-project-structure',
+  'getting-started/text-editors',
+  'getting-started/dev-environment',
+  'getting-started/browser-tools',
+  'beginner/html-basics/html-first-page',
+  'beginner/html-basics/html-text',
+  'beginner/html-basics/html-links',
+  'beginner/html-basics/html-images',
+  'beginner/html-basics/html-doc-structure',
+  'beginner/html-basics/html-forms',
+  'beginner/html-basics/html-emmet',
+  'beginner/css-basics/introduction',
+  'beginner/css-basics/selectors',
+  'beginner/css-basics/colors',
+  'beginner/css-basics/box-model',
+  'beginner/css-basics/flexbox',
+  'beginner/css-basics/layout',
+  'beginner/css-basics/responsive',
+  'beginner/css-basics/modern',
+  'beginner/css-basics/text',
+  'beginner/javascript-basics/introduction',
+  'beginner/javascript-basics/variables-data-types',
+  'beginner/javascript-basics/operators',
+  'beginner/javascript-basics/conditionals',
+  'beginner/javascript-basics/loops',
+  'beginner/javascript-basics/functions',
+  'beginner/dom-basics/introduction',
+  'beginner/dom-basics/arrays',
+  'beginner/dom-basics/dom-manipulation',
+  'beginner/dom-basics/dom-events',
+  'beginner/black-swan-bistro-part-1',
+  'intermediate/git-basics/introduction',
+  'intermediate/git-basics/installation',
+  'intermediate/git-basics/basic-commands',
+  'intermediate/git-basics/branching',
+  'intermediate/git-basics/merging',
+  'intermediate/git-basics/remote-repositories',
+  'intermediate/git-basics/workflow',
+  'intermediate/git-basics/conclusion',
+]);
+
+const tutorialsWithCustomQuizIndicator = new Set([
+  'getting-started/how-internet-works',
+  'getting-started/web-basics',
+  'getting-started/domain-hosting',
+  'getting-started/text-editors',
+  'getting-started/dev-environment',
+  'getting-started/browser-tools',
+  'beginner/html-basics/html-first-page',
+  'beginner/html-basics/html-text',
+  'beginner/html-basics/html-links',
+  'beginner/html-basics/html-images',
+  'beginner/html-basics/html-doc-structure',
+  'beginner/html-basics/html-forms',
+  'beginner/html-basics/html-emmet',
+  'beginner/css-basics/introduction',
+  'beginner/css-basics/selectors',
+  'beginner/css-basics/colors',
+  'beginner/css-basics/box-model',
+  'beginner/css-basics/flexbox',
+  'beginner/css-basics/layout',
+  'beginner/css-basics/responsive',
+  'beginner/css-basics/modern',
+  'beginner/css-basics/text',
+  'beginner/javascript-basics/introduction',
+  'beginner/javascript-basics/variables-data-types',
+  'beginner/javascript-basics/operators',
+  'beginner/javascript-basics/conditionals',
+  'beginner/javascript-basics/loops',
+  'beginner/javascript-basics/functions',
+  'beginner/dom-basics/introduction',
+  'beginner/dom-basics/arrays',
+  'beginner/dom-basics/dom-manipulation',
+  'beginner/dom-basics/dom-events',
+  'intermediate/git-basics/introduction',
+  'intermediate/git-basics/installation',
+  'intermediate/git-basics/basic-commands',
+  'intermediate/git-basics/branching',
+  'intermediate/git-basics/merging',
+  'intermediate/git-basics/remote-repositories',
+  'intermediate/git-basics/workflow',
+  'intermediate/git-basics/conclusion',
+]);
+
+function buildTutorialLayoutBehavior(tutorial) {
+  return {
+    hasCustomCompletion:
+      tutorial.layoutBehavior?.hasCustomCompletion ??
+      tutorialsWithCustomCompletion.has(tutorial.slug),
+    hasCustomQuizIndicator:
+      tutorial.layoutBehavior?.hasCustomQuizIndicator ??
+      tutorialsWithCustomQuizIndicator.has(tutorial.slug),
+  };
+}
+
 function enrichTutorial(tutorial) {
   const duration = tutorial.duration ?? tutorial.estimatedTime ?? null;
   const section = tutorial.section ?? inferSectionId(tutorial.slug);
@@ -302,6 +401,7 @@ function enrichTutorial(tutorial) {
         ? tutorial.quizAvailable
         : hasQuiz(quizPath),
     projectGrouping: tutorial.projectGrouping ?? buildProjectGrouping(tutorial),
+    layoutBehavior: buildTutorialLayoutBehavior(tutorial),
   };
 }
 
@@ -1659,7 +1759,7 @@ const tutorialRecords = [
     title: 'Git & GitHub Basics',
     slug: 'intermediate/git-basics',
     summary:
-      '8 lessons covering init, add, commit, push, branching, merging, and remote workflows.',
+      '9 lessons covering setup, commits, branching, remotes, workflows, and a final wrap-up.',
     level: 'intermediate',
     levelTitle: 'Intermediate',
     levelDescription: 'Layouts, components, and professional workflows.',
@@ -1675,7 +1775,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'git',
-    lessonCount: 8,
+    lessonCount: 9,
   },
   {
     id: 'git-introduction',
@@ -1829,6 +1929,29 @@ const tutorialRecords = [
     difficulty: 'medium',
     estimatedTime: '30 min',
     tags: ['git', 'workflow', 'best-practices'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: null,
+    topic: 'git',
+    lessonCount: null,
+  },
+  {
+    id: 'git-conclusion',
+    title: 'Conclusion',
+    slug: 'intermediate/git-basics/conclusion',
+    summary:
+      'Review the full Git Basics series, reflect on what you learned, and choose your next steps.',
+    level: 'intermediate',
+    levelTitle: 'Intermediate',
+    levelDescription: 'Layouts, components, and professional workflows.',
+    pathways: ['deployment'],
+    stage: 1.8,
+    difficulty: 'medium',
+    estimatedTime: '10 min',
+    tags: ['git', 'conclusion', 'review', 'next-steps'],
     featured: false,
     isProject: false,
     project: null,
@@ -2409,6 +2532,28 @@ export function getTutorialNavigationByPath(path) {
     prev: pathwayFlow[currentIndex - 1] || null,
     next: pathwayFlow[currentIndex + 1] || null,
   };
+}
+
+export function hasCustomTutorialCompletion(path) {
+  const normalizedPath = normalizeTutorialPath(path);
+  const tutorial = getTutorialByPath(normalizedPath);
+
+  if (tutorial) {
+    return tutorial.layoutBehavior?.hasCustomCompletion ?? false;
+  }
+ 
+  return false;
+}
+
+export function hasCustomTutorialQuizIndicator(path) {
+  const normalizedPath = normalizeTutorialPath(path);
+  const tutorial = getTutorialByPath(normalizedPath);
+
+  if (tutorial) {
+    return tutorial.layoutBehavior?.hasCustomQuizIndicator ?? false;
+  }
+ 
+  return false;
 }
 
 // ---------------------------------------------------------------------------

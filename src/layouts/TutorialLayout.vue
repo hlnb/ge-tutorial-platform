@@ -74,7 +74,14 @@ import StandaloneNav from '@/components/tutorial-navs/StandaloneNav.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
 import progressService from '@/services/ProgressService';
 import { hasQuiz } from '@/utils/quizUtils';
-import { getTutorialNavigationByPath } from '@/data/tutorials';
+import {
+	getSectionById,
+	getSectionByPath,
+	getTutorialByPath,
+	getTutorialNavigationByPath,
+	hasCustomTutorialCompletion,
+	hasCustomTutorialQuizIndicator,
+} from '@/data/tutorials';
 
 const route = useRoute();
 const pageSections = ref([]);
@@ -105,33 +112,33 @@ const isMainTutorialsPage = computed(() => {
 
 // (nav components are returned directly from the computed `currentNav`)
 
+const sectionNavComponents = {
+	'html-basics': HTMLBasicsNav,
+	'getting-started': GetStartedNav,
+	'css-basics': CSSBasicsNav,
+	'javascript-basics': JavaScriptBasicsNav,
+	'dom-basics': DOMBasicsNav,
+	'git-basics': GitBasicsNav,
+	'ai-assisted': AiAssistedNav,
+	backend: BackendNav,
+	deployments: DeploymentsNav,
+	'seo-analytics': SeoAnalyticsNav,
+	capstone: CapstoneNav,
+};
+
+const currentSection = computed(() => {
+	const sectionOverview = getSectionByPath(route.path);
+	if (sectionOverview) {
+		return sectionOverview;
+	}
+
+	const tutorial = getTutorialByPath(route.path);
+	return tutorial?.section ? getSectionById(tutorial.section) : null;
+});
+
 // Determine which navigation component to show based on route
 const currentNav = computed(() => {
-	const path = route.path;
-	if (path.includes('/html-basics')) {
-		return HTMLBasicsNav;
-	} else if (path.includes('/getting-started')) {
-		return GetStartedNav;
-	} else if (path.includes('/css-basics')) {
-		return CSSBasicsNav;
-	} else if (path.includes('/javascript-basics')) {
-		return JavaScriptBasicsNav;
-	} else if (path.includes('/dom-basics')) {
-		return DOMBasicsNav;
-	} else if (path.includes('/git-basics')) {
-		return GitBasicsNav;
-	} else if (path.includes('/ai-assisted')) {
-		return AiAssistedNav;
-	} else if (path.includes('/backend')) {
-		return BackendNav;
-	} else if (path.includes('/deployments')) {
-		return DeploymentsNav;
-	} else if (path.includes('/seo-analytics')) {
-		return SeoAnalyticsNav;
-	} else if (path.includes('/capstone')) {
-		return CapstoneNav;
-	}
-	return StandaloneNav;
+	return sectionNavComponents[currentSection.value?.id] || StandaloneNav;
 });
 
 // Reset pageSections when route changes
@@ -197,39 +204,12 @@ const handleScroll = () => {
 	}, scrollThrottleDelay);
 };
 
-// Add this after the currentTutorial computed property
 const shouldHideCompletion = computed(() => {
-	// List of routes that have their own custom completion sections
-	const routesWithCustomCompletion = [
-		'/tutorials/beginner/html-basics/html-first-page',
-		'/tutorials/beginner/html-basics/html-text',
-		'/tutorials/beginner/html-basics/html-links',
-		'/tutorials/beginner/html-basics/html-images',
-		'/tutorials/beginner/html-basics/html-doc-structure',
-		'/tutorials/beginner/html-basics/html-forms',
-		'/tutorials/beginner/html-basics/html-emmet',
-		'/tutorials/getting-started/how-internet-works',
-		'/tutorials/getting-started/web-basics',
-		'/tutorials/getting-started/text-editors',
-		'/tutorials/getting-started/dev-environment',
-		'/tutorials/getting-started/browser-tools',
-		'/tutorials/getting-started/domain-hosting',
-		'/tutorials/getting-started/files-folders-project-structure',
-		'/tutorials/beginner/black-swan-bistro-part-1',		// Add other routes here as needed
-	];
-
-	return routesWithCustomCompletion.includes(route.path);
+	return hasCustomTutorialCompletion(route.path);
 });
 
-// Add this after the shouldHideCompletion computed property
 const shouldHideQuizIndicator = computed(() => {
-	// List of routes that have their own quiz indicators
-	const routesWithCustomQuizIndicators = [
-		'/tutorials/beginner/html-basics/html-text',
-		// Add other routes here as needed
-	];
-
-	return routesWithCustomQuizIndicators.includes(route.path);
+	return hasCustomTutorialQuizIndicator(route.path);
 });
 
 // Check if current tutorial has a quiz
