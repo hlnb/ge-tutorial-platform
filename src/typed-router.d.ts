@@ -499,44 +499,9 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/tutorials/ai-assisted/building-with-ai': RouteRecordInfo<
-      '/tutorials/ai-assisted/building-with-ai',
-      '/tutorials/ai-assisted/building-with-ai',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/ai-assisted/custom-gpt-automation': RouteRecordInfo<
-      '/tutorials/ai-assisted/custom-gpt-automation',
-      '/tutorials/ai-assisted/custom-gpt-automation',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/tutorials/ai-assisted/design-to-code': RouteRecordInfo<
       '/tutorials/ai-assisted/design-to-code',
       '/tutorials/ai-assisted/design-to-code',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/ai-assisted/introduction': RouteRecordInfo<
-      '/tutorials/ai-assisted/introduction',
-      '/tutorials/ai-assisted/introduction',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/ai-assisted/projects/ai-component-docs': RouteRecordInfo<
-      '/tutorials/ai-assisted/projects/ai-component-docs',
-      '/tutorials/ai-assisted/projects/ai-component-docs',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/ai-assisted/projects/ai-landing-page': RouteRecordInfo<
-      '/tutorials/ai-assisted/projects/ai-landing-page',
-      '/tutorials/ai-assisted/projects/ai-landing-page',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -859,13 +824,6 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/deployments/': RouteRecordInfo<
       '/tutorials/deployments/',
       '/tutorials/deployments',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/tutorials/deployments/firebase-hosting': RouteRecordInfo<
-      '/tutorials/deployments/firebase-hosting',
-      '/tutorials/deployments/firebase-hosting',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1522,39 +1480,9 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/tutorials/ai-assisted/building-with-ai.vue': {
-      routes:
-        | '/tutorials/ai-assisted/building-with-ai'
-      views:
-        | never
-    }
-    'src/pages/tutorials/ai-assisted/custom-gpt-automation.vue': {
-      routes:
-        | '/tutorials/ai-assisted/custom-gpt-automation'
-      views:
-        | never
-    }
     'src/pages/tutorials/ai-assisted/design-to-code.vue': {
       routes:
         | '/tutorials/ai-assisted/design-to-code'
-      views:
-        | never
-    }
-    'src/pages/tutorials/ai-assisted/introduction.vue': {
-      routes:
-        | '/tutorials/ai-assisted/introduction'
-      views:
-        | never
-    }
-    'src/pages/tutorials/ai-assisted/projects/ai-component-docs.vue': {
-      routes:
-        | '/tutorials/ai-assisted/projects/ai-component-docs'
-      views:
-        | never
-    }
-    'src/pages/tutorials/ai-assisted/projects/ai-landing-page.vue': {
-      routes:
-        | '/tutorials/ai-assisted/projects/ai-landing-page'
       views:
         | never
     }
@@ -1831,12 +1759,6 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/deployments/index.vue': {
       routes:
         | '/tutorials/deployments/'
-      views:
-        | never
-    }
-    'src/pages/tutorials/deployments/firebase-hosting.vue': {
-      routes:
-        | '/tutorials/deployments/firebase-hosting'
       views:
         | never
     }

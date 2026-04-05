@@ -202,7 +202,7 @@ export const sections = [
       title: 'AI-Assisted Development',
       summary: 'Learn how to use AI as a practical coding assistant without skipping fundamentals.',
       description:
-        'Explore prompt quality, workflow integration, and project-based uses of AI tools within a real development process.',
+        'Explore prompt fundamentals, ethical use, workflow integration, and project-oriented AI examples within a real development process.',
     },
   },
   {
@@ -232,7 +232,7 @@ export const sections = [
       title: 'Deployments',
       summary: 'Learn how to move from a local project to a live site on the web.',
       description:
-        'Compare hosting approaches, deployment tools, and going-live decisions in a practical, beginner-friendly way.',
+        'Compare hosting approaches, deployment tools, and going-live decisions in a practical, beginner-friendly way, including when platform-specific options belong inside a broader hosting decision.',
     },
   },
   {
@@ -1617,7 +1617,7 @@ const tutorialRecords = [
     title: 'AI-Assisted Development',
     slug: 'ai-assisted',
     summary:
-      '5 lessons on using AI tools for coding — from prompt engineering to automated workflows.',
+      '2 upcoming lessons on using AI tools as practical coding assistants inside real development workflows.',
     level: 'intermediate',
     levelTitle: 'Intermediate',
     levelDescription: 'Layouts, components, and professional workflows.',
@@ -1633,30 +1633,8 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'tooling',
-    lessonCount: 5,
-  },
-  {
-    id: 'ai-tools-introduction',
-    title: 'Introduction to AI Tools',
-    slug: 'ai-assisted/introduction',
-    summary:
-      'Overview of AI assistants, prompt fundamentals, and ethical use in development work.',
-    level: 'intermediate',
-    levelTitle: 'Intermediate',
-    levelDescription: 'Layouts, components, and professional workflows.',
-    pathways: ['builder'],
-    stage: 11.51,
-    difficulty: 'medium',
-    estimatedTime: '30 min',
-    tags: ['ai', 'prompting', 'ethics', 'tooling'],
-    featured: false,
-    isProject: false,
-    project: null,
-    projectPart: null,
-    projectTitle: null,
-    badge: null,
-    topic: 'tooling',
-    lessonCount: null,
+    hiddenFromCurriculum: true,
+    lessonCount: 2,
   },
   {
     id: 'ai-workflow-integration',
@@ -1679,52 +1657,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'tooling',
-    lessonCount: null,
-  },
-  {
-    id: 'ai-building-with-ai',
-    title: 'Building with AI',
-    slug: 'ai-assisted/building-with-ai',
-    summary:
-      'Explore project-focused ways to use AI during builds, reviews, and delivery work.',
-    level: 'intermediate',
-    levelTitle: 'Intermediate',
-    levelDescription: 'Layouts, components, and professional workflows.',
-    pathways: ['builder'],
-    stage: 11.53,
-    difficulty: 'medium',
-    estimatedTime: '45 min',
-    tags: ['ai', 'projects', 'workflow', 'hands-on'],
-    featured: false,
-    isProject: false,
-    project: null,
-    projectPart: null,
-    projectTitle: null,
-    badge: null,
-    topic: 'project',
-    lessonCount: null,
-  },
-  {
-    id: 'custom-gpt-automation',
-    title: 'Custom GPTs & Automation',
-    slug: 'ai-assisted/custom-gpt-automation',
-    summary:
-      'Use GPT-based tools and APIs to automate development tasks in a more intentional workflow.',
-    level: 'intermediate',
-    levelTitle: 'Intermediate',
-    levelDescription: 'Layouts, components, and professional workflows.',
-    pathways: ['builder'],
-    stage: 11.54,
-    difficulty: 'medium',
-    estimatedTime: '45 min',
-    tags: ['ai', 'automation', 'gpt', 'tooling'],
-    featured: false,
-    isProject: false,
-    project: null,
-    projectPart: null,
-    projectTitle: null,
-    badge: null,
-    topic: 'tooling',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -1748,6 +1681,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'project',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
 
@@ -2012,7 +1946,7 @@ const tutorialRecords = [
     title: 'Hosting and Deployment',
     slug: 'deployments/vercel-netlify',
     summary:
-      'Deploy to Netlify, Vercel, or GitHub Pages — step by step.',
+      'Deploy to Netlify, Vercel, GitHub Pages, or similar hosts with a practical comparison of the tradeoffs.',
     level: 'advanced',
     levelTitle: 'Advanced',
     levelDescription: 'Deployment, domains, and long-term site care.',
@@ -2028,6 +1962,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: 'Recommended next',
     topic: 'deployment',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -2051,29 +1986,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'deployment',
-    lessonCount: null,
-  },
-  {
-    id: 'firebase-hosting',
-    title: 'Firebase Hosting',
-    slug: 'deployments/firebase-hosting',
-    summary:
-      'Deploy and host your website with Firebase — setup, configuration, and custom domains.',
-    level: 'advanced',
-    levelTitle: 'Advanced',
-    levelDescription: 'Deployment, domains, and long-term site care.',
-    pathways: ['deployment'],
-    stage: 4.5,
-    difficulty: 'medium',
-    estimatedTime: '30 min',
-    tags: ['firebase', 'hosting', 'google', 'deployment'],
-    featured: false,
-    isProject: false,
-    project: null,
-    projectPart: null,
-    projectTitle: null,
-    badge: null,
-    topic: 'deployment',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -2118,7 +2031,7 @@ const tutorialRecords = [
     project: null,
     projectPart: null,
     projectTitle: null,
-    badge: null,
+    badge: 'Recommended next',
     topic: 'deployment',
     lessonCount: null,
   },
@@ -2141,7 +2054,7 @@ const tutorialRecords = [
     project: null,
     projectPart: null,
     projectTitle: null,
-    badge: null,
+    badge: 'Recommended next',
     topic: 'tooling',
     lessonCount: null,
   },
@@ -2212,6 +2125,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'backend',
+    hiddenFromCurriculum: true,
     lessonCount: 3,
   },
   {
@@ -2235,6 +2149,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'backend',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -2258,6 +2173,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'backend',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -2281,6 +2197,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'backend',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -2304,6 +2221,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'seo',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -2327,6 +2245,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: null,
     topic: 'seo',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -2396,11 +2315,16 @@ const tutorialRecords = [
     projectTitle: 'Specification',
     badge: null,
     topic: 'project',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
 ];
 
 export const tutorials = tutorialRecords.map(enrichTutorial);
+
+export function isTutorialVisibleInCurriculum(tutorial) {
+  return !tutorial?.hiddenFromCurriculum;
+}
 
 const normalizeTutorialPath = (path) => {
   if (!path) return '';
@@ -2438,7 +2362,9 @@ export function getSectionLessons(sectionId) {
   return tutorials
     .filter(
       (tutorial) =>
-        tutorial.section === sectionId && tutorial.slug !== section.slug,
+        tutorial.section === sectionId &&
+        tutorial.slug !== section.slug &&
+        isTutorialVisibleInCurriculum(tutorial),
     )
     .sort((a, b) => a.stage - b.stage);
 }

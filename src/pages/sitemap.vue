@@ -123,6 +123,7 @@
 <script setup>
 import {
   getSectionNavItems,
+  isTutorialVisibleInCurriculum,
   levels,
   pathways,
   sections,
@@ -137,7 +138,7 @@ function getOverviewLabel(section) {
 }
 
 const heroStats = [
-  { label: 'Tutorial Pages', value: String(tutorials.length) },
+  { label: 'Tutorial Pages', value: String(tutorials.filter((tutorial) => isTutorialVisibleInCurriculum(tutorial)).length) },
   { label: 'Tutorial Sections', value: String(sections.length) },
   { label: 'Learning Pathways', value: String(pathways.length) },
 ];

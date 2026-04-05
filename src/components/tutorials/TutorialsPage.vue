@@ -114,6 +114,7 @@ import {
   tutorials as allTutorials,
   tutorialTypes as tutorialTypeData,
   projects as projectData,
+  isTutorialVisibleInCurriculum,
 } from '@/data/tutorials';
 import generalFaqs from '@/data/faqs';
 
@@ -153,7 +154,7 @@ const activePathwayObject = computed(() => {
  * Sorted by stage within each level.
  */
 const visibleTutorials = computed(() => {
-  let result = [...allTutorials];
+  let result = allTutorials.filter((tutorial) => isTutorialVisibleInCurriculum(tutorial));
 
   // Filter by pathway
   if (selectedPathway.value) {
@@ -192,9 +193,20 @@ const visibleTutorials = computed(() => {
 
 /** Return visible tutorials for a given level id, sorted by stage */
 function tutorialsByLevel(levelId) {
-  return visibleTutorials.value
+  let tutorials = visibleTutorials.value
     .filter((t) => t.level === levelId)
     .sort((a, b) => a.stage - b.stage);
+
+  if (levelId === 'beginner' || levelId === 'intermediate' || levelId === 'advanced') {
+    tutorials = tutorials.filter((t) =>
+      t.lessonCount ||
+      t.isProject ||
+      t.badge === 'Troubleshooting' ||
+      t.badge === 'Recommended next'
+    );
+  }
+
+  return tutorials;
 }
 
 /** Select a pathway (toggles off if already selected) */
