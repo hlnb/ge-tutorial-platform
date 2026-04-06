@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Design to wireframe sequence</title>
+  <desc id="desc">Three panels show a polished design, a simplified block overlay, and a low-fidelity wireframe to demonstrate how visual detail is reduced into structure before coding.</desc>
+  <defs><style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:18px;font-weight:700}.small{font-size:14px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.a{fill:#dce8f7;stroke:#486581;stroke-width:2}.b{fill:#e7f3ea;stroke:#527a59;stroke-width:2}.c{fill:#f7eadb;stroke:#9c6b30;stroke-width:2}.arrow{stroke:#486581;stroke-width:3;fill:none;marker-end:url(#m)}
+  </style><marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#486581"/></marker></defs>
+  <rect width="960" height="420" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">From Design to Simple Wireframe</text>
+  <text x="60" y="84" class="subtitle">Reduce visual detail until the structure becomes easy to plan.</text>
+  <rect x="60" y="120" width="240" height="240" rx="16" class="panel"/>
+  <text x="180" y="154" text-anchor="middle" class="label">Design</text>
+  <rect x="90" y="176" width="180" height="26" rx="8" class="a"/><rect x="90" y="214" width="180" height="64" rx="12" class="b"/><rect x="90" y="290" width="54" height="42" rx="10" class="c"/><rect x="153" y="290" width="54" height="42" rx="10" class="c"/><rect x="216" y="290" width="54" height="42" rx="10" class="c"/>
+  <text x="180" y="346" text-anchor="middle" class="small">Visual details are still present.</text>
+  <path d="M316 240H398" class="arrow"/>
+  <rect x="410" y="120" width="240" height="240" rx="16" class="panel"/>
+  <text x="530" y="154" text-anchor="middle" class="label">Block Overlay</text>
+  <rect x="440" y="176" width="180" height="26" rx="8" class="a"/><rect x="440" y="214" width="180" height="64" rx="12" class="b"/><rect x="440" y="290" width="180" height="42" rx="10" class="c"/>
+  <text x="530" y="346" text-anchor="middle" class="small">Only major groups remain.</text>
+  <path d="M666 240H748" class="arrow"/>
+  <rect x="660" y="120" width="240" height="240" rx="16" class="panel"/>
+  <text x="780" y="154" text-anchor="middle" class="label">Wireframe</text>
+  <text x="780" y="206" text-anchor="middle" class="small">[ Header ]</text>
+  <text x="780" y="238" text-anchor="middle" class="small">[ Hero ]</text>
+  <text x="780" y="270" text-anchor="middle" class="small">[ Three cards ]</text>
+  <text x="780" y="302" text-anchor="middle" class="small">[ Gallery ]</text>
+  <text x="780" y="334" text-anchor="middle" class="small">[ Footer ]</text>
+  <text x="780" y="346" text-anchor="middle" class="small"></text>
+</svg>

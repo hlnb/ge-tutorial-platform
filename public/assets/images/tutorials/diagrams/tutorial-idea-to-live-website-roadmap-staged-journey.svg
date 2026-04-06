@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" role="img" aria-labelledby="title desc">
+  <title id="title">Idea to live website roadmap</title>
+  <desc id="desc">A horizontal roadmap shows the stages idea, plan, structure, layout and styling, content and media, testing, deployment, and maintenance with arrows connecting each stage.</desc>
+  <defs><style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:14px;font-weight:700}.small{font-size:13px;fill:#52606d}.node{fill:#fff;stroke:#486581;stroke-width:2.5}.arrow{stroke:#486581;stroke-width:3;fill:none;marker-end:url(#m)}
+  </style><marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#486581"/></marker></defs>
+  <rect width="960" height="300" fill="#f8fafb"/>
+  <text x="60" y="54" class="title">From Idea to Live Website</text>
+  <text x="60" y="82" class="subtitle">A site becomes clearer by moving through stages, not by solving everything at once.</text>
+  <g transform="translate(54 150)">
+    <rect x="0" y="0" width="90" height="56" rx="14" class="node"/><text x="45" y="25" text-anchor="middle" class="label">Idea</text><text x="45" y="42" text-anchor="middle" class="small">purpose</text>
+    <path d="M90 28H126" class="arrow"/>
+    <rect x="126" y="0" width="90" height="56" rx="14" class="node"/><text x="171" y="25" text-anchor="middle" class="label">Plan</text><text x="171" y="42" text-anchor="middle" class="small">content</text>
+    <path d="M216 28H252" class="arrow"/>
+    <rect x="252" y="0" width="110" height="56" rx="14" class="node"/><text x="307" y="25" text-anchor="middle" class="label">Structure</text><text x="307" y="42" text-anchor="middle" class="small">HTML</text>
+    <path d="M362 28H398" class="arrow"/>
+    <rect x="398" y="0" width="136" height="56" rx="14" class="node"/><text x="466" y="25" text-anchor="middle" class="label">Layout and Styling</text><text x="466" y="42" text-anchor="middle" class="small">CSS</text>
+    <path d="M534 28H570" class="arrow"/>
+    <rect x="570" y="0" width="126" height="56" rx="14" class="node"/><text x="633" y="25" text-anchor="middle" class="label">Content and Media</text><text x="633" y="42" text-anchor="middle" class="small">assets</text>
+    <path d="M696 28H732" class="arrow"/>
+    <rect x="732" y="0" width="86" height="56" rx="14" class="node"/><text x="775" y="25" text-anchor="middle" class="label">Testing</text><text x="775" y="42" text-anchor="middle" class="small">checks</text>
+    <path d="M818 28H854" class="arrow"/>
+  </g>
+  <g transform="translate(276 228)">
+    <rect x="0" y="0" width="110" height="44" rx="12" class="node"/><text x="55" y="27" text-anchor="middle" class="label">Deployment</text>
+    <path d="M110 22H146" class="arrow"/>
+    <rect x="146" y="0" width="150" height="44" rx="12" class="node"/><text x="221" y="27" text-anchor="middle" class="label">Maintenance and improvement</text>
+  </g>
+</svg>

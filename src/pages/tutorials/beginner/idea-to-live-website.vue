@@ -135,6 +135,17 @@ Deployment
   ↓
 Maintenance and Improvement</code></pre>
 			</div>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-idea-to-live-website-roadmap-staged-journey.svg"
+					alt="Horizontal roadmap showing the stages from idea and planning through structure, layout, content, testing, deployment, and maintenance."
+				/>
+				<figcaption>
+					This roadmap turns the website journey into a clear sequence. The job is not to
+					solve everything at once, but to move from one layer of the project to the next
+					in a sensible order.
+				</figcaption>
+			</figure>
 
 			<h2 id="stages">The Main Stages</h2>
 			<h3>1. Start with the idea</h3>
@@ -196,6 +207,17 @@ Maintenance and Improvement</code></pre>
 				<li>Part 4 focuses on expanding the project into a multi-page site.</li>
 				<li>Later parts focus on deployment, launch decisions, and long-term improvement.</li>
 			</ul>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-idea-to-live-website-black-swan-pathway-progression.svg"
+					alt="Progression diagram showing Black Swan Bistro parts mapped to structure, wireframe layout, repeated patterns, multi-page structure, deployment, and ongoing site care."
+				/>
+				<figcaption>
+					Black Swan Bistro is useful because it grows the same way a real site grows.
+					Each part handles one layer of the project instead of pretending the whole site
+					arrives finished on day one.
+				</figcaption>
+			</figure>
 
 			<div class="notification is-info is-light">
 				<p><strong>Why this matters:</strong> students often think they are “behind” if their page does not look finished early. In reality, a good project becomes clearer one layer at a time.</p>
@@ -208,6 +230,17 @@ Maintenance and Improvement</code></pre>
 				<li>Skipping testing and only checking the site on one screen size</li>
 				<li>Thinking a live site is “done forever” instead of something that needs care</li>
 			</ul>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-idea-to-live-website-build-order-comparison.svg"
+					alt="Two-panel comparison showing a rushed workflow that jumps between design, code, and launch versus a layered workflow that moves through planning, structure, layout, testing, and deployment."
+				/>
+				<figcaption>
+					Most beginner frustration is really a build-order problem. A layered workflow
+					reduces rework because each stage gives the next one something stable to build
+					on.
+				</figcaption>
+			</figure>
 
 			<p>
 				You do not avoid these mistakes by being perfect. You avoid them by working in a

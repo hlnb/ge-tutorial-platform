@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Spacing and repeated patterns callout diagram</title>
+  <desc id="desc">An annotated layout diagram showing container edges, section gaps, internal card padding, and repeated button patterns. It helps learners see spacing and repetition as reusable rules.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 28px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #52606d; }
+      .label { font-size: 16px; font-weight: 700; }
+      .small { font-size: 14px; fill: #52606d; }
+      .screen { fill: #ffffff; stroke: #7b8794; stroke-width: 2.5; }
+      .container-line { stroke: #486581; stroke-width: 3; stroke-dasharray: 10 8; }
+      .section { fill: #ffffff; stroke: #cbd2d9; stroke-width: 2; }
+      .card { fill: #f7eadb; stroke: #9c6b30; stroke-width: 2; }
+      .button { fill: #dce8f7; stroke: #486581; stroke-width: 2; }
+      .gap { stroke: #b44d6e; stroke-width: 3; marker-start: url(#arrowhead); marker-end: url(#arrowhead); }
+      .note { fill: #ffffff; stroke: #cbd2d9; stroke-width: 2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,5 L10,0 L10,10 z" fill="#b44d6e"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="620" fill="#f8fafb"/>
+  <text x="60" y="60" class="title">Reading Spacing and Repetition</text>
+  <text x="60" y="88" class="subtitle">Spacing shows what belongs together. Repetition hints at reusable rules.</text>
+
+  <rect x="80" y="130" width="560" height="430" rx="16" class="screen"/>
+  <line x1="130" y1="150" x2="130" y2="540" class="container-line"/>
+  <line x1="590" y1="150" x2="590" y2="540" class="container-line"/>
+  <text x="360" y="158" text-anchor="middle" class="small">Shared container edges</text>
+
+  <rect x="130" y="180" width="460" height="96" rx="14" class="section"/>
+  <text x="360" y="232" text-anchor="middle" class="label">Hero section</text>
+
+  <line x1="610" y1="276" x2="610" y2="334" class="gap"/>
+  <text x="628" y="309" class="small">Consistent section gap</text>
+
+  <rect x="130" y="334" width="136" height="122" rx="14" class="card"/>
+  <rect x="292" y="334" width="136" height="122" rx="14" class="card"/>
+  <rect x="454" y="334" width="136" height="122" rx="14" class="card"/>
+
+  <rect x="152" y="358" width="92" height="14" rx="7" fill="#ffffff" stroke="#9c6b30" stroke-width="1.5"/>
+  <rect x="152" y="384" width="78" height="10" rx="5" fill="#ffffff" stroke="#9c6b30" stroke-width="1.5"/>
+  <rect x="152" y="410" width="70" height="26" rx="13" class="button"/>
+
+  <rect x="314" y="358" width="92" height="14" rx="7" fill="#ffffff" stroke="#9c6b30" stroke-width="1.5"/>
+  <rect x="314" y="384" width="78" height="10" rx="5" fill="#ffffff" stroke="#9c6b30" stroke-width="1.5"/>
+  <rect x="314" y="410" width="70" height="26" rx="13" class="button"/>
+
+  <rect x="476" y="358" width="92" height="14" rx="7" fill="#ffffff" stroke="#9c6b30" stroke-width="1.5"/>
+  <rect x="476" y="384" width="78" height="10" rx="5" fill="#ffffff" stroke="#9c6b30" stroke-width="1.5"/>
+  <rect x="476" y="410" width="70" height="26" rx="13" class="button"/>
+
+  <text x="360" y="486" text-anchor="middle" class="small">Repeated card shell, repeated internal padding, repeated button pattern</text>
+
+  <rect x="680" y="160" width="220" height="150" rx="14" class="note"/>
+  <text x="700" y="194" class="label">Look for these clues</text>
+  <text x="700" y="224" class="small">1. Matching left and right edges</text>
+  <text x="700" y="248" class="small">2. Repeated section spacing</text>
+  <text x="700" y="272" class="small">3. Shared internal card padding</text>
+  <text x="700" y="296" class="small">4. Reused button or heading style</text>
+
+  <rect x="680" y="350" width="220" height="130" rx="14" class="note"/>
+  <text x="700" y="384" class="label">Teaching point</text>
+  <text x="700" y="414" class="small">If the same spacing or pattern</text>
+  <text x="700" y="438" class="small">appears more than once, it may</text>
+  <text x="700" y="462" class="small">belong in a reusable CSS rule.</text>
+</svg>

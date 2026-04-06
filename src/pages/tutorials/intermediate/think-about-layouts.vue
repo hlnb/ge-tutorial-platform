@@ -128,6 +128,17 @@ const closureReflectionPrompts = [
 				small detail. Squint a little and ask: what are the biggest visible blocks on the
 				page?
 			</p>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-think-about-layouts-big-shapes-overlay.svg"
+					alt="Annotated page overlay showing header, hero, feature section, gallery or repeated content area, and footer as the largest page regions."
+				/>
+				<figcaption>
+					This diagram shows the largest page regions before any CSS decisions. It matters
+					because layout gets easier once you can identify the main structural pieces
+					first.
+				</figcaption>
+			</figure>
 			<div class="box">
 				<pre><code>[ Header ]
 [ Hero ]
@@ -164,6 +175,17 @@ const closureReflectionPrompts = [
 				<li>A mobile section stack is often a column of content blocks.</li>
 				<li>A gallery or card collection is often a repeated grid.</li>
 			</ul>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-think-about-layouts-row-column-grid-comparison.svg"
+					alt="Three-panel comparison showing a row pattern for navigation, a column pattern for stacked card content, and a grid pattern for repeated cards or gallery items."
+				/>
+				<figcaption>
+					Use this comparison to decide whether a layout problem is mainly one
+					direction, another one direction, or a true two-dimensional pattern. That is
+					usually the moment when tool choice becomes much clearer.
+				</figcaption>
+			</figure>
 
 			<div class="notification is-info is-light">
 				<p><strong>Helpful rule:</strong> if the main job is lining things up in one direction, think one-dimensional. If the main job is arranging repeated blocks in rows and columns, think two-dimensional.</p>
@@ -196,6 +218,17 @@ const closureReflectionPrompts = [
 [ Gallery grid ]
 [ Footer links ]</code></pre>
 			</div>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-think-about-layouts-design-to-wireframe-sequence.svg"
+					alt="Three-panel sequence showing a polished design, a simplified block overlay, and a low-fidelity wireframe."
+				/>
+				<figcaption>
+					A wireframe is what remains after you strip away polish and keep the structure.
+					That makes it much easier to decide what belongs in the HTML and which layout
+					tools you will need later.
+				</figcaption>
+			</figure>
 			<p>
 				If you can make this kind of rough layout plan, you are already doing one of the
 				most important design-to-code jobs.

@@ -846,6 +846,36 @@ const legacyTutorialEditorialContent = {
 				},
 			],
 		},
+		'css-systems-reusable-sections': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'Every Layout',
+					url: 'https://every-layout.dev',
+					description: 'Practical layout patterns that support reusable section rhythm and shared CSS decisions.',
+				},
+				{
+					title: 'BEM — Block Element Modifier',
+					url: 'https://getbem.com',
+					description: 'A helpful naming approach when shared section classes start turning into a system.',
+				},
+			],
+		},
+		'flexbox-real-layouts': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'CSS-Tricks: A Complete Guide to Flexbox',
+					url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/',
+					description: 'A visual guide for axis thinking, alignment, wrapping, and practical layout decisions.',
+				},
+				{
+					title: 'Every Layout',
+					url: 'https://every-layout.dev',
+					description: 'Useful for deciding when a row, cluster, or sidebar pattern is really a Flexbox problem.',
+				},
+			],
+		},
 		'black-swan-bistro-part-3': {
 			practiceProjects: [],
 			resources: [
@@ -856,6 +886,36 @@ const legacyTutorialEditorialContent = {
 				},
 			],
 		},
+		'css-grid-repeated-layouts': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: CSS Grid Layout',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout',
+					description: 'Reference and guides for using Grid when rows and columns matter together.',
+				},
+				{
+					title: 'Every Layout',
+					url: 'https://every-layout.dev',
+					description: 'Helpful for connecting Grid decisions to repeated layout patterns instead of isolated syntax.',
+				},
+			],
+		},
+		'responsive-refinement-reusable-components': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Responsive Design',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design',
+					description: 'A solid refresher on media queries, flexible layouts, and responsive decisions.',
+				},
+				{
+					title: 'web.dev: Responsive design basics',
+					url: 'https://web.dev/responsive-web-design-basics/',
+					description: 'Useful for reinforcing content-first breakpoint decisions and practical responsive patterns.',
+				},
+			],
+		},
 		'black-swan-bistro-part-4': {
 			practiceProjects: [],
 			resources: [
@@ -863,6 +923,36 @@ const legacyTutorialEditorialContent = {
 					title: 'MDN: Creating hyperlinks',
 					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks',
 					description: 'How to create effective links between pages.',
+				},
+			],
+		},
+		'cascade-specificity-debugging-css': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Specificity',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity',
+					description: 'Clear explanation of how selectors compete and why some rules win.',
+				},
+				{
+					title: 'MDN: Inheritance',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance',
+					description: 'Helpful for understanding which properties inherit and why some styles flow through the document.',
+				},
+			],
+		},
+		'styling-details-selectors-pseudo-elements-motion': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Pseudo-elements',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements',
+					description: 'Reference for practical decorative and structural pseudo-element use cases.',
+				},
+				{
+					title: 'MDN: Using CSS transitions',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions',
+					description: 'A practical guide to restrained motion and transition choices.',
 				},
 			],
 		},

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Naming by purpose comparison</title>
+  <desc id="desc">A comparison diagram contrasts appearance-based class names like brown-box with purpose-based names like card and section-title.</desc>
+  <defs><style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:18px;font-weight:700}.small{font-size:14px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.bad{fill:#f6dfe4;stroke:#b44d6e;stroke-width:2}.good{fill:#e7f3ea;stroke:#527a59;stroke-width:2}
+  </style></defs>
+  <rect width="960" height="420" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">Name by Purpose, Not Appearance</text>
+  <text x="60" y="84" class="subtitle">Purpose-based names survive change better than descriptive one-offs.</text>
+  <rect x="80" y="120" width="360" height="240" rx="16" class="panel"/>
+  <text x="260" y="154" text-anchor="middle" class="label">Avoid</text>
+  <rect x="116" y="184" width="288" height="38" rx="10" class="bad"/><text x="140" y="208" class="small">.brown-box</text>
+  <rect x="116" y="236" width="288" height="38" rx="10" class="bad"/><text x="140" y="260" class="small">.left-section-large</text>
+  <rect x="116" y="288" width="288" height="38" rx="10" class="bad"/><text x="140" y="312" class="small">.big-round-button</text>
+  <rect x="520" y="120" width="360" height="240" rx="16" class="panel"/>
+  <text x="700" y="154" text-anchor="middle" class="label">Prefer</text>
+  <rect x="556" y="184" width="288" height="38" rx="10" class="good"/><text x="580" y="208" class="small">.card</text>
+  <rect x="556" y="236" width="288" height="38" rx="10" class="good"/><text x="580" y="260" class="small">.section-title</text>
+  <rect x="556" y="288" width="288" height="38" rx="10" class="good"/><text x="580" y="312" class="small">.button-primary</text>
+</svg>

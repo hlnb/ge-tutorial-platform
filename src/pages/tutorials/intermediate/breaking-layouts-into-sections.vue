@@ -135,6 +135,17 @@ const closureReflectionPrompts = [
   &lt;footer&gt;...&lt;/footer&gt;
 &lt;/body&gt;</code></pre>
 			</div>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-breaking-layouts-into-sections-page-region-breakdown.svg"
+					alt="Page region breakdown showing the major semantic sections of a homepage, including header, hero, featured dishes, about, menu preview, gallery, booking call to action, location and hours, and footer."
+				/>
+				<figcaption>
+					This visual shows the page as a set of meaningful regions instead of one large
+					undifferentiated layout. That is the mindset you want before you start writing a
+					full HTML skeleton.
+				</figcaption>
+			</figure>
 			<p>
 				This does not finish the page for you, but it gives the design a stable frame.
 			</p>
@@ -195,6 +206,16 @@ const closureReflectionPrompts = [
   &lt;/footer&gt;
 &lt;/body&gt;</code></pre>
 			</div>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-breaking-layouts-into-sections-page-to-html-skeleton-map.svg"
+					alt="Split diagram mapping visible page regions on the left to semantic HTML structure on the right."
+				/>
+				<figcaption>
+					A strong HTML skeleton mirrors the visible structure of the page. That makes the
+					markup easier to read and gives the CSS a clearer foundation to build on.
+				</figcaption>
+			</figure>
 
 			<h2 id="sections-vs-blocks">Know the Difference Between Sections and Blocks</h2>
 			<p>
@@ -207,6 +228,16 @@ const closureReflectionPrompts = [
 				<li>A gallery may be a section.</li>
 				<li>Each image tile inside the gallery is usually a smaller internal block.</li>
 			</ul>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-breaking-layouts-into-sections-section-vs-block-comparison.svg"
+					alt="Two-panel comparison showing a correct section containing cards and an incorrect structure where each card becomes its own top-level section."
+				/>
+				<figcaption>
+					Use top-level sections for major purposes, not for every visible box. Internal
+					cards and tiles usually belong inside a parent section rather than replacing it.
+				</figcaption>
+			</figure>
 			<p>
 				Think in layers: major purpose first, smaller content pieces second.
 			</p>

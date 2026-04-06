@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Big shapes page overlay diagram</title>
+  <desc id="desc">A simple webpage mockup divided into major regions including header, hero, feature section, gallery, contact section, and footer. A side panel explains that layout starts by identifying the largest page regions first.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 28px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #52606d; }
+      .label { font-size: 16px; font-weight: 600; }
+      .small { font-size: 14px; fill: #52606d; }
+      .panel { fill: #ffffff; stroke: #cbd2d9; stroke-width: 2; }
+      .page { fill: #ffffff; stroke: #7b8794; stroke-width: 2.5; }
+      .accent-a { fill: #dce8f7; stroke: #486581; stroke-width: 2; }
+      .accent-b { fill: #e7f3ea; stroke: #527a59; stroke-width: 2; }
+      .accent-c { fill: #f7eadb; stroke: #9c6b30; stroke-width: 2; }
+      .accent-d { fill: #ece7f6; stroke: #6b46a1; stroke-width: 2; }
+      .accent-e { fill: #f6dfe4; stroke: #b44d6e; stroke-width: 2; }
+      .accent-f { fill: #e8ecef; stroke: #616e7c; stroke-width: 2; }
+      .arrow { stroke: #486581; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#486581"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="600" fill="#f8fafb"/>
+
+  <text x="60" y="64" class="title">See the Big Shapes Before the Details</text>
+  <text x="60" y="92" class="subtitle">Start by finding the largest page regions. CSS decisions come later.</text>
+
+  <rect x="60" y="130" width="520" height="410" rx="16" class="page"/>
+  <rect x="90" y="160" width="460" height="42" rx="10" class="accent-a"/>
+  <text x="320" y="186" text-anchor="middle" class="label">Header</text>
+
+  <rect x="90" y="218" width="460" height="92" rx="14" class="accent-b"/>
+  <text x="320" y="265" text-anchor="middle" class="label">Hero</text>
+  <text x="320" y="287" text-anchor="middle" class="small">Main message and first action</text>
+
+  <rect x="90" y="326" width="460" height="84" rx="14" class="accent-c"/>
+  <text x="320" y="370" text-anchor="middle" class="label">Feature Section</text>
+
+  <rect x="90" y="426" width="460" height="66" rx="14" class="accent-d"/>
+  <text x="320" y="464" text-anchor="middle" class="label">Gallery or Repeated Content</text>
+
+  <rect x="90" y="508" width="460" height="42" rx="10" class="accent-f"/>
+  <text x="320" y="534" text-anchor="middle" class="label">Footer</text>
+
+  <rect x="620" y="130" width="280" height="410" rx="16" class="panel"/>
+  <text x="648" y="170" class="label">What to look for first</text>
+
+  <circle cx="652" cy="210" r="14" fill="#486581"/>
+  <text x="652" y="215" text-anchor="middle" fill="#ffffff" class="label">1</text>
+  <text x="680" y="215" class="small">Major page regions</text>
+
+  <circle cx="652" cy="258" r="14" fill="#486581"/>
+  <text x="652" y="263" text-anchor="middle" fill="#ffffff" class="label">2</text>
+  <text x="680" y="263" class="small">Which areas feel repeated</text>
+
+  <circle cx="652" cy="306" r="14" fill="#486581"/>
+  <text x="652" y="311" text-anchor="middle" fill="#ffffff" class="label">3</text>
+  <text x="680" y="311" class="small">What leads the eye first</text>
+
+  <circle cx="652" cy="354" r="14" fill="#486581"/>
+  <text x="652" y="359" text-anchor="middle" fill="#ffffff" class="label">4</text>
+  <text x="680" y="359" class="small">Where one purpose ends</text>
+  <text x="680" y="379" class="small">and another begins</text>
+
+  <rect x="648" y="420" width="224" height="82" rx="12" fill="#f0f4f8" stroke="#cbd2d9" stroke-width="2"/>
+  <text x="760" y="452" text-anchor="middle" class="label">Teaching point</text>
+  <text x="760" y="476" text-anchor="middle" class="small">Do not start with padding,</text>
+  <text x="760" y="496" text-anchor="middle" class="small">fonts, or exact CSS values.</text>
+
+  <path d="M550 264 C610 264, 620 264, 620 264" class="arrow"/>
+</svg>

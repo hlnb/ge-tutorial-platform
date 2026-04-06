@@ -149,6 +149,17 @@ const closureReflectionPrompts = [
 				<li>Location and opening hours</li>
 				<li>Footer</li>
 			</ul>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-black-swan-bistro-part-2-homepage-wireframe.svg"
+					alt="Low-fidelity homepage wireframe for Black Swan Bistro showing header, hero, featured dishes, about section, menu preview, gallery, booking call to action, location and hours, and footer."
+				/>
+				<figcaption>
+					This wireframe keeps the lesson focused on structure and scanning. You are not
+					trying to make the final restaurant site yet. You are trying to make the layout
+					read clearly.
+				</figcaption>
+			</figure>
 
 			<div class="notification is-warning is-light">
 				<p><strong>Keep the page in wireframe mode:</strong> simple blocks, clear spacing, and repeatable patterns matter more than polished copy, fancy images, or advanced effects.</p>
@@ -206,12 +217,34 @@ const closureReflectionPrompts = [
 				This is the main idea of the lesson: the homepage is not a random pile of
 				different styles. It is a group of sections that can share layout rules.
 			</p>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-black-swan-bistro-part-2-layout-map.svg"
+					alt="Layout map showing shared container width, shared section shells, and repeated card patterns across the Black Swan Bistro homepage."
+				/>
+				<figcaption>
+					This layout map highlights the repeated structure underneath the homepage. That
+					is the reason the page can be styled with a small set of reusable classes rather
+					than a different rule for every section.
+				</figcaption>
+			</figure>
 
 			<h2 id="starter-html">Beginner-Friendly Homepage HTML Starter Code</h2>
 			<p>
 				If you finished Part 1, you already have most of this structure. This version adds
 				simple reusable classes so the CSS can style repeated patterns more easily.
 			</p>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-black-swan-bistro-part-2-pattern-inventory.svg"
+					alt="Pattern inventory board listing reusable page patterns such as container, section, section title, button, card, card grid, header layout, and footer links."
+				/>
+				<figcaption>
+					Think of these patterns as the pieces you want to reuse across the homepage.
+					They are still CSS classes at this point, but they are already preparing you for
+					the component thinking that comes next.
+				</figcaption>
+			</figure>
 
 			<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;

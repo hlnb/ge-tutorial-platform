@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Row, column, or grid comparison diagram</title>
+  <desc id="desc">Three side-by-side panels compare a row pattern, a column pattern, and a grid pattern. Each panel shows the main structure and a short explanation of when to use that layout shape.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 28px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #52606d; }
+      .label { font-size: 18px; font-weight: 700; }
+      .small { font-size: 14px; fill: #52606d; }
+      .panel { fill: #ffffff; stroke: #cbd2d9; stroke-width: 2; }
+      .shape-a { fill: #dce8f7; stroke: #486581; stroke-width: 2; }
+      .shape-b { fill: #e7f3ea; stroke: #527a59; stroke-width: 2; }
+      .shape-c { fill: #f7eadb; stroke: #9c6b30; stroke-width: 2; }
+      .axis { stroke: #1f2933; stroke-width: 2.5; stroke-dasharray: 8 8; }
+    </style>
+  </defs>
+
+  <rect width="960" height="540" fill="#f8fafb"/>
+
+  <text x="60" y="60" class="title">Row, Column, or Grid?</text>
+  <text x="60" y="88" class="subtitle">Choose the layout tool after you identify the shape of the content.</text>
+
+  <rect x="60" y="130" width="260" height="340" rx="16" class="panel"/>
+  <text x="190" y="170" text-anchor="middle" class="label">Row</text>
+  <text x="190" y="194" text-anchor="middle" class="small">One main horizontal relationship</text>
+  <line x1="100" y1="240" x2="280" y2="240" class="axis"/>
+  <rect x="100" y="215" width="44" height="50" rx="10" class="shape-a"/>
+  <rect x="166" y="215" width="44" height="50" rx="10" class="shape-a"/>
+  <rect x="232" y="215" width="44" height="50" rx="10" class="shape-a"/>
+  <text x="190" y="304" text-anchor="middle" class="small">Example: navigation links</text>
+  <text x="190" y="352" text-anchor="middle" class="small">Use when items line up</text>
+  <text x="190" y="372" text-anchor="middle" class="small">in one direction.</text>
+
+  <rect x="350" y="130" width="260" height="340" rx="16" class="panel"/>
+  <text x="480" y="170" text-anchor="middle" class="label">Column</text>
+  <text x="480" y="194" text-anchor="middle" class="small">One main vertical relationship</text>
+  <line x1="480" y1="220" x2="480" y2="340" class="axis"/>
+  <rect x="430" y="220" width="100" height="34" rx="10" class="shape-b"/>
+  <rect x="430" y="272" width="100" height="34" rx="10" class="shape-b"/>
+  <rect x="430" y="324" width="100" height="34" rx="10" class="shape-b"/>
+  <text x="480" y="392" text-anchor="middle" class="small">Example: content inside a card</text>
+  <text x="480" y="420" text-anchor="middle" class="small">Use when items stack</text>
+  <text x="480" y="440" text-anchor="middle" class="small">top to bottom.</text>
+
+  <rect x="640" y="130" width="260" height="340" rx="16" class="panel"/>
+  <text x="770" y="170" text-anchor="middle" class="label">Grid</text>
+  <text x="770" y="194" text-anchor="middle" class="small">Rows and columns together</text>
+  <rect x="690" y="220" width="52" height="48" rx="10" class="shape-c"/>
+  <rect x="748" y="220" width="52" height="48" rx="10" class="shape-c"/>
+  <rect x="806" y="220" width="52" height="48" rx="10" class="shape-c"/>
+  <rect x="690" y="278" width="52" height="48" rx="10" class="shape-c"/>
+  <rect x="748" y="278" width="52" height="48" rx="10" class="shape-c"/>
+  <rect x="806" y="278" width="52" height="48" rx="10" class="shape-c"/>
+  <text x="770" y="392" text-anchor="middle" class="small">Example: repeated cards or gallery</text>
+  <text x="770" y="420" text-anchor="middle" class="small">Use when the layout needs</text>
+  <text x="770" y="440" text-anchor="middle" class="small">two dimensions at once.</text>
+</svg>

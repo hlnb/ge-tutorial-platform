@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Page region breakdown diagram</title>
+  <desc id="desc">A page is divided into clear semantic regions: header, hero, featured dishes, about, menu preview, gallery, booking call to action, location and hours, and footer. A side panel notes that sections are based on purpose, not just visible boxes.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 28px; font-weight: 700; }
+      .subtitle { font-size: 16px; fill: #52606d; }
+      .label { font-size: 15px; font-weight: 700; }
+      .small { font-size: 14px; fill: #52606d; }
+      .page { fill: #ffffff; stroke: #7b8794; stroke-width: 2.5; }
+      .panel { fill: #ffffff; stroke: #cbd2d9; stroke-width: 2; }
+      .region-a { fill: #dce8f7; stroke: #486581; stroke-width: 2; }
+      .region-b { fill: #e7f3ea; stroke: #527a59; stroke-width: 2; }
+      .region-c { fill: #f7eadb; stroke: #9c6b30; stroke-width: 2; }
+      .region-d { fill: #ece7f6; stroke: #6b46a1; stroke-width: 2; }
+      .region-e { fill: #f6dfe4; stroke: #b44d6e; stroke-width: 2; }
+      .region-f { fill: #e8ecef; stroke: #616e7c; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="960" height="620" fill="#f8fafb"/>
+  <text x="60" y="60" class="title">One Page, Many Purposes</text>
+  <text x="60" y="88" class="subtitle">Break the page into meaningful regions before writing the full HTML skeleton.</text>
+
+  <rect x="60" y="130" width="520" height="430" rx="16" class="page"/>
+  <rect x="90" y="156" width="460" height="34" rx="8" class="region-a"/>
+  <text x="320" y="178" text-anchor="middle" class="label">Header</text>
+
+  <rect x="90" y="202" width="460" height="70" rx="12" class="region-b"/>
+  <text x="320" y="242" text-anchor="middle" class="label">Hero</text>
+
+  <rect x="90" y="284" width="460" height="48" rx="10" class="region-c"/>
+  <text x="320" y="314" text-anchor="middle" class="label">Featured Dishes</text>
+
+  <rect x="90" y="344" width="460" height="42" rx="10" class="region-d"/>
+  <text x="320" y="370" text-anchor="middle" class="label">About</text>
+
+  <rect x="90" y="398" width="460" height="48" rx="10" class="region-c"/>
+  <text x="320" y="428" text-anchor="middle" class="label">Menu Preview</text>
+
+  <rect x="90" y="458" width="460" height="40" rx="10" class="region-e"/>
+  <text x="320" y="483" text-anchor="middle" class="label">Gallery</text>
+
+  <rect x="90" y="510" width="220" height="26" rx="8" class="region-b"/>
+  <text x="200" y="528" text-anchor="middle" class="label">Booking CTA</text>
+
+  <rect x="330" y="510" width="220" height="26" rx="8" class="region-d"/>
+  <text x="440" y="528" text-anchor="middle" class="label">Location and Hours</text>
+
+  <rect x="90" y="544" width="460" height="18" rx="8" class="region-f"/>
+  <text x="320" y="558" text-anchor="middle" class="small">Footer</text>
+
+  <rect x="620" y="130" width="280" height="430" rx="16" class="panel"/>
+  <text x="648" y="170" class="label">Section thinking reminder</text>
+  <text x="648" y="210" class="small">A section is a meaningful part of</text>
+  <text x="648" y="232" class="small">the page with its own purpose.</text>
+  <text x="648" y="272" class="small">Use sections for major regions such as:</text>
+  <text x="668" y="300" class="small">• hero</text>
+  <text x="668" y="324" class="small">• gallery</text>
+  <text x="668" y="348" class="small">• menu preview</text>
+  <text x="668" y="372" class="small">• contact or location area</text>
+  <text x="648" y="416" class="small">Do not promote every card or small</text>
+  <text x="648" y="438" class="small">internal block into its own top-level</text>
+  <text x="648" y="460" class="small">section.</text>
+
+  <rect x="648" y="492" width="224" height="44" rx="10" fill="#f0f4f8" stroke="#cbd2d9" stroke-width="2"/>
+  <text x="760" y="520" text-anchor="middle" class="small">Major purpose first. Smaller pieces second.</text>
+</svg>

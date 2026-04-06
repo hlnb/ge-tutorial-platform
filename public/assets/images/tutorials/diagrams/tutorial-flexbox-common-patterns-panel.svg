@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Common Flexbox patterns panel</title>
+  <desc id="desc">Three panels show practical Flexbox patterns: navigation, card internals, and split layout.</desc>
+  <defs><style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.item{fill:#dce8f7;stroke:#486581;stroke-width:2}.itemb{fill:#e7f3ea;stroke:#527a59;stroke-width:2}
+  </style></defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">Practical Flexbox Patterns</text>
+  <text x="60" y="84" class="subtitle">Flexbox is especially useful when one relationship is primary.</text>
+  <rect x="60" y="130" width="260" height="240" rx="16" class="panel"/><text x="190" y="160" text-anchor="middle" class="label">Navigation</text><rect x="90" y="200" width="44" height="24" rx="8" class="item"/><rect x="208" y="200" width="34" height="24" rx="8" class="item"/><rect x="248" y="200" width="34" height="24" rx="8" class="item"/><text x="190" y="320" text-anchor="middle" class="small">logo + links</text>
+  <rect x="350" y="130" width="260" height="240" rx="16" class="panel"/><text x="480" y="160" text-anchor="middle" class="label">Card internals</text><rect x="430" y="192" width="100" height="22" rx="8" class="itemb"/><rect x="430" y="226" width="100" height="22" rx="8" class="itemb"/><rect x="430" y="284" width="100" height="26" rx="13" class="item"/><text x="480" y="320" text-anchor="middle" class="small">vertical content flow</text>
+  <rect x="640" y="130" width="260" height="240" rx="16" class="panel"/><text x="770" y="160" text-anchor="middle" class="label">Split layout</text><rect x="676" y="210" width="78" height="60" rx="10" class="itemb"/><rect x="786" y="210" width="78" height="60" rx="10" class="item"/><text x="770" y="320" text-anchor="middle" class="small">two related pieces in one row</text>
+</svg>

@@ -933,6 +933,27 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/cascade-specificity-and-debugging-css': RouteRecordInfo<
+      '/tutorials/intermediate/cascade-specificity-and-debugging-css',
+      '/tutorials/intermediate/cascade-specificity-and-debugging-css',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/css-grid-for-repeated-layouts': RouteRecordInfo<
+      '/tutorials/intermediate/css-grid-for-repeated-layouts',
+      '/tutorials/intermediate/css-grid-for-repeated-layouts',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/css-systems-for-reusable-sections': RouteRecordInfo<
+      '/tutorials/intermediate/css-systems-for-reusable-sections',
+      '/tutorials/intermediate/css-systems-for-reusable-sections',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/debug-broken-web-page': RouteRecordInfo<
       '/tutorials/intermediate/debug-broken-web-page',
       '/tutorials/intermediate/debug-broken-web-page',
@@ -943,6 +964,13 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/intermediate/design-to-code': RouteRecordInfo<
       '/tutorials/intermediate/design-to-code',
       '/tutorials/intermediate/design-to-code',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/flexbox-for-real-layouts': RouteRecordInfo<
+      '/tutorials/intermediate/flexbox-for-real-layouts',
+      '/tutorials/intermediate/flexbox-for-real-layouts',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1020,6 +1048,20 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/intermediate/multi-page-structure': RouteRecordInfo<
       '/tutorials/intermediate/multi-page-structure',
       '/tutorials/intermediate/multi-page-structure',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/responsive-refinement-for-reusable-components': RouteRecordInfo<
+      '/tutorials/intermediate/responsive-refinement-for-reusable-components',
+      '/tutorials/intermediate/responsive-refinement-for-reusable-components',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion': RouteRecordInfo<
+      '/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion',
+      '/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1859,6 +1901,24 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/intermediate/cascade-specificity-and-debugging-css.vue': {
+      routes:
+        | '/tutorials/intermediate/cascade-specificity-and-debugging-css'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/css-grid-for-repeated-layouts.vue': {
+      routes:
+        | '/tutorials/intermediate/css-grid-for-repeated-layouts'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/css-systems-for-reusable-sections.vue': {
+      routes:
+        | '/tutorials/intermediate/css-systems-for-reusable-sections'
+      views:
+        | never
+    }
     'src/pages/tutorials/intermediate/debug-broken-web-page.vue': {
       routes:
         | '/tutorials/intermediate/debug-broken-web-page'
@@ -1868,6 +1928,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/design-to-code.vue': {
       routes:
         | '/tutorials/intermediate/design-to-code'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/flexbox-for-real-layouts.vue': {
+      routes:
+        | '/tutorials/intermediate/flexbox-for-real-layouts'
       views:
         | never
     }
@@ -1934,6 +2000,18 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/multi-page-structure.vue': {
       routes:
         | '/tutorials/intermediate/multi-page-structure'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/responsive-refinement-for-reusable-components.vue': {
+      routes:
+        | '/tutorials/intermediate/responsive-refinement-for-reusable-components'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion.vue': {
+      routes:
+        | '/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion'
       views:
         | never
     }

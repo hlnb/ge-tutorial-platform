@@ -118,6 +118,17 @@ const closureReflectionPrompts = [
 				<li>Where does the eye go first, second, and third?</li>
 				<li>Which areas feel repeated?</li>
 			</ul>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-how-to-read-a-design-first-pass-annotated-mockup.svg"
+					alt="Annotated mockup with numbered callouts showing the first pass reading order: main message, supporting content, repeated areas, and overall page structure."
+				/>
+				<figcaption>
+					This first-pass diagram keeps your attention on structure and scanning order.
+					Before you inspect exact values, make sure you can tell what the page is saying
+					first, what supports it, and where patterns begin to repeat.
+				</figcaption>
+			</figure>
 			<p>
 				This first pass helps you understand the page as a whole before you start pulling
 				it apart.
@@ -134,6 +145,17 @@ const closureReflectionPrompts = [
 				<li>Look for consistent left and right edges.</li>
 				<li>Look for repeated width patterns, such as centered containers.</li>
 			</ul>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-how-to-read-a-design-spacing-and-patterns-callouts.svg"
+					alt="Annotated layout showing shared container edges, section spacing, repeated card padding, and repeated button styles as reusable design patterns."
+				/>
+				<figcaption>
+					Spacing and repetition are some of the clearest clues in a design. When the
+					same edges, gaps, card shells, or button styles appear more than once, they are
+					often pointing you toward reusable rules rather than one-off styling choices.
+				</figcaption>
+			</figure>
 
 			<div class="notification is-info is-light">
 				<p><strong>Useful habit:</strong> if two things share the same spacing pattern more than once, write it down as a reusable rule instead of treating it as a one-off decision.</p>
@@ -197,6 +219,17 @@ const closureReflectionPrompts = [
 - gallery needs grid layout
 - footer is simple link cluster</code></pre>
 			</div>
+			<figure class="tutorial-figure tutorial-figure--wide">
+				<img
+					src="/assets/images/tutorials/diagrams/tutorial-how-to-read-a-design-mockup-to-coding-notes.svg"
+					alt="Split diagram showing a marked-up design on the left and practical implementation notes on the right."
+				/>
+				<figcaption>
+					This is the handoff you are aiming for. The design stays visual, but your notes
+					turn that visual information into layout, pattern, and implementation decisions
+					you can act on in code.
+				</figcaption>
+			</figure>
 			<p>
 				These notes are the bridge between the visual design and your implementation plan.
 			</p>

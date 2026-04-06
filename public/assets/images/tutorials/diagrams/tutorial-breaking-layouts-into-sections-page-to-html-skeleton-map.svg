@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" role="img" aria-labelledby="title desc">
+  <title id="title">Page to HTML skeleton mapping</title>
+  <desc id="desc">A split diagram maps visible page regions on the left to semantic HTML structure on the right, including header, main, section, and footer.</desc>
+  <defs><style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:18px;font-weight:700}.small{font-size:14px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.a{fill:#dce8f7;stroke:#486581;stroke-width:2}.b{fill:#e7f3ea;stroke:#527a59;stroke-width:2}.c{fill:#f7eadb;stroke:#9c6b30;stroke-width:2}.line{stroke:#486581;stroke-width:2.5;fill:none;marker-end:url(#m)}
+  </style><marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#486581"/></marker></defs>
+  <rect width="960" height="460" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">From Section Plan to HTML Skeleton</text>
+  <text x="60" y="84" class="subtitle">The visible structure of the page should map cleanly to semantic HTML.</text>
+  <rect x="60" y="120" width="310" height="280" rx="16" class="panel"/>
+  <text x="215" y="154" text-anchor="middle" class="label">Page plan</text>
+  <rect x="100" y="178" width="230" height="30" rx="8" class="a"/><rect x="100" y="220" width="230" height="46" rx="10" class="b"/><rect x="100" y="278" width="230" height="36" rx="10" class="c"/><rect x="100" y="326" width="230" height="30" rx="8" class="a"/>
+  <text x="215" y="198" text-anchor="middle" class="small">Header</text><text x="215" y="248" text-anchor="middle" class="small">Hero section</text><text x="215" y="300" text-anchor="middle" class="small">Featured dishes section</text><text x="215" y="346" text-anchor="middle" class="small">Footer</text>
+  <path d="M390 214H500" class="line"/><path d="M390 248H500" class="line"/><path d="M390 296H500" class="line"/><path d="M390 340H500" class="line"/>
+  <rect x="520" y="120" width="340" height="280" rx="16" class="panel"/>
+  <text x="690" y="154" text-anchor="middle" class="label">HTML skeleton</text>
+  <text x="560" y="200" class="small">&lt;header&gt;...&lt;/header&gt;</text>
+  <text x="560" y="236" class="small">&lt;main&gt;</text>
+  <text x="590" y="266" class="small">&lt;section id="hero"&gt;...&lt;/section&gt;</text>
+  <text x="590" y="296" class="small">&lt;section id="featured-dishes"&gt;...&lt;/section&gt;</text>
+  <text x="560" y="326" class="small">&lt;/main&gt;</text>
+  <text x="560" y="356" class="small">&lt;footer&gt;...&lt;/footer&gt;</text>
+</svg>

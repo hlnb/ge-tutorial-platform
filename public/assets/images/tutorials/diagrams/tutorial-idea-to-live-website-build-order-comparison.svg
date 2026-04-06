@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Build order comparison</title>
+  <desc id="desc">Two panels compare a rushed workflow that jumps between design, code, and launch against a layered workflow that moves through structure, layout, testing, and deployment in order.</desc>
+  <defs><style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:18px;font-weight:700}.small{font-size:14px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.bad{fill:#f6dfe4;stroke:#b44d6e;stroke-width:2}.good{fill:#e7f3ea;stroke:#527a59;stroke-width:2}.arrow-bad{stroke:#b44d6e;stroke-width:3;fill:none;marker-end:url(#mb)}.arrow-good{stroke:#527a59;stroke-width:3;fill:none;marker-end:url(#mg)}
+  </style><marker id="mb" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b44d6e"/></marker><marker id="mg" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#527a59"/></marker></defs>
+  <rect width="960" height="420" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">Common Beginner Mistakes in the Build Order</text>
+  <text x="60" y="84" class="subtitle">Most confusion comes from doing the right tasks in the wrong order.</text>
+  <rect x="60" y="120" width="390" height="250" rx="16" class="panel"/>
+  <text x="255" y="154" text-anchor="middle" class="label">Rushed path</text>
+  <rect x="100" y="190" width="90" height="42" rx="10" class="bad"/><text x="145" y="216" text-anchor="middle" class="small">Design</text>
+  <rect x="248" y="190" width="90" height="42" rx="10" class="bad"/><text x="293" y="216" text-anchor="middle" class="small">Code</text>
+  <rect x="176" y="284" width="90" height="42" rx="10" class="bad"/><text x="221" y="310" text-anchor="middle" class="small">Launch</text>
+  <path d="M190 211C220 160 245 160 248 211" class="arrow-bad"/><path d="M293 232C310 270 282 286 266 300" class="arrow-bad"/><path d="M176 300C128 286 114 248 145 232" class="arrow-bad"/>
+  <text x="255" y="346" text-anchor="middle" class="small">Jumping around creates rework and confusion.</text>
+  <rect x="510" y="120" width="390" height="250" rx="16" class="panel"/>
+  <text x="705" y="154" text-anchor="middle" class="label">Layered path</text>
+  <rect x="546" y="190" width="80" height="42" rx="10" class="good"/><text x="586" y="216" text-anchor="middle" class="small">Plan</text>
+  <rect x="654" y="190" width="90" height="42" rx="10" class="good"/><text x="699" y="216" text-anchor="middle" class="small">Structure</text>
+  <rect x="772" y="190" width="86" height="42" rx="10" class="good"/><text x="815" y="216" text-anchor="middle" class="small">Layout</text>
+  <rect x="600" y="284" width="86" height="42" rx="10" class="good"/><text x="643" y="310" text-anchor="middle" class="small">Test</text>
+  <rect x="722" y="284" width="100" height="42" rx="10" class="good"/><text x="772" y="310" text-anchor="middle" class="small">Deploy</text>
+  <path d="M626 211H654" class="arrow-good"/><path d="M744 211H772" class="arrow-good"/><path d="M815 232C815 260 795 284 772 284" class="arrow-good"/><path d="M686 305H722" class="arrow-good"/>
+</svg>

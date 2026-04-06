@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Black Swan Bistro pattern inventory</title>
+  <desc id="desc">A simple inventory board lists reusable page patterns including container, section, section title, button, card, card grid, header layout, and footer link group.</desc>
+  <defs><style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.tile{fill:#fff;stroke:#cbd2d9;stroke-width:2}
+  </style></defs>
+  <rect width="960" height="420" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">Pattern Inventory Before Components</text>
+  <text x="60" y="84" class="subtitle">These repeated page pieces are the bridge between one-off CSS and reusable components.</text>
+  <g transform="translate(80 126)">
+    <rect x="0" y="0" width="180" height="78" rx="14" class="tile"/><text x="20" y="30" class="label">Container</text><text x="20" y="54" class="small">shared width</text>
+    <rect x="200" y="0" width="180" height="78" rx="14" class="tile"/><text x="220" y="30" class="label">Section</text><text x="220" y="54" class="small">shared vertical rhythm</text>
+    <rect x="400" y="0" width="180" height="78" rx="14" class="tile"/><text x="420" y="30" class="label">Section title</text><text x="420" y="54" class="small">repeated heading style</text>
+    <rect x="600" y="0" width="180" height="78" rx="14" class="tile"/><text x="620" y="30" class="label">Button</text><text x="620" y="54" class="small">repeated action</text>
+    <rect x="0" y="102" width="180" height="78" rx="14" class="tile"/><text x="20" y="132" class="label">Card</text><text x="20" y="156" class="small">content shell</text>
+    <rect x="200" y="102" width="180" height="78" rx="14" class="tile"/><text x="220" y="132" class="label">Card grid</text><text x="220" y="156" class="small">repeated layout</text>
+    <rect x="400" y="102" width="180" height="78" rx="14" class="tile"/><text x="420" y="132" class="label">Header layout</text><text x="420" y="156" class="small">logo + nav</text>
+    <rect x="600" y="102" width="180" height="78" rx="14" class="tile"/><text x="620" y="132" class="label">Footer links</text><text x="620" y="156" class="small">small repeated cluster</text>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Black Swan Bistro layout map</title>
+  <desc id="desc">A layout map highlights shared structures in the Black Swan Bistro homepage, including repeated cards, shared section spacing, and common container width.</desc>
+  <defs><style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:14px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.line{stroke:#486581;stroke-width:3;stroke-dasharray:8 8}.card{fill:#f7eadb;stroke:#9c6b30;stroke-width:2}.section{fill:#f0f4f8;stroke:#9aa5b1;stroke-width:2}
+  </style></defs>
+  <rect width="960" height="420" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">Shared Layout Map</text>
+  <text x="60" y="84" class="subtitle">The page becomes easier to build once you can see which patterns repeat.</text>
+  <rect x="80" y="120" width="560" height="250" rx="16" class="panel"/>
+  <line x1="130" y1="138" x2="130" y2="352" class="line"/><line x1="590" y1="138" x2="590" y2="352" class="line"/><text x="360" y="150" text-anchor="middle" class="small">Shared container width</text>
+  <rect x="130" y="176" width="460" height="44" rx="10" class="section"/><text x="360" y="203" text-anchor="middle" class="small">Shared section shell</text>
+  <rect x="130" y="246" width="136" height="74" rx="12" class="card"/><rect x="292" y="246" width="136" height="74" rx="12" class="card"/><rect x="454" y="246" width="136" height="74" rx="12" class="card"/>
+  <text x="360" y="344" text-anchor="middle" class="small">Repeated card pattern</text>
+  <rect x="690" y="146" width="200" height="180" rx="16" class="panel"/>
+  <text x="710" y="180" class="label">Look for repeatable rules</text>
+  <text x="710" y="212" class="small">• one container width</text>
+  <text x="710" y="238" class="small">• one section rhythm</text>
+  <text x="710" y="264" class="small">• one card shell</text>
+  <text x="710" y="290" class="small">• one button style</text>
+</svg>
