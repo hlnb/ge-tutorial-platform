@@ -28,7 +28,7 @@ const projectRecords = [
     duration: '7 parts',
     icon: 'fas fa-utensils',
     pathways: ['beginner', 'builder', 'deployment'],
-    relatedSections: ['html-basics', 'css-basics', 'deployments', 'capstone'],
+    relatedSections: ['html-basics', 'css-basics', 'design-to-code', 'deployments', 'capstone'],
     relatedTutorials: [
       'beginner/black-swan-bistro-part-1',
       'intermediate/black-swan-bistro-part-2',
@@ -74,7 +74,7 @@ const projectRecords = [
     duration: 'Reference build',
     icon: 'fas fa-island-tropical',
     pathways: ['beginner', 'builder'],
-    relatedSections: ['html-basics', 'css-basics'],
+    relatedSections: ['html-basics', 'css-basics', 'design-to-code'],
     relatedTutorials: [
       'beginner/html-basics/introduction',
       'beginner/html-basics/html-images',

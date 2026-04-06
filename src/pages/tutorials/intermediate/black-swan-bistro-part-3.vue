@@ -27,10 +27,10 @@
 			</div>
 
 			<h1 class="title is-1">Black Swan Bistro &mdash; Part 3</h1>
-			<h2 class="subtitle is-4">Components</h2>
+			<h2 class="subtitle is-4">Refactor Repeated Patterns into Components</h2>
 
 			<p class="subtitle is-5">
-				Refactor the bistro site into reusable menu cards, nav bar, and footer components.
+				Take the repeated cards, navigation, and footer patterns from Part 2 and refactor them into reusable components.
 			</p>
 
 			<div class="notification is-info is-light">

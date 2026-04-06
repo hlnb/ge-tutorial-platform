@@ -89,7 +89,7 @@
 		</div>
 	</nav>
 
-	<div v-if="isMenuOpen" class="navbar-overlay" @click="closeMenu" aria-hidden="true"></div>
+	<div v-if="isMenuOpen" class="navbar-overlay" aria-hidden="true" @click="closeMenu"></div>
 </template>
 
 <script setup>

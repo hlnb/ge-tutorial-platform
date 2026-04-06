@@ -24,7 +24,20 @@ Use the checkboxes to track your progress. Tick each tutorial once committed to 
 | 5   | 31 Mar | How to Think About Layouts                     | `intermediate/think-about-layouts`            | 30 min | Write from scratch                      | [ ]  |
 | 6   | 1 Apr  | How to Read a Design                           | `intermediate/how-to-read-a-design`           | 35 min | Strong — `design-to-code` post          | [ ]  |
 | 7   | 2 Apr  | Breaking Layouts into Sections                 | `intermediate/breaking-layouts-into-sections` | 30 min | Strong — `design-to-code` post (Step 1) | [ ]  |
-| 8   | 3 Apr  | Black Swan Bistro — Part 2 (Layout & Sections) | `intermediate/black-swan-bistro-part-2`       | 60 min | Write from scratch (applies Days 5–7)   | [ ]  |
+| 8   | 3 Apr  | Black Swan Bistro (BSB) Part 2: Build the Homepage Wireframe Layout with CSS | `intermediate/black-swan-bistro-part-2`       | 60 min | Write from scratch (applies Days 5–7)   | [ ]  |
+
+Builder-path intent for this week:
+
+- Day 5 teaches layout thinking before code
+- Day 6 teaches how to read spacing, colour, hierarchy, and structure from a design
+- Day 7 teaches how to translate that design into page sections
+- Day 8 applies those ideas in Black Swan Bistro with reusable CSS patterns
+
+Tooling emphasis for the builder path:
+
+- use Flexbox for simple one-dimensional alignment such as nav bars and header/footer layouts
+- use Grid when learners meet repeated two-dimensional layouts such as card groups and galleries
+- keep the main focus on layout decisions and design thinking, not syntax overload
 
 ---
 

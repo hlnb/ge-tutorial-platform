@@ -191,10 +191,25 @@ export const sections = [
     },
   },
   {
+    id: 'design-to-code',
+    title: 'Design to Code',
+    slug: 'intermediate/design-to-code',
+    stage: 2,
+    level: 'intermediate',
+    topic: 'layout',
+    pathways: ['builder'],
+    introCopy: {
+      title: 'Design to Code',
+      summary: 'Learn how to read a design, plan the structure, build the layout, and grow it into a reusable multi-page project.',
+      description:
+        'Work through the builder-path lessons in order to move from design thinking into layout, reusable patterns, and the Black Swan Bistro project build.',
+    },
+  },
+  {
     id: 'ai-assisted',
     title: 'AI-Assisted Development',
     slug: 'ai-assisted',
-    stage: 1,
+    stage: 6,
     level: 'intermediate',
     topic: 'tooling',
     pathways: ['builder'],
@@ -1317,6 +1332,7 @@ const tutorialRecords = [
     id: 'think-about-layouts',
     title: 'How to Think About Layouts (Before You Write Any Code)',
     slug: 'intermediate/think-about-layouts',
+    section: 'design-to-code',
     summary:
       'A mental model for breaking a design into rows, columns, and sections.',
     level: 'intermediate',
@@ -1340,6 +1356,7 @@ const tutorialRecords = [
     id: 'how-to-read-a-design',
     title: 'How to Read a Design',
     slug: 'intermediate/how-to-read-a-design',
+    section: 'design-to-code',
     summary:
       'Learn to extract spacing, colours, typography, and structure from a mockup.',
     level: 'intermediate',
@@ -1363,6 +1380,7 @@ const tutorialRecords = [
     id: 'breaking-layouts-into-sections',
     title: 'Breaking Layouts into Sections',
     slug: 'intermediate/breaking-layouts-into-sections',
+    section: 'design-to-code',
     summary:
       'Divide a full-page design into header, hero, content sections, and footer.',
     level: 'intermediate',
@@ -1407,10 +1425,11 @@ const tutorialRecords = [
   },
   {
     id: 'bsb-part-2',
-    title: 'Black Swan Bistro — Part 2 (Layout & Sections)',
+    title: 'Black Swan Bistro (BSB) Part 2: Build the Homepage Wireframe Layout with CSS',
     slug: 'intermediate/black-swan-bistro-part-2',
+    section: 'design-to-code',
     summary:
-      'Add a proper layout with header, hero, menu sections, and footer.',
+      'Turn the Part 1 homepage into a low-fidelity wireframe using reusable CSS layout patterns, shared classes, and a simple colour system.',
     level: 'intermediate',
     levelTitle: 'Intermediate',
     levelDescription: 'Layouts, components, and professional workflows.',
@@ -1423,7 +1442,7 @@ const tutorialRecords = [
     isProject: true,
     project: 'black-swan-bistro',
     projectPart: 2,
-    projectTitle: 'Layout & Sections',
+    projectTitle: 'Homepage Wireframe Layout with CSS',
     badge: 'Project',
     topic: 'project',
     lessonCount: null,
@@ -1432,6 +1451,7 @@ const tutorialRecords = [
     id: 'building-reusable-components',
     title: 'Building Reusable Components',
     slug: 'intermediate/building-reusable-components',
+    section: 'design-to-code',
     summary:
       'Create cards, buttons, and navbars you can reuse across pages.',
     level: 'intermediate',
@@ -1455,6 +1475,7 @@ const tutorialRecords = [
     id: 'bsb-part-3',
     title: 'Black Swan Bistro — Part 3 (Components)',
     slug: 'intermediate/black-swan-bistro-part-3',
+    section: 'design-to-code',
     summary:
       'Refactor the bistro site into reusable menu cards, nav bar, and footer components.',
     level: 'intermediate',
@@ -1547,6 +1568,7 @@ const tutorialRecords = [
     id: 'multi-page-structure',
     title: 'Multi-page Structure',
     slug: 'intermediate/multi-page-structure',
+    section: 'design-to-code',
     summary:
       'Organise a website with multiple linked pages, shared navigation, and consistent styles.',
     level: 'intermediate',
@@ -1570,6 +1592,7 @@ const tutorialRecords = [
     id: 'bsb-part-4',
     title: 'Black Swan Bistro — Part 4 (Multi-page Site)',
     slug: 'intermediate/black-swan-bistro-part-4',
+    section: 'design-to-code',
     summary:
       'Expand the bistro into a multi-page site with menu, about, and contact pages.',
     level: 'intermediate',
@@ -1710,6 +1733,29 @@ const tutorialRecords = [
     badge: null,
     topic: 'git',
     lessonCount: 9,
+  },
+  {
+    id: 'design-to-code-builder-path',
+    title: 'Design to Code Builder Path',
+    slug: 'intermediate/design-to-code',
+    summary:
+      '8 lessons covering layout thinking, reading designs, section planning, and the Black Swan Bistro build from wireframe to multi-page site.',
+    level: 'intermediate',
+    levelTitle: 'Intermediate',
+    levelDescription: 'Layouts, components, and professional workflows.',
+    pathways: ['builder'],
+    stage: 2,
+    difficulty: 'medium',
+    estimatedTime: '5–6 hours',
+    tags: ['layout', 'design', 'components', 'project'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: null,
+    topic: 'layout',
+    lessonCount: 8,
   },
   {
     id: 'git-introduction',

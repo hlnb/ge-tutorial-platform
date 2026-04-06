@@ -732,6 +732,21 @@ const legacyTutorialEditorialContent = {
 	},
 	// Black Swan Bistro project (spans beginner → intermediate → advanced)
 	'beginner': {
+		'idea-to-live-website': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'NN/g: Homepage Design Principles',
+					url: 'https://www.nngroup.com/articles/homepage-design-principles/',
+					description: 'A strong guide to what homepages should communicate and how people use them.',
+				},
+				{
+					title: 'Atomic Design by Brad Frost',
+					url: 'https://atomicdesign.bradfrost.com/chapter-2',
+					description: 'A useful introduction to thinking about interfaces as systems of smaller parts.',
+				},
+			],
+		},
 		'black-swan-bistro-part-1': {
 			practiceProjects: [],
 			resources: [
@@ -766,6 +781,51 @@ const legacyTutorialEditorialContent = {
 		},
 	},
 	'intermediate': {
+		'think-about-layouts': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'Every Layout',
+					url: 'https://every-layout.dev',
+					description: 'A layout-focused mental-model resource built around reusable composition patterns.',
+				},
+				{
+					title: 'BEM — Block Element Modifier',
+					url: 'https://getbem.com',
+					description: 'A clear naming approach for repeated layout and interface patterns.',
+				},
+			],
+		},
+		'how-to-read-a-design': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'NN/g: Homepage Design Principles',
+					url: 'https://www.nngroup.com/articles/homepage-design-principles/',
+					description: 'Helpful for understanding homepage hierarchy, scanning, and user expectations.',
+				},
+				{
+					title: 'Every Layout',
+					url: 'https://every-layout.dev',
+					description: 'Useful for noticing reusable layout relationships beneath a visual mockup.',
+				},
+			],
+		},
+		'breaking-layouts-into-sections': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'Every Layout',
+					url: 'https://every-layout.dev',
+					description: 'A strong reference for thinking about sections and composition as reusable patterns.',
+				},
+				{
+					title: 'BEM — Block Element Modifier',
+					url: 'https://getbem.com',
+					description: 'Useful when naming page regions and repeated blocks in a predictable way.',
+				},
+			],
+		},
 		'black-swan-bistro-part-2': {
 			practiceProjects: [],
 			resources: [
@@ -773,6 +833,16 @@ const legacyTutorialEditorialContent = {
 					title: 'MDN: Document and website structure',
 					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure',
 					description: 'How to plan and structure a website with semantic HTML.',
+				},
+				{
+					title: 'BEM — Block Element Modifier',
+					url: 'https://getbem.com',
+					description: 'Useful for naming repeated CSS patterns clearly as your layout grows.',
+				},
+				{
+					title: 'Every Layout',
+					url: 'https://every-layout.dev',
+					description: 'A practical layout-thinking resource for reusable patterns like stacks, clusters, and grids.',
 				},
 			],
 		},

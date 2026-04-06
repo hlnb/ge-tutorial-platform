@@ -30,7 +30,13 @@
 				<h3><i class="fas fa-brain"></i> {{ reflectionTitle }}</h3>
 				<div class="reflection-questions">
 					<div v-for="(prompt, index) in reflectionPrompts" :key="index" class="question-card">
-						<p v-if="prompt.title"><strong>{{ prompt.icon || '💭' }} {{ prompt.title }}</strong></p>
+						<p v-if="prompt.title">
+							<strong>
+								<i v-if="isFontAwesomeIcon(prompt.icon)" :class="prompt.icon"></i>
+								<span v-else>{{ prompt.icon || '💭' }}</span>
+								{{ ' ' }}{{ prompt.title }}
+							</strong>
+						</p>
 						<div v-if="prompt.content" v-html="prompt.content"></div>
 						<ul v-if="prompt.questions && prompt.questions.length > 0">
 							<li v-for="(question, qIndex) in prompt.questions" :key="qIndex">
@@ -58,6 +64,8 @@
 </template>
 
 <script setup>
+const isFontAwesomeIcon = (icon) => typeof icon === 'string' && icon.includes('fa-');
+
 defineProps({
 	title: {
 		type: String,

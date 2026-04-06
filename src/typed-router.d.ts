@@ -940,6 +940,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/design-to-code': RouteRecordInfo<
+      '/tutorials/intermediate/design-to-code',
+      '/tutorials/intermediate/design-to-code',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/git-basics/': RouteRecordInfo<
       '/tutorials/intermediate/git-basics/',
       '/tutorials/intermediate/git-basics',
@@ -1855,6 +1862,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/debug-broken-web-page.vue': {
       routes:
         | '/tutorials/intermediate/debug-broken-web-page'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/design-to-code.vue': {
+      routes:
+        | '/tutorials/intermediate/design-to-code'
       views:
         | never
     }

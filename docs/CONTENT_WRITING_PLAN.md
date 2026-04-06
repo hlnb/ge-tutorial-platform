@@ -205,3 +205,162 @@ The Hunter framework (AnticipatorySet, LearningObjectives, GuidedPractice, Check
 - [x] Build project index/showcase pages
 - [ ] Remove any stubs that were marked for removal
 - [ ] Final cross-reference audit between tutorials and projects
+
+---
+
+## 6. Builder Path Shape
+
+The builder path should act as the bridge between:
+
+- beginner lessons that teach individual HTML/CSS concepts
+- project parts that ask learners to make layout and design decisions
+
+This means the builder path is not just "more CSS." Its job is to teach students how to:
+
+- move from an idea or mockup to a page plan
+- recognise patterns before writing code
+- decide when a layout is one-dimensional vs. two-dimensional
+- apply repeated visual systems before refactoring into components
+
+### Recommended builder-path sequence
+
+#### Stage 0 — Big-picture setup (beginner)
+
+- `beginner/idea-to-live-website`
+- Purpose: show the full journey from idea to deployment so later builder lessons have context
+- Teaching role: overview only, not deep implementation
+
+#### Stage 1 — Design and layout thinking (intermediate builder path)
+
+- `intermediate/think-about-layouts`
+- `intermediate/how-to-read-a-design`
+- `intermediate/breaking-layouts-into-sections`
+
+These lessons should carry the design-to-code mindset:
+
+- look for rows, columns, repeated blocks, and hierarchy
+- identify spacing systems, colour usage, and typography clues
+- convert a visual design into semantic sections before styling
+
+#### Stage 2 — Apply layout patterns in a real project
+
+- `intermediate/black-swan-bistro-part-2`
+
+This lesson should stay focused on:
+
+- low-fidelity homepage wireframing
+- reusable CSS classes and repeated visual patterns
+- layout first, polish later
+- recognising repetition before components
+
+#### Stage 3 — Structural reuse
+
+- `intermediate/building-reusable-components`
+- `intermediate/black-swan-bistro-part-3`
+
+These lessons should make the next step explicit:
+
+- Part 2 = repeated CSS patterns
+- Part 3 = repeated HTML structures refactored into reusable components
+
+#### Stage 4 — Site expansion
+
+- `intermediate/multi-page-structure`
+- `intermediate/black-swan-bistro-part-4`
+
+This is where students move from a single structured page into a site system.
+
+### Design-to-code post integration
+
+The published `design-to-code` post should be treated as source material for the builder path rather than as a separate competing track.
+
+Current intended fit:
+
+- `How to Read a Design` — reading spacing, colour, hierarchy, and clues from a mockup
+- `Breaking Layouts into Sections` — translating design into semantic page regions
+- `Building Reusable Components` — using repeated UI pieces intentionally
+
+As additional draft posts are found, map each one to a single lesson in the builder path rather than duplicating similar topics.
+
+### Black Swan Bistro asset plan
+
+The Black Swan Bistro logo and project images should be introduced gradually so they support the teaching goals rather than rushing the site into a polished state too early.
+
+Recommended use:
+
+- Part 2: use the logo for the colour system and optionally 1 to 2 images as layout placeholders
+- Part 3: use repeated content/image blocks to justify component refactoring
+- Part 4+: increase realism once the layout and component system are in place
+
+The main teaching rule:
+
+- assets should help students see structure, hierarchy, and repetition
+- assets should not pull the lesson away from layout thinking into premature visual polish
+
+---
+
+## 7. Flexbox and Grid Teaching Placement
+
+Flexbox and Grid should be introduced as layout decision tools, not just isolated syntax topics.
+
+### Recommendation
+
+- Keep `beginner/css-basics/flexbox` in the beginner CSS sequence
+- Do not require full CSS Grid mastery before the builder path starts
+- Introduce Grid when learners reach repeated two-dimensional layouts such as galleries, card collections, and dashboard-like blocks
+
+### Suggested teaching progression
+
+#### Beginner CSS essentials
+
+- document flow
+- block vs inline behavior
+- spacing, box model, and containers
+- simple layout patterns
+- Flexbox basics for alignment and one-dimensional layouts
+
+At this stage, the student should learn:
+
+- Flexbox is useful when items sit in a row or column
+- Flexbox is often the right tool for nav bars, button groups, simple header alignment, and small content clusters
+
+#### Builder path
+
+The builder path should add the decision layer:
+
+- when a layout is mostly one row or one column, reach for Flexbox
+- when a layout is a repeated matrix of cards or images, reach for Grid
+- when the main job is still page planning, sectioning, and visual consistency, focus on structure before tool complexity
+
+This means `black-swan-bistro-part-2` can use:
+
+- Flexbox for header/footer alignment
+- Grid for repeated card or gallery layouts
+
+without needing a full standalone Grid tutorial first, as long as the lesson explains the choice simply.
+
+### Future tutorial to add
+
+Add a dedicated beginner or early-builder lesson later:
+
+- `CSS Grid Basics`
+- Goal: explain two-dimensional layout in beginner-friendly language
+- Best placement: after `Flexbox Basics` and before or around the builder path project work
+
+Suggested lesson focus:
+
+- how Grid differs from Flexbox
+- rows and columns as a system
+- simple card gallery and photo grid examples
+- when to choose Grid vs Flexbox
+
+### Curriculum rule of thumb
+
+- Flexbox first for alignment and one-dimensional flow
+- Grid next for repeated two-dimensional layout
+- builder lessons after that for design judgment and application
+
+This keeps the sequence practical:
+
+- beginners learn the tools
+- builder learners learn how to choose and apply them
