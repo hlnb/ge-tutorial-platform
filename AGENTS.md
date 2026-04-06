@@ -51,6 +51,10 @@ When making changes:
 6. Keep semantic HTML and accessibility in mind
 7. Favour readable code over clever code
 
+### Tutorial workflow
+
+- When creating or revising a GraphiteEdge tutorial, prefer using the graphitedge-tutorial-builder skill if it is available.
+
 ## Content and UX rules
 
 - Learning content should be structured, stepwise, and practical

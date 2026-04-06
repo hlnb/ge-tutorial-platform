@@ -3,6 +3,9 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
+import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const sections = [
@@ -12,11 +15,87 @@ const sections = [
 	{ id: 'html-skeleton', title: 'HTML Skeleton' },
 	{ id: 'sections-vs-blocks', title: 'Sections vs Blocks' },
 	{ id: 'before-styling', title: 'Before Styling' },
+	{ id: 'guided-practice', title: 'Guided Practice' },
+	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'additional-resources', title: 'Additional Resources' },
 	{ id: 'recap', title: 'Recap' },
 ];
 
 usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question: 'Why is it a mistake to turn every visible box on a page into its own top-level section?',
+		answer:
+			'Because it usually produces messy HTML and hides the difference between major page purposes and smaller repeated blocks inside those purposes.',
+	},
+	{
+		question: 'What job does a rough HTML skeleton do before any real styling begins?',
+		answer:
+			'It gives the page a stable semantic structure that later CSS can build on more clearly and consistently.',
+	},
+	{
+		question: 'Predict what happens if you start styling before the section plan makes sense.',
+		answer:
+			'Layout decisions become more fragile because the CSS is trying to compensate for unclear structure instead of building on a solid HTML foundation.',
+	},
+];
+
+const guidedPracticeSteps = [
+	{
+		title: 'Step 1: List the major page regions',
+		instructions:
+			'<p>Pick a homepage design or content plan and write down its biggest meaningful regions first: header, hero, feature area, about section, footer, and so on.</p><p>Your goal is to separate major page purposes before thinking about smaller internal pieces.</p>',
+		hints: [
+			'A major section usually has its own purpose or heading.',
+			'If two visible elements serve one larger purpose, they may belong in the same parent section.',
+		],
+	},
+	{
+		title: 'Step 2: Build a rough HTML skeleton',
+		instructions:
+			'<p>Translate those page regions into a simple semantic outline using <code>header</code>, <code>main</code>, <code>section</code>, and <code>footer</code>.</p><p>Use comments or placeholders instead of writing final copy.</p>',
+		hints: [
+			'You are planning structure, not finishing the page.',
+			'Clear placeholder comments are often enough at this stage.',
+		],
+	},
+	{
+		title: 'Step 3: Separate sections from smaller blocks',
+		instructions:
+			'<p>Review your skeleton and mark which pieces are true top-level sections and which are smaller repeated blocks inside them, such as cards, tiles, or link groups.</p><p>Adjust the structure if you accidentally promoted too many internal blocks to top-level regions.</p>',
+		hints: [
+			'Cards inside a feature area usually stay inside that parent section.',
+			'Major purpose first, repeated blocks second.',
+		],
+	},
+];
+
+const guidedPracticeSuccessCriteria = [
+	'You identified the major page regions before writing detailed HTML',
+	'You translated the page into a simple semantic skeleton',
+	'You kept repeated internal blocks inside the correct parent sections',
+	'You can explain why this structure would make later CSS easier',
+];
+
+const independentPracticeRubric = [
+	{
+		criteria: 'Section planning',
+		success: 'The learner identifies sensible top-level sections based on page purpose rather than surface appearance.',
+	},
+	{
+		criteria: 'Semantic skeleton',
+		success: 'The HTML outline uses clear semantic regions and is readable before styling exists.',
+	},
+	{
+		criteria: 'Sections vs blocks',
+		success: 'Repeated internal pieces are not confused with top-level page regions.',
+	},
+	{
+		criteria: 'Build readiness',
+		success: 'The final structure feels stable enough that later layout and styling work would have a clear foundation.',
+	},
+];
 
 const closureKeyTakeaways = [
 	'Sections turn a visual design into an HTML plan that is easier to build and maintain.',
@@ -150,6 +229,14 @@ const closureReflectionPrompts = [
 				This does not finish the page for you, but it gives the design a stable frame.
 			</p>
 
+			<CheckpointBox
+				title="Checkpoint for Understanding"
+				icon="🧱"
+				description="Pause here and check whether you can distinguish page regions from smaller internal blocks."
+				:questions="checkpointQuestions"
+				answers-button-text="Show sample answers"
+			/>
+
 			<h2 id="bsb-example">Black Swan Bistro Example</h2>
 			<p>
 				If we take a homepage like Black Swan Bistro, a sensible section breakdown might
@@ -253,6 +340,34 @@ const closureReflectionPrompts = [
 			<div class="notification is-warning is-light">
 				<p><strong>Important:</strong> if the HTML skeleton feels unclear, styling usually gets harder very quickly. It is worth slowing down here.</p>
 			</div>
+
+			<h2 id="guided-practice">Guided Practice</h2>
+			<GuidedPractice
+				title="Turn a page into a semantic skeleton"
+				description="Use the lesson process to move from visible page regions to a simple HTML plan before styling begins."
+				:steps="guidedPracticeSteps"
+				:success-criteria="guidedPracticeSuccessCriteria"
+				success-criteria-title="You are on track if you can:"
+			/>
+
+			<h2 id="independent-practice">Independent Practice</h2>
+			<IndependentPractice
+				title="Independent Practice: Section-plan a fresh page"
+				description="Now apply the same structure-first approach to a different page without step-by-step help."
+				task-title="Your Task:"
+				task="<p>Choose a different homepage or landing page and create a rough semantic HTML skeleton for it. Focus on the major regions, then decide which smaller pieces belong inside those sections as repeated blocks.</p><p>Do not style it yet. The goal is a clean structure plan you could build from later.</p>"
+				:requirements="[
+					'Identify the main page regions first',
+					'Write a simple semantic skeleton using header, main, section, and footer where appropriate',
+					'Separate top-level sections from smaller repeated blocks',
+					'Add a short note explaining why the structure would support later CSS work'
+				]"
+				:stretch-goals="[
+					'Add IDs to sections you expect navigation links to target',
+					'Mark one repeated block that might later become a reusable component or shared CSS pattern'
+				]"
+				:rubric="independentPracticeRubric"
+			/>
 
 			<h2 id="additional-resources">Additional Resources</h2>
 			<p>

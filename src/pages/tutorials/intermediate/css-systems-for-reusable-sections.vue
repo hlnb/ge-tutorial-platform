@@ -3,6 +3,9 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
+import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const sections = [
@@ -13,11 +16,87 @@ const sections = [
   { id: 'repeated-pieces', title: 'Repeated Pieces' },
   { id: 'organisation', title: 'Organise Styles Without Overengineering' },
   { id: 'accessibility', title: 'Accessibility Checks' },
+  { id: 'guided-practice', title: 'Guided Practice' },
+  { id: 'independent-practice', title: 'Independent Practice' },
   { id: 'additional-resources', title: 'Additional Resources' },
   { id: 'recap', title: 'Recap' },
 ];
 
 usePageSections(sections);
+
+const checkpointQuestions = [
+  {
+    question: 'Why is a token like --space-lg more useful than writing 3rem in several different selectors?',
+    answer:
+      'Because one named token can control a repeated spacing decision across multiple sections, which makes updates easier and keeps the layout more consistent.',
+  },
+  {
+    question: 'Which name is stronger for long-term reuse: .brown-box or .card? Why?',
+    answer:
+      '`.card` is stronger because it describes the job of the pattern, not a temporary visual detail that may change later.',
+  },
+  {
+    question: 'Predict what happens if each section invents its own spacing and naming rules instead of sharing a system.',
+    answer:
+      'The CSS becomes harder to maintain, repeated patterns become less consistent, and adding new sections or pages takes more work.',
+  },
+];
+
+const guidedPracticeSteps = [
+  {
+    title: 'Step 1: Choose the rules that should become shared',
+    instructions:
+      '<p>Imagine your homepage already has a hero, featured dishes section, gallery, and footer. Write down three repeated styling decisions that should become part of your shared system.</p><p>Good candidates include section spacing, content width, card shell styling, and button treatment.</p>',
+    hints: [
+      'Look for values or patterns that would appear in more than one section.',
+      'If you would copy and paste the same rule twice, it probably belongs in the shared system.',
+    ],
+  },
+  {
+    title: 'Step 2: Turn those decisions into tokens and base patterns',
+    instructions:
+      '<p>Create a small <code>:root</code> block with a few colour and spacing tokens, then add shared classes such as <code>.container</code>, <code>.section</code>, and <code>.card</code>.</p><p>Keep it small. The goal is a reliable starter system, not a complete design language.</p>',
+    hints: [
+      'Start with 3-5 spacing values and only the colours you genuinely need.',
+      'Shared classes should solve repeated layout problems before they solve decorative ones.',
+    ],
+  },
+  {
+    title: 'Step 3: Test the system against a second section',
+    instructions:
+      '<p>Pretend you are adding a new section to the page. Reuse your shared classes instead of writing new one-off rules first.</p><p>If the new section still needs too many special-case styles, adjust the shared pattern so it becomes more useful.</p>',
+    hints: [
+      'A good system should make the next section easier to build, not just describe the first one.',
+      'If everything needs a unique class immediately, your shared pattern may still be too narrow.',
+    ],
+  },
+];
+
+const guidedPracticeSuccessCriteria = [
+  'You created a small token set for colour, spacing, or width',
+  'You defined at least two shared classes that could work across multiple sections',
+  'You tested those shared rules against a second section idea',
+  'You can explain why each shared rule belongs in the system',
+];
+
+const independentPracticeRubric = [
+  {
+    criteria: 'Shared tokens',
+    success: 'The stylesheet uses a small set of reusable tokens instead of scattered one-off values.',
+  },
+  {
+    criteria: 'Purpose-based naming',
+    success: 'Class names describe jobs like section, card, intro, or action rather than colours or positions.',
+  },
+  {
+    criteria: 'System reuse',
+    success: 'At least two different sections can reuse the same shared patterns with only light adjustments.',
+  },
+  {
+    criteria: 'Readable CSS',
+    success: 'The stylesheet is grouped clearly into shared tokens, shared patterns, and section-specific rules.',
+  },
+];
 
 const closureKeyTakeaways = [
   'A CSS system is a small set of repeatable decisions, not a giant design system.',
@@ -209,6 +288,14 @@ const closureReflectionPrompts = [
         <p><strong>Helpful test:</strong> if you moved the class to another part of the page, would its name still make sense?</p>
       </div>
 
+      <CheckpointBox
+        title="Checkpoint for Understanding"
+        icon="🧩"
+        description="Pause here and check whether the first system ideas are making sense before you move on to section and pattern design."
+        :questions="checkpointQuestions"
+        answers-button-text="Show sample answers"
+      />
+
       <h2 id="section-patterns">Build Section Patterns First</h2>
       <p>
         The most useful shared CSS often starts at section level. Before worrying about every
@@ -349,6 +436,34 @@ body { ... }
         You do not need a full accessibility deep dive in this lesson, but you do need the
         habit of checking whether your “shared pattern” is shared responsibly.
       </p>
+
+      <h2 id="guided-practice">Guided Practice</h2>
+      <GuidedPractice
+        title="Turn one homepage into a small reusable system"
+        description="Use the ideas from this lesson to turn repeated homepage decisions into a small shared CSS foundation you could reuse on the next page."
+        :steps="guidedPracticeSteps"
+        :success-criteria="guidedPracticeSuccessCriteria"
+        success-criteria-title="You are on track if you can:"
+      />
+
+      <h2 id="independent-practice">Independent Practice</h2>
+      <IndependentPractice
+        title="Independent Practice: System-check a second page"
+        description="Now apply the lesson without step-by-step help."
+        task-title="Your Task:"
+        task="<p>Imagine Black Swan Bistro now needs an <strong>About</strong> page or a <strong>Contact</strong> page. Plan a small shared CSS layer that both the homepage and that second page could use.</p><p>Do not build the whole page. Focus on the shared system: tokens, section rules, card or content-shell patterns, and action styles.</p>"
+        :requirements="[
+          'Define a small set of shared tokens for spacing, colour, or width',
+          'Choose at least three purpose-based shared classes',
+          'Name one section-specific rule that should stay outside the shared system',
+          'Write a short note explaining why your shared rules would help the second page'
+        ]"
+        :stretch-goals="[
+          'Add a shared intro pattern such as .section-intro or .content-narrow',
+          'Refine one button or card rule so it can support two slightly different contexts'
+        ]"
+        :rubric="independentPracticeRubric"
+      />
 
       <h2 id="additional-resources">Additional Resources</h2>
       <p>

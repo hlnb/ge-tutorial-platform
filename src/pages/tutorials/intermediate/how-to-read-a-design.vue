@@ -3,6 +3,9 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
+import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const sections = [
@@ -12,11 +15,87 @@ const sections = [
 	{ id: 'patterns', title: 'Repeated Patterns' },
 	{ id: 'states-assets', title: 'States and Assets' },
 	{ id: 'notes-checklist', title: 'Notes Checklist' },
+	{ id: 'guided-practice', title: 'Guided Practice' },
+	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'additional-resources', title: 'Additional Resources' },
 	{ id: 'recap', title: 'Recap' },
 ];
 
 usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question: 'Why should you read spacing and structure before trying to copy exact colours or pixel values?',
+		answer:
+			'Because spacing and structure reveal how the page is organised, which repeated parts belong together, and which rules might need to become reusable in code.',
+	},
+	{
+		question: 'What is one sign that a visual pattern in a design may become shared CSS later?',
+		answer:
+			'If the same card shell, button style, section heading, or spacing pattern appears more than once, it is probably a candidate for reuse.',
+	},
+	{
+		question: 'Predict what happens if you open a mockup and jump straight into coding without collecting notes first.',
+		answer:
+			'You are more likely to miss repeated patterns, make inconsistent spacing decisions, and treat reusable parts as separate one-off styling problems.',
+	},
+];
+
+const guidedPracticeSteps = [
+	{
+		title: 'Step 1: Take a structured first pass',
+		instructions:
+			'<p>Open a homepage mockup, landing page screenshot, or reference site. Spend a minute identifying the main message, the biggest sections, and the areas that repeat.</p><p>Do not measure anything yet. Focus on what the page is trying to communicate and how it is grouped.</p>',
+		hints: [
+			'Start by asking what the user notices first, second, and third.',
+			'Write short observations, not polished notes.',
+		],
+	},
+	{
+		title: 'Step 2: Read spacing, type, and pattern clues',
+		instructions:
+			'<p>Now inspect the design more closely. Look for repeated container widths, section gaps, heading sizes, button treatments, and card shells.</p><p>Your goal is to move from “this looks nice” to “these are the rules I can see.”</p>',
+		hints: [
+			'If the same kind of space or style appears twice, write it down as a repeated rule.',
+			'You do not need exact values to notice visual consistency.',
+		],
+	},
+	{
+		title: 'Step 3: Turn the mockup into implementation notes',
+		instructions:
+			'<p>Write a short design-to-code note list that captures structure, spacing, repeated patterns, states, and needed assets.</p><p>Keep the notes practical enough that they would help you or another learner start building the page.</p>',
+		hints: [
+			'Good notes are specific enough to guide implementation, but short enough to scan.',
+			'Try to end with notes that point toward HTML structure and reusable CSS patterns.',
+		],
+	},
+];
+
+const guidedPracticeSuccessCriteria = [
+	'You captured the main message and major sections before smaller details',
+	'You identified repeated spacing, pattern, or typography clues',
+	'You turned the mockup into short implementation notes',
+	'You can explain how the notes would make coding easier',
+];
+
+const independentPracticeRubric = [
+	{
+		criteria: 'Reading order',
+		success: 'The learner starts with structure and hierarchy before focusing on polish.',
+	},
+	{
+		criteria: 'Pattern recognition',
+		success: 'The notes identify repeated blocks, shared spacing, or visual rules that could support reuse later.',
+	},
+	{
+		criteria: 'Implementation usefulness',
+		success: 'The notes are practical enough to guide HTML and CSS decisions.',
+	},
+	{
+		criteria: 'Transfer',
+		success: 'The learner can apply the same reading method to a fresh design, not just the example from the lesson.',
+	},
+];
 
 const closureKeyTakeaways = [
 	'Reading a design is a practical skill, not a mysterious creative gift.',
@@ -161,6 +240,14 @@ const closureReflectionPrompts = [
 				<p><strong>Useful habit:</strong> if two things share the same spacing pattern more than once, write it down as a reusable rule instead of treating it as a one-off decision.</p>
 			</div>
 
+			<CheckpointBox
+				title="Checkpoint for Understanding"
+				icon="📝"
+				description="Pause here and check whether you are reading the design as a system of clues rather than as decoration."
+				:questions="checkpointQuestions"
+				answers-button-text="Show sample answers"
+			/>
+
 			<h2 id="colour-type">Step 3: Read Colour and Typography</h2>
 			<p>
 				You do not need a perfect style guide to start noticing design rules.
@@ -233,6 +320,34 @@ const closureReflectionPrompts = [
 			<p>
 				These notes are the bridge between the visual design and your implementation plan.
 			</p>
+
+			<h2 id="guided-practice">Guided Practice</h2>
+			<GuidedPractice
+				title="Read one design like a builder"
+				description="Use a structured process to turn a visual design into notes you could actually build from."
+				:steps="guidedPracticeSteps"
+				:success-criteria="guidedPracticeSuccessCriteria"
+				success-criteria-title="You are on track if you can:"
+			/>
+
+			<h2 id="independent-practice">Independent Practice</h2>
+			<IndependentPractice
+				title="Independent Practice: Read a fresh mockup"
+				description="Now apply the same process to a different design without step-by-step support."
+				task-title="Your Task:"
+				task="<p>Choose a different homepage, hero section, or small landing page design. Create your own short reading notes that cover structure, spacing, repeated patterns, typography clues, and any important states or assets.</p><p>Keep the notes practical enough that they would help you start building the page later.</p>"
+				:requirements="[
+					'Identify the major sections and main message first',
+					'Note at least two repeated patterns or reusable clues',
+					'Capture one typography or colour rule you can see',
+					'Write notes that would help guide later HTML or CSS work'
+				]"
+				:stretch-goals="[
+					'Compare two designs and note how their repeated patterns differ',
+					'Identify one part of the design that would likely become a reusable component later'
+				]"
+				:rubric="independentPracticeRubric"
+			/>
 
 			<h2 id="additional-resources">Additional Resources</h2>
 			<p>

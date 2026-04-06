@@ -3,6 +3,9 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
+import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const sections = [
@@ -12,11 +15,88 @@ const sections = [
 	{ id: 'rows-columns', title: 'Rows and Columns' },
 	{ id: 'choose-tools', title: 'Choose the Right Tool' },
 	{ id: 'simple-wireframe', title: 'Simple Wireframe' },
+	{ id: 'guided-practice', title: 'Guided Practice' },
+	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'additional-resources', title: 'Additional Resources' },
 	{ id: 'recap', title: 'Recap' },
 ];
 
 usePageSections(sections);
+
+const checkpointQuestions = [
+	{
+		question: 'When you first inspect a page, why is it useful to look for the biggest regions before the smaller details?',
+		answer:
+			'Because seeing the largest structural pieces reduces confusion and turns the page into a manageable set of layout decisions instead of one giant problem.',
+	},
+	{
+		question: 'What is the difference between a page-level section and a repeated block inside that section?',
+		answer:
+			'A page-level section carries a larger content purpose, while a repeated block is usually one smaller pattern inside that section, such as a card or link cluster.',
+	},
+	{
+		question: 'Predict what happens when you choose Flexbox or Grid before understanding the shape of the content first.',
+		answer:
+			'Tool choice becomes guesswork, which usually leads to messier layout decisions and more time spent correcting the structure later.',
+	},
+];
+
+const guidedPracticeSteps = [
+	{
+		title: 'Step 1: Mark the biggest page regions',
+		instructions:
+			'<p>Take a homepage, landing page, or mockup you can see clearly. Ignore colours and detailed copy for a moment and mark the biggest regions first: header, hero, main content sections, and footer.</p><p>Your goal is to reduce the page to major structural pieces.</p>',
+		hints: [
+			'Squint a little and look for the largest blocks, not the smallest elements.',
+			'If two pieces clearly serve one larger purpose, keep them together for now.',
+		],
+	},
+	{
+		title: 'Step 2: Label the internal relationships',
+		instructions:
+			'<p>Inside one or two sections, identify what feels like a row, what feels like a column, and what looks like a repeated matrix or collection.</p><p>Do not choose CSS yet. Just describe the relationship.</p>',
+		hints: [
+			'Navigation often behaves like a row.',
+			'A stack of text and actions often behaves like a column.',
+			'A collection of repeated cards often behaves like a grid.',
+		],
+	},
+	{
+		title: 'Step 3: Turn the observation into a wireframe',
+		instructions:
+			'<p>Rewrite the page as a simple text-only wireframe. Focus on structure, hierarchy, and repeated blocks rather than decoration.</p><p>This is the bridge between looking at the page and writing HTML or CSS later.</p>',
+		hints: [
+			'Use labels like Header, Hero, Feature Cards, Gallery, Footer.',
+			'If the wireframe feels messy, the page structure may still be unclear.',
+		],
+	},
+];
+
+const guidedPracticeSuccessCriteria = [
+	'You identified the main page regions before worrying about individual elements',
+	'You described at least one section as a row, one as a column, or one as a repeated collection',
+	'You produced a simple wireframe that could guide later HTML and CSS work',
+	'You can explain why your tool choices should come after this structural step',
+];
+
+const independentPracticeRubric = [
+	{
+		criteria: 'Structural clarity',
+		success: 'The page is broken into sensible large regions before smaller groups are analysed.',
+	},
+	{
+		criteria: 'Relationship thinking',
+		success: 'Rows, columns, and repeated collections are identified based on content shape rather than guesswork.',
+	},
+	{
+		criteria: 'Wireframe usefulness',
+		success: 'The wireframe is simple but detailed enough to guide later implementation.',
+	},
+	{
+		criteria: 'Transfer of idea',
+		success: 'The learner can explain how this layout-reading process would help before writing HTML or CSS.',
+	},
+];
 
 const closureKeyTakeaways = [
 	'Good layout thinking starts before code, not after it.',
@@ -191,6 +271,14 @@ const closureReflectionPrompts = [
 				<p><strong>Helpful rule:</strong> if the main job is lining things up in one direction, think one-dimensional. If the main job is arranging repeated blocks in rows and columns, think two-dimensional.</p>
 			</div>
 
+			<CheckpointBox
+				title="Checkpoint for Understanding"
+				icon="🧩"
+				description="Pause here and check whether you are reading structure before jumping to tool choice."
+				:questions="checkpointQuestions"
+				answers-button-text="Show sample answers"
+			/>
+
 			<h2 id="choose-tools">Step 4: Choose the Right Layout Tool</h2>
 			<p>
 				Once you understand the shape, tool choices become less mysterious.
@@ -233,6 +321,34 @@ const closureReflectionPrompts = [
 				If you can make this kind of rough layout plan, you are already doing one of the
 				most important design-to-code jobs.
 			</p>
+
+			<h2 id="guided-practice">Guided Practice</h2>
+			<GuidedPractice
+				title="Turn a visual page into a layout plan"
+				description="Use the lesson’s process in order so you practise seeing structure before making CSS decisions."
+				:steps="guidedPracticeSteps"
+				:success-criteria="guidedPracticeSuccessCriteria"
+				success-criteria-title="You are on track if you can:"
+			/>
+
+			<h2 id="independent-practice">Independent Practice</h2>
+			<IndependentPractice
+				title="Independent Practice: Read a fresh layout"
+				description="Now try the same skill on a different page without step-by-step support."
+				task-title="Your Task:"
+				task="<p>Choose a different homepage, restaurant site, portfolio page, or simple landing page. Break it into major regions, identify the internal relationships of at least two sections, and sketch a short wireframe plan.</p><p>Your goal is not to style it. Your goal is to understand the page well enough that writing HTML and choosing layout tools would feel clearer afterward.</p>"
+				:requirements="[
+					'Identify the main page regions first',
+					'Describe at least two internal relationships such as row, column, or repeated collection',
+					'Write a short wireframe or outline of the page structure',
+					'Explain one tool choice you would likely make later and why'
+				]"
+				:stretch-goals="[
+					'Compare two sections and explain why one feels one-dimensional while the other feels two-dimensional',
+					'Note one repeated pattern that might become a reusable block later'
+				]"
+				:rubric="independentPracticeRubric"
+			/>
 
 			<h2 id="additional-resources">Additional Resources</h2>
 			<p>

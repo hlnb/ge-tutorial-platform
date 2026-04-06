@@ -3,6 +3,9 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
+import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
+import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const sections = [
@@ -14,11 +17,87 @@ const sections = [
   { id: 'wrapping-and-gap', title: 'Wrapping and Gap' },
   { id: 'not-flexbox', title: 'When Flexbox Is the Wrong Tool' },
   { id: 'responsive-checks', title: 'Responsive Checks' },
+  { id: 'guided-practice', title: 'Guided Practice' },
+  { id: 'independent-practice', title: 'Independent Practice' },
   { id: 'additional-resources', title: 'Additional Resources' },
   { id: 'recap', title: 'Recap' },
 ];
 
 usePageSections(sections);
+
+const checkpointQuestions = [
+  {
+    question: 'If a layout’s main relationship runs left to right, which axis is Flexbox primarily managing?',
+    answer:
+      'The main axis. That is why properties like justify-content control space distribution in that primary direction.',
+  },
+  {
+    question: 'Why is a card body often a good use of flex-direction: column?',
+    answer:
+      'Because the card’s internal relationship usually runs top to bottom: title, text, metadata, and action all need a controlled vertical flow.',
+  },
+  {
+    question: 'Predict what happens if a navigation cluster is built as one rigid row with no wrapping or gap strategy.',
+    answer:
+      'It is more likely to collide, overflow, or become cramped when the viewport narrows or the link text becomes longer.',
+  },
+];
+
+const guidedPracticeSteps = [
+  {
+    title: 'Step 1: Set up the main relationship',
+    instructions:
+      '<p>Imagine a simple site header with a logo on the left and navigation links on the right. Apply <code>display: flex</code> to the header wrapper and decide how the items should relate along the main axis.</p><p>Your goal is not just to make the items sit in a row. Your goal is to make the relationship between the two sides clear.</p>',
+    hints: [
+      'Start by asking what should happen between the logo group and the nav group.',
+      'If the main relationship is side to side, think about justify-content before you think about individual margins.',
+    ],
+  },
+  {
+    title: 'Step 2: Make the inner group behave well',
+    instructions:
+      '<p>Now style the navigation list itself as a flex container. Add <code>gap</code> and allow wrapping if needed.</p><p>This is where the layout becomes more resilient than a row built from manual spacing.</p>',
+    hints: [
+      'Use gap instead of assigning separate margins to each link.',
+      'Wrapping matters when text length or viewport width changes.',
+    ],
+  },
+  {
+    title: 'Step 3: Check a second Flexbox use case',
+    instructions:
+      '<p>Apply the same thinking to a card or call-to-action row. Use Flexbox to control the relationship between the internal pieces, then decide what should happen when space gets tighter.</p>',
+    hints: [
+      'A card often behaves like a vertical flex layout.',
+      'A two-part call-to-action row may need to become a column at smaller widths.',
+    ],
+  },
+];
+
+const guidedPracticeSuccessCriteria = [
+  'You identified the main axis of the layout before choosing properties',
+  'You used Flexbox for both a container-level relationship and an inner content group',
+  'You used gap or wrapping to support the layout cleanly',
+  'You can explain why Flexbox fits these examples better than one-off spacing tricks',
+];
+
+const independentPracticeRubric = [
+  {
+    criteria: 'Axis thinking',
+    success: 'The layout choices clearly match the main direction of the content relationship.',
+  },
+  {
+    criteria: 'Practical Flexbox use',
+    success: 'Flexbox is used for real grouping or alignment problems rather than as a generic default.',
+  },
+  {
+    criteria: 'Responsive resilience',
+    success: 'The pattern still makes sense when content wraps or when the layout shifts for a smaller screen.',
+  },
+  {
+    criteria: 'Tool choice',
+    success: 'The learner can explain why this example is a Flexbox problem instead of a Grid or normal-flow problem.',
+  },
+];
 
 const closureKeyTakeaways = [
   'Flexbox works best when the main layout job happens in one direction at a time.',
@@ -171,6 +250,14 @@ const closureReflectionPrompts = [
         <li><code>align-items</code> controls alignment across the cross axis</li>
         <li><code>gap</code> creates consistent space between flex items</li>
       </ul>
+
+      <CheckpointBox
+        title="Checkpoint for Understanding"
+        icon="🧭"
+        description="Pause here and check whether the axis model is clear before you move into specific layout patterns."
+        :questions="checkpointQuestions"
+        answers-button-text="Show sample answers"
+      />
 
       <h2 id="navigation-patterns">Use Flexbox for Navigation Patterns</h2>
       <p>
@@ -339,6 +426,34 @@ const closureReflectionPrompts = [
         This kind of change is easier once the original relationship is already clear. That is
         another reason Flexbox works well when the content has a strong main axis.
       </p>
+
+      <h2 id="guided-practice">Guided Practice</h2>
+      <GuidedPractice
+        title="Build a small Flexbox layout on purpose"
+        description="Use the lesson’s ideas to set up one-direction layout relationships more deliberately instead of relying on trial and error."
+        :steps="guidedPracticeSteps"
+        :success-criteria="guidedPracticeSuccessCriteria"
+        success-criteria-title="You are on track if you can:"
+      />
+
+      <h2 id="independent-practice">Independent Practice</h2>
+      <IndependentPractice
+        title="Independent Practice: Choose the right Flexbox pattern"
+        description="Now apply the concept in a slightly new layout situation without step-by-step guidance."
+        task-title="Your Task:"
+        task="<p>Sketch or build a small restaurant page section that includes <strong>two related content areas</strong>, such as a booking call-to-action, a footer link cluster, or an image-and-text promo row.</p><p>Use Flexbox deliberately to manage the main relationship, and decide what should happen when the layout gets narrower.</p>"
+        :requirements="[
+          'Use Flexbox for a clear one-dimensional layout relationship',
+          'Include spacing with gap or another deliberate alignment choice',
+          'Describe what should happen on a narrower screen',
+          'Write one short note explaining why Flexbox fits this case'
+        ]"
+        :stretch-goals="[
+          'Apply Flexbox both to the outer section and to one smaller repeated internal group',
+          'Identify one part of the layout that should not use Flexbox and explain why'
+        ]"
+        :rubric="independentPracticeRubric"
+      />
 
       <h2 id="additional-resources">Additional Resources</h2>
       <p>
