@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Pattern to reusable component</title>
+  <desc id="desc">A diagram showing several similar card patterns becoming one reusable component structure with stable parts and variable content.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.card{fill:#f8fafb;stroke:#9aa5b1;stroke-width:1.5}.accent{fill:#d6e8ef}.muted{fill:#f0f4f8}.arrow{stroke:#4b88a2;stroke-width:4;fill:none;marker-end:url(#arrowhead)}
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4b88a2"/>
+    </marker>
+  </defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">From Repeated Pattern to Reusable Component</text>
+  <text x="60" y="84" class="subtitle">Notice what repeats, then define one stable structure that can hold changing content.</text>
+  <rect x="70" y="125" width="330" height="245" rx="16" class="panel"/>
+  <text x="235" y="158" text-anchor="middle" class="label">Similar pieces noticed</text>
+  <g transform="translate(100 185)">
+    <rect width="80" height="118" rx="10" class="card"/><rect x="12" y="14" width="56" height="28" rx="5" class="accent"/><rect x="12" y="56" width="52" height="8" rx="4" class="muted"/><rect x="12" y="72" width="44" height="8" rx="4" class="muted"/><rect x="12" y="94" width="36" height="10" rx="5" class="accent"/>
+  </g>
+  <g transform="translate(205 185)">
+    <rect width="80" height="118" rx="10" class="card"/><rect x="12" y="14" width="56" height="28" rx="5" class="accent"/><rect x="12" y="56" width="48" height="8" rx="4" class="muted"/><rect x="12" y="72" width="54" height="8" rx="4" class="muted"/><rect x="12" y="94" width="36" height="10" rx="5" class="accent"/>
+  </g>
+  <g transform="translate(310 185)">
+    <rect width="80" height="118" rx="10" class="card"/><rect x="12" y="14" width="56" height="28" rx="5" class="accent"/><rect x="12" y="56" width="54" height="8" rx="4" class="muted"/><rect x="12" y="72" width="40" height="8" rx="4" class="muted"/><rect x="12" y="94" width="36" height="10" rx="5" class="accent"/>
+  </g>
+  <path d="M430 250 C470 250 490 250 530 250" class="arrow"/>
+  <rect x="560" y="125" width="330" height="245" rx="16" class="panel"/>
+  <text x="725" y="158" text-anchor="middle" class="label">One component structure</text>
+  <rect x="650" y="190" width="150" height="132" rx="14" class="card"/>
+  <rect x="672" y="210" width="106" height="30" rx="6" class="accent"/>
+  <text x="725" y="230" text-anchor="middle" class="small">title slot</text>
+  <rect x="672" y="258" width="106" height="10" rx="5" class="muted"/>
+  <rect x="672" y="276" width="86" height="10" rx="5" class="muted"/>
+  <text x="725" y="306" text-anchor="middle" class="small">action/meta slot</text>
+  <text x="725" y="354" text-anchor="middle" class="small">stable shell + changing content</text>
+</svg>

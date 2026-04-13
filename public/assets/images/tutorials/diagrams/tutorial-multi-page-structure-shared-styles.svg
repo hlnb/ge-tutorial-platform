@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Shared styles across pages</title>
+  <desc id="desc">A diagram showing several HTML pages connected to one shared stylesheet for consistent navigation, buttons, cards, and footer styles.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.page{fill:#fff;stroke:#cbd2d9;stroke-width:2}.css{fill:#d6e8ef;stroke:#4b88a2;stroke-width:3}.part{fill:#f0f4f8}.arrow{stroke:#4b88a2;stroke-width:3;fill:none;marker-end:url(#arrowhead)}
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4b88a2"/>
+    </marker>
+  </defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="54" class="title">One Shared Stylesheet Holds the Site Together</text>
+  <text x="60" y="82" class="subtitle">Different pages can share the same header, footer, cards, buttons, spacing, and colour system.</text>
+
+  <g transform="translate(80 138)">
+    <rect width="140" height="110" rx="14" class="page"/>
+    <rect x="20" y="22" width="100" height="12" rx="6" class="part"/>
+    <rect x="20" y="48" width="72" height="10" rx="5" class="part"/>
+    <rect x="20" y="72" width="100" height="16" rx="8" class="part"/>
+    <text x="70" y="142" text-anchor="middle" class="small">index.html</text>
+  </g>
+  <g transform="translate(280 138)">
+    <rect width="140" height="110" rx="14" class="page"/>
+    <rect x="20" y="22" width="100" height="12" rx="6" class="part"/>
+    <rect x="20" y="48" width="90" height="10" rx="5" class="part"/>
+    <rect x="20" y="72" width="100" height="16" rx="8" class="part"/>
+    <text x="70" y="142" text-anchor="middle" class="small">menu.html</text>
+  </g>
+  <g transform="translate(80 300)">
+    <rect width="140" height="90" rx="14" class="page"/>
+    <rect x="20" y="20" width="100" height="12" rx="6" class="part"/>
+    <rect x="20" y="46" width="80" height="10" rx="5" class="part"/>
+    <text x="70" y="118" text-anchor="middle" class="small">about.html</text>
+  </g>
+  <g transform="translate(280 300)">
+    <rect width="140" height="90" rx="14" class="page"/>
+    <rect x="20" y="20" width="100" height="12" rx="6" class="part"/>
+    <rect x="20" y="46" width="62" height="10" rx="5" class="part"/>
+    <text x="70" y="118" text-anchor="middle" class="small">contact.html</text>
+  </g>
+
+  <rect x="610" y="168" width="240" height="150" rx="18" class="css"/>
+  <text x="730" y="202" text-anchor="middle" class="label">css/styles.css</text>
+  <text x="730" y="235" text-anchor="middle" class="small">tokens</text>
+  <text x="730" y="257" text-anchor="middle" class="small">layout helpers</text>
+  <text x="730" y="279" text-anchor="middle" class="small">nav, footer, buttons, cards</text>
+
+  <path d="M430 190 C500 190 530 210 608 218" class="arrow"/>
+  <path d="M430 352 C500 342 530 300 608 286" class="arrow"/>
+</svg>

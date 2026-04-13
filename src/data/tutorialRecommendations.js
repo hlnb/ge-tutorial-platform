@@ -876,13 +876,38 @@ const legacyTutorialEditorialContent = {
 				},
 			],
 		},
+		'building-reusable-components': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'BEM — Block Element Modifier',
+					url: 'https://getbem.com',
+					description: 'A useful naming model for reusable interface blocks and their internal parts.',
+				},
+				{
+					title: 'Every Layout',
+					url: 'https://every-layout.dev',
+					description: 'Helpful for understanding reusable layout patterns as small composable building blocks.',
+				},
+			],
+		},
 		'black-swan-bistro-part-3': {
 			practiceProjects: [],
 			resources: [
 				{
+					title: 'BEM — Block Element Modifier',
+					url: 'https://getbem.com',
+					description: 'A useful naming model for component shells and internal parts.',
+				},
+				{
 					title: 'CSS-Tricks: A Complete Guide to Flexbox',
 					url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/',
-					description: 'Visual guide to every Flexbox property.',
+					description: 'Helpful when aligning navigation, footer links, and component interiors.',
+				},
+				{
+					title: 'MDN: Document and website structure',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure',
+					description: 'A useful refresher for keeping reusable HTML patterns semantic.',
 				},
 			],
 		},
@@ -890,9 +915,29 @@ const legacyTutorialEditorialContent = {
 			practiceProjects: [],
 			resources: [
 				{
+					title: 'CSS-Tricks: A Complete Guide to CSS Grid',
+					url: 'https://css-tricks.com/snippets/css/complete-guide-grid/',
+					description: 'A practical visual reference for Grid properties, terminology, and layout examples.',
+				},
+				{
+					title: 'CSS-Tricks: A Complete Guide to Flexbox',
+					url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/',
+					description: 'Useful for comparing Flexbox’s one-direction strengths with Grid’s two-dimensional layout model.',
+				},
+				{
 					title: 'MDN: CSS Grid Layout',
 					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout',
 					description: 'Reference and guides for using Grid when rows and columns matter together.',
+				},
+				{
+					title: 'MDN: Basic Concepts of Grid Layout',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Basic_concepts',
+					description: 'A clear tutorial on grid containers, tracks, lines, cells, areas, gutters, and flexible tracks.',
+				},
+				{
+					title: 'MDN: CSS Flexible Box Layout',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout',
+					description: 'Canonical Flexbox reference for concepts, properties, and typical one-dimensional layout use cases.',
 				},
 				{
 					title: 'Every Layout',
@@ -910,9 +955,44 @@ const legacyTutorialEditorialContent = {
 					description: 'A solid refresher on media queries, flexible layouts, and responsive decisions.',
 				},
 				{
+					title: 'MDN: Using Media Queries',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries',
+					description: 'Reference for writing media queries when component behaviour needs to change.',
+				},
+				{
+					title: 'MDN: CSS Values and Units',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units',
+					description: 'Useful background for relative units, viewport units, and flexible CSS values.',
+				},
+				{
+					title: 'MDN: CSS Container Queries',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries',
+					description: 'A later extension topic for components that need to respond to their own container size.',
+				},
+				{
 					title: 'web.dev: Responsive design basics',
 					url: 'https://web.dev/responsive-web-design-basics/',
 					description: 'Useful for reinforcing content-first breakpoint decisions and practical responsive patterns.',
+				},
+			],
+		},
+		'multi-page-structure': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Creating hyperlinks',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks',
+					description: 'A clear guide to links, URLs, and connecting pages together.',
+				},
+				{
+					title: 'MDN: Dealing with files',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files',
+					description: 'Useful for understanding folders, file names, and where assets should live.',
+				},
+				{
+					title: 'MDN: Document and website structure',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure',
+					description: 'Helpful background for planning page regions and shared site structure.',
 				},
 			],
 		},

@@ -49,11 +49,23 @@ function getEditorialRecommendations(path) {
 		return createEmptyRecommendations();
 	}
 
+	const tutorialRecord = getTutorialByPath(normalizedPath);
 	const pathParts = normalizedPath.split('/').filter(Boolean);
-	const section = pathParts[pathParts.length - 2];
-	const tutorial = pathParts[pathParts.length - 1];
+	const sectionCandidates = [
+		tutorialRecord?.section,
+		pathParts[pathParts.length - 2],
+	].filter(Boolean);
+	const tutorialCandidates = [
+		tutorialRecord?.id,
+		tutorialRecord?.slug?.split('/').pop(),
+		pathParts[pathParts.length - 1],
+	].filter(Boolean);
 
-	const tutorialRecs = tutorialEditorialContent[section]?.[tutorial];
+	const tutorialRecs = sectionCandidates
+		.flatMap((section) =>
+			tutorialCandidates.map((tutorial) => tutorialEditorialContent[section]?.[tutorial]),
+		)
+		.find(Boolean);
 
 	return tutorialRecs ? cloneEditorialContent(tutorialRecs) : createEmptyRecommendations();
 }

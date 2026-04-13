@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Component contract between HTML and CSS</title>
+  <desc id="desc">A diagram showing HTML class names on one side connected to CSS responsibilities on the other side.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.row{fill:#f8fafb;stroke:#9aa5b1;stroke-width:1.5}.css{fill:#f0f9ff;stroke:#4b88a2;stroke-width:1.5}.html{fill:#fff7ed;stroke:#c56a2c;stroke-width:1.5}.line{stroke:#9aa5b1;stroke-width:2;stroke-dasharray:6 6}
+    </style>
+  </defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">The Component Contract</text>
+  <text x="60" y="84" class="subtitle">The markup names the parts. The CSS agrees what each part is responsible for.</text>
+  <rect x="80" y="125" width="350" height="245" rx="16" class="panel"/>
+  <text x="255" y="160" text-anchor="middle" class="label">HTML structure</text>
+  <rect x="115" y="190" width="280" height="36" rx="8" class="html"/><text x="135" y="213" class="small">.menu-card</text>
+  <rect x="145" y="240" width="235" height="32" rx="8" class="html"/><text x="165" y="261" class="small">.menu-card__title</text>
+  <rect x="145" y="282" width="235" height="32" rx="8" class="html"/><text x="165" y="303" class="small">.menu-card__description</text>
+  <rect x="145" y="324" width="235" height="32" rx="8" class="html"/><text x="165" y="345" class="small">.menu-card__meta</text>
+  <rect x="530" y="125" width="350" height="245" rx="16" class="panel"/>
+  <text x="705" y="160" text-anchor="middle" class="label">CSS responsibility</text>
+  <rect x="565" y="190" width="280" height="36" rx="8" class="css"/><text x="585" y="213" class="small">shared shell: spacing, border, surface</text>
+  <rect x="565" y="240" width="280" height="32" rx="8" class="css"/><text x="585" y="261" class="small">heading rhythm</text>
+  <rect x="565" y="282" width="280" height="32" rx="8" class="css"/><text x="585" y="303" class="small">supporting text style</text>
+  <rect x="565" y="324" width="280" height="32" rx="8" class="css"/><text x="585" y="345" class="small">price, meta, or action emphasis</text>
+  <line x1="395" y1="208" x2="565" y2="208" class="line"/>
+  <line x1="380" y1="256" x2="565" y2="256" class="line"/>
+  <line x1="380" y1="298" x2="565" y2="298" class="line"/>
+  <line x1="380" y1="340" x2="565" y2="340" class="line"/>
+</svg>

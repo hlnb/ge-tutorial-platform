@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" role="img" aria-labelledby="title desc">
+  <title id="title">Black Swan Bistro pattern inventory</title>
+  <desc id="desc">A homepage wireframe with repeated navigation, menu card, call-to-action, and footer patterns labelled as component candidates.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:15px;font-weight:700}.small{font-size:13px;fill:#52606d}.page{fill:#fffaf0;stroke:#cbd2d9;stroke-width:2}.section{fill:#fff;stroke:#d8c6b0;stroke-width:2}.candidate{fill:#d6e8ef;stroke:#4b88a2;stroke-width:2}.callout{fill:#ffffff;stroke:#9aa5b1;stroke-width:1.5}.line{stroke:#4b88a2;stroke-width:2;fill:none}
+    </style>
+  </defs>
+  <rect width="960" height="460" fill="#f8fafb"/>
+  <text x="60" y="54" class="title">Step 1: Inventory the Repeated Patterns</text>
+  <text x="60" y="82" class="subtitle">Only refactor patterns that the page already shows you more than once or will reuse on future pages.</text>
+
+  <rect x="80" y="118" width="520" height="285" rx="18" class="page"/>
+  <rect x="110" y="145" width="460" height="42" rx="10" class="candidate"/>
+  <text x="132" y="171" class="label">Header + navigation</text>
+  <rect x="110" y="206" width="460" height="52" rx="10" class="section"/>
+  <text x="132" y="238" class="small">Hero and intro content</text>
+  <g transform="translate(110 280)">
+    <rect width="132" height="74" rx="10" class="candidate"/>
+    <rect x="164" width="132" height="74" rx="10" class="candidate"/>
+    <rect x="328" width="132" height="74" rx="10" class="candidate"/>
+    <text x="66" y="42" text-anchor="middle" class="small">Menu card</text>
+    <text x="230" y="42" text-anchor="middle" class="small">Menu card</text>
+    <text x="394" y="42" text-anchor="middle" class="small">Menu card</text>
+  </g>
+  <rect x="110" y="371" width="220" height="20" rx="10" class="candidate"/>
+  <rect x="350" y="371" width="220" height="20" rx="10" class="candidate"/>
+
+  <rect x="660" y="138" width="230" height="52" rx="12" class="callout"/>
+  <text x="682" y="162" class="label">Reuse now</text>
+  <text x="682" y="181" class="small">Navigation appears on every page.</text>
+  <path d="M660 166 L570 166" class="line"/>
+
+  <rect x="660" y="240" width="230" height="66" rx="12" class="callout"/>
+  <text x="682" y="264" class="label">Make a component</text>
+  <text x="682" y="283" class="small">Cards share structure but hold</text>
+  <text x="682" y="300" class="small">different dish content.</text>
+  <path d="M660 272 L570 317" class="line"/>
+
+  <rect x="660" y="342" width="230" height="54" rx="12" class="callout"/>
+  <text x="682" y="366" class="label">Prepare for Part 4</text>
+  <text x="682" y="385" class="small">Footer and CTAs will repeat.</text>
+  <path d="M660 368 L570 384" class="line"/>
+</svg>

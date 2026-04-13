@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Named Grid areas for page regions</title>
+  <desc id="desc">A diagram showing a page layout with named areas for hero text, hero image, content, sidebar, and call to action.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.frame{fill:#fff;stroke:#cbd2d9;stroke-width:2}.area{stroke:#4b88a2;stroke-width:1.8}.a{fill:#d6e8ef}.b{fill:#fff7ed}.c{fill:#e0f2fe}.d{fill:#f0f4f8}.e{fill:#e5e7eb}
+    </style>
+  </defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">Grid Can Name Page Regions</text>
+  <text x="60" y="84" class="subtitle">Named areas make larger two-dimensional layouts easier to read and rearrange.</text>
+  <rect x="90" y="125" width="430" height="250" rx="16" class="frame"/>
+  <rect x="125" y="165" width="180" height="70" rx="10" class="area a"/><text x="215" y="205" text-anchor="middle" class="label">hero text</text>
+  <rect x="320" y="165" width="160" height="70" rx="10" class="area b"/><text x="400" y="205" text-anchor="middle" class="label">image</text>
+  <rect x="125" y="250" width="220" height="78" rx="10" class="area c"/><text x="235" y="294" text-anchor="middle" class="label">content</text>
+  <rect x="360" y="250" width="120" height="78" rx="10" class="area d"/><text x="420" y="294" text-anchor="middle" class="label">aside</text>
+  <rect x="125" y="340" width="355" height="20" rx="8" class="area e"/><text x="302" y="356" text-anchor="middle" class="small">call to action</text>
+  <rect x="580" y="125" width="300" height="250" rx="16" class="frame"/>
+  <text x="730" y="170" text-anchor="middle" class="label">grid-template-areas</text>
+  <text x="615" y="220" class="small">"hero image"</text>
+  <text x="615" y="250" class="small">"content aside"</text>
+  <text x="615" y="280" class="small">"cta cta"</text>
+  <text x="730" y="330" text-anchor="middle" class="small">The CSS can describe the page shape.</text>
+</svg>

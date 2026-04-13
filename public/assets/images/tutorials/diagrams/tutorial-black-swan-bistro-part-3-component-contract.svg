@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Menu card component contract</title>
+  <desc id="desc">A menu card component shown as a stable shell with named internal parts and changing content slots.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.shell{fill:#fff;stroke:#8f2f23;stroke-width:3}.slot{fill:#fff4d6;stroke:#d89b2b;stroke-width:2}.part{fill:#d6e8ef;stroke:#4b88a2;stroke-width:2}.note{fill:#f8fafb;stroke:#cbd2d9;stroke-width:1.5}.arrow{stroke:#4b88a2;stroke-width:3;fill:none;marker-end:url(#arrowhead)}
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4b88a2"/>
+    </marker>
+  </defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="54" class="title">Step 2: Define the Component Contract</text>
+  <text x="60" y="82" class="subtitle">The shell and part names stay stable. The content can change safely from card to card.</text>
+
+  <rect x="110" y="125" width="300" height="245" rx="18" class="shell"/>
+  <text x="260" y="158" text-anchor="middle" class="label">.menu-card</text>
+  <rect x="145" y="182" width="230" height="30" rx="8" class="part"/>
+  <text x="260" y="202" text-anchor="middle" class="small">.menu-card__eyebrow</text>
+  <rect x="145" y="226" width="230" height="38" rx="8" class="slot"/>
+  <text x="260" y="250" text-anchor="middle" class="small">.menu-card__title</text>
+  <rect x="145" y="278" width="230" height="45" rx="8" class="slot"/>
+  <text x="260" y="304" text-anchor="middle" class="small">.menu-card__description</text>
+  <rect x="145" y="337" width="92" height="26" rx="8" class="part"/>
+  <text x="191" y="355" text-anchor="middle" class="small">price</text>
+
+  <path d="M430 248 C482 248 500 248 548 248" class="arrow"/>
+
+  <rect x="570" y="132" width="285" height="78" rx="14" class="note"/>
+  <text x="596" y="158" class="label">Stable structure</text>
+  <text x="596" y="181" class="small">Same wrapper, same part names,</text>
+  <text x="596" y="199" class="small">same expected content order.</text>
+
+  <rect x="570" y="238" width="285" height="92" rx="14" class="note"/>
+  <text x="596" y="264" class="label">Flexible content</text>
+  <text x="596" y="287" class="small">Dish names, descriptions, labels,</text>
+  <text x="596" y="305" class="small">and prices can change without</text>
+  <text x="596" y="323" class="small">changing the component contract.</text>
+</svg>

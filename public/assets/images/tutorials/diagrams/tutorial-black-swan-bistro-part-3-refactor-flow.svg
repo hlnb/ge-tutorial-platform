@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">Black Swan Bistro component refactor flow</title>
+  <desc id="desc">A three-step flow showing a wireframe homepage, reusable component patterns, and future multi-page reuse.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.item{fill:#f0f4f8;stroke:#9aa5b1;stroke-width:1.5}.component{fill:#d6e8ef;stroke:#4b88a2;stroke-width:2}.future{fill:#fff4d6;stroke:#d89b2b;stroke-width:2}.arrow{stroke:#4b88a2;stroke-width:4;fill:none;marker-end:url(#arrowhead)}
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4b88a2"/>
+    </marker>
+  </defs>
+  <rect width="960" height="430" fill="#f8fafb"/>
+  <text x="60" y="54" class="title">Part 3 Refactor Flow</text>
+  <text x="60" y="82" class="subtitle">Move from one working homepage to reusable patterns that can support more pages.</text>
+
+  <rect x="70" y="126" width="230" height="220" rx="18" class="panel"/>
+  <text x="185" y="158" text-anchor="middle" class="label">Part 2 homepage</text>
+  <rect x="105" y="184" width="160" height="24" rx="7" class="item"/>
+  <rect x="105" y="224" width="70" height="60" rx="8" class="item"/>
+  <rect x="195" y="224" width="70" height="60" rx="8" class="item"/>
+  <rect x="105" y="306" width="160" height="20" rx="7" class="item"/>
+  <text x="185" y="374" text-anchor="middle" class="small">Repeated shapes are visible</text>
+
+  <path d="M325 236 C355 236 375 236 405 236" class="arrow"/>
+
+  <rect x="430" y="126" width="230" height="220" rx="18" class="panel"/>
+  <text x="545" y="158" text-anchor="middle" class="label">Part 3 components</text>
+  <rect x="470" y="184" width="150" height="28" rx="8" class="component"/>
+  <text x="545" y="203" text-anchor="middle" class="small">site-header</text>
+  <rect x="470" y="232" width="150" height="28" rx="8" class="component"/>
+  <text x="545" y="251" text-anchor="middle" class="small">menu-card</text>
+  <rect x="470" y="280" width="150" height="28" rx="8" class="component"/>
+  <text x="545" y="299" text-anchor="middle" class="small">site-footer</text>
+  <text x="545" y="374" text-anchor="middle" class="small">Names and contracts are stable</text>
+
+  <path d="M685 236 C715 236 735 236 765 236" class="arrow"/>
+
+  <rect x="790" y="126" width="110" height="220" rx="18" class="panel"/>
+  <text x="845" y="158" text-anchor="middle" class="label">Part 4</text>
+  <rect x="815" y="184" width="60" height="32" rx="8" class="future"/>
+  <rect x="815" y="234" width="60" height="32" rx="8" class="future"/>
+  <rect x="815" y="284" width="60" height="32" rx="8" class="future"/>
+  <text x="845" y="374" text-anchor="middle" class="small">Reuse across pages</text>
+</svg>

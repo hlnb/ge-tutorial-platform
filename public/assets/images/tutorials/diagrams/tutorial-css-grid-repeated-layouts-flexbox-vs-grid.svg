@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Flexbox versus Grid for repeated layouts</title>
+  <desc id="desc">A comparison showing Flexbox as a one-direction layout tool and Grid as a two-dimensional layout tool for repeated cards.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:17px;font-weight:700}.small{font-size:13px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.tile{fill:#f0f4f8;stroke:#9aa5b1;stroke-width:1.5}.accent{fill:#d6e8ef;stroke:#4b88a2;stroke-width:1.5}
+    </style>
+  </defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">Flexbox Aligns. Grid Arranges.</text>
+  <text x="60" y="84" class="subtitle">Use Grid when repeated content needs rows and columns together.</text>
+  <rect x="70" y="125" width="380" height="250" rx="16" class="panel"/>
+  <text x="260" y="162" text-anchor="middle" class="label">Flexbox: one main direction</text>
+  <rect x="112" y="210" width="78" height="78" rx="12" class="tile"/>
+  <rect x="206" y="210" width="78" height="78" rx="12" class="tile"/>
+  <rect x="300" y="210" width="78" height="78" rx="12" class="tile"/>
+  <text x="260" y="326" text-anchor="middle" class="small">Great for a row, cluster, or card internals.</text>
+  <rect x="510" y="125" width="380" height="250" rx="16" class="panel"/>
+  <text x="700" y="162" text-anchor="middle" class="label">Grid: rows and columns together</text>
+  <rect x="570" y="195" width="70" height="58" rx="10" class="accent"/>
+  <rect x="655" y="195" width="70" height="58" rx="10" class="accent"/>
+  <rect x="740" y="195" width="70" height="58" rx="10" class="accent"/>
+  <rect x="570" y="268" width="70" height="58" rx="10" class="accent"/>
+  <rect x="655" y="268" width="70" height="58" rx="10" class="accent"/>
+  <rect x="740" y="268" width="70" height="58" rx="10" class="accent"/>
+  <text x="700" y="354" text-anchor="middle" class="small">Great for galleries, card collections, and page areas.</text>
+</svg>

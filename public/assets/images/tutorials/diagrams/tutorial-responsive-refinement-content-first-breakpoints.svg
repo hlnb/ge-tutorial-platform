@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Content-first breakpoints</title>
+  <desc id="desc">A reusable card shown at wide, medium, and narrow widths with responsive changes triggered by content pressure rather than device names.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.card{fill:#f8fafb;stroke:#9aa5b1;stroke-width:1.5}.ok{fill:#d6e8ef;stroke:#4b88a2;stroke-width:2}.warn{fill:#fff4d6;stroke:#d89b2b;stroke-width:2}.bad{fill:#fde2e2;stroke:#c2410c;stroke-width:2}.line{fill:#e5e7eb}.arrow{stroke:#4b88a2;stroke-width:3;fill:none;marker-end:url(#arrowhead)}
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4b88a2"/>
+    </marker>
+  </defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="54" class="title">Breakpoints Come From Content Pressure</text>
+  <text x="60" y="82" class="subtitle">Watch the component. Change the layout when the content starts asking for help.</text>
+
+  <rect x="70" y="126" width="240" height="235" rx="18" class="panel"/>
+  <text x="190" y="158" text-anchor="middle" class="label">Wide space</text>
+  <rect x="110" y="188" width="160" height="112" rx="14" class="ok"/>
+  <rect x="130" y="210" width="120" height="12" rx="6" class="line"/>
+  <rect x="130" y="236" width="110" height="9" rx="5" class="line"/>
+  <rect x="130" y="254" width="95" height="9" rx="5" class="line"/>
+  <rect x="130" y="276" width="62" height="12" rx="6" class="line"/>
+  <text x="190" y="332" text-anchor="middle" class="small">Readable and balanced</text>
+
+  <rect x="360" y="126" width="240" height="235" rx="18" class="panel"/>
+  <text x="480" y="158" text-anchor="middle" class="label">Medium space</text>
+  <rect x="425" y="188" width="110" height="124" rx="14" class="warn"/>
+  <rect x="443" y="212" width="74" height="12" rx="6" class="line"/>
+  <rect x="443" y="238" width="70" height="9" rx="5" class="line"/>
+  <rect x="443" y="256" width="76" height="9" rx="5" class="line"/>
+  <rect x="443" y="282" width="74" height="14" rx="7" class="line"/>
+  <text x="480" y="332" text-anchor="middle" class="small">Watch for pressure</text>
+
+  <rect x="650" y="126" width="240" height="235" rx="18" class="panel"/>
+  <text x="770" y="158" text-anchor="middle" class="label">Narrow space</text>
+  <rect x="728" y="188" width="84" height="132" rx="14" class="bad"/>
+  <rect x="742" y="212" width="56" height="12" rx="6" class="line"/>
+  <rect x="742" y="238" width="48" height="9" rx="5" class="line"/>
+  <rect x="742" y="256" width="52" height="9" rx="5" class="line"/>
+  <rect x="742" y="282" width="56" height="18" rx="8" class="line"/>
+  <text x="770" y="332" text-anchor="middle" class="small">Refine the behaviour</text>
+
+  <path d="M312 244 C330 244 338 244 356 244" class="arrow"/>
+  <path d="M602 244 C620 244 628 244 646 244" class="arrow"/>
+</svg>

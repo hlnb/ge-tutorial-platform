@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Static site file structure</title>
+  <desc id="desc">A diagram showing a simple static website folder with HTML pages, a css folder, and an images folder.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.mono{font-family:"Courier New",monospace;font-size:15px;fill:#1f2933}.small{font-size:13px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.folder{fill:#fff4d6;stroke:#d89b2b;stroke-width:2}.file{fill:#d6e8ef;stroke:#4b88a2;stroke-width:2}.note{fill:#f8fafb;stroke:#cbd2d9;stroke-width:1.5}
+    </style>
+  </defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="54" class="title">Use a Predictable File Structure</text>
+  <text x="60" y="82" class="subtitle">Simple folders keep links, CSS, and images easier to reason about.</text>
+
+  <rect x="80" y="120" width="430" height="260" rx="18" class="panel"/>
+  <text x="120" y="158" class="mono">black-swan-bistro/</text>
+  <rect x="140" y="180" width="140" height="28" rx="8" class="file"/>
+  <text x="158" y="200" class="mono">index.html</text>
+  <rect x="140" y="218" width="140" height="28" rx="8" class="file"/>
+  <text x="158" y="238" class="mono">menu.html</text>
+  <rect x="140" y="256" width="140" height="28" rx="8" class="file"/>
+  <text x="158" y="276" class="mono">about.html</text>
+  <rect x="140" y="294" width="154" height="28" rx="8" class="file"/>
+  <text x="158" y="314" class="mono">contact.html</text>
+
+  <rect x="330" y="180" width="110" height="28" rx="8" class="folder"/>
+  <text x="354" y="200" class="mono">css/</text>
+  <rect x="350" y="218" width="118" height="28" rx="8" class="file"/>
+  <text x="363" y="238" class="mono">styles.css</text>
+
+  <rect x="330" y="276" width="120" height="28" rx="8" class="folder"/>
+  <text x="354" y="296" class="mono">images/</text>
+  <rect x="350" y="314" width="120" height="28" rx="8" class="file"/>
+  <text x="363" y="334" class="mono">dish.jpg</text>
+
+  <rect x="585" y="154" width="295" height="78" rx="14" class="note"/>
+  <text x="610" y="181" class="label">Same-level HTML</text>
+  <text x="610" y="204" class="small">Pages can link with direct filenames.</text>
+
+  <rect x="585" y="260" width="295" height="90" rx="14" class="note"/>
+  <text x="610" y="287" class="label">Shared folders</text>
+  <text x="610" y="310" class="small">CSS and images live in predictable</text>
+  <text x="610" y="328" class="small">places instead of beside every page.</text>
+</svg>

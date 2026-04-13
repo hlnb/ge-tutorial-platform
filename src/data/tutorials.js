@@ -1521,11 +1521,11 @@ const tutorialRecords = [
   },
   {
     id: 'bsb-part-3',
-    title: 'Black Swan Bistro — Part 3 (Components)',
+    title: 'Black Swan Bistro — Part 3: Refactor Repeated Patterns into Components',
     slug: 'intermediate/black-swan-bistro-part-3',
     section: 'design-to-code',
     summary:
-      'Refactor the bistro site into reusable menu cards, nav bar, and footer components.',
+      'Turn repeated bistro patterns into reusable navigation, menu card, CTA, and footer components with plain HTML and CSS.',
     level: 'intermediate',
     levelTitle: 'Intermediate',
     levelDescription: 'Layouts, components, and professional workflows.',
@@ -1538,7 +1538,7 @@ const tutorialRecords = [
     isProject: true,
     project: 'black-swan-bistro',
     projectPart: 3,
-    projectTitle: 'Components',
+    projectTitle: 'Refactor Repeated Patterns into Components',
     badge: 'Project',
     topic: 'project',
     lessonCount: null,

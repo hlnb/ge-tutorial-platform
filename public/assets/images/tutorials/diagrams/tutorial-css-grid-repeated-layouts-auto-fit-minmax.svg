@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Auto-fit minmax responsive grid</title>
+  <desc id="desc">A diagram showing a repeated card grid adapting from three columns to two columns to one column as available width changes.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.frame{fill:#fff;stroke:#cbd2d9;stroke-width:2}.tile{fill:#d6e8ef;stroke:#4b88a2;stroke-width:1.5}
+    </style>
+  </defs>
+  <rect width="960" height="440" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">A Repeatable Grid Can Adapt</text>
+  <text x="60" y="84" class="subtitle">repeat(auto-fit, minmax(...)) lets cards create as many useful columns as space allows.</text>
+  <g transform="translate(70 135)">
+    <rect width="260" height="220" rx="16" class="frame"/><text x="130" y="34" text-anchor="middle" class="label">Wide space</text>
+    <rect x="32" y="70" width="56" height="52" rx="8" class="tile"/><rect x="102" y="70" width="56" height="52" rx="8" class="tile"/><rect x="172" y="70" width="56" height="52" rx="8" class="tile"/>
+    <rect x="32" y="140" width="56" height="52" rx="8" class="tile"/><rect x="102" y="140" width="56" height="52" rx="8" class="tile"/><rect x="172" y="140" width="56" height="52" rx="8" class="tile"/>
+    <text x="130" y="208" text-anchor="middle" class="small">3 columns</text>
+  </g>
+  <g transform="translate(350 135)">
+    <rect width="260" height="220" rx="16" class="frame"/><text x="130" y="34" text-anchor="middle" class="label">Medium space</text>
+    <rect x="64" y="65" width="58" height="46" rx="8" class="tile"/><rect x="138" y="65" width="58" height="46" rx="8" class="tile"/>
+    <rect x="64" y="122" width="58" height="46" rx="8" class="tile"/><rect x="138" y="122" width="58" height="46" rx="8" class="tile"/>
+    <text x="130" y="208" text-anchor="middle" class="small">2 columns</text>
+  </g>
+  <g transform="translate(630 135)">
+    <rect width="260" height="220" rx="16" class="frame"/><text x="130" y="34" text-anchor="middle" class="label">Narrow space</text>
+    <rect x="80" y="62" width="100" height="38" rx="8" class="tile"/><rect x="80" y="112" width="100" height="38" rx="8" class="tile"/><rect x="80" y="162" width="100" height="38" rx="8" class="tile"/>
+    <text x="130" y="208" text-anchor="middle" class="small">1 column</text>
+  </g>
+</svg>

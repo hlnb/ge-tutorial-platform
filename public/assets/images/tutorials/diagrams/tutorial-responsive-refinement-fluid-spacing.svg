@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Fluid spacing and type</title>
+  <desc id="desc">A diagram showing spacing and heading size growing smoothly across small, medium, and large screens instead of jumping at one breakpoint.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.screen{fill:#fffaf0;stroke:#d8c6b0;stroke-width:2}.content{fill:#d6e8ef}.type{fill:#4b88a2}.space{fill:#fff4d6;stroke:#d89b2b;stroke-width:2}.curve{stroke:#8f2f23;stroke-width:4;fill:none}.dot{fill:#8f2f23}
+    </style>
+  </defs>
+  <rect width="960" height="420" fill="#f8fafb"/>
+  <text x="60" y="54" class="title">Fluid Values Smooth Out the Rhythm</text>
+  <text x="60" y="82" class="subtitle">Use clamp() for values that should grow gradually between a safe minimum and maximum.</text>
+
+  <rect x="60" y="124" width="230" height="210" rx="18" class="panel"/>
+  <text x="175" y="156" text-anchor="middle" class="label">Small</text>
+  <rect x="120" y="185" width="110" height="112" rx="12" class="screen"/>
+  <rect x="140" y="209" width="70" height="14" rx="7" class="type"/>
+  <rect x="140" y="240" width="70" height="42" rx="8" class="content"/>
+  <rect x="126" y="191" width="98" height="10" rx="5" class="space"/>
+  <text x="175" y="316" text-anchor="middle" class="small">Minimum padding and type</text>
+
+  <rect x="365" y="124" width="230" height="210" rx="18" class="panel"/>
+  <text x="480" y="156" text-anchor="middle" class="label">Medium</text>
+  <rect x="420" y="181" width="120" height="120" rx="12" class="screen"/>
+  <rect x="442" y="209" width="76" height="18" rx="9" class="type"/>
+  <rect x="442" y="246" width="76" height="42" rx="8" class="content"/>
+  <rect x="428" y="189" width="104" height="14" rx="7" class="space"/>
+  <text x="480" y="316" text-anchor="middle" class="small">Fluid middle value</text>
+
+  <rect x="670" y="124" width="230" height="210" rx="18" class="panel"/>
+  <text x="785" y="156" text-anchor="middle" class="label">Large</text>
+  <rect x="722" y="172" width="126" height="138" rx="12" class="screen"/>
+  <rect x="746" y="204" width="78" height="23" rx="11" class="type"/>
+  <rect x="746" y="251" width="78" height="42" rx="8" class="content"/>
+  <rect x="730" y="183" width="110" height="18" rx="9" class="space"/>
+  <text x="785" y="316" text-anchor="middle" class="small">Maximum padding and type</text>
+
+  <path d="M170 374 C330 332 625 332 790 374" class="curve"/>
+  <circle cx="170" cy="374" r="7" class="dot"/>
+  <circle cx="480" cy="342" r="7" class="dot"/>
+  <circle cx="790" cy="374" r="7" class="dot"/>
+</svg>
