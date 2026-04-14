@@ -431,6 +431,8 @@ const tutorialRecords = [
     id: 'how-the-web-works',
     title: 'How the Web Actually Works',
     slug: 'getting-started/how-internet-works',
+
+    publishDate: '2025-01-07',
     summary:
       'Understand browsers, servers, HTTP, and what happens when you type a URL.',
     level: 'foundation',
@@ -454,6 +456,8 @@ const tutorialRecords = [
     id: 'web-development-basics',
     title: 'Web Development Basics',
     slug: 'getting-started/web-basics',
+
+    publishDate: '2025-01-07',
     summary:
       'HTML, CSS, and JavaScript — what each language does and how they work together.',
     level: 'foundation',
@@ -477,6 +481,8 @@ const tutorialRecords = [
     id: 'domains-dns-hosting',
     title: 'Domains, DNS, and Hosting',
     slug: 'getting-started/domain-hosting',
+
+    publishDate: '2025-01-07',
     summary:
       'Learn how domain names, DNS records, and web hosting work together.',
     level: 'foundation',
@@ -500,6 +506,8 @@ const tutorialRecords = [
     id: 'files-folders-project-structure',
     title: 'Files, Folders, and Project Structure',
     slug: 'getting-started/files-folders-project-structure',
+
+    publishDate: '2026-03-24',
     summary:
       'How to organise files, name them properly, and set up a project folder.',
     level: 'foundation',
@@ -523,6 +531,8 @@ const tutorialRecords = [
     id: 'text-editors-and-vs-code',
     title: 'Text Editors & VS Code',
     slug: 'getting-started/text-editors',
+
+    publishDate: '2025-01-07',
     summary:
       'Choose the right editor, install VS Code, and learn essential shortcuts and extensions.',
     level: 'foundation',
@@ -546,6 +556,8 @@ const tutorialRecords = [
     id: 'setting-up-dev-environment',
     title: 'Setting Up Your Development Environment',
     slug: 'getting-started/dev-environment',
+
+    publishDate: '2025-01-07',
     summary:
       'Install Node.js, set up your terminal, and configure your machine for web development.',
     level: 'foundation',
@@ -569,6 +581,8 @@ const tutorialRecords = [
     id: 'browser-dev-tools',
     title: 'Browser Development Tools',
     slug: 'getting-started/browser-tools',
+
+    publishDate: '2025-01-07',
     summary:
       'Use Chrome DevTools to inspect elements, debug CSS, and monitor network requests.',
     level: 'foundation',
@@ -615,6 +629,8 @@ const tutorialRecords = [
     id: 'html-basics-introduction',
     title: 'Introduction to HTML',
     slug: 'beginner/html-basics/introduction',
+
+    publishDate: '2025-01-07',
     summary:
       'Get started with HTML and understand what it is, how it works, and why it matters.',
     level: 'beginner',
@@ -638,6 +654,8 @@ const tutorialRecords = [
     id: 'html-first-page',
     title: 'Your First HTML Page',
     slug: 'beginner/html-basics/html-first-page',
+
+    publishDate: '2025-10-12',
     summary:
       'Create your very first HTML page and learn the basic structure of a document.',
     level: 'beginner',
@@ -661,6 +679,8 @@ const tutorialRecords = [
     id: 'html-text',
     title: 'Working with Text',
     slug: 'beginner/html-basics/html-text',
+
+    publishDate: '2025-10-12',
     summary:
       'Use headings, paragraphs, emphasis, and formatting elements to structure readable content.',
     level: 'beginner',
@@ -684,6 +704,8 @@ const tutorialRecords = [
     id: 'html-links',
     title: 'Links & Navigation',
     slug: 'beginner/html-basics/html-links',
+
+    publishDate: '2025-10-12',
     summary:
       'Learn to create links that connect pages and help users move around a site.',
     level: 'beginner',
@@ -707,6 +729,8 @@ const tutorialRecords = [
     id: 'html-images',
     title: 'Working with Images',
     slug: 'beginner/html-basics/html-images',
+
+    publishDate: '2025-10-12',
     summary:
       'Add images to your pages with better accessibility, file choices, and page structure.',
     level: 'beginner',
@@ -730,6 +754,8 @@ const tutorialRecords = [
     id: 'html-document-structure',
     title: 'Document Structure',
     slug: 'beginner/html-basics/html-doc-structure',
+
+    publishDate: '2025-10-12',
     summary:
       'Build properly structured HTML documents with semantic elements and a clear hierarchy.',
     level: 'beginner',
@@ -753,6 +779,8 @@ const tutorialRecords = [
     id: 'html-forms',
     title: 'HTML Forms',
     slug: 'beginner/html-basics/html-forms',
+
+    publishDate: '2025-10-12',
     summary:
       'Create forms that collect user input with labels, fields, and better structure.',
     level: 'beginner',
@@ -776,6 +804,8 @@ const tutorialRecords = [
     id: 'html-emmet-workflow',
     title: 'Emmet Workflow',
     slug: 'beginner/html-basics/html-emmet',
+
+    publishDate: '2025-10-12',
     summary:
       'Speed up HTML authoring with Emmet shortcuts, abbreviations, and editor productivity tools.',
     level: 'beginner',
@@ -822,6 +852,8 @@ const tutorialRecords = [
     id: 'css-introduction',
     title: 'Introduction to CSS',
     slug: 'beginner/css-basics/introduction',
+
+    publishDate: '2025-02-06',
     summary:
       'Understand what CSS is, how it works with HTML, and why every website relies on it.',
     level: 'beginner',
@@ -845,6 +877,8 @@ const tutorialRecords = [
     id: 'css-selectors',
     title: 'Selectors & Properties',
     slug: 'beginner/css-basics/selectors',
+
+    publishDate: '2025-02-06',
     summary:
       'Learn how to target elements with selectors and style them with core CSS properties.',
     level: 'beginner',
@@ -868,6 +902,8 @@ const tutorialRecords = [
     id: 'css-colors-typography',
     title: 'Colors & Typography',
     slug: 'beginner/css-basics/colors',
+
+    publishDate: '2025-02-06',
     summary:
       'Work with colour systems, fonts, and readable type choices for polished pages.',
     level: 'beginner',
@@ -891,6 +927,8 @@ const tutorialRecords = [
     id: 'css-box-model',
     title: 'Box Model',
     slug: 'beginner/css-basics/box-model',
+
+    publishDate: '2025-02-06',
     summary:
       'Control spacing with margin, padding, borders, and sizing to shape layout clearly.',
     level: 'beginner',
@@ -914,6 +952,8 @@ const tutorialRecords = [
     id: 'why-your-css-isnt-working',
     title: 'Why Your CSS Isn\'t Working (And How to Fix It)',
     slug: 'beginner/why-your-css-isnt-working',
+
+    publishDate: '2026-03-24',
     summary:
       'Common CSS pitfalls — specificity, inheritance, typos — and how to debug them.',
     level: 'beginner',
@@ -960,6 +1000,8 @@ const tutorialRecords = [
     id: 'javascript-introduction',
     title: 'Getting Started',
     slug: 'beginner/javascript-basics/introduction',
+
+    publishDate: '2025-03-11',
     summary:
       'Learn what JavaScript is and how it powers interactivity on the modern web.',
     level: 'beginner',
@@ -983,6 +1025,8 @@ const tutorialRecords = [
     id: 'javascript-variables-data-types',
     title: 'Variables & Data Types',
     slug: 'beginner/javascript-basics/variables-data-types',
+
+    publishDate: '2025-03-11',
     summary:
       'Store and work with different types of data in JavaScript programs.',
     level: 'beginner',
@@ -1006,6 +1050,8 @@ const tutorialRecords = [
     id: 'javascript-operators',
     title: 'Operators',
     slug: 'beginner/javascript-basics/operators',
+
+    publishDate: '2025-03-12',
     summary:
       'Perform calculations and combine values with comparison, arithmetic, and logical operators.',
     level: 'beginner',
@@ -1029,6 +1075,8 @@ const tutorialRecords = [
     id: 'javascript-conditionals',
     title: 'Conditionals',
     slug: 'beginner/javascript-basics/conditionals',
+
+    publishDate: '2025-03-11',
     summary:
       'Use decisions and branching logic to control what your code does next.',
     level: 'beginner',
@@ -1052,6 +1100,8 @@ const tutorialRecords = [
     id: 'javascript-loops',
     title: 'Loops',
     slug: 'beginner/javascript-basics/loops',
+
+    publishDate: '2025-03-12',
     summary:
       'Repeat actions efficiently with loop structures and iteration patterns.',
     level: 'beginner',
@@ -1075,6 +1125,8 @@ const tutorialRecords = [
     id: 'javascript-functions',
     title: 'Functions',
     slug: 'beginner/javascript-basics/functions',
+
+    publishDate: '2025-03-16',
     summary:
       'Create reusable blocks of code that make programs clearer and easier to maintain.',
     level: 'beginner',
@@ -1121,6 +1173,8 @@ const tutorialRecords = [
     id: 'dom-introduction',
     title: 'Introduction to DOM',
     slug: 'beginner/dom-basics/introduction',
+
+    publishDate: '2025-03-18',
     summary:
       'Learn how the browser turns HTML into a live DOM tree that JavaScript can work with.',
     level: 'beginner',
@@ -1144,6 +1198,8 @@ const tutorialRecords = [
     id: 'dom-arrays-methods',
     title: 'Arrays and Methods',
     slug: 'beginner/dom-basics/arrays',
+
+    publishDate: '2025-03-18',
     summary:
       'Master JavaScript arrays and useful methods that support DOM-driven data work.',
     level: 'beginner',
@@ -1167,6 +1223,8 @@ const tutorialRecords = [
     id: 'dom-manipulation',
     title: 'DOM Manipulation',
     slug: 'beginner/dom-basics/dom-manipulation',
+
+    publishDate: '2025-03-18',
     summary:
       'Select, update, and modify elements dynamically to change what users see on the page.',
     level: 'beginner',
@@ -1190,6 +1248,8 @@ const tutorialRecords = [
     id: 'dom-events',
     title: 'Event Handling',
     slug: 'beginner/dom-basics/dom-events',
+
+    publishDate: '2025-03-18',
     summary:
       'Respond to user actions with event listeners, interaction patterns, and form behavior.',
     level: 'beginner',
@@ -1213,6 +1273,8 @@ const tutorialRecords = [
     id: 'dom-advanced-events',
     title: 'Advanced Events',
     slug: 'beginner/dom-basics/advanced-events',
+
+    publishDate: '2026-03-25',
     summary:
       'Work with custom events, focus behavior, throttle, debounce, and more advanced interaction patterns.',
     level: 'beginner',
@@ -1236,6 +1298,8 @@ const tutorialRecords = [
     id: 'dom-traversal',
     title: 'DOM Traversal',
     slug: 'beginner/dom-basics/dom-traversal',
+
+    publishDate: '2026-03-25',
     summary:
       'Navigate more complex DOM structures by moving between parents, children, and siblings.',
     level: 'beginner',
@@ -1259,6 +1323,8 @@ const tutorialRecords = [
     id: 'dom-dynamic-content',
     title: 'Dynamic Content',
     slug: 'beginner/dom-basics/dynamic-content',
+
+    publishDate: '2026-03-25',
     summary:
       'Create, insert, clone, and manage new elements dynamically as your UI changes.',
     level: 'beginner',
@@ -1282,6 +1348,8 @@ const tutorialRecords = [
     id: 'idea-to-live-website',
     title: 'From Idea to Live Website: The Full Journey Explained',
     slug: 'beginner/idea-to-live-website',
+
+    publishDate: '2026-03-24',
     summary:
       'A high-level walkthrough of the entire process from concept to deployment.',
     level: 'beginner',
@@ -1305,6 +1373,8 @@ const tutorialRecords = [
     id: 'bsb-part-1',
     title: 'Black Swan Bistro — Part 1 (Build Your First Web Page)',
     slug: 'beginner/black-swan-bistro-part-1',
+
+    publishDate: '2026-03-24',
     summary:
       'Create a real restaurant homepage from scratch using HTML and CSS.',
     level: 'beginner',
@@ -1407,6 +1477,8 @@ const tutorialRecords = [
     id: 'flexbox-vs-grid',
     title: 'Flexbox Basics',
     slug: 'beginner/css-basics/flexbox',
+
+    publishDate: '2025-02-06',
     summary:
       'Use Flexbox utilities to align, distribute, and reorder content responsively.',
     level: 'beginner',
@@ -1605,6 +1677,8 @@ const tutorialRecords = [
     id: 'page-layout-systems',
     title: 'Layout Fundamentals',
     slug: 'beginner/css-basics/layout',
+
+    publishDate: '2025-02-06',
     summary:
       'Build page layouts with positioning, columns, and modern layout thinking.',
     level: 'beginner',
@@ -1628,6 +1702,8 @@ const tutorialRecords = [
     id: 'css-responsive-design',
     title: 'Responsive Design',
     slug: 'beginner/css-basics/responsive',
+
+    publishDate: '2025-02-06',
     summary:
       'Combine media queries and modern units to make layouts adapt to different screens.',
     level: 'beginner',
@@ -1651,6 +1727,8 @@ const tutorialRecords = [
     id: 'css-modern-features',
     title: 'Modern CSS Features',
     slug: 'beginner/css-basics/modern',
+
+    publishDate: '2025-02-06',
     summary:
       'Explore CSS variables, logical properties, and modern styling tools for cleaner code.',
     level: 'beginner',
@@ -1803,6 +1881,8 @@ const tutorialRecords = [
     id: 'debug-broken-web-page',
     title: 'How to Debug a Broken Web Page (Step-by-Step)',
     slug: 'intermediate/debug-broken-web-page',
+
+    publishDate: '2026-03-24',
     summary:
       'A systematic approach to finding and fixing HTML, CSS, and JS bugs.',
     level: 'intermediate',
@@ -1850,6 +1930,8 @@ const tutorialRecords = [
     id: 'ai-workflow-integration',
     title: 'AI-Powered Workflow',
     slug: 'ai-assisted/workflow-integration',
+
+    publishDate: '2025-10-12',
     summary:
       'Integrate AI into your editor, debugging workflow, refactoring, and day-to-day development process.',
     level: 'intermediate',
@@ -1874,6 +1956,8 @@ const tutorialRecords = [
     id: 'design-to-code-project',
     title: 'Design-to-Code Project',
     slug: 'ai-assisted/design-to-code',
+
+    publishDate: '2025-10-12',
     summary:
       'Take a provided design file and build it into a fully coded web page.',
     level: 'intermediate',
@@ -1925,6 +2009,8 @@ const tutorialRecords = [
     id: 'design-to-code-builder-path',
     title: 'Design to Code Builder Path',
     slug: 'intermediate/design-to-code',
+
+    publishDate: '2026-04-06',
     summary:
       '14 lessons covering layout thinking, reusable CSS systems, component patterns, responsive refinement, and the Black Swan Bistro build from wireframe to multi-page site.',
     level: 'intermediate',
@@ -1948,6 +2034,8 @@ const tutorialRecords = [
     id: 'git-introduction',
     title: 'Getting Started',
     slug: 'intermediate/git-basics/introduction',
+
+    publishDate: '2025-12-30',
     summary:
       'Learn what Git is, why version control matters, and how it supports real development work.',
     level: 'intermediate',
@@ -1971,6 +2059,8 @@ const tutorialRecords = [
     id: 'git-installation-setup',
     title: 'Installation & Setup',
     slug: 'intermediate/git-basics/installation',
+
+    publishDate: '2025-12-30',
     summary:
       'Install Git and configure your identity so you can start tracking work safely.',
     level: 'intermediate',
@@ -1994,6 +2084,8 @@ const tutorialRecords = [
     id: 'git-basic-commands',
     title: 'Basic Commands',
     slug: 'intermediate/git-basics/basic-commands',
+
+    publishDate: '2025-12-30',
     summary:
       'Learn essential Git commands for tracking changes and understanding repository history.',
     level: 'intermediate',
@@ -2017,6 +2109,8 @@ const tutorialRecords = [
     id: 'git-branching',
     title: 'Branching',
     slug: 'intermediate/git-basics/branching',
+
+    publishDate: '2025-12-30',
     summary:
       'Create and manage branches so you can experiment and build features without breaking main work.',
     level: 'intermediate',
@@ -2040,6 +2134,8 @@ const tutorialRecords = [
     id: 'git-merging',
     title: 'Merging',
     slug: 'intermediate/git-basics/merging',
+
+    publishDate: '2025-12-30',
     summary:
       'Combine work from different branches and understand what merge conflicts really mean.',
     level: 'intermediate',
@@ -2063,6 +2159,8 @@ const tutorialRecords = [
     id: 'git-remote-repositories',
     title: 'Remote Repositories',
     slug: 'intermediate/git-basics/remote-repositories',
+
+    publishDate: '2025-12-30',
     summary:
       'Work with GitHub or other remotes so you can push, pull, and collaborate effectively.',
     level: 'intermediate',
@@ -2086,6 +2184,8 @@ const tutorialRecords = [
     id: 'git-workflow',
     title: 'Git Workflow',
     slug: 'intermediate/git-basics/workflow',
+
+    publishDate: '2025-12-30',
     summary:
       'Learn common Git workflows and best practices for working confidently on real projects.',
     level: 'intermediate',
@@ -2109,6 +2209,8 @@ const tutorialRecords = [
     id: 'git-conclusion',
     title: 'Conclusion',
     slug: 'intermediate/git-basics/conclusion',
+
+    publishDate: '2025-12-30',
     summary:
       'Review the full Git Basics series, reflect on what you learned, and choose your next steps.',
     level: 'intermediate',
@@ -2132,6 +2234,8 @@ const tutorialRecords = [
     id: 'working-with-vite',
     title: 'Working with Vite',
     slug: 'intermediate/working-with-vite',
+
+    publishDate: '2026-03-24',
     summary:
       'Set up a modern dev environment with Vite — hot reload, builds, and plugins.',
     level: 'intermediate',
@@ -2155,6 +2259,8 @@ const tutorialRecords = [
     id: 'bsb-part-5',
     title: 'Black Swan Bistro — Part 5 (Prepare for Deployment)',
     slug: 'advanced/black-swan-bistro-part-5',
+
+    publishDate: '2026-03-24',
     summary:
       'Optimise assets, add meta tags, and prepare the bistro site for production.',
     level: 'advanced',
@@ -2178,6 +2284,8 @@ const tutorialRecords = [
     id: 'hosting-and-deployment',
     title: 'Hosting and Deployment',
     slug: 'deployments/vercel-netlify',
+
+    publishDate: '2025-10-12',
     summary:
       'Deploy to Netlify, Vercel, GitHub Pages, or similar hosts with a practical comparison of the tradeoffs.',
     level: 'advanced',
@@ -2202,6 +2310,8 @@ const tutorialRecords = [
     id: 'static-vs-dynamic-sites',
     title: 'Static vs Dynamic Sites',
     slug: 'deployments/static-vs-dynamic',
+
+    publishDate: '2025-10-12',
     summary:
       'Understand the difference between static and dynamic websites and when to use each.',
     level: 'advanced',
@@ -2226,6 +2336,8 @@ const tutorialRecords = [
     id: 'bsb-part-6',
     title: 'Black Swan Bistro — Part 6 (Deploy the Site)',
     slug: 'advanced/black-swan-bistro-part-6',
+
+    publishDate: '2026-03-24',
     summary:
       'Push the bistro project to GitHub and deploy it live on the web.',
     level: 'advanced',
@@ -2249,6 +2361,8 @@ const tutorialRecords = [
     id: 'domains-dns-going-live',
     title: 'Domains, DNS, and Going Live',
     slug: 'advanced/domains-dns-going-live',
+
+    publishDate: '2026-03-24',
     summary:
       'Point a custom domain to your hosted site and go live.',
     level: 'advanced',
@@ -2272,6 +2386,8 @@ const tutorialRecords = [
     id: 'do-you-need-a-cms',
     title: 'Do You Actually Need a CMS?',
     slug: 'advanced/do-you-need-a-cms',
+
+    publishDate: '2026-03-24',
     summary:
       'Understand when a CMS makes sense — and when static HTML is just fine.',
     level: 'advanced',
@@ -2295,6 +2411,8 @@ const tutorialRecords = [
     id: 'bsb-part-7',
     title: 'Black Swan Bistro — Part 7 (Maintain & Improve)',
     slug: 'advanced/black-swan-bistro-part-7',
+
+    publishDate: '2026-03-24',
     summary:
       'Add analytics, update content, improve performance, and keep the site healthy.',
     level: 'advanced',
@@ -2318,6 +2436,8 @@ const tutorialRecords = [
     id: 'website-care-and-feeding',
     title: 'Website Care and Feeding',
     slug: 'advanced/website-care-and-feeding',
+
+    publishDate: '2026-03-24',
     summary:
       'Ongoing maintenance tasks — backups, updates, uptime monitoring, and more.',
     level: 'advanced',
@@ -2365,6 +2485,8 @@ const tutorialRecords = [
     id: 'backend-node-basics',
     title: 'Node.js Basics',
     slug: 'backend/node-basics',
+
+    publishDate: '2025-10-12',
     summary:
       'Learn the Node.js runtime, `package.json`, modules, and how server-side scripts are run.',
     level: 'advanced',
@@ -2389,6 +2511,8 @@ const tutorialRecords = [
     id: 'backend-rest-apis',
     title: 'REST APIs',
     slug: 'backend/rest-apis',
+
+    publishDate: '2025-10-12',
     summary:
       'Design and build REST-style APIs using Node and server-side request handling.',
     level: 'advanced',
@@ -2413,6 +2537,8 @@ const tutorialRecords = [
     id: 'backend-databases',
     title: 'Databases (Firebase/Supabase)',
     slug: 'backend/databases',
+
+    publishDate: '2025-10-12',
     summary:
       'Compare hosted database options and understand how data storage fits into modern web apps.',
     level: 'advanced',
@@ -2437,6 +2563,8 @@ const tutorialRecords = [
     id: 'seo-fundamentals',
     title: 'SEO Fundamentals',
     slug: 'seo-analytics/on-page-seo',
+
+    publishDate: '2025-10-12',
     summary:
       'Title tags, meta descriptions, headings, image alt text, and structured data basics.',
     level: 'advanced',
@@ -2461,6 +2589,8 @@ const tutorialRecords = [
     id: 'analytics-setup',
     title: 'Analytics Setup',
     slug: 'seo-analytics/analytics-setup',
+
+    publishDate: '2025-10-12',
     summary:
       'Set up website analytics to understand your visitors and measure performance.',
     level: 'advanced',
@@ -2485,6 +2615,8 @@ const tutorialRecords = [
     id: 'accessibility-essentials',
     title: 'Accessibility Essentials',
     slug: 'advanced/accessibility-essentials',
+
+    publishDate: '2026-03-24',
     summary:
       'Semantic HTML, ARIA, colour contrast, keyboard navigation, and screen reader basics.',
     level: 'advanced',
@@ -2531,6 +2663,8 @@ const tutorialRecords = [
     id: 'capstone-spec',
     title: 'Capstone Spec',
     slug: 'capstone/spec',
+
+    publishDate: '2025-10-12',
     summary:
       'Review the capstone brief, deliverables, and deployment checklist before you build.',
     level: 'advanced',

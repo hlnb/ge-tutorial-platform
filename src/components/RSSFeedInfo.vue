@@ -9,13 +9,22 @@
 				our RSS feed.
 			</p>
 
-			<div class="field is-grouped">
+			<div class="field is-grouped is-grouped-multiline">
 				<p class="control">
 					<a href="/rss.xml" class="button is-primary">
 						<span class="icon">
 							<i class="fas fa-rss"></i>
 						</span>
-						<span>RSS Feed</span>
+						<span>Blog Feed</span>
+					</a>
+				</p>
+
+				<p class="control">
+					<a href="/tutorials.xml" class="button is-info">
+						<span class="icon">
+							<i class="fas fa-rss"></i>
+						</span>
+						<span>Tutorials Feed</span>
 					</a>
 				</p>
 
@@ -25,7 +34,7 @@
 						target="_blank"
 						class="button is-light"
 					>
-						<span>Add to Feedly</span>
+						<span>Add Blog to Feedly</span>
 					</a>
 				</p>
 			</div>
@@ -64,10 +73,17 @@
 				</ul>
 
 				<p>
-					Simply copy our RSS feed URL
-					(<code>https://graphitedge.com.au/rss.xml</code>) and add it to your
-					preferred RSS reader.
+					Simply copy the feed URL you want and add it to your preferred RSS
+					reader:
 				</p>
+				<ul>
+					<li>
+						Blog: <code>https://graphitedge.com.au/rss.xml</code>
+					</li>
+					<li>
+						Tutorials: <code>https://graphitedge.com.au/tutorials.xml</code>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>

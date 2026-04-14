@@ -275,9 +275,12 @@ router.beforeEach((to, from, next) => {
 	if (to.path.startsWith('/posts/')) {
 		const slug = to.path.split('/').pop();
 		checkPostAccess(slug, next);
-	} else if (to.path === '/rss.xml') {
-		// Handle RSS feed
-		const xml = RSSFeedService.generateRSSFeed();
+	} else if (to.path === '/rss.xml' || to.path === '/tutorials.xml') {
+		// Handle RSS feeds
+		const xml =
+			to.path === '/tutorials.xml'
+				? RSSFeedService.generateTutorialsFeed()
+				: RSSFeedService.generateRSSFeed(posts);
 		const blob = new Blob([xml], { type: 'application/xml' });
 		const url = URL.createObjectURL(blob);
 		window.location.href = url;
