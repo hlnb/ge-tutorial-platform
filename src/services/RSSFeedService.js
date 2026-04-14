@@ -1,104 +1,112 @@
 /**
  * RSSFeedService.js
- * Service for generating RSS feeds from blog posts
+ * Service for generating RSS feeds from blog posts and tutorials
  */
 
-import { posts } from '@/router/index.js';
+// 1. Import tutorials alongside posts
+import { posts, tutorials } from '@/router/index.js'; 
 
 // Generate RSS feed XML
 function generateRSSFeed() {
-	const siteUrl = 'https://graphitedge.com.au'; // Replace with your actual domain
-	const feedUrl = `${siteUrl}/rss.xml`;
-	const siteTitle = 'GraphiteEdge';
-	const siteDescription = 'Web Development Tutorials and Articles';
+  const siteUrl = 'https://graphitedge.com.au';
+  const feedUrl = `${siteUrl}/rss.xml`;
+  const siteTitle = 'GraphiteEdge';
+  const siteDescription = 'Web Development Tutorials and Articles';
 
-	// Current date in RFC 822 format
-	const pubDate = new Date().toUTCString();
+  const pubDate = new Date().toUTCString();
 
-	// XML header
-	let xml = '<?xml version="1.0" encoding="UTF-8" ?>\n';
-	xml += '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n';
-	xml += '<channel>\n';
+  let xml = '<?xml version="1.0" encoding="UTF-8" ?>\n';
+  xml += '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n';
+  xml += '<channel>\n';
 
-	// Required channel elements
-	xml += `  <title>${siteTitle}</title>\n`;
-	xml += `  <link>${siteUrl}</link>\n`;
-	xml += `  <description>${siteDescription}</description>\n`;
-	xml += `  <language>en-au</language>\n`;
-	xml += `  <lastBuildDate>${pubDate}</lastBuildDate>\n`;
+  xml += `  <title>${siteTitle}</title>\n`;
+  xml += `  <link>${siteUrl}</link>\n`;
+  xml += `  <description>${siteDescription}</description>\n`;
+  xml += `  <language>en-au</language>\n`;
+  xml += `  <lastBuildDate>${pubDate}</lastBuildDate>\n`;
+  xml += `  <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />\n`;
 
-	// Atom self link (required by some feed readers)
-	xml += `  <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />\n`;
+  // 2. Prepare and normalize both sets of data
+  const allContent = [
+    ...Object.entries(posts).map(([slug, item]) => ({
+      slug,
+      ...item,
+      type: 'post',
+      urlPath: 'posts' // URL structure: /posts/slug
+    })),
+    ...Object.entries(tutorials).map(([slug, item]) => ({
+      slug,
+      ...item,
+      type: 'tutorial',
+      urlPath: 'tutorials' // URL structure: /tutorials/slug
+    }))
+  ];
 
-	// Get published posts and sort by date (newest first)
-	const publishedPosts = Object.entries(posts)
-		.map(([slug, post]) => ({
-			slug,
-			...post,
-			publishDate: new Date(post.publishDate),
-		}))
-		.filter(
-			(post) =>
-				post.status === 'published' ||
-				(post.status === 'scheduled' && post.publishDate <= new Date()),
-		)
-		.sort((a, b) => b.publishDate - a.publishDate);
+  // 3. Filter and sort the combined array
+  const publishedContent = allContent
+    .map((item) => ({
+      ...item,
+      publishDate: new Date(item.publishDate),
+    }))
+    .filter(
+      (item) =>
+        item.status === 'published' ||
+        (item.status === 'scheduled' && item.publishDate <= new Date()),
+    )
+    .sort((a, b) => b.publishDate - a.publishDate);
 
-	// Add items for each post
-	publishedPosts.forEach((post) => {
-		const postUrl = `${siteUrl}/posts/${post.slug}`;
-		const postDate = post.publishDate.toUTCString();
+  // Add items for each piece of content
+  publishedContent.forEach((item) => {
+    // Dynamic URL based on content type
+    const itemUrl = `${siteUrl}/${item.urlPath}/${item.slug}`;
+    const itemDate = item.publishDate.toUTCString();
 
-		xml += '  <item>\n';
-		xml += `    <title>${escapeXml(post.title)}</title>\n`;
-		xml += `    <link>${postUrl}</link>\n`;
-		xml += `    <guid isPermaLink="true">${postUrl}</guid>\n`;
-		xml += `    <pubDate>${postDate}</pubDate>\n`;
-		xml += `    <description>${escapeXml(post.description)}</description>\n`;
+    xml += '  <item>\n';
+    xml += `    <title>${escapeXml(item.title)}</title>\n`;
+    xml += `    <link>${itemUrl}</link>\n`;
+    xml += `    <guid isPermaLink="true">${itemUrl}</guid>\n`;
+    xml += `    <pubDate>${itemDate}</pubDate>\n`;
+    xml += `    <description>${escapeXml(item.description)}</description>\n`;
 
-		// Add categories/tags if available
-		if (post.tags && post.tags.length > 0) {
-			post.tags.forEach((tag) => {
-				xml += `    <category>${escapeXml(tag)}</category>\n`;
-			});
-		}
+    // 4. Add the Content Type as a category for automation filtering
+    xml += `    <category>${item.type === 'tutorial' ? 'Tutorial' : 'Blog'}</category>\n`;
 
-		// Add author if available
-		if (post.author) {
-			xml += `    <author>info@graphitedge.com.au (${escapeXml(
-				post.author,
-			)})</author>\n`;
-		}
+    if (item.tags && item.tags.length > 0) {
+      item.tags.forEach((tag) => {
+        xml += `    <category>${escapeXml(tag)}</category>\n`;
+      });
+    }
 
-		// Add image if available
-		if (post.imageUrl) {
-			xml += '    <enclosure ';
-			xml += `url="${siteUrl}${post.imageUrl}" `;
-			xml += 'type="image/svg+xml" ';
-			xml += 'length="0" />\n';
-		}
+    if (item.author) {
+      xml += `    <author>info@graphitedge.com.au (${escapeXml(item.author)})</author>\n`;
+    }
 
-		xml += '  </item>\n';
-	});
+    if (item.imageUrl) {
+      xml += '    <enclosure ';
+      xml += `url="${siteUrl}${item.imageUrl}" `;
+      xml += 'type="image/svg+xml" ';
+      xml += 'length="0" />\n';
+    }
 
-	// Close tags
-	xml += '</channel>\n';
-	xml += '</rss>';
+    xml += '  </item>\n';
+  });
 
-	return xml;
+  xml += '</channel>\n';
+  xml += '</rss>';
+
+  return xml;
 }
 
-// Helper function to escape XML special characters
 function escapeXml(unsafe) {
-	if (!unsafe) return '';
-	return unsafe
-		.replace(/&/g, '&amp;')
-		.replace(/</g, '&lt;')
-		.replace(/>/g, '&gt;')
-		.replace(/"/g, '&quot;')
-		.replace(/'/g, '&apos;');
+  if (!unsafe) return '';
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
 }
 
 export default {
-	generateRSSFeed,
+  generateRSSFeed,
 };
