@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Shared vs page-specific content in a multi-page site</title>
+  <desc id="desc">Two page outlines side by side showing shared header and footer regions highlighted in one colour,
+    with page-specific content in another, illustrating that the shell stays the same and only the middle changes
+    between pages.</desc>
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        fill: #1f2933
+      }
+
+      .heading {
+        font-size: 24px;
+        font-weight: 700
+      }
+
+      .subtitle {
+        font-size: 15px;
+        fill: #52606d
+      }
+
+      .label {
+        font-size: 15px;
+        font-weight: 700
+      }
+
+      .small {
+        font-size: 13px;
+        fill: #52606d
+      }
+
+      .shared {
+        fill: #e8d5c4;
+        stroke: #8f2f23;
+        stroke-width: 2;
+        rx: 8
+      }
+
+      .unique {
+        fill: #d4e8f7;
+        stroke: #3273dc;
+        stroke-width: 2;
+        rx: 8
+      }
+
+      .page {
+        fill: #fff;
+        stroke: #7b8794;
+        stroke-width: 2.5;
+        rx: 14
+      }
+
+      .legend-shared {
+        fill: #e8d5c4;
+        stroke: #8f2f23;
+        stroke-width: 1.5;
+        rx: 4
+      }
+
+      .legend-unique {
+        fill: #d4e8f7;
+        stroke: #3273dc;
+        stroke-width: 1.5;
+        rx: 4
+      }
+    </style>
+  </defs>
+
+  <rect width="960" height="520" fill="#f8fafb" />
+  <text x="480" y="40" text-anchor="middle" class="heading">Shared vs Page-Specific Content</text>
+  <text x="480" y="64" text-anchor="middle" class="subtitle">The header and footer stay the same. Only the content area
+    changes between pages.</text>
+
+  <!-- Legend -->
+  <rect x="310" y="80" width="16" height="16" class="legend-shared" />
+  <text x="332" y="93" class="small">Shared across all pages</text>
+  <rect x="530" y="80" width="16" height="16" class="legend-unique" />
+  <text x="552" y="93" class="small">Unique to each page</text>
+
+  <!-- Page 1: index.html -->
+  <rect x="80" y="120" width="260" height="370" class="page" />
+  <text x="210" y="145" text-anchor="middle" class="label">index.html</text>
+
+  <rect x="100" y="158" width="220" height="36" class="shared" />
+  <text x="210" y="181" text-anchor="middle" class="small">Header + Navigation</text>
+
+  <rect x="100" y="204" width="220" height="200" class="unique" />
+  <text x="210" y="280" text-anchor="middle" class="label">Hero</text>
+  <text x="210" y="300" text-anchor="middle" class="small">Featured dishes</text>
+  <text x="210" y="320" text-anchor="middle" class="small">About preview</text>
+  <text x="210" y="340" text-anchor="middle" class="small">Booking CTA</text>
+
+  <rect x="100" y="414" width="220" height="36" class="shared" />
+  <text x="210" y="437" text-anchor="middle" class="small">Footer</text>
+
+  <!-- Page 2: menu.html -->
+  <rect x="370" y="120" width="220" height="370" class="page" />
+  <text x="480" y="145" text-anchor="middle" class="label">menu.html</text>
+
+  <rect x="390" y="158" width="180" height="36" class="shared" />
+  <text x="480" y="181" text-anchor="middle" class="small">Header + Navigation</text>
+
+  <rect x="390" y="204" width="180" height="200" class="unique" />
+  <text x="480" y="280" text-anchor="middle" class="label">Starters</text>
+  <text x="480" y="300" text-anchor="middle" class="small">Mains</text>
+  <text x="480" y="320" text-anchor="middle" class="small">Desserts</text>
+  <text x="480" y="340" text-anchor="middle" class="small">Drinks</text>
+
+  <rect x="390" y="414" width="180" height="36" class="shared" />
+  <text x="480" y="437" text-anchor="middle" class="small">Footer</text>
+
+  <!-- Page 3: about.html -->
+  <rect x="620" y="120" width="260" height="370" class="page" />
+  <text x="750" y="145" text-anchor="middle" class="label">about.html</text>
+
+  <rect x="640" y="158" width="220" height="36" class="shared" />
+  <text x="750" y="181" text-anchor="middle" class="small">Header + Navigation</text>
+
+  <rect x="640" y="204" width="220" height="200" class="unique" />
+  <text x="750" y="280" text-anchor="middle" class="label">Our story</text>
+  <text x="750" y="300" text-anchor="middle" class="small">The team</text>
+  <text x="750" y="320" text-anchor="middle" class="small">Values</text>
+  <text x="750" y="340" text-anchor="middle" class="small">Gallery</text>
+
+  <rect x="640" y="414" width="220" height="36" class="shared" />
+  <text x="750" y="437" text-anchor="middle" class="small">Footer</text>
+
+  <!-- Connecting brackets -->
+  <text x="210" y="475" text-anchor="middle" class="small" style="font-style:italic">Same shell, different
+    content</text>
+</svg>

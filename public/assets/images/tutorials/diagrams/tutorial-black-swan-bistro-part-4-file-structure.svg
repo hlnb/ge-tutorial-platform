@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+  <title id="title">Project file structure for Black Swan Bistro multi-page site</title>
+  <desc id="desc">A file tree showing the expanded project folder with index.html, menu.html, about.html, contact.html,
+    plus css, js, and images subfolders. Annotations highlight that new pages sit alongside index.html and share the
+    same css and images folders.</desc>
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        fill: #1f2933
+      }
+
+      .heading {
+        font-size: 24px;
+        font-weight: 700
+      }
+
+      .subtitle {
+        font-size: 15px;
+        fill: #52606d
+      }
+
+      .label {
+        font-size: 15px;
+        font-weight: 700
+      }
+
+      .small {
+        font-size: 13px;
+        fill: #52606d
+      }
+
+      .folder {
+        fill: #fff8e1;
+        stroke: #f9a825;
+        stroke-width: 2;
+        rx: 6
+      }
+
+      .file {
+        fill: #fff;
+        stroke: #7b8794;
+        stroke-width: 1.5;
+        rx: 6
+      }
+
+      .new-file {
+        fill: #e8f5e9;
+        stroke: #2e7d32;
+        stroke-width: 2;
+        rx: 6
+      }
+
+      .connector {
+        stroke: #9aa5b1;
+        stroke-width: 1.5;
+        fill: none
+      }
+
+      .annotation {
+        fill: #f0f4f8;
+        stroke: #3273dc;
+        stroke-width: 1.5;
+        rx: 8
+      }
+    </style>
+  </defs>
+
+  <rect width="960" height="480" fill="#f8fafb" />
+  <text x="480" y="40" text-anchor="middle" class="heading">Project File Structure</text>
+  <text x="480" y="64" text-anchor="middle" class="subtitle">New pages sit alongside index.html and share the same CSS
+    and images.</text>
+
+  <!-- Root folder -->
+  <rect x="80" y="100" width="220" height="32" class="folder" />
+  <text x="100" y="121" class="label">📁 black-swan-bistro/</text>
+
+  <!-- Connector lines -->
+  <line x1="120" y1="132" x2="120" y2="370" class="connector" />
+
+  <!-- index.html -->
+  <line x1="120" y1="152" x2="150" y2="152" class="connector" />
+  <rect x="150" y="138" width="170" height="28" class="file" />
+  <text x="168" y="157" class="small">📄 index.html</text>
+
+  <!-- menu.html (new) -->
+  <line x1="120" y1="188" x2="150" y2="188" class="connector" />
+  <rect x="150" y="174" width="170" height="28" class="new-file" />
+  <text x="168" y="193" class="small">📄 menu.html ✦ new</text>
+
+  <!-- about.html (new) -->
+  <line x1="120" y1="224" x2="150" y2="224" class="connector" />
+  <rect x="150" y="210" width="170" height="28" class="new-file" />
+  <text x="168" y="229" class="small">📄 about.html ✦ new</text>
+
+  <!-- contact.html (new) -->
+  <line x1="120" y1="260" x2="150" y2="260" class="connector" />
+  <rect x="150" y="246" width="170" height="28" class="new-file" />
+  <text x="168" y="265" class="small">📄 contact.html ✦ new</text>
+
+  <!-- css folder -->
+  <line x1="120" y1="300" x2="150" y2="300" class="connector" />
+  <rect x="150" y="286" width="170" height="28" class="folder" />
+  <text x="168" y="305" class="label">📁 css/</text>
+  <line x1="200" y1="314" x2="200" y2="340" class="connector" />
+  <line x1="200" y1="336" x2="220" y2="336" class="connector" />
+  <rect x="220" y="322" width="160" height="28" class="file" />
+  <text x="238" y="341" class="small">📄 style.css</text>
+
+  <!-- images folder -->
+  <line x1="120" y1="370" x2="150" y2="370" class="connector" />
+  <rect x="150" y="356" width="170" height="28" class="folder" />
+  <text x="168" y="375" class="label">📁 images/</text>
+
+  <!-- js folder -->
+  <line x1="120" y1="406" x2="150" y2="406" class="connector" />
+  <rect x="150" y="392" width="170" height="28" class="folder" />
+  <text x="168" y="411" class="label">📁 js/</text>
+
+  <!-- Annotations -->
+  <rect x="520" y="140" width="360" height="68" class="annotation" />
+  <text x="540" y="163" class="small" style="font-weight:700;fill:#3273dc">All HTML pages live at the root level</text>
+  <text x="540" y="183" class="small">alongside index.html — not in subfolders.</text>
+  <text x="540" y="197" class="small">This keeps relative paths simple: <tspan style="font-family:monospace">
+      css/style.css</tspan></text>
+
+  <line x1="320" y1="188" x2="520" y2="172" class="connector" style="stroke:#3273dc;stroke-dasharray:6 4" />
+
+  <rect x="520" y="280" width="360" height="52" class="annotation" />
+  <text x="540" y="302" class="small" style="font-weight:700;fill:#3273dc">One shared stylesheet for all pages</text>
+  <text x="540" y="320" class="small">Every page links to the same <tspan style="font-family:monospace">css/style.css
+    </tspan> file.</text>
+
+  <line x1="380" y1="336" x2="520" y2="310" class="connector" style="stroke:#3273dc;stroke-dasharray:6 4" />
+
+  <rect x="520" y="360" width="360" height="52" class="annotation" />
+  <text x="540" y="382" class="small" style="font-weight:700;fill:#3273dc">Shared images stay in one folder</text>
+  <text x="540" y="400" class="small">All pages reference the same <tspan style="font-family:monospace">images/</tspan>
+    directory.</text>
+
+  <line x1="320" y1="370" x2="520" y2="380" class="connector" style="stroke:#3273dc;stroke-dasharray:6 4" />
+</svg>

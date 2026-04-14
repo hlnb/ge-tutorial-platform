@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">CSS transforms: translate, scale, and rotate</title>
+  <desc id="desc">Three panels showing the effect of translate, scale, and rotate transforms on the same card element.
+    Each panel shows the original position as a dashed outline and the transformed result as a solid shape, with the CSS
+    code and a plain-language description.</desc>
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        fill: #1f2933
+      }
+
+      .heading {
+        font-size: 22px;
+        font-weight: 700
+      }
+
+      .subtitle {
+        font-size: 14px;
+        fill: #52606d
+      }
+
+      .label {
+        font-size: 15px;
+        font-weight: 700
+      }
+
+      .small {
+        font-size: 12px;
+        fill: #52606d
+      }
+
+      .code {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 12px;
+        fill: #8f2f23
+      }
+
+      .panel {
+        fill: #f8f9fa;
+        stroke: #c9d1d9;
+        stroke-width: 1;
+        rx: 12
+      }
+
+      .ghost {
+        fill: none;
+        stroke: #c9d1d9;
+        stroke-width: 2;
+        stroke-dasharray: 6 3;
+        rx: 8
+      }
+
+      .card {
+        fill: #fff;
+        stroke: #8f2f23;
+        stroke-width: 2;
+        rx: 8
+      }
+
+      .card-header {
+        fill: #8f2f23;
+        rx: 0
+      }
+
+      .card-text {
+        font-size: 11px;
+        fill: #52606d
+      }
+
+      .note {
+        font-size: 13px;
+        fill: #52606d;
+        font-style: italic
+      }
+
+      .axis {
+        stroke: #c9d1d9;
+        stroke-width: 1;
+        stroke-dasharray: 3 2
+      }
+
+      .accent {
+        fill: #3d85c6
+      }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="heading">CSS Transforms: Translate, Scale, and Rotate</text>
+  <text x="480" y="56" text-anchor="middle" class="subtitle">Transforms change how an element looks without affecting
+    the document flow</text>
+
+  <!-- === Panel 1: Translate === -->
+  <rect x="30" y="76" width="280" height="340" class="panel" />
+  <text x="170" y="104" text-anchor="middle" class="label">translate</text>
+  <text x="170" y="122" text-anchor="middle" class="code">transform: translateY(-4px)</text>
+
+  <!-- Ghost (original position) -->
+  <rect x="90" y="180" width="160" height="100" class="ghost" />
+  <text x="170" y="230" text-anchor="middle" class="small" fill="#c9d1d9">original</text>
+
+  <!-- Transformed card (moved up) -->
+  <rect x="90" y="168" width="160" height="100" class="card" />
+  <rect x="90" y="168" width="160" height="24" class="card-header" style="rx:8" />
+  <rect x="90" y="183" width="160" height="1" fill="#8f2f23" />
+  <text x="170" y="184" text-anchor="middle" style="font-size:11px;font-weight:600;fill:#fff">Card Title</text>
+  <text x="104" y="210" class="card-text">Some helpful</text>
+  <text x="104" y="224" class="card-text">content here.</text>
+
+  <!-- Movement arrow -->
+  <line x1="270" y1="230" x2="270" y2="202" stroke="#3d85c6" stroke-width="2" marker-end="url(#blueArrow)" />
+  <text x="280" y="218" class="small" fill="#3d85c6">-4px</text>
+
+  <text x="170" y="310" text-anchor="middle" class="small">Shifts position without</text>
+  <text x="170" y="326" text-anchor="middle" class="small">moving layout neighbours</text>
+
+  <text x="170" y="358" text-anchor="middle" class="code" fill="#2d6a4f">Great for hover lifts</text>
+
+  <!-- === Panel 2: Scale === -->
+  <rect x="340" y="76" width="280" height="340" class="panel" />
+  <text x="480" y="104" text-anchor="middle" class="label">scale</text>
+  <text x="480" y="122" text-anchor="middle" class="code">transform: scale(1.05)</text>
+
+  <!-- Ghost (original size) -->
+  <rect x="400" y="180" width="160" height="100" class="ghost" />
+
+  <!-- Transformed card (slightly bigger) -->
+  <rect x="396" y="176" width="168" height="108" class="card" />
+  <rect x="396" y="176" width="168" height="24" class="card-header" style="rx:8" />
+  <rect x="396" y="191" width="168" height="1" fill="#8f2f23" />
+  <text x="480" y="192" text-anchor="middle" style="font-size:11px;font-weight:600;fill:#fff">Card Title</text>
+  <text x="410" y="218" class="card-text">Some helpful</text>
+  <text x="410" y="232" class="card-text">content here.</text>
+
+  <!-- Scale indicators -->
+  <line x1="396" y1="294" x2="564" y2="294" stroke="#3d85c6" stroke-width="1.5" />
+  <line x1="396" y1="290" x2="396" y2="298" stroke="#3d85c6" stroke-width="1.5" />
+  <line x1="564" y1="290" x2="564" y2="298" stroke="#3d85c6" stroke-width="1.5" />
+  <text x="480" y="308" text-anchor="middle" class="small" fill="#3d85c6">105%</text>
+
+  <text x="480" y="338" text-anchor="middle" class="small">Grows from the center</text>
+  <text x="480" y="354" text-anchor="middle" class="small">transform-origin controls the anchor</text>
+  <text x="480" y="376" text-anchor="middle" class="code" fill="#2d6a4f">Good for focus/active states</text>
+
+  <!-- === Panel 3: Rotate === -->
+  <rect x="650" y="76" width="280" height="340" class="panel" />
+  <text x="790" y="104" text-anchor="middle" class="label">rotate</text>
+  <text x="790" y="122" text-anchor="middle" class="code">transform: rotate(-2deg)</text>
+
+  <!-- Ghost (original rotation) -->
+  <rect x="710" y="180" width="160" height="100" class="ghost" />
+
+  <!-- Transformed card (rotated) -->
+  <g transform="translate(790,230) rotate(-2) translate(-80,-50)">
+    <rect x="0" y="0" width="160" height="100" class="card" />
+    <rect x="0" y="0" width="160" height="24" class="card-header" style="rx:8" />
+    <rect x="0" y="15" width="160" height="1" fill="#8f2f23" />
+    <text x="80" y="15" text-anchor="middle" style="font-size:11px;font-weight:600;fill:#fff">Card Title</text>
+    <text x="14" y="42" class="card-text">Some helpful</text>
+    <text x="14" y="56" class="card-text">content here.</text>
+  </g>
+
+  <!-- Rotation arc indicator -->
+  <path d="M 870 180 A 30 30 0 0 0 866 160" fill="none" stroke="#3d85c6" stroke-width="1.5" />
+  <text x="878" y="174" class="small" fill="#3d85c6">-2°</text>
+
+  <text x="790" y="320" text-anchor="middle" class="small">Rotates around the center</text>
+  <text x="790" y="336" text-anchor="middle" class="small">Small angles feel organic</text>
+  <text x="790" y="368" text-anchor="middle" class="code" fill="#2d6a4f">Use for playful accents</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="blueArrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3d85c6" />
+    </marker>
+  </defs>
+
+  <!-- Bottom annotation -->
+  <text x="480" y="446" text-anchor="middle" class="note">Transforms are purely visual — the element keeps its original
+    space in the document flow.</text>
+  <text x="480" y="466" text-anchor="middle" class="note">Combine with transition for smooth, interactive effects: hover
+    lifts, button presses, card reveals.</text>
+</svg>

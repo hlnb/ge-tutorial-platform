@@ -187,6 +187,9 @@ const closureReflectionPrompts = [
           'Recognise when a style belongs in shared CSS instead of a one-off selector'
         ]"
         purpose="A learner can build one page without a system. A learner who wants to build a maintainable site needs shared rules. This lesson teaches that bridge."
+        :prerequisites="[
+          { topic: 'BSB Part 2: Homepage Wireframe', link: '/tutorials/intermediate/black-swan-bistro-part-2' }
+        ]"
       />
 
       <h2 id="why-systems">Why CSS Systems Matter</h2>
@@ -419,6 +422,26 @@ body { ... }
       <p>
         This keeps your system readable without pretending the project is bigger than it is.
       </p>
+
+      <div class="notification is-info is-light">
+        <p>
+          <strong>Why this order matters — the cascade.</strong> CSS applies rules in a
+          predictable order. When two rules target the same element with equal specificity,
+          the one that appears <em>later</em> in the stylesheet wins. By placing shared
+          foundations first and section-specific adjustments last, you let the natural cascade
+          do the work — specific rules override general ones without needing higher-specificity
+          selectors or <code>!important</code>.
+        </p>
+        <p>
+          If you covered
+          <router-link to="/tutorials/beginner/why-your-css-isnt-working">Why Your CSS Isn't Working</router-link>
+          in the beginner section, this is the same principle applied to a real stylesheet
+          structure. We will return to the cascade in depth in
+          <router-link to="/tutorials/intermediate/cascade-specificity-and-debugging-css">Cascade, Specificity, and Debugging CSS</router-link>
+          later in this pathway. For now, the key habit is: <strong>keep selector specificity
+          low and consistent, and let source order handle the rest.</strong>
+        </p>
+      </div>
 
       <h2 id="accessibility">Accessibility Checks for Shared Styles</h2>
       <p>

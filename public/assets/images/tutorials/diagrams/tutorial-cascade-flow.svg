@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">The CSS cascade: how the browser decides which rule wins</title>
+  <desc id="desc">A vertical flow diagram showing four cascade layers from top to bottom: Origin and Importance,
+    Specificity, Source Order, and Inheritance. An arrow flows downward through each layer, showing that the browser
+    checks each one in sequence to resolve style conflicts.</desc>
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        fill: #1f2933
+      }
+
+      .heading {
+        font-size: 24px;
+        font-weight: 700
+      }
+
+      .subtitle {
+        font-size: 15px;
+        fill: #52606d
+      }
+
+      .label {
+        font-size: 16px;
+        font-weight: 700
+      }
+
+      .small {
+        font-size: 13px;
+        fill: #52606d
+      }
+
+      .step-box {
+        fill: #fff;
+        stroke: #7b8794;
+        stroke-width: 2;
+        rx: 12
+      }
+
+      .step-num {
+        font-size: 18px;
+        font-weight: 700;
+        fill: #fff
+      }
+
+      .num-circle {
+        stroke: none
+      }
+
+      .arrow {
+        fill: none;
+        stroke: #8f2f23;
+        stroke-width: 2.5;
+        marker-end: url(#arrowhead)
+      }
+
+      .highlight {
+        fill: #f7efe2;
+        stroke: #8f2f23;
+        stroke-width: 2;
+        rx: 12
+      }
+
+      .note {
+        fill: #f0f4f8;
+        stroke: #3273dc;
+        stroke-width: 1.5;
+        rx: 8
+      }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8f2f23" />
+    </marker>
+  </defs>
+
+  <rect width="960" height="520" fill="#f8fafb" />
+  <text x="480" y="40" text-anchor="middle" class="heading">The Cascade: How the Browser Decides</text>
+  <text x="480" y="64" text-anchor="middle" class="subtitle">When two rules target the same element, the browser
+    resolves the conflict in this order.</text>
+
+  <!-- Step 1 -->
+  <circle cx="200" cy="120" r="18" class="num-circle" fill="#8f2f23" /><text x="200" y="126" text-anchor="middle"
+    class="step-num">1</text>
+  <rect x="230" y="98" width="520" height="48" class="step-box" />
+  <text x="280" y="127" class="label">Origin &amp; Importance</text>
+  <text x="500" y="127" class="small">!important &gt; author styles &gt; browser defaults</text>
+
+  <!-- Arrow 1→2 -->
+  <path d="M 490 146 L 490 178" class="arrow" />
+
+  <!-- Step 2 -->
+  <circle cx="200" cy="200" r="18" class="num-circle" fill="#8f2f23" /><text x="200" y="206" text-anchor="middle"
+    class="step-num">2</text>
+  <rect x="230" y="178" width="520" height="48" class="highlight" />
+  <text x="280" y="207" class="label">Specificity</text>
+  <text x="420" y="207" class="small">ID &gt; Class / attribute / pseudo-class &gt; Element</text>
+
+  <!-- Arrow 2→3 -->
+  <path d="M 490 226 L 490 258" class="arrow" />
+
+  <!-- Step 3 -->
+  <circle cx="200" cy="280" r="18" class="num-circle" fill="#8f2f23" /><text x="200" y="286" text-anchor="middle"
+    class="step-num">3</text>
+  <rect x="230" y="258" width="520" height="48" class="step-box" />
+  <text x="280" y="287" class="label">Source Order</text>
+  <text x="440" y="287" class="small">Same specificity? The last rule in the file wins.</text>
+
+  <!-- Arrow 3→4 -->
+  <path d="M 490 306 L 490 338" class="arrow" />
+
+  <!-- Step 4 -->
+  <circle cx="200" cy="360" r="18" class="num-circle" fill="#8f2f23" /><text x="200" y="366" text-anchor="middle"
+    class="step-num">4</text>
+  <rect x="230" y="338" width="520" height="48" class="step-box" />
+  <text x="280" y="367" class="label">Inheritance</text>
+  <text x="420" y="367" class="small">No direct rule? Some properties inherit from the parent.</text>
+
+  <!-- Annotation -->
+  <rect x="200" y="420" width="560" height="68" class="note" />
+  <text x="480" y="445" text-anchor="middle" class="small" style="font-weight:700;fill:#3273dc">Most CSS debugging
+    starts at Step 2: Specificity.</text>
+  <text x="480" y="465" text-anchor="middle" class="small">If your style is being overridden, it usually means another
+    selector is more specific,</text>
+  <text x="480" y="480" text-anchor="middle" class="small">not that your rule is wrong.</text>
+</svg>

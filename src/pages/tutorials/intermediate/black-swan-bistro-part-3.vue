@@ -118,6 +118,10 @@ const closureReflectionPrompts = [
 					'Check component accessibility basics before reusing patterns across pages'
 				]"
 				purpose="A component is not a framework feature. It is a repeatable design decision. Learning to build components with plain HTML and CSS gives you the mental model you need before any future framework can be useful."
+				:prerequisites="[
+					{ topic: 'Building Reusable Components', link: '/tutorials/intermediate/building-reusable-components' },
+					{ topic: 'BSB Part 2: Homepage Wireframe', link: '/tutorials/intermediate/black-swan-bistro-part-2' }
+				]"
 			/>
 
 			<h2 id="intro">Tutorial Introduction</h2>

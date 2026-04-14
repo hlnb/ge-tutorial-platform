@@ -204,6 +204,10 @@ const closureReflectionPrompts = [
 					'Understand where container queries fit as a later responsive tool'
 				]"
 				purpose="Intermediate responsive design is not just making a page smaller. It is making reusable patterns flexible enough to hold up across real layouts, future pages, and different amounts of content."
+				:prerequisites="[
+					{ topic: 'CSS Grid for Repeated Layouts', link: '/tutorials/intermediate/css-grid-for-repeated-layouts' },
+					{ topic: 'Responsive Design', link: '/tutorials/beginner/css-basics/responsive' }
+				]"
 			/>
 
 			<h2 id="why-refinement">Why Responsive Refinement Comes After Reuse</h2>

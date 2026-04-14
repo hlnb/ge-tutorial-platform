@@ -1004,6 +1004,16 @@ const legacyTutorialEditorialContent = {
 					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks',
 					description: 'How to create effective links between pages.',
 				},
+				{
+					title: 'MDN: Document and website structure',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure',
+					description: 'Helpful background for planning page regions and shared site structure across multiple pages.',
+				},
+				{
+					title: 'web.dev: Learn HTML — Navigation',
+					url: 'https://web.dev/learn/html/navigation',
+					description: 'Practical guidance on navigation patterns, breadcrumbs, and global vs local navigation.',
+				},
 			],
 		},
 		'cascade-specificity-debugging-css': {
@@ -1033,6 +1043,21 @@ const legacyTutorialEditorialContent = {
 					title: 'MDN: Using CSS transitions',
 					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions',
 					description: 'A practical guide to restrained motion and transition choices.',
+				},
+			],
+		},
+		'bsb-part-4b-polish-and-refine': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: prefers-reduced-motion',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion',
+					description: 'Accessibility media query for users who prefer less motion.',
+				},
+				{
+					title: 'web.dev: Prefers reduced motion',
+					url: 'https://web.dev/articles/prefers-reduced-motion',
+					description: 'Practical advice on respecting the reduced motion preference in CSS and JavaScript.',
 				},
 			],
 		},

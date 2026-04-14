@@ -919,6 +919,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine': RouteRecordInfo<
+      '/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine',
+      '/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/breaking-layouts-into-sections': RouteRecordInfo<
       '/tutorials/intermediate/breaking-layouts-into-sections',
       '/tutorials/intermediate/breaking-layouts-into-sections',
@@ -1886,6 +1893,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/black-swan-bistro-part-4.vue': {
       routes:
         | '/tutorials/intermediate/black-swan-bistro-part-4'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine.vue': {
+      routes:
+        | '/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine'
       views:
         | never
     }

@@ -184,8 +184,9 @@ const closureReflectionPrompts = [
 					'Spot repeated visual patterns that will matter later for reuse',
 					'Create coding notes that make the HTML and CSS stages more deliberate'
 				]"
-				purpose="Design-to-code work becomes much easier once you stop asking “what should I copy first?” and start asking “what information does this design give me about structure, hierarchy, and repetition?”"
-			/>
+				purpose="Design-to-code work becomes much easier once you stop asking “what should I copy first?” and start asking “what information does this design give me about structure, hierarchy, and repetition?”"				:prerequisites="[
+					{ topic: 'How to Think About Layouts', link: '/tutorials/intermediate/think-about-layouts' }
+				]"			/>
 
 			<h2 id="first-pass">Step 1: Take a First Pass</h2>
 			<p>

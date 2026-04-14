@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" role="img" aria-labelledby="title desc">
+  <title id="title">Debugging CSS with DevTools: reading the Styles panel</title>
+  <desc id="desc">A simplified mockup of a browser DevTools Styles panel showing two CSS rules targeting the same
+    element. The winning rule is shown at the top with its selector and property values. The losing rule below it has
+    its property value crossed out with a strikethrough, with annotations explaining why the browser chose one rule over
+    the other.</desc>
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        fill: #1f2933
+      }
+
+      .heading {
+        font-size: 24px;
+        font-weight: 700
+      }
+
+      .subtitle {
+        font-size: 15px;
+        fill: #52606d
+      }
+
+      .label {
+        font-size: 15px;
+        font-weight: 700
+      }
+
+      .small {
+        font-size: 13px;
+        fill: #52606d
+      }
+
+      .code {
+        font-family: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 14px;
+        fill: #1f2933
+      }
+
+      .panel-bg {
+        fill: #1e1e1e;
+        rx: 12
+      }
+
+      .panel-header {
+        fill: #2d2d2d;
+        rx: 8
+      }
+
+      .rule-bg {
+        fill: #252526;
+        rx: 6
+      }
+
+      .selector {
+        font-family: "SF Mono", SFMono-Regular, Consolas, monospace;
+        font-size: 14px;
+        fill: #d7ba7d
+      }
+
+      .property {
+        font-family: "SF Mono", SFMono-Regular, Consolas, monospace;
+        font-size: 13px;
+        fill: #9cdcfe
+      }
+
+      .value {
+        font-family: "SF Mono", SFMono-Regular, Consolas, monospace;
+        font-size: 13px;
+        fill: #ce9178
+      }
+
+      .struck {
+        font-family: "SF Mono", SFMono-Regular, Consolas, monospace;
+        font-size: 13px;
+        fill: #6a6a6a;
+        text-decoration: line-through
+      }
+
+      .annotation {
+        fill: #f0f4f8;
+        stroke: #3273dc;
+        stroke-width: 1.5;
+        rx: 8
+      }
+
+      .arrow-line {
+        fill: none;
+        stroke: #3273dc;
+        stroke-width: 1.5;
+        stroke-dasharray: 6 4
+      }
+    </style>
+  </defs>
+
+  <rect width="960" height="460" fill="#f8fafb" />
+  <text x="480" y="38" text-anchor="middle" class="heading">Reading the DevTools Styles Panel</text>
+  <text x="480" y="62" text-anchor="middle" class="subtitle">Rules are listed from highest to lowest priority.
+    Overridden values are struck through.</text>
+
+  <!-- DevTools panel mockup -->
+  <rect x="60" y="86" width="460" height="310" class="panel-bg" />
+
+  <!-- Header -->
+  <rect x="72" y="96" width="436" height="28" class="panel-header" />
+  <text x="88" y="115" style="font-size:13px;fill:#cccccc;font-weight:700">Styles</text>
+  <text x="160" y="115" style="font-size:13px;fill:#6a6a6a">Computed</text>
+
+  <!-- Element indicator -->
+  <text x="88" y="148" style="font-size:12px;fill:#569cd6">element.style { }</text>
+
+  <!-- Winning rule -->
+  <rect x="80" y="162" width="420" height="82" class="rule-bg" />
+  <text x="96" y="184" class="selector">.site-nav__link.is-active</text>
+  <text x="400" y="184" style="font-size:11px;fill:#6a6a6a">style.css:47</text>
+  <text x="112" y="206" class="property">color<tspan fill="#6a6a6a">:</tspan></text>
+  <text x="176" y="206" class="value">#8f2f23</text>
+  <text x="244" y="206" style="font-size:13px;fill:#6a6a6a">;</text>
+  <text x="112" y="226" class="property">font-weight<tspan fill="#6a6a6a">:</tspan></text>
+  <text x="228" y="226" class="value">700</text>
+  <text x="258" y="226" style="font-size:13px;fill:#6a6a6a">;</text>
+
+  <!-- Losing rule -->
+  <rect x="80" y="254" width="420" height="66" class="rule-bg" />
+  <text x="96" y="276" class="selector">.site-nav__link</text>
+  <text x="400" y="276" style="font-size:11px;fill:#6a6a6a">style.css:38</text>
+  <text x="112" y="298" class="struck">color<tspan>:</tspan> #1f2933;</text>
+  <line x1="112" y1="295" x2="258" y2="295" stroke="#6a6a6a" stroke-width="1" />
+
+  <!-- Source info -->
+  <rect x="80" y="330" width="420" height="50" class="rule-bg" />
+  <text x="96" y="352" style="font-size:12px;fill:#569cd6">Inherited from</text>
+  <text x="218" y="352" class="selector">body</text>
+  <text x="112" y="370" class="property" style="fill:#6a6a6a">font-family<tspan>:</tspan></text>
+  <text x="228" y="370" class="value" style="fill:#6a6a6a">Georgia, serif</text>
+
+  <!-- Annotations -->
+  <rect x="560" y="110" width="340" height="68" class="annotation" />
+  <text x="580" y="133" class="small" style="font-weight:700;fill:#3273dc">Winner: more specific selector</text>
+  <text x="580" y="151" class="small">.site-nav__link.is-active has specificity 0-2-0</text>
+  <text x="580" y="167" class="small">.site-nav__link has specificity 0-1-0</text>
+  <path d="M 560 144 L 500 194" class="arrow-line" />
+
+  <rect x="560" y="210" width="340" height="52" class="annotation" />
+  <text x="580" y="233" class="small" style="font-weight:700;fill:#3273dc">Loser: struck through</text>
+  <text x="580" y="251" class="small">The losing value is visibly crossed out in DevTools.</text>
+  <path d="M 560 240 L 500 290" class="arrow-line" />
+
+  <rect x="560" y="296" width="340" height="52" class="annotation" />
+  <text x="580" y="318" class="small" style="font-weight:700;fill:#3273dc">Inherited properties</text>
+  <text x="580" y="336" class="small">Shown separately so you can trace where a value comes from.</text>
+  <path d="M 560 324 L 500 352" class="arrow-line" />
+
+  <!-- Bottom tip -->
+  <rect x="140" y="410" width="680" height="36" rx="6" fill="#fff8e1" stroke="#f9a825" stroke-width="1.5" />
+  <text x="480" y="433" text-anchor="middle" class="small" style="font-weight:700">Tip: Click the file name
+    (style.css:47) in DevTools to jump directly to the winning rule.</text>
+</svg>

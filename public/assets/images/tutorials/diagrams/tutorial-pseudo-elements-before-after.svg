@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+  <title id="title">Pseudo-elements: generated content before and after an element</title>
+  <desc id="desc">A diagram showing how ::before and ::after pseudo-elements are generated inside a real HTML element,
+    with a practical example of decorative content added via CSS without changing the HTML.</desc>
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        fill: #1f2933
+      }
+
+      .heading {
+        font-size: 22px;
+        font-weight: 700
+      }
+
+      .subtitle {
+        font-size: 14px;
+        fill: #52606d
+      }
+
+      .label {
+        font-size: 15px;
+        font-weight: 700
+      }
+
+      .small {
+        font-size: 12px;
+        fill: #52606d
+      }
+
+      .code {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 13px;
+        fill: #8f2f23
+      }
+
+      .code-sm {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 11px;
+        fill: #52606d
+      }
+
+      .element-box {
+        fill: #f0f4f8;
+        stroke: #7b8794;
+        stroke-width: 2;
+        rx: 10
+      }
+
+      .pseudo-box {
+        stroke-width: 2;
+        rx: 8
+      }
+
+      .before-box {
+        fill: #e8f0fe;
+        stroke: #3d85c6
+      }
+
+      .after-box {
+        fill: #fce8e8;
+        stroke: #8f2f23
+      }
+
+      .content-box {
+        fill: #fff;
+        stroke: #c9d1d9;
+        stroke-width: 1;
+        rx: 6
+      }
+
+      .arrow {
+        fill: none;
+        stroke: #7b8794;
+        stroke-width: 1.5;
+        marker-end: url(#arrowhead)
+      }
+
+      .brace {
+        fill: none;
+        stroke: #7b8794;
+        stroke-width: 1.5
+      }
+
+      .note {
+        font-size: 13px;
+        fill: #52606d;
+        font-style: italic
+      }
+
+      .tag {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 12px;
+        fill: #7b8794
+      }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#7b8794" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="heading">::before and ::after — Generated Content</text>
+  <text x="480" y="56" text-anchor="middle" class="subtitle">Pseudo-elements add visual content via CSS without changing
+    your HTML</text>
+
+  <!-- === TOP SECTION: Box model view === -->
+  <text x="50" y="90" class="label">How the browser sees it</text>
+
+  <!-- Outer element box -->
+  <rect x="100" y="106" width="760" height="120" class="element-box" />
+  <text x="110" y="124" class="tag">&lt;h2 class="section-title"&gt;</text>
+  <text x="830" y="216" class="tag" text-anchor="end">&lt;/h2&gt;</text>
+
+  <!-- ::before box -->
+  <rect x="130" y="140" width="200" height="64" class="pseudo-box before-box" />
+  <text x="230" y="162" text-anchor="middle" class="label" fill="#3d85c6">::before</text>
+  <text x="230" y="182" text-anchor="middle" class="code-sm">content: "§ "</text>
+  <text x="230" y="196" text-anchor="middle" class="small">Generated first child</text>
+
+  <!-- Real content box -->
+  <rect x="360" y="140" width="240" height="64" class="content-box" />
+  <text x="480" y="162" text-anchor="middle" class="label">About Our Menu</text>
+  <text x="480" y="182" text-anchor="middle" class="small">Original text content</text>
+
+  <!-- ::after box -->
+  <rect x="630" y="140" width="200" height="64" class="pseudo-box after-box" />
+  <text x="730" y="162" text-anchor="middle" class="label" fill="#8f2f23">::after</text>
+  <text x="730" y="182" text-anchor="middle" class="code-sm">content: ""</text>
+  <text x="730" y="196" text-anchor="middle" class="small">Decorative underline</text>
+
+  <!-- === BOTTOM SECTION: Practical example === -->
+  <text x="50" y="266" class="label">Practical example: a decorative underline</text>
+
+  <!-- CSS code block -->
+  <rect x="50" y="280" width="420" height="160" fill="#1f2933" rx="8" />
+  <text x="68" y="304" class="code" fill="#93c5fd">.section-title</text><text x="230" y="304" class="code"
+    fill="#c9d1d9">::after {</text>
+  <text x="86" y="324" class="code" fill="#c9d1d9">content: </text><text x="168" y="324" class="code"
+    fill="#a5d6a7">""</text><text x="186" y="324" class="code" fill="#c9d1d9">;</text>
+  <text x="86" y="344" class="code" fill="#c9d1d9">display: </text><text x="170" y="344" class="code"
+    fill="#ffd54f">block</text><text x="206" y="344" class="code" fill="#c9d1d9">;</text>
+  <text x="86" y="364" class="code" fill="#c9d1d9">width: </text><text x="152" y="364" class="code"
+    fill="#ffd54f">60px</text><text x="190" y="364" class="code" fill="#c9d1d9">;</text>
+  <text x="86" y="384" class="code" fill="#c9d1d9">height: </text><text x="158" y="384" class="code"
+    fill="#ffd54f">3px</text><text x="186" y="384" class="code" fill="#c9d1d9">;</text>
+  <text x="86" y="404" class="code" fill="#c9d1d9">background: </text><text x="190" y="404" class="code"
+    fill="#ffd54f">#8f2f23</text><text x="254" y="404" class="code" fill="#c9d1d9">;</text>
+  <text x="86" y="424" class="code" fill="#c9d1d9">margin-top: </text><text x="186" y="424" class="code"
+    fill="#ffd54f">0.5rem</text><text x="246" y="424" class="code" fill="#c9d1d9">;</text>
+  <text x="68" y="438" class="code" fill="#c9d1d9">}</text>
+
+  <!-- Visual result -->
+  <rect x="530" y="280" width="380" height="160" fill="#fff" stroke="#c9d1d9" stroke-width="1" rx="8" />
+  <text x="540" y="302" class="small">Visual result</text>
+  <text x="600" y="344" class="label" style="font-size:22px">§ About Our Menu</text>
+  <rect x="600" y="358" width="60" height="3" fill="#8f2f23" rx="1" />
+  <text x="600" y="384" class="small" fill="#3d85c6">← ::before adds the § symbol</text>
+  <text x="600" y="404" class="small" fill="#8f2f23">← ::after creates the underline bar</text>
+  <text x="600" y="428" class="small">No extra HTML elements needed</text>
+
+  <!-- Bottom annotation -->
+  <text x="480" y="470" text-anchor="middle" class="note">content: "" is required — without it, the pseudo-element does
+    not render at all.</text>
+</svg>

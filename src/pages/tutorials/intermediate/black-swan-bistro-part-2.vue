@@ -118,6 +118,11 @@ const closureReflectionPrompts = [
 					'Understand the difference between visual reuse with CSS classes and structural reuse with components'
 				]"
 				purpose="Beginners often try to style every section as if it is a brand-new problem. This lesson shows a better habit: define a few strong patterns, then reuse them across the page so the layout feels consistent and easier to maintain."
+				:prerequisites="[
+					{ topic: 'Breaking Layouts into Sections', link: '/tutorials/intermediate/breaking-layouts-into-sections' },
+					{ topic: 'Box Model', link: '/tutorials/beginner/css-basics/box-model' },
+					{ topic: 'Layout Fundamentals', link: '/tutorials/beginner/css-basics/layout' }
+				]"
 			/>
 
 			<h2 id="intro">Tutorial Introduction</h2>
@@ -736,7 +741,7 @@ img {
 			</p>
 
 			<div class="notification is-info is-light">
-				<p><strong>Looking ahead:</strong> you may already notice repeated pieces like menu cards, navigation, and the footer. In Part 3, you will refactor those repeated structures into reusable components. For now, focus on visual reuse through shared CSS classes.</p>
+				<p><strong>Looking ahead:</strong> you may already notice repeated pieces like menu cards, navigation, and the footer. In the next tutorial, <router-link to="/tutorials/intermediate/css-systems-for-reusable-sections">CSS Systems for Reusable Sections</router-link>, you will formalise these shared patterns — colour tokens, spacing values, naming rules — into a small, reliable system. Then in Part 3, you will refactor repeated HTML structures into reusable components. For now, focus on visual reuse through shared CSS classes.</p>
 			</div>
 
 			<h2 id="recap">Short Recap</h2>

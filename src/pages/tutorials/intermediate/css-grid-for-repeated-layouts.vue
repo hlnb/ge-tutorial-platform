@@ -186,6 +186,9 @@ const closureReflectionPrompts = [
 					'Understand when named grid areas can clarify larger page regions'
 				]"
 				purpose="Intermediate layout work is about choosing the tool that matches the content. Grid gives you a clear way to arrange repeated content when rows and columns matter together."
+				:prerequisites="[
+					{ topic: 'Flexbox for Real Layouts', link: '/tutorials/intermediate/flexbox-for-real-layouts' }
+				]"
 			/>
 
 			<h2 id="why-grid">Why Grid Belongs Here</h2>

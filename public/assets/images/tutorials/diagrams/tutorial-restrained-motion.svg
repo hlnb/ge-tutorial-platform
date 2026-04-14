@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" role="img" aria-labelledby="title desc">
+  <title id="title">Restrained motion: good vs excessive animation</title>
+  <desc id="desc">A side-by-side comparison showing a restrained button hover effect (subtle lift and colour shift)
+    versus an excessive animation (spinning, scaling, bouncing) with guidelines for when motion helps and when it hurts.
+  </desc>
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        fill: #1f2933
+      }
+
+      .heading {
+        font-size: 22px;
+        font-weight: 700
+      }
+
+      .subtitle {
+        font-size: 14px;
+        fill: #52606d
+      }
+
+      .label {
+        font-size: 15px;
+        font-weight: 700
+      }
+
+      .small {
+        font-size: 12px;
+        fill: #52606d
+      }
+
+      .code {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 11px;
+        fill: #52606d
+      }
+
+      .panel-good {
+        fill: #e6f7ee;
+        stroke: #2d6a4f;
+        stroke-width: 2;
+        rx: 12
+      }
+
+      .panel-bad {
+        fill: #fce8e8;
+        stroke: #8f2f23;
+        stroke-width: 2;
+        rx: 12
+      }
+
+      .btn-good {
+        fill: #1f4f7a;
+        rx: 6
+      }
+
+      .btn-good-hover {
+        fill: #163d5e;
+        rx: 6
+      }
+
+      .btn-bad {
+        fill: #1f4f7a;
+        rx: 6
+      }
+
+      .btn-text {
+        font-size: 13px;
+        font-weight: 600;
+        fill: #fff
+      }
+
+      .check {
+        fill: #2d6a4f
+      }
+
+      .cross {
+        fill: #8f2f23
+      }
+
+      .rule-box {
+        fill: #fff;
+        stroke: #c9d1d9;
+        stroke-width: 1;
+        rx: 8
+      }
+
+      .note {
+        font-size: 13px;
+        fill: #52606d;
+        font-style: italic
+      }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="heading">Restrained Motion vs Excessive Animation</text>
+  <text x="480" y="56" text-anchor="middle" class="subtitle">Good motion supports interaction. Excessive motion
+    distracts from content.</text>
+
+  <!-- === LEFT: Restrained === -->
+  <rect x="30" y="76" width="430" height="210" class="panel-good" />
+  <text x="50" y="102" class="label" fill="#2d6a4f">✓ Restrained</text>
+
+  <!-- Default state button -->
+  <rect x="60" y="120" width="140" height="40" class="btn-good" />
+  <text x="130" y="145" text-anchor="middle" class="btn-text">Learn More</text>
+  <text x="130" y="176" text-anchor="middle" class="small">Default state</text>
+
+  <!-- Arrow between buttons -->
+  <text x="228" y="144" class="small">→ hover →</text>
+
+  <!-- Hover state button (slight lift) -->
+  <g>
+    <rect x="270" y="116" width="140" height="40" class="btn-good-hover" />
+    <text x="340" y="141" text-anchor="middle" class="btn-text">Learn More</text>
+    <!-- Subtle shadow -->
+    <rect x="272" y="158" width="136" height="4" fill="#c9d1d9" opacity="0.4" rx="2" />
+  </g>
+  <text x="340" y="176" text-anchor="middle" class="small">Hover: lift + darken</text>
+
+  <!-- Code -->
+  <text x="60" y="202" class="code">transition: transform 0.2s ease, background 0.2s ease;</text>
+  <text x="60" y="218" class="code">transform: translateY(-2px);</text>
+
+  <!-- Checkmarks -->
+  <text x="60" y="250" class="small check">✓ Subtle — 0.2s, small shift</text>
+  <text x="60" y="268" class="small check">✓ Purposeful — signals interactivity</text>
+
+  <!-- === RIGHT: Excessive === -->
+  <rect x="500" y="76" width="430" height="210" class="panel-bad" />
+  <text x="520" y="102" class="label" fill="#8f2f23">✗ Excessive</text>
+
+  <!-- Default state button -->
+  <rect x="530" y="120" width="140" height="40" class="btn-bad" />
+  <text x="600" y="145" text-anchor="middle" class="btn-text">Learn More</text>
+  <text x="600" y="176" text-anchor="middle" class="small">Default state</text>
+
+  <!-- Arrow -->
+  <text x="698" y="144" class="small">→ hover →</text>
+
+  <!-- Excessive hover button (rotated, scaled, moved) -->
+  <g transform="translate(810,136) rotate(5) scale(1.3) translate(-70,-20)">
+    <rect x="0" y="0" width="140" height="40" fill="#e63946" rx="6" />
+    <text x="70" y="25" text-anchor="middle" class="btn-text">Learn More</text>
+  </g>
+  <text x="810" y="176" text-anchor="middle" class="small">Hover: spin + grow + colour</text>
+
+  <!-- Code -->
+  <text x="530" y="202" class="code">transition: all 1.5s ease;</text>
+  <text x="530" y="218" class="code">transform: rotate(5deg) scale(1.3);</text>
+
+  <!-- Crosses -->
+  <text x="530" y="250" class="small cross">✗ Slow — 1.5s feels sluggish</text>
+  <text x="530" y="268" class="small cross">✗ Distracting — draws attention away from content</text>
+
+  <!-- Rules section -->
+  <rect x="30" y="300" width="900" height="56" class="rule-box" />
+  <text x="50" y="322" class="label">Motion guidelines</text>
+  <text x="50" y="340" class="small">UI transitions: 0.15s–0.4s | Hover/focus only | One or two properties | Respect
+    prefers-reduced-motion | If in doubt, leave it out</text>
+
+  <!-- Bottom annotation -->
+  <text x="480" y="378" text-anchor="middle" class="note">@media (prefers-reduced-motion: reduce) { * { transition: none
+    !important; animation: none !important; } }</text>
+</svg>

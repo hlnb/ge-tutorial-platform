@@ -185,6 +185,10 @@ const closureReflectionPrompts = [
 					'Create a starter page skeleton that is ready for layout work'
 				]"
 				purpose="If layout thinking is the mental model, section planning is the practical bridge into code. This step makes the page buildable."
+				:prerequisites="[
+					{ topic: 'How to Think About Layouts', link: '/tutorials/intermediate/think-about-layouts' },
+					{ topic: 'How to Read a Design', link: '/tutorials/intermediate/how-to-read-a-design' }
+				]"
 			/>
 
 			<h2 id="why-sections">Why Sections Matter</h2>

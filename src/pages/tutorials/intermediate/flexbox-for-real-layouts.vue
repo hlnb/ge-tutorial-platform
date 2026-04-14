@@ -187,6 +187,10 @@ const closureReflectionPrompts = [
           'Know when Flexbox is the right tool and when another layout method is better'
         ]"
         purpose="Intermediate CSS is not about memorising more properties. It is about choosing the right layout tool for the shape of the content. Flexbox is one of the most useful places to practise that habit."
+        :prerequisites="[
+          { topic: 'CSS Systems for Reusable Sections', link: '/tutorials/intermediate/css-systems-for-reusable-sections' },
+          { topic: 'Flexbox Basics', link: '/tutorials/beginner/css-basics/flexbox' }
+        ]"
       />
 
       <h2 id="mental-model">Flexbox Mental Model</h2>

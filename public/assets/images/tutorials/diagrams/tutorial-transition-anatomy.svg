@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">CSS transition anatomy: the four parts of a transition</title>
+  <desc id="desc">A diagram showing the four transition properties — property, duration, timing function, and delay —
+    applied to a button hover example, with a timeline visualising the transition sequence.</desc>
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        fill: #1f2933
+      }
+
+      .heading {
+        font-size: 22px;
+        font-weight: 700
+      }
+
+      .subtitle {
+        font-size: 14px;
+        fill: #52606d
+      }
+
+      .label {
+        font-size: 15px;
+        font-weight: 700
+      }
+
+      .small {
+        font-size: 12px;
+        fill: #52606d
+      }
+
+      .code {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 13px;
+        fill: #8f2f23
+      }
+
+      .code-block {
+        fill: #1f2933;
+        rx: 8
+      }
+
+      .code-text {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 12px
+      }
+
+      .part-box {
+        fill: #fff;
+        stroke-width: 2;
+        rx: 10
+      }
+
+      .timeline-track {
+        fill: #f0f4f8;
+        stroke: #c9d1d9;
+        stroke-width: 1;
+        rx: 4
+      }
+
+      .timeline-fill {
+        rx: 4
+      }
+
+      .connector {
+        fill: none;
+        stroke: #c9d1d9;
+        stroke-width: 1;
+        stroke-dasharray: 4 2
+      }
+
+      .note {
+        font-size: 13px;
+        fill: #52606d;
+        font-style: italic
+      }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="heading">Anatomy of a CSS Transition</text>
+  <text x="480" y="56" text-anchor="middle" class="subtitle">Four properties control how a value changes over
+    time</text>
+
+  <!-- Code block -->
+  <rect x="50" y="76" width="860" height="56" class="code-block" />
+  <text x="68" y="100" class="code-text" fill="#93c5fd">.button</text><text x="128" y="100" class="code-text"
+    fill="#c9d1d9"> { transition: </text>
+  <text x="268" y="100" class="code-text" fill="#a5d6a7">background-color</text>
+  <text x="410" y="100" class="code-text" fill="#ffd54f"> 0.3s</text>
+  <text x="452" y="100" class="code-text" fill="#ef9a9a"> ease</text>
+  <text x="490" y="100" class="code-text" fill="#ce93d8"> 0s</text>
+  <text x="514" y="100" class="code-text" fill="#c9d1d9">; }</text>
+
+  <!-- Bracket labels pointing to parts -->
+  <line x1="338" y1="130" x2="338" y2="150" stroke="#2d6a4f" stroke-width="1.5" />
+  <line x1="438" y1="130" x2="438" y2="150" stroke="#e67c00" stroke-width="1.5" />
+  <line x1="472" y1="130" x2="472" y2="150" stroke="#8f2f23" stroke-width="1.5" />
+  <line x1="500" y1="130" x2="500" y2="150" stroke="#6a3d9a" stroke-width="1.5" />
+
+  <!-- Four part boxes -->
+  <!-- Property -->
+  <rect x="50" y="158" width="200" height="90" class="part-box" stroke="#2d6a4f" />
+  <circle cx="74" cy="180" r="12" fill="#2d6a4f" /><text x="74" y="185" text-anchor="middle"
+    style="font-size:13px;font-weight:700;fill:#fff">1</text>
+  <text x="94" y="185" class="label">Property</text>
+  <text x="66" y="206" class="code" fill="#2d6a4f">background-color</text>
+  <text x="66" y="226" class="small">Which property to animate</text>
+  <line x1="150" y1="150" x2="338" y2="132" class="connector" />
+
+  <!-- Duration -->
+  <rect x="270" y="158" width="170" height="90" class="part-box" stroke="#e67c00" />
+  <circle cx="294" cy="180" r="12" fill="#e67c00" /><text x="294" y="185" text-anchor="middle"
+    style="font-size:13px;font-weight:700;fill:#fff">2</text>
+  <text x="314" y="185" class="label">Duration</text>
+  <text x="286" y="206" class="code" fill="#e67c00">0.3s</text>
+  <text x="286" y="226" class="small">How long it takes</text>
+  <line x1="355" y1="158" x2="438" y2="132" class="connector" />
+
+  <!-- Timing function -->
+  <rect x="460" y="158" width="200" height="90" class="part-box" stroke="#8f2f23" />
+  <circle cx="484" cy="180" r="12" fill="#8f2f23" /><text x="484" y="185" text-anchor="middle"
+    style="font-size:13px;font-weight:700;fill:#fff">3</text>
+  <text x="504" y="185" class="label">Timing Function</text>
+  <text x="476" y="206" class="code">ease</text>
+  <text x="476" y="226" class="small">Speed curve shape</text>
+  <line x1="560" y1="158" x2="472" y2="132" class="connector" />
+
+  <!-- Delay -->
+  <rect x="680" y="158" width="230" height="90" class="part-box" stroke="#6a3d9a" />
+  <circle cx="704" cy="180" r="12" fill="#6a3d9a" /><text x="704" y="185" text-anchor="middle"
+    style="font-size:13px;font-weight:700;fill:#fff">4</text>
+  <text x="724" y="185" class="label">Delay</text>
+  <text x="696" y="206" class="code" fill="#6a3d9a">0s</text>
+  <text x="696" y="226" class="small">Wait before starting (optional)</text>
+  <line x1="795" y1="158" x2="500" y2="132" class="connector" />
+
+  <!-- Timeline visualization -->
+  <text x="50" y="290" class="label">Timeline: what happens when you hover</text>
+
+  <!-- Timeline axis -->
+  <line x1="100" y1="320" x2="860" y2="320" stroke="#7b8794" stroke-width="1.5" />
+  <!-- Tick marks -->
+  <line x1="100" y1="316" x2="100" y2="324" stroke="#7b8794" stroke-width="1.5" />
+  <text x="100" y="340" text-anchor="middle" class="small">0s</text>
+  <text x="100" y="356" text-anchor="middle" class="small" fill="#1f2933">hover starts</text>
+
+  <line x1="354" y1="316" x2="354" y2="324" stroke="#7b8794" stroke-width="1.5" />
+  <text x="354" y="340" text-anchor="middle" class="small">0.15s</text>
+
+  <line x1="608" y1="316" x2="608" y2="324" stroke="#7b8794" stroke-width="1.5" />
+  <text x="608" y="340" text-anchor="middle" class="small">0.3s</text>
+  <text x="608" y="356" text-anchor="middle" class="small" fill="#1f2933">transition ends</text>
+
+  <!-- Track background -->
+  <rect x="100" y="296" width="508" height="16" class="timeline-track" />
+
+  <!-- Ease curve approximation: fast start, slow end -->
+  <rect x="100" y="296" width="508" height="16" class="timeline-fill" fill="#f7efe2" />
+  <!-- Gradient fill approximation -->
+  <rect x="100" y="296" width="100" height="16" rx="4" fill="#e8c9a0" opacity="0.6" />
+  <rect x="100" y="296" width="250" height="16" rx="4" fill="#d4a574" opacity="0.4" />
+  <rect x="100" y="296" width="508" height="16" rx="4" fill="#8f2f23" opacity="0.2" />
+
+  <!-- Labels on track -->
+  <text x="200" y="308" text-anchor="middle" style="font-size:11px;font-weight:600;fill:#8f2f23">fast at first</text>
+  <text x="500" y="308" text-anchor="middle" style="font-size:11px;font-weight:600;fill:#8f2f23">slows down</text>
+
+  <!-- State indicators -->
+  <rect x="60" y="370" width="16" height="16" fill="#3d85c6" rx="3" />
+  <text x="84" y="383" class="small">Initial state (navy)</text>
+  <rect x="260" y="370" width="16" height="16" fill="#8f2f23" rx="3" />
+  <text x="284" y="383" class="small">Final state (dark red)</text>
+
+  <!-- Bottom annotation -->
+  <text x="480" y="425" text-anchor="middle" class="note">Tip: keep durations between 0.15s and 0.4s for UI
+    interactions. Longer animations feel sluggish.</text>
+</svg>

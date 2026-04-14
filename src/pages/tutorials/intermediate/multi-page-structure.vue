@@ -218,6 +218,10 @@ const closureReflectionPrompts = [
 					'Test links and paths before moving into a larger project build'
 				]"
 				purpose="Multi-page structure is a maintainability skill. It helps learners move from building isolated pages to managing a small website where navigation, styles, and content relationships all need to stay consistent."
+				:prerequisites="[
+					{ topic: 'Responsive Refinement for Reusable Components', link: '/tutorials/intermediate/responsive-refinement-for-reusable-components' },
+					{ topic: 'Building Reusable Components', link: '/tutorials/intermediate/building-reusable-components' }
+				]"
 			/>
 
 			<h2 id="why-multi-page">Why Multi-page Structure Matters</h2>

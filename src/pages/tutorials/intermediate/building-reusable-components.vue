@@ -187,7 +187,15 @@ const closureReflectionPrompts = [
 					'Decide when variation belongs inside a component and when it should stay section-specific'
 				]"
 				purpose="Component thinking helps you stop solving the same layout and styling problem from scratch. The aim is not abstraction for its own sake. The aim is clearer, more maintainable HTML and CSS."
+				:prerequisites="[
+					{ topic: 'CSS Systems for Reusable Sections', link: '/tutorials/intermediate/css-systems-for-reusable-sections' },
+					{ topic: 'Flexbox for Real Layouts', link: '/tutorials/intermediate/flexbox-for-real-layouts' }
+				]"
 			/>
+
+			<div class="notification is-info is-light">
+				<p><strong>Building on CSS Systems:</strong> In <router-link to="/tutorials/intermediate/css-systems-for-reusable-sections">CSS Systems for Reusable Sections</router-link>, you organised shared tokens, spacing values, and naming rules so your CSS stays consistent as a site grows. This tutorial takes that further. Instead of shared styles alone, you will define stable HTML structures — markup and CSS together — that you can reuse across sections and pages.</p>
+			</div>
 
 			<h2 id="what-components-mean">What Components Mean Without a Framework</h2>
 			<p>

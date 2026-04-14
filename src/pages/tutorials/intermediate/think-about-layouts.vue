@@ -186,6 +186,10 @@ const closureReflectionPrompts = [
 					'Sketch a simple wireframe that turns a design into something code-ready'
 				]"
 				purpose="Most layout problems become easier once you stop thinking in isolated elements and start thinking in relationships. This lesson trains that habit."
+				:prerequisites="[
+					{ topic: 'Box Model', link: '/tutorials/beginner/css-basics/box-model' },
+					{ topic: 'Selectors & Properties', link: '/tutorials/beginner/css-basics/selectors' }
+				]"
 			/>
 
 			<h2 id="layout-mental-model">Layout Mental Model</h2>

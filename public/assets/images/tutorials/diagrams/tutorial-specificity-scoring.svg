@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">Specificity scoring: how selectors compete</title>
+  <desc id="desc">A table-style diagram showing five CSS selectors with their specificity scores broken into three
+    columns: IDs, Classes, and Elements. Selectors are ordered from lowest to highest specificity, with visual bars
+    illustrating relative weight.</desc>
+  <defs>
+    <style>
+      text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        fill: #1f2933
+      }
+
+      .heading {
+        font-size: 24px;
+        font-weight: 700
+      }
+
+      .subtitle {
+        font-size: 15px;
+        fill: #52606d
+      }
+
+      .label {
+        font-size: 15px;
+        font-weight: 700
+      }
+
+      .small {
+        font-size: 13px;
+        fill: #52606d
+      }
+
+      .code {
+        font-family: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 14px;
+        fill: #1f2933
+      }
+
+      .row-bg-even {
+        fill: #f0f4f8
+      }
+
+      .row-bg-odd {
+        fill: #fff
+      }
+
+      .col-header {
+        fill: #1f1b18
+      }
+
+      .col-header-text {
+        font-size: 13px;
+        font-weight: 700;
+        fill: #fff;
+        text-anchor: middle
+      }
+
+      .score {
+        font-size: 20px;
+        font-weight: 700;
+        text-anchor: middle
+      }
+
+      .id-color {
+        fill: #8f2f23
+      }
+
+      .class-color {
+        fill: #3273dc
+      }
+
+      .el-color {
+        fill: #2e7d32
+      }
+
+      .bar-id {
+        fill: #e8d5c4;
+        stroke: #8f2f23;
+        stroke-width: 1.5;
+        rx: 4
+      }
+
+      .bar-class {
+        fill: #d4e8f7;
+        stroke: #3273dc;
+        stroke-width: 1.5;
+        rx: 4
+      }
+
+      .bar-el {
+        fill: #c8e6c9;
+        stroke: #2e7d32;
+        stroke-width: 1.5;
+        rx: 4
+      }
+
+      .winner {
+        fill: #fff8e1;
+        stroke: #f9a825;
+        stroke-width: 2
+      }
+    </style>
+  </defs>
+
+  <rect width="960" height="500" fill="#f8fafb" />
+  <text x="480" y="40" text-anchor="middle" class="heading">Specificity Scoring</text>
+  <text x="480" y="64" text-anchor="middle" class="subtitle">Each selector gets a score in three columns. Compare left
+    to right — the first higher column wins.</text>
+
+  <!-- Column headers -->
+  <rect x="540" y="86" width="100" height="28" rx="4" fill="#8f2f23" /><text x="590" y="105"
+    class="col-header-text">IDs</text>
+  <rect x="660" y="86" width="100" height="28" rx="4" fill="#3273dc" /><text x="710" y="105"
+    class="col-header-text">Classes</text>
+  <rect x="780" y="86" width="100" height="28" rx="4" fill="#2e7d32" /><text x="830" y="105"
+    class="col-header-text">Elements</text>
+
+  <!-- Row 1 -->
+  <rect x="60" y="124" width="840" height="54" class="row-bg-odd" />
+  <text x="80" y="156" class="code">p</text>
+  <text x="590" y="158" class="score id-color">0</text>
+  <text x="710" y="158" class="score class-color">0</text>
+  <text x="830" y="158" class="score el-color">1</text>
+  <rect x="810" y="142" width="12" height="20" class="bar-el" />
+
+  <!-- Row 2 -->
+  <rect x="60" y="178" width="840" height="54" class="row-bg-even" />
+  <text x="80" y="210" class="code">.warning</text>
+  <text x="590" y="212" class="score id-color">0</text>
+  <text x="710" y="212" class="score class-color">1</text>
+  <text x="830" y="212" class="score el-color">0</text>
+  <rect x="690" y="196" width="24" height="20" class="bar-class" />
+
+  <!-- Row 3 -->
+  <rect x="60" y="232" width="840" height="54" class="row-bg-odd" />
+  <text x="80" y="264" class="code">nav .site-nav__link</text>
+  <text x="590" y="266" class="score id-color">0</text>
+  <text x="710" y="266" class="score class-color">1</text>
+  <text x="830" y="266" class="score el-color">1</text>
+  <rect x="690" y="250" width="24" height="20" class="bar-class" />
+  <rect x="810" y="250" width="12" height="20" class="bar-el" />
+
+  <!-- Row 4 -->
+  <rect x="60" y="286" width="840" height="54" class="row-bg-even" />
+  <text x="80" y="318" class="code">#main-nav .link</text>
+  <text x="590" y="320" class="score id-color">1</text>
+  <text x="710" y="320" class="score class-color">1</text>
+  <text x="830" y="320" class="score el-color">0</text>
+  <rect x="570" y="304" width="36" height="20" class="bar-id" />
+  <rect x="690" y="304" width="24" height="20" class="bar-class" />
+
+  <!-- Row 5 (winner) -->
+  <rect x="60" y="340" width="840" height="54" class="winner" />
+  <text x="80" y="372" class="code">#header #main-nav a.active</text>
+  <text x="590" y="374" class="score id-color">2</text>
+  <text x="710" y="374" class="score class-color">1</text>
+  <text x="830" y="374" class="score el-color">1</text>
+  <rect x="558" y="358" width="60" height="20" class="bar-id" />
+  <rect x="690" y="358" width="24" height="20" class="bar-class" />
+  <rect x="810" y="358" width="12" height="20" class="bar-el" />
+  <text x="480" y="375" class="small" style="font-weight:700;fill:#f9a825">← highest</text>
+
+  <!-- Annotation -->
+  <rect x="120" y="420" width="720" height="60" rx="8" fill="#f0f4f8" stroke="#3273dc" stroke-width="1.5" />
+  <text x="480" y="445" text-anchor="middle" class="small" style="font-weight:700;fill:#3273dc">Compare columns left to
+    right, not as a total.</text>
+  <text x="480" y="465" text-anchor="middle" class="small">One ID (1-0-0) always beats any number of classes (0-99-0).
+    This is why IDs escalate specificity so quickly.</text>
+</svg>
