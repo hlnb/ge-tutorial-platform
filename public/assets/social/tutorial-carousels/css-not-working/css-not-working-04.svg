@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Why Your CSS Isn't Working slide 4</title>
+  <desc id="desc">Check the spelling. CSS often fails quietly when a property, value, class, or file path is mistyped.</desc>
+  <rect width="1080" height="1350" fill="#fff9fb" />
+  <rect x="40" y="40" width="1000" height="1270" rx="8" fill="#ffffff" />
+  
+    <g id="brand-header">
+      <text x="90" y="104" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">graphit<tspan fill="#8d0000">Edge</tspan></text>
+      <rect x="90" y="132" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="182" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#8d0000">HTML, CSS, and JS Foundations</text>
+      <text x="990" y="182" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#4d4d4d">4/6</text>
+    </g>
+  
+  
+  <g id="message">
+    <text x="90" y="306" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">Check the spelling.</text>
+    <text x="92" y="510" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">CSS often fails quietly when a property,</text>
+<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">value, class, or file path is mistyped.</text>
+  </g>
+  <g id="visual">
+    
+        <rect x="220" y="760" width="640" height="250" rx="8" fill="#ffffff" stroke="#d3d4d9" stroke-width="3" />
+        <text x="280" y="855" font-family="IBM Plex Mono, monospace" font-size="34" fill="#8d0000">backgrond-color</text>
+        <path d="M 280 875 Q 325 900, 370 875 T 460 875 T 550 875" fill="none" stroke="#8d0000" stroke-width="5" />
+        <text x="540" y="1048" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">Small typos. Big silence.</text>
+      
+  </g>
+  
+    <g id="footer">
+      <rect x="90" y="1214" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="1268" font-family="PT Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0" fill="#8d0000">Why Your CSS Isn't Working</text>
+      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="#4d4d4d">GraphiteEdge tutorials</text>
+    </g>
+  
+</svg>

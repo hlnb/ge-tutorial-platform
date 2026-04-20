@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">How the Web Actually Works slide 6</title>
+  <desc id="desc">Web development is building something that travels. Learn the system first, then the code starts to make more sense.</desc>
+  <rect width="1080" height="1350" fill="#fff9fb" />
+  <rect x="40" y="40" width="1000" height="1270" rx="8" fill="#ffffff" />
+  
+    <g id="brand-header">
+      <text x="90" y="104" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">graphit<tspan fill="#8d0000">Edge</tspan></text>
+      <rect x="90" y="132" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="182" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#8d0000">Understand the Web</text>
+      <text x="990" y="182" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#4d4d4d">6/6</text>
+    </g>
+  
+  
+  <g id="message">
+    <text x="90" y="306" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">Web development is</text>
+<text x="90" y="382.16" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">building something that</text>
+<text x="90" y="382.16" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">travels.</text>
+    <text x="92" y="510" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">Learn the system first, then the code</text>
+<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">starts to make more sense.</text>
+  </g>
+  <g id="visual">
+    
+        <path d="M 180 915 C 330 730, 520 1080, 690 865 S 890 865, 930 785" fill="none" stroke="#4b88a2" stroke-width="10" stroke-linecap="round" />
+        <circle cx="180" cy="915" r="24" fill="#8d0000" />
+        <circle cx="540" cy="930" r="24" fill="#87bba2" />
+        <circle cx="930" cy="785" r="24" fill="#8d0000" />
+        <text x="260" y="820" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="0" fill="#4d4d4d">request</text>
+        <text x="570" y="1020" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="0" fill="#4d4d4d">response</text>
+        <text x="900" y="735" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="0" fill="#4d4d4d">page</text>
+      
+  </g>
+  
+    <g id="footer">
+      <rect x="90" y="1214" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="1268" font-family="PT Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0" fill="#8d0000">How the Web Actually Works</text>
+      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="#4d4d4d">GraphiteEdge tutorials</text>
+    </g>
+  
+</svg>

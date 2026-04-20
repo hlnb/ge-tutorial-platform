@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Why Your CSS Isn't Working slide 6</title>
+  <desc id="desc">Use DevTools before you rewrite everything. The browser can show which styles apply, which are crossed out, and where they came from.</desc>
+  <rect width="1080" height="1350" fill="#fff9fb" />
+  <rect x="40" y="40" width="1000" height="1270" rx="8" fill="#ffffff" />
+  
+    <g id="brand-header">
+      <text x="90" y="104" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">graphit<tspan fill="#8d0000">Edge</tspan></text>
+      <rect x="90" y="132" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="182" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#8d0000">HTML, CSS, and JS Foundations</text>
+      <text x="990" y="182" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#4d4d4d">6/6</text>
+    </g>
+  
+  
+  <g id="message">
+    <text x="90" y="306" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">Use DevTools before you</text>
+<text x="90" y="382.16" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">rewrite everything.</text>
+    <text x="92" y="510" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">The browser can show which styles apply,</text>
+<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">which are crossed out, and where they came</text>
+<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">from.</text>
+  </g>
+  <g id="visual">
+    
+        <rect x="170" y="735" width="740" height="330" rx="8" fill="#ffffff" stroke="#d3d4d9" stroke-width="3" />
+        <rect x="170" y="735" width="740" height="58" rx="8" fill="#f9eae1" />
+        <text x="235" y="845" font-family="IBM Plex Mono, monospace" font-size="30" fill="#4d4d4d">color: #8d0000;</text>
+        <text x="235" y="910" font-family="IBM Plex Mono, monospace" font-size="30" fill="#4d4d4d" text-decoration="line-through">color: blue;</text>
+        <text x="235" y="975" font-family="IBM Plex Mono, monospace" font-size="30" fill="#8d0000">margin: 1rem;</text>
+        <text x="540" y="1120" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">Styles panel</text>
+      
+  </g>
+  
+    <g id="footer">
+      <rect x="90" y="1214" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="1268" font-family="PT Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0" fill="#8d0000">Why Your CSS Isn't Working</text>
+      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="#4d4d4d">GraphiteEdge tutorials</text>
+    </g>
+  
+</svg>

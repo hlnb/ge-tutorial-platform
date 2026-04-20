@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">How the Web Actually Works slide 5</title>
+  <desc id="desc">The browser builds the page you see. It reads the files, creates the page structure, applies styles, and runs scripts.</desc>
+  <rect width="1080" height="1350" fill="#fff9fb" />
+  <rect x="40" y="40" width="1000" height="1270" rx="8" fill="#ffffff" />
+  
+    <g id="brand-header">
+      <text x="90" y="104" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">graphit<tspan fill="#8d0000">Edge</tspan></text>
+      <rect x="90" y="132" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="182" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#8d0000">Understand the Web</text>
+      <text x="990" y="182" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#4d4d4d">5/6</text>
+    </g>
+  
+  
+  <g id="message">
+    <text x="90" y="306" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">The browser builds the</text>
+<text x="90" y="382.16" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">page you see.</text>
+    <text x="92" y="510" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">It reads the files, creates the page</text>
+<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">structure, applies styles, and runs</text>
+<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">scripts.</text>
+  </g>
+  <g id="visual">
+    
+        <rect x="210" y="740" width="660" height="310" rx="8" fill="#ffffff" stroke="#d3d4d9" stroke-width="3" />
+        <rect x="260" y="800" width="560" height="54" rx="8" fill="#8d0000" opacity="0.9" />
+        <rect x="260" y="884" width="250" height="118" rx="8" fill="#f9eae1" />
+        <rect x="550" y="884" width="270" height="118" rx="8" fill="#c9e4ca" />
+        <text x="540" y="1100" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">Rendered page</text>
+      
+  </g>
+  
+    <g id="footer">
+      <rect x="90" y="1214" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="1268" font-family="PT Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0" fill="#8d0000">How the Web Actually Works</text>
+      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="#4d4d4d">GraphiteEdge tutorials</text>
+    </g>
+  
+</svg>

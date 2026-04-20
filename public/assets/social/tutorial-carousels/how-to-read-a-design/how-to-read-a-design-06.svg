@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">How to Read a Design slide 6</title>
+  <desc id="desc">Do not copy pixels blindly. Understand the system behind the design, then build it with care.</desc>
+  <rect width="1080" height="1350" fill="#fff9fb" />
+  <rect x="40" y="40" width="1000" height="1270" rx="8" fill="#ffffff" />
+  
+    <g id="brand-header">
+      <text x="90" y="104" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">graphit<tspan fill="#8d0000">Edge</tspan></text>
+      <rect x="90" y="132" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="182" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#8d0000">From Design to Website</text>
+      <text x="990" y="182" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#4d4d4d">6/6</text>
+    </g>
+  
+  
+  <g id="message">
+    <text x="90" y="306" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">Do not copy pixels</text>
+<text x="90" y="382.16" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">blindly.</text>
+    <text x="92" y="510" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">Understand the system behind the design,</text>
+<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">then build it with care.</text>
+  </g>
+  <g id="visual">
+    
+        <rect x="170" y="760" width="300" height="260" rx="8" fill="#ffffff" stroke="#d3d4d9" stroke-width="3" />
+        <path d="M 500 890 L 610 890" stroke="#8d0000" stroke-width="7" stroke-linecap="round" /><path d="M 590 872 L 610 890 L 590 908" fill="none" stroke="#8d0000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+        <rect x="640" y="760" width="270" height="260" rx="8" fill="#fff9fb" stroke="#d3d4d9" stroke-width="3" />
+        <text x="320" y="900" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" fill="#4d4d4d">Design</text>
+        <text x="775" y="900" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" fill="#8d0000">System</text>
+      
+  </g>
+  
+    <g id="footer">
+      <rect x="90" y="1214" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="1268" font-family="PT Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0" fill="#8d0000">How to Read a Design</text>
+      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="#4d4d4d">GraphiteEdge tutorials</text>
+    </g>
+  
+</svg>

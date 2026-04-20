@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1350" viewBox="0 0 1080 1350" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">How to Read a Design slide 5</title>
+  <desc id="desc">Turn decisions into reusable CSS. Avoid one-off fixes when a shared class or pattern would keep the project clearer.</desc>
+  <rect width="1080" height="1350" fill="#fff9fb" />
+  <rect x="40" y="40" width="1000" height="1270" rx="8" fill="#ffffff" />
+  
+    <g id="brand-header">
+      <text x="90" y="104" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">graphit<tspan fill="#8d0000">Edge</tspan></text>
+      <rect x="90" y="132" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="182" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#8d0000">From Design to Website</text>
+      <text x="990" y="182" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#4d4d4d">5/6</text>
+    </g>
+  
+  
+  <g id="message">
+    <text x="90" y="306" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">Turn decisions into</text>
+<text x="90" y="382.16" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">reusable CSS.</text>
+    <text x="92" y="510" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">Avoid one-off fixes when a shared class or</text>
+<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">pattern would keep the project clearer.</text>
+  </g>
+  <g id="visual">
+    
+        <rect x="190" y="745" width="700" height="340" rx="8" fill="#ffffff" stroke="#d3d4d9" stroke-width="3" />
+        <text x="250" y="830" font-family="IBM Plex Mono, monospace" font-size="32" fill="#8d0000">.section</text>
+        <text x="250" y="895" font-family="IBM Plex Mono, monospace" font-size="32" fill="#4b88a2">.card-grid</text>
+        <text x="250" y="960" font-family="IBM Plex Mono, monospace" font-size="32" fill="#87bba2">.button-primary</text>
+        <path d="M 535 895 L 760 895" stroke="#8d0000" stroke-width="7" stroke-linecap="round" /><path d="M 740 877 L 760 895 L 740 913" fill="none" stroke="#8d0000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+        <text x="540" y="1050" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">reusable patterns</text>
+      
+  </g>
+  
+    <g id="footer">
+      <rect x="90" y="1214" width="900" height="2" fill="#d3d4d9" />
+      <text x="90" y="1268" font-family="PT Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0" fill="#8d0000">How to Read a Design</text>
+      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="#4d4d4d">GraphiteEdge tutorials</text>
+    </g>
+  
+</svg>

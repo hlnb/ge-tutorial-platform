@@ -9,6 +9,7 @@ approval_policy = "untrusted"
 # Treat git repo as the root.
 project_root_markers = [".git"]
 
+sandbox_mode = "workspace-write"
 [tools]
 web_search = true
 
@@ -21,3 +22,6 @@ approval_policy = "untrusted"
 model = "gpt-5"
 model_reasoning_effort = "low"
 approval_policy = "untrusted"
+
+[sandbox_workspace_write]
+network_access = true
