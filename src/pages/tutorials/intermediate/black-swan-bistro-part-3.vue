@@ -145,6 +145,17 @@ const closureReflectionPrompts = [
 				</p>
 			</div>
 
+			<div class="notification is-light">
+				<p>
+					<strong>Keep the client brief close:</strong> the components you are about to
+					build — navigation, cards, calls to action, footer — come directly from the
+					content and structure described in the
+					<a href="/projects/black-swan-bistro-client-brief.pdf" target="_blank">Black Swan Bistro client brief</a>.
+					If you are unsure what belongs inside a component, the brief tells you what the
+					restaurant needs and who it is for.
+				</p>
+			</div>
+
 			<h2 id="what-you-will-build">What You Will Build</h2>
 			<p>
 				By the end of this lesson, your bistro homepage should still look familiar, but

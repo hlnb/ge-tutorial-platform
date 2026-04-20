@@ -783,6 +783,11 @@ touch menu.html about.html contact.html</code></pre>
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="recap">Recap</h2>
 			<p>
+				You started this series with a client brief and a blank HTML file. You have now
+				turned that brief into a working multi-page website, built entirely from reusable
+				components you defined yourself.
+			</p>
+			<p>
 				In Part 4, you expanded the Black Swan Bistro from a single homepage into a
 				four-page website. You learned that a multi-page HTML site is a collection of
 				separate files sharing the same header, footer, stylesheet, and navigation.

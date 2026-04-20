@@ -6,6 +6,7 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 const sections = [
+	{ id: 'project-brief', title: 'Project Brief' },
 	{ id: 'intro', title: 'Introduction' },
 	{ id: 'what-you-will-build', title: 'What You Will Build' },
 	{ id: 'what-you-will-learn', title: 'What You Will Learn' },
@@ -124,6 +125,21 @@ const closureReflectionPrompts = [
 					{ topic: 'Layout Fundamentals', link: '/tutorials/beginner/css-basics/layout' }
 				]"
 			/>
+
+			<h2 id="project-brief">Project Brief</h2>
+			<p>
+				This tutorial series uses a real client brief as its source material. Before you
+				write any code, download and read the
+				<a href="/projects/black-swan-bistro-client-brief.pdf" target="_blank">Black Swan Bistro client brief</a>.
+				It describes the restaurant, its audience, and the pages the site needs to include.
+				You will refer back to this brief throughout Parts 2, 3, and 4.
+			</p>
+			<div class="notification is-light">
+				<p><strong>Structure first, content later.</strong> Your job in this part is to build
+				the layout skeleton. Use the brief to understand what sections the site needs, but do
+				not worry about matching the final copy, images, or colours yet. Keep the page in
+				wireframe mode and focus on spacing, hierarchy, and repeatable patterns.</p>
+			</div>
 
 			<h2 id="intro">Tutorial Introduction</h2>
 			<p>
