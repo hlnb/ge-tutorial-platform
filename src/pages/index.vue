@@ -268,24 +268,38 @@ const frontmatter = {
 	latestPosts: getLatestPosts(),
 };
 
-// SEO metadata (this part remains the same)
 useHead({
-	title: frontmatter.title,
-	meta: [
-		{ name: 'description', content: frontmatter.description },
-		{
-			name: 'keywords',
-			content: 'web development, tutorials, beginner to advanced, practical projects, Western Australia, Vue.js, HTML, CSS, JavaScript',
-		},
-		// Open Graph tags
-		{ property: 'og:title', content: frontmatter.title },
-		{ property: 'og:description', content: frontmatter.description },
-		{ property: 'og:type', content: 'website' },
-		// Twitter Card tags
-		{ name: 'twitter:title', content: frontmatter.title },
-		{ name: 'twitter:description', content: frontmatter.description },
-		{ name: 'twitter:card', content: 'summary_large_image' },
-	],
+  title: 'GraphiteEdge – Web Development Tutorials for Beginners',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Free web development tutorials for beginners. Learn HTML, CSS, JavaScript, DNS, and how the web works — step by step, with real-world projects.',
+    },
+    {
+      property: 'og:title',
+      content: 'GraphiteEdge – Web Development Tutorials for Beginners',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Free web development tutorials for beginners. Learn HTML, CSS, JavaScript, DNS, and how the web works — step by step.',
+    },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.graphitedge.com.au/' },
+    { property: 'og:image', content: 'https://www.graphitedge.com.au/og-image.jpg' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+      name: 'twitter:title',
+      content: 'GraphiteEdge – Web Development Tutorials for Beginners',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        'Free web development tutorials for beginners. Learn HTML, CSS, JavaScript, DNS, and how the web works.',
+    },
+  ],
+  link: [{ rel: 'canonical', href: 'https://www.graphitedge.com.au/' }],
 });
 </script>
 
