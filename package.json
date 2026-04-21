@@ -9,7 +9,7 @@
 		"dev:api": "node api/server.js",
 		"dev:cms": "concurrently \"npm run dev:vite\" \"npm run cms:proxy\"",
 		"cms:proxy": "npx @sveltia/cms-proxy-server",
-		"build": "vite build",
+		"build": "vite build && node scripts/generate-sitemap.js",
 		"preview": "vite preview",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix",
 		"format": "prettier --write src/",
