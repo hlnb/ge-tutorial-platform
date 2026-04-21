@@ -1046,6 +1046,26 @@ const legacyTutorialEditorialContent = {
 				},
 			],
 		},
+		'debug-broken-web-page': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'MDN: Get started with debugging JavaScript',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Solve_JavaScript_problems',
+					description: 'A practical guide to reading browser errors and narrowing JavaScript problems step by step.',
+				},
+				{
+					title: 'MDN: Inspect and edit HTML and CSS with DevTools',
+					url: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools',
+					description: 'Helpful background on using browser panels to inspect structure, styles, and page behaviour.',
+				},
+				{
+					title: 'MDN: HTTP response status codes',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status',
+					description: 'Useful when the Network panel shows 404 or other loading failures.',
+				},
+			],
+		},
 		'bsb-part-4b-polish-and-refine': {
 			practiceProjects: [],
 			resources: [

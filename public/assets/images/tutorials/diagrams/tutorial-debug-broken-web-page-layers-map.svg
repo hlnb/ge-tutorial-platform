@@ -1,0 +1,34 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#F7F5F2"/>
+  <rect x="56" y="52" width="1088" height="616" rx="28" fill="#FFFDFC" stroke="#D8D2C8" stroke-width="2"/>
+  <text x="600" y="108" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#2C2A28">What Kind of Broken Page Problem Is This?</text>
+  <text x="600" y="146" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#5D5751">Sort the symptom into a likely layer before you start fixing code.</text>
+
+  <rect x="100" y="190" width="470" height="180" rx="22" fill="#EAF4F4" stroke="#7EB5B4" stroke-width="2"/>
+  <text x="136" y="232" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1E4E57">HTML Structure</text>
+  <text x="136" y="274" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#324B50">• wrong element or missing wrapper</text>
+  <text x="136" y="306" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#324B50">• class name mismatch</text>
+  <text x="136" y="338" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#324B50">• invalid nesting or missing attribute</text>
+  <text x="136" y="370" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1E4E57">Look in: Elements panel</text>
+
+  <rect x="630" y="190" width="470" height="180" rx="22" fill="#F2ECFB" stroke="#A78CC8" stroke-width="2"/>
+  <text x="666" y="232" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#4C3E73">CSS</text>
+  <text x="666" y="274" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#4B4560">• styles missing or crossed out</text>
+  <text x="666" y="306" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#4B4560">• layout looks wrong even though HTML exists</text>
+  <text x="666" y="338" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#4B4560">• spacing, color, or size is being overridden</text>
+  <text x="666" y="370" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#4C3E73">Look in: Styles and Computed</text>
+
+  <rect x="100" y="414" width="470" height="180" rx="22" fill="#FFF2E6" stroke="#D59B58" stroke-width="2"/>
+  <text x="136" y="456" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#8A4D14">File Loading</text>
+  <text x="136" y="498" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#684F39">• image, stylesheet, or script is missing</text>
+  <text x="136" y="530" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#684F39">• 404 request or wrong relative path</text>
+  <text x="136" y="562" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#684F39">• page works in one folder but not another</text>
+  <text x="136" y="594" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#8A4D14">Look in: Network panel</text>
+
+  <rect x="630" y="414" width="470" height="180" rx="22" fill="#FDEBEC" stroke="#D97A83" stroke-width="2"/>
+  <text x="666" y="456" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#8C2F3D">JavaScript</text>
+  <text x="666" y="498" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#6A4750">• click or toggle does nothing</text>
+  <text x="666" y="530" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#6A4750">• null, reference, or type error in console</text>
+  <text x="666" y="562" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#6A4750">• script stops after one bad assumption</text>
+  <text x="666" y="594" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#8C2F3D">Look in: Console first</text>
+</svg>

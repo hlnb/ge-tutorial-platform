@@ -1,0 +1,34 @@
+<svg width="1200" height="640" viewBox="0 0 1200 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="640" fill="#F7F5F2"/>
+  <rect x="58" y="50" width="1084" height="540" rx="28" fill="#FFFDFC" stroke="#D8D2C8" stroke-width="2"/>
+  <text x="600" y="106" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#2C2A28">The Debugging Loop</text>
+  <text x="600" y="144" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#5D5751">Work in a small loop so each step reduces uncertainty.</text>
+
+  <rect x="95" y="248" width="180" height="120" rx="24" fill="#EAF4F4" stroke="#7EB5B4" stroke-width="2"/>
+  <text x="185" y="295" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#1E4E57">1. Observe</text>
+  <text x="185" y="328" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#324B50">Name the symptom</text>
+
+  <rect x="320" y="248" width="180" height="120" rx="24" fill="#F2ECFB" stroke="#A78CC8" stroke-width="2"/>
+  <text x="410" y="295" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#4C3E73">2. Collect</text>
+  <text x="410" y="328" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#4B4560">Check browser evidence</text>
+
+  <rect x="545" y="248" width="180" height="120" rx="24" fill="#FFF2E6" stroke="#D59B58" stroke-width="2"/>
+  <text x="635" y="295" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#8A4D14">3. Isolate</text>
+  <text x="635" y="328" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#684F39">Choose one layer</text>
+
+  <rect x="770" y="248" width="180" height="120" rx="24" fill="#FDEBEC" stroke="#D97A83" stroke-width="2"/>
+  <text x="860" y="295" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#8C2F3D">4. Fix</text>
+  <text x="860" y="328" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#6A4750">Change one thing</text>
+
+  <rect x="995" y="248" width="120" height="120" rx="24" fill="#EEF7E8" stroke="#93B97B" stroke-width="2"/>
+  <text x="1055" y="295" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#496238">5. Test</text>
+  <text x="1055" y="328" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#496238">Reload</text>
+
+  <path d="M275 308H318" stroke="#857B70" stroke-width="4" stroke-linecap="round"/>
+  <path d="M495 308H543" stroke="#857B70" stroke-width="4" stroke-linecap="round"/>
+  <path d="M720 308H768" stroke="#857B70" stroke-width="4" stroke-linecap="round"/>
+  <path d="M945 308H993" stroke="#857B70" stroke-width="4" stroke-linecap="round"/>
+  <path d="M298 422C438 520 778 520 1018 404" stroke="#857B70" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10"/>
+  <path d="M1002 402L1023 401L1011 384" stroke="#857B70" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="596" y="538" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#5D5751">If the page is still broken, go around the loop again with the new evidence.</text>
+</svg>
