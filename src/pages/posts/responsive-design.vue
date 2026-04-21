@@ -290,11 +290,14 @@ export const frontmatter = {
 import PostVisibility from '@/components/PostVisibility.vue';
 import PostNavigation from '@/components/PostNavigation.vue';
 import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import { useHead } from '@vueuse/head';
 import BlogSignup from '../../components/BlogSignup.vue';
 import { format } from 'date-fns';
 
 const postData = ref(frontmatter);
+const route = useRoute();
+const canonicalUrl = `https://www.graphitedge.com.au${route.path}`;
 
 const formatDate = (date) => {
 	return format(new Date(date), 'MMMM do, yyyy');
@@ -307,6 +310,25 @@ useHead({
 		{ property: 'og:title', content: postData.value.title },
 		{ property: 'og:description', content: postData.value.description },
 		{ property: 'og:image', content: postData.value.image },
+	],
+	link: [{ rel: 'canonical', href: canonicalUrl }],
+	script: [
+		{
+			type: 'application/ld+json',
+			children: JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				headline: postData.value.title,
+				description: postData.value.description,
+				author: { '@type': 'Person', name: 'Helen Burgess' },
+				publisher: {
+					'@type': 'Organization',
+					name: 'GraphiteEdge',
+					url: 'https://www.graphitedge.com.au',
+				},
+				url: canonicalUrl,
+			}),
+		},
 	],
 });
 
