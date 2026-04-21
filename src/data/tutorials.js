@@ -200,9 +200,9 @@ export const sections = [
     pathways: ['builder'],
     introCopy: {
       title: 'Design to Code',
-      summary: 'Learn how to read a design, build reusable CSS systems, and grow a homepage into a consistent multi-page project.',
+      summary: 'Learn how to read a design, build reusable CSS systems, and grow a homepage into a consistent multi-page project, with optional late-stage modern CSS extensions.',
       description:
-        'Work through the builder-path lessons in order to move from design thinking into layout, reusable CSS patterns, component-style structures, responsive refinement, and the Black Swan Bistro project build.',
+        'Work through the builder-path lessons in order to move from design thinking into layout, reusable CSS patterns, component-style structures, responsive refinement, and the Black Swan Bistro project build. After the core sequence, optional modern CSS lessons extend that foundation with newer layout and architecture techniques.',
     },
   },
   {
@@ -1800,6 +1800,90 @@ const tutorialRecords = [
     lessonCount: null,
   },
   {
+    id: 'modern-css-layout-extensions',
+    title: 'Modern CSS Layout Extensions',
+    slug: 'intermediate/modern-css-layout-extensions',
+    section: 'design-to-code',
+    summary:
+      'Planned optional extension on subgrid, deeper minmax() patterns, and the layout problems that appear when nested grids need to align.',
+    level: 'intermediate',
+    levelTitle: 'Intermediate',
+    levelDescription: 'Layouts, components, and professional workflows.',
+    pathways: ['builder'],
+    stage: 10.9,
+    difficulty: 'medium',
+    estimatedTime: '35 min',
+    tags: ['css', 'grid', 'subgrid', 'optional'],
+    prerequisites: ['bsb-part-4b', 'css-grid-repeated-layouts'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'css',
+    comingSoon: true,
+    lessonCount: null,
+  },
+  {
+    id: 'container-queries-reusable-components',
+    title: 'Container Queries for Reusable Components',
+    slug: 'intermediate/container-queries-for-reusable-components',
+    section: 'design-to-code',
+    summary:
+      'Planned optional extension on container queries, container units, and when a component should respond to its own space instead of the viewport.',
+    level: 'intermediate',
+    levelTitle: 'Intermediate',
+    levelDescription: 'Layouts, components, and professional workflows.',
+    pathways: ['builder'],
+    stage: 10.92,
+    difficulty: 'medium',
+    estimatedTime: '35 min',
+    tags: ['css', 'responsive', 'container-queries', 'optional'],
+    prerequisites: [
+      'modern-css-layout-extensions',
+      'responsive-refinement-reusable-components',
+    ],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'responsive',
+    comingSoon: true,
+    lessonCount: null,
+  },
+  {
+    id: 'modern-css-architecture',
+    title: 'Modern CSS Architecture',
+    slug: 'intermediate/modern-css-architecture',
+    section: 'design-to-code',
+    summary:
+      'Planned optional extension on :has(), :where(), logical properties as defaults, and cascade layers for cleaner large-site CSS.',
+    level: 'intermediate',
+    levelTitle: 'Intermediate',
+    levelDescription: 'Layouts, components, and professional workflows.',
+    pathways: ['builder'],
+    stage: 10.94,
+    difficulty: 'medium',
+    estimatedTime: '40 min',
+    tags: ['css', 'architecture', 'selectors', 'optional'],
+    prerequisites: [
+      'container-queries-reusable-components',
+      'cascade-specificity-debugging-css',
+    ],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'css',
+    comingSoon: true,
+    lessonCount: null,
+  },
+  {
     id: 'debug-broken-web-page',
     title: 'How to Debug a Broken Web Page (Step-by-Step)',
     slug: 'intermediate/debug-broken-web-page',
@@ -2559,6 +2643,10 @@ export function isTutorialVisibleInCurriculum(tutorial) {
   return !tutorial?.hiddenFromCurriculum;
 }
 
+function isTutorialNavigable(tutorial) {
+  return !tutorial?.comingSoon;
+}
+
 const normalizeTutorialPath = (path) => {
   if (!path) return '';
   const normalized = path.replace(/\/+$/, '');
@@ -2602,6 +2690,10 @@ export function getSectionLessons(sectionId) {
     .sort((a, b) => a.stage - b.stage);
 }
 
+function getSectionNavigableLessons(sectionId) {
+  return getSectionLessons(sectionId).filter(isTutorialNavigable);
+}
+
 export function getSectionOverviewPath(sectionId) {
   const section = getSectionById(sectionId);
   return section ? `/tutorials/${section.slug}` : null;
@@ -2609,14 +2701,23 @@ export function getSectionOverviewPath(sectionId) {
 
 export function getSectionNavItems(
   sectionId,
-  { includeOverview = true, overviewTitle = 'Overview' } = {},
+  {
+    includeOverview = true,
+    overviewTitle = 'Overview',
+    includeComingSoon = true,
+  } = {},
 ) {
   const section = getSectionById(sectionId);
   if (!section) return [];
 
-  const navItems = getSectionLessons(sectionId).map((tutorial) => ({
+  const lessons = includeComingSoon
+    ? getSectionLessons(sectionId)
+    : getSectionNavigableLessons(sectionId);
+
+  const navItems = lessons.map((tutorial) => ({
     path: `/tutorials/${tutorial.slug}`,
     title: tutorial.title,
+    comingSoon: tutorial.comingSoon ?? false,
   }));
 
   if (includeOverview) {
@@ -2640,6 +2741,7 @@ function buildPathwayFlow(pathwayId) {
     const overviewTitle = section.id === 'getting-started' ? 'Introduction' : section.title;
     return getSectionNavItems(section.id, {
       includeOverview: true,
+      includeComingSoon: false,
       overviewTitle,
     });
   });

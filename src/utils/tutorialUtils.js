@@ -82,7 +82,7 @@ function getCurriculumRelatedTutorials(path, limit = 3) {
 		return [];
 	}
 
-	const lessons = getSectionLessons(tutorial.section);
+	const lessons = getSectionLessons(tutorial.section).filter((lesson) => !lesson.comingSoon);
 	const currentIndex = lessons.findIndex((lesson) => lesson.slug === tutorial.slug);
 
 	if (currentIndex === -1) {

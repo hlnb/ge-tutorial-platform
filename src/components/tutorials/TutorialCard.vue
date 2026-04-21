@@ -26,6 +26,9 @@
       <span v-if="tutorial.isProject && tutorial.projectPart" class="tag is-dark">
         Part {{ tutorial.projectPart }}
       </span>
+      <span v-if="tutorial.comingSoon" class="tag is-info is-light">
+        Planned
+      </span>
       <span v-if="tutorial.lessonCount" class="tag is-info is-light">
         <i class="fas fa-layer-group"></i>&nbsp;{{ tutorial.lessonCount }} lessons
       </span>
@@ -43,7 +46,15 @@
     </div>
 
     <!-- CTA button (pushed to bottom via flex) -->
+    <span
+      v-if="tutorial.comingSoon"
+      class="button is-light mt-3 tutorial-card__button-disabled"
+      aria-disabled="true"
+    >
+      Coming Soon
+    </span>
     <router-link
+      v-else
       :to="`/tutorials/${tutorial.slug}`"
       class="button is-primary is-outlined mt-3"
     >
@@ -70,6 +81,7 @@ const badgeClass = computed(() => {
     'Project': 'badge--project',
     'Recommended next': 'badge--recommended',
     'Troubleshooting': 'badge--troubleshooting',
+    'Coming Soon': 'badge--coming-soon',
   };
   return map[props.tutorial.badge] || 'badge--default';
 });
@@ -171,8 +183,20 @@ const difficultyTagClass = computed(() => {
   color: #fff;
 }
 
+.badge--coming-soon {
+  background-color: #3273dc;
+  color: #fff;
+}
+
 .badge--default {
   background-color: #f5f5f5;
   color: #363636;
+}
+
+.tutorial-card__button-disabled {
+  justify-content: center;
+  cursor: not-allowed;
+  opacity: 0.85;
+  pointer-events: none;
 }
 </style>
