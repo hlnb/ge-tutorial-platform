@@ -48,12 +48,12 @@ const checkpointQuestions = [
 		answer:
 			'A single shared stylesheet means you only write and maintain one set of component styles. When you update a colour variable or fix a card layout, the change applies to every page at once.',
 	},
-	{
-		question:
-			'Why should new page files sit at the project root alongside index.html, instead of inside a subfolder?',
-		answer:
-			'Keeping all pages at the same directory level means every page can use the same relative paths to shared assets: css/style.css, images/, and js/main.js. Nesting pages inside subfolders would break those paths or require different ones per page.',
-	},
+		{
+			question:
+				'Why should new page files sit at the project root alongside index.html, instead of inside a subfolder?',
+			answer:
+				'Keeping all pages at the same directory level means every page can use the same relative paths to shared assets: css/style.css and images/. Nesting pages inside subfolders would break those paths or require different ones per page.',
+		},
 	{
 		question: 'What does the is-active class do and why does it change between pages?',
 		answer:

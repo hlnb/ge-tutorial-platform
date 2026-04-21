@@ -59,15 +59,15 @@ const guidedPracticeSteps = [
 			'Shared parts usually include the site header, navigation, footer, containers, buttons, and cards.',
 		],
 	},
-	{
-		title: 'Step 2: Create a simple folder plan',
-		instructions:
+		{
+			title: 'Step 2: Create a simple folder plan',
+			instructions:
 			'<p>Plan the files before writing page content. Keep HTML files at the same level while shared CSS lives in one predictable folder.</p>',
-		hints: [
-			'A beginner-friendly structure is index.html, menu.html, about.html, contact.html, and css/styles.css.',
+			hints: [
+			'A beginner-friendly structure is index.html, menu.html, about.html, contact.html, and css/style.css.',
 			'Keep image assets in an images folder so paths stay predictable.',
-		],
-	},
+			],
+		},
 	{
 		title: 'Step 3: Copy shared structure carefully',
 		instructions:
@@ -295,7 +295,7 @@ const closureReflectionPrompts = [
   about.html
   contact.html
   css/
-    styles.css
+    style.css
   images/
     dining-room.jpg
     featured-dish.jpg
@@ -303,7 +303,7 @@ const closureReflectionPrompts = [
 
 			<p>
 				This structure is intentionally simple. Every HTML page can reach the shared CSS
-				file with the same path: <code>css/styles.css</code>. Every page can link to the
+				file with the same path: <code>css/style.css</code>. Every page can link to the
 				other main pages with direct filenames like <code>menu.html</code>.
 			</p>
 
@@ -422,7 +422,7 @@ body {
 			</p>
 			<ul>
 				<li><code>href="menu.html"</code> links to a file beside the current page.</li>
-				<li><code>href="css/styles.css"</code> links to a file inside the css folder.</li>
+				<li><code>href="css/style.css"</code> links to a file inside the css folder.</li>
 				<li><code>src="images/dining-room.jpg"</code> links to an image inside the images folder.</li>
 				<li><code>href="../index.html"</code> means go up one folder, then find index.html.</li>
 			</ul>
