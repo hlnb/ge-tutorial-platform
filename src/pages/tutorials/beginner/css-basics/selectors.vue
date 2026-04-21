@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, inject, onMounted, watch } from 'vue';
 import DOMPurify from 'dompurify';
 import CodeMirror from '@/components/CodeMirror.vue';
@@ -12,6 +13,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "CSS Selectors",
+  description: "Master CSS selectors — target elements by type, class, ID, attribute, and pseudo-class to apply styles precisely.",
+  path: "/tutorials/beginner/css-basics/selectors",
+});
 
 // Define page sections
 const sections = [

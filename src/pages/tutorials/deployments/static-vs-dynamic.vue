@@ -9,3 +9,13 @@
 <script>
 export const frontmatter = { title: 'Static vs Dynamic', date: '2025-10-12' };
 </script>
+
+<script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
+
+useTutorialHead({
+  title: "Static vs Dynamic Deployment",
+  description: "Understand the difference between static and dynamic site hosting — trade-offs, use cases, and options for each.",
+  path: "/tutorials/deployments/static-vs-dynamic",
+});
+</script>

@@ -9,3 +9,13 @@
 <script>
 export const frontmatter = { title: 'AI-Powered Workflow', date: '2025-10-12' };
 </script>
+
+<script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
+
+useTutorialHead({
+  title: "AI-Powered Workflow Integration",
+  description: "Integrate AI into your development workflow — scaffolding, refactoring, and automation with VS Code and Copilot.",
+  path: "/tutorials/ai-assisted/workflow-integration",
+});
+</script>

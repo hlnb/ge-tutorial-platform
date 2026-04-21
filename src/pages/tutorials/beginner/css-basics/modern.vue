@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, onMounted, inject, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
@@ -11,6 +12,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "Modern CSS",
+  description: "Discover modern CSS features and best practices — custom properties, nesting, and techniques for maintainable stylesheets.",
+  path: "/tutorials/beginner/css-basics/modern",
+});
 
 const progressEnabled = ref(true);
 

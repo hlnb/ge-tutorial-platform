@@ -1,9 +1,16 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: "Black Swan Bistro — Part 2",
+  description: "Build the homepage layout with CSS — wireframe structure, reusable patterns, and a real bistro website project.",
+  path: "/tutorials/intermediate/black-swan-bistro-part-2",
+});
 
 const sections = [
 	{ id: 'project-brief', title: 'Project Brief' },

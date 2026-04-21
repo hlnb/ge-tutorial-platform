@@ -303,6 +303,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -316,6 +317,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+useTutorialHead({
+  title: 'JavaScript Functions',
+  description: 'Learn how to write and use functions in JavaScript — declarations, expressions, parameters, return values, and scope.',
+  path: '/tutorials/beginner/javascript-basics/functions',
+});
 
 const sections = [
 	{ id: 'function-basics', title: 'Function Basics' },

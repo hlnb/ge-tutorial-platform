@@ -1081,6 +1081,7 @@ touchDemo?.addEventListener('touchstart', (e) => {
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { onMounted } from 'vue'
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
 import { usePageSections } from '@/composables/usePageSections'
@@ -1090,6 +1091,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
 import ClosureSection from '@/components/hunter/ClosureSection.vue'
 import TutorialCompletion from '@/components/TutorialCompletion.vue'
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
+
+useTutorialHead({
+  title: 'DOM Events',
+  description: 'Learn how to handle user interactions in JavaScript — click, input, and keyboard events with addEventListener.',
+  path: '/tutorials/beginner/dom-basics/dom-events',
+});
 
 const closureKeyTakeaways = [
   'addEventListener attaches behaviour without overwriting existing handlers',

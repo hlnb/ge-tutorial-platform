@@ -627,7 +627,7 @@
 import { ref, computed } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
-import { useHead } from '@vueuse/head';
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -699,8 +699,10 @@ const frontmatter = {
 	tags: ['web development', 'beginner', 'html'],
 };
 
-useHead({
-	frontmatter,
+useTutorialHead({
+  title: 'Introduction to HTML',
+  description: 'Learn what HTML is and how it works — the markup language behind every web page, explained for absolute beginners.',
+  path: '/tutorials/beginner/html-basics/introduction',
 });
 
 const sections = [

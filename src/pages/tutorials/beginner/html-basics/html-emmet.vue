@@ -372,9 +372,16 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+useTutorialHead({
+  title: 'Emmet: Write HTML & CSS Faster',
+  description: 'Speed up your HTML and CSS with Emmet abbreviations — the essential shortcut tool built into VS Code for faster markup.',
+  path: '/tutorials/beginner/html-basics/html-emmet',
+});
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';

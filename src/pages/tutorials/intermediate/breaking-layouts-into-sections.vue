@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -7,6 +8,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: 'Breaking Layouts into Sections',
+  description: 'Plan page regions and separate major layout areas from smaller repeated blocks before writing CSS.',
+  path: '/tutorials/intermediate/breaking-layouts-into-sections',
+});
 
 const sections = [
 	{ id: 'why-sections', title: 'Why Sections Matter' },

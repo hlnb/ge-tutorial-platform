@@ -311,8 +311,15 @@ alert('Hello!');
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
+
+useTutorialHead({
+  title: 'Web Development Basics',
+  description: 'Understand the fundamentals of web development — what browsers do, how pages are served, and how HTML, CSS and JavaScript fit together.',
+  path: '/tutorials/getting-started/web-basics',
+});
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';

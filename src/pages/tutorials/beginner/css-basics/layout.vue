@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, inject, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
@@ -11,6 +12,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "CSS Layout Basics",
+  description: "Learn the fundamentals of CSS layout — display, position, float, and how browsers arrange elements on a page.",
+  path: "/tutorials/beginner/css-basics/layout",
+});
 
 const frontmatter = {
 	title: 'Layout Basics',

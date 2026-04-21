@@ -499,8 +499,15 @@ export default {
 </script>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { onMounted, inject } from 'vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
+
+useTutorialHead({
+  title: 'Domains and Web Hosting Explained',
+  description: 'Understand how domain names and web hosting work — what they are, how they connect, and how to choose the right options for your site.',
+  path: '/tutorials/getting-started/domain-hosting',
+});
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';

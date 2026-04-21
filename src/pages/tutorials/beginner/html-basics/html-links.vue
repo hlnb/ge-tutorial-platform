@@ -645,9 +645,16 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
+
+useTutorialHead({
+  title: 'Links and Navigation in HTML',
+  description: 'Learn how to create links and navigation in HTML — anchor tags, href attributes, relative vs absolute URLs, and linking between pages.',
+  path: '/tutorials/beginner/html-basics/html-links',
+});
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';

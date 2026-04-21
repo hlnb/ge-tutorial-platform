@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -7,6 +8,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: 'Building Reusable Components',
+  description: 'Define stable HTML structures with predictable class names — a practical guide to building reusable web components.',
+  path: '/tutorials/intermediate/building-reusable-components',
+});
 
 const sections = [
 	{ id: 'what-components-mean', title: 'What Components Mean' },

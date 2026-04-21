@@ -536,6 +536,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -545,6 +546,12 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import { usePageSections } from '@/composables/usePageSections';
+
+useTutorialHead({
+  title: 'Introduction to Git',
+  description: 'Learn why version control matters and how Git works — the essential foundation for managing code as a developer.',
+  path: '/tutorials/intermediate/git-basics/introduction',
+});
 
 const closureKeyTakeaways = [
   'Version control tracks changes to files over time so you can recall specific versions later',

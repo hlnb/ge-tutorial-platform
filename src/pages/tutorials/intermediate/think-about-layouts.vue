@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -7,6 +8,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: 'Think About Layouts',
+  description: 'Develop a layout mental model before choosing CSS tools — how to read requirements and plan before you code.',
+  path: '/tutorials/intermediate/think-about-layouts',
+});
 
 const sections = [
 	{ id: 'layout-mental-model', title: 'Layout Mental Model' },

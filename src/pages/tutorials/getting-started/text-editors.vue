@@ -431,11 +431,18 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: 'Choosing a Text Editor',
+  description: 'Compare text editors for web development and learn how to set up VS Code with the right extensions for HTML, CSS, and JavaScript.',
+  path: '/tutorials/getting-started/text-editors',
+});
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';

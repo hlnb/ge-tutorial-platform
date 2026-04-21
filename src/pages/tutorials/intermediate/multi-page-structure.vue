@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -7,6 +8,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: "Multi-page Website Structure",
+  description: "Plan and build multi-page websites — organise files, navigation, and shared styles for a scalable project.",
+  path: "/tutorials/intermediate/multi-page-structure",
+});
 
 const sections = [
 	{ id: 'why-multi-page', title: 'Why Multi-page Structure' },

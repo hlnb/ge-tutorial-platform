@@ -1,9 +1,16 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: "Black Swan Bistro — Part 3",
+  description: "Refactor your bistro project into reusable components — stable HTML structures and predictable class naming patterns.",
+  path: "/tutorials/intermediate/black-swan-bistro-part-3",
+});
 
 const sections = [
 	{ id: 'intro', title: 'Introduction' },

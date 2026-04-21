@@ -278,6 +278,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -288,6 +289,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+useTutorialHead({
+  title: 'Getting Started with JavaScript',
+  description: 'Begin your JavaScript journey — understand what JS does, how it runs in the browser, and write your first lines of code.',
+  path: '/tutorials/beginner/javascript-basics/introduction',
+});
 
 const sections = [
 	{ id: 'what-is-javascript', title: 'What is JavaScript?' },

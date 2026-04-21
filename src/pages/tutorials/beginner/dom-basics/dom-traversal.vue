@@ -634,6 +634,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -643,6 +644,12 @@ import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+
+useTutorialHead({
+  title: 'DOM Traversal',
+  description: 'Navigate the DOM tree in JavaScript — access parent, child, and sibling elements to find and update page content.',
+  path: '/tutorials/beginner/dom-basics/dom-traversal',
+});
 
 // ── Sidebar sections ─────────────────────────────────────────────
 usePageSections([

@@ -399,6 +399,7 @@ Array.isArray(numbers);  // true</code></pre>
   </template>
   
   <script setup>
+  import { useTutorialHead } from '@/composables/useTutorialHead';
   import { ref } from 'vue';
   import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
   import { usePageSections } from '@/composables/usePageSections';
@@ -408,6 +409,12 @@ Array.isArray(numbers);  // true</code></pre>
   import ClosureSection from '@/components/hunter/ClosureSection.vue';
   import TutorialCompletion from '@/components/TutorialCompletion.vue';
   import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+  useTutorialHead({
+    title: 'Arrays and Array Methods in JavaScript',
+    description: 'Master JavaScript arrays — how to create, access, and manipulate data with essential built-in array methods.',
+    path: '/tutorials/beginner/dom-basics/arrays',
+  });
 
   const closureKeyTakeaways = [
     'Arrays store ordered collections of values accessible by index',

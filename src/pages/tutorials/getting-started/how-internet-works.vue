@@ -375,7 +375,14 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead.js';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
+
+useTutorialHead({
+  title: 'How the Internet Works',
+  description: 'Learn how the internet works — IP addresses, DNS, HTTP, HTTPS, and web servers explained for beginner web developers.',
+  path: '/tutorials/getting-started/how-internet-works',
+});
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';

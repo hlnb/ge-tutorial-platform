@@ -216,6 +216,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -224,6 +225,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: 'Remote Repositories in Git',
+  description: 'Push, pull, and collaborate using remote Git repositories — a practical guide to working with GitHub or GitLab.',
+  path: '/tutorials/intermediate/git-basics/remote-repositories',
+});
 
 const closureKeyTakeaways = [
   'Remote repositories are copies of your project hosted online (GitHub, GitLab, Bitbucket)',

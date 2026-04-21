@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
@@ -9,6 +10,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "Text Manipulation with CSS",
+  description: "Style text with CSS — font families, sizes, weights, line height, spacing, and text-transform properties explained.",
+  path: "/tutorials/beginner/css-basics/text",
+});
 
 // Define frontmatter
 const frontmatter = {

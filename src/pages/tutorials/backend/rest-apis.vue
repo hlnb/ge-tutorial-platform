@@ -9,3 +9,13 @@
 <script>
 export const frontmatter = { title: 'REST APIs', date: '2025-10-12' };
 </script>
+
+<script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
+
+useTutorialHead({
+  title: "REST APIs Explained",
+  description: "Design and build RESTful APIs with Node.js and Express — HTTP methods, routing, and JSON responses explained.",
+  path: "/tutorials/backend/rest-apis",
+});
+</script>

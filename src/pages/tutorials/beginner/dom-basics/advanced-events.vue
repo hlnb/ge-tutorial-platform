@@ -501,6 +501,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -510,6 +511,12 @@ import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+
+useTutorialHead({
+  title: 'Advanced Event Handling',
+  description: 'Go beyond basic events — custom events, debouncing, throttling, and managing event listener lifecycles.',
+  path: '/tutorials/beginner/dom-basics/advanced-events',
+});
 
 // ── Sidebar sections ─────────────────────────────────────────────
 usePageSections([

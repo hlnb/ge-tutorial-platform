@@ -375,7 +375,7 @@ Soups & Salads
 import { ref, computed, inject, onMounted } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
-import { useHead } from '@vueuse/head';
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import CodingOptions from '@/components/CodingOptions.vue';
 import SolutionViewer from '@/components/SolutionViewer.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -441,15 +441,10 @@ const closureReflectionPrompts = [
 	},
 ];
 
-useHead({
-	title: 'Working with Text - HTML Basics - GraphitEdge Tutorials',
-	meta: [
-		{
-			name: 'description',
-			content:
-				'Learn how to work with HTML text elements, including headings, paragraphs, formatting, and lists.',
-		},
-	],
+useTutorialHead({
+  title: 'Working with Text in HTML',
+  description: 'Learn how to format text in HTML — headings, paragraphs, bold, italic, lists, and other essential text elements explained for beginners.',
+  path: '/tutorials/beginner/html-basics/html-text',
 });
 
 const pageSections = inject('pageSections');

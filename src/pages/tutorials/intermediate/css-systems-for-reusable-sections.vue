@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -7,6 +8,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: "CSS Systems for Reusable Sections",
+  description: "Build a scalable CSS system with design tokens and reusable patterns that work consistently across multiple pages.",
+  path: "/tutorials/intermediate/css-systems-for-reusable-sections",
+});
 
 const sections = [
   { id: 'why-systems', title: 'Why CSS Systems Matter' },

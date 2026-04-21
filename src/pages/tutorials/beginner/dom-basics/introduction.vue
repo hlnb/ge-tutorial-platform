@@ -294,6 +294,7 @@ export const frontmatter = {
 </script>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, onMounted } from 'vue'
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
 import { usePageSections } from '@/composables/usePageSections'
@@ -303,6 +304,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
 import ClosureSection from '@/components/hunter/ClosureSection.vue'
 import TutorialCompletion from '@/components/TutorialCompletion.vue'
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
+
+useTutorialHead({
+  title: 'Introduction to the DOM',
+  description: 'Learn what the Document Object Model is and how JavaScript uses it to interact with and update web pages.',
+  path: '/tutorials/beginner/dom-basics/introduction',
+});
 
 const closureKeyTakeaways = [
   'The DOM is a tree-like representation of an HTML document that JavaScript can read and modify',

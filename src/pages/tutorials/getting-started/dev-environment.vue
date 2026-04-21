@@ -287,11 +287,18 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: 'Setting Up Your Dev Environment',
+  description: 'Set up your web development environment step by step — VS Code, Node.js, and the tools you need to start building websites.',
+  path: '/tutorials/getting-started/dev-environment',
+});
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';

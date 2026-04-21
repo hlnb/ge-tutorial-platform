@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -7,6 +8,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: 'CSS Grid for Repeated Layouts',
+  description: 'Use CSS Grid for two-dimensional layouts — rows, columns, and template areas explained with real examples.',
+  path: '/tutorials/intermediate/css-grid-for-repeated-layouts',
+});
 
 const sections = [
 	{ id: 'why-grid', title: 'Why Grid' },

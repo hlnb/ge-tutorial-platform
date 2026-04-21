@@ -48,4 +48,11 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
+
+useTutorialHead({
+  title: "Domains, DNS, and Going Live",
+  description: "Learn how to connect a custom domain to your hosted site — DNS records, propagation, and going live explained.",
+  path: "/tutorials/advanced/domains-dns-going-live",
+});
 </script>

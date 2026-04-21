@@ -215,6 +215,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -223,6 +224,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: 'Git Branching',
+  description: 'Learn how to create and manage Git branches — work on features and fixes without affecting your main codebase.',
+  path: '/tutorials/intermediate/git-basics/branching',
+});
 
 const closureKeyTakeaways = [
   'Branches let you work on features or fixes without affecting the main codebase',

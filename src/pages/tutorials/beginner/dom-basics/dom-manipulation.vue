@@ -1449,6 +1449,7 @@ container.appendChild(fragment);  // Single reflow
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, onMounted } from 'vue'
 import { usePageSections } from '@/composables/usePageSections'
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
@@ -1458,6 +1459,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue'
 import ClosureSection from '@/components/hunter/ClosureSection.vue'
 import TutorialCompletion from '@/components/TutorialCompletion.vue'
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
+
+useTutorialHead({
+  title: 'DOM Manipulation',
+  description: 'Create, insert, update, and remove HTML elements dynamically with JavaScript — make your web pages interactive.',
+  path: '/tutorials/beginner/dom-basics/dom-manipulation',
+});
 
 const closureKeyTakeaways = [
   'createElement and appendChild let you build new DOM nodes entirely in JavaScript',

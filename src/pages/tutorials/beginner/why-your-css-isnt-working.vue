@@ -654,6 +654,7 @@ p {
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -663,6 +664,12 @@ import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+
+useTutorialHead({
+  title: "Why Your CSS Isn't Working",
+  description: "Debug CSS that won't apply — understand cascade, specificity, and inheritance with a step-by-step troubleshooting checklist.",
+  path: "/tutorials/beginner/why-your-css-isnt-working",
+});
 
 // ── Sidebar sections ─────────────────────────────────────────────
 usePageSections([

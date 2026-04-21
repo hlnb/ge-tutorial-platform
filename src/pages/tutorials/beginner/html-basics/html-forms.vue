@@ -374,9 +374,16 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, onMounted, inject } from 'vue';
 import DOMPurify from 'dompurify';
 import CodingOptions from '@/components/CodingOptions.vue';
+
+useTutorialHead({
+  title: 'HTML Forms',
+  description: 'Build HTML forms from scratch — inputs, labels, buttons, and form attributes explained step by step for beginner web developers.',
+  path: '/tutorials/beginner/html-basics/html-forms',
+});
 import CodeMirror from '@/components/CodeMirror.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';

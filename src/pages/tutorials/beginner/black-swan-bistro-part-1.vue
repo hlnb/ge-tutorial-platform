@@ -636,6 +636,7 @@ footer a:hover {
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -646,6 +647,12 @@ import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "Black Swan Bistro — Part 1",
+  description: "Build your first web page — write semantic HTML and add CSS styling in this hands-on beginner project.",
+  path: "/tutorials/beginner/black-swan-bistro-part-1",
+});
 
 // ── Sidebar sections ─────────────────────────────────────────────
 usePageSections([

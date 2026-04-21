@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, inject, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
@@ -11,6 +12,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "Responsive Design in CSS",
+  description: "Learn responsive web design — media queries, fluid layouts, and techniques to make sites work on any screen size.",
+  path: "/tutorials/beginner/css-basics/responsive",
+});
 
 const frontmatter = {
 	title: 'Responsive Design',

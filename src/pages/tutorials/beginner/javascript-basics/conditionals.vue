@@ -738,6 +738,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -749,6 +750,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+useTutorialHead({
+  title: 'Control Flow in JavaScript',
+  description: 'Master if/else, switch, and ternary operators in JavaScript — make decisions and control code execution.',
+  path: '/tutorials/beginner/javascript-basics/conditionals',
+});
 
 const anticipatorySet = {
 	title: '🧭 Routing the Dinner Rush',

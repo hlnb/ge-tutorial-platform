@@ -568,9 +568,16 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
+
+useTutorialHead({
+  title: 'Images in HTML',
+  description: 'Learn how to add images to HTML pages — the img tag, src, alt text, and best practices for accessible, performant web images.',
+  path: '/tutorials/beginner/html-basics/html-images',
+});
 import CodingOptions from '@/components/CodingOptions.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';

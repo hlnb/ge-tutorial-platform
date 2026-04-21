@@ -457,6 +457,7 @@ export default {
 </script>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { format } from 'date-fns';
 import { ref, computed, inject, onMounted, watch } from 'vue';
@@ -470,6 +471,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "CSS Basics Introduction",
+  description: "Get started with CSS — learn what it is, how it works, and the three ways to add styles to an HTML document.",
+  path: "/tutorials/beginner/css-basics/introduction",
+});
 
 const frontmatter = {
 	title: 'Introduction to CSS',

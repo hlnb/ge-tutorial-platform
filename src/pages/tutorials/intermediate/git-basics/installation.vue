@@ -231,6 +231,7 @@ git config --global user.email 'your.email@example.com'`"
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -239,6 +240,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: 'Installing Git & Recommended Tools',
+  description: 'Install Git and set up recommended tools — a step-by-step guide for Mac, Windows, and Linux developers.',
+  path: '/tutorials/intermediate/git-basics/installation',
+});
 
 const closureKeyTakeaways = [
   'Git can be installed on Windows, macOS, and Linux with just a few steps',

@@ -357,6 +357,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -367,6 +368,12 @@ import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "Files, Folders & Project Structure",
+  description: "Learn how to organise web project files and folders — a standard structure for HTML, CSS, and JavaScript projects.",
+  path: "/tutorials/getting-started/files-folders-project-structure",
+});
 
 // ── Checkpoint Questions ──────────────────────────────────────────
 const checkpointQuestions1 = [

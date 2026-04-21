@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, inject, onMounted } from 'vue';
 import DOMPurify from 'dompurify';
 import CodeMirror from '@/components/CodeMirror.vue';
@@ -15,6 +16,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "The CSS Box Model",
+  description: "Understand the CSS box model — padding, margins, borders, and how browsers calculate element size and spacing.",
+  path: "/tutorials/beginner/css-basics/box-model",
+});
 
 const frontmatter = {
 	title: 'The Box Model',

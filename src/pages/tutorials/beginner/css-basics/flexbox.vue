@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, inject, onMounted } from 'vue';
 import { usePageSections } from '@/composables/usePageSections';
 import { useRoute } from 'vue-router';
@@ -12,6 +13,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: "CSS Flexbox",
+  description: "Master CSS Flexbox — create flexible one-dimensional layouts with proper alignment and distribution of elements.",
+  path: "/tutorials/beginner/css-basics/flexbox",
+});
 
 // Define a ref for the code editor instances
 const codeEditors = ref([]);

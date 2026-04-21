@@ -104,6 +104,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
@@ -111,6 +112,12 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: 'Git Basics: Conclusion',
+  description: 'Wrap up the Git Basics series — review what you\'ve learned and find next steps for version control in real projects.',
+  path: '/tutorials/intermediate/git-basics/conclusion',
+});
 
 const closureKeyTakeaways = [
   'Install and configure Git on any operating system',

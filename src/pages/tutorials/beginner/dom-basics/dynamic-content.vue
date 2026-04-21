@@ -544,6 +544,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -553,6 +554,12 @@ import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+
+useTutorialHead({
+  title: 'Dynamic Content with JavaScript',
+  description: 'Create, insert, and manage HTML elements dynamically with JavaScript — update your page without full reloads.',
+  path: '/tutorials/beginner/dom-basics/dynamic-content',
+});
 
 // ── Sidebar sections ─────────────────────────────────────────────
 usePageSections([

@@ -255,9 +255,16 @@ Best time to visit: September to May</pre
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import DOMPurify from 'dompurify';
+
+useTutorialHead({
+  title: 'Your First HTML Page',
+  description: 'Write your first HTML page from scratch — learn the essential tags and structure you need to build a working webpage.',
+  path: '/tutorials/beginner/html-basics/html-first-page',
+});
 import CodingOptions from '@/components/CodingOptions.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';

@@ -229,6 +229,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -237,6 +238,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: 'Git Workflow',
+  description: 'Learn the daily Git workflow developers follow — stage, commit, push, and review changes in a real project.',
+  path: '/tutorials/intermediate/git-basics/workflow',
+});
 
 const closureKeyTakeaways = [
   'The Git workflow is: make changes, stage, commit, push, and pull',

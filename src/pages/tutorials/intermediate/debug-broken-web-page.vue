@@ -48,4 +48,11 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
+
+useTutorialHead({
+  title: "How to Debug a Broken Web Page",
+  description: "Fix broken HTML, CSS, and JavaScript step by step — a systematic debugging approach for web developers.",
+  path: "/tutorials/intermediate/debug-broken-web-page",
+});
 </script>

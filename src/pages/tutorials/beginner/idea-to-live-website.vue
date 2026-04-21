@@ -1,9 +1,16 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: "From Idea to Live Website",
+  description: "Follow the full journey from idea to live website — planning, building, and deploying a real project explained simply.",
+  path: "/tutorials/beginner/idea-to-live-website",
+});
 
 const sections = [
 	{ id: 'big-picture', title: 'The Big Picture' },

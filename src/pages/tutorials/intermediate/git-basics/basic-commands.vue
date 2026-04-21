@@ -200,6 +200,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -208,6 +209,12 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
+
+useTutorialHead({
+  title: 'Basic Git Commands',
+  description: 'Learn the essential Git commands — init, add, commit, status, and log for tracking changes in your projects.',
+  path: '/tutorials/intermediate/git-basics/basic-commands',
+});
 
 const closureKeyTakeaways = [
   'git init creates a new repository in your project folder',

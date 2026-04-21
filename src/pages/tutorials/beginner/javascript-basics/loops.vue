@@ -299,6 +299,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -309,6 +310,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+useTutorialHead({
+  title: 'Loops in JavaScript',
+  description: 'Learn how to repeat code in JavaScript — for loops, while loops, and iterating through arrays and objects.',
+  path: '/tutorials/beginner/javascript-basics/loops',
+});
 
 const sections = [
 	{ id: 'introduction-to-loops', title: 'Introduction to Loops' },

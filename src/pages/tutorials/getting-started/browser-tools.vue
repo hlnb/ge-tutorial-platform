@@ -198,7 +198,7 @@
 </template>
 
 <script setup>
-import { useHead } from '@vueuse/head';
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
@@ -260,15 +260,10 @@ const closureReflectionPrompts = [
 	},
 ];
 
-useHead({
-	title: 'Browser Developer Tools - GraphitEdge Tutorials',
-	meta: [
-		{
-			name: 'description',
-			content:
-				'Learn how to use browser developer tools to inspect, debug, and test web pages',
-		},
-	],
+useTutorialHead({
+  title: 'Using Browser Developer Tools',
+  description: 'Learn how to use browser DevTools to inspect HTML, debug CSS, and understand what your website is really doing.',
+  path: '/tutorials/getting-started/browser-tools',
 });
 
 const frontmatter = {

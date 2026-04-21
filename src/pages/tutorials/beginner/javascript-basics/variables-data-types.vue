@@ -290,6 +290,7 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -301,6 +302,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+useTutorialHead({
+  title: 'Variables and Data Types in JavaScript',
+  description: 'Learn how to store and work with data in JavaScript — variables, strings, numbers, booleans, and null explained.',
+  path: '/tutorials/beginner/javascript-basics/variables-data-types',
+});
 
 const sections = [
 	{ id: 'variables', title: 'Understanding Variables' },

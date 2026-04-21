@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -7,6 +8,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+
+useTutorialHead({
+  title: 'Flexbox for Real Layouts',
+  description: 'Apply CSS Flexbox to practical page layouts — navigation bars, card grids, and one-dimensional component patterns.',
+  path: '/tutorials/intermediate/flexbox-for-real-layouts',
+});
 
 const sections = [
   { id: 'mental-model', title: 'Flexbox Mental Model' },

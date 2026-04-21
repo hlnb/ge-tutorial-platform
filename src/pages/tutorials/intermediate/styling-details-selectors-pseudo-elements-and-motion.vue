@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -8,6 +9,12 @@ import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+
+useTutorialHead({
+  title: "Selectors, Pseudo-elements & Motion",
+  description: "Add decorative pseudo-elements, smooth CSS transitions, and transforms — with accessibility-aware motion guidance.",
+  path: "/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion",
+});
 
 usePageSections([
 	{ id: 'selectors', title: 'Practical Selectors' },

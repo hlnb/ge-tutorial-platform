@@ -49,4 +49,11 @@
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
+
+useTutorialHead({
+  title: "Black Swan Bistro — Part 5",
+  description: "Prepare your site for deployment — optimise images, add meta tags, and get the bistro project production-ready.",
+  path: "/tutorials/advanced/black-swan-bistro-part-5",
+});
 </script>

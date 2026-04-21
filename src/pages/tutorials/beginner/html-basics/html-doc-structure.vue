@@ -1290,9 +1290,16 @@ This is a new line
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, onMounted, inject, computed } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialNavigation from '@/components/TutorialNavigation.vue';
+
+useTutorialHead({
+  title: 'HTML Document Structure',
+  description: 'Understand the structure of an HTML document — DOCTYPE, html, head, and body tags explained step by step for beginners.',
+  path: '/tutorials/beginner/html-basics/html-doc-structure',
+});
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';

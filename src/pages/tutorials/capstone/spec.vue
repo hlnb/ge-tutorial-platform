@@ -9,3 +9,13 @@
 <script>
 export const frontmatter = { title: 'Capstone Spec', date: '2025-10-12' };
 </script>
+
+<script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
+
+useTutorialHead({
+  title: "Capstone Project Spec",
+  description: "The full capstone project specification — deliverables, design requirements, and a deployment checklist.",
+  path: "/tutorials/capstone/spec",
+});
+</script>

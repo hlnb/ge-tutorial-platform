@@ -1,4 +1,5 @@
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import '@/assets/styles/tutorials.css';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -8,6 +9,12 @@ import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+
+useTutorialHead({
+  title: "Black Swan Bistro — Part 4b: Polish",
+  description: "Clean up CSS, add subtle interactions, and refine the bistro site for accessibility and visual polish.",
+  path: "/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine",
+});
 
 usePageSections([
 	{ id: 'intro', title: 'Introduction' },

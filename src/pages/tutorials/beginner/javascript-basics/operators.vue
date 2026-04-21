@@ -2761,6 +2761,7 @@ function safeDivide(numerator, denominator) {
 </template>
 
 <script setup>
+import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -2771,6 +2772,12 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
+
+useTutorialHead({
+  title: 'Operators & Expressions in JavaScript',
+  description: 'Learn arithmetic, comparison, and logical operators in JavaScript — the building blocks of expressions and conditions.',
+  path: '/tutorials/beginner/javascript-basics/operators',
+});
 
 const anticipatorySet = {
 	title: '🧮 Calculating Every Check',
