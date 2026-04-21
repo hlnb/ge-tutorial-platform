@@ -12,6 +12,8 @@ const OUTPUT_PATH = path.resolve(__dirname, '../public/sitemap.xml');
 
 const EXCLUDED_SEGMENTS = new Set(['.archive']);
 
+const EXCLUDED_ROUTES = ['/admin', '/auth', '/404', '/post-scheduler', '/login', '/logout', '/register'];
+
 async function collectRoutes(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   const urls = [];
@@ -33,6 +35,7 @@ async function collectRoutes(dir) {
     const relativePath = path.relative(PAGES_DIR, fullPath);
     const route = filePathToRoute(relativePath);
     if (!route) continue;
+    if (EXCLUDED_ROUTES.some((seg) => route === seg || route.startsWith(seg + '/'))) continue;
 
     const stats = await fs.stat(fullPath);
     urls.push({
