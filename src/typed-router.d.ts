@@ -898,6 +898,69 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/applied-javascript/': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/',
+      '/tutorials/intermediate/applied-javascript',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/capstone-feature-build': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/capstone-feature-build',
+      '/tutorials/intermediate/applied-javascript/capstone-feature-build',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/debugging-interactive-javascript': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/debugging-interactive-javascript',
+      '/tutorials/intermediate/applied-javascript/debugging-interactive-javascript',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/events-at-scale': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/events-at-scale',
+      '/tutorials/intermediate/applied-javascript/events-at-scale',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/forms-validation-feedback': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/forms-validation-feedback',
+      '/tutorials/intermediate/applied-javascript/forms-validation-feedback',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/objects-for-real-features': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/objects-for-real-features',
+      '/tutorials/intermediate/applied-javascript/objects-for-real-features',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/refactoring-for-reuse': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/refactoring-for-reuse',
+      '/tutorials/intermediate/applied-javascript/refactoring-for-reuse',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/rendering-repeated-content': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/rendering-repeated-content',
+      '/tutorials/intermediate/applied-javascript/rendering-repeated-content',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/state-and-ui-thinking': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/state-and-ui-thinking',
+      '/tutorials/intermediate/applied-javascript/state-and-ui-thinking',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/black-swan-bistro-part-2': RouteRecordInfo<
       '/tutorials/intermediate/black-swan-bistro-part-2',
       '/tutorials/intermediate/black-swan-bistro-part-2',
@@ -1875,6 +1938,60 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/getting-started/web-basics.vue': {
       routes:
         | '/tutorials/getting-started/web-basics'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/index.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/capstone-feature-build.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/capstone-feature-build'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/debugging-interactive-javascript.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/debugging-interactive-javascript'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/events-at-scale.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/events-at-scale'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/forms-validation-feedback.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/forms-validation-feedback'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/objects-for-real-features.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/objects-for-real-features'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/refactoring-for-reuse.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/refactoring-for-reuse'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/rendering-repeated-content.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/rendering-repeated-content'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/state-and-ui-thinking.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/state-and-ui-thinking'
       views:
         | never
     }
