@@ -27,7 +27,7 @@
 		"@codemirror/view": "^6.9.6",
 		"@emailjs/browser": "^3.11.0",
 		"@fortawesome/fontawesome-free": "^6.4.2",
-		"@vueuse/head": "^1.1.26",
+		"@vueuse/head": "^0.9.8",
 		"bulma": "^0.9.4",
 		"codemirror": "^5.65.2",
 		"date-fns": "^4.1.0",
