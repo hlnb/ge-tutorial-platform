@@ -52,11 +52,11 @@ const projectRecords = [
     sourceLinks: [
       {
         label: 'HTML project notes',
-        url: '/projects/html-basics/black-swan-bistro/README.md',
+        url: '/projects/black-swan-bistro/html-notes',
       },
       {
         label: 'CSS project notes',
-        url: '/projects/css-basics/black-swan-bistro/README.md',
+        url: '/projects/black-swan-bistro/css-notes',
       },
     ],
     primaryPathway: 'beginner',

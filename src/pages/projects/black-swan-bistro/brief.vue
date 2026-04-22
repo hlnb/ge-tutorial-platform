@@ -138,50 +138,126 @@
       <section id="wireframes" class="brief-section">
         <h2 class="title is-3">Wireframes</h2>
         <p>
-          These wireframe panels are based on the design handoff for the Black Swan Bistro project.
-          Use them to guide section order, repeated patterns, and page-to-page consistency.
+          These wireframe panels are a closer adaptation of the supplied handoff artboards. They
+          show the stronger desktop and mobile structure students should follow while building the
+          project.
         </p>
 
-        <div class="wireframe-grid">
-          <article
-            v-for="wireframe in wireframes"
-            :key="wireframe.title"
-            class="wireframe-card"
-          >
+        <div class="wireframe-legend">
+          <span class="wireframe-legend__item">
+            <span class="wireframe-legend__swatch wireframe-legend__swatch--hero"></span>
+            Hero / banner
+          </span>
+          <span class="wireframe-legend__item">
+            <span class="wireframe-legend__swatch wireframe-legend__swatch--content"></span>
+            Content section
+          </span>
+          <span class="wireframe-legend__item">
+            <span class="wireframe-legend__swatch wireframe-legend__swatch--support"></span>
+            Media / supporting block
+          </span>
+          <span class="wireframe-legend__item">
+            <span class="wireframe-legend__swatch wireframe-legend__swatch--note"></span>
+            Reusable / implementation note
+          </span>
+        </div>
+
+        <div class="wireframe-grid wireframe-grid--detailed">
+          <article v-for="wireframe in wireframes" :key="wireframe.title" class="wireframe-card">
             <header class="wireframe-card__header">
               <div>
                 <p class="wireframe-card__eyebrow">{{ wireframe.eyebrow }}</p>
                 <h3 class="title is-4">{{ wireframe.title }}</h3>
               </div>
-              <span class="wireframe-card__badge">{{ wireframe.mobile }}</span>
+              <span class="wireframe-card__badge">{{ wireframe.note }}</span>
             </header>
 
-            <div class="wireframe-artboard">
-              <div class="wireframe-bar">
-                <img
-                  src="/assets/images/projects/black-swan-bistro/bsb-logo.png"
-                  alt=""
-                  class="wireframe-bar__logo"
-                />
-                <div class="wireframe-nav">
-                  <span v-for="navItem in navItems" :key="`${wireframe.title}-${navItem}`">
-                    {{ navItem }}
-                  </span>
+            <div class="wireframe-pair">
+              <section class="artboard artboard--desktop">
+                <div class="artboard__label">Desktop</div>
+                <div class="artboard__pagebar">
+                  <span>{{ wireframe.desktopLabel }}</span>
+                  <span class="artboard__pagebar-nav">{{ navItems.join(' | ') }}</span>
                 </div>
-              </div>
 
-              <div class="wireframe-stack">
-                <div
-                  v-for="section in wireframe.sections"
-                  :key="section"
-                  class="wireframe-block"
-                >
-                  {{ section }}
+                <div class="artboard__header">
+                  <div class="artboard__brand">
+                    <img
+                      src="/assets/images/projects/black-swan-bistro/bsb-logo.png"
+                      alt=""
+                      class="wireframe-bar__logo"
+                    />
+                    <span>Black Swan Bistro</span>
+                  </div>
+                  <div class="wireframe-nav">
+                    <span
+                      v-for="navItem in navItems"
+                      :key="`${wireframe.title}-desktop-${navItem}`"
+                      :class="{ 'wireframe-nav__active': navItem === wireframe.activePage }"
+                    >
+                      {{ navItem }}
+                    </span>
+                  </div>
                 </div>
-              </div>
+
+                <div class="wireframe-stack">
+                  <div
+                    v-for="block in wireframe.desktopBlocks"
+                    :key="`${wireframe.title}-desktop-${block.label}`"
+                    :class="['artboard-block', `artboard-block--${block.type}`]"
+                  >
+                    <div class="artboard-block__title">{{ block.label }}</div>
+                    <div v-if="block.rows" class="artboard-block__rows">
+                      <span v-for="row in block.rows" :key="row">{{ row }}</span>
+                    </div>
+                    <div v-if="block.badges" class="artboard-block__badges">
+                      <span v-for="badge in block.badges" :key="badge">{{ badge }}</span>
+                    </div>
+                    <div v-if="block.note" class="artboard-block__note">{{ block.note }}</div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="artboard artboard--mobile">
+                <div class="artboard__label">Mobile</div>
+                <div class="artboard__pagebar artboard__pagebar--mobile">
+                  <span>{{ wireframe.mobileLabel }}</span>
+                </div>
+
+                <div class="artboard__mobile-header">
+                  <div class="artboard__brand">
+                    <img
+                      src="/assets/images/projects/black-swan-bistro/bsb-logo.png"
+                      alt=""
+                      class="wireframe-bar__logo"
+                    />
+                    <span>BSB</span>
+                  </div>
+                  <div class="artboard__burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+
+                <div class="wireframe-stack">
+                  <div
+                    v-for="block in wireframe.mobileBlocks"
+                    :key="`${wireframe.title}-mobile-${block.label}`"
+                    :class="['artboard-block', 'artboard-block--mobile', `artboard-block--${block.type}`]"
+                  >
+                    <div class="artboard-block__title">{{ block.label }}</div>
+                    <div v-if="block.rows" class="artboard-block__rows artboard-block__rows--mobile">
+                      <span v-for="row in block.rows" :key="row">{{ row }}</span>
+                    </div>
+                    <div v-if="block.badges" class="artboard-block__badges">
+                      <span v-for="badge in block.badges" :key="badge">{{ badge }}</span>
+                    </div>
+                    <div v-if="block.note" class="artboard-block__note">{{ block.note }}</div>
+                  </div>
+                </div>
+              </section>
             </div>
-
-            <p class="wireframe-card__note">{{ wireframe.note }}</p>
           </article>
         </div>
       </section>
@@ -292,61 +368,266 @@ const wireframes = [
   {
     eyebrow: 'Home Page',
     title: 'Homepage Layout',
-    mobile: 'Mobile stacks to a single column',
-    sections: [
-      'Hero image + tagline + reserve CTA',
-      'Featured dishes card grid',
-      'About preview split section',
-      'CTA banner',
-      'Newsletter strip',
-      'Four-column footer',
+    activePage: 'Home',
+    desktopLabel: 'Page 1 - Homepage',
+    mobileLabel: 'Home - mobile',
+    desktopBlocks: [
+      {
+        label: 'Hero section',
+        type: 'hero',
+        rows: ['Full-width image', 'Tagline + subheading', 'Primary reserve CTA'],
+        note: 'The handoff hero uses a dark image overlay and centred call to action.',
+      },
+      {
+        label: 'Featured dishes',
+        type: 'content',
+        badges: ['3-column cards', 'Food image', 'Price', 'Order button'],
+      },
+      {
+        label: 'About preview',
+        type: 'support',
+        rows: ['Image left', 'Text right', 'Read More link'],
+      },
+      {
+        label: 'CTA banner',
+        type: 'hero',
+        badges: ['Primary gold CTA', 'Secondary outline CTA'],
+      },
+      {
+        label: 'Newsletter strip',
+        type: 'content',
+        rows: ['Tagline', 'Email field', 'Subscribe button'],
+      },
+      {
+        label: 'Footer',
+        type: 'note',
+        rows: ['Logo + address', 'Navigation', 'Hours', 'Social links', 'Copyright bar'],
+      },
+    ],
+    mobileBlocks: [
+      {
+        label: 'Hero section',
+        type: 'hero',
+        rows: ['Stacked heading', 'Reserve CTA'],
+      },
+      {
+        label: 'Featured dishes',
+        type: 'content',
+        rows: ['Single-column cards', 'Compact image + text'],
+      },
+      {
+        label: 'About preview',
+        type: 'support',
+        rows: ['Image above text'],
+      },
+      {
+        label: 'CTA banner',
+        type: 'hero',
+        rows: ['Buttons stack vertically'],
+      },
+      {
+        label: 'Footer',
+        type: 'note',
+        rows: ['Condensed brand + nav footer'],
+      },
     ],
     note:
-      'Use this page to establish the main tone, repeated section spacing, and the shared header/footer shell.',
+      'Desktop and mobile homepage artboards from the handoff',
   },
   {
     eyebrow: 'Menu Page',
     title: 'Menu Layout',
-    mobile: 'Filter tabs scroll horizontally',
-    sections: [
-      'Dark page title banner',
-      'Category tabs / pill filters',
-      'Menu card grid',
-      'Card image + badge + description + price',
-      'Shared footer',
+    activePage: 'Menu',
+    desktopLabel: 'Page 2 - Menu',
+    mobileLabel: 'Menu - mobile',
+    desktopBlocks: [
+      {
+        label: 'Page title banner',
+        type: 'hero',
+        rows: ['Our Menu', 'Subtitle / tone line'],
+      },
+      {
+        label: 'Category tabs',
+        type: 'content',
+        badges: ['All', 'Mains', 'Salads', 'Drinks', 'Desserts'],
+        note: 'The handoff shows pill filters with one active state.',
+      },
+      {
+        label: 'Menu cards',
+        type: 'content',
+        rows: ['3-column grid', 'Category badge', 'Image', 'Description', 'Price', 'Add to order'],
+      },
+      {
+        label: 'Footer',
+        type: 'note',
+        rows: ['Shared footer component'],
+      },
+    ],
+    mobileBlocks: [
+      {
+        label: 'Page title banner',
+        type: 'hero',
+        rows: ['Compact banner'],
+      },
+      {
+        label: 'Category tabs',
+        type: 'content',
+        rows: ['Horizontal scroll pill filters'],
+      },
+      {
+        label: 'Menu cards',
+        type: 'content',
+        rows: ['Single-column card stack', 'Same content as desktop'],
+      },
+      {
+        label: 'Footer',
+        type: 'note',
+        rows: ['Shared footer component'],
+      },
     ],
     note:
-      'This page reinforces repeated card structure. One card pattern should support multiple dishes and categories.',
+      'Desktop and mobile menu artboards from the handoff',
   },
   {
     eyebrow: 'About Page',
     title: 'About Layout',
-    mobile: 'Split sections stack vertically',
-    sections: [
-      'Hero banner',
-      'Story section',
-      'Image + text split',
-      'Values / stats strip',
-      'Team or testimonial section',
-      'CTA banner + shared footer',
+    activePage: 'About',
+    desktopLabel: 'Page 3 - About',
+    mobileLabel: 'About - mobile',
+    desktopBlocks: [
+      {
+        label: 'Hero banner',
+        type: 'hero',
+        rows: ['Full-width image overlay', 'About Us title'],
+      },
+      {
+        label: 'Story section',
+        type: 'content',
+        rows: ['Centred text block', 'Decorative underline'],
+      },
+      {
+        label: 'Image + text split',
+        type: 'support',
+        badges: ['Text left', 'Image right', 'Two CTA buttons'],
+      },
+      {
+        label: 'Values / stats strip',
+        type: 'content',
+        rows: ['100% locally sourced', 'Chef owned', 'Est. 2018'],
+      },
+      {
+        label: 'Meet the team',
+        type: 'support',
+        rows: ['3 profile cards', 'Circular photo placeholders'],
+      },
+      {
+        label: 'Testimonial / quote',
+        type: 'hero',
+        rows: ['Dark quote strip', 'Attribution'],
+      },
+      {
+        label: 'CTA banner + footer',
+        type: 'note',
+        rows: ['Practical CTA', 'Shared footer component'],
+      },
+    ],
+    mobileBlocks: [
+      {
+        label: 'Hero banner',
+        type: 'hero',
+        rows: ['Compact image banner'],
+      },
+      {
+        label: 'Story section',
+        type: 'content',
+        rows: ['Centred text block'],
+      },
+      {
+        label: 'Image + text split',
+        type: 'support',
+        rows: ['Stacks image above text'],
+      },
+      {
+        label: 'Values strip',
+        type: 'content',
+        rows: ['Single-column value items'],
+      },
+      {
+        label: 'Footer',
+        type: 'note',
+        rows: ['Shared footer component'],
+      },
     ],
     note:
-      'Look for which sections feel unique and which still depend on shared heading, button, and shell patterns.',
+      'Desktop and mobile about artboards from the handoff',
   },
   {
     eyebrow: 'Contact Page',
     title: 'Contact Layout',
-    mobile: 'Details and form collapse into one flow',
-    sections: [
-      'Page title block',
-      'Contact detail rows',
-      'Opening hours',
-      'Map placeholder',
-      'Contact form',
-      'Shared footer',
+    activePage: 'Contact',
+    desktopLabel: 'Page 4 - Contact',
+    mobileLabel: 'Contact - mobile',
+    desktopBlocks: [
+      {
+        label: 'Page title banner',
+        type: 'hero',
+        rows: ['Get In Touch', 'Supporting subtitle'],
+      },
+      {
+        label: 'Contact details',
+        type: 'content',
+        rows: ['Address', 'Phone', 'Email'],
+      },
+      {
+        label: 'Opening hours',
+        type: 'content',
+        rows: ['Alternating rows table', 'Daily hours'],
+      },
+      {
+        label: 'Map placeholder',
+        type: 'support',
+        rows: ['Embedded map area', 'Pinned address label'],
+      },
+      {
+        label: 'Contact form',
+        type: 'support',
+        rows: ['Name', 'Email', 'Message', 'Send button'],
+      },
+      {
+        label: 'Footer',
+        type: 'note',
+        rows: ['Shared footer component'],
+      },
+    ],
+    mobileBlocks: [
+      {
+        label: 'Title + contact details',
+        type: 'hero',
+        rows: ['Compact title banner', 'Address / phone / email list'],
+      },
+      {
+        label: 'Opening hours',
+        type: 'content',
+        rows: ['Stacked hours rows'],
+      },
+      {
+        label: 'Map placeholder',
+        type: 'support',
+        rows: ['Single-column map block'],
+      },
+      {
+        label: 'Contact form',
+        type: 'support',
+        rows: ['Full-width stacked form'],
+      },
+      {
+        label: 'Footer',
+        type: 'note',
+        rows: ['Shared footer component'],
+      },
     ],
     note:
-      'This page should stay practical and easy to scan. Prioritise clarity over decoration.',
+      'Desktop and mobile contact artboards from the handoff',
   },
 ];
 
@@ -559,6 +840,10 @@ const printBrief = () => {
   margin-top: 1rem;
 }
 
+.wireframe-grid--detailed {
+  grid-template-columns: 1fr;
+}
+
 .wireframe-card {
   background: #fff;
   border: 1px solid #ddd3c2;
@@ -575,6 +860,45 @@ const printBrief = () => {
   margin-bottom: 0.9rem;
 }
 
+.wireframe-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.wireframe-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  color: #5f564c;
+}
+
+.wireframe-legend__swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 0.3rem;
+  border: 1px solid #2f2923;
+}
+
+.wireframe-legend__swatch--hero {
+  background: #d5ccb6;
+}
+
+.wireframe-legend__swatch--content {
+  background: #f7f4ee;
+}
+
+.wireframe-legend__swatch--support {
+  background: repeating-linear-gradient(135deg, #d7d2c8 0, #d7d2c8 5px, #f3efe7 5px, #f3efe7 10px);
+}
+
+.wireframe-legend__swatch--note {
+  background: #eef2ff;
+  border-style: dashed;
+}
+
 .wireframe-card__eyebrow,
 .scope-card__part {
   font-size: 0.78rem;
@@ -585,19 +909,91 @@ const printBrief = () => {
 }
 
 .wireframe-card__badge {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: #5f564c;
   background: #f4efe4;
-  border-radius: 999px;
-  padding: 0.45rem 0.7rem;
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.75rem;
   line-height: 1.3;
+  max-width: 16rem;
 }
 
-.wireframe-artboard {
+.wireframe-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.9fr);
+  gap: 1rem;
+}
+
+.artboard {
   background: #f7f4ee;
   border: 2px solid #2f2923;
   border-radius: 0.8rem;
   padding: 0.8rem;
+}
+
+.artboard__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8d6c24;
+  margin-bottom: 0.55rem;
+}
+
+.artboard__pagebar {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  background: #2a2a2a;
+  color: #f0c060;
+  border-radius: 0.45rem;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.7rem;
+}
+
+.artboard__pagebar--mobile {
+  font-size: 0.76rem;
+}
+
+.artboard__pagebar-nav {
+  color: #d5d0c7;
+  font-size: 0.72rem;
+}
+
+.artboard__header,
+.artboard__mobile-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px solid #2f2923;
+}
+
+.artboard__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.artboard__burger {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0.35rem;
+  border: 1px solid #2f2923;
+  border-radius: 0.35rem;
+  background: #fff;
+}
+
+.artboard__burger span {
+  width: 16px;
+  height: 2px;
+  background: #2f2923;
+  display: block;
 }
 
 .wireframe-bar {
@@ -634,17 +1030,71 @@ const printBrief = () => {
   padding: 0.2rem 0.45rem;
 }
 
+.wireframe-nav__active {
+  background: #2f2923 !important;
+  color: #fff !important;
+}
+
 .wireframe-stack {
   display: grid;
   gap: 0.6rem;
   padding-top: 0.8rem;
 }
 
-.wireframe-block {
+.artboard-block {
   padding: 0.65rem 0.75rem;
   min-height: 2.6rem;
+}
+
+.artboard-block--hero {
+  background: #ddd3bc;
+}
+
+.artboard-block--content {
+  background: #fff;
+}
+
+.artboard-block--support {
+  background: repeating-linear-gradient(135deg, #d7d2c8 0, #d7d2c8 5px, #f3efe7 5px, #f3efe7 10px);
+}
+
+.artboard-block--note {
+  background: #eef2ff;
+  border-style: dashed;
+}
+
+.artboard-block__title {
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.artboard-block__rows,
+.artboard-block__badges {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.artboard-block__rows--mobile {
+  flex-direction: column;
+}
+
+.artboard-block__rows span,
+.artboard-block__badges span {
+  display: inline-flex;
   align-items: center;
+  min-height: 1.6rem;
+  border: 1px solid rgba(47, 41, 35, 0.35);
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 0.18rem 0.45rem;
+  line-height: 1.25;
+}
+
+.artboard-block__note {
+  margin-top: 0.45rem;
+  font-size: 0.74rem;
+  color: #4f463d;
 }
 
 .wireframe-card__note {
@@ -684,12 +1134,20 @@ const printBrief = () => {
     padding: 1.25rem;
   }
 
+  .wireframe-pair {
+    grid-template-columns: 1fr;
+  }
+
   .brief-brand {
     flex-direction: column;
   }
 
   .wireframe-card__header {
     flex-direction: column;
+  }
+
+  .wireframe-card__badge {
+    max-width: none;
   }
 }
 
@@ -751,13 +1209,13 @@ const printBrief = () => {
     color: #000 !important;
   }
 
-  .wireframe-grid {
-    grid-template-columns: 1fr 1fr;
+  .wireframe-pair {
+    grid-template-columns: 1fr;
   }
 
-  .wireframe-artboard,
+  .artboard,
   .wireframe-nav span,
-  .wireframe-block,
+  .artboard-block,
   .brief-note {
     color: #000 !important;
     background: #fff !important;

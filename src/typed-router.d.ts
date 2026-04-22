@@ -211,10 +211,26 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       Record<never, never>,
       | '/projects/black-swan-bistro/brief'
+      | '/projects/black-swan-bistro/css-notes'
+      | '/projects/black-swan-bistro/html-notes'
     >,
     '/projects/black-swan-bistro/brief': RouteRecordInfo<
       '/projects/black-swan-bistro/brief',
       '/projects/black-swan-bistro/brief',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/projects/black-swan-bistro/css-notes': RouteRecordInfo<
+      '/projects/black-swan-bistro/css-notes',
+      '/projects/black-swan-bistro/css-notes',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/projects/black-swan-bistro/html-notes': RouteRecordInfo<
+      '/projects/black-swan-bistro/html-notes',
+      '/projects/black-swan-bistro/html-notes',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1400,12 +1416,26 @@ declare module 'vue-router/auto-routes' {
       routes:
         | '/projects/black-swan-bistro'
         | '/projects/black-swan-bistro/brief'
+        | '/projects/black-swan-bistro/css-notes'
+        | '/projects/black-swan-bistro/html-notes'
       views:
         | 'default'
     }
     'src/pages/projects/black-swan-bistro/brief.vue': {
       routes:
         | '/projects/black-swan-bistro/brief'
+      views:
+        | never
+    }
+    'src/pages/projects/black-swan-bistro/css-notes.vue': {
+      routes:
+        | '/projects/black-swan-bistro/css-notes'
+      views:
+        | never
+    }
+    'src/pages/projects/black-swan-bistro/html-notes.vue': {
+      routes:
+        | '/projects/black-swan-bistro/html-notes'
       views:
         | never
     }
