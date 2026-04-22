@@ -1045,6 +1045,48 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/frameworks-101/': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/',
+      '/tutorials/intermediate/frameworks-101',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs',
+      '/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework',
+      '/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/what-is-a-framework-really': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/what-is-a-framework-really',
+      '/tutorials/intermediate/frameworks-101/what-is-a-framework-really',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/why-css-frameworks-exist': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/why-css-frameworks-exist',
+      '/tutorials/intermediate/frameworks-101/why-css-frameworks-exist',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist',
+      '/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/git-basics/': RouteRecordInfo<
       '/tutorials/intermediate/git-basics/',
       '/tutorials/intermediate/git-basics',
@@ -2064,6 +2106,42 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/flexbox-for-real-layouts.vue': {
       routes:
         | '/tutorials/intermediate/flexbox-for-real-layouts'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/index.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/what-is-a-framework-really.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/what-is-a-framework-really'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/why-css-frameworks-exist.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/why-css-frameworks-exist'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist'
       views:
         | never
     }

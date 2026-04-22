@@ -67,6 +67,7 @@ import DOMBasicsNav from '@/components/tutorial-navs/DOMBasicsNav.vue';
 import GitBasicsNav from '@/components/tutorial-navs/GitBasicsNav.vue';
 import DesignToCodeNav from '@/components/tutorial-navs/DesignToCodeNav.vue';
 import AppliedJavaScriptNav from '@/components/tutorial-navs/AppliedJavaScriptNav.vue';
+import Frameworks101Nav from '@/components/tutorial-navs/Frameworks101Nav.vue';
 import AiAssistedNav from '@/components/tutorial-navs/AiAssistedNav.vue';
 import BackendNav from '@/components/tutorial-navs/BackendNav.vue';
 import DeploymentsNav from '@/components/tutorial-navs/DeploymentsNav.vue';
@@ -123,6 +124,7 @@ const sectionNavComponents = {
 	'git-basics': GitBasicsNav,
 	'design-to-code': DesignToCodeNav,
 	'applied-javascript': AppliedJavaScriptNav,
+	'frameworks-101': Frameworks101Nav,
 	'ai-assisted': AiAssistedNav,
 	backend: BackendNav,
 	deployments: DeploymentsNav,
