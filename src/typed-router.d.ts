@@ -205,14 +205,12 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/projects/black-swan-bistro': RouteRecordInfo<
-      '/projects/black-swan-bistro',
+    '/projects/black-swan-bistro/': RouteRecordInfo<
+      '/projects/black-swan-bistro/',
       '/projects/black-swan-bistro',
       Record<never, never>,
       Record<never, never>,
-      | '/projects/black-swan-bistro/brief'
-      | '/projects/black-swan-bistro/css-notes'
-      | '/projects/black-swan-bistro/html-notes'
+      | never
     >,
     '/projects/black-swan-bistro/brief': RouteRecordInfo<
       '/projects/black-swan-bistro/brief',
@@ -1412,14 +1410,11 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/projects/black-swan-bistro.vue': {
+    'src/pages/projects/black-swan-bistro/index.vue': {
       routes:
-        | '/projects/black-swan-bistro'
-        | '/projects/black-swan-bistro/brief'
-        | '/projects/black-swan-bistro/css-notes'
-        | '/projects/black-swan-bistro/html-notes'
+        | '/projects/black-swan-bistro/'
       views:
-        | 'default'
+        | never
     }
     'src/pages/projects/black-swan-bistro/brief.vue': {
       routes:

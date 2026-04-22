@@ -133,6 +133,37 @@
             <p>Generous whitespace to create a premium feel and reduce visual noise.</p>
           </article>
         </div>
+        <div class="brief-palette">
+          <div class="brief-palette__intro">
+            <h3 class="title is-4">Brand Palette</h3>
+            <p>
+              Use these values to keep your project work consistent. Start with the hex codes in
+              your CSS, and use the RGBA value when you need a transparent overlay.
+            </p>
+          </div>
+          <div class="brief-palette__grid">
+            <article
+              v-for="color in brandPalette"
+              :key="color.name"
+              class="brief-palette__card"
+            >
+              <span
+                class="brief-palette__swatch"
+                :style="{ background: color.swatch }"
+                :aria-label="`${color.name} colour swatch`"
+              ></span>
+              <div>
+                <h4 class="title is-6">{{ color.name }}</h4>
+                <p class="brief-palette__usage">{{ color.usage }}</p>
+                <p class="brief-palette__value">Hex: <code>{{ color.hex }}</code></p>
+                <p v-if="color.rgb" class="brief-palette__value">RGB: <code>{{ color.rgb }}</code></p>
+                <p v-if="color.rgba" class="brief-palette__value">
+                  RGBA: <code>{{ color.rgba }}</code>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section id="wireframes" class="brief-section">
@@ -631,6 +662,51 @@ const wireframes = [
   },
 ];
 
+const brandPalette = [
+  {
+    name: 'Deep Charcoal',
+    usage: 'Primary text, strong dividers, and dark footer areas.',
+    hex: '#2f2923',
+    rgb: 'rgb(47, 41, 35)',
+    swatch: '#2f2923',
+  },
+  {
+    name: 'Warm Gold',
+    usage: 'Accent colour for headings, highlights, and restrained emphasis.',
+    hex: '#8d6c24',
+    rgb: 'rgb(141, 108, 36)',
+    swatch: '#8d6c24',
+  },
+  {
+    name: 'Soft Cream',
+    usage: 'Main page background and light section surfaces.',
+    hex: '#fcfaf5',
+    rgb: 'rgb(252, 250, 245)',
+    swatch: '#fcfaf5',
+  },
+  {
+    name: 'Warm Sand',
+    usage: 'Borders, secondary surfaces, and quiet supporting blocks.',
+    hex: '#d8cfbf',
+    rgb: 'rgb(216, 207, 191)',
+    swatch: '#d8cfbf',
+  },
+  {
+    name: 'Muted Stone',
+    usage: 'Body copy, supporting labels, and lower-emphasis text.',
+    hex: '#5f564c',
+    rgb: 'rgb(95, 86, 76)',
+    swatch: '#5f564c',
+  },
+  {
+    name: 'Charcoal Overlay',
+    usage: 'Optional overlay for banners or image areas when contrast is needed.',
+    hex: '#2f2923',
+    rgba: 'rgba(47, 41, 35, 0.72)',
+    swatch: 'linear-gradient(135deg, rgba(47, 41, 35, 0.92), rgba(47, 41, 35, 0.52))',
+  },
+];
+
 const componentInventory = [
   {
     name: 'Header',
@@ -833,6 +909,55 @@ const printBrief = () => {
   background: #fff;
   border-left: 4px solid #a07820;
   border-radius: 0.5rem;
+}
+
+.brief-palette {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid #e0d7c8;
+  border-radius: 0.9rem;
+}
+
+.brief-palette__intro {
+  margin-bottom: 1rem;
+}
+
+.brief-palette__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.brief-palette__card {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1rem;
+  background: #fcfaf5;
+  border: 1px solid #ddd3c2;
+  border-radius: 0.8rem;
+}
+
+.brief-palette__swatch {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(47, 41, 35, 0.18);
+}
+
+.brief-palette__usage,
+.brief-palette__value {
+  margin: 0.25rem 0 0;
+}
+
+.brief-palette__usage {
+  color: #5f564c;
+}
+
+.brief-palette__value code {
+  font-size: 0.9em;
 }
 
 .wireframe-grid {
@@ -1149,6 +1274,10 @@ const printBrief = () => {
   .wireframe-card__badge {
     max-width: none;
   }
+
+  .brief-palette {
+    padding: 1rem;
+  }
 }
 
 @media print {
@@ -1200,6 +1329,8 @@ const printBrief = () => {
   .wireframe-card,
   .brief-highlight,
   .brief-token-card,
+  .brief-palette,
+  .brief-palette__card,
   .component-card,
   .scope-card,
   .brief-callout {

@@ -28,8 +28,9 @@
     <section id="overview" class="box">
       <h2 class="title is-4">Project overview</h2>
       <p>
-        Black Swan Bistro is the main guided build for GraphiteEdge. It starts with your first HTML page,
-        grows through layout and multi-page work, and ends with deployment and maintenance decisions.
+        Black Swan Bistro is the main guided build for GraphiteEdge. It starts with your first HTML
+        page, grows through layout and multi-page work, and ends with deployment and maintenance
+        decisions.
       </p>
     </section>
 
@@ -57,7 +58,8 @@
     <section id="resources" class="box">
       <h2 class="title is-4">Reference versions</h2>
       <p class="mb-3">
-        Use these finished versions to compare your work, inspect structure, and understand how the project evolves.
+        Use these finished versions to compare your work, inspect structure, and understand how the
+        project evolves.
       </p>
       <div class="buttons">
         <router-link to="/projects/black-swan-bistro/brief" class="button is-dark">
@@ -72,15 +74,14 @@
         >
           {{ link.label }}
         </a>
-        <a
+        <router-link
           v-for="link in project?.sourceLinks"
           :key="link.url"
-          :href="link.url"
-          target="_blank"
+          :to="link.url"
           class="button is-light"
         >
           {{ link.label }}
-        </a>
+        </router-link>
       </div>
     </section>
   </div>

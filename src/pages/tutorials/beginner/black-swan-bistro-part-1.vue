@@ -31,13 +31,22 @@
 			<h1 class="title is-1">Black Swan Bistro &mdash; Part 1</h1>
 			<h2 class="subtitle is-4">Build Your First Web Page</h2>
 
+			<div class="notification is-link is-light">
+				<p>
+					<strong>How this fits the full project:</strong> In Part 1, you are building the
+					homepage foundation for Black Swan Bistro. Later parts turn this into a more complete
+					multi-page site with a menu page, about page, contact page, reusable components, and
+					layout systems guided by the project brief.
+				</p>
+			</div>
+
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- HUNTER ELEMENT 1: ANTICIPATORY SET                 -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<AnticipatorySet
 				title="From Blank Screen to Restaurant Website"
 				icon="🍽️"
-				:hook="`<p>You walk into a brand-new restaurant. There&rsquo;s no sign outside, no menu on the table, no information about opening hours. It doesn&rsquo;t matter how good the food is &mdash; nobody will stick around long enough to find out.</p><p>A website works the same way. You need a clear homepage that tells visitors <em>who you are</em>, <em>what you offer</em>, and <em>how to find you</em>. In this project you&rsquo;ll build exactly that &mdash; a complete homepage for the <strong>Black Swan Bistro</strong>, a fictional Perth restaurant &mdash; from an empty folder to a styled, working web page.</p>`"
+				:hook="`<p>You walk into a brand-new restaurant. There&rsquo;s no sign outside, no menu on the table, no information about opening hours. It doesn&rsquo;t matter how good the food is &mdash; nobody will stick around long enough to find out.</p><p>A website works the same way. You need a clear homepage that tells visitors <em>who you are</em>, <em>what you offer</em>, and <em>how to find you</em>. In this project you&rsquo;ll build exactly that &mdash; the homepage foundation for <strong>Black Swan Bistro</strong>, a fictional Perth restaurant &mdash; from an empty folder to a styled, working web page.</p>`"
 				:reflection-prompts="[
 					'Think of a restaurant website you&rsquo;ve visited. What info did you look for first?',
 					'What makes a homepage feel trustworthy vs. unfinished?',
@@ -151,19 +160,32 @@
 
 			<h3 id="header-nav">Header &amp; Navigation</h3>
 
-			<p>Inside the <code>&lt;body&gt;</code>, start with a <code>&lt;header&gt;</code> containing the restaurant name and a simple navigation:</p>
+			<p>
+				Inside the <code>&lt;body&gt;</code>, start with a <code>&lt;header&gt;</code> containing
+				the restaurant name and a simple navigation. In Part 1 these links can point to sections
+				on the homepage, but keep the labels aligned with the later multi-page project:
+				<strong>Home, Menu, About, Contact</strong>.
+			</p>
 
 			<pre><code>&lt;header&gt;
     &lt;h1&gt;Black Swan Bistro&lt;/h1&gt;
     &lt;nav&gt;
         &lt;ul&gt;
-            &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#hero"&gt;Home&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;a href="#menu"&gt;Menu&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#hours"&gt;Hours&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
     &lt;/nav&gt;
 &lt;/header&gt;</code></pre>
+
+			<div class="notification is-info is-light">
+				<p>
+					<strong>Why these labels matter:</strong> The project brief and later tutorials use
+					Home, Menu, About, and Contact as the shared site navigation. Keeping those labels
+					now makes the jump from a single homepage to a multi-page site feel much more natural.
+				</p>
+			</div>
 
 			<div class="notification is-info is-light">
 				<p><strong>Why semantic elements?</strong> A <code>&lt;header&gt;</code> tells the browser (and screen readers) &ldquo;this is the top section of the page.&rdquo; A <code>&lt;nav&gt;</code> says &ldquo;this is navigation.&rdquo; Plain <code>&lt;div&gt;</code>s don&rsquo;t communicate anything &mdash; they&rsquo;re invisible to accessibility tools.</p>
@@ -649,13 +671,13 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 // ── Sidebar sections ─────────────────────────────────────────────
 usePageSections([
-	{ id: 'project-setup', label: 'Step 1 — Project Setup' },
-	{ id: 'html-structure', label: 'Step 2 — Build the HTML' },
-	{ id: 'css-styling', label: 'Step 3 — Style with CSS' },
-	{ id: 'responsive', label: 'Step 4 — Responsive' },
-	{ id: 'preview-debug', label: 'Step 5 — Preview & Debug' },
-	{ id: 'what-youve-built', label: 'What You\'ve Built' },
-	{ id: 'summary', label: 'Summary' },
+	{ id: 'project-setup', title: 'Step 1 — Project Setup' },
+	{ id: 'html-structure', title: 'Step 2 — Build the HTML' },
+	{ id: 'css-styling', title: 'Step 3 — Style with CSS' },
+	{ id: 'responsive', title: 'Step 4 — Responsive' },
+	{ id: 'preview-debug', title: 'Step 5 — Preview & Debug' },
+	{ id: 'what-youve-built', title: 'What You\'ve Built' },
+	{ id: 'summary', title: 'Summary' },
 ]);
 
 // ── Guided Practice: Project Setup ────────────────────────────────
