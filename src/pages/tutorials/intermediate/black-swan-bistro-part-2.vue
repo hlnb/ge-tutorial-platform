@@ -15,6 +15,7 @@ useTutorialHead({
 const sections = [
 	{ id: 'project-brief', title: 'Project Brief' },
 	{ id: 'intro', title: 'Introduction' },
+	{ id: 'project-brief-wireframes', title: 'Project Brief & Wireframes' },
 	{ id: 'what-you-will-build', title: 'What You Will Build' },
 	{ id: 'what-you-will-learn', title: 'What You Will Learn' },
 	{ id: 'wireframe-layout', title: 'Wireframe Layout' },
@@ -160,6 +161,26 @@ const closureReflectionPrompts = [
 				card shapes, and button styles across several sections. That is an important step
 				toward maintainable CSS, and it sets up the refactor you will do in Part 3.
 			</p>
+
+			<h2 id="project-brief-wireframes">Project Brief &amp; Wireframes</h2>
+			<p>
+				Before writing CSS, review the Black Swan Bistro project brief so your layout work
+				comes from the client goals, the content pack, and the wireframe structure rather
+				than from guesswork.
+			</p>
+			<p>
+				Use the wireframes to guide your layout decisions. They show the order of sections,
+				the repeated shells, and the parts of the page that should stay consistent as the
+				project grows.
+			</p>
+			<div class="notification is-info is-light">
+				<p>
+					<strong>Required project step:</strong> students should review the
+					<router-link to="/projects/black-swan-bistro/brief">Black Swan Bistro Project Brief</router-link>
+					before styling the homepage. The brief makes the wireframes active project guidance,
+					not optional extra reading.
+				</p>
+			</div>
 
 			<h2 id="what-you-will-build">What You Will Build</h2>
 			<p>

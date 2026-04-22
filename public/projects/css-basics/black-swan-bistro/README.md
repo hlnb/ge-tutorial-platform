@@ -1,177 +1,81 @@
-# Black Swan Bistro - HTML Basics Project
+# Black Swan Bistro - CSS Basics Reference
 
-This is the HTML-only version of the Black Swan Bistro restaurant website. This **multi-page website** demonstrates the fundamental HTML concepts covered in the HTML Basics tutorial series.
+This is the styled reference version of the Black Swan Bistro homepage used during the early CSS stages of the project.
 
-## Website Structure
+It builds directly on the HTML foundation from Part 1 and helps students see how structure, spacing, colour, and layout decisions begin to reflect the project brief before the site expands into multiple pages.
 
-The website consists of multiple interconnected pages with consistent navigation:
+## How This Reference Fits the Project
 
-```
-black-swan-bistro/
-├── index.html          # Home page with hero, about preview, featured menu
-├── menu.html           # Complete menu (appetizers, mains, desserts, beverages)
-├── about.html          # Restaurant story, chef bio, philosophy, team
-└── README.md           # This file
+- **Part 1** builds the semantic homepage structure in plain HTML
+- **Part 2** uses CSS to shape that structure into a clearer visual layout
+- **Part 3** introduces more reusable patterns and repeated section thinking
+- **Part 4** expands the project into a consistent multi-page site
 
-Images are located in: /public/images/tutorials/html-basics/
-    ├── black-swan-logo.svg
-    ├── black-swan-storefront.jpg
-    ├── black-swan-interior.jpg
-    ├── black-swan-pasta.jpg
-    ├── black-swan-lasagna.jpg
-    └── black-swan-steak.jpg
-```
+This means the CSS reference is intentionally **closer to the homepage wireframe** than to the full multi-page build.
 
-### Page Navigation
+## What Students Should Notice
 
-All pages include consistent header and footer navigation:
+### 1. Shared project language
 
-- **Header Nav**: Home | Menu | About | Contact & Reservations
-- **Footer Nav**: Same links plus social media
-- **Contact form**: Located on home page (#contact anchor)
+The homepage should already reflect the same project vocabulary used in the brief:
 
-## HTML Concepts Demonstrated
+- **Home**
+- **Menu**
+- **About**
+- **Contact**
 
-### Document Structure
+Even if the beginner version still uses section links on one page, these labels prepare students for the multi-page navigation that comes later.
 
-- Proper DOCTYPE and HTML structure
-- Semantic HTML5 elements (`header`, `main`, `section`, `article`, `footer`, `nav`)
-- Meta tags for SEO and responsive design
+### 2. Visual hierarchy
 
-### Text Formatting
+Look at how CSS helps separate:
 
-- Headings hierarchy (`h1` through `h3`)
-- Paragraphs and text emphasis (`strong`, `em`)
-- Lists (ordered and unordered)
+- the hero section
+- the about preview
+- the featured menu area
+- the practical contact and hours information
 
-### Links and Navigation
+The wireframes show these as distinct content blocks. The CSS reference helps students see how spacing, headings, and grouping make that structure readable.
 
-- **Multi-page navigation** - Consistent header/footer menus across all pages
-- Internal page links (menu.html, about.html)
-- Anchor links to sections (#contact, #about)
-- External links (social media)
-- Email and phone links
-- Proper use of `target="_blank"` and `rel="noopener"`
+### 3. Brand consistency
 
-### Images
+Students should compare the styled homepage against the project brief and notice:
 
-- Basic `img` tags with `src`, `alt`, and `width` attributes
-- `figure` and `figcaption` for semantic image presentation
-- Proper alt text for accessibility
+- dark text and footer areas
+- warm accent colours
+- soft neutral backgrounds
+- generous spacing
+- a calmer, more premium feel
 
-### Tables
+These visual decisions matter just as much as the raw HTML structure.
 
-- Structured table with `thead`, `tbody`, `th`, and `td`
-- Used for the hours of operation schedule
+## How It Connects to the Project Brief
 
-### Forms
+Use the project brief as the design direction and this CSS reference as one practical implementation of the homepage stage.
 
-- Complete reservation form with various input types:
-  - Text, email, tel, date, time
-  - Select dropdowns
-  - Textarea
-  - Checkbox
-  - Submit and reset buttons
-- Fieldsets for logical grouping
-- Labels properly associated with inputs
-- Required field validation
-- Placeholder text
+The homepage version should line up with the brief in these ways:
 
-### Semantic HTML
+- a strong hero / welcome area
+- clear content sections
+- repeated button and heading patterns
+- a navigation system that can later become shared across pages
+- styling choices that support the Black Swan Bistro tone
 
-- `address` element for contact information
-- `small` for fine print
-- Proper use of structural elements
+It does **not** need to include every later page or every higher-fidelity wireframe section yet. Those are developed in later parts of the project.
 
-## Project Structure
+## What This Reference Is For
 
-```
-black-swan-bistro/
-├── index.html          # Main landing page
-├── menu.html           # Full menu page
-├── about.html          # About us page
-├── images/             # Image assets (to be added)
-│   ├── logo.png
-│   ├── restaurant-exterior.jpg
-│   ├── chef.jpg
-│   ├── signature-dish.jpg
-│   ├── interior.jpg
-│   ├── bar.jpg
-│   └── dessert-display.jpg
-└── README.md           # This file
-```
+Students can use this page to:
 
-## Page-by-Page Content
+- compare their own layout decisions
+- check whether their sections are grouped clearly
+- inspect spacing, colour, and content hierarchy
+- understand how a plain HTML page starts becoming a designed interface
 
-### index.html (Home Page)
+## Next Step
 
-- Hero section with welcome message
-- About preview with link to full about page
-- Featured menu items
-- Hours of operation table
-- Complete reservation form
-- Contact information
-- Gallery preview to start
+After this stage, students should return to the project brief and begin identifying:
 
-2. Navigate between pages using the header/footer menus
-3. All pages are functional but unstyled (plain HTML)
-4. All navigation links work correctly
-5. Images require the actual image files in the `images/` folder
-
-## Multi-Page Website Features
-
-This project demonstrates real-world website structure:
-
-- ✅ **Consistent navigation** across all pages
-- ✅ **Logical information architecture** (home, menu, about, contact)
-- ✅ **Internal linking** between related pages
-- ✅ **Scalable structure** ready for CSS styling
-- ✅ **Professional organization** mimicking real restaurant websites
-- Complete appetizer section
-- Main courses with descriptions and prices
-- Desserts menu
-- Beverages section (wine, beer, cocktails, non-alcoholic)
-- Dietary information and icons
-- Call-to-action for reservations
-
-### about.html (About Page)
-
-- Restaurant story and history
-- Chef Maria Rodriguez biography and awards
-- Our philosophy (farm to table, sustainability, community)
-- Team members
-- Location and directions
-- Customer testimonials
-- Join our team section
-
-## How This Project Evolves
-
-This HTML-only version is the foundation. As you progress through the tutorial series, you'll enhance this project:
-
-- **CSS Basics**: Add styling, colors, layouts, and responsive design
-- **JavaScript Basics**: Add interactivity like image sliders and form validation
-- **DOM Manipulation**: Create dynamic menu updates and interactive features
-- **Advanced Topics**: Add animations, AJAX for reservations, and more
-
-## Usage
-
-1. Open `index.html` in your web browser
-2. The page is functional but unstyled (plain HTML)
-3. All links, forms, and navigation work correctly
-4. Images require the actual image files in the `images/` folder
-
-## Learning Objectives Met
-
-By studying this project, you'll see practical examples of:
-
-- ✅ Proper HTML5 document structure
-- ✅ Semantic HTML elements
-- ✅ Accessibility best practices
-- ✅ Form creation and validation
-- ✅ Navigation and internal links
-- ✅ Content organization
-- ✅ SEO-friendly markup
-
-## Next Steps
-
-After completing the HTML Basics series, move on to CSS Basics where you'll transform this plain HTML into a beautifully styled website!
+- which sections repeat
+- which layout patterns stay consistent
+- which pieces should become reusable when the project grows into multiple pages

@@ -1,0 +1,38 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#F7F5F2"/>
+  <rect x="56" y="52" width="1088" height="616" rx="28" fill="#FFFDFC" stroke="#D8D2C8" stroke-width="2"/>
+  <text x="600" y="108" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#2C2A28">Which Browser Panel Helps With Which Clue?</text>
+  <text x="600" y="146" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#5D5751">Use the panel that matches the question you are trying to answer.</text>
+
+  <rect x="104" y="206" width="290" height="360" rx="24" fill="#FDEBEC" stroke="#D97A83" stroke-width="2"/>
+  <rect x="126" y="230" width="246" height="46" rx="12" fill="#8C2F3D"/>
+  <text x="249" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFDFC">Console</text>
+  <text x="136" y="318" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#6A4750">Best for:</text>
+  <text x="136" y="356" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#6A4750">• JavaScript errors</text>
+  <text x="136" y="388" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#6A4750">• null or undefined clues</text>
+  <text x="136" y="420" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#6A4750">• quick log checks</text>
+  <text x="136" y="472" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#6A4750">Ask:</text>
+  <text x="136" y="510" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#6A4750">Did the browser report an error?</text>
+
+  <rect x="456" y="206" width="290" height="360" rx="24" fill="#EAF4F4" stroke="#7EB5B4" stroke-width="2"/>
+  <rect x="478" y="230" width="246" height="46" rx="12" fill="#1E4E57"/>
+  <text x="601" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFDFC">Elements + Styles</text>
+  <text x="488" y="318" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#324B50">Best for:</text>
+  <text x="488" y="356" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#324B50">• wrong HTML structure</text>
+  <text x="488" y="388" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#324B50">• missing classes</text>
+  <text x="488" y="420" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#324B50">• CSS rules that lose or never apply</text>
+  <text x="488" y="472" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#324B50">Ask:</text>
+  <text x="488" y="510" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#324B50">Is the right element here, and what styles won?</text>
+
+  <rect x="808" y="206" width="290" height="360" rx="24" fill="#FFF2E6" stroke="#D59B58" stroke-width="2"/>
+  <rect x="830" y="230" width="246" height="46" rx="12" fill="#8A4D14"/>
+  <text x="953" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFDFC">Network</text>
+  <text x="840" y="318" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#684F39">Best for:</text>
+  <text x="840" y="356" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#684F39">• 404 files</text>
+  <text x="840" y="388" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#684F39">• missing stylesheets or scripts</text>
+  <text x="840" y="420" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#684F39">• wrong asset paths</text>
+  <text x="840" y="472" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#684F39">Ask:</text>
+  <text x="840" y="510" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#684F39">Did the browser load the file I think it loaded?</text>
+
+  <text x="600" y="618" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#5D5751">Match the symptom to the panel. That is usually faster than scanning your whole codebase first.</text>
+</svg>

@@ -92,10 +92,10 @@ const guidedPracticeSteps = [
 			'Only transition the property you are changing. Avoid transition: all.',
 		],
 	},
-	{
-		title: 'Add a subtle card lift on hover',
-		instructions:
-			'<p>Find your <code>.card</code> component rule. Add a transform and box-shadow on hover:</p><pre><code>.card {\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);\n}</code></pre><p>The lift should be small — just enough to signal interactivity.</p>',
+		{
+			title: 'Add a subtle card lift on hover',
+			instructions:
+				'<p>Find your <code>.menu-card</code> component rule. Add a transform and box-shadow on hover:</p><pre><code>.menu-card {\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.menu-card:hover,\n.menu-card:focus-within {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);\n}</code></pre><p>The lift should be small — just enough to signal interactivity.</p>',
 		hints: [
 			'translateY(-2px) is subtle. More than -4px starts to look jumpy.',
 			'Test with your keyboard too — :hover alone does not help keyboard users. Consider adding :focus-within if the card contains a link.',
@@ -391,11 +391,12 @@ const closureReflectionPrompts = [
 				physically moving content around the page. Pair it with a soft box-shadow change
 				for depth:
 			</p>
-			<pre><code>.card {
+<pre><code>.menu-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
+.menu-card:hover,
+.menu-card:focus-within {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }</code></pre>
@@ -463,7 +464,7 @@ const closureReflectionPrompts = [
 				:success-criteria="[
 					'At least one specificity problem is identified and fixed',
 					'Navigation links have a visible hover transition',
-					'Cards lift subtly on hover with transform and box-shadow',
+						'Menu cards lift subtly on hover with transform and box-shadow',
 					'A prefers-reduced-motion query disables all transitions and transforms',
 					'The page looks and feels the same as before, but interactions are smoother'
 				]"

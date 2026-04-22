@@ -19,6 +19,7 @@ useTutorialHead({
 usePageSections([
 	{ id: 'intro', title: 'Introduction' },
 	{ id: 'what-you-will-build', title: 'What You Will Build' },
+	{ id: 'project-brief-structure', title: 'Project Brief for Multi-page Structure' },
 	{ id: 'site-structure', title: 'Multi-page Structure' },
 	{ id: 'file-setup', title: 'Step 1 — File Setup' },
 	{
@@ -55,12 +56,12 @@ const checkpointQuestions = [
 		answer:
 			'A single shared stylesheet means you only write and maintain one set of component styles. When you update a colour variable or fix a card layout, the change applies to every page at once.',
 	},
-	{
-		question:
-			'Why should new page files sit at the project root alongside index.html, instead of inside a subfolder?',
-		answer:
-			'Keeping all pages at the same directory level means every page can use the same relative paths to shared assets: css/style.css, images/, and js/main.js. Nesting pages inside subfolders would break those paths or require different ones per page.',
-	},
+		{
+			question:
+				'Why should new page files sit at the project root alongside index.html, instead of inside a subfolder?',
+			answer:
+				'Keeping all pages at the same directory level means every page can use the same relative paths to shared assets: css/style.css and images/. Nesting pages inside subfolders would break those paths or require different ones per page.',
+		},
 	{
 		question: 'What does the is-active class do and why does it change between pages?',
 		answer:
@@ -283,6 +284,19 @@ const closureReflectionPrompts = [
 					Every page links to every other page.
 				</figcaption>
 			</figure>
+
+			<h2 id="project-brief-structure">Using the Project Brief for Multi-page Structure</h2>
+			<p>
+				Return to the
+				<router-link to="/projects/black-swan-bistro/brief">Black Swan Bistro Project Brief</router-link>
+				before you build the extra pages. Use the brief to ensure consistency between pages
+				and to identify which sections remain the same across the whole site.
+			</p>
+			<p>
+				The header, footer, navigation, repeated card structures, and heading treatments
+				should stay predictable. The brief helps you separate shared layout patterns from the
+				unique content that belongs only on one page.
+			</p>
 
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- MULTI-PAGE SITE STRUCTURE                          -->

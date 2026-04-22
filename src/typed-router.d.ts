@@ -205,9 +205,30 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/projects/black-swan-bistro': RouteRecordInfo<
+    '/projects/black-swan-bistro/': RouteRecordInfo<
+      '/projects/black-swan-bistro/',
       '/projects/black-swan-bistro',
-      '/projects/black-swan-bistro',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/projects/black-swan-bistro/brief': RouteRecordInfo<
+      '/projects/black-swan-bistro/brief',
+      '/projects/black-swan-bistro/brief',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/projects/black-swan-bistro/css-notes': RouteRecordInfo<
+      '/projects/black-swan-bistro/css-notes',
+      '/projects/black-swan-bistro/css-notes',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/projects/black-swan-bistro/html-notes': RouteRecordInfo<
+      '/projects/black-swan-bistro/html-notes',
+      '/projects/black-swan-bistro/html-notes',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -898,6 +919,69 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/applied-javascript/': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/',
+      '/tutorials/intermediate/applied-javascript',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/capstone-feature-build': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/capstone-feature-build',
+      '/tutorials/intermediate/applied-javascript/capstone-feature-build',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/debugging-interactive-javascript': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/debugging-interactive-javascript',
+      '/tutorials/intermediate/applied-javascript/debugging-interactive-javascript',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/events-at-scale': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/events-at-scale',
+      '/tutorials/intermediate/applied-javascript/events-at-scale',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/forms-validation-feedback': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/forms-validation-feedback',
+      '/tutorials/intermediate/applied-javascript/forms-validation-feedback',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/objects-for-real-features': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/objects-for-real-features',
+      '/tutorials/intermediate/applied-javascript/objects-for-real-features',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/refactoring-for-reuse': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/refactoring-for-reuse',
+      '/tutorials/intermediate/applied-javascript/refactoring-for-reuse',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/rendering-repeated-content': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/rendering-repeated-content',
+      '/tutorials/intermediate/applied-javascript/rendering-repeated-content',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/applied-javascript/state-and-ui-thinking': RouteRecordInfo<
+      '/tutorials/intermediate/applied-javascript/state-and-ui-thinking',
+      '/tutorials/intermediate/applied-javascript/state-and-ui-thinking',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/black-swan-bistro-part-2': RouteRecordInfo<
       '/tutorials/intermediate/black-swan-bistro-part-2',
       '/tutorials/intermediate/black-swan-bistro-part-2',
@@ -978,6 +1062,48 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/intermediate/flexbox-for-real-layouts': RouteRecordInfo<
       '/tutorials/intermediate/flexbox-for-real-layouts',
       '/tutorials/intermediate/flexbox-for-real-layouts',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/',
+      '/tutorials/intermediate/frameworks-101',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs',
+      '/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework',
+      '/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/what-is-a-framework-really': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/what-is-a-framework-really',
+      '/tutorials/intermediate/frameworks-101/what-is-a-framework-really',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/why-css-frameworks-exist': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/why-css-frameworks-exist',
+      '/tutorials/intermediate/frameworks-101/why-css-frameworks-exist',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist': RouteRecordInfo<
+      '/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist',
+      '/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1284,9 +1410,27 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/projects/black-swan-bistro.vue': {
+    'src/pages/projects/black-swan-bistro/index.vue': {
       routes:
-        | '/projects/black-swan-bistro'
+        | '/projects/black-swan-bistro/'
+      views:
+        | never
+    }
+    'src/pages/projects/black-swan-bistro/brief.vue': {
+      routes:
+        | '/projects/black-swan-bistro/brief'
+      views:
+        | never
+    }
+    'src/pages/projects/black-swan-bistro/css-notes.vue': {
+      routes:
+        | '/projects/black-swan-bistro/css-notes'
+      views:
+        | never
+    }
+    'src/pages/projects/black-swan-bistro/html-notes.vue': {
+      routes:
+        | '/projects/black-swan-bistro/html-notes'
       views:
         | never
     }
@@ -1878,6 +2022,60 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/intermediate/applied-javascript/index.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/capstone-feature-build.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/capstone-feature-build'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/debugging-interactive-javascript.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/debugging-interactive-javascript'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/events-at-scale.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/events-at-scale'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/forms-validation-feedback.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/forms-validation-feedback'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/objects-for-real-features.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/objects-for-real-features'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/refactoring-for-reuse.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/refactoring-for-reuse'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/rendering-repeated-content.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/rendering-repeated-content'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/applied-javascript/state-and-ui-thinking.vue': {
+      routes:
+        | '/tutorials/intermediate/applied-javascript/state-and-ui-thinking'
+      views:
+        | never
+    }
     'src/pages/tutorials/intermediate/black-swan-bistro-part-2.vue': {
       routes:
         | '/tutorials/intermediate/black-swan-bistro-part-2'
@@ -1947,6 +2145,42 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/flexbox-for-real-layouts.vue': {
       routes:
         | '/tutorials/intermediate/flexbox-for-real-layouts'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/index.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/what-is-a-framework-really.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/what-is-a-framework-really'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/why-css-frameworks-exist.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/why-css-frameworks-exist'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist.vue': {
+      routes:
+        | '/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist'
       views:
         | never
     }

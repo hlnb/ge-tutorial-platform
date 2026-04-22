@@ -2,6 +2,29 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { routes } from 'vue-router/auto-routes';
 import RSSFeedService from '@/services/RSSFeedService';
 
+function addTrailingSlashAliases(routeRecords) {
+	routeRecords.forEach((route) => {
+		if (route.path && route.path !== '/' && route.path.endsWith('/')) {
+			const aliasWithoutSlash = route.path.replace(/\/+$/, '');
+			if (aliasWithoutSlash) {
+				const existingAliases = Array.isArray(route.alias)
+					? route.alias
+					: route.alias
+						? [route.alias]
+						: [];
+
+				if (!existingAliases.includes(aliasWithoutSlash)) {
+					route.alias = [...existingAliases, aliasWithoutSlash];
+				}
+			}
+		}
+
+		if (Array.isArray(route.children) && route.children.length) {
+			addTrailingSlashAliases(route.children);
+		}
+	});
+}
+
 // Post metadata registry (keep this for post access control)
 export const posts = {
 	'design-to-code': {
@@ -252,6 +275,8 @@ function checkPostAccess(slug, next) {
 }
 
 // Create router with auto-generated routes
+addTrailingSlashAliases(routes);
+
 const router = createRouter({
 	history: createWebHistory(),
 	routes,

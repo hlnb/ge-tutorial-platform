@@ -28,7 +28,7 @@ const projectRecords = [
     duration: '7 parts',
     icon: 'fas fa-utensils',
     pathways: ['beginner', 'builder', 'deployment'],
-    relatedSections: ['html-basics', 'css-basics', 'design-to-code', 'deployments', 'capstone'],
+    relatedSections: ['html-basics', 'css-basics', 'design-to-code', 'applied-javascript', 'deployments', 'capstone'],
     relatedTutorials: [
       'beginner/black-swan-bistro-part-1',
       'intermediate/black-swan-bistro-part-2',
@@ -52,11 +52,11 @@ const projectRecords = [
     sourceLinks: [
       {
         label: 'HTML project notes',
-        url: '/projects/html-basics/black-swan-bistro/README.md',
+        url: '/projects/black-swan-bistro/html-notes',
       },
       {
         label: 'CSS project notes',
-        url: '/projects/css-basics/black-swan-bistro/README.md',
+        url: '/projects/black-swan-bistro/css-notes',
       },
     ],
     primaryPathway: 'beginner',
@@ -284,7 +284,7 @@ const projectRecords = [
     duration: '45 min',
     icon: 'fas fa-photo-film',
     pathways: ['builder'],
-    relatedSections: ['dom-basics'],
+    relatedSections: ['dom-basics', 'applied-javascript'],
     tags: ['JavaScript', 'Gallery', 'DOM'],
     pathwayOrder: 7,
   },
@@ -298,7 +298,7 @@ const projectRecords = [
     duration: '50 min',
     icon: 'fas fa-list-check',
     pathways: ['builder'],
-    relatedSections: ['dom-basics'],
+    relatedSections: ['dom-basics', 'applied-javascript'],
     tags: ['JavaScript', 'Arrays', 'DOM'],
     pathwayOrder: 8,
   },
@@ -312,7 +312,7 @@ const projectRecords = [
     duration: '25 min',
     icon: 'fas fa-fill-drip',
     pathways: ['builder'],
-    relatedSections: ['javascript-basics', 'dom-basics'],
+    relatedSections: ['javascript-basics', 'dom-basics', 'applied-javascript'],
     tags: ['JavaScript', 'DOM', 'UI'],
     pathwayOrder: 9,
   },
@@ -326,7 +326,7 @@ const projectRecords = [
     duration: '30 min',
     icon: 'fas fa-temperature-half',
     pathways: ['builder'],
-    relatedSections: ['javascript-basics'],
+    relatedSections: ['javascript-basics', 'applied-javascript'],
     tags: ['JavaScript', 'Functions', 'Forms'],
     pathwayOrder: 10,
   },
@@ -354,7 +354,7 @@ const projectRecords = [
     duration: '45 min',
     icon: 'fas fa-calculator',
     pathways: ['builder'],
-    relatedSections: ['javascript-basics'],
+    relatedSections: ['javascript-basics', 'applied-javascript'],
     tags: ['JavaScript', 'Logic', 'App'],
     pathwayOrder: 12,
   },
@@ -382,7 +382,7 @@ const projectRecords = [
     duration: '45 min',
     icon: 'fas fa-circle-question',
     pathways: ['builder'],
-    relatedSections: ['javascript-basics', 'dom-basics'],
+    relatedSections: ['javascript-basics', 'dom-basics', 'applied-javascript'],
     tags: ['JavaScript', 'Quiz', 'DOM'],
     pathwayOrder: 14,
   },
@@ -513,8 +513,14 @@ export function getProjectBySlug(slug) {
 
 export function getProjectByPath(path) {
   const normalizedPath = normalizeProjectPath(path);
+  const exactMatch =
+    projects.find((project) => normalizeProjectPath(project.path) === normalizedPath) || null;
+
+  if (exactMatch) return exactMatch;
+
   return (
-    projects.find((project) => normalizeProjectPath(project.path) === normalizedPath) || null
+    projects.find((project) => normalizedPath.startsWith(`${normalizeProjectPath(project.path)}/`)) ||
+    null
   );
 }
 
