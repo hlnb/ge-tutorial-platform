@@ -513,8 +513,14 @@ export function getProjectBySlug(slug) {
 
 export function getProjectByPath(path) {
   const normalizedPath = normalizeProjectPath(path);
+  const exactMatch =
+    projects.find((project) => normalizeProjectPath(project.path) === normalizedPath) || null;
+
+  if (exactMatch) return exactMatch;
+
   return (
-    projects.find((project) => normalizeProjectPath(project.path) === normalizedPath) || null
+    projects.find((project) => normalizedPath.startsWith(`${normalizeProjectPath(project.path)}/`)) ||
+    null
   );
 }
 

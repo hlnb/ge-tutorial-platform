@@ -8,11 +8,14 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import FlowSteps from '@/components/tutorials/FlowSteps.vue';
+import ProjectCodeExample from '@/components/tutorials/ProjectCodeExample.vue';
 
 const pageSections = [
 	{ id: 'feature-brief', title: 'Choose a Bounded Feature' },
 	{ id: 'implementation-plan', title: 'Plan the Implementation' },
 	{ id: 'quality-checks', title: 'Quality Checks' },
+	{ id: 'project-example', title: 'Quiz Game Example' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'recap', title: 'Recap' },
@@ -20,6 +23,38 @@ const pageSections = [
 ];
 
 usePageSections(pageSections);
+
+const quizCapstoneExample = `const quizState = {
+  currentQuestionIndex: 0,
+  score: 0,
+  selectedAnswer: null,
+  status: 'ready',
+};
+
+function initQuiz() {
+  bindEvents();
+  renderQuestion();
+}
+
+function bindEvents() {
+  choicesEl.addEventListener('click', handleChoiceClick);
+  nextButton.addEventListener('click', submitAnswer);
+  restartButton.addEventListener('click', restartQuiz);
+}
+
+function renderQuestion() {
+  const question = quizQuestions[quizState.currentQuestionIndex];
+  questionTextEl.textContent = question.prompt;
+  renderChoices(question);
+  renderProgress();
+}
+
+function submitAnswer() {
+  if (quizState.selectedAnswer === null) return showPrompt();
+  const isCorrect = quizState.selectedAnswer === quizQuestions[quizState.currentQuestionIndex].correctAnswer;
+  updateScore(isCorrect);
+  showFeedback(isCorrect);
+}`;
 </script>
 
 <template>
@@ -92,14 +127,16 @@ usePageSections(pageSections);
 			</ul>
 
 			<figure class="tutorial-figure tutorial-figure--wide">
-				<div class="capstone-map">
-					<div class="map-node">State</div>
-					<div class="map-node">Events</div>
-					<div class="map-node">Rendering</div>
-					<div class="map-node">Feedback</div>
-					<div class="map-node">Debugging</div>
-					<div class="map-node">Refactoring</div>
-				</div>
+				<FlowSteps
+					:steps="[
+						{ title: 'State', description: 'Choose the smallest set of values the feature needs to remember.' },
+						{ title: 'Events', description: 'Name the user actions that can change those values.' },
+						{ title: 'Rendering', description: 'Decide which interface regions update from the current data.' },
+						{ title: 'Feedback', description: 'Plan success, error, empty, or prompt states the user may see.' },
+						{ title: 'Debugging', description: 'Identify the checks you will use if the feature stops behaving as expected.' },
+						{ title: 'Refactoring', description: 'Keep helpers and boundaries visible so the feature stays maintainable.' }
+					]"
+				/>
 				<figcaption>
 					A strong capstone feature touches several areas at once, but each area should still have a clear purpose.
 				</figcaption>
@@ -111,6 +148,17 @@ usePageSections(pageSections);
 				what happens with empty results, invalid input, repeated clicks, resets, and rapid
 				interaction changes? These are the moments that reveal whether the structure is solid.
 			</p>
+
+			<div id="project-example">
+				<ProjectCodeExample
+					title="Running Example: Quiz Game as a Bounded Feature"
+					intro="This Quiz Game outline shows how one medium-sized feature can combine state, rendering, events, feedback, and a clear setup flow without becoming a giant app."
+					project-name="Quiz Game"
+					project-path="/projects/quiz-game"
+					:code="quizCapstoneExample"
+					takeaway="The feature stays bounded because the responsibilities are clear: initialise, listen, render, validate, and update score."
+				/>
+			</div>
 
 			<CheckpointBox
 				:title="'Checkpoint for Understanding'"
@@ -230,24 +278,4 @@ usePageSections(pageSections);
 </template>
 
 <style scoped>
-.capstone-map {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1rem;
-}
-
-.map-node {
-	background: #fffaf0;
-	border: 1px solid #f6ad55;
-	border-radius: 12px;
-	padding: 1rem;
-	text-align: center;
-	font-weight: 600;
-}
-
-@media (max-width: 768px) {
-	.capstone-map {
-		grid-template-columns: 1fr;
-	}
-}
 </style>

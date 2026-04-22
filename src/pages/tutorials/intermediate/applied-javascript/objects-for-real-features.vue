@@ -8,11 +8,14 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import FlowSteps from '@/components/tutorials/FlowSteps.vue';
+import ProjectCodeExample from '@/components/tutorials/ProjectCodeExample.vue';
 
 const pageSections = [
 	{ id: 'grouping-related-values', title: 'Grouping Related Values' },
 	{ id: 'collections-of-records', title: 'Collections of Records' },
 	{ id: 'arrays-vs-objects', title: 'Arrays vs Objects' },
+	{ id: 'project-example', title: 'Quiz Game Example' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'recap', title: 'Recap' },
@@ -20,6 +23,29 @@ const pageSections = [
 ];
 
 usePageSections(pageSections);
+
+const quizObjectsExample = `const quizQuestions = [
+  {
+    id: 'scope',
+    prompt: 'Which keyword creates block scope?',
+    choices: ['var', 'let', 'script'],
+    correctAnswer: 1,
+    explanation: 'let creates block-scoped variables.',
+  },
+  {
+    id: 'arrays',
+    prompt: 'Which method adds an item to the end of an array?',
+    choices: ['push', 'shift', 'slice'],
+    correctAnswer: 0,
+    explanation: 'push adds an item to the end of an array.',
+  },
+];
+
+const quizState = {
+  currentQuestionIndex: 0,
+  score: 0,
+  selectedAnswer: null,
+};`;
 </script>
 
 <template>
@@ -87,22 +113,13 @@ usePageSections(pageSections);
 			</p>
 
 			<figure class="tutorial-figure tutorial-figure--wide">
-				<div class="object-diagram">
-					<div class="object-card">
-						<strong>One object</strong>
-						<code>{ title, category, price }</code>
-					</div>
-					<div class="diagram-arrow">→</div>
-					<div class="object-card">
-						<strong>Array of objects</strong>
-						<code>[ item, item, item ]</code>
-					</div>
-					<div class="diagram-arrow">→</div>
-					<div class="object-card">
-						<strong>Rendered interface</strong>
-						<span>cards, filters, counts</span>
-					</div>
-				</div>
+				<FlowSteps
+					:steps="[
+						{ title: 'Model one record', description: 'Put related values like title, category, and price into one object.' },
+						{ title: 'Collect many records', description: 'Use an array when the feature needs to work through many similar items.' },
+						{ title: 'Render from the model', description: 'Let the interface read those objects so cards, filters, and counts stay aligned.' }
+					]"
+				/>
 				<figcaption>
 					Objects model one thing clearly. Arrays collect many of those things so the interface can work with them as a group.
 				</figcaption>
@@ -115,6 +132,17 @@ usePageSections(pageSections);
 				features use both: one object for current feature state and one array for the records
 				being displayed.
 			</p>
+
+			<div id="project-example">
+				<ProjectCodeExample
+					title="Running Example: Quiz Questions as Objects"
+					intro="Quiz Game becomes easier to reason about once each question is treated as one object and the live feature state is stored separately."
+					project-name="Quiz Game"
+					project-path="/projects/quiz-game"
+					:code="quizObjectsExample"
+					takeaway="The array holds repeated question records, while the state object tracks what the learner is doing right now."
+				/>
+			</div>
 
 			<CheckpointBox
 				:title="'Checkpoint for Understanding'"
@@ -234,39 +262,4 @@ usePageSections(pageSections);
 </template>
 
 <style scoped>
-.object-diagram {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1rem;
-	align-items: center;
-}
-
-.object-card {
-	background: #f7fafc;
-	border: 1px solid #cbd5e0;
-	border-radius: 12px;
-	padding: 1rem;
-	text-align: center;
-}
-
-.object-card code {
-	display: block;
-	margin-top: 0.5rem;
-}
-
-.diagram-arrow {
-	text-align: center;
-	font-size: 2rem;
-	color: #4a5568;
-}
-
-@media (max-width: 768px) {
-	.object-diagram {
-		grid-template-columns: 1fr;
-	}
-
-	.diagram-arrow {
-		transform: rotate(90deg);
-	}
-}
 </style>

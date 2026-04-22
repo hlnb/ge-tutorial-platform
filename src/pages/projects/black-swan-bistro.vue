@@ -60,6 +60,9 @@
         Use these finished versions to compare your work, inspect structure, and understand how the project evolves.
       </p>
       <div class="buttons">
+        <router-link to="/projects/black-swan-bistro/brief" class="button is-dark">
+          View project brief
+        </router-link>
         <a
           v-for="link in project?.liveLinks"
           :key="link.url"

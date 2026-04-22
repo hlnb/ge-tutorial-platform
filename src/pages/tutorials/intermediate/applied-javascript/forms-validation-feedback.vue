@@ -8,11 +8,14 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import FlowSteps from '@/components/tutorials/FlowSteps.vue';
+import ProjectCodeExample from '@/components/tutorials/ProjectCodeExample.vue';
 
 const pageSections = [
 	{ id: 'inputs-and-intent', title: 'Inputs and User Intent' },
 	{ id: 'validation-rules', title: 'Validation Rules' },
 	{ id: 'feedback-states', title: 'Feedback States' },
+	{ id: 'project-example', title: 'Quiz Game Example' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'recap', title: 'Recap' },
@@ -67,6 +70,22 @@ const independentPracticeRubric = [
 		success: 'The form behaviour reduces confusion rather than adding friction.',
 	},
 ];
+
+const quizFeedbackExample = `function submitAnswer() {
+  if (quizState.selectedAnswer === null) {
+    feedbackEl.textContent = 'Choose an answer before continuing.';
+    feedbackEl.className = 'feedback error';
+    return;
+  }
+
+  const question = quizQuestions[quizState.currentQuestionIndex];
+  const isCorrect = quizState.selectedAnswer === question.correctAnswer;
+
+  feedbackEl.textContent = isCorrect
+    ? 'Correct! Nice work.'
+    : question.explanation;
+  feedbackEl.className = \`feedback \${isCorrect ? 'success' : 'error'}\`;
+}`;
 </script>
 
 <template>
@@ -134,13 +153,13 @@ const independentPracticeRubric = [
 			</p>
 
 			<figure class="tutorial-figure tutorial-figure--wide">
-				<div class="feedback-flow">
-					<div class="flow-step">User input</div>
-					<div class="diagram-arrow">→</div>
-					<div class="flow-step">Check rule</div>
-					<div class="diagram-arrow">→</div>
-					<div class="flow-step">Show helpful response</div>
-				</div>
+				<FlowSteps
+					:steps="[
+						{ title: 'Collect input', description: 'Read what the user typed or selected without guessing what they meant.' },
+						{ title: 'Check the rule', description: 'Compare the input against a clear requirement such as required, format, or length.' },
+						{ title: 'Respond clearly', description: 'Show feedback that helps the user either correct the issue or confirm success.' }
+					]"
+				/>
 				<figcaption>
 					Validation is a flow: collect, evaluate, then respond in a way the user can act on.
 				</figcaption>
@@ -157,6 +176,17 @@ const independentPracticeRubric = [
 					<strong>Good rule of thumb:</strong> if the user cannot tell what to fix after
 					reading the message, the feedback still needs work.
 				</p>
+			</div>
+
+			<div id="project-example">
+				<ProjectCodeExample
+					title="Running Example: Quiz Feedback Flow"
+					intro="Quiz Game is not a form-heavy app, but it still has a validation moment: the learner must choose an answer before moving on."
+					project-name="Quiz Game"
+					project-path="/projects/quiz-game"
+					:code="quizFeedbackExample"
+					takeaway="The code checks for missing input first, then gives either a clear prompt to act or a success/error response tied to the current question."
+				/>
 			</div>
 
 			<CheckpointBox
@@ -253,35 +283,4 @@ const independentPracticeRubric = [
 </template>
 
 <style scoped>
-.feedback-flow {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1rem;
-	align-items: center;
-}
-
-.flow-step {
-	background: #f5fff7;
-	border: 1px solid #93d7a1;
-	border-radius: 12px;
-	padding: 1rem;
-	text-align: center;
-	font-weight: 600;
-}
-
-.diagram-arrow {
-	text-align: center;
-	font-size: 2rem;
-	color: #2f855a;
-}
-
-@media (max-width: 768px) {
-	.feedback-flow {
-		grid-template-columns: 1fr;
-	}
-
-	.diagram-arrow {
-		transform: rotate(90deg);
-	}
-}
 </style>

@@ -8,6 +8,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 const sections = [
 	{ id: 'intro', title: 'Introduction' },
 	{ id: 'what-you-will-build', title: 'What You Will Build' },
+	{ id: 'project-brief-reference', title: 'Project Brief Reference' },
 	{ id: 'component-refactor', title: 'Component Refactor' },
 	{ id: 'pattern-inventory', title: 'Pattern Inventory' },
 	{ id: 'component-contracts', title: 'Component Contracts' },
@@ -157,6 +158,19 @@ const closureReflectionPrompts = [
 				<li>the site footer</li>
 				<li>shared component CSS that can be used again in Part 4</li>
 			</ul>
+
+			<h2 id="project-brief-reference">Refer back to the Project Brief</h2>
+			<p>
+				Open the
+				<router-link to="/projects/black-swan-bistro/brief">Black Swan Bistro Project Brief</router-link>
+				again before you refactor. Look at the wireframes and identify which elements repeat
+				across pages.
+			</p>
+			<p>
+				Those repeated areas become your reusable components. Header patterns, menu cards,
+				footer groups, CTA sections, and repeated headings are all easier to recognise when
+				you compare the homepage to the menu, about, and contact layouts in the brief.
+			</p>
 
 			<h2 id="component-refactor">What Component Refactoring Means Here</h2>
 			<p>

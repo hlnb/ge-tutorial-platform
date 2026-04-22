@@ -8,11 +8,14 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import FlowSteps from '@/components/tutorials/FlowSteps.vue';
+import ProjectCodeExample from '@/components/tutorials/ProjectCodeExample.vue';
 
 const pageSections = [
 	{ id: 'from-data-to-ui', title: 'From Data to Interface' },
 	{ id: 'empty-and-filtered-states', title: 'Empty and Filtered States' },
 	{ id: 'avoid-duplication', title: 'Avoiding Markup Duplication' },
+	{ id: 'project-example', title: 'Quiz Game Example' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'recap', title: 'Recap' },
@@ -88,6 +91,24 @@ const independentPracticeRubric = [
 		success: 'Adding another item should not require writing a new block of custom HTML.',
 	},
 ];
+
+const quizRenderingExample = `function renderQuestion() {
+  const question = quizQuestions[quizState.currentQuestionIndex];
+
+  questionTextEl.textContent = question.prompt;
+  choicesEl.innerHTML = question.choices
+    .map(
+      (choice, index) => \`
+        <button class="choice-btn" data-choice="\${index}">
+          \${choice}
+        </button>
+      \`,
+    )
+    .join('');
+
+  progressEl.textContent =
+    \`Question \${quizState.currentQuestionIndex + 1} of \${quizQuestions.length}\`;
+}`;
 </script>
 
 <template>
@@ -150,34 +171,13 @@ const independentPracticeRubric = [
 			</p>
 
 			<figure class="tutorial-figure tutorial-figure--wide">
-				<div class="render-diagram">
-					<div class="render-column">
-						<strong>Data</strong>
-						<ul>
-							<li>title</li>
-							<li>category</li>
-							<li>price</li>
-						</ul>
-					</div>
-					<div class="diagram-arrow">→</div>
-					<div class="render-column">
-						<strong>Template</strong>
-						<ul>
-							<li>Card shell</li>
-							<li>Heading spot</li>
-							<li>Meta spot</li>
-						</ul>
-					</div>
-					<div class="diagram-arrow">→</div>
-					<div class="render-column">
-						<strong>Rendered UI</strong>
-						<ul>
-							<li>Many cards</li>
-							<li>Consistent layout</li>
-							<li>Easy to filter</li>
-						</ul>
-					</div>
-				</div>
+				<FlowSteps
+					:steps="[
+						{ title: 'Start with data', description: 'Use one consistent item shape, such as title, category, and price.' },
+						{ title: 'Apply one template', description: 'Keep the card shell stable and insert each item’s changing values into it.' },
+						{ title: 'Render the collection', description: 'Show many items consistently so filtering and empty states stay manageable.' }
+					]"
+				/>
 				<figcaption>
 					You are not rendering one-off markup. You are rendering a repeatable pattern from structured data.
 				</figcaption>
@@ -205,6 +205,17 @@ const independentPracticeRubric = [
 				earning its keep. A better rendering setup lets you add another item by changing the
 				data, not rewriting the structure from scratch.
 			</p>
+
+			<div id="project-example">
+				<ProjectCodeExample
+					title="Running Example: Rendering Quiz Choices"
+					intro="The Quiz Game uses one question object and renders its answer choices from data instead of hard-coding every button."
+					project-name="Quiz Game"
+					project-path="/projects/quiz-game"
+					:code="quizRenderingExample"
+					takeaway="The repeated UI shell stays stable while the prompt, choices, and progress label all come from current data."
+				/>
+			</div>
 
 			<CheckpointBox
 				title="Checkpoint for Understanding"
@@ -288,33 +299,4 @@ const independentPracticeRubric = [
 </template>
 
 <style scoped>
-.render-diagram {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1rem;
-	align-items: center;
-}
-
-.render-column {
-	background: #f8fbff;
-	border: 1px solid #b8d7ff;
-	border-radius: 12px;
-	padding: 1rem;
-}
-
-.diagram-arrow {
-	text-align: center;
-	font-size: 2rem;
-	color: #2b6cb0;
-}
-
-@media (max-width: 768px) {
-	.render-diagram {
-		grid-template-columns: 1fr;
-	}
-
-	.diagram-arrow {
-		transform: rotate(90deg);
-	}
-}
 </style>

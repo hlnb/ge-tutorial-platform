@@ -8,11 +8,13 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import ProjectCodeExample from '@/components/tutorials/ProjectCodeExample.vue';
 
 const pageSections = [
 	{ id: 'many-interactions', title: 'When Interactions Multiply' },
 	{ id: 'event-delegation', title: 'Event Delegation' },
 	{ id: 'shared-handlers', title: 'Shared Handler Patterns' },
+	{ id: 'project-example', title: 'Quiz Game Example' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'recap', title: 'Recap' },
@@ -20,6 +22,24 @@ const pageSections = [
 ];
 
 usePageSections(pageSections);
+
+const quizEventsExample = `choicesEl.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-choice]');
+  if (!button) return;
+
+  quizState.selectedAnswer = Number(button.dataset.choice);
+  renderQuestion();
+});
+
+controlsEl.addEventListener('click', (event) => {
+  if (event.target.matches('[data-action="next"]')) {
+    submitAnswer();
+  }
+
+  if (event.target.matches('[data-action="restart"]')) {
+    restartQuiz();
+  }
+});`;
 </script>
 
 <template>
@@ -108,6 +128,17 @@ usePageSections(pageSections);
 				work, pull the logic into one function that receives the important value. This keeps
 				your event layer thin and your feature rules easier to update.
 			</p>
+
+			<div id="project-example">
+				<ProjectCodeExample
+					title="Running Example: Shared Quiz Event Handling"
+					intro="This Quiz Game setup uses one listener for answer buttons and one listener for higher-level control actions."
+					project-name="Quiz Game"
+					project-path="/projects/quiz-game"
+					:code="quizEventsExample"
+					takeaway="Delegation keeps repeated answer buttons manageable, while shared control actions stop the feature from growing a separate listener for every button."
+				/>
+			</div>
 
 			<CheckpointBox
 				:title="'Checkpoint for Understanding'"

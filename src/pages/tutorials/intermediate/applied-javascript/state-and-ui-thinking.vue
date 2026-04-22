@@ -8,11 +8,14 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import FlowSteps from '@/components/tutorials/FlowSteps.vue';
+import ProjectCodeExample from '@/components/tutorials/ProjectCodeExample.vue';
 
 const pageSections = [
 	{ id: 'state-model', title: 'State as a Source of Truth' },
 	{ id: 'events-and-updates', title: 'Events and Updates' },
 	{ id: 'derived-ui', title: 'Derived UI Decisions' },
+	{ id: 'project-example', title: 'Quiz Game Example' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'recap', title: 'Recap' },
@@ -117,6 +120,23 @@ const closureObjectives = [
 	'Describe how one user action should change one feature state',
 	'Plan a clearer UI update sequence before writing DOM code',
 ];
+
+const quizStateExample = `const quizState = {
+  currentQuestionIndex: 0,
+  score: 0,
+  selectedAnswer: null,
+  status: 'ready',
+};
+
+function chooseAnswer(choiceIndex) {
+  quizState.selectedAnswer = choiceIndex;
+  quizState.status = 'answered';
+  renderQuestion();
+}
+
+function getCurrentQuestion() {
+  return quizQuestions[quizState.currentQuestionIndex];
+}`;
 </script>
 
 <template>
@@ -185,22 +205,13 @@ const closureObjectives = [
 			</p>
 
 			<figure class="tutorial-figure tutorial-figure--wide">
-				<div class="concept-diagram">
-					<div class="diagram-card">
-						<strong>State</strong>
-						<span>selectedCategory = "dessert"</span>
-					</div>
-					<div class="diagram-arrow">→</div>
-					<div class="diagram-card">
-						<strong>Decision</strong>
-						<span>Show dessert cards, highlight dessert button</span>
-					</div>
-					<div class="diagram-arrow">→</div>
-					<div class="diagram-card">
-						<strong>UI</strong>
-						<span>Cards and labels update together</span>
-					</div>
-				</div>
+				<FlowSteps
+					:steps="[
+						{ title: 'Read state', description: 'Start from the values the feature remembers, such as the selected category.' },
+						{ title: 'Make a decision', description: 'Work out what should change, such as which cards to show and which button to highlight.' },
+						{ title: 'Update the UI', description: 'Render the visible result so the page matches the latest state.' }
+					]"
+				/>
 				<figcaption>
 					Good interface code starts with remembered values, then decides what the page
 					should show.
@@ -232,6 +243,17 @@ const closureObjectives = [
 				<li>Store the search term.</li>
 				<li>Derive whether the empty-state message should show.</li>
 			</ul>
+
+			<div id="project-example">
+				<ProjectCodeExample
+					title="Running Example: Quiz Game State"
+					intro="Here is what state looks like in the Quiz Game project before the UI gets more complicated."
+					project-name="Quiz Game"
+					project-path="/projects/quiz-game"
+					:code="quizStateExample"
+					takeaway="The feature remembers only the values it truly needs: where the learner is, what they picked, what the score is, and what phase the interface is in."
+				/>
+			</div>
 
 			<CheckpointBox
 				title="Checkpoint for Understanding"
@@ -317,39 +339,4 @@ const closureObjectives = [
 </template>
 
 <style scoped>
-.concept-diagram {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	align-items: center;
-	gap: 1rem;
-}
-
-.diagram-card {
-	background: #fffbea;
-	border: 1px solid #f5d76e;
-	border-radius: 12px;
-	padding: 1rem;
-	text-align: center;
-}
-
-.diagram-card strong,
-.diagram-card span {
-	display: block;
-}
-
-.diagram-arrow {
-	text-align: center;
-	font-size: 2rem;
-	color: #a07b00;
-}
-
-@media (max-width: 768px) {
-	.concept-diagram {
-		grid-template-columns: 1fr;
-	}
-
-	.diagram-arrow {
-		transform: rotate(90deg);
-	}
-}
 </style>

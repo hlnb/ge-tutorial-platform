@@ -8,11 +8,14 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import FlowSteps from '@/components/tutorials/FlowSteps.vue';
+import ProjectCodeExample from '@/components/tutorials/ProjectCodeExample.vue';
 
 const pageSections = [
 	{ id: 'read-the-symptom', title: 'Read the Symptom First' },
 	{ id: 'trace-values', title: 'Trace Values and Flow' },
 	{ id: 'devtools-checks', title: 'DevTools Checks' },
+	{ id: 'project-example', title: 'Quiz Game Example' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'recap', title: 'Recap' },
@@ -20,6 +23,24 @@ const pageSections = [
 ];
 
 usePageSections(pageSections);
+
+const quizDebugExample = `function submitAnswer() {
+  const question = quizQuestions[quizState.currentQuestionIndex];
+
+  console.log('Selected answer:', quizState.selectedAnswer);
+  console.log('Correct answer:', question.correctAnswer);
+
+  if (quizState.selectedAnswer === null) {
+    console.warn('User tried to continue without choosing an answer.');
+    return;
+  }
+
+  const isCorrect = quizState.selectedAnswer === question.correctAnswer;
+  console.log('Was the answer correct?', isCorrect);
+
+  updateScore(isCorrect);
+  renderFeedback(isCorrect, question.explanation);
+}`;
 </script>
 
 <template>
@@ -87,12 +108,14 @@ usePageSections(pageSections);
 			</p>
 
 			<figure class="tutorial-figure tutorial-figure--wide">
-				<div class="debug-flow">
-					<div class="flow-node">Event fired?</div>
-					<div class="flow-node">Value updated?</div>
-					<div class="flow-node">Decision correct?</div>
-					<div class="flow-node">UI changed?</div>
-				</div>
+				<FlowSteps
+					:steps="[
+						{ title: 'Check the event', description: 'Confirm the interaction actually reaches the handler.' },
+						{ title: 'Check the value', description: 'Verify the feature state changes the way you expect.' },
+						{ title: 'Check the decision', description: 'Make sure the code chooses the correct branch from that value.' },
+						{ title: 'Check the UI update', description: 'Confirm the page actually reflects the result of that decision.' }
+					]"
+				/>
 				<figcaption>
 					Interactive debugging becomes easier when you test one link in the feature chain at a time.
 				</figcaption>
@@ -104,6 +127,17 @@ usePageSections(pageSections);
 				panel to confirm whether classes, text, or DOM nodes changed. When needed, add logs
 				that answer one exact question at a time.
 			</p>
+
+			<div id="project-example">
+				<ProjectCodeExample
+					title="Running Example: Targeted Quiz Debug Logs"
+					intro="This debugging pass does not log everything. It asks a few exact questions about the Quiz Game flow."
+					project-name="Quiz Game"
+					project-path="/projects/quiz-game"
+					:code="quizDebugExample"
+					takeaway="Each log checks one link in the feature chain: current selection, correct answer, correctness decision, and what branch runs next."
+				/>
+			</div>
 
 			<CheckpointBox
 				:title="'Checkpoint for Understanding'"
@@ -225,24 +259,4 @@ usePageSections(pageSections);
 </template>
 
 <style scoped>
-.debug-flow {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: 1rem;
-}
-
-.flow-node {
-	background: #fff5f5;
-	border: 1px solid #feb2b2;
-	border-radius: 12px;
-	padding: 1rem;
-	text-align: center;
-	font-weight: 600;
-}
-
-@media (max-width: 768px) {
-	.debug-flow {
-		grid-template-columns: 1fr;
-	}
-}
 </style>

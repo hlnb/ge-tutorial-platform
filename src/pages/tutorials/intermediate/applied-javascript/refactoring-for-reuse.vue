@@ -8,11 +8,14 @@ import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import FlowSteps from '@/components/tutorials/FlowSteps.vue';
+import ProjectCodeExample from '@/components/tutorials/ProjectCodeExample.vue';
 
 const pageSections = [
 	{ id: 'spot-the-repetition', title: 'Spotting Repetition' },
 	{ id: 'extract-helpers', title: 'Extracting Helpers' },
 	{ id: 'feature-boundaries', title: 'Feature Boundaries' },
+	{ id: 'project-example', title: 'Quiz Game Example' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
 	{ id: 'recap', title: 'Recap' },
@@ -20,6 +23,27 @@ const pageSections = [
 ];
 
 usePageSections(pageSections);
+
+const quizRefactorExample = `function getCurrentQuestion() {
+  return quizQuestions[quizState.currentQuestionIndex];
+}
+
+function getProgressLabel() {
+  return \`Question \${quizState.currentQuestionIndex + 1} of \${quizQuestions.length}\`;
+}
+
+function renderQuestion() {
+  const question = getCurrentQuestion();
+  questionTextEl.textContent = question.prompt;
+  progressEl.textContent = getProgressLabel();
+  renderChoices(question);
+}
+
+function renderChoices(question) {
+  choicesEl.innerHTML = question.choices
+    .map((choice, index) => \`<button data-choice="\${index}">\${choice}</button>\`)
+    .join('');
+}`;
 </script>
 
 <template>
@@ -87,17 +111,13 @@ usePageSections(pageSections);
 			</p>
 
 			<figure class="tutorial-figure tutorial-figure--wide">
-				<div class="refactor-diagram">
-					<div class="refactor-card">
-						<strong>Before</strong>
-						<span>Repeated selectors, repeated updates, mixed concerns</span>
-					</div>
-					<div class="diagram-arrow">→</div>
-					<div class="refactor-card">
-						<strong>After</strong>
-						<span>Small helpers, clearer state step, clearer render step</span>
-					</div>
-				</div>
+				<FlowSteps
+					compact
+					:steps="[
+						{ title: 'Before', description: 'Repeated selectors, repeated updates, and mixed responsibilities make the feature tiring to maintain.' },
+						{ title: 'After', description: 'Small helpers and clearer boundaries make the state and render flow easier to follow.' }
+					]"
+				/>
 				<figcaption>
 					Refactoring is not about cleverness. It is about turning repeated effort into named, reusable structure.
 				</figcaption>
@@ -109,6 +129,17 @@ usePageSections(pageSections);
 				and rendering. The exact code can vary, but separating those concerns helps you debug,
 				reuse, and extend the feature with less friction.
 			</p>
+
+			<div id="project-example">
+				<ProjectCodeExample
+					title="Running Example: Refactoring the Quiz Flow"
+					intro="Instead of rebuilding question logic in several places, this Quiz Game version extracts a few helpers and keeps rendering responsibilities together."
+					project-name="Quiz Game"
+					project-path="/projects/quiz-game"
+					:code="quizRefactorExample"
+					takeaway="Small helpers like getCurrentQuestion and getProgressLabel reduce repetition without hiding what the feature is doing."
+				/>
+			</div>
 
 			<CheckpointBox
 				:title="'Checkpoint for Understanding'"
@@ -228,28 +259,4 @@ usePageSections(pageSections);
 </template>
 
 <style scoped>
-.refactor-diagram {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1rem;
-	align-items: center;
-}
-
-.refactor-card {
-	background: #f7fafc;
-	border: 1px solid #cbd5e0;
-	border-radius: 12px;
-	padding: 1rem;
-	text-align: center;
-}
-
-.diagram-arrow {
-	display: none;
-}
-
-@media (max-width: 768px) {
-	.refactor-diagram {
-		grid-template-columns: 1fr;
-	}
-}
 </style>
