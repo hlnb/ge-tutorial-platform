@@ -269,8 +269,10 @@ Soups & Salads
 				<p class="subtitle">
 					You have learned how to structure and format text content using HTML.
 					Compare your solution to the example solutions below for the Black
-					Swan Bistro. Take this knowledge and apply it to the Rotto Rocks
-					project.
+					Swan Bistro. Now apply what you've learned about text and headings
+					to the Personal Profile Page for Alex Chen, using the bio as a
+					paragraph, the skills as a list, and the interests as a separate
+					section.
 				</p>
 
 				<!-- 3. Solutions -->

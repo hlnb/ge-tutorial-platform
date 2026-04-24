@@ -105,7 +105,7 @@ const closureObjectives = [
 	'Create flexible navigation bars, cards, and page sections with Flexbox',
 	'Control alignment, spacing, and wrapping along main/cross axes',
 	'Use flex shorthand to build responsive components quickly',
-	'Apply Flexbox to real projects like Black Swan Bistro and Rotto Rocks',
+	'Apply Flexbox to real projects like Black Swan Bistro and a Personal Profile Page',
 	'Debug Flexbox layouts using browser DevTools',
 ];
 
@@ -737,8 +737,7 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 					Now that you understand the fundamentals of Flexbox, it's time to
 					apply these concepts to create cohesive, responsive layouts for the
 					two websites we've been building throughout this course: The Black
-					Swan Bistro restaurant site and the Rotto Rocks tourist information
-					site.
+					Swan Bistro restaurant site and Alex Chen's Personal Profile Page.
 				</p>
 
 				<div class="mb-5">
@@ -917,11 +916,11 @@ main {
 				</div>
 
 				<div class="mb-5">
-					<h3 id="rotto-rocks-style-guide" class="title is-3">Rotto Rocks Tourist Site Style Guide</h3>
+					<h3 id="personal-profile-page-style-guide" class="title is-3">Personal Profile Page Style Guide</h3>
 					<p>
-						For the Rotto Rocks tourist information site, we'll use Flexbox to
-						create a vibrant, informative layout that showcases the beauty and
-						attractions of the location.
+						For Alex Chen's Personal Profile Page, we'll use Flexbox to create
+						a clean, professional layout that highlights the bio, skills,
+						interests, and contact details.
 					</p>
 
 					<div class="box">
@@ -937,24 +936,24 @@ body {
 }
 
 .site-header {
-  background-color: #0077b6; /* Ocean blue */
+  background-color: #2c3e50;
   color: white;
 }
 
 .site-content {
   flex: 1;
   display: flex;
+  gap: 2rem;
   padding: 2rem;
 }
 
 .main-content {
-  flex: 3; /* Takes up 3/4 of the space */
-  padding-right: 2rem;
+  flex: 2;
 }
 
 .sidebar {
-  flex: 1; /* Takes up 1/4 of the space */
-  background-color: #f0f0f0;
+  flex: 1;
+  background-color: #f8f9fa;
   padding: 1.5rem;
   border-radius: 8px;
 }
@@ -972,179 +971,103 @@ body {
   }
 }</code></pre>
 
-						<h4 id="attraction-cards" class="title is-4 mt-4">Attraction Cards</h4>
-						<pre class="language-css"><code>/* Attraction Cards */
-.attractions-list {
+						<h4 id="profile-cards" class="title is-4 mt-4">Skills and Interest Cards</h4>
+						<pre class="language-css"><code>/* Skills and Interest Cards */
+.skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
 }
 
-.attraction-card {
+.skill-item,
+.interest-card {
   display: flex;
   flex-direction: column;
-  flex-basis: calc(33.333% - 2rem);
-  min-width: 300px;
+  flex-basis: calc(33.333% - 1rem);
+  min-width: 200px;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   background-color: white;
-  transition: transform 0.3s ease;
+  padding: 1.25rem;
 }
 
-.attraction-card:hover {
+.interest-card:hover {
   transform: translateY(-5px);
 }
 
-.attraction-image {
-  height: 200px;
-  overflow: hidden;
+.skill-item {
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
 }
 
-.attraction-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.attraction-card:hover .attraction-image img {
-  transform: scale(1.1);
-}
-
-.attraction-details {
-  padding: 1.5rem;
+.interest-row {
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  gap: 1rem;
 }
 
-.attraction-category {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  background-color: #0077b6;
-  color: white;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  margin-bottom: 0.8rem;
-}
-
-.attraction-details h3 {
-  margin-top: 0;
-  margin-bottom: 0.8rem;
-  color: #0077b6;
-}
-
-.attraction-details p {
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-  color: #666;
-}
-
-.attraction-details .btn {
-  align-self: flex-start;
-  padding: 0.5rem 1rem;
-  background-color: #0077b6;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.attraction-details .btn:hover {
-  background-color: #005b8a;
+.interest-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
-  .attraction-card {
-    flex-basis: calc(50% - 2rem);
+  .skill-item,
+  .interest-card {
+    flex-basis: calc(50% - 1rem);
   }
 }
 
 @media (max-width: 576px) {
-  .attraction-card {
+  .skill-item,
+  .interest-card {
     flex-basis: 100%;
   }
 }</code></pre>
 
-						<h4 class="title is-4 mt-4">Featured Destinations Section</h4>
-						<pre class="language-css"><code>/* Featured Destinations */
-.featured-destinations {
+						<h4 class="title is-4 mt-4">Navigation and Project Cards</h4>
+						<pre class="language-css"><code>/* Navigation and Project Cards */
+.site-nav {
   display: flex;
-  margin-bottom: 3rem;
+  justify-content: space-between;
+  align-items: center;
   gap: 2rem;
 }
 
-.featured-main {
-  flex: 2;
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  min-height: 400px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.featured-secondary {
-  flex: 1;
+.nav-links {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
 }
 
-.featured-item {
-  position: relative;
+.project-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: white;
   border-radius: 8px;
-  overflow: hidden;
-  min-height: 190px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.featured-destination-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.featured-main:hover .featured-destination-img,
-.featured-item:hover .featured-destination-img {
-  transform: scale(1.1);
-}
-
-.featured-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
-  color: white;
-  z-index: 1;
-}
-
-.featured-content h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-.featured-content p {
-  margin-bottom: 0;
-  opacity: 0.9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .featured-destinations {
+  .site-nav,
+  .project-row {
     flex-direction: column;
   }
-  
-  .featured-main, .featured-item {
-    min-height: 250px;
+
+  .nav-links {
+    flex-wrap: wrap;
   }
 }</code></pre>
 					</div>
@@ -1154,8 +1077,8 @@ body {
 					<h3 class="title is-4">Challenge: Apply Flexbox to Your Sites</h3>
 					<p>
 						Now it's your turn to put these concepts into practice! Take the
-						style guides above and apply them to The Black Swan Bistro and Rotto
-						Rocks tourist information sites you've been building throughout this
+						style guides above and apply them to The Black Swan Bistro and
+						Personal Profile Page projects you've been building throughout this
 						course.
 					</p>
 					<p class="mt-3">
@@ -1178,14 +1101,13 @@ body {
 							</ul>
 						</li>
 						<li>
-							For Rotto Rocks:
+							For the Personal Profile Page:
 							<ul>
 								<li>
-									Design the attraction cards to showcase tourist destinations
+									Build a horizontal skills list using Flexbox
 								</li>
 								<li>
-									Implement the featured destinations section for highlighting
-									key attractions
+									Create a navigation bar and a row of interest or project cards
 								</li>
 							</ul>
 						</li>
@@ -1203,8 +1125,8 @@ body {
 					<p class="mt-3">
 						<strong>Bonus challenge:</strong> Add animations to your layouts
 						using CSS transitions when elements are hovered or focused, such as
-						menu items highlighting on The Black Swan Bistro site or attraction
-						images zooming slightly on the Rotto Rocks site.
+						menu items highlighting on The Black Swan Bistro site or profile
+						cards lifting slightly on the Personal Profile Page.
 					</p>
 				</div>
 

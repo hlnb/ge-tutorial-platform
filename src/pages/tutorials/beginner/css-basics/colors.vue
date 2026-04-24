@@ -76,7 +76,7 @@ const sections = [
 		title: 'Practical Exercises',
 		subsections: [
 			{ id: 'black-swan-bistro', title: 'Black Swan Bistro' },
-			{ id: 'rotto-rocks', title: 'Rotto Rocks' },
+			{ id: 'personal-profile-page', title: 'Personal Profile Page' },
 		],
 	},
 ];
@@ -329,27 +329,27 @@ const blackSwanAdvancedExample = ref(`/* Black Swan Bistro Advanced Challenge */
 }
 `);
 
-const rottoRocksBasicExample = ref(`/* Rotto Rocks Basic Exercise */
-.ocean-blue {
-	color: #1E88E5;
+const profilePageBasicExample = ref(`/* Personal Profile Page — Basic Exercise */
+.profile-primary {
+	color: #2C3E50;
 }
 
-.sand-light {
-	background-color: #F5E6D3;
+.profile-bg {
+	background-color: #F8F9FA;
 }
 
-.coral-accent {
-	color: #FF6F61;
+.profile-accent {
+	color: #3498DB;
 }
 `);
 
-const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
-.sunset-gradient {
-	background: linear-gradient(to bottom, #FF9A8B, #FF6F61, #1E88E5);
+const profilePageAdvancedExample = ref(`/* Personal Profile Page — Advanced Challenge */
+.profile-gradient {
+	background: linear-gradient(135deg, #2C3E50, #3498DB);
 }
 
-.overlay-color {
-	background-color: rgba(30, 136, 229, 0.4);
+.profile-overlay {
+	background-color: rgba(44, 62, 80, 0.7);
 }
 `);
 </script>
@@ -1325,75 +1325,68 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 				</div>
 			</section>
 
-			<section id="rotto-rocks" class="mt-6">
-				<h3 class="title is-3">Exercise 2: Rotto Rocks</h3>
+			<section id="personal-profile-page" class="mt-6">
+				<h3 class="title is-3">Exercise 2: Personal Profile Page</h3>
 				<p>
-					Create a vibrant, beach-inspired color scheme for the Rotto Rocks
-					website.
+					Create a professional, readable colour scheme for Alex Chen's
+					Personal Profile Page.
 				</p>
 
 				<div class="box">
 					<h4 class="title is-4">Basic Exercise</h4>
 					<div class="color-examples mb-4">
-						<div class="color-demo" style="background-color: #1e88e5">
-							<p>Ocean Blue</p>
-							<code>#1E88E5</code>
+						<div class="color-demo" style="background-color: #2c3e50">
+							<p style="color: white">Dark Navy</p>
+							<code>#2C3E50</code>
 						</div>
-						<div class="color-demo light-bg" style="background-color: #f5e6d3">
-							<p>Sand Light</p>
-							<code>#F5E6D3</code>
+						<div class="color-demo light-bg" style="background-color: #f8f9fa">
+							<p>Light Grey</p>
+							<code>#F8F9FA</code>
 						</div>
-						<div class="color-demo" style="background-color: #ff6f61">
-							<p>Coral Accent</p>
-							<code>#FF6F61</code>
+						<div class="color-demo" style="background-color: #3498db">
+							<p>Medium Blue</p>
+							<code>#3498DB</code>
 						</div>
 					</div>
 
-					<CodeMirror v-model="rottoRocksBasicExample" readonly />
+					<CodeMirror v-model="profilePageBasicExample" readonly />
 
 					<h4 class="title is-4 mt-6">Advanced Challenge</h4>
 					<div class="color-examples mb-4">
 						<div
 							class="color-demo gradient-demo"
 							style="
-								background: linear-gradient(
-									to bottom,
-									#ff9a8b,
-									#ff6f61,
-									#1e88e5
-								);
+								background: linear-gradient(135deg, #2c3e50, #3498db);
 							"
 						>
-							<p style="color: white">Sunset Gradient</p>
+							<p style="color: white">Profile Gradient</p>
 						</div>
 						<div
 							class="color-demo"
-							style="background-color: rgba(30, 136, 229, 0.4)"
+							style="background-color: rgba(44, 62, 80, 0.7)"
 						>
 							<p>Overlay Color</p>
-							<code>rgba(30, 136, 229, 0.4)</code>
+							<code>rgba(44, 62, 80, 0.7)</code>
 						</div>
 					</div>
 
-					<CodeMirror v-model="rottoRocksAdvancedExample" readonly />
+					<CodeMirror v-model="profilePageAdvancedExample" readonly />
 				</div>
 
 				<div class="notification is-info is-light mt-4 mb-4">
-					<h4 class="title is-5">Rotto Rocks Color Guide</h4>
+					<h4 class="title is-5">Personal Profile Page Colour Guide</h4>
 					<div class="color-guide">
 						<h5 class="title is-6">Primary Colors</h5>
 						<ul>
 							<li>
-								<strong>Ocean Blue:</strong> #1E88E5 - Headers, primary buttons
+								<strong>Dark Navy:</strong> #2C3E50 - Headings and key text
 							</li>
 							<li>
-								<strong>Ocean Light:</strong> #81D4FA - Highlights, secondary
-								elements
+								<strong>Medium Blue:</strong> #3498DB - Links and accents
 							</li>
-							<li><strong>Ocean Dark:</strong> #0D47A1 - Active states</li>
+							<li><strong>Light Grey:</strong> #F8F9FA - Section backgrounds</li>
 							<li>
-								<strong>Coral Accent:</strong> #FF6F61 - Call-to-action buttons,
-								important highlights
+								<strong>White:</strong> #FFFFFF - Content cards and clean contrast
 							</li>
 						</ul>
 
@@ -1404,19 +1397,19 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 								<strong>Light Text:</strong> #FFFFFF - Text on dark backgrounds
 							</li>
 							<li>
-								<strong>Muted Text:</strong> #607D8B - Secondary information
+								<strong>Muted Text:</strong> #6C757D - Secondary information
 							</li>
 						</ul>
 
 						<h5 class="title is-6 mt-3">Background Colors</h5>
 						<ul>
-							<li><strong>Sand Light:</strong> #F5E6D3 - Main background</li>
+							<li><strong>Light Grey:</strong> #F8F9FA - Main background</li>
 							<li>
-								<strong>Sand Dark:</strong> #E6D5B8 - Secondary background
+								<strong>Soft Blue Tint:</strong> #EAF4FB - Secondary background
 							</li>
 							<li><strong>Card Background:</strong> #FFFFFF - Content cards</li>
 							<li>
-								<strong>Overlay:</strong> rgba(30, 136, 229, 0.4) - Image
+								<strong>Overlay:</strong> rgba(44, 62, 80, 0.7) - Hero
 								overlays
 							</li>
 						</ul>
@@ -1424,8 +1417,8 @@ const rottoRocksAdvancedExample = ref(`/* Rotto Rocks Advanced Challenge */
 						<h5 class="title is-6 mt-3">Gradients</h5>
 						<ul>
 							<li>
-								<strong>Sunset Gradient:</strong> linear-gradient(to bottom,
-								#FF9A8B, #FF6F61, #1E88E5)
+								<strong>Profile Gradient:</strong> linear-gradient(135deg,
+								#2C3E50, #3498DB)
 							</li>
 						</ul>
 					</div>

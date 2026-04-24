@@ -296,10 +296,10 @@
 		</div>
 
 		<div class="box">
-			<h3 class="title is-4">Rotto Rocks Contact Form</h3>
+			<h3 class="title is-4">Personal Profile Contact Form</h3>
 			<div class="codemirror-wrapper">
 				<CodeMirror
-					v-model="rottoContactForm"
+					v-model="profileContactForm"
 					:options="{
 						mode: 'html',
 						theme: 'material',
@@ -780,12 +780,12 @@ const blackSwanContactForm =
   <button type="submit">Send Message</button>
 </form>`);
 
-const rottoContactForm =
+const profileContactForm =
 	ref(`<form action="/contact" method="post" class="contact-form">
   <input type="hidden" name="csrf_token" value="YOUR_CSRF_TOKEN">
   
   <div class="form-group">
-    <label for="name">Full Name:</label>
+    <label for="name">Name:</label>
     <input 
       type="text" 
       id="name" 
@@ -796,7 +796,7 @@ const rottoContactForm =
   </div>
 
   <div class="form-group">
-    <label for="email">Email Address:</label>
+    <label for="email">Email:</label>
     <input 
       type="email" 
       id="email" 
@@ -806,35 +806,13 @@ const rottoContactForm =
   </div>
 
   <div class="form-group">
-    <label for="inquiry-type">Inquiry Type:</label>
-    <select id="inquiry-type" name="inquiry-type" required>
+    <label for="subject">Subject:</label>
+    <select id="subject" name="subject" required>
       <option value="">Select an option</option>
-      <option value="tour">Tour Booking</option>
-      <option value="accommodation">Accommodation</option>
-      <option value="activities">Activities</option>
-      <option value="general">General Inquiry</option>
+      <option value="work-enquiry">Work enquiry</option>
+      <option value="collaboration">Collaboration</option>
+      <option value="say-hello">Say hello</option>
     </select>
-  </div>
-
-  <div class="form-group">
-    <label for="visit-date">Planned Visit Date:</label>
-    <input 
-      type="date" 
-      id="visit-date" 
-      name="visit-date"
-      min="{{ today }}"
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="group-size">Group Size:</label>
-    <input 
-      type="number" 
-      id="group-size" 
-      name="group-size"
-      min="1"
-      max="50"
-    >
   </div>
 
   <div class="form-group">
@@ -845,16 +823,11 @@ const rottoContactForm =
       required 
       minlength="10"
       rows="5"
-      placeholder="Tell us about your plans..."
+      placeholder="Write your message here..."
     ></textarea>
   </div>
 
-  <div class="form-group">
-    <input type="checkbox" id="newsletter" name="newsletter">
-    <label for="newsletter">Keep me updated about Rottnest Island events and offers</label>
-  </div>
-
-  <button type="submit">Send Inquiry</button>
+  <button type="submit">Send Message</button>
 </form>`);
 
 </script>

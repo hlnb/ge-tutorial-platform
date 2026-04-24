@@ -1159,25 +1159,24 @@ This is a new line
 		<!-- Extension Project -->
 		<div class="box mt-6">
 			<h2 class="title is-3">
-				<i class="fas fa-star section-icon"></i> Extension Project: Rotto Rocks
+				<i class="fas fa-star section-icon"></i> Extension Project: Personal
+				Profile Page
 			</h2>
 			<p>
-				Now that you've mastered the basics with the Black Swan Bistro, let's
-				create a multi-page website for Rottnest Island!
+				Now that you've mastered the basics with the Black Swan Bistro, apply
+				document structure to Alex Chen's personal profile page.
 			</p>
 
 			<div class="tutorial-card">
 				<h3 class="title is-4">Project Requirements</h3>
 				<ul>
-					<li><strong>Home Page</strong> - Welcome section, featured images</li>
-					<li>
-						<strong>Activities Page</strong> - List of activities with images
-					</li>
-					<li><strong>Accommodation Page</strong> - Lodging options</li>
-					<li><strong>Getting There</strong> - Transport information</li>
+					<li><strong>Header</strong> - Name, role, and short introduction</li>
+					<li><strong>Main Content</strong> - About, skills, and interests</li>
+					<li><strong>Contact Section</strong> - Email or simple contact details</li>
+					<li><strong>Footer</strong> - Copyright and closing information</li>
 				</ul>
 
-				<CodeMirror v-model="rottoExample" :readonly="true" :height="400" />
+				<CodeMirror v-model="profileExample" :readonly="true" :height="400" />
 			</div>
 		</div>
 
@@ -1208,7 +1207,7 @@ This is a new line
 					<ul>
 						<li>
 							<strong>Root folder:</strong> Create a main project folder (e.g.,
-							"black-swan-bistro" or "rotto-rocks")
+							"black-swan-bistro" or "personal-profile-page")
 						</li>
 						<li>
 							<strong>HTML files:</strong> Place in the root folder with clear
@@ -1241,9 +1240,9 @@ This is a new line
 						/>
 					</div>
 					<div class="column is-half">
-						<h4 class="title is-5">Rotto Rocks</h4>
+						<h4 class="title is-5">Personal Profile Page</h4>
 						<CodeMirror
-							v-model="rottoStructure"
+							v-model="profileStructure"
 							:readonly="true"
 							:height="250"
 							language="plaintext"
@@ -1562,42 +1561,47 @@ const bistroExample = ref(`<!DOCTYPE html>
 </body>
 </html>`);
 
-const rottoExample = ref(`<!DOCTYPE html>
+const profileExample = ref(`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rotto Rocks - Experience Rottnest Island</title>
+    <title>Alex Chen - Web Development Student</title>
 </head>
 <body>
     <header>
-        <h1>Rotto Rocks</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="activities.html">Activities</a></li>
-                <li><a href="stay.html">Accommodation</a></li>
-                <li><a href="transport.html">Getting There</a></li>
-            </ul>
-        </nav>
+        <h1>Alex Chen</h1>
+        <p>Web Development Student</p>
     </header>
 
     <main>
         <article>
-            <h2>Welcome to Rottnest Island</h2>
-            <figure>
-                <img src="images/quokka.jpg" 
-                     alt="Smiling quokka on Rottnest Island">
-                <figcaption>Meet our friendly local quokkas!</figcaption>
-            </figure>
-            <p>Just 19 kilometers off the coast of Fremantle, 
-               Rottnest Island is Western Australia's premier 
-               island destination.</p>
+            <section>
+                <h2>About Me</h2>
+                <p>I'm learning web development from scratch. I'm interested in
+                   building useful, well-made websites and eventually working as
+                   a front-end developer.</p>
+            </section>
+
+            <section>
+                <h2>Skills</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript (beginner)</li>
+                    <li>VS Code</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Interests</h2>
+                <p>Photography, hiking, and reading.</p>
+            </section>
         </article>
     </main>
 
     <footer>
-        <p>&copy; 2024 Rotto Rocks</p>
+        <p>&copy; Alex Chen</p>
     </footer>
 </body>
 </html>`);
@@ -1691,22 +1695,17 @@ const bistroStructure = ref(
 	    styles.css`,
 );
 
-const rottoStructure = ref(
-	`# Rotto Rocks Website
-	rotto-rocks/
+const profileStructure = ref(
+	`# Personal Profile Page
+	personal-profile-page/
 	  index.html
-	  activities.html
-	  accommodation.html
-	  transport.html
-	  gallery.html
+	  about.html
 	  contact.html
 	  images/
-	    logo.png
-	    hero-banner.jpg
-	    activities/
-	      cycling.jpg
-	      snorkeling.jpg
-	      surfing.jpg
+	    alex-chen.jpg
+	    photography.jpg
+	    hiking.jpg
+	    landscape.jpg
 	  css/
 	    styles.css`,
 );
@@ -1761,12 +1760,12 @@ void [
 	basicLayout,
 	blogLayout,
 	bistroExample,
-	rottoExample,
+	profileExample,
 	metadataBasics,
 	metadataAdvanced,
 	fileStructure,
 	bistroStructure,
-	rottoStructure,
+	profileStructure,
 	wrongStructure,
 	correctStructure,
 	wrongPaths,

@@ -64,7 +64,7 @@ const sections = [
 		title: 'Practical Exercises',
 		subsections: [
 			{ id: 'black-swan-exercise', title: 'Black Swan Bistro' },
-			{ id: 'rotto-rocks-exercise', title: 'Rotto Rocks' },
+			{ id: 'personal-profile-page-exercise', title: 'Personal Profile Page' },
 		],
 	},
 ];
@@ -308,7 +308,7 @@ const blackSwanExercise = ref(`/* Reset and Base Styles */
   border-top: 1px solid #eee;
 }`);
 
-const rottoRocksExercise = ref(`/* Reset and Base Styles */
+const profilePageExercise = ref(`/* Reset and Base Styles */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -322,12 +322,20 @@ const rottoRocksExercise = ref(`/* Reset and Base Styles */
   padding: 16px;
 }
 
-/* Cards */
-.attraction-card {
+/* Profile Sections */
+.profile-section {
   padding: 24px;
   margin-bottom: 24px;
   border-radius: 8px;
   background: white;
+}
+
+.profile-photo {
+  display: block;
+  width: 180px;
+  padding: 8px;
+  border: 2px solid #d9e2ec;
+  border-radius: 12px;
 }
 
 /* Responsive Layouts */
@@ -337,7 +345,7 @@ const rottoRocksExercise = ref(`/* Reset and Base Styles */
     padding: 24px;
   }
   
-  .section {
+  .profile-section {
     margin: 32px 0;
   }
 }
@@ -348,7 +356,7 @@ const rottoRocksExercise = ref(`/* Reset and Base Styles */
     padding: 32px 48px;
   }
   
-  .section {
+  .profile-section {
     margin: 48px 0;
   }
 }`);
@@ -1062,10 +1070,12 @@ border: 10px solid black;
 				/>
 			</div>
 
-			<div id="rotto-rocks-exercise" class="box mt-4">
-				<h3 class="title is-4">Exercise 2: Rotto Rocks</h3>
+			<div id="personal-profile-page-exercise" class="box mt-4">
+				<h3 class="title is-4">Exercise 2: Personal Profile Page</h3>
 				<p>
-					Implement responsive box model properties following the layout guide.
+					Apply box model properties to the Personal Profile Page. Add padding
+					to the profile sections, set margins between sections, and add a
+					border to the profile photo.
 				</p>
 
 				<div class="notification is-info is-light">
@@ -1099,7 +1109,7 @@ border: 10px solid black;
 				</div>
 
 				<CodeMirror
-					v-model="rottoRocksExercise"
+					v-model="profilePageExercise"
 					:extensions="[css()]"
 					:basic-setup="{
 						lineNumbers: true,

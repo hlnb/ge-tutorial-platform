@@ -1353,83 +1353,76 @@ footer {}
 			</div>
 
 			<div class="box mt-4">
-				<h3 class="title is-4">Exercise 2: Rotto Rocks</h3>
+				<h3 class="title is-4">Exercise 2: Personal Profile Page</h3>
 				<p>
-					Create a modular selector structure for a modern beach-side venue,
-					using the following goals:
+					Apply the selectors from this tutorial to Alex Chen's Personal
+					Profile Page using the following goals:
 				</p>
 				<i class="fas fa-lightbulb"></i> Styling Goals
 
 				<ul class="icon-list">
 					<li>
-						<i class="fas fa-check"></i> Create a clear visual hierarchy with
-						headings
+						<i class="fas fa-check"></i> Target the profile header with
+						element and class selectors
 					</li>
 					<li>
-						<i class="fas fa-check"></i> Highlight the seasonal and special
-						items
+						<i class="fas fa-check"></i> Style the skills list items with
+						class selectors
 					</li>
 					<li>
-						<i class="fas fa-check"></i> Make the hours of operation easy to
-						scan
+						<i class="fas fa-check"></i> Use attribute selectors for contact
+						form inputs
 					</li>
 					<li>
-						<i class="fas fa-check"></i> Ensure the menu items are
-						well-organized and readable
+						<i class="fas fa-check"></i> Keep the page readable and easy to
+						expand later
 					</li>
 				</ul>
 			</div>
 			<p>The code below is just one way to achieve the desired result.</p>
 			<div class="columns">
 				<div class="column">
-					<h4 class="title is-5">External Stylesheet (rotto-styles.css)</h4>
-					<pre v-pre><code>/* Site Header */
-.site-header {}
-.logo-container {}
-#site-logo {}
-.header-nav {}
+					<h4 class="title is-5">External Stylesheet (profile-styles.css)</h4>
+					<pre v-pre><code>/* Profile Header */
+.profile-header {}
+.profile-name {}
+.profile-role {}
 
-/* Main Navigation */
-.nav-wrapper {}
-.primary-nav {}
-.nav-item {}
-.nav-link {}
-.dropdown-menu {}
+/* Main Sections */
+.about-section {}
+.skills-section {}
+.interests-section {}
 
-/* Layout Components */
-.main-container {}
-.sidebar {}
-.content-area {}
-.widget {}
+/* Lists and Cards */
+.skills-list {}
+.skill-item {}
+.interest-card {}
 
-/* Footer */
-.site-footer {}
-.footer-nav {}
-.social-icons {}
-.newsletter-signup {}</code></pre>
+/* Contact Form */
+.contact-section {}
+.contact-form {}
+input[type="text"] {}
+input[type="email"] {}
+textarea {}</code></pre>
 				</div>
 
 				<div class="column">
-					<h4 class="title is-5">Internal Styles (venue-page.html)</h4>
+					<h4 class="title is-5">Internal Styles (profile-page.html)</h4>
 					<pre v-pre><code>&lt;style&gt;
-/* Venue Features */
-.venue-highlights {}
-.feature-grid {}
-.feature-card {}
-.feature-icon {}
-.feature-title {}
+/* Hero Area */
+.hero {}
+.hero-content {}
+.profile-photo {}
 
-/* Booking Section */
-.booking-area {}
-.calendar-widget {}
-.time-slots {}
-.booking-form {}
+/* Skills and Interests */
+.skills-list li {}
+.interests-grid {}
+.interest-item {}
 
-/* Gallery */
-.venue-gallery {}
-.gallery-grid {}
-.gallery-item {}
-.image-overlay {}
+/* Contact Details */
+.contact-links {}
+.contact-form label {}
+.contact-form button {}
 &lt;/style&gt;</code></pre>
 				</div>
 			</div>

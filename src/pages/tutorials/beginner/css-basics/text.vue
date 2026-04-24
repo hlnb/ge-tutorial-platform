@@ -79,7 +79,7 @@ const sections = [
 		title: 'Practical Exercises',
 		subsections: [
 			{ id: 'black-swan-exercise', title: 'Black Swan Bistro' },
-			{ id: 'rotto-rocks-exercise', title: 'Rotto Rocks' },
+			{ id: 'personal-profile-page-exercise', title: 'Personal Profile Page' },
 		],
 	},
 ];
@@ -439,14 +439,14 @@ const blackSwanElementsCSS = ref(`/* Specific elements */
   line-height: 1.5;
 }`);
 
-const rottoSystemFonts = ref(`/* Modern system font stack */
+const profileSystemFonts = ref(`/* Modern system font stack */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 
     'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, 
     Cantarell, 'Helvetica Neue', sans-serif;
 }`);
 
-const rottoTypographyScale = ref(`/* Typography scale */
+const profileTypographyScale = ref(`/* Typography scale */
 h1 {
   font-size: clamp(2rem, 5vw, 3rem);
   line-height: 1.2;
@@ -468,23 +468,23 @@ p {
   max-width: 70ch;
 }`);
 
-const rottoContentStyles = ref(`/* Content sections */
-.attraction-card {
+const profileContentStyles = ref(`/* Content sections */
+.profile-section {
   margin-bottom: 2rem;
 }
 
-.attraction-title {
+.section-title {
   color: #2c5282;
   margin-bottom: 0.5rem;
 }
 
-.visitor-info {
+.skills-list {
   background: #f7fafc;
   padding: 1.5rem;
   border-radius: 0.5rem;
 }
 
-.info-highlight {
+.contact-highlight {
   font-weight: 600;
   color: #2c5282;
 }`);
@@ -2242,22 +2242,22 @@ const rottoContentStyles = ref(`/* Content sections */
 						</div>
 					</div>
 
-					<!-- Rotto Rocks Exercise -->
+					<!-- Personal Profile Page Exercise -->
 					<div class="box exercise">
-						<h3 id="rotto-rocks-exercise" class="title is-4">
-							Exercise 2: Rotto Rocks Content Hierarchy
+						<h3 id="personal-profile-page-exercise" class="title is-4">
+							Exercise 2: Personal Profile Page Typography
 						</h3>
 
 						<div class="notification is-light">
 							<h4 class="title is-5">Requirements</h4>
 							<ul>
 								<li>
-									Create a clear typographic hierarchy for content sections
+									Create a clear typographic hierarchy for the profile sections
 								</li>
 								<li>Style headings to distinguish between sections</li>
-								<li>Format visitor information for easy scanning</li>
+								<li>Format the skills list for easy scanning</li>
 								<li>
-									Ensure proper spacing and readability for long-form content
+									Ensure proper spacing and readability for Alex Chen's bio
 								</li>
 							</ul>
 						</div>
@@ -2267,15 +2267,15 @@ const rottoContentStyles = ref(`/* Content sections */
 							<ol>
 								<li>
 									Set up a system font stack:
-									<CodeMirror v-model="rottoSystemFonts" readonly />
+									<CodeMirror v-model="profileSystemFonts" readonly />
 								</li>
 								<li>
 									Create your typography scale:
-									<CodeMirror v-model="rottoTypographyScale" readonly />
+									<CodeMirror v-model="profileTypographyScale" readonly />
 								</li>
 								<li>
 									Style content sections:
-									<CodeMirror v-model="rottoContentStyles" readonly />
+									<CodeMirror v-model="profileContentStyles" readonly />
 								</li>
 							</ol>
 						</div>

@@ -180,24 +180,24 @@
 			<h2 id="practice" class="title is-4">
 				<i class="fas fa-tasks"></i> Practice
 			</h2>
-			<p>Create a home page for "Rotto Rocks" using this content:</p>
+			<p>Create a home page for the Personal Profile Page using this content:</p>
 
 			<div class="notification is-light mt-3">
 				<pre>
-Rotto Rocks
+Alex Chen — Web Development Student
 
-About Rottnest
-Rottnest Island (Wadjemup) is a pristine island paradise located just off the coast of Perth, Western Australia. 
-Famous for its beautiful beaches, crystal clear waters, and friendly quokkas.
+About Me
+I'm learning web development from scratch. I'm interested in building
+useful, well-made websites and eventually working as a front-end developer.
+Based in Perth, Western Australia.
 
-Activities
-Explore pristine beaches, cycle around the island, snorkel in turquoise bays, and meet the 
-world-famous quokkas. Perfect for day trips or extended stays.
+Skills
+HTML, CSS, JavaScript (beginner), VS Code
 
-Visitor Information
-Ferry terminal: Hillarys Boat Harbour, Perth
-Open: Daily, all year round
-Best time to visit: September to May</pre
+Get in Touch
+Email: alex@example.com
+GitHub: github.com/alexchen
+Location: Perth, WA</pre
 				>
 			</div>
 
@@ -207,7 +207,7 @@ Best time to visit: September to May</pre
 				<li>Use the same HTML structure as the Black Swan Bistro example</li>
 				<li>Include all the required meta tags in the head section</li>
 				<li>Structure the content using appropriate headings and paragraphs</li>
-				<li>Use line breaks for the visitor information details</li>
+				<li>Use line breaks for the contact details</li>
 			</ol>
 		</div>
 

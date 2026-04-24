@@ -71,7 +71,7 @@ const sections = [
 		title: 'Practical Exercises',
 		subsections: [
 			{ id: 'black-swan-bistro', title: 'Black Swan Bistro Layout' },
-			{ id: 'rotto-rocks', title: 'Rotto Rocks Layout' },
+			{ id: 'personal-profile-page', title: 'Personal Profile Page Layout' },
 		],
 	},
 ];
@@ -331,10 +331,10 @@ const blackSwanSidebar = ref(`/* Specials sidebar layout */
 	}
 }`);
 
-// Rotto Rocks exercise code examples
-const rottoContainer = ref(`/* Main container using floats */
+// Personal Profile Page exercise code examples
+const profileContainer = ref(`/* Main container using floats */
 .page-container {
-	max-width: 1400px;
+	max-width: 1100px;
 	margin: 0 auto;
 	padding: 2rem;
 	overflow: hidden; /* clearfix */
@@ -342,24 +342,24 @@ const rottoContainer = ref(`/* Main container using floats */
 
 .main-content {
 	float: left;
-	width: calc(100% - 320px);
+	width: calc(100% - 300px);
 	padding-right: 2rem;
 }
 
 .sidebar {
 	float: right;
-	width: 300px;
+	width: 280px;
 	padding: 2rem;
-	background: white;
+	background: #f8f9fa;
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }`);
 
-const rottoSidebar = ref(`/* Basic sidebar */
+const profileSidebar = ref(`/* About / skills sidebar */
 .sidebar {
-	width: 300px;
+	width: 280px;
 	padding: 2rem;
-	background: white;
+	background: #f8f9fa;
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -372,32 +372,25 @@ const rottoSidebar = ref(`/* Basic sidebar */
 	margin-bottom: 0;
 }`);
 
-const rottoGallery = ref(`/* Photo gallery grid */
-.gallery {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-	gap: 1rem;
-	padding: 1rem;
+const profileContentLayout = ref(`/* Hero and content sections */
+.hero {
+	text-align: center;
+	padding: 3rem 2rem;
 }
 
-.gallery-item {
-	aspect-ratio: 1;
-	overflow: hidden;
+.content-grid {
+	overflow: hidden; /* clearfix */
+	margin-top: 2rem;
+}
+
+.profile-section {
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	background: white;
 	border-radius: 8px;
-}
-
-.gallery-item img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-	transform: scale(1.05);
 }`);
 
-const rottoNav = ref(`/* Responsive navigation */
+const profileNav = ref(`/* Responsive navigation */
 .nav {
 	display: flex;
 	justify-content: space-between;
@@ -407,24 +400,24 @@ const rottoNav = ref(`/* Responsive navigation */
 
 .nav-menu {
 	display: flex;
-	gap: 2rem;
+	gap: 1.5rem;
+}
+
+.nav a {
+	text-decoration: none;
 }
 
 @media (max-width: 768px) {
-	.nav-menu {
-		display: none;
+	.nav {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
 	}
-	
-	.nav-menu.is-active {
+
+	.nav-menu {
 		display: flex;
 		flex-direction: column;
-		position: absolute;
-		top: 100%;
-		left: 0;
-		width: 100%;
-		background: white;
-		padding: 1rem;
-		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		gap: 0.75rem;
 	}
 }`);
 
@@ -1426,15 +1419,15 @@ const clearExample = ref(`/* Clear example */
 				</div>
 			</div>
 
-			<div id="rotto-rocks">
-				<h3 class="title is-4">Rotto Rocks Layout</h3>
+			<div id="personal-profile-page">
+				<h3 class="title is-4">Personal Profile Page Layout</h3>
 
 				<div class="notification is-light">
 					<h4 class="title is-5">Requirements</h4>
 					<ul>
-						<li>Create a simple three-column layout using the float pattern</li>
+						<li>Create a centred hero area for Alex Chen's introduction</li>
+						<li>Use a two-column layout for the about and skills sections</li>
 						<li>Implement a cluster pattern for the navigation links</li>
-						<li>Use the box pattern for featured content</li>
 						<li>Add proper stack spacing between sections</li>
 					</ul>
 				</div>
@@ -1444,19 +1437,19 @@ const clearExample = ref(`/* Clear example */
 					<ol>
 						<li>
 							Set up the main container:
-							<CodeMirror v-model="rottoContainer" readonly />
+							<CodeMirror v-model="profileContainer" readonly />
 						</li>
 						<li>
 							Style the sidebar:
-							<CodeMirror v-model="rottoSidebar" readonly />
+							<CodeMirror v-model="profileSidebar" readonly />
 						</li>
 						<li>
-							Create the photo gallery:
-							<CodeMirror v-model="rottoGallery" readonly />
+							Create the hero and content sections:
+							<CodeMirror v-model="profileContentLayout" readonly />
 						</li>
 						<li>
 							Add the navigation:
-							<CodeMirror v-model="rottoNav" readonly />
+							<CodeMirror v-model="profileNav" readonly />
 						</li>
 					</ol>
 				</div>

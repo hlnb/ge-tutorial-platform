@@ -455,12 +455,12 @@
 
 			<div class="box mt-6">
 				<h2 id="practice" class="title is-3">
-					<i class="fas fa-camera"></i> Practice Project: Rottnest Island
-					Gallery
+					<i class="fas fa-camera"></i> Practice Project: Personal Profile Page
 				</h2>
 				<p>
-					Now let's create a gallery showcasing Rottnest Island. Here are some
-					images you can use:
+					Now add images to Alex Chen's profile page. Include a profile photo
+					and a small gallery of three hobby images for photography, hiking,
+					and a favourite landscape scene.
 				</p>
 
 				<div class="notification is-info is-light mt-4">
@@ -532,10 +532,6 @@
 						<router-link to="/projects/black-swan-bistro" class="button is-primary is-small">
 							<span class="icon"><i class="fas fa-utensils"></i></span>
 							<span>Black Swan Bistro</span>
-						</router-link>
-						<router-link to="/projects/rotto-rocks" class="button is-link is-small">
-							<span class="icon"><i class="fas fa-island-tropical"></i></span>
-							<span>Rotto Rocks</span>
 						</router-link>
 					</div>
 				</div>
@@ -726,7 +722,7 @@ const responsiveExample = ref(`<!-- Responsive image -->
      alt="Panoramic view of Rottnest Island"
      style="max-width: 100%; height: auto;">`);
 
-const practiceCode = ref(`<!-- Create your Rottnest Island gallery here -->
+const practiceCode = ref(`<!-- Create Alex Chen's profile photo and hobby gallery here -->
 <div class="gallery">
   
 </div>`);
@@ -794,36 +790,45 @@ const logoSolution = ref(
 
 const galleryHint = ref(
 	`<div class="gallery">
-  <!-- Wildlife Section -->
+  <!-- Profile Photo -->
   <div class="gallery-section">
-    <h2>Wildlife</h2>
+    <h2>Profile Photo</h2>
     <figure>
-      <img src="/images/tutorials/html-basics/quokka.jpg"
-           alt="A smiling quokka on Rottnest Island"
+      <img src="images/alex-chen.jpg"
+           alt="Portrait of Alex Chen smiling at the camera"
            width="400">
-      <figcaption>The famous Rottnest quokka</figcaption>
+      <figcaption>Alex Chen — Web Development Student</figcaption>
     </figure>
   </div>
 
-  <!-- Beaches Section -->
+  <!-- Interests Section -->
   <div class="gallery-section">
-    <h2>Beautiful Beaches</h2>
+    <h2>Photography</h2>
     <figure>
-      <img src="/images/tutorials/html-basics/basin.jpg"
-           alt="Crystal clear waters at The Basin"
+      <img src="images/photography.jpg"
+           alt="Camera and notebook on a desk"
            width="400">
-      <figcaption>The Basin - Perfect for swimming</figcaption>
+      <figcaption>Photography is one of Alex's favourite hobbies</figcaption>
     </figure>
   </div>
 
-  <!-- Landmarks Section -->
   <div class="gallery-section">
-    <h2>Island Landmarks</h2>
+    <h2>Hiking</h2>
     <figure>
-      <img src="/images/tutorials/html-basics/lighthouse.jpg"
-           alt="Wadjemup Lighthouse against blue sky"
+      <img src="images/hiking.jpg"
+           alt="Walking trail through bushland near Perth"
            width="400">
-      <figcaption>Historic Wadjemup Lighthouse</figcaption>
+      <figcaption>Alex enjoys weekend hikes and exploring new places</figcaption>
+    </figure>
+  </div>
+
+  <div class="gallery-section">
+    <h2>Favourite Landscapes</h2>
+    <figure>
+      <img src="images/landscape.jpg"
+           alt="Wide landscape view with hills and open sky"
+           width="400">
+      <figcaption>Landscape scenes inspire Alex's photography</figcaption>
     </figure>
   </div>
 </div>`,

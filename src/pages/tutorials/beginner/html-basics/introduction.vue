@@ -554,17 +554,17 @@
 					<div class="card">
 						<div class="card-content">
 							<h3 class="title is-4">
-								<i class="fas fa-island-tropical mr-2"></i> Rotto Rocks
+								<i class="fas fa-user mr-2"></i> Personal Profile Page
 							</h3>
-							<p class="subtitle is-6">A tourism website for Rottnest Island</p>
+							<p class="subtitle is-6">A personal website for Alex Chen</p>
 							<div class="content">
-								<p>This more complex project will teach you:</p>
+								<p>This independent project will help you practise:</p>
 								<ul>
-									<li>Multi-page website structure</li>
-									<li>Complex navigation systems</li>
-									<li>Image galleries</li>
-									<li>Location information</li>
-									<li>Booking forms</li>
+									<li>Clear personal page structure</li>
+									<li>Headings, paragraphs, and lists</li>
+									<li>Profile images and hobby galleries</li>
+									<li>Semantic page sections</li>
+									<li>Simple contact forms</li>
 								</ul>
 							</div>
 						</div>
@@ -588,21 +588,17 @@
 					<i class="fas fa-external-link-alt mr-2"></i> View Complete Reference Projects
 				</h4>
 				<p class="mb-3">
-					Want to see what you'll build? Check out the finished HTML versions of both projects.
-					These serve as reference implementations showing all the HTML concepts you'll learn.
+					Want to see what you'll build? Check out the finished Black Swan Bistro reference
+					project, then build the Personal Profile Page yourself as your independent practice.
 				</p>
 				<div class="buttons">
 					<router-link to="/projects/black-swan-bistro" class="button is-primary">
 						<span class="icon"><i class="fas fa-utensils"></i></span>
 						<span>Black Swan Bistro HTML</span>
 					</router-link>
-					<router-link to="/projects/rotto-rocks" class="button is-link">
-						<span class="icon"><i class="fas fa-island-tropical"></i></span>
-						<span>Rotto Rocks HTML</span>
-					</router-link>
 				</div>
 				<p class="is-size-7 mt-2">
-					<em>Note: These are HTML-only versions without styling. You'll add CSS in the CSS Basics series!</em>
+					<em>Note: The reference project is HTML-only without styling. You'll build Alex Chen's profile alongside it and style both projects in the CSS Basics series.</em>
 				</p>
 			</div>
 		</div>
