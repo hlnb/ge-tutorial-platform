@@ -1,7 +1,7 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, inject, onMounted } from 'vue';
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { html } from '@codemirror/lang-html';
 import { css } from '@codemirror/lang-css';
@@ -264,13 +264,13 @@ const responsiveExample = ref(`<!-- Responsive Layout Example -->
 
 // Computed properties for sanitized previews
 const sanitizedCardPreview = computed(() =>
-	DOMPurify.sanitize(cardExample.value),
+	sanitizeHtml(cardExample.value),
 );
 const sanitizedContainerPreview = computed(() =>
-	DOMPurify.sanitize(containerExample.value),
+	sanitizeHtml(containerExample.value),
 );
 const sanitizedResponsivePreview = computed(() =>
-	DOMPurify.sanitize(responsiveExample.value),
+	sanitizeHtml(responsiveExample.value),
 );
 
 const blackSwanExercise = ref(`/* Reset and Base Styles */

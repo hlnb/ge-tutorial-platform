@@ -20,6 +20,11 @@ const defaultProgress = {
 	lastVisited: null,
 };
 
+function getStorage() {
+	if (typeof window === 'undefined') return null;
+	return window.localStorage;
+}
+
 // Get current user ID
 function getCurrentUserId() {
 	if (!auth || !auth.currentUser) return null;
@@ -47,7 +52,8 @@ async function loadProgress() {
 	} else {
 		// Guest: load from localStorage
 		try {
-			const savedProgress = localStorage.getItem(PROGRESS_STORAGE_KEY);
+			const storage = getStorage();
+			const savedProgress = storage?.getItem(PROGRESS_STORAGE_KEY);
 			if (savedProgress) {
 				progress = JSON.parse(savedProgress);
 			} else {
@@ -88,7 +94,9 @@ async function saveProgress(progress) {
 	} else {
 		// Guest: save to localStorage
 		try {
-			localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
+			const storage = getStorage();
+			if (!storage) return false;
+			storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
 			return true;
 		} catch (error) {
 			console.error('Error saving progress to localStorage:', error);
@@ -109,7 +117,9 @@ function enableProgressTracking() {
 	if (typeof window === 'undefined') return;
 
 	try {
-		localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(defaultProgress));
+		const storage = getStorage();
+		if (!storage) return;
+		storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(defaultProgress));
 	} catch (error) {
 		console.error('Error enabling progress tracking:', error);
 	}
@@ -120,7 +130,9 @@ function disableProgressTracking() {
 	if (typeof window === 'undefined') return;
 
 	try {
-		localStorage.removeItem(PROGRESS_STORAGE_KEY);
+		const storage = getStorage();
+		if (!storage) return;
+		storage.removeItem(PROGRESS_STORAGE_KEY);
 	} catch (error) {
 		console.error('Error disabling progress tracking:', error);
 	}
@@ -201,7 +213,9 @@ async function saveQuizResult(quizId, result) {
 // Clear all progress
 async function clearAllProgress() {
 	try {
-		localStorage.removeItem(PROGRESS_STORAGE_KEY);
+		const storage = getStorage();
+		if (!storage) return false;
+		storage.removeItem(PROGRESS_STORAGE_KEY);
 		return true;
 	} catch (error) {
 		console.error('Error clearing progress:', error);
@@ -329,7 +343,8 @@ export async function syncProgressOnLogin() {
 	if (!userId) return;
 	const local = (() => {
 		try {
-			const raw = localStorage.getItem(PROGRESS_STORAGE_KEY);
+			const storage = getStorage();
+			const raw = storage?.getItem(PROGRESS_STORAGE_KEY);
 			return raw ? JSON.parse(raw) : null;
 		} catch { return null; }
 	})();
@@ -351,7 +366,8 @@ export async function syncProgressOnLogin() {
 	try {
 		const docRef = doc(db, 'progress', userId);
 		await setDoc(docRef, merged, { merge: true });
-		localStorage.removeItem(PROGRESS_STORAGE_KEY);
+		const storage = getStorage();
+		storage?.removeItem(PROGRESS_STORAGE_KEY);
 	} catch (e) { console.error('Error syncing progress on login:', e); }
 }
 
@@ -363,7 +379,8 @@ export async function switchToLocalOnLogout() {
 		const docRef = doc(db, 'progress', userId);
 		const docSnap = await getDoc(docRef);
 		if (docSnap.exists()) {
-			localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(docSnap.data()));
+			const storage = getStorage();
+			storage?.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(docSnap.data()));
 		}
 	} catch (e) { console.error('Error switching to local progress on logout:', e); }
 }

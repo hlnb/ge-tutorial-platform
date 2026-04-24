@@ -38,6 +38,10 @@ const codeElement = ref(null);
 
 // Decode HTML entities
 function decodeHtml(html) {
+	if (typeof document === 'undefined') {
+		return html;
+	}
+
 	const txt = document.createElement('textarea');
 	txt.innerHTML = html;
 	return txt.value;

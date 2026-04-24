@@ -54,5 +54,6 @@ useTutorialHead({
   title: "Do You Actually Need a CMS?",
   description: "Decide whether you need a CMS or static HTML — understand the trade-offs to choose the right approach for your site.",
   path: "/tutorials/advanced/do-you-need-a-cms",
+	noindex: true,
 });
 </script>

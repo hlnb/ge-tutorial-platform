@@ -626,7 +626,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import { useTutorialHead } from '@/composables/useTutorialHead';
 import { usePageSections } from '@/composables/usePageSections';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -774,10 +774,10 @@ const solutionExample = ref(`<h1>John Smith</h1>
 <p>I enjoy reading, hiking, and learning to code!</p>`);
 
 const sanitizedFirstPreview = computed(() =>
-	DOMPurify.sanitize(firstExample.value),
+	sanitizeHtml(firstExample.value),
 );
 const sanitizedExercisePreview = computed(() =>
-	DOMPurify.sanitize(exerciseCode.value),
+	sanitizeHtml(exerciseCode.value),
 );
 
 const updatePreview = () => {

@@ -97,7 +97,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { format, parseISO } from 'date-fns';
 import SimpleSignup from '@/components/SimpleSignup.vue';
-import { posts } from '@/router'; // Import posts from router
+import { posts } from '@/router/config';
 import RSSFeedInfo from '@/components/RSSFeedInfo.vue';
 
 const publishedPosts = computed(() => {

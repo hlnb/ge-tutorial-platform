@@ -54,5 +54,6 @@ useTutorialHead({
   title: "Working with Vite",
   description: "Set up a modern development environment with Vite — hot module replacement, fast builds, and optimised output.",
   path: "/tutorials/intermediate/working-with-vite",
+	noindex: true,
 });
 </script>

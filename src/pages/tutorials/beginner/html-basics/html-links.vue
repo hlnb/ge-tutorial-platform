@@ -648,7 +648,7 @@
 import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 useTutorialHead({
   title: 'Links and Navigation in HTML',
@@ -793,7 +793,7 @@ const practiceCode = ref(`<!-- Create your restaurant navigation here -->
 </nav>`);
 
 const sanitizedPracticePreview = computed(() =>
-	DOMPurify.sanitize(practiceCode.value),
+	sanitizeHtml(practiceCode.value),
 );
 
 

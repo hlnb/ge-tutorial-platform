@@ -376,7 +376,7 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, onMounted, inject } from 'vue';
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import CodingOptions from '@/components/CodingOptions.vue';
 
 useTutorialHead({
@@ -504,7 +504,7 @@ const basicFormExample = ref(`<form action="/submit" method="post">
 </form>`);
 
 const sanitizedBasicFormPreview = computed(() =>
-	DOMPurify.sanitize(basicFormExample.value),
+	sanitizeHtml(basicFormExample.value),
 );
 
 const inputTypesExample = ref(`<form action="/submit" method="post">
@@ -568,11 +568,11 @@ const selectRadioExample = ref(`<form action="/submit" method="post">
 </form>`);
 
 const sanitizedInputTypesPreview = computed(() =>
-	DOMPurify.sanitize(inputTypesExample.value),
+	sanitizeHtml(inputTypesExample.value),
 );
 
 const sanitizedSelectRadioPreview = computed(() =>
-	DOMPurify.sanitize(selectRadioExample.value),
+	sanitizeHtml(selectRadioExample.value),
 );
 
 const validationExample = ref(`<form action="/submit" method="post">
@@ -622,7 +622,7 @@ const validationExample = ref(`<form action="/submit" method="post">
 </form>`);
 
 const sanitizedValidationPreview = computed(() =>
-	DOMPurify.sanitize(validationExample.value),
+	sanitizeHtml(validationExample.value),
 );
 
 const loginFormExample =

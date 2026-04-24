@@ -55,5 +55,6 @@ useTutorialHead({
   title: "Black Swan Bistro — Part 6",
   description: "Push the Black Swan Bistro to GitHub and deploy it live — a hands-on guide to real web deployment.",
   path: "/tutorials/advanced/black-swan-bistro-part-6",
+	noindex: true,
 });
 </script>
