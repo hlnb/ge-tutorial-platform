@@ -4,7 +4,7 @@ import { ref, computed, onMounted, inject } from 'vue';
 import { useRoute } from 'vue-router';
 import progressService from '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';

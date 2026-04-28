@@ -1,7 +1,7 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, inject, onMounted, watch } from 'vue';
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import { useRoute } from 'vue-router';
@@ -161,7 +161,7 @@ const sanitizedElementPreview = computed(() => {
 		'<p>This is another paragraph that will also be styled.</p>' +
 		'</div>';
 
-	return DOMPurify.sanitize(previewHtml);
+	return sanitizeHtml(previewHtml);
 });
 
 defineExpose({

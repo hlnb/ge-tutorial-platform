@@ -2,30 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.graphitedge.com.au</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/404</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/about</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/admin/post-scheduler</loc>
-    <lastmod>2026-01-01</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/auth/login</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/auth/logout</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/auth/register</loc>
     <lastmod>2025-12-30</lastmod>
   </url>
   <url>
@@ -38,63 +18,63 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/my-progress</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/api-best-practices-beginner</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/backend-programming</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/build-first-web-page</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/design-to-code</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/dns-web-browsing</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/docker-basics-guide-for-web-developers</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/git-basics</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/internet-everywhere</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/javascript-basics</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/modern-js-patterns</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/responsive-design</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/web-performance-optimization</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/web-security-essentials</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/work-with-clients</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/privacy</loc>
@@ -102,7 +82,23 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/projects/black-swan-bistro</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/projects/black-swan-bistro/brief</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/projects/black-swan-bistro/css-notes</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/projects/black-swan-bistro/html-notes</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects/calculator</loc>
@@ -110,7 +106,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects/card-components</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-03-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects/color-palette</loc>
@@ -119,6 +115,10 @@
   <url>
     <loc>https://www.graphitedge.com.au/projects/color-switcher</loc>
     <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/projects/css-debug-practice</loc>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects/git-branch</loc>
@@ -174,7 +174,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects/photo-gallery</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-03-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects/photo-gallery-2</loc>
@@ -191,6 +191,10 @@
   <url>
     <loc>https://www.graphitedge.com.au/projects/recipe-page</loc>
     <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/projects/rotto-rocks</loc>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects/selector-challenge</loc>
@@ -214,7 +218,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/sitemap</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/terms</loc>
@@ -222,275 +226,407 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/the-graphite-journal</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/ai-assisted</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/tutorials/ai-assisted/building-with-ai</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/tutorials/ai-assisted/custom-gpt-automation</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/ai-assisted/design-to-code</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/tutorials/ai-assisted/introduction</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/tutorials/ai-assisted/projects/ai-component-docs</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/tutorials/ai-assisted/projects/ai-landing-page</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/ai-assisted/projects/ai-rest-api-scaffold</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/ai-assisted/workflow-integration</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/backend</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/backend/databases</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/backend/node-basics</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/backend/rest-apis</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/beginner/black-swan-bistro-part-1</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/box-model</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/colors</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/flexbox</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/introduction</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/layout</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/modern</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/responsive</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/selectors</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/text</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/advanced-events</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/arrays</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/dom-events</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/dom-manipulation</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/dom-traversal</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/dynamic-content</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/introduction</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-doc-structure</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-emmet</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-first-page</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-forms</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-images</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-links</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-text</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/introduction</loc>
-    <lastmod>2026-01-11</lastmod>
+    <lastmod>2026-04-24</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/beginner/idea-to-live-website</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics/conditionals</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics/functions</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics/introduction</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics/loops</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics/operators</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics/variables-data-types</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/beginner/why-your-css-isnt-working</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/capstone</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/capstone/spec</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/deployments</loc>
-    <lastmod>2025-12-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.graphitedge.com.au/tutorials/deployments/firebase-hosting</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/deployments/static-vs-dynamic</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/deployments/vercel-netlify</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/getting-started</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/getting-started/browser-tools</loc>
-    <lastmod>2026-01-02</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/getting-started/dev-environment</loc>
-    <lastmod>2026-01-02</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/getting-started/domain-hosting</loc>
-    <lastmod>2026-01-02</lastmod>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/getting-started/files-folders-project-structure</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/getting-started/how-internet-works</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/getting-started/text-editors</loc>
-    <lastmod>2026-01-02</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/getting-started/web-basics</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript/capstone-feature-build</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript/debugging-interactive-javascript</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript/events-at-scale</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript/forms-validation-feedback</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript/objects-for-real-features</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript/refactoring-for-reuse</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript/rendering-repeated-content</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript/state-and-ui-thinking</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/black-swan-bistro-part-2</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/black-swan-bistro-part-3</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/black-swan-bistro-part-4</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/breaking-layouts-into-sections</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/building-reusable-components</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/cascade-specificity-and-debugging-css</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/css-grid-for-repeated-layouts</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/css-systems-for-reusable-sections</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/debug-broken-web-page</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/design-to-code</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/flexbox-for-real-layouts</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/frameworks-101</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/frameworks-101/framework-tradeoffs-and-costs</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/frameworks-101/how-to-evaluate-a-framework</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/frameworks-101/what-is-a-framework-really</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/frameworks-101/why-css-frameworks-exist</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/frameworks-101/why-javascript-frameworks-exist</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/git-basics</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/git-basics/basic-commands</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/git-basics/branching</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/git-basics/conclusion</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/git-basics/installation</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/git-basics/introduction</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/git-basics/merging</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/git-basics/remote-repositories</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/git-basics/workflow</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/how-to-read-a-design</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/multi-page-structure</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/responsive-refinement-for-reusable-components</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/think-about-layouts</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/practice</loc>
@@ -498,14 +634,14 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/seo-analytics</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/seo-analytics/analytics-setup</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/seo-analytics/on-page-seo</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-04-22</lastmod>
   </url>
 </urlset>

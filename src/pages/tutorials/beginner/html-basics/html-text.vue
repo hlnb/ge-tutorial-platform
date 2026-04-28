@@ -376,7 +376,7 @@ Soups & Salads
 <script setup>
 import { ref, computed, inject, onMounted } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import { useTutorialHead } from '@/composables/useTutorialHead';
 import CodingOptions from '@/components/CodingOptions.vue';
 import SolutionViewer from '@/components/SolutionViewer.vue';
@@ -514,16 +514,16 @@ const practiceCode = ref(`<!-- Start with your restaurant page here -->
 
 // Add computed properties for sanitized previews
 const sanitizedHeadingPreview = computed(() =>
-	DOMPurify.sanitize(headingExample.value),
+	sanitizeHtml(headingExample.value),
 );
 const sanitizedFormattingPreview = computed(() =>
-	DOMPurify.sanitize(formattingExample.value),
+	sanitizeHtml(formattingExample.value),
 );
 const sanitizedListPreview = computed(() =>
-	DOMPurify.sanitize(listExample.value),
+	sanitizeHtml(listExample.value),
 );
 const sanitizedPracticePreview = computed(() =>
-	DOMPurify.sanitize(practiceCode.value),
+	sanitizeHtml(practiceCode.value),
 );
 
 const updatePracticePreview = () => {

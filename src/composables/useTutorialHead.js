@@ -2,7 +2,7 @@ import { useHead } from '@vueuse/head';
 
 const SITE_URL = 'https://www.graphitedge.com.au';
 
-export function useTutorialHead({ title, description, path, breadcrumbs }) {
+export function useTutorialHead({ title, description, path, breadcrumbs, noindex = false }) {
   const fullUrl = `${SITE_URL}${path}`;
   const fullTitle = `${title} – GraphiteEdge`;
 
@@ -28,6 +28,7 @@ export function useTutorialHead({ title, description, path, breadcrumbs }) {
     title: fullTitle,
     meta: [
       { name: 'description', content: description },
+      ...(noindex ? [{ name: 'robots', content: 'noindex' }] : []),
       { property: 'og:title', content: fullTitle },
       { property: 'og:description', content: description },
       { property: 'og:type', content: 'article' },

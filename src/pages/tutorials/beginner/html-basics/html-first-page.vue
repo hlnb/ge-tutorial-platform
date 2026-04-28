@@ -258,7 +258,7 @@ Location: Perth, WA</pre
 import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, computed, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 useTutorialHead({
   title: 'Your First HTML Page',
@@ -428,7 +428,7 @@ const exerciseCode = ref(`<!DOCTYPE html>
 </html>`);
 
 const sanitizedExercisePreview = computed(() =>
-	DOMPurify.sanitize(exerciseCode.value),
+	sanitizeHtml(exerciseCode.value),
 );
 
 const updateExercisePreview = () => {

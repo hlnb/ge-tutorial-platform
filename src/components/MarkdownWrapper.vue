@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import { computed } from 'vue';
 
 const props = defineProps({
@@ -103,7 +103,7 @@ function renderMarkdown(markdown) {
   return html.join('');
 }
 
-const renderedContent = computed(() => DOMPurify.sanitize(renderMarkdown(props.content)));
+const renderedContent = computed(() => sanitizeHtml(renderMarkdown(props.content)));
 </script>
 
 <style>

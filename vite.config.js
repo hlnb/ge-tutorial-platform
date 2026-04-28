@@ -2,11 +2,21 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import VueRouter from 'unplugin-vue-router/vite';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import fs from 'fs';
 
 export default defineConfig({
 	base: '/',
+	ssgOptions: {
+		dirStyle: 'nested',
+		includedRoutes(paths) {
+			return paths.filter(
+				(routePath) =>
+					!routePath.startsWith('/auth') &&
+					!routePath.startsWith('/admin') &&
+					routePath !== '/404',
+			);
+		},
+	},
 	plugins: [
 		// VueRouter must come before Vue plugin
 		VueRouter({
@@ -15,6 +25,7 @@ export default defineConfig({
 			extensions: ['.vue'],
 			exclude: ['**/components/**', '**/layouts/**'],
 			dts: 'src/typed-router.d.ts',
+			watch: false,
 		}),
 		vue(),
 		// Custom plugin to serve admin HTML
@@ -37,6 +48,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
+			'@vueuse/head': '@unhead/vue',
 		},
 	},
 	css: {
@@ -48,11 +60,6 @@ export default defineConfig({
 		outDir: 'dist',
 		assetsDir: 'assets',
 		chunkSizeWarningLimit: 1000,
-		rollupOptions: {
-			input: {
-				main: path.resolve(__dirname, 'index.html'),
-			},
-		},
 	},
 	optimizeDeps: {
 		include: ['@emailjs/browser', 'vue-router'],

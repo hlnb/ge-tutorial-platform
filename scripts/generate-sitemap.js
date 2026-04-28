@@ -14,6 +14,10 @@ const EXCLUDED_SEGMENTS = new Set(['.archive']);
 
 const EXCLUDED_ROUTES = ['/admin', '/auth', '/404', '/post-scheduler', '/login', '/logout', '/register'];
 
+function isNoindexPage(source) {
+  return /\bnoindex\s*:\s*true\b/.test(source);
+}
+
 async function collectRoutes(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   const urls = [];
@@ -36,6 +40,9 @@ async function collectRoutes(dir) {
     const route = filePathToRoute(relativePath);
     if (!route) continue;
     if (EXCLUDED_ROUTES.some((seg) => route === seg || route.startsWith(seg + '/'))) continue;
+
+    const source = await fs.readFile(fullPath, 'utf8');
+    if (isNoindexPage(source)) continue;
 
     const stats = await fs.stat(fullPath);
     urls.push({

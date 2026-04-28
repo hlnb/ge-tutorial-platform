@@ -461,7 +461,7 @@ import { useTutorialHead } from '@/composables/useTutorialHead';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { format } from 'date-fns';
 import { ref, computed, inject, onMounted, watch } from 'vue';
-import DOMPurify from 'dompurify';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import { usePageSections } from '@/composables/usePageSections';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -634,13 +634,13 @@ const externalPreviewHTML = `
 
 // Add computed properties for sanitized previews
 const sanitizedInlinePreview = computed(() =>
-	DOMPurify.sanitize(inlineExample.value),
+	sanitizeHtml(inlineExample.value),
 );
 const sanitizedInternalPreview = computed(() =>
-	DOMPurify.sanitize(internalPreviewHTML),
+	sanitizeHtml(internalPreviewHTML),
 );
 const sanitizedExternalPreview = computed(() =>
-	DOMPurify.sanitize(externalPreviewHTML),
+	sanitizeHtml(externalPreviewHTML),
 );
 
 // Add these new code examples

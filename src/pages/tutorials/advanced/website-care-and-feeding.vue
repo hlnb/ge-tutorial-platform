@@ -54,5 +54,6 @@ useTutorialHead({
   title: "Website Care and Feeding",
   description: "Keep your website healthy after launch — backups, updates, uptime monitoring, and routine maintenance tasks.",
   path: "/tutorials/advanced/website-care-and-feeding",
+	noindex: true,
 });
 </script>
