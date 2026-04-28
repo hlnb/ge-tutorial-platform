@@ -4,6 +4,7 @@
 
 <script setup>
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
+import { renderMarkdown } from '@/utils/markdownRenderer';
 import { computed } from 'vue';
 
 const props = defineProps({
@@ -12,96 +13,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-function escapeHtml(value) {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
-function renderInline(value) {
-  return escapeHtml(value)
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
-}
-
-function renderMarkdown(markdown) {
-  const lines = markdown.replace(/\r\n/g, '\n').split('\n');
-  const html = [];
-  let paragraph = [];
-  let listItems = [];
-  let codeLines = [];
-  let inCodeBlock = false;
-
-  const flushParagraph = () => {
-    if (!paragraph.length) return;
-    html.push(`<p>${renderInline(paragraph.join(' '))}</p>`);
-    paragraph = [];
-  };
-
-  const flushList = () => {
-    if (!listItems.length) return;
-    html.push(`<ul>${listItems.map((item) => `<li>${renderInline(item)}</li>`).join('')}</ul>`);
-    listItems = [];
-  };
-
-  const flushCode = () => {
-    if (!codeLines.length) return;
-    html.push(`<pre><code>${escapeHtml(codeLines.join('\n'))}</code></pre>`);
-    codeLines = [];
-  };
-
-  for (const line of lines) {
-    if (line.trim().startsWith('```')) {
-      flushParagraph();
-      flushList();
-      if (inCodeBlock) {
-        flushCode();
-      }
-      inCodeBlock = !inCodeBlock;
-      continue;
-    }
-
-    if (inCodeBlock) {
-      codeLines.push(line);
-      continue;
-    }
-
-    const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
-    if (headingMatch) {
-      flushParagraph();
-      flushList();
-      const level = headingMatch[1].length;
-      html.push(`<h${level}>${renderInline(headingMatch[2])}</h${level}>`);
-      continue;
-    }
-
-    const listMatch = line.match(/^\s*[-*]\s+(.*)$/);
-    if (listMatch) {
-      flushParagraph();
-      listItems.push(listMatch[1]);
-      continue;
-    }
-
-    if (!line.trim()) {
-      flushParagraph();
-      flushList();
-      continue;
-    }
-
-    paragraph.push(line.trim());
-  }
-
-  flushParagraph();
-  flushList();
-  flushCode();
-
-  return html.join('');
-}
 
 const renderedContent = computed(() => sanitizeHtml(renderMarkdown(props.content)));
 </script>

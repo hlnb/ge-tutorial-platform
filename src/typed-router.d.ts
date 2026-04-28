@@ -1206,6 +1206,48 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/working-with-data/': RouteRecordInfo<
+      '/tutorials/intermediate/working-with-data/',
+      '/tutorials/intermediate/working-with-data',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/working-with-data/async-await': RouteRecordInfo<
+      '/tutorials/intermediate/working-with-data/async-await',
+      '/tutorials/intermediate/working-with-data/async-await',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/working-with-data/async-javascript': RouteRecordInfo<
+      '/tutorials/intermediate/working-with-data/async-javascript',
+      '/tutorials/intermediate/working-with-data/async-javascript',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/working-with-data/fetch-api': RouteRecordInfo<
+      '/tutorials/intermediate/working-with-data/fetch-api',
+      '/tutorials/intermediate/working-with-data/fetch-api',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/working-with-data/mini-project': RouteRecordInfo<
+      '/tutorials/intermediate/working-with-data/mini-project',
+      '/tutorials/intermediate/working-with-data/mini-project',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/working-with-data/working-with-json': RouteRecordInfo<
+      '/tutorials/intermediate/working-with-data/working-with-json',
+      '/tutorials/intermediate/working-with-data/working-with-json',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/working-with-vite': RouteRecordInfo<
       '/tutorials/intermediate/working-with-vite',
       '/tutorials/intermediate/working-with-vite',
@@ -2265,6 +2307,42 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/think-about-layouts.vue': {
       routes:
         | '/tutorials/intermediate/think-about-layouts'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/working-with-data/index.vue': {
+      routes:
+        | '/tutorials/intermediate/working-with-data/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/working-with-data/async-await.vue': {
+      routes:
+        | '/tutorials/intermediate/working-with-data/async-await'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/working-with-data/async-javascript.vue': {
+      routes:
+        | '/tutorials/intermediate/working-with-data/async-javascript'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/working-with-data/fetch-api.vue': {
+      routes:
+        | '/tutorials/intermediate/working-with-data/fetch-api'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/working-with-data/mini-project.vue': {
+      routes:
+        | '/tutorials/intermediate/working-with-data/mini-project'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/working-with-data/working-with-json.vue': {
+      routes:
+        | '/tutorials/intermediate/working-with-data/working-with-json'
       views:
         | never
     }
