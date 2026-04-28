@@ -245,12 +245,19 @@ watch(showMobileNavDrawer, (isOpen) => {
 
 <style scoped>
 .tutorial-layout {
+	--tutorial-shell-bg: linear-gradient(180deg, #f7fbfc 0%, #edf4f6 100%);
+	--tutorial-surface: #ffffff;
+	--tutorial-surface-border: #d8e4e8;
+	--tutorial-surface-shadow: 0 18px 40px rgba(73, 98, 113, 0.08);
 	display: grid;
 	grid-template-columns: 300px 1fr;
-	gap: 2rem;
+	align-items: start;
+	gap: 1.75rem;
 	max-width: 1440px;
 	margin: 0 auto;
-	padding: 2rem;
+	padding: clamp(1.25rem, 2vw, 2rem);
+	background: var(--tutorial-shell-bg);
+	border-radius: 1.75rem;
 	/* Ensure this doesn't affect the main layout */
 	position: relative;
 	z-index: 1;
@@ -263,19 +270,19 @@ watch(showMobileNavDrawer, (isOpen) => {
 
 .sidebar {
 	position: sticky;
-	top: 2rem;
+	top: 1.5rem;
 	height: fit-content;
 	align-self: start;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-	max-height: calc(100vh - 4rem);
+	max-height: calc(100vh - 3rem);
 	overflow-y: auto;
 }
 
 .main-content {
 	min-width: 0;
-	padding: 1rem;
+	padding: 0;
 	display: flex;
 	flex-direction: column;
 }
@@ -283,6 +290,49 @@ watch(showMobileNavDrawer, (isOpen) => {
 .content {
 	flex: 1;
 	margin-bottom: 2rem; /* Add margin to separate content from navigation */
+	background: var(--tutorial-surface);
+	border: 1px solid var(--tutorial-surface-border);
+	border-radius: 1.5rem;
+	box-shadow: var(--tutorial-surface-shadow);
+	overflow: hidden;
+}
+
+.sidebar :deep(.tutorial-nav) {
+	background: var(--tutorial-surface);
+	border: 1px solid var(--tutorial-surface-border);
+	border-radius: 1.5rem;
+	box-shadow: var(--tutorial-surface-shadow);
+}
+
+.content :deep(.container.section) {
+	max-width: 100% !important;
+	padding-top: clamp(1.25rem, 3vw, 1.75rem);
+	padding-right: clamp(1.25rem, 3vw, 2.25rem);
+	padding-bottom: clamp(2rem, 4vw, 3rem);
+	padding-left: clamp(1.25rem, 3vw, 2.25rem);
+	background: transparent;
+}
+
+.content :deep(.tutorial-content) {
+	max-width: 100%;
+}
+
+.content :deep(.breadcrumb) {
+	margin-top: 0;
+	margin-bottom: 0.85rem;
+}
+
+.content :deep(.tutorial-meta) {
+	margin-bottom: 1rem;
+}
+
+.content :deep(.tutorial-meta .tags) {
+	margin-bottom: 0;
+}
+
+.content :deep(.tutorial-content > h1:first-of-type) {
+	margin-top: 0;
+	margin-bottom: 1.75rem;
 }
 
 .tutorial-mobile-toggle {
@@ -434,6 +484,7 @@ watch(showMobileNavDrawer, (isOpen) => {
 	.tutorial-layout {
 		grid-template-columns: 1fr;
 		padding: clamp(1.25rem, 5vw, 2rem);
+		border-radius: 1.25rem;
 	}
 
 	.sidebar {
@@ -447,6 +498,10 @@ watch(showMobileNavDrawer, (isOpen) => {
 
 	.tutorial-mobile-toggle {
 		display: inline-flex;
+	}
+
+	.content :deep(.container.section) {
+		padding-inline: clamp(1rem, 4vw, 1.5rem);
 	}
 }
 </style>
