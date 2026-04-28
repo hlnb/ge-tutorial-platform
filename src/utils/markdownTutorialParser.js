@@ -257,6 +257,30 @@ function parseClosure(content) {
 	};
 }
 
+function splitMarkdownSections(content) {
+	if (!content) return [];
+
+	const headingMatches = Array.from(content.matchAll(/^##\s+(.+)$/gm));
+	if (headingMatches.length === 0) {
+		return [];
+	}
+
+	return headingMatches.map((match, index) => {
+		const title = match[1].trim();
+		const start = match.index ?? 0;
+		const end =
+			index + 1 < headingMatches.length
+				? headingMatches[index + 1].index ?? content.length
+				: content.length;
+
+		return {
+			title,
+			id: extractMarkdownHeadings(`## ${title}`, 2)[0].id,
+			markdown: content.slice(start, end).trim(),
+		};
+	});
+}
+
 export function parseMarkdownTutorial(source) {
 	const { frontmatter, body } = parseFrontmatter(source);
 	const objectivesMarker = '<!-- LEARNING OBJECTIVES -->';
@@ -296,6 +320,7 @@ export function parseMarkdownTutorial(source) {
 		objectives: parseObjectives(objectivesContent),
 		conceptMarkdown,
 		conceptHeadings: extractMarkdownHeadings(conceptMarkdown, 2),
+		conceptSections: splitMarkdownSections(conceptMarkdown),
 		checkpoint: checkpointContent
 			? {
 					title: 'Check Your Understanding',

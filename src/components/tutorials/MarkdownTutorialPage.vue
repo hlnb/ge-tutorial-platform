@@ -9,6 +9,7 @@ import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
+import WorkingWithDataVisual from '@/components/tutorials/WorkingWithDataVisual.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import {
 	getSectionById,
@@ -50,11 +51,15 @@ const prerequisiteLinks = computed(() =>
 );
 
 const hookHtml = computed(() => sanitizeHtml(renderMarkdown(parsed.value.hookMarkdown)));
-const conceptHtml = computed(() =>
-	sanitizeHtml(renderMarkdown(parsed.value.conceptMarkdown, { headingIds: true })),
-);
 const closureHtml = computed(() =>
 	sanitizeHtml(renderMarkdown(parsed.value.closure?.body || '', { headingIds: true })),
+);
+
+const conceptSections = computed(() =>
+	(parsed.value.conceptSections || []).map((sectionItem) => ({
+		...sectionItem,
+		html: sanitizeHtml(renderMarkdown(sectionItem.markdown, { headingIds: true })),
+	})),
 );
 
 const guidedSteps = computed(() =>
@@ -70,9 +75,9 @@ const independentTaskHtml = computed(() =>
 );
 
 const pageSections = computed(() => {
-	const sections = parsed.value.conceptHeadings.map((heading) => ({
-		id: heading.id,
-		title: heading.title,
+	const sections = conceptSections.value.map((sectionItem) => ({
+		id: sectionItem.id,
+		title: sectionItem.title,
 	}));
 
 	if (parsed.value.checkpoint) {
@@ -92,6 +97,32 @@ const pageSections = computed(() => {
 });
 
 usePageSections(pageSections);
+
+const visualMap = {
+	'/tutorials/intermediate/working-with-data/async-javascript': {
+		'the-problem-javascript-only-does-one-thing-at-a-time': ['async-flow'],
+		'what-is-a-promise': ['promise-states'],
+	},
+	'/tutorials/intermediate/working-with-data/fetch-api': {
+		'what-is-fetch': ['fetch-cycle'],
+		'handling-errors-properly': ['response-check'],
+	},
+	'/tutorials/intermediate/working-with-data/working-with-json': {
+		'what-is-json': ['json-pipeline'],
+		'reshaping-data-with-array-methods': ['array-reshape'],
+	},
+	'/tutorials/intermediate/working-with-data/async-await': {
+		'the-await-keyword': ['async-await'],
+		'running-requests-in-parallel': ['parallel'],
+	},
+	'/tutorials/intermediate/working-with-data/mini-project': {
+		'what-youre-building': ['world-explorer'],
+	},
+};
+
+function getSectionVisuals(sectionId) {
+	return visualMap[props.currentPath]?.[sectionId] || [];
+}
 
 useHead(() => ({
 	title: `${parsed.value.frontmatter.title} - GraphiteEdge Tutorials`,
@@ -156,7 +187,20 @@ useHead(() => ({
 				:prerequisites="prerequisiteLinks"
 			/>
 
-			<section class="content markdown-tutorial-page__content" v-html="conceptHtml"></section>
+			<section class="content markdown-tutorial-page__content">
+				<div
+					v-for="sectionItem in conceptSections"
+					:key="sectionItem.id"
+					class="markdown-tutorial-page__concept-section"
+				>
+					<div v-html="sectionItem.html"></div>
+					<WorkingWithDataVisual
+						v-for="variant in getSectionVisuals(sectionItem.id)"
+						:key="`${sectionItem.id}-${variant}`"
+						:variant="variant"
+					/>
+				</div>
+			</section>
 
 			<section v-if="parsed.checkpoint" id="checkpoint">
 				<CheckpointBox
