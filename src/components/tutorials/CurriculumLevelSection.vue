@@ -1,17 +1,21 @@
 <template>
   <!-- A single curriculum level group (e.g. Foundation, Beginner, Intermediate, Advanced) -->
-  <section class="level-section mb-6">
-    <!-- Level header -->
-    <h3 class="title is-3">
-      <span class="tag is-large mb-2" :class="level.bulmaTag">
+  <section class="level-section">
+    <div class="level-header">
+      <span
+        class="level-badge"
+        :style="{
+          backgroundColor: level.color,
+          color: level.id === 'intermediate' ? '#23272f' : '#ffffff',
+        }"
+      >
         {{ level.title }}
       </span>
-    </h3>
-    <p v-if="level.description" class="subtitle is-6 mb-4">
-      {{ level.description }}
-    </p>
+      <p v-if="level.description" class="level-description">
+        {{ level.description }}
+      </p>
+    </div>
 
-    <!-- Tutorial grid -->
     <div class="tutorials-grid">
       <TutorialCard
         v-for="tutorial in tutorials"
@@ -23,7 +27,7 @@
 </template>
 
 <script setup>
-import TutorialCard from './TutorialCard.vue';
+import TutorialCard from "./TutorialCard.vue";
 
 defineProps({
   /** Level metadata object (from tutorials.js levels array) */
@@ -41,30 +45,38 @@ defineProps({
 
 <style scoped>
 .level-section {
-  position: relative;
-  padding-left: 2rem;
+  margin-bottom: 2.5rem;
 }
 
-/* Vertical progress bar on the left of each level */
-.level-section::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background-color: #eee;
-  border-radius: 2px;
+.level-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-.level-section:not(:last-child) {
-  padding-bottom: 2rem;
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.95rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+}
+
+.level-description {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--fg-subtle);
 }
 
 .tutorials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
 }
 </style>

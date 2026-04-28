@@ -1,113 +1,83 @@
 <template>
-  <!-- ============================================================
-       TutorialsPage — Curriculum map with learning pathways
-       ============================================================ -->
-  <div class="tutorials-page container section">
-
-    <!-- ──────────────── 1. HERO ──────────────── -->
-    <section class="hero-section mb-6">
-      <h1 class="title is-1">Choose your learning path</h1>
-      <p class="subtitle is-4">
+  <div class="tutorials-page container">
+    <section class="tutorials-hero">
+      <h1>Choose your learning path</h1>
+      <p>
         Practical, project-based tutorials that take you from zero to a live
-        website — one step at a time.
+        website one step at a time.
       </p>
 
-      <div class="hero-actions">
-        <button
-          class="button is-primary is-medium"
-          @click="selectPathway('beginner')"
-        >
-          <span class="icon"><i class="fas fa-seedling"></i></span>
-          <span>Start Beginner Path</span>
+      <div class="tutorials-hero__actions">
+        <button class="button is-primary" @click="selectPathway('beginner')">
+          Start Beginner Path
         </button>
-
-        <a href="#curriculum-roadmap" class="button is-light is-medium">
-          <span class="icon"><i class="fas fa-map"></i></span>
-          <span>Browse Full Curriculum</span>
-        </a>
+        <a href="#curriculum-roadmap" class="button is-light"
+          >Browse Full Curriculum</a
+        >
       </div>
     </section>
 
-    <!-- ──────────────── 2. PATHWAY CARDS ──────────────── -->
-    <section class="mb-6">
-      <h2 class="title is-3">Learning Pathways</h2>
+    <section class="tutorials-section">
+      <h2>Learning Pathways</h2>
       <div class="pathway-grid">
         <PathwayCard
-          v-for="pw in pathwayData"
-          :key="pw.id"
-          :pathway="pw"
-          :is-active="selectedPathway === pw.id"
+          v-for="pathway in pathwayData"
+          :key="pathway.id"
+          :pathway="pathway"
+          :is-active="selectedPathway === pathway.id"
           @select="selectPathway"
         />
       </div>
     </section>
 
-    <!-- ──────────────── 3. LEARNER TYPE SHORTCUTS ──────────────── -->
     <LearnerTypeChooser
       :pathways="pathwayData"
       :selected-pathway="selectedPathway"
       @select="selectPathway"
     />
 
-    <!-- ──────────────── 4. ACTIVE PATH BANNER ──────────────── -->
-    <ActivePathBanner
-      :pathway="activePathwayObject"
-      @clear="clearPathway"
-    />
+    <ActivePathBanner :pathway="activePathwayObject" @clear="clearPathway" />
 
-    <!-- ──────────────── 5. TUTORIAL TYPE FILTERS ──────────────── -->
-    <TutorialTypeFilters
-      :types="tutorialTypeData"
-      :active-type="activeType"
-      @select="setActiveType"
-    />
+    <div class="tutorial-controls">
+      <TutorialTypeFilters
+        :types="tutorialTypeData"
+        :active-type="activeType"
+        @select="setActiveType"
+      />
+      <input
+        v-model="searchQuery"
+        class="tutorial-search"
+        type="search"
+        placeholder="Search tutorials"
+      />
+    </div>
 
-    <!-- ──────────────── 6. CURRICULUM ROADMAP ──────────────── -->
-    <div id="curriculum-roadmap">
-      <h2 class="title is-2 mb-5">Curriculum Roadmap</h2>
+    <div id="curriculum-roadmap" class="curriculum-roadmap">
+      <h2>Curriculum Roadmap</h2>
 
-      <template v-for="level in levelData" :key="level.id">
-        <!-- Only render a level section if it has visible tutorials -->
-        <CurriculumLevelSection
-          v-if="tutorialsByLevel(level.id).length"
-          :level="level"
-          :tutorials="tutorialsByLevel(level.id)"
-        />
-      </template>
+      <CurriculumLevelSection
+        v-for="level in levelData"
+        v-show="tutorialsByLevel(level.id).length"
+        :key="level.id"
+        :level="level"
+        :tutorials="tutorialsByLevel(level.id)"
+      />
 
-      <!-- Empty state when filters result in no matches -->
-      <p
-        v-if="visibleTutorials.length === 0"
-        class="has-text-grey-light has-text-centered mt-6"
-      >
+      <p v-if="visibleTutorials.length === 0" class="tutorials-empty">
         No tutorials match your current filters.
       </p>
     </div>
 
-    <!-- ──────────────── 7. FEATURED SECTION ──────────────── -->
     <FeaturedTutorials :tutorials="allTutorials" />
 
-    <!-- ──────────────── 8. GUIDED PROJECTS ──────────────── -->
-    <GuidedProjects
-      :projects="projectData"
-      :tutorials="allTutorials"
-    />
+    <GuidedProjects :projects="projectData" :tutorials="allTutorials" />
 
-    <!-- ──────────────── 9. BROWSE ALL ──────────────── -->
-    <TutorialSearchBrowse
-      :tutorials="allTutorials"
-      :pathways="pathwayData"
-    />
-
-    <!-- ──────────────── 10. FAQ (preserved from original) ──────────────── -->
-    <FaqSection :faqs="generalFaqs" class="mt-6" />
+    <FaqSection :faqs="generalFaqs" class="tutorials-faq" />
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
-
-// -- Data imports --
+import { computed, ref } from "vue";
 import {
   pathways as pathwayData,
   levels as levelData,
@@ -115,140 +85,222 @@ import {
   tutorialTypes as tutorialTypeData,
   projects as projectData,
   isTutorialVisibleInCurriculum,
-} from '@/data/tutorials';
-import generalFaqs from '@/data/faqs';
+} from "@/data/tutorials";
+import generalFaqs from "@/data/faqs";
+import PathwayCard from "@/components/tutorials/PathwayCard.vue";
+import LearnerTypeChooser from "@/components/tutorials/LearnerTypeChooser.vue";
+import ActivePathBanner from "@/components/tutorials/ActivePathBanner.vue";
+import TutorialTypeFilters from "@/components/tutorials/TutorialTypeFilters.vue";
+import CurriculumLevelSection from "@/components/tutorials/CurriculumLevelSection.vue";
+import FeaturedTutorials from "@/components/tutorials/FeaturedTutorials.vue";
+import GuidedProjects from "@/components/tutorials/GuidedProjects.vue";
+import FaqSection from "@/components/FaqSection.vue";
 
-// -- Component imports --
-import PathwayCard from '@/components/tutorials/PathwayCard.vue';
-import LearnerTypeChooser from '@/components/tutorials/LearnerTypeChooser.vue';
-import ActivePathBanner from '@/components/tutorials/ActivePathBanner.vue';
-import TutorialTypeFilters from '@/components/tutorials/TutorialTypeFilters.vue';
-import CurriculumLevelSection from '@/components/tutorials/CurriculumLevelSection.vue';
-import FeaturedTutorials from '@/components/tutorials/FeaturedTutorials.vue';
-import GuidedProjects from '@/components/tutorials/GuidedProjects.vue';
-import TutorialSearchBrowse from '@/components/tutorials/TutorialSearchBrowse.vue';
-import FaqSection from '@/components/FaqSection.vue';
-
-// ────────────────────────────────────────────────────────────────
-// State
-// ────────────────────────────────────────────────────────────────
-
-/** Currently selected pathway (null = show all) */
 const selectedPathway = ref(null);
+const activeType = ref("all");
+const searchQuery = ref("");
 
-/** Currently active tutorial-type filter */
-const activeType = ref('all');
-
-// ────────────────────────────────────────────────────────────────
-// Computed
-// ────────────────────────────────────────────────────────────────
-
-/** The full pathway object for the selected pathway (or null) */
 const activePathwayObject = computed(() => {
-  if (!selectedPathway.value) return null;
-  return pathwayData.find((pw) => pw.id === selectedPathway.value) || null;
+  if (!selectedPathway.value) {
+    return null;
+  }
+
+  return (
+    pathwayData.find((pathway) => pathway.id === selectedPathway.value) || null
+  );
 });
 
-/**
- * Tutorials visible after applying pathway + type filters.
- * Sorted by stage within each level.
- */
 const visibleTutorials = computed(() => {
-  let result = allTutorials.filter((tutorial) => isTutorialVisibleInCurriculum(tutorial));
+  let tutorials = allTutorials.filter((tutorial) =>
+    isTutorialVisibleInCurriculum(tutorial),
+  );
 
-  // Filter by pathway
   if (selectedPathway.value) {
-    result = result.filter((t) =>
-      t.pathways.includes(selectedPathway.value),
+    tutorials = tutorials.filter((tutorial) =>
+      tutorial.pathways.includes(selectedPathway.value),
     );
   }
 
-  // Filter by tutorial type
-  if (activeType.value !== 'all') {
-    if (activeType.value === 'project') {
-      result = result.filter((t) => t.isProject);
-    } else if (activeType.value === 'troubleshooting') {
-      result = result.filter((t) => t.badge === 'Troubleshooting');
-    } else if (activeType.value === 'foundation') {
-      result = result.filter((t) => t.level === 'foundation');
+  if (activeType.value !== "all") {
+    if (activeType.value === "project") {
+      tutorials = tutorials.filter((tutorial) => tutorial.isProject);
+    } else if (activeType.value === "troubleshooting") {
+      tutorials = tutorials.filter(
+        (tutorial) => tutorial.badge === "Troubleshooting",
+      );
+    } else if (activeType.value === "foundation") {
+      tutorials = tutorials.filter(
+        (tutorial) => tutorial.level === "foundation",
+      );
     } else {
-      // For other types, match against topic or tags
-      result = result.filter(
-        (t) =>
-          t.topic === activeType.value ||
-          t.tags.includes(activeType.value),
+      tutorials = tutorials.filter(
+        (tutorial) =>
+          tutorial.topic === activeType.value ||
+          tutorial.tags.includes(activeType.value),
       );
     }
   }
 
-  // Sort by stage
-  result.sort((a, b) => a.stage - b.stage);
-
-  return result;
-});
-
-// ────────────────────────────────────────────────────────────────
-// Methods
-// ────────────────────────────────────────────────────────────────
-
-/** Return visible tutorials for a given level id, sorted by stage */
-function tutorialsByLevel(levelId) {
-  let tutorials = visibleTutorials.value
-    .filter((t) => t.level === levelId)
-    .sort((a, b) => a.stage - b.stage);
-
-  if (levelId === 'beginner' || levelId === 'intermediate' || levelId === 'advanced') {
-    tutorials = tutorials.filter((t) =>
-      t.lessonCount ||
-      t.isProject ||
-      t.badge === 'Troubleshooting' ||
-      t.badge === 'Recommended next'
+  if (searchQuery.value.trim()) {
+    const query = searchQuery.value.trim().toLowerCase();
+    tutorials = tutorials.filter((tutorial) =>
+      [
+        tutorial.title,
+        tutorial.summary,
+        tutorial.levelTitle,
+        ...(tutorial.tags || []),
+      ]
+        .filter(Boolean)
+        .some((value) => value.toLowerCase().includes(query)),
     );
   }
 
-  return tutorials;
+  return tutorials.sort(
+    (firstTutorial, secondTutorial) =>
+      firstTutorial.stage - secondTutorial.stage,
+  );
+});
+
+function tutorialsByLevel(levelId) {
+  const tutorialsForLevel = visibleTutorials.value.filter(
+    (tutorial) => tutorial.level === levelId,
+  );
+
+  if (levelId === "foundation") {
+    return tutorialsForLevel;
+  }
+
+  return tutorialsForLevel.filter(
+    (tutorial) =>
+      tutorial.lessonCount ||
+      tutorial.isProject ||
+      tutorial.badge === "Recommended next" ||
+      tutorial.badge === "Troubleshooting",
+  );
 }
 
-/** Select a pathway (toggles off if already selected) */
 function selectPathway(id) {
   selectedPathway.value = selectedPathway.value === id ? null : id;
 }
 
-/** Clear the pathway filter */
 function clearPathway() {
   selectedPathway.value = null;
 }
 
-/** Set the active tutorial-type filter */
 function setActiveType(id) {
   activeType.value = id;
 }
 </script>
 
 <style scoped>
-/* ── Hero ── */
-.hero-section {
-  text-align: center;
-  padding: 2rem 0;
+.tutorials-page {
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem clamp(1rem, 3vw, 2rem) 3rem;
+  background: var(--color-white);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
-.hero-actions {
+.tutorials-hero {
+  padding: 1.5rem 0 2.25rem;
+  text-align: center;
+}
+
+.tutorials-hero h1,
+.tutorials-section h2,
+.curriculum-roadmap h2 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  color: var(--fg-default);
+}
+
+.tutorials-hero h1 {
+  font-size: 2rem;
+}
+
+.tutorials-hero p {
+  max-width: 42rem;
+  margin: 0.75rem auto 0;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--fg-muted);
+}
+
+.tutorials-hero__actions {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 1.25rem;
   flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
-/* ── Pathway grid ── */
+.tutorials-section {
+  margin-bottom: 2rem;
+}
+
+.tutorials-section h2,
+.curriculum-roadmap h2 {
+  margin-bottom: 1rem;
+  font-size: 1.375rem;
+}
+
 .pathway-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.875rem;
 }
 
-/* ── Curriculum roadmap vertical connector ── */
-#curriculum-roadmap {
-  margin-bottom: 3rem;
+.tutorial-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 2rem;
 }
+
+.tutorial-search {
+  margin-left: auto;
+  width: min(100%, 220px);
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  font-size: 0.8125rem;
+  color: var(--fg-default);
+}
+
+.tutorial-search:focus {
+  outline: 2px solid rgba(67, 56, 202, 0.14);
+  outline-offset: 1px;
+}
+
+.curriculum-roadmap {
+  margin-bottom: 2.5rem;
+}
+
+.tutorials-empty {
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--fg-subtle);
+}
+
+.tutorials-faq {
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .tutorials-page {
+    margin-top: 1rem;
+    padding: 1.25rem 1rem 2.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .tutorial-search {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
 </style>

@@ -1,2 +1,156 @@
-@import './vendor/bulma.min.css';
-/* Add any other global styles here */
+@import "./main.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--fg-default);
+  background: var(--bg-page);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+main {
+  display: block;
+}
+
+a {
+  color: var(--color-link);
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.subtitle {
+  font-family: var(--font-heading);
+  color: var(--fg-default);
+  word-break: normal;
+  hyphens: manual;
+}
+
+p,
+span,
+li,
+label,
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-body);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+}
+
+pre,
+code {
+  background: var(--bg-code);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: min(var(--container-max), 100%) !important;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.section {
+  padding: var(--section-pad-y) var(--section-pad-x);
+}
+
+.content {
+  width: min(var(--container-max), 100%);
+  margin: 0 auto;
+  padding: var(--container-pad) clamp(1rem, 6vw, 3rem) 3rem;
+}
+
+.box {
+  width: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.button {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  border-radius: var(--radius-sm);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.is-primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.button.is-primary:hover,
+.button.is-primary:focus {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.button.is-light {
+  background: #f5f7fb;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: var(--fg-default);
+}
+
+.tag {
+  border-radius: var(--radius-sm);
+}
+
+.js-lesson-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.75rem;
+  background-color: #f7df1e;
+  color: #111;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 0.3rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-family: var(--font-mono);
+}

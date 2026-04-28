@@ -4,11 +4,10 @@
     <button
       v-for="type in types"
       :key="type.id"
-      class="button is-small type-filters__btn"
-      :class="{ 'is-primary': activeType === type.id }"
+      class="type-filters__btn"
+      :class="{ 'type-filters__btn--active': activeType === type.id }"
       @click="$emit('select', type.id)"
     >
-      <span class="icon is-small"><i :class="type.icon"></i></span>
       <span>{{ type.label }}</span>
     </button>
   </div>
@@ -24,23 +23,38 @@ defineProps({
   /** Currently active type id */
   activeType: {
     type: String,
-    default: 'all',
+    default: "all",
   },
 });
 
-defineEmits(['select']);
+defineEmits(["select"]);
 </script>
 
 <style scoped>
 .type-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 0.375rem;
 }
 
 .type-filters__btn {
-  border-radius: 9999px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  color: var(--fg-muted);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: var(--weight-semibold);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.type-filters__btn--active {
+  background: var(--fg-default);
+  border-color: var(--fg-default);
+  color: var(--color-white);
 }
 </style>

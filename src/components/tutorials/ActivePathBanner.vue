@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 
 const props = defineProps({
   /** The currently active pathway object (or null) */
@@ -29,7 +29,7 @@ const props = defineProps({
   },
 });
 
-defineEmits(['clear']);
+defineEmits(["clear"]);
 
 // Use pathway colour as the accent border
 const bannerStyle = computed(() => {
@@ -45,10 +45,10 @@ const bannerStyle = computed(() => {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.75rem;
-  padding: 0.75rem 1.25rem;
-  background-color: #f5f5f5;
+  padding: 0.875rem 1rem;
+  background-color: #f5f7fb;
   border-left: 4px solid #dbdbdb;
-  border-radius: 0.375rem;
+  border-radius: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
@@ -56,10 +56,12 @@ const bannerStyle = computed(() => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
+  color: var(--fg-default);
 }
 
 .active-path-banner__clear {
   flex-shrink: 0;
+  border-radius: var(--radius-full);
 }
 </style>

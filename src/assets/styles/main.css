@@ -1,134 +1,154 @@
-@import './vendor/bulma.min.css';
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../fonts/PTSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../fonts/PTSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../fonts/PTSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../fonts/PTSans-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
 
 :root {
-	/* Primary Colors */
-	--color-white: #ffffff;
-	--color-alto: #d8d8d8;
-	--color-mine-shaft: #4d4d4d;
-	--color-red-berry: #8d0000;
-	--color-mahogany: #6a0808;
-	--color-tamarillo: #a21111;
-
-	/* Accent Colors */
-	--color-snow: #fff9fb;
-	--color-tea-green: #c9e4ca;
-	--color-dark-sea-green: #87bba2;
-	--color-rackley: #4b88a2;
-	--color-light-gray: #d3d4d9;
-
-	/* Additional Colors */
-	--color-ferra: #7d4f50;
-	--color-linen: #f9eae1;
-	--color-contessa: #cc8b86;
-	--color-slate-gray: #738290;
-	--color-mine-shaft-2: #444444;
-}
-:root {
-	--font-primary: 'Raleway', sans-serif;
-	--font-secondary: 'PT Sans', sans-serif;
-}
-
-body {
-	font-family: var(--font-primary);
-	background-color: var(--color-snow);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: var(--font-primary);
-	font-weight: 700;
-}
-
-.title,
-.subtitle,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	word-break: normal;
-	hyphens: manual;
-}
-
-p,
-span,
-a,
-li {
-	font-family: var(--font-secondary);
-	font-weight: 400;
-}
-.button-primary {
-	background-color: var(--color-red-berry);
-	color: var(--color-white);
-	border: none;
-	padding: 0.75rem 1.5rem;
-	font-family: var(--font-primary);
-	font-size: 1rem;
-	border-radius: 0.25rem;
-	cursor: pointer;
-}
-
-.button-primary:hover {
-	background-color: var(--color-tamarillo);
-}
-
-.button-secondary {
-	background-color: var(--color-mahogany);
-	color: var(--color-white);
-}
-
-.button-secondary:hover {
-	background-color: var(--color-red-berry);
-}
-.section {
-	padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 4vw, 2.5rem);
-	background-color: var(--color-white);
-}
-.content {
-	width: min(1120px, 100%);
-	margin: 0 auto;
-	padding: clamp(1rem, 4vw, 2.5rem) clamp(1rem, 6vw, 3rem);
-	background-color: var(--color-white);
-}
-.container {
-	max-width: min(1120px, 100%) !important;
-	margin: 0 auto;
-	padding-left: clamp(1rem, 4vw, 2.5rem);
-	padding-right: clamp(1rem, 4vw, 2.5rem);
-}
-.box {
-	width: 100%;
-	border-radius: 0.75rem;
-}
-
-.notification {
-	padding: 1rem;
-	border-radius: 0.25rem;
-	font-family: var(--font-secondary);
-}
-
-.notification-info {
-	background-color: var(--color-rackley);
-	color: var(--color-white);
-}
-
-.notification-error {
-	background-color: var(--color-red-berry);
-	color: var(--color-white);
-}
-.highlight {
-	color: var(--color-tea-green);
-	font-weight: 700;
-	font-family: var(--font-primary);
-}
-
-.subtle-text {
-	color: var(--color-light-gray);
-	font-size: 0.875rem;
-	font-style: italic;
+  --color-red-berry: #8d0000;
+  --color-mahogany: #6a0808;
+  --color-tamarillo: #a21111;
+  --color-graphite-red: #e63946;
+  --color-amber: #ffd166;
+  --color-teal: #2ec4b6;
+  --color-navy: #1a1a2e;
+  --color-dark: #23272f;
+  --color-ink: #1f2933;
+  --color-mine-shaft: #4d4d4d;
+  --color-mine-shaft-2: #444444;
+  --color-slate-gray: #738290;
+  --color-alto: #d8d8d8;
+  --color-light-gray: #d3d4d9;
+  --color-muted: #7a7a7a;
+  --color-caption: #52606d;
+  --color-snow: #fff9fb;
+  --color-white: #ffffff;
+  --color-surface: #f4f1ec;
+  --color-linen: #f9eae1;
+  --color-code-bg: #f8fafb;
+  --color-tea-green: #c9e4ca;
+  --color-dark-sea-green: #87bba2;
+  --color-rackley: #4b88a2;
+  --color-link: #4338ca;
+  --color-link-active: #4338ca;
+  --color-ferra: #7d4f50;
+  --color-contessa: #cc8b86;
+  --fg-default: var(--color-ink);
+  --fg-muted: var(--color-mine-shaft-2);
+  --fg-subtle: var(--color-slate-gray);
+  --fg-inverse: var(--color-white);
+  --fg-accent: var(--color-red-berry);
+  --bg-page: #f7fbfc;
+  --bg-surface: var(--color-white);
+  --bg-hero: var(--color-navy);
+  --bg-footer: var(--color-light-gray);
+  --bg-code: var(--color-code-bg);
+  --bg-warm: var(--color-linen);
+  --bg-tutorial-shell: linear-gradient(180deg, #f7fbfc 0%, #edf4f6 100%);
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-card: #d8e4e8;
+  --border-default: var(--color-alto);
+  --color-primary: var(--color-red-berry);
+  --color-primary-hover: var(--color-tamarillo);
+  --color-primary-dark: var(--color-mahogany);
+  --color-focus: #2563eb;
+  --color-success: var(--color-tea-green);
+  --color-info: var(--color-rackley);
+  --color-warning: var(--color-amber);
+  --color-error: var(--color-red-berry);
+  --font-display: "Raleway", sans-serif;
+  --font-heading: "Raleway", sans-serif;
+  --font-body: "PT Sans", sans-serif;
+  --font-mono:
+    "JetBrains Mono", "IBM Plex Mono", "Fira Code", "SFMono-Regular", monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3rem;
+  --text-hero: clamp(2.5rem, 5vw, 4rem);
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.05em;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --section-pad-y: clamp(1.5rem, 4vw, 3.5rem);
+  --section-pad-x: clamp(1rem, 4vw, 2.5rem);
+  --container-max: 1120px;
+  --container-pad: clamp(1rem, 4vw, 2.5rem);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 1.75rem;
+  --radius-full: 999px;
+  --radius-round: 50%;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.1);
+  --shadow-tutorial: 0 18px 40px rgba(73, 98, 113, 0.08);
+  --shadow-drawer: 0 25px 45px rgba(15, 23, 42, 0.25);
+  --shadow-navbar: 0 20px 35px rgba(15, 23, 42, 0.12);
 }
