@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Vite development, build, and preview flow</title>
+  <desc id="desc">A flow diagram shows the Vite workflow as edit code, run the development server, build production assets, and preview the production output before deployment.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #52606d; }
+      .step { font-size: 24px; font-weight: 700; }
+      .body { font-size: 18px; fill: #486581; }
+      .small { font-size: 16px; fill: #52606d; }
+      .panel { fill: #ffffff; stroke: #d9e2ec; stroke-width: 2; }
+      .a { fill: #e8f1fb; stroke: #7aa5d2; stroke-width: 2; }
+      .b { fill: #eef7e8; stroke: #8fb27b; stroke-width: 2; }
+      .c { fill: #f7eadb; stroke: #c58a45; stroke-width: 2; }
+      .d { fill: #f8e8ef; stroke: #c17a93; stroke-width: 2; }
+      .arrow { stroke: #7b8794; stroke-width: 4; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="640" fill="#f8fafb"/>
+  <rect x="50" y="48" width="1100" height="544" rx="28" class="panel"/>
+  <text x="600" y="102" text-anchor="middle" class="title">The Vite Workflow Loop</text>
+  <text x="600" y="136" text-anchor="middle" class="subtitle">Use development for fast feedback, then build and preview before deployment.</text>
+
+  <rect x="95" y="240" width="210" height="138" rx="24" class="a"/>
+  <text x="200" y="288" text-anchor="middle" class="step">1. Edit</text>
+  <text x="200" y="322" text-anchor="middle" class="body">Change code</text>
+  <text x="200" y="350" text-anchor="middle" class="small">HTML, CSS, JS,</text>
+  <text x="200" y="372" text-anchor="middle" class="small">or framework files</text>
+
+  <rect x="350" y="240" width="210" height="138" rx="24" class="b"/>
+  <text x="455" y="288" text-anchor="middle" class="step">2. Dev</text>
+  <text x="455" y="322" text-anchor="middle" class="body">`npm run dev`</text>
+  <text x="455" y="350" text-anchor="middle" class="small">Run the local</text>
+  <text x="455" y="372" text-anchor="middle" class="small">development server</text>
+
+  <rect x="605" y="240" width="210" height="138" rx="24" class="c"/>
+  <text x="710" y="288" text-anchor="middle" class="step">3. Build</text>
+  <text x="710" y="322" text-anchor="middle" class="body">`npm run build`</text>
+  <text x="710" y="350" text-anchor="middle" class="small">Create production</text>
+  <text x="710" y="372" text-anchor="middle" class="small">assets and output</text>
+
+  <rect x="860" y="240" width="210" height="138" rx="24" class="d"/>
+  <text x="965" y="288" text-anchor="middle" class="step">4. Preview</text>
+  <text x="965" y="322" text-anchor="middle" class="body">`npm run preview`</text>
+  <text x="965" y="350" text-anchor="middle" class="small">Check the built</text>
+  <text x="965" y="372" text-anchor="middle" class="small">site locally</text>
+
+  <path d="M305 309H348" class="arrow"/>
+  <path d="M560 309H603" class="arrow"/>
+  <path d="M815 309H858" class="arrow"/>
+
+  <path d="M965 410C965 500 245 500 245 410" class="arrow" stroke-dasharray="10 10"/>
+  <text x="605" y="536" text-anchor="middle" class="small">After previewing, go back to development if something still needs work.</text>
+</svg>

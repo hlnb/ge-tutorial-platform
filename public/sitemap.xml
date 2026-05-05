@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.graphitedge.com.au</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/about</loc>
@@ -226,7 +226,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/the-graphite-journal</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials</loc>
@@ -274,23 +274,23 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/box-model</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/colors</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/flexbox</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/introduction</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/layout</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/modern</loc>
@@ -302,11 +302,11 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/selectors</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/text</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics</loc>
@@ -346,7 +346,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-doc-structure</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-emmet</loc>
@@ -354,27 +354,27 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-first-page</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-forms</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-images</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-24</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-links</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-text</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/introduction</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-28</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/idea-to-live-website</loc>
@@ -545,6 +545,10 @@
     <lastmod>2026-04-22</lastmod>
   </url>
   <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/first-vue-app-with-vite</loc>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/flexbox-for-real-layouts</loc>
     <lastmod>2026-04-22</lastmod>
   </url>
@@ -627,6 +631,38 @@
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/think-about-layouts</loc>
     <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/using-bulma-in-a-vue-project</loc>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/working-with-data</loc>
+    <lastmod>2026-04-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/working-with-data/async-await</loc>
+    <lastmod>2026-04-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/working-with-data/async-javascript</loc>
+    <lastmod>2026-04-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/working-with-data/fetch-api</loc>
+    <lastmod>2026-04-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/working-with-data/mini-project</loc>
+    <lastmod>2026-04-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/working-with-data/working-with-json</loc>
+    <lastmod>2026-04-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/working-with-vite</loc>
+    <lastmod>2026-05-05</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/practice</loc>

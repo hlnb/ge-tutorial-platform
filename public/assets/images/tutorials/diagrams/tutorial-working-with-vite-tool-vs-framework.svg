@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Vite compared with a framework</title>
+  <desc id="desc">A two-panel diagram compares a framework, which structures the application code, with Vite, which runs the development server and production build workflow around the project.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #52606d; }
+      .label { font-size: 24px; font-weight: 700; }
+      .body { font-size: 17px; fill: #486581; }
+      .small { font-size: 15px; fill: #52606d; }
+      .panel { fill: #ffffff; stroke: #cbd2d9; stroke-width: 2; }
+      .code { fill: #e8f1fb; stroke: #7aa5d2; stroke-width: 2; }
+      .tool { fill: #eef7e8; stroke: #8fb27b; stroke-width: 2; }
+      .pill { fill: #f7eadb; stroke: #c58a45; stroke-width: 2; }
+      .arrow { stroke: #7b8794; stroke-width: 4; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="620" fill="#f8fafb"/>
+  <text x="70" y="70" class="title">Framework vs Tooling Layer</text>
+  <text x="70" y="102" class="subtitle">The framework shapes the app code. Vite supports the workflow around that app.</text>
+
+  <rect x="70" y="150" width="430" height="390" rx="24" class="panel"/>
+  <text x="285" y="198" text-anchor="middle" class="label">Framework</text>
+  <text x="285" y="226" text-anchor="middle" class="small">How the interactive application is structured</text>
+  <rect x="118" y="270" width="334" height="180" rx="18" class="code"/>
+  <text x="285" y="310" text-anchor="middle" class="body">Components</text>
+  <text x="285" y="344" text-anchor="middle" class="body">State</text>
+  <text x="285" y="378" text-anchor="middle" class="body">Templates and UI logic</text>
+  <text x="285" y="434" text-anchor="middle" class="small">Example question:</text>
+  <text x="285" y="458" text-anchor="middle" class="small">How should this interface be built and updated?</text>
+
+  <rect x="600" y="150" width="430" height="390" rx="24" class="panel"/>
+  <text x="815" y="198" text-anchor="middle" class="label">Vite</text>
+  <text x="815" y="226" text-anchor="middle" class="small">How the project runs, rebuilds, and gets prepared for production</text>
+  <rect x="664" y="274" width="120" height="70" rx="14" class="tool"/>
+  <text x="724" y="317" text-anchor="middle" class="body">Dev server</text>
+  <rect x="755" y="384" width="120" height="70" rx="14" class="tool"/>
+  <text x="815" y="427" text-anchor="middle" class="body">Build</text>
+  <rect x="846" y="274" width="120" height="70" rx="14" class="tool"/>
+  <text x="906" y="317" text-anchor="middle" class="body">Preview</text>
+  <path d="M784 309H845" class="arrow"/>
+  <path d="M906 344V383" class="arrow"/>
+  <path d="M755 419H724" class="arrow"/>
+  <path d="M724 419V345" class="arrow"/>
+  <text x="815" y="486" text-anchor="middle" class="small">Example question:</text>
+  <text x="815" y="510" text-anchor="middle" class="small">How do I run and ship this project confidently?</text>
+
+  <rect x="436" y="286" width="226" height="64" rx="18" class="pill"/>
+  <text x="549" y="326" text-anchor="middle" class="body">The app lives here.</text>
+  <text x="549" y="348" text-anchor="middle" class="small">The workflow wraps around it.</text>
+</svg>

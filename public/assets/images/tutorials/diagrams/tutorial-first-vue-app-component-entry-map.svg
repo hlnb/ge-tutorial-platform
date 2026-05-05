@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Vue app entry and component map</title>
+  <desc id="desc">A diagram shows a Vite plus Vue app flow from main.js into App.vue and then into the todo list interface, explaining where the project starts and where component structure appears.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #52606d; }
+      .label { font-size: 24px; font-weight: 700; }
+      .body { font-size: 18px; fill: #486581; }
+      .small { font-size: 15px; fill: #52606d; }
+      .panel { fill: #ffffff; stroke: #d9e2ec; stroke-width: 2; }
+      .file { fill: #e8f1fb; stroke: #7aa5d2; stroke-width: 2; }
+      .component { fill: #eef7e8; stroke: #8fb27b; stroke-width: 2; }
+      .screen { fill: #f7eadb; stroke: #c58a45; stroke-width: 2; }
+      .arrow { stroke: #7b8794; stroke-width: 4; stroke-linecap: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="640" fill="#f8fafb"/>
+  <rect x="50" y="50" width="1100" height="540" rx="28" class="panel"/>
+  <text x="600" y="104" text-anchor="middle" class="title">How a Small Vue App Fits Together</text>
+  <text x="600" y="138" text-anchor="middle" class="subtitle">Vite runs the project. `main.js` starts the app. `App.vue` becomes the main component shell.</text>
+
+  <rect x="102" y="220" width="220" height="150" rx="22" class="file"/>
+  <text x="212" y="266" text-anchor="middle" class="label">main.js</text>
+  <text x="212" y="300" text-anchor="middle" class="body">Create the Vue app</text>
+  <text x="212" y="330" text-anchor="middle" class="small">Mount it to `#app`</text>
+
+  <rect x="492" y="190" width="220" height="210" rx="22" class="component"/>
+  <text x="602" y="238" text-anchor="middle" class="label">App.vue</text>
+  <text x="602" y="272" text-anchor="middle" class="body">Template</text>
+  <text x="602" y="300" text-anchor="middle" class="body">State</text>
+  <text x="602" y="328" text-anchor="middle" class="body">Event handlers</text>
+  <text x="602" y="366" text-anchor="middle" class="small">This is where the Todo List interface starts</text>
+
+  <rect x="882" y="220" width="220" height="150" rx="22" class="screen"/>
+  <text x="992" y="266" text-anchor="middle" class="label">Todo List UI</text>
+  <text x="992" y="300" text-anchor="middle" class="body">Input</text>
+  <text x="992" y="328" text-anchor="middle" class="body">List rendering</text>
+  <text x="992" y="356" text-anchor="middle" class="body">Completion state</text>
+
+  <path d="M322 296H490" class="arrow"/>
+  <path d="M712 296H880" class="arrow"/>
+
+  <text x="602" y="492" text-anchor="middle" class="small">Start by understanding the path from app entry to interface output. That makes Vue feel less magical.</text>
+</svg>

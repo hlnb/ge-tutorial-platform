@@ -1059,6 +1059,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/first-vue-app-with-vite': RouteRecordInfo<
+      '/tutorials/intermediate/first-vue-app-with-vite',
+      '/tutorials/intermediate/first-vue-app-with-vite',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/flexbox-for-real-layouts': RouteRecordInfo<
       '/tutorials/intermediate/flexbox-for-real-layouts',
       '/tutorials/intermediate/flexbox-for-real-layouts',
@@ -1202,6 +1209,13 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/intermediate/think-about-layouts': RouteRecordInfo<
       '/tutorials/intermediate/think-about-layouts',
       '/tutorials/intermediate/think-about-layouts',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/using-bulma-in-a-vue-project': RouteRecordInfo<
+      '/tutorials/intermediate/using-bulma-in-a-vue-project',
+      '/tutorials/intermediate/using-bulma-in-a-vue-project',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -2184,6 +2198,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/intermediate/first-vue-app-with-vite.vue': {
+      routes:
+        | '/tutorials/intermediate/first-vue-app-with-vite'
+      views:
+        | never
+    }
     'src/pages/tutorials/intermediate/flexbox-for-real-layouts.vue': {
       routes:
         | '/tutorials/intermediate/flexbox-for-real-layouts'
@@ -2307,6 +2327,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/think-about-layouts.vue': {
       routes:
         | '/tutorials/intermediate/think-about-layouts'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/using-bulma-in-a-vue-project.vue': {
+      routes:
+        | '/tutorials/intermediate/using-bulma-in-a-vue-project'
       views:
         | never
     }

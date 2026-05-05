@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">How index.html acts as an entry point in a Vite project</title>
+  <desc id="desc">A diagram shows index.html at the project root pointing into the source folder, where the main JavaScript file starts the application code.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #52606d; }
+      .label { font-size: 22px; font-weight: 700; }
+      .body { font-size: 17px; fill: #486581; }
+      .small { font-size: 15px; fill: #52606d; }
+      .shell { fill: #ffffff; stroke: #d9e2ec; stroke-width: 2; }
+      .file { fill: #e8f1fb; stroke: #7aa5d2; stroke-width: 2; }
+      .folder { fill: #eef7e8; stroke: #8fb27b; stroke-width: 2; }
+      .note { fill: #f7eadb; stroke: #c58a45; stroke-width: 2; }
+      .arrow { stroke: #7b8794; stroke-width: 4; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="620" fill="#f8fafb"/>
+  <rect x="58" y="50" width="984" height="520" rx="28" class="shell"/>
+  <text x="550" y="104" text-anchor="middle" class="title">Why `index.html` Sits Near the Root</text>
+  <text x="550" y="138" text-anchor="middle" class="subtitle">In a Vite project, the HTML entry points into the source code instead of feeling like a separate afterthought.</text>
+
+  <rect x="126" y="202" width="230" height="172" rx="24" class="file"/>
+  <text x="241" y="248" text-anchor="middle" class="label">index.html</text>
+  <text x="241" y="284" text-anchor="middle" class="body">Project entry page</text>
+  <text x="241" y="322" text-anchor="middle" class="small">Contains the app mount point</text>
+  <text x="241" y="344" text-anchor="middle" class="small">and the module script link</text>
+
+  <rect x="438" y="190" width="232" height="196" rx="24" class="folder"/>
+  <text x="554" y="236" text-anchor="middle" class="label">`/src`</text>
+  <text x="554" y="274" text-anchor="middle" class="body">Application source files</text>
+  <rect x="486" y="304" width="136" height="54" rx="12" class="file"/>
+  <text x="554" y="338" text-anchor="middle" class="body">main.js</text>
+
+  <rect x="752" y="202" width="230" height="172" rx="24" class="note"/>
+  <text x="867" y="248" text-anchor="middle" class="label">App starts here</text>
+  <text x="867" y="284" text-anchor="middle" class="body">Framework app, modules,</text>
+  <text x="867" y="308" text-anchor="middle" class="body">and component tree begin</text>
+  <text x="867" y="344" text-anchor="middle" class="small">This is why the HTML file feels</text>
+  <text x="867" y="366" text-anchor="middle" class="small">closer to the code graph in Vite.</text>
+
+  <path d="M356 288H436" class="arrow"/>
+  <path d="M670 288H750" class="arrow"/>
+</svg>

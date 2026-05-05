@@ -186,7 +186,11 @@ const projectRecords = [
     duration: '60 min',
     icon: 'fas fa-list-check',
     pathways: ['beginner', 'builder'],
-    relatedSections: ['html-basics', 'javascript-basics', 'dom-basics'],
+    relatedSections: ['html-basics', 'javascript-basics', 'dom-basics', 'frameworks-101'],
+    relatedTutorials: [
+      'intermediate/first-vue-app-with-vite',
+      'intermediate/using-bulma-in-a-vue-project',
+    ],
     tags: ['JavaScript', 'DOM', 'Lists'],
     pathwayOrder: 8,
   },

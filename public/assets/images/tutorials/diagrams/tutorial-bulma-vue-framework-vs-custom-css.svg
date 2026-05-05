@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" role="img" aria-labelledby="title desc">
+  <title id="title">Bulma classes compared with custom CSS responsibilities</title>
+  <desc id="desc">A comparison diagram shows which interface concerns Bulma can handle quickly and which concerns still belong to custom CSS and project-specific decisions.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #52606d; }
+      .label { font-size: 24px; font-weight: 700; }
+      .body { font-size: 17px; fill: #486581; }
+      .small { font-size: 15px; fill: #52606d; }
+      .panel { fill: #ffffff; stroke: #d9e2ec; stroke-width: 2; }
+      .a { fill: #eef7e8; stroke: #8fb27b; stroke-width: 2; }
+      .b { fill: #e8f1fb; stroke: #7aa5d2; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1100" height="620" fill="#f8fafb"/>
+  <text x="70" y="70" class="title">What Bulma Handles vs What You Still Decide</text>
+  <text x="70" y="102" class="subtitle">A CSS framework speeds up common UI structure, but project-specific design choices still need your own CSS thinking.</text>
+
+  <rect x="70" y="150" width="440" height="390" rx="24" class="a"/>
+  <text x="290" y="198" text-anchor="middle" class="label">Bulma handles quickly</text>
+  <text x="118" y="252" class="body">- common form and button structure</text>
+  <text x="118" y="296" class="body">- readable spacing defaults</text>
+  <text x="118" y="340" class="body">- layout groupings such as `field` and `control`</text>
+  <text x="118" y="384" class="body">- tags, notifications, boxes, and columns</text>
+  <text x="118" y="452" class="small">Good for speed, consistency, and reducing repetitive setup work.</text>
+
+  <rect x="590" y="150" width="440" height="390" rx="24" class="b"/>
+  <text x="810" y="198" text-anchor="middle" class="label">Custom CSS still matters</text>
+  <text x="638" y="252" class="body">- app-specific brand or tone</text>
+  <text x="638" y="296" class="body">- unusual interactions or states</text>
+  <text x="638" y="340" class="body">- spacing tweaks for your exact component rhythm</text>
+  <text x="638" y="384" class="body">- polish that makes the interface feel intentional</text>
+  <text x="638" y="452" class="small">Framework classes help you start. They do not remove the need for design judgment.</text>
+</svg>

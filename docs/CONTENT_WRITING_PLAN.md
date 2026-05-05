@@ -1,15 +1,15 @@
 # Content Writing Plan
 
 > Companion to `TUTORIAL_WRITING_SCHEDULE.md` — covers stubs, standalone projects, and display decisions.
-> Updated: 24 March 2026
+> Updated: 5 May 2026
 
 ---
 
 ## 1. Tutorial Stubs Needing Content
 
-### Already on the Writing Schedule (21 tutorials)
+### Already on the Writing Schedule (23 tutorials)
 
-These stubs are covered in `TUTORIAL_WRITING_SCHEDULE.md` with dates, source content, and time estimates. No action needed here — just follow that schedule.
+These stubs are covered in `TUTORIAL_WRITING_SCHEDULE.md` with dates, source content, and time estimates. Several of these have now been written, so treat the schedule as a progress tracker rather than assuming every item below is still pending.
 
 | Stub                                          | Schedule       |
 | --------------------------------------------- | -------------- |
@@ -20,12 +20,22 @@ These stubs are covered in `TUTORIAL_WRITING_SCHEDULE.md` with dates, source con
 | `intermediate/building-reusable-components`   | Week 3, Day 9  |
 | `intermediate/multi-page-structure`           | Week 3, Day 11 |
 | `intermediate/debug-broken-web-page`          | Week 4, Day 13 |
-| `intermediate/working-with-vite`              | Week 4, Day 14 |
+| `intermediate/working-with-vite`              | Week 4.5, Day 14 |
+| `intermediate/first-vue-app-with-vite`        | Week 4.5, Day 15 |
+| `intermediate/using-bulma-in-a-vue-project`   | Week 4.5, Day 16 |
 | `advanced/domains-dns-going-live`             | Week 5, Day 17 |
 | `advanced/do-you-need-a-cms`                  | Week 5, Day 18 |
-| `advanced/website-care-and-feeding`           | Week 5, Day 20 |
-| `advanced/accessibility-essentials`           | Week 5, Day 21 |
+| `advanced/website-care-and-feeding`           | Week 5, Day 22 |
+| `advanced/accessibility-essentials`           | Week 5, Day 23 |
 | BSB Parts 2–7                                 | Weeks 2–5      |
+
+### Reconciled current status
+
+- The core builder-path sequence is already written: `intermediate/think-about-layouts`, `intermediate/how-to-read-a-design`, `intermediate/breaking-layouts-into-sections`, `intermediate/building-reusable-components`, and `intermediate/multi-page-structure`.
+- The corresponding project applications are also already written through `intermediate/black-swan-bistro-part-4`.
+- `intermediate/debug-broken-web-page` is written.
+- The tooling bridge is now written through `intermediate/working-with-vite`, `intermediate/first-vue-app-with-vite`, and `intermediate/using-bulma-in-a-vue-project`.
+- The Vue and Bulma lessons use the existing Todo List project as the case-study bridge from framework theory into implementation.
 
 ### NOT on the Writing Schedule (decisioned from audit)
 
@@ -136,7 +146,7 @@ Each project should list which tutorials mention or build it:
 - `beginner/html-basics/html-images.vue` — Images tutorial, project demo links
 - `beginner/css-basics/index.vue` — CSS series index with starter links
 - `beginner/black-swan-bistro-part-1.vue` — Part 1 of 7-part build series
-- Parts 2–7 (to be written) — Progressive build across intermediate → advanced
+- Parts 2–4 written; Parts 5–7 still planned — Progressive build across intermediate → advanced
 
 **Rotto Rocks:**
 
@@ -199,6 +209,7 @@ The Hunter framework (AnticipatorySet, LearningObjectives, GuidedPractice, Check
 - [ ] Write tutorials per `TUTORIAL_WRITING_SCHEDULE.md`
 - [ ] After each tutorial that references a project, verify the cross-reference links work
 - [ ] Update this file as decisions are made
+- [ ] Keep `Working with Vite`, `First Vue App with Vite`, and `Using Bulma in a Vue Project` positioned after `Applied JavaScript`, `Working with Data`, and `Frameworks 101` so the bridge stays implementation-focused
 
 ### After writing schedule
 
@@ -269,6 +280,23 @@ These lessons should make the next step explicit:
 - `intermediate/black-swan-bistro-part-4`
 
 This is where students move from a single structured page into a site system.
+
+#### Tooling bridge — after intermediate JavaScript and framework context
+
+- `intermediate/applied-javascript`
+- `intermediate/working-with-data`
+- `intermediate/frameworks-101`
+- `intermediate/working-with-vite`
+- `intermediate/first-vue-app-with-vite`
+- `intermediate/using-bulma-in-a-vue-project`
+
+This block should sit here as an implementation-oriented bridge:
+
+- learners already understand interactive JavaScript and data flow
+- learners already understand why frameworks exist and what tradeoffs they introduce
+- Vite can then be taught clearly as the dev/build tool around modern frontend projects, including framework-based ones, without turning the lesson into a second frameworks introduction
+- Vue can be introduced as the first concrete framework example using an already-familiar project
+- Bulma can be introduced as a readable CSS framework layer that supports Vue templates without replacing CSS fundamentals
 
 ### Design-to-code post integration
 

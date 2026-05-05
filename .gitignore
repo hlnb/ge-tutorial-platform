@@ -30,4 +30,4 @@ posts/*.*
 \#\# SpecStory.md
 \#\#*.md
 /.specstory
-
+/.vite-ssg-temp/*

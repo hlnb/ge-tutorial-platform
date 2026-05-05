@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Vue reactivity flow for a todo list</title>
+  <desc id="desc">A diagram shows user input flowing into reactive state, then through template rendering into the visible todo list, with a loop back when the user interacts again.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #52606d; }
+      .step { font-size: 24px; font-weight: 700; }
+      .body { font-size: 17px; fill: #486581; }
+      .small { font-size: 15px; fill: #52606d; }
+      .panel { fill: #ffffff; stroke: #d9e2ec; stroke-width: 2; }
+      .a { fill: #e8f1fb; stroke: #7aa5d2; stroke-width: 2; }
+      .b { fill: #eef7e8; stroke: #8fb27b; stroke-width: 2; }
+      .c { fill: #f7eadb; stroke: #c58a45; stroke-width: 2; }
+      .arrow { stroke: #7b8794; stroke-width: 4; stroke-linecap: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="640" fill="#f8fafb"/>
+  <rect x="52" y="50" width="1096" height="540" rx="28" class="panel"/>
+  <text x="600" y="104" text-anchor="middle" class="title">Reactivity in Plain English</text>
+  <text x="600" y="138" text-anchor="middle" class="subtitle">User actions change state. Vue re-renders the template from that state.</text>
+
+  <rect x="115" y="238" width="220" height="140" rx="22" class="a"/>
+  <text x="225" y="284" text-anchor="middle" class="step">1. User action</text>
+  <text x="225" y="316" text-anchor="middle" class="body">Type a task</text>
+  <text x="225" y="344" text-anchor="middle" class="body">Click Add</text>
+
+  <rect x="490" y="220" width="220" height="176" rx="22" class="b"/>
+  <text x="600" y="268" text-anchor="middle" class="step">2. Reactive state</text>
+  <text x="600" y="302" text-anchor="middle" class="body">`newTask` changes</text>
+  <text x="600" y="330" text-anchor="middle" class="body">`todos` array updates</text>
+  <text x="600" y="366" text-anchor="middle" class="small">The data becomes the single source of truth</text>
+
+  <rect x="865" y="238" width="220" height="140" rx="22" class="c"/>
+  <text x="975" y="284" text-anchor="middle" class="step">3. Template output</text>
+  <text x="975" y="316" text-anchor="middle" class="body">List updates</text>
+  <text x="975" y="344" text-anchor="middle" class="body">Browser view changes</text>
+
+  <path d="M335 308H488" class="arrow"/>
+  <path d="M710 308H863" class="arrow"/>
+  <path d="M975 410C975 500 225 500 225 410" class="arrow" stroke-dasharray="10 10"/>
+  <text x="600" y="536" text-anchor="middle" class="small">The loop matters more than the syntax. Think: action → state → rendered UI.</text>
+</svg>

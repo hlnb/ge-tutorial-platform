@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Bulma layout map for a Vue todo list</title>
+  <desc id="desc">A diagram maps common parts of a todo list interface to Bulma structures such as section, container, box, field, control, input, button, and list-like grouped rows.</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .title { font-size: 34px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #52606d; }
+      .label { font-size: 22px; font-weight: 700; }
+      .body { font-size: 17px; fill: #486581; }
+      .small { font-size: 15px; fill: #52606d; }
+      .panel { fill: #ffffff; stroke: #d9e2ec; stroke-width: 2; }
+      .shell { fill: #eef7e8; stroke: #8fb27b; stroke-width: 2; }
+      .inner { fill: #e8f1fb; stroke: #7aa5d2; stroke-width: 2; }
+      .note { fill: #f7eadb; stroke: #c58a45; stroke-width: 2; }
+      .outline { stroke: #7b8794; stroke-width: 2.5; stroke-dasharray: 8 8; fill: none; }
+    </style>
+  </defs>
+  <rect width="1200" height="640" fill="#f8fafb"/>
+  <text x="70" y="70" class="title">Mapping the Todo List to Bulma</text>
+  <text x="70" y="102" class="subtitle">Bulma helps you express interface structure quickly, but you still decide the component shape.</text>
+
+  <rect x="70" y="150" width="610" height="420" rx="26" class="panel"/>
+  <rect x="120" y="198" width="510" height="324" rx="22" class="shell"/>
+  <text x="375" y="228" text-anchor="middle" class="label">`section` → `container` → `box`</text>
+  <rect x="170" y="266" width="220" height="44" rx="12" class="inner"/>
+  <text x="280" y="294" text-anchor="middle" class="body">Title</text>
+  <rect x="170" y="332" width="300" height="48" rx="12" class="inner"/>
+  <text x="320" y="362" text-anchor="middle" class="body">`field has-addons`</text>
+  <rect x="182" y="394" width="248" height="40" rx="10" class="inner"/>
+  <text x="306" y="420" text-anchor="middle" class="small">Todo row 1</text>
+  <rect x="182" y="446" width="248" height="40" rx="10" class="inner"/>
+  <text x="306" y="472" text-anchor="middle" class="small">Todo row 2</text>
+  <rect x="452" y="394" width="128" height="92" rx="14" class="note"/>
+  <text x="516" y="430" text-anchor="middle" class="small">Actions</text>
+  <text x="516" y="454" text-anchor="middle" class="small">buttons,</text>
+  <text x="516" y="478" text-anchor="middle" class="small">tags, states</text>
+
+  <rect x="740" y="190" width="380" height="350" rx="26" class="panel"/>
+  <text x="930" y="236" text-anchor="middle" class="label">Typical Bulma choices</text>
+  <text x="780" y="284" class="body">
+    <tspan x="780" dy="0">Page wrapper → `section` and</tspan>
+    <tspan x="780" dy="24">`container`</tspan>
+  </text>
+  <text x="780" y="324" class="body">App shell → `box`</text>
+  <text x="780" y="372" class="body">
+    <tspan x="780" dy="0">Input row → `field`, `control`,</tspan>
+    <tspan x="780" dy="24">`input`, `button`</tspan>
+  </text>
+  <text x="780" y="404" class="body">Status labels → `tag`</text>
+  <text x="780" y="460" class="body">
+    <tspan x="780" dy="0">Spacing and grouping → Bulma</tspan>
+    <tspan x="780" dy="24">helpers plus custom CSS</tspan>
+  </text>
+  <text x="780" y="528" class="small">
+    <tspan x="780" dy="0">Bulma gives structure quickly. Your Vue state</tspan>
+    <tspan x="780" dy="21">and app logic still do the real app work.</tspan>
+  </text>
+</svg>
