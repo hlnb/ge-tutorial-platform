@@ -1670,7 +1670,14 @@ const profilePageAdvancedExample = ref(`/* Personal Profile Page — Advanced Ch
 }
 
 .opacity-demo {
-	background-image: url('/images/checkerboard.png');
+	background-color: #ffffff;
+	background-image:
+		linear-gradient(45deg, #d9e2ec 25%, transparent 25%),
+		linear-gradient(-45deg, #d9e2ec 25%, transparent 25%),
+		linear-gradient(45deg, transparent 75%, #d9e2ec 75%),
+		linear-gradient(-45deg, transparent 75%, #d9e2ec 75%);
+	background-size: 24px 24px;
+	background-position: 0 0, 0 12px, 12px -12px, -12px 0;
 	background-repeat: repeat;
 }
 

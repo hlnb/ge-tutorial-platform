@@ -14,12 +14,12 @@ sandbox_mode = "workspace-write"
 web_search = true
 
 [profiles.deep-review]
-model = "gpt-5-pro"
+model = "gpt-5.5"
 model_reasoning_effort = "high"
 approval_policy = "untrusted"
 
 [profiles.quick-edit]
-model = "gpt-5"
+model = "gpt-5.5"
 model_reasoning_effort = "low"
 approval_policy = "untrusted"
 
