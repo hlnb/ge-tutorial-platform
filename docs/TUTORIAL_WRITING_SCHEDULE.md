@@ -1,106 +1,264 @@
 # Tutorial Writing Schedule
 
-> 23 tutorials · 1–2 per day · Start date: 25 March 2026
-> Reconciled: 5 May 2026
+Tracks the build status of all tutorial sections and individual tutorials in the GraphiteEdge pathway. Updated against `src/data/tutorials.js` and the page files in `src/pages/tutorials/`.
 
-Use the checkboxes to track your progress. Tick each tutorial once committed to the repo.
-
----
-
-## Week 1 — Foundation & Beginner (easiest wins first)
-
-| Day | Date   | Tutorial                                       | Slug                                              | Time   | Source Content                                        | Done |
-| --- | ------ | ---------------------------------------------- | ------------------------------------------------- | ------ | ----------------------------------------------------- | ---- |
-| 1   | 25 Mar | Files, Folders & Project Structure             | `getting-started/files-folders-project-structure` | 20 min | Write from scratch                                    | [x]  |
-| 2   | 26 Mar | Why Your CSS Isn't Working (And How to Fix It) | `beginner/why-your-css-isnt-working`              | 30 min | Partial — `responsive-design` post                    | [x]  |
-| 3   | 27 Mar | From Idea to Live Website                      | `beginner/idea-to-live-website`                   | 25 min | Seed from `internet-everywhere` + `javascript-basics` | [x]  |
-| 4   | 28 Mar | Black Swan Bistro — Part 1 (First Web Page)    | `beginner/black-swan-bistro-part-1`               | 60 min | Adapt from `build-first-web-page` post                | [x]  |
+Last updated: May 2026
 
 ---
 
-## Week 2 — Builder Path (design-to-code post carries you)
+## Status codes
 
-| Day | Date   | Tutorial                                       | Slug                                          | Time   | Source Content                          | Done |
-| --- | ------ | ---------------------------------------------- | --------------------------------------------- | ------ | --------------------------------------- | ---- |
-| 5   | 31 Mar | How to Think About Layouts                     | `intermediate/think-about-layouts`            | 30 min | Write from scratch                      | [x]  |
-| 6   | 1 Apr  | How to Read a Design                           | `intermediate/how-to-read-a-design`           | 35 min | Strong — `design-to-code` post          | [x]  |
-| 7   | 2 Apr  | Breaking Layouts into Sections                 | `intermediate/breaking-layouts-into-sections` | 30 min | Strong — `design-to-code` post (Step 1) | [x]  |
-| 8   | 3 Apr  | Black Swan Bistro (BSB) Part 2: Build the Homepage Wireframe Layout with CSS | `intermediate/black-swan-bistro-part-2`       | 60 min | Write from scratch (applies Days 5–7)   | [x]  |
-
-Builder-path intent for this week:
-
-- Day 5 teaches layout thinking before code
-- Day 6 teaches how to read spacing, colour, hierarchy, and structure from a design
-- Day 7 teaches how to translate that design into page sections
-- Day 8 applies those ideas in Black Swan Bistro with reusable CSS patterns
-
-Tooling emphasis for the builder path:
-
-- use Flexbox for simple one-dimensional alignment such as nav bars and header/footer layouts
-- use Grid when learners meet repeated two-dimensional layouts such as card groups and galleries
-- keep the main focus on layout decisions and design thinking, not syntax overload
+- ✅ Complete — page file exists and content is written
+- 🔵 In progress — page file exists, content being written
+- 🟡 Config only — page file exists, hidden in `tutorials.js` (`hiddenFromCurriculum: true`)
+- 🔴 Not started — no page file exists yet
+- ➕ Addition — small addition needed to an existing tutorial (not a new page)
 
 ---
 
-## Week 3 — Components & Multi-page
+## Getting Started
 
-| Day | Date   | Tutorial                                     | Slug                                        | Time   | Source Content                            | Done |
-| --- | ------ | -------------------------------------------- | ------------------------------------------- | ------ | ----------------------------------------- | ---- |
-| 9   | 7 Apr  | Building Reusable Components                 | `intermediate/building-reusable-components` | 40 min | Moderate — `design-to-code` post (Step 2) | [x]  |
-| 10  | 8 Apr  | Black Swan Bistro — Part 3 (Components)      | `intermediate/black-swan-bistro-part-3`     | 55 min | Write from scratch (applies Day 9)        | [x]  |
-| 11  | 9 Apr  | Multi-page Structure                         | `intermediate/multi-page-structure`         | 35 min | Write from scratch                        | [x]  |
-| 12  | 10 Apr | Black Swan Bistro — Part 4 (Multi-page Site) | `intermediate/black-swan-bistro-part-4`     | 65 min | Write from scratch (applies Day 11)       | [x]  |
-
----
-
-## Week 4 — Debugging, Tooling & Deployment
-
-| Day | Date   | Tutorial                                            | Slug                                 | Time   | Source Content              | Done |
-| --- | ------ | --------------------------------------------------- | ------------------------------------ | ------ | --------------------------- | ---- |
-| 13  | 14 Apr | How to Debug a Broken Web Page                      | `intermediate/debug-broken-web-page` | 35 min | Write from scratch          | [x]  |
-
-Sequence adjustment:
-
-- `intermediate/working-with-vite` no longer belongs in the middle of the builder-to-deployment jump.
-- Write it after learners complete `Applied JavaScript`, `Working with Data`, and `Frameworks 101`.
-- Treat it as a tooling extension lesson: Vite explains the dev/build workflow around modern frontend projects, not the conceptual introduction to frameworks.
-
-## Week 4.5 — Modern Frontend Tooling Bridge
-
-| Day | Date | Tutorial | Slug | Time | Source Content | Done |
-| --- | ---- | -------- | ---- | ---- | -------------- | ---- |
-| 14  | TBD  | Working with Vite | `intermediate/working-with-vite` | 35 min | Write from scratch after `Applied JavaScript`, `Working with Data`, and `Frameworks 101` | [x] |
-| 15  | TBD  | First Vue App with Vite | `intermediate/first-vue-app-with-vite` | 45 min | Write from scratch using the existing Todo List project as the case study | [x] |
-| 16  | TBD  | Using Bulma in a Vue Project | `intermediate/using-bulma-in-a-vue-project` | 40 min | Write from scratch using the existing Todo List project as the styling case study | [x] |
-
-Bridge-path intent for this block:
-
-- Day 14 explains the tooling layer around modern frontend projects
-- Day 15 introduces the shape of a small Vue application using an already-familiar project
-- Day 16 shows how a CSS framework such as Bulma can speed up interface structure without replacing CSS understanding
+| Tutorial | File | Status |
+|---|---|---|
+| How the Web Actually Works | `getting-started/how-internet-works.vue` | ✅ Complete |
+| Web Development Basics | `getting-started/web-basics.vue` | ✅ Complete |
+| Domains, DNS, and Hosting | `getting-started/domain-hosting.vue` | ✅ Complete |
+| Files, Folders, and Project Structure | `getting-started/files-folders-project-structure.vue` | ✅ Complete |
+| Text Editors and VS Code | `getting-started/text-editors.vue` | ✅ Complete |
+| Setting Up Your Development Environment | `getting-started/dev-environment.vue` | ✅ Complete |
+| Browser Development Tools | `getting-started/browser-tools.vue` | ✅ Complete |
+| Copyright, Licensing, and Attribution | — | 🔴 Not started |
 
 ---
 
-## Week 5 — Advanced & Maintenance
+## HTML Basics
 
-| Day | Date   | Tutorial                                        | Slug                                | Time   | Source Content                                                      | Done |
-| --- | ------ | ----------------------------------------------- | ----------------------------------- | ------ | ------------------------------------------------------------------- | ---- |
-| 17  | 21 Apr | Black Swan Bistro — Part 5 (Prepare for Deployment) | `advanced/black-swan-bistro-part-5`  | 45 min | Seed from `git-basics` post | [ ]  |
-| 18  | 22 Apr | Black Swan Bistro — Part 6 (Deploy the Site)        | `advanced/black-swan-bistro-part-6`  | 50 min | Seed from `git-basics` post | [ ]  |
-| 19  | 23 Apr | Domains, DNS & Going Live                       | `advanced/domains-dns-going-live`   | 35 min | Strong — `dns-web-browsing` post                                    | [ ]  |
-| 20  | 24 Apr | Do You Actually Need a CMS?                     | `advanced/do-you-need-a-cms`        | 25 min | Write from scratch                                                  | [ ]  |
-| 21  | 25 Apr | Black Swan Bistro — Part 7 (Maintain & Improve) | `advanced/black-swan-bistro-part-7` | 40 min | Seed from `web-performance-optimization` post                       | [ ]  |
-| 22  | 28 Apr | Website Care and Feeding                        | `advanced/website-care-and-feeding` | 30 min | Strong — `web-performance-optimization` + `web-security-essentials` | [ ]  |
-| 23  | 29 Apr | Accessibility Essentials                        | `advanced/accessibility-essentials` | 40 min | Write from scratch                                                  | [ ]  |
+| Tutorial | File | Status |
+|---|---|---|
+| Introduction to HTML | `beginner/html-basics/introduction.vue` | ✅ Complete |
+| Your First HTML Page | `beginner/html-basics/html-first-page.vue` | ✅ Complete |
+| Working with Text | `beginner/html-basics/html-text.vue` | ✅ Complete |
+| Links and Navigation | `beginner/html-basics/html-links.vue` | ✅ Complete |
+| Working with Images | `beginner/html-basics/html-images.vue` | ✅ Complete |
+| Document Structure | `beginner/html-basics/html-doc-structure.vue` | ✅ Complete |
+| HTML Forms | `beginner/html-basics/html-forms.vue` | ✅ Complete |
+| Emmet Workflow | `beginner/html-basics/html-emmet.vue` | ✅ Complete |
+
+**Small additions needed:**
+- ➕ `html-images.vue` — add alt text/accessibility callout
+- ➕ `html-text.vue` — add writing-for-the-web note (heading hierarchy, plain language)
 
 ---
 
-## Notes
+## CSS Basics
 
-- **Weekends skipped** in the schedule (Sat/Sun).
-- Each tutorial page already exists as a placeholder at `src/pages/tutorials/{slug}.vue`.
-- All slugs are mapped in `src/data/tutorials.js`.
-- Blog posts that can be adapted live in `src/pages/posts/`.
-- The pattern for each concept → project pair: write the concept tutorial first, then write the BSB project part that applies it.
-- `Working with Vite`, `First Vue App with Vite`, and `Using Bulma in a Vue Project` are intentionally sequenced after the existing intermediate JavaScript and framework lessons so the bridge can stay focused on implementation and tooling rather than framework theory alone.
-- See `docs/TUTORIAL_STRUCTURE.md` for the Hunter component template to follow.
+| Tutorial | File | Status |
+|---|---|---|
+| Introduction to CSS | `beginner/css-basics/introduction.vue` | ✅ Complete |
+| Selectors and Properties | `beginner/css-basics/selectors.vue` | ✅ Complete |
+| Colors and Typography | `beginner/css-basics/colors.vue` | ✅ Complete |
+| Box Model | `beginner/css-basics/box-model.vue` | ✅ Complete |
+| Layout Fundamentals | `beginner/css-basics/layout.vue` | ✅ Complete |
+| Flexbox Basics | `beginner/css-basics/flexbox.vue` | ✅ Complete |
+| Responsive Design | `beginner/css-basics/responsive.vue` | ✅ Complete |
+| Modern CSS Features | `beginner/css-basics/modern.vue` | ✅ Complete |
+| CSS Text | `beginner/css-basics/text.vue` | ✅ Complete |
+| Why Your CSS Isn't Working | `beginner/why-your-css-isnt-working.vue` | ✅ Complete |
+
+**Small additions needed:**
+- ➕ `colors.vue` — add colour contrast/accessibility callout
+
+---
+
+## JavaScript Basics
+
+| Tutorial | File | Status |
+|---|---|---|
+| Getting Started | `beginner/javascript-basics/introduction.vue` | ✅ Complete |
+| Variables and Data Types | `beginner/javascript-basics/variables-data-types.vue` | ✅ Complete |
+| Operators | `beginner/javascript-basics/operators.vue` | ✅ Complete |
+| Conditionals | `beginner/javascript-basics/conditionals.vue` | ✅ Complete |
+| Loops | `beginner/javascript-basics/loops.vue` | ✅ Complete |
+| Functions | `beginner/javascript-basics/functions.vue` | ✅ Complete |
+
+---
+
+## DOM Basics
+
+| Tutorial | File | Status |
+|---|---|---|
+| Introduction to DOM | `beginner/dom-basics/introduction.vue` | ✅ Complete |
+| Arrays and Methods | `beginner/dom-basics/arrays.vue` | ✅ Complete |
+| DOM Manipulation | `beginner/dom-basics/dom-manipulation.vue` | ✅ Complete |
+| Event Handling | `beginner/dom-basics/dom-events.vue` | ✅ Complete |
+| Advanced Events | `beginner/dom-basics/advanced-events.vue` | ✅ Complete |
+| DOM Traversal | `beginner/dom-basics/dom-traversal.vue` | ✅ Complete |
+| Dynamic Content | `beginner/dom-basics/dynamic-content.vue` | ✅ Complete |
+
+---
+
+## Black Swan Bistro — Beginner
+
+| Tutorial | File | Status |
+|---|---|---|
+| BSB Part 1: First Page | `beginner/black-swan-bistro-part-1.vue` | ✅ Complete |
+
+---
+
+## Applied JavaScript
+
+| Tutorial | File | Status |
+|---|---|---|
+| State and UI Thinking | `intermediate/applied-javascript/state-and-ui-thinking.vue` | ✅ Complete |
+| Rendering Repeated Content | `intermediate/applied-javascript/rendering-repeated-content.vue` | ✅ Complete |
+| Forms, Validation, and User Feedback | `intermediate/applied-javascript/forms-validation-feedback.vue` | ✅ Complete |
+| Events at Scale | `intermediate/applied-javascript/events-at-scale.vue` | ✅ Complete |
+| Objects for Real Features | `intermediate/applied-javascript/objects-for-real-features.vue` | ✅ Complete |
+| Debugging Interactive JavaScript | `intermediate/applied-javascript/debugging-interactive-javascript.vue` | ✅ Complete |
+| Refactoring for Reuse | `intermediate/applied-javascript/refactoring-for-reuse.vue` | ✅ Complete |
+| Capstone Feature Build | `intermediate/applied-javascript/capstone-feature-build.vue` | ✅ Complete |
+
+---
+
+## Working with Data
+
+All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
+
+| Tutorial | File | Status |
+|---|---|---|
+| Introduction to Async JavaScript | `intermediate/working-with-data/async-javascript.vue` | ✅ Complete |
+| fetch() and the Request/Response Cycle | `intermediate/working-with-data/fetch-api.vue` | ✅ Complete |
+| Working with JSON | `intermediate/working-with-data/working-with-json.vue` | ✅ Complete |
+| async/await Patterns | `intermediate/working-with-data/async-await.vue` | ✅ Complete |
+| Mini-project: Fetch and Display Live Data | `intermediate/working-with-data/mini-project.vue` | ✅ Complete |
+
+---
+
+## Design to Code (Builder Path)
+
+| Tutorial | File | Status |
+|---|---|---|
+| How to Think About Layouts | `intermediate/think-about-layouts.vue` | ✅ Complete |
+| How to Read a Design | `intermediate/how-to-read-a-design.vue` | ✅ Complete |
+| Breaking Layouts into Sections | `intermediate/breaking-layouts-into-sections.vue` | ✅ Complete |
+| BSB Part 2: Homepage Wireframe Layout | `intermediate/black-swan-bistro-part-2.vue` | ✅ Complete |
+| CSS Systems for Reusable Sections | `intermediate/css-systems-for-reusable-sections.vue` | ✅ Complete |
+| Flexbox for Real Layouts | `intermediate/flexbox-for-real-layouts.vue` | ✅ Complete |
+| Building Reusable Components | `intermediate/building-reusable-components.vue` | ✅ Complete |
+| BSB Part 3: Refactor Patterns | `intermediate/black-swan-bistro-part-3.vue` | ✅ Complete |
+| CSS Grid for Repeated Layouts | `intermediate/css-grid-for-repeated-layouts.vue` | ✅ Complete |
+| Responsive Refinement for Reusable Components | `intermediate/responsive-refinement-for-reusable-components.vue` | ✅ Complete |
+| Multi-page Structure | `intermediate/multi-page-structure.vue` | ✅ Complete |
+| BSB Part 4: Multi-page Site | `intermediate/black-swan-bistro-part-4.vue` | ✅ Complete |
+| Cascade, Specificity, and Debugging CSS | `intermediate/cascade-specificity-and-debugging-css.vue` | ✅ Complete |
+| Styling Details: Selectors, Pseudo-elements, and Motion | `intermediate/styling-details-selectors-pseudo-elements-and-motion.vue` | ✅ Complete |
+| BSB Part 4B: Polish and Refine | `intermediate/black-swan-bistro-part-4b-polish-and-refine.vue` | ✅ Complete |
+| How to Debug a Broken Web Page | `intermediate/debug-broken-web-page.vue` | ✅ Complete |
+| Test and Validate Your Site | — | 🔴 Not started |
+
+---
+
+## Git Basics
+
+| Tutorial | File | Status |
+|---|---|---|
+| Introduction to Git | `intermediate/git-basics/introduction.vue` | ✅ Complete |
+| Installation | `intermediate/git-basics/installation.vue` | ✅ Complete |
+| Basic Commands | `intermediate/git-basics/basic-commands.vue` | ✅ Complete |
+| Workflow | `intermediate/git-basics/workflow.vue` | ✅ Complete |
+| Branching | `intermediate/git-basics/branching.vue` | ✅ Complete |
+| Merging | `intermediate/git-basics/merging.vue` | ✅ Complete |
+| Remote Repositories | `intermediate/git-basics/remote-repositories.vue` | ✅ Complete |
+| Conclusion | `intermediate/git-basics/conclusion.vue` | ✅ Complete |
+
+---
+
+## Frameworks 101
+
+| Tutorial | File | Status |
+|---|---|---|
+| What Is a Framework, Really? | `intermediate/frameworks-101/what-is-a-framework-really.vue` | ✅ Complete |
+| Why JavaScript Frameworks Exist | `intermediate/frameworks-101/why-javascript-frameworks-exist.vue` | ✅ Complete |
+| Why CSS Frameworks Exist | `intermediate/frameworks-101/why-css-frameworks-exist.vue` | ✅ Complete |
+| Framework Tradeoffs and Costs | `intermediate/frameworks-101/framework-tradeoffs-and-costs.vue` | ✅ Complete |
+| How to Evaluate a Framework Without Panic | `intermediate/frameworks-101/how-to-evaluate-a-framework.vue` | ✅ Complete |
+
+---
+
+## Vue Introduction (Standalone)
+
+| Tutorial | File | Status |
+|---|---|---|
+| Working with Vite | `intermediate/working-with-vite.vue` | ✅ Complete |
+| First Vue App with Vite | `intermediate/first-vue-app-with-vite.vue` | 🔵 In progress |
+| Using Bulma in a Vue Project | `intermediate/using-bulma-in-a-vue-project.vue` | 🔵 In progress |
+
+---
+
+## Deployment Path
+
+| Tutorial | File | Status |
+|---|---|---|
+| Static vs Dynamic Sites | `deployments/static-vs-dynamic.vue` | 🟡 Config only — unhide in tutorials.js |
+| Hosting and Deployment (Vercel/Netlify) | `deployments/vercel-netlify.vue` | 🟡 Config only — unhide in tutorials.js |
+| Domains, DNS, and Going Live | `advanced/domains-dns-going-live.vue` | ✅ Complete |
+| BSB Part 5: Prepare to Deploy | `advanced/black-swan-bistro-part-5.vue` | ✅ Complete |
+| BSB Part 6 | `advanced/black-swan-bistro-part-6.vue` | ✅ Complete |
+| BSB Part 7 | `advanced/black-swan-bistro-part-7.vue` | ✅ Complete |
+
+---
+
+## SEO and Analytics
+
+| Tutorial | File | Status |
+|---|---|---|
+| SEO Fundamentals / On-page SEO | `seo-analytics/on-page-seo.vue` | 🟡 Config only — unhide in tutorials.js |
+| Analytics Setup | `seo-analytics/analytics-setup.vue` | 🟡 Config only — unhide in tutorials.js |
+
+---
+
+## Advanced / Standalone
+
+| Tutorial | File | Status |
+|---|---|---|
+| Accessibility Essentials | `advanced/accessibility-essentials.vue` | ✅ Complete |
+| Do You Actually Need a CMS? | `advanced/do-you-need-a-cms.vue` | ✅ Complete |
+| Website Care and Feeding | `advanced/website-care-and-feeding.vue` | ✅ Complete |
+
+---
+
+## Capstone — Rotto Rocks
+
+| Tutorial | File | Status |
+|---|---|---|
+| Capstone Index | `capstone/index.vue` | ✅ Complete |
+| Capstone Spec | `capstone/spec.vue` | 🔴 Needs real content — currently a placeholder |
+
+---
+
+## Remaining build list
+
+### Tutorials to write (new page files needed)
+
+| Priority | Tutorial | Section | Notes |
+|---|---|---|---|
+| 1 | Test and Validate Your Site | Design to Code | W3C validator, Lighthouse, browser testing, pre-launch QA. Sits between BSB Part 4B and BSB Part 5. |
+| 2 | Copyright, Licensing, and Attribution | Getting Started | Creative Commons, image sources, code licensing, attribution practice. Closes ICTICT418/ICTICT532. |
+| 3 | Rotto Rocks Capstone Spec | Capstone | Replace placeholder with real project brief. |
+
+### Config-only tasks (no writing needed)
+
+| Task | File to edit |
+|---|---|
+| Unhide Static vs Dynamic Sites | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
+| Unhide Hosting and Deployment | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
+| Unhide SEO Fundamentals | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
+| Unhide Analytics Setup | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
+
+### Small additions to existing tutorials
+
+| Tutorial | Addition |
+|---|---|
+| Working with Images (`html-images.vue`) | Brief accessibility callout on alt text — why it matters, how to write it well |
+| Colors and Typography (`colors.vue`) | Colour contrast note — WCAG AA minimum ratio, how to check |
+| Working with Text (`html-text.vue`) | Writing-for-the-web note — heading hierarchy, scannable content, plain language |
