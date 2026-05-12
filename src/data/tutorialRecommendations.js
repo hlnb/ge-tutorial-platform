@@ -59,6 +59,107 @@ const legacyTutorialEditorialContent = {
 				},
 			],
 		},
+		'copyright-licensing-attribution': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'Australian Government: Copyright basics',
+					url: 'https://www.ag.gov.au/rights-and-protections/copyright/copyright-basics',
+					description:
+						'Official Australian Government overview of copyright, rights, duration, and exceptions.',
+				},
+				{
+					title: 'Creative Commons Licences',
+					url: 'https://creativecommons.org/share-your-work/use-remix/cc-licenses/',
+					description:
+						'Official explanation of Creative Commons licence conditions and licence types.',
+				},
+				{
+					title: 'Google Search Help: Find images you can use and share',
+					url: 'https://support.google.com/websearch/answer/29508',
+					description:
+						'How to use Google Images usage-rights filters and confirm licence details.',
+				},
+				{
+					title: 'DuckDuckGo Help: Image Licenses',
+					url: 'https://duckduckgo.com/duckduckgo-help-pages/features/image-license/',
+					description:
+						'How DuckDuckGo image licence filters work and why source checking still matters.',
+				},
+				{
+					title: 'Microsoft Support: Filter images by license type',
+					url: 'https://support.microsoft.com/en-us/bing/filter-images-by-license-type',
+					description:
+						'How Bing image licence filters work, including share, commercial, and modification options.',
+				},
+				{
+					title: 'Unsplash License',
+					url: 'https://unsplash.com/license',
+					description:
+						'Official Unsplash licence terms for using photos in personal and commercial projects.',
+				},
+				{
+					title: 'Pexels License',
+					url: 'https://www.pexels.com/license/',
+					description:
+						'Official Pexels licence terms for free photos and videos.',
+				},
+				{
+					title: 'Openverse',
+					url: 'https://openverse.org/',
+					description:
+						'Search engine for openly licensed and public-domain images and audio.',
+				},
+				{
+					title: 'Wikimedia Commons: Reusing content',
+					url: 'https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia',
+					description:
+						'How to reuse Wikimedia Commons media and follow file-specific licence requirements.',
+				},
+				{
+					title: 'Library of Congress: Free to Use and Reuse',
+					url: 'https://www.loc.gov/free-to-use/',
+					description:
+						'Rights-free historical image sets from the Library of Congress.',
+				},
+				{
+					title: 'Smithsonian Open Access',
+					url: 'https://www.si.edu/openaccess',
+					description:
+						'Millions of Smithsonian collection items available through its open access program.',
+				},
+				{
+					title: 'NASA Image and Media Usage Guidelines',
+					url: 'https://www.nasa.gov/multimedia/guidelines/index.html',
+					description:
+						'Official NASA guidance for using images, video, audio, logos, and media.',
+				},
+				{
+					title: 'Trove: Copyright and Re-Use',
+					url: 'https://trove.nla.gov.au/help/copyright/copyright-and-re-use',
+					description:
+						'Australian guidance for checking item-level copyright and reuse status in Trove.',
+				},
+				{
+					title: 'U.S. Copyright Office: What is Copyright?',
+					url: 'https://www.copyright.gov/what-is-copyright/',
+					description:
+						'Official US guide to copyright protection, covered works, and basic rights.',
+				},
+				{
+					title: 'Your Europe: Copyright',
+					url: 'https://europa.eu/youreurope/business/running-business/intellectual-property/copyright/index_en.htm',
+					description:
+						'European Union guidance on copyright protection and where national rules still matter.',
+				},
+				{
+					title: 'WIPO Lex',
+					url: 'https://www.wipo.int/en/web/wipolex',
+					description:
+						'Global database for finding IP laws, treaties, and judgments by jurisdiction.',
+				},
+			],
+		},
 		'domain-hosting': {
 			practiceProjects: [],
 			resources: [
@@ -150,6 +251,21 @@ const legacyTutorialEditorialContent = {
 					title: 'MDN: HTML text fundamentals',
 					url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals',
 					description: 'Guide to HTML text elements',
+				},
+				{
+					title: 'GOV.UK: Writing for GOV.UK',
+					url: 'https://www.gov.uk/guidance/content-design/writing-for-gov-uk',
+					description: 'Practical guidance on writing clear, task-focused web content',
+				},
+				{
+					title: 'Nielsen Norman Group: How Users Read on the Web',
+					url: 'https://www.nngroup.com/articles/how-users-read-on-the-web/',
+					description: 'Research-backed explanation of why people scan web pages',
+				},
+				{
+					title: 'Nielsen Norman Group: Be Succinct',
+					url: 'https://www.nngroup.com/articles/be-succinct-writing-for-the-web/',
+					description: 'Guidelines for making web text shorter, clearer, and easier to scan',
 				},
 			],
 		},

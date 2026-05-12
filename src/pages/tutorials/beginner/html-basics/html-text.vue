@@ -49,11 +49,76 @@
 				:objectives="[
 					'Understand heading hierarchy (h1-h6) and why it matters for SEO and accessibility',
 					'Apply semantic text formatting elements (strong, em, mark) correctly',
+					'Write web content that is clear, scannable, and useful to readers',
 					'Create well-structured content with paragraphs and line breaks',
 					'Build organized lists (ordered, unordered, and description lists)'
 				]"
 				purpose="Text structure is the backbone of content on the web. Master this and you'll create websites that are easy to read, rank well in search engines, and are accessible to everyone—including people using screen readers."
 			/>
+
+			<div id="writing-for-web" class="box mt-4">
+				<h2 class="title is-3">
+					<i class="fas fa-pen-nib"></i> Writing for the Web
+				</h2>
+				<p>
+					Writing for websites is different from writing essays, reports, or
+					printed brochures. People rarely read web pages from top to bottom at
+					first. They scan headings, look for useful words, and decide quickly
+					whether the page answers their question.
+				</p>
+				<p>
+					Good web writing helps readers find their next step. It uses clear
+					headings, short paragraphs, meaningful lists, and plain language so
+					the page works for busy visitors, mobile readers, search engines, and
+					people using assistive technology.
+				</p>
+
+				<div class="web-writing-comparison mt-4">
+					<div class="writing-card is-print">
+						<h3 class="title is-5">Print-style writing</h3>
+						<p>
+							Welcome to our restaurant, where we are pleased to offer a wide
+							range of carefully prepared meals, beverages, and dining
+							experiences for guests who are looking for an enjoyable evening in
+							a warm and welcoming setting.
+						</p>
+					</div>
+					<div class="writing-card is-web">
+						<h3 class="title is-5">Web-ready writing</h3>
+						<h4>Book a Table at Black Swan Bistro</h4>
+						<p>Enjoy modern Australian food in a relaxed dining room.</p>
+						<ul>
+							<li>Dinner: Tuesday to Saturday</li>
+							<li>Sunday lunch available</li>
+							<li>Vegetarian options on every menu</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="notification is-info is-light mt-4">
+					<h3 class="title is-5">Why Web Writing Uses Structure</h3>
+					<ul>
+						<li>
+							<strong>Headings</strong> let readers and screen reader users jump
+							to the section they need.
+						</li>
+						<li>
+							<strong>Short paragraphs</strong> make content easier to read on
+							phones and small screens.
+						</li>
+						<li>
+							<strong>Lists</strong> turn dense information into quick decisions.
+						</li>
+						<li>
+							<strong>Specific link and button text</strong> tells people what
+							will happen next.
+						</li>
+					</ul>
+				</div>
+
+				<h3 class="title is-4 mt-5">Suggested HTML Pattern</h3>
+				<CodeMirror v-model="webWritingExample" :height="260" :readonly="true" />
+			</div>
 
 			<!-- Practice Options -->
 			<CodingOptions filename="text.html" class="mt-4 mb-2" />
@@ -295,63 +360,11 @@ Soups & Salads
 				</div>
 			</div>
 
-			<div class="box mt-6">
-				<h2 class="title is-3"><i class="fas fa-forward"></i> What's Next?</h2>
-
-				<div class="content">
-					<p>Great work! You've learned how to:</p>
-					<ul>
-						<li>Structure content with headings</li>
-						<li>Format text for emphasis and readability</li>
-						<li>Create organized lists</li>
-						<li>Build real-world page layouts</li>
-					</ul>
-
-					<p class="mt-4">In the next lessons, you'll learn about:</p>
-
-					<div class="columns mt-2">
-						<div class="column">
-							<div class="box has-background-primary-light">
-								<h4 class="title is-4"><i class="fas fa-link"></i> Links</h4>
-								<p>Connect your pages and link to external content</p>
-								<router-link
-									:to="'/tutorials/beginner/html-basics/html-links'"
-									class="button is-primary is-outlined mt-2"
-								>
-									Start Links Tutorial
-								</router-link>
-							</div>
-						</div>
-
-						<div class="column">
-							<div class="box has-background-info-light">
-								<h4 class="title is-4"><i class="fas fa-image"></i> Images</h4>
-								<p>Add visual content to make your pages engaging</p>
-								<router-link
-									:to="'/tutorials/beginner/html-basics/html-images'"
-									class="button is-info is-outlined mt-2"
-								>
-									Start Images Tutorial
-								</router-link>
-							</div>
-						</div>
-					</div>
-
-					<div class="notification is-success is-light mt-4">
-						<p>
-							<strong>Pro Tip:</strong> Practice what you've learned by updating
-							your restaurant menu or Rottnest activities page as you complete
-							the next tutorials. Try adding links to booking pages and images
-							of the food or activities!
-						</p>
-					</div>
-				</div>
-			</div>
 		</section>
 	</div>
-<TestYourKnowledgeSection
-          tutorial-path="/tutorials/beginner/html-basics/html-text"
-        />
+	<TestYourKnowledgeSection
+		tutorial-path="/tutorials/beginner/html-basics/html-text"
+	/>
 	<!-- Closure Section -->
 	<ClosureSection
 		title="🏁 Lesson Complete: You're a Text Master!"
@@ -362,10 +375,8 @@ Soups & Salads
 		next-steps="<p>In the next lesson, <strong>Working with Links</strong>, you'll learn how to connect pages together and create navigation—the foundation of the web itself!</p>"
 	/>
 
-	<!-- Add recommendations before the quiz -->
+	<!-- Add recommendations after the quiz and closure -->
 	<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-text'" />
-
-
 
 	<!-- Tutorial Completion -->
 	<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-text" />
@@ -455,6 +466,7 @@ const pageSections = inject('pageSections');
 onMounted(() => {
 	pageSections.value = [
 		{ id: 'concept', title: 'Concept Explanation' },
+		{ id: 'writing-for-web', title: 'Writing for the Web' },
 		{ id: 'black-swan', title: 'Black Swan Bistro Exercise' },
 		{
 			id: 'solutions',
@@ -473,6 +485,20 @@ const headingExample = ref(`<h1>Main Title</h1>
 <h4>Minor Section</h4>
 <h5>Small Heading</h5>
 <h6>Smallest Heading</h6>`);
+
+const webWritingExample = ref(`<section>
+  <h1>Black Swan Bistro</h1>
+  <p>Modern Australian food in a relaxed dining room.</p>
+
+  <h2>Plan Your Visit</h2>
+  <ul>
+    <li>Dinner: Tuesday to Saturday, 5:30pm-10pm</li>
+    <li>Sunday lunch: 12pm-3pm</li>
+    <li>Bookings recommended for groups of four or more</li>
+  </ul>
+
+  <p><strong>New:</strong> Winter Degustation Series starts this Friday.</p>
+</section>`);
 
 const formattingExample = ref(`<p><strong>Black Swan Bistro</strong></p>
 <p><em>Where elegance meets culinary excellence</em></p>
@@ -602,6 +628,31 @@ const explanation = ref(`
 	background: white;
 	min-height: 300px;
 	overflow-y: auto;
+}
+
+.web-writing-comparison {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1.25rem;
+}
+
+.writing-card {
+	padding: 1.25rem;
+	border: 1px solid #d8e4e8;
+	border-radius: 8px;
+	background: #ffffff;
+}
+
+.writing-card.is-print {
+	border-left: 4px solid #f59e0b;
+}
+
+.writing-card.is-web {
+	border-left: 4px solid #48c78e;
+}
+
+.writing-card ul {
+	margin-left: 1.25rem;
 }
 
 .is-sticky {

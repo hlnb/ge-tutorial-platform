@@ -25,7 +25,6 @@ export default defineConfig({
 			extensions: ['.vue'],
 			exclude: ['**/components/**', '**/layouts/**'],
 			dts: 'src/typed-router.d.ts',
-			watch: false,
 		}),
 		vue(),
 		// Custom plugin to serve admin HTML

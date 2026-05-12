@@ -877,6 +877,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/getting-started/copyright-licensing-attribution': RouteRecordInfo<
+      '/tutorials/getting-started/copyright-licensing-attribution',
+      '/tutorials/getting-started/copyright-licensing-attribution',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/getting-started/dev-environment': RouteRecordInfo<
       '/tutorials/getting-started/dev-environment',
       '/tutorials/getting-started/dev-environment',
@@ -2039,6 +2046,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/getting-started/browser-tools.vue': {
       routes:
         | '/tutorials/getting-started/browser-tools'
+      views:
+        | never
+    }
+    'src/pages/tutorials/getting-started/copyright-licensing-attribution.vue': {
+      routes:
+        | '/tutorials/getting-started/copyright-licensing-attribution'
       views:
         | never
     }
