@@ -1,8 +1,8 @@
-# AGENTS.md — GraphiteEdge
+# AGENTS.md — GraphitEdge
 
 ## Project purpose
 
-GraphiteEdge is a calm, credible web development education site.
+GraphitEdge is a calm, credible web development education site.
 It teaches how the web works end-to-end: design, code, deployment, security, structure, and ethical AI-assisted development.
 
 This is not a content farm.

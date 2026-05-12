@@ -4,7 +4,7 @@ const SITE_URL = 'https://www.graphitedge.com.au';
 
 export function useTutorialHead({ title, description, path, breadcrumbs, noindex = false }) {
   const fullUrl = `${SITE_URL}${path}`;
-  const fullTitle = `${title} – GraphiteEdge`;
+  const fullTitle = `${title} – GraphitEdge`;
 
   const script = breadcrumbs
     ? [

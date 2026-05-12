@@ -1,8 +1,8 @@
 // src/data/faqs.js
 export const generalFaqs = [
   {
-    question: 'What is GraphiteEdge?',
-    answer: 'GraphiteEdge is a learning platform dedicated to demystifying web development. We focus on teaching the full process, from understanding how the internet works to deploying and optimizing your websites.'
+    question: 'What is GraphitEdge?',
+    answer: 'GraphitEdge is a learning platform dedicated to demystifying web development. We focus on teaching the full process, from understanding how the internet works to deploying and optimizing your websites.'
   },
   {
     question: 'Who are these tutorials for?',

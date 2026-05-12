@@ -448,7 +448,7 @@
 						post where we'll explore JavaScript's core concepts and start
 						writing more complex code. In the meantime, have fun experimenting
 						with these examples and check out our other tutorials on
-						GraphiteEdge!
+						GraphitEdge!
 					</p>
 					<BlogSignup />
 				</div>
@@ -509,7 +509,7 @@ useHead({
 				author: { '@type': 'Person', name: 'Helen Burgess' },
 				publisher: {
 					'@type': 'Organization',
-					name: 'GraphiteEdge',
+					name: 'GraphitEdge',
 					url: 'https://www.graphitedge.com.au',
 				},
 				url: canonicalUrl,

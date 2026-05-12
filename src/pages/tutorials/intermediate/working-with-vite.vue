@@ -61,7 +61,7 @@ const guidedPracticeSteps = [
 	{
 		title: 'Step 1: Read the scripts before you run anything',
 		instructions:
-			'<p>Open a Vite-based project and inspect its <code>package.json</code> scripts first. Look for <code>dev</code>, <code>build</code>, and <code>preview</code>.</p><p>In GraphiteEdge, for example, <code>dev:vite</code> runs the Vite dev server, <code>preview</code> runs <code>vite preview</code>, and the project wraps Vite inside a wider app workflow.</p><p>Write one sentence explaining what each script is for before you execute it.</p>',
+			'<p>Open a Vite-based project and inspect its <code>package.json</code> scripts first. Look for <code>dev</code>, <code>build</code>, and <code>preview</code>.</p><p>In GraphitEdge, for example, <code>dev:vite</code> runs the Vite dev server, <code>preview</code> runs <code>vite preview</code>, and the project wraps Vite inside a wider app workflow.</p><p>Write one sentence explaining what each script is for before you execute it.</p>',
 		hints: [
 			'Do not treat scripts as magic labels. Read the command behind each one.',
 			'In larger projects, Vite may appear inside a more specific script name such as `dev:vite` rather than only `dev`.',
@@ -314,7 +314,7 @@ const closureReflectionPrompts = [
   }
 }</code></pre>
 				<p class="mt-3">
-					GraphiteEdge is a useful example because it shows that real projects often wrap
+					GraphitEdge is a useful example because it shows that real projects often wrap
 					Vite inside a broader workflow. The core tool is still there, but it may appear
 					through project-specific script names.
 				</p>
@@ -367,7 +367,7 @@ npm create vite@latest my-vue-app -- --template vue</code></pre>
 			<div class="notification is-warning is-light">
 				<p>
 					<strong>Version note:</strong> current Vite setup expects a modern Node version.
-					GraphiteEdge already standardises on Node 22.x, which fits that workflow well.
+					GraphitEdge already standardises on Node 22.x, which fits that workflow well.
 				</p>
 			</div>
 

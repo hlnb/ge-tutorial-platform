@@ -1,6 +1,6 @@
 # Content Writing Plan
 
-Covers non-tutorial written content for GraphiteEdge — blog posts, platform copy, and supporting resources. Separate from the tutorial writing schedule (`TUTORIAL_WRITING_SCHEDULE.md`).
+Covers non-tutorial written content for GraphitEdge — blog posts, platform copy, and supporting resources. Separate from the tutorial writing schedule (`TUTORIAL_WRITING_SCHEDULE.md`).
 
 Last updated: May 2026
 
@@ -19,20 +19,20 @@ Last updated: May 2026
 ### 1. Australian Training Package Alignment and RPL
 
 **Status:** Planned — not started  
-**Proposed title:** What Australian Web Development Qualifications Actually Cover — and How GraphiteEdge Lines Up  
+**Proposed title:** What Australian Web Development Qualifications Actually Cover — and How GraphitEdge Lines Up  
 **Alt title (RPL angle):** Can You Use Self-Directed Learning for a Web Dev Certificate IV RPL Application?
 
 **Audience:** Self-taught developers in Australia who want to understand how their skills map to formal qualifications, or who are considering an RPL application for ICT40120 or ICT50220.
 
-**Core argument:** GraphiteEdge tutorials cover the equivalent technical content of the web-focused units in the ICT Certificate IV in Information Technology (Web Development) and the ICT Diploma of Information Technology (Front End Web Development) — and go beyond them in several areas. This post shows exactly where, and explains what evidence an RPL applicant would need to demonstrate for each unit.
+**Core argument:** GraphitEdge tutorials cover the equivalent technical content of the web-focused units in the ICT Certificate IV in Information Technology (Web Development) and the ICT Diploma of Information Technology (Front End Web Development) — and go beyond them in several areas. This post shows exactly where, and explains what evidence an RPL applicant would need to demonstrate for each unit.
 
 **Sections:**
 - What RPL is and how it works in the Australian VET system
 - The units that matter — ICT40120 and ICT50220 web-focused units mapped out
 - What assessors look for: performance evidence, not just knowledge
-- How GraphiteEdge tutorials map to specific units (table)
+- How GraphitEdge tutorials map to specific units (table)
 - What a strong RPL portfolio looks like: project work, process documentation, reflective journals
-- What GraphiteEdge covers that qualifications don't (Git, deployment, system-level web understanding)
+- What GraphitEdge covers that qualifications don't (Git, deployment, system-level web understanding)
 - What's still needed beyond tutorials (supervised hours, workplace context where required)
 - Where to start if you're considering RPL
 
@@ -57,18 +57,18 @@ Last updated: May 2026
 
 **Estimated length:** 1,500–2,000 words  
 **Format:** Long-form blog post with a unit-to-tutorial mapping table as an embedded or linked resource  
-**Repurpose potential:** Could become a GraphiteEdge landing page; social posts pulling individual unit mappings
+**Repurpose potential:** Could become a GraphitEdge landing page; social posts pulling individual unit mappings
 
 ---
 
-### 2. How GraphiteEdge Teaches the Web as a System
+### 2. How GraphitEdge Teaches the Web as a System
 
 **Status:** Planned — not started  
 **Proposed title:** Why We Start with DNS, Not Divs  
 
-**Audience:** Prospective learners deciding between GraphiteEdge and other learning resources; developers who learned to code but don't fully understand how the web works.
+**Audience:** Prospective learners deciding between GraphitEdge and other learning resources; developers who learned to code but don't fully understand how the web works.
 
-**Core argument:** Most tutorials start with HTML. GraphiteEdge starts with how the web actually works — DNS, HTTP, hosting, the browser rendering pipeline — because building things you don't understand leads to problems you can't debug. This post explains the philosophy and why it matters in practice.
+**Core argument:** Most tutorials start with HTML. GraphitEdge starts with how the web actually works — DNS, HTTP, hosting, the browser rendering pipeline — because building things you don't understand leads to problems you can't debug. This post explains the philosophy and why it matters in practice.
 
 **Estimated length:** 800–1,000 words  
 **Format:** Blog post  
@@ -103,7 +103,7 @@ Several section landing pages may need their intro copy reviewed now that the pa
 
 ### About page
 
-The about page should reflect the qualification alignment positioning clearly — GraphiteEdge teaches to Diploma-equivalent level and beyond. Currently not written for this audience.
+The about page should reflect the qualification alignment positioning clearly — GraphitEdge teaches to Diploma-equivalent level and beyond. Currently not written for this audience.
 
 ---
 
@@ -111,7 +111,7 @@ The about page should reflect the qualification alignment positioning clearly �
 
 ### Unit-to-tutorial mapping table
 
-A standalone, printable/shareable reference mapping each ICT training package unit to the GraphiteEdge tutorials that cover it. Companion resource to the RPL blog post.
+A standalone, printable/shareable reference mapping each ICT training package unit to the GraphitEdge tutorials that cover it. Companion resource to the RPL blog post.
 
 **Format:** Could be a PDF download, a dedicated page on the site, or both.  
 **Status:** Not started — depends on the RPL blog post being written first.

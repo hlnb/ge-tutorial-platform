@@ -4,7 +4,7 @@ Status: partially current. This document describes the live tutorial system in t
 
 ## Current Overview
 
-GraphiteEdge tutorial pages are built on top of an existing shared tutorial system.
+GraphitEdge tutorial pages are built on top of an existing shared tutorial system.
 
 The core live pieces are:
 

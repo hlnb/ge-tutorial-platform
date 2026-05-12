@@ -129,12 +129,12 @@
 
 						<h2>So, How Do You Learn the Missing Pieces?</h2>
 
-						<p>That's where GraphiteEdge comes in.</p>
+						<p>That's where GraphitEdge comes in.</p>
 
 						<p>
 							Most tutorials only teach how to write HTML, CSS, and JavaScript,
 							but real-world web development involves so much more. At
-							GraphiteEdge, I teach the entire process, from design to
+							GraphitEdge, I teach the entire process, from design to
 							deployment, DNS to SEO—so you're not just writing code, you're
 							building web experiences that actually work.
 						</p>
@@ -205,7 +205,7 @@ useHead({
 				author: { '@type': 'Person', name: 'Helen Burgess' },
 				publisher: {
 					'@type': 'Organization',
-					name: 'GraphiteEdge',
+					name: 'GraphitEdge',
 					url: 'https://www.graphitedge.com.au',
 				},
 				url: canonicalUrl,

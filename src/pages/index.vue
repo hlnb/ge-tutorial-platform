@@ -31,7 +31,7 @@
           turn into real interfaces.
         </p>
         <p>
-          At GraphiteEdge, I break those missing pieces down in plain English
+          At GraphitEdge, I break those missing pieces down in plain English
           with diagrams, practical examples, and structured pathways.
         </p>
         <ul class="benefits-list">
@@ -60,7 +60,7 @@
         <div class="container">
           <h2>Learn Web Development by Building Real Projects</h2>
           <p class="home-learning__lead">
-            GraphiteEdge teaches through practical projects, not disconnected
+            GraphitEdge teaches through practical projects, not disconnected
             exercises. You learn by building something that feels real.
           </p>
           <p>
@@ -78,7 +78,7 @@
           </ul>
           <p>
             No more disconnected lessons that leave you with loose fragments.
-            GraphiteEdge gives you the missing pieces in one structured learning
+            GraphitEdge gives you the missing pieces in one structured learning
             experience.
           </p>
         </div>
@@ -139,9 +139,9 @@ const getLatestPosts = () => {
 };
 
 const frontmatter = {
-  title: "GraphiteEdge",
+  title: "GraphitEdge",
   description:
-    "Welcome to GraphiteEdge - Web Development Tutorials and Practical Projects",
+    "Welcome to GraphitEdge - Web Development Tutorials and Practical Projects",
   hero: {
     title: "Web Development Isn't Just Code",
     description:
@@ -255,7 +255,7 @@ const frontmatter = {
 };
 
 useHead({
-  title: "GraphiteEdge – Web Development Tutorials for Beginners",
+  title: "GraphitEdge – Web Development Tutorials for Beginners",
   meta: [
     {
       name: "description",
@@ -264,7 +264,7 @@ useHead({
     },
     {
       property: "og:title",
-      content: "GraphiteEdge – Web Development Tutorials for Beginners",
+      content: "GraphitEdge – Web Development Tutorials for Beginners",
     },
     {
       property: "og:description",
@@ -280,7 +280,7 @@ useHead({
     { name: "twitter:card", content: "summary_large_image" },
     {
       name: "twitter:title",
-      content: "GraphiteEdge – Web Development Tutorials for Beginners",
+      content: "GraphitEdge – Web Development Tutorials for Beginners",
     },
     {
       name: "twitter:description",

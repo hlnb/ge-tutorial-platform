@@ -23,7 +23,7 @@ slug: "dns-web-browsing",
 description: "Understanding how DNS works...",
 publishDate: "2024-04-01T09:00:00Z",
 status: "scheduled",
-author: "Graphitedge",
+author: "GraphitEdge",
 tags: ["DNS", "Web", "Networking"],
 readingTime: "5 min"
 };

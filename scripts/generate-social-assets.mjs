@@ -28,7 +28,7 @@ const campaigns = [
     pathway: 'Understand the Web',
     url: 'graphitedge.com/tutorials/getting-started/how-internet-works',
     caption:
-      'Before you write your first page, it helps to understand the journey a page takes.\n\nThis GraphiteEdge tutorial explains browsers, servers, HTTP, and what really happens after someone types a URL.\n\nStart here if you want web development to feel less mysterious.',
+      'Before you write your first page, it helps to understand the journey a page takes.\n\nThis GraphitEdge tutorial explains browsers, servers, HTTP, and what really happens after someone types a URL.\n\nStart here if you want web development to feel less mysterious.',
     slides: [
       {
         eyebrow: 'Start here',
@@ -110,7 +110,7 @@ const campaigns = [
     pathway: 'From Design to Website',
     url: 'graphitedge.com/tutorials/intermediate/how-to-read-a-design',
     caption:
-      'Design-to-code work gets easier when you know what to look for before writing CSS.\n\nThis GraphiteEdge tutorial teaches learners how to read spacing, colour, typography, and structure from a mockup, then translate those choices into code.',
+      'Design-to-code work gets easier when you know what to look for before writing CSS.\n\nThis GraphitEdge tutorial teaches learners how to read spacing, colour, typography, and structure from a mockup, then translate those choices into code.',
     slides: [
       {
         eyebrow: 'Design to Code',
@@ -151,7 +151,7 @@ const campaigns = [
     pathway: 'Make It Live',
     url: 'graphitedge.com/tutorials/intermediate/git-basics',
     caption:
-      'Git can feel intimidating because people often learn the commands before the purpose.\n\nThe GraphiteEdge Git Basics series starts with why version control matters, then builds toward commits, branches, merging, remotes, and real workflows.',
+      'Git can feel intimidating because people often learn the commands before the purpose.\n\nThe GraphitEdge Git Basics series starts with why version control matters, then builds toward commits, branches, merging, remotes, and real workflows.',
     slides: [
       {
         eyebrow: 'Version control',
@@ -265,7 +265,7 @@ function footer(campaign) {
     <g id="footer">
       <rect x="90" y="1214" width="900" height="2" fill="${brand.line}" />
       <text x="90" y="1268" font-family="PT Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0" fill="${brand.red}">${escapeXml(campaign.title)}</text>
-      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="${brand.grey}">GraphiteEdge tutorials</text>
+      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="${brand.grey}">GraphitEdge tutorials</text>
     </g>
   `;
 }
@@ -493,7 +493,7 @@ URL: ${campaign.url}
 
 ${campaign.caption}
 
-CTA: Start the tutorial on GraphiteEdge.
+CTA: Start the tutorial on GraphitEdge.
 `;
 }
 
@@ -516,7 +516,7 @@ function indexHtml() {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GraphiteEdge Social Carousel Preview</title>
+    <title>GraphitEdge Social Carousel Preview</title>
     <style>
       body {
         margin: 0;
@@ -559,7 +559,7 @@ function indexHtml() {
   </head>
   <body>
     <main>
-      <h1>GraphiteEdge Social Carousel Preview</h1>
+      <h1>GraphitEdge Social Carousel Preview</h1>
       <p>Editable SVG assets for the first four tutorial social campaigns.</p>
       ${sections}
     </main>

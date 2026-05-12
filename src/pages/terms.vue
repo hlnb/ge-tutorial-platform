@@ -6,14 +6,14 @@
 
 			<h2>1. Agreement to Terms</h2>
 			<p>
-				By accessing and using GraphiteEdge (the "Website"), you agree to be
+				By accessing and using GraphitEdge (the "Website"), you agree to be
 				bound by these Terms and Conditions. If you disagree with any part of
 				these terms, you may not access the Website.
 			</p>
 
 			<h2>2. Intellectual Property Rights</h2>
 			<p>
-				All content published and made available on GraphiteEdge is our property
+				All content published and made available on GraphitEdge is our property
 				and is protected by copyright laws. This includes, but is not limited
 				to:
 			</p>
@@ -61,7 +61,7 @@
 
 			<h2>7. Limitation of Liability</h2>
 			<p>
-				GraphiteEdge shall not be liable for any indirect, incidental, special,
+				GraphitEdge shall not be liable for any indirect, incidental, special,
 				consequential, or punitive damages resulting from your use of or
 				inability to use the Website.
 			</p>

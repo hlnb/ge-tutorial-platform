@@ -218,7 +218,7 @@
 						</p>
 
 						<p>
-							At <strong>GraphiteEdge</strong>, I teach
+							At <strong>GraphitEdge</strong>, I teach
 							<strong>the full web development process</strong>, from
 							<strong>DNS to SEO, design to deployment</strong>—so you're not
 							just coding, you're
@@ -287,7 +287,7 @@ useHead({
 				author: { '@type': 'Person', name: 'Helen Burgess' },
 				publisher: {
 					'@type': 'Organization',
-					name: 'GraphiteEdge',
+					name: 'GraphitEdge',
 					url: 'https://www.graphitedge.com.au',
 				},
 				url: canonicalUrl,

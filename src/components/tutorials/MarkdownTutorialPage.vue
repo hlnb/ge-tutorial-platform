@@ -125,7 +125,7 @@ function getSectionVisuals(sectionId) {
 }
 
 useHead(() => ({
-	title: `${parsed.value.frontmatter.title} - GraphiteEdge Tutorials`,
+	title: `${parsed.value.frontmatter.title} - GraphitEdge Tutorials`,
 	meta: [
 		{
 			name: 'description',

@@ -513,7 +513,7 @@ useHead({
 				author: { '@type': 'Person', name: 'Helen Burgess' },
 				publisher: {
 					'@type': 'Organization',
-					name: 'GraphiteEdge',
+					name: 'GraphitEdge',
 					url: 'https://www.graphitedge.com.au',
 				},
 				url: canonicalUrl,

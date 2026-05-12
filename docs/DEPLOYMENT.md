@@ -4,7 +4,7 @@ Status: current for the Vercel and Vite configuration visible in this repository
 
 ## Current Deployment Target
 
-GraphiteEdge is configured for deployment on Vercel as a Vite application.
+GraphitEdge is configured for deployment on Vercel as a Vite application.
 
 Current deployment files/config:
 

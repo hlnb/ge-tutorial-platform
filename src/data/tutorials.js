@@ -1,5 +1,5 @@
 /**
- * Tutorial curriculum data for the GraphiteEdge learning platform.
+ * Tutorial curriculum data for the GraphitEdge learning platform.
  *
  * Each tutorial includes:
  *  - level / levelTitle / levelDescription  → curriculum structure
@@ -1001,6 +1001,31 @@ const tutorialRecords = [
     difficulty: "easy",
     estimatedTime: "30 min",
     tags: ["css", "colors", "typography", "design"],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: null,
+    topic: "css",
+    lessonCount: null,
+  },
+  {
+    id: "css-text-typography",
+    title: "Typography & Text Styling",
+    slug: "beginner/css-basics/text",
+
+    publishDate: "2025-02-06",
+    summary:
+      "Style readable text with font families, sizing, spacing, colour, and typographic hierarchy.",
+    level: "beginner",
+    levelTitle: "Beginner",
+    levelDescription: "Your first lines of code.",
+    pathways: ["beginner"],
+    stage: 5.35,
+    difficulty: "easy",
+    estimatedTime: "30 min",
+    tags: ["css", "typography", "text", "accessibility"],
     featured: false,
     isProject: false,
     project: null,

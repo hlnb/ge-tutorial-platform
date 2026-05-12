@@ -5,7 +5,7 @@
         <div>
           <img
             src="@/assets/ColourLogo.svg"
-            alt="GraphiteEdge logo"
+            alt="GraphitEdge logo"
             class="footer-logo"
           />
           <h3 class="footer-tagline">Web Development Isn't Just Code.</h3>
@@ -21,7 +21,7 @@
         <div>
           <h3 class="footer-heading">Explore</h3>
           <ul class="footer-links">
-            <li><router-link to="/about">About GraphiteEdge</router-link></li>
+            <li><router-link to="/about">About GraphitEdge</router-link></li>
             <li><router-link to="/tutorials">Tutorials</router-link></li>
             <li><router-link to="/projects">Projects</router-link></li>
             <li>
@@ -74,7 +74,7 @@
         <div>
           <h3 class="footer-heading">Never Miss a New Tutorial</h3>
           <p class="footer-copy">
-            Join the GraphiteEdge newsletter for platform updates, new
+            Join the GraphitEdge newsletter for platform updates, new
             tutorials, and practical learning notes.
           </p>
           <NewsletterSignup />
@@ -82,7 +82,7 @@
       </div>
 
       <div class="footer-copyright">
-        <p>&copy; 2015-{{ currentYear }} GraphiteEdge. All rights reserved.</p>
+        <p>&copy; 2015-{{ currentYear }} GraphitEdge. All rights reserved.</p>
       </div>
     </div>
   </footer>

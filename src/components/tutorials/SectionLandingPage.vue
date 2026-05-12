@@ -28,7 +28,7 @@ const levelLabel = computed(() => levelMeta.value?.title || 'Tutorial Section');
 
 const sectionTitle = computed(() => sectionMeta.value?.introCopy?.title || sectionMeta.value?.title);
 const sectionSummary = computed(
-  () => sectionMeta.value?.introCopy?.summary || 'Explore this part of the GraphiteEdge curriculum.',
+  () => sectionMeta.value?.introCopy?.summary || 'Explore this part of the GraphitEdge curriculum.',
 );
 const sectionDescription = computed(
   () =>
@@ -37,7 +37,7 @@ const sectionDescription = computed(
 );
 
 useHead(() => ({
-  title: `${sectionTitle.value} - GraphiteEdge Tutorials`,
+  title: `${sectionTitle.value} - GraphitEdge Tutorials`,
   meta: [
     {
       name: 'description',

@@ -1,10 +1,10 @@
 ---
-description: 'Scaffold a new GraphiteEdge tutorial page with Hunter lesson structure, quiz data, and recommendation entry.'
+description: 'Scaffold a new GraphitEdge tutorial page with Hunter lesson structure, quiz data, and recommendation entry.'
 agent: 'agent'
 argument-hint: 'Title, level (beginner/intermediate/advanced), and section (e.g. html-basics)'
 ---
 
-Create a new GraphiteEdge tutorial using the **graphitedge-tutorial-builder** skill.
+Create a new GraphitEdge tutorial using the **graphitedge-tutorial-builder** skill.
 
 The user will provide: tutorial title, level, and section.
 

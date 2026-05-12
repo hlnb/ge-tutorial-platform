@@ -1,10 +1,10 @@
 # Content Guidelines
 
-Status: current guidance for writing/editing site content in the live GraphiteEdge repository.
+Status: current guidance for writing/editing site content in the live GraphitEdge repository.
 
 ## Product Voice
 
-GraphiteEdge should sound:
+GraphitEdge should sound:
 
 - calm
 - practical
@@ -24,7 +24,7 @@ Content should help learners understand how the web works as a connected system,
 
 ## Pathway-First Content Strategy
 
-GraphiteEdge is moving toward a pathway-first tutorial model rather than a blog-style stream of isolated lessons.
+GraphitEdge is moving toward a pathway-first tutorial model rather than a blog-style stream of isolated lessons.
 
 Confirmed direction:
 

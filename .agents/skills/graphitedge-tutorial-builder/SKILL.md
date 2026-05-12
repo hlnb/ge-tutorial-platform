@@ -1,23 +1,23 @@
 ---
 name: graphitedge-tutorial-builder
-description: Create, expand, revise, or structurally align GraphiteEdge tutorials using the existing tutorial system, hunter lesson components, concept-teaching diagrams, and GraphiteEdge's pathway-first teaching standards.
+description: Create, expand, revise, or structurally align GraphitEdge tutorials using the existing tutorial system, hunter lesson components, concept-teaching diagrams, and GraphitEdge's pathway-first teaching standards.
 ---
 
-# GraphiteEdge tutorial builder
+# GraphitEdge tutorial builder
 
-Use this skill when the task is specifically about GraphiteEdge tutorial authoring or revision, including:
+Use this skill when the task is specifically about GraphitEdge tutorial authoring or revision, including:
 
 - creating a new tutorial page
 - expanding a partial or placeholder tutorial
 - adding missing teaching structure to an existing lesson
-- aligning a lesson with GraphiteEdge tutorial standards
+- aligning a lesson with GraphitEdge tutorial standards
 - adding or planning diagrams, overlays, or other concept-teaching visuals for a tutorial
 
 Do not use this skill for general site edits that are not tutorial-authoring work.
 
 ## Goals
 
-- preserve the existing GraphiteEdge tutorial system
+- preserve the existing GraphitEdge tutorial system
 - keep the teaching voice confident, practical, and mentor-like
 - teach with explanation and structure, not just instructions
 - strengthen conceptual understanding with purposeful visuals where needed
@@ -30,7 +30,7 @@ Before writing or revising lesson content:
 1. Read `AGENTS.md`
 2. Inspect the target tutorial if it already exists
 3. Inspect nearby tutorials in the same pathway or level for patterns
-4. Reuse existing GraphiteEdge architecture, section flow, components, and styling conventions before inventing anything new
+4. Reuse existing GraphitEdge architecture, section flow, components, and styling conventions before inventing anything new
 
 Check for existing usage of:
 
@@ -44,11 +44,11 @@ Check for existing usage of:
 - `@/composables/usePageSections`
 - existing tutorial figure styles, diagrams, captions, and section navigation patterns
 
-Preserve existing layout components, custom CSS, and tutorial conventions when they appear intentional. Do not flatten GraphiteEdge into generic Vue content pages.
+Preserve existing layout components, custom CSS, and tutorial conventions when they appear intentional. Do not flatten GraphitEdge into generic Vue content pages.
 
 ## Teaching model
 
-GraphiteEdge lessons should:
+GraphitEdge lessons should:
 
 - follow a pathway-first model rather than feeling like isolated blog posts
 - explain why, not just what
@@ -105,7 +105,7 @@ Prefer instructional visuals over decorative images.
 When adding or planning visuals:
 
 - use graphics to clarify the concept, not just to fill space
-- prefer existing GraphiteEdge diagram patterns or SVG-style diagrams that fit the current tutorial system
+- prefer existing GraphitEdge diagram patterns or SVG-style diagrams that fit the current tutorial system
 - note meaningful placement in the lesson near the concept it reinforces
 - provide accessible alt text and useful figcaptions
 - keep visuals concept-driven, calm, and readable
@@ -130,8 +130,8 @@ If a graphic is appropriate but not yet created, leave a clear note or placehold
 
 1. Inspect the target lesson and surrounding tutorial patterns
 2. Decide whether the task is a new lesson, an expansion, a structural repair, or a visual-teaching improvement
-3. Map the lesson to the appropriate GraphiteEdge structure
-4. Write or revise the content in the GraphiteEdge teaching voice
+3. Map the lesson to the appropriate GraphitEdge structure
+4. Write or revise the content in the GraphitEdge teaching voice
 5. Add or plan concept-teaching visuals where they materially improve understanding
 6. Verify imports, section order, and recommendation placement
 7. Validate build/readability, then summarize what changed and any follow-up
@@ -160,6 +160,6 @@ In the handoff summary, include:
 
 Example prompts that should trigger this skill:
 
-- `Create a new GraphiteEdge intermediate tutorial about CSS naming systems using the existing tutorial structure.`
-- `Expand this placeholder GraphiteEdge lesson and add the missing AnticipatorySet, GuidedPractice, and ClosureSection.`
-- `Revise this GraphiteEdge tutorial so it matches our teaching structure and add a diagram that explains the concept more clearly.`
+- `Create a new GraphitEdge intermediate tutorial about CSS naming systems using the existing tutorial structure.`
+- `Expand this placeholder GraphitEdge lesson and add the missing AnticipatorySet, GuidedPractice, and ClosureSection.`
+- `Revise this GraphitEdge tutorial so it matches our teaching structure and add a diagram that explains the concept more clearly.`

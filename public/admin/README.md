@@ -1,6 +1,6 @@
-# Graphite Edge CMS - Admin Interface
+# GraphitEdge CMS - Admin Interface
 
-This directory contains the Sveltia CMS configuration for managing content on the Graphite Edge Tutorial Platform.
+This directory contains the Sveltia CMS configuration for managing content on the GraphitEdge Tutorial Platform.
 
 ## Quick Access
 

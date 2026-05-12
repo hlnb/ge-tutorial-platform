@@ -15,7 +15,7 @@
     <section class="features-section">
       <div class="container">
         <div class="features-header">
-          <h2>What You'll Learn with GraphiteEdge</h2>
+          <h2>What You'll Learn with GraphitEdge</h2>
           <p>
             Our tutorials go beyond writing code. We help learners understand
             the full web-development process from structure to shipping.

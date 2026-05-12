@@ -5,7 +5,7 @@ description: 'Use when editing CSS files. Preserves the Bulma + custom CSS archi
 
 # CSS conventions
 
-GraphiteEdge uses Bulma CSS alongside intentional custom stylesheets. Do not consolidate or replace custom CSS with Bulma utilities.
+GraphitEdge uses Bulma CSS alongside intentional custom stylesheets. Do not consolidate or replace custom CSS with Bulma utilities.
 
 ## Key files
 

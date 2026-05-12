@@ -12,4 +12,4 @@ This tutorial walks through the common reasons styles fail: selector mistakes, i
 
 Save this one for the next time a style refuses to show up.
 
-CTA: Start the tutorial on GraphiteEdge.
+CTA: Start the tutorial on GraphitEdge.

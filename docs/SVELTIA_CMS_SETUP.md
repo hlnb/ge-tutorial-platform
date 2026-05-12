@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sveltia CMS has been configured to manage three main content types for the Graphite Edge Tutorial Platform:
+Sveltia CMS has been configured to manage three main content types for the GraphitEdge Tutorial Platform:
 
 1. **Tutorials** - Interactive coding tutorials
 2. **Blog Posts** - Articles for The Graphite Journal

@@ -18,7 +18,7 @@
         <p class="eyebrow">Comprehensive Site Map</p>
         <h1>Site Map</h1>
         <p>
-          Explore the full GraphiteEdge site structure in one place. This map is designed for both people
+          Explore the full GraphitEdge site structure in one place. This map is designed for both people
           and search engines, with section overviews, lesson pages, projects, resources, and support links
           grouped by how the site is actually organised.
         </p>

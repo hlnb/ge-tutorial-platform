@@ -179,7 +179,7 @@ const closureReflectionPrompts = [
 			<AnticipatorySet
 				title="A CSS Framework as a Helper, Not a Replacement"
 				icon="🎛️"
-				:hook="`<p>After a first Vue app, learners often hit the next question quickly: if the framework helps organise the application code, what helps organise the interface styling?</p><p>This is where a CSS framework can become useful, but only if it stays in its lane. Bulma can speed up common structure, spacing, and UI building blocks. It does not replace CSS judgment, and it does not remove the need to understand what your interface is doing.</p><p>That makes it a good next step here, especially because GraphiteEdge already uses Bulma in its own stack.</p>`"
+				:hook="`<p>After a first Vue app, learners often hit the next question quickly: if the framework helps organise the application code, what helps organise the interface styling?</p><p>This is where a CSS framework can become useful, but only if it stays in its lane. Bulma can speed up common structure, spacing, and UI building blocks. It does not replace CSS judgment, and it does not remove the need to understand what your interface is doing.</p><p>That makes it a good next step here, especially because GraphitEdge already uses Bulma in its own stack.</p>`"
 				:reflection-prompts="[
 					'What parts of a small app interface feel repetitive to style from scratch?',
 					'Have you ever seen framework classes make a template feel noisier instead of clearer?',
@@ -207,7 +207,7 @@ const closureReflectionPrompts = [
 			<p>
 				If you want to introduce a CSS framework gently, Bulma is a reasonable choice in
 				this curriculum because its class names are readable and its role is easier to
-				describe in plain English. It also matches the existing GraphiteEdge stack, which
+				describe in plain English. It also matches the existing GraphitEdge stack, which
 				makes the example feel less artificial.
 			</p>
 			<p>

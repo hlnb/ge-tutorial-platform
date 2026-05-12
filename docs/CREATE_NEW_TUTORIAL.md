@@ -4,7 +4,7 @@ Status: transitional. This guide reflects the current repository and the agreed 
 
 ## Before You Start
 
-GraphiteEdge already has:
+GraphitEdge already has:
 
 - a reusable tutorial layout
 - section-specific tutorial nav components

@@ -1,4 +1,4 @@
-# Repo-scoped Codex settings for GraphiteEdge
+# Repo-scoped Codex settings for GraphitEdge
 
 model = "gpt-5"
 model_reasoning_effort = "medium"

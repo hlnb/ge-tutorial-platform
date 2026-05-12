@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document captures a practical plan for adding instructional graphics to GraphiteEdge tutorials.
+This document captures a practical plan for adding instructional graphics to GraphitEdge tutorials.
 
 The goal is not to decorate lessons. The goal is to improve clarity, reduce abstraction, and support a wider range of learners by using visuals as part of the teaching method.
 

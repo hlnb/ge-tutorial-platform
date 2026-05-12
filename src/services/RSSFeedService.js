@@ -120,8 +120,8 @@ function getNormalizedTutorials() {
 function generateRSSFeed(postsData) {
   const items = getNormalizedPosts(postsData);
   let xml = buildChannelXml({
-    title: 'GraphiteEdge — Blog',
-    description: 'Web development articles and guides from GraphiteEdge.',
+    title: 'GraphitEdge — Blog',
+    description: 'Web development articles and guides from GraphitEdge.',
     feedPath: 'rss.xml',
   });
   xml += buildItemsXml(items);
@@ -133,8 +133,8 @@ function generateRSSFeed(postsData) {
 function generateTutorialsFeed() {
   const items = getNormalizedTutorials();
   let xml = buildChannelXml({
-    title: 'GraphiteEdge — Tutorials',
-    description: 'Structured web development tutorials from GraphiteEdge.',
+    title: 'GraphitEdge — Tutorials',
+    description: 'Structured web development tutorials from GraphitEdge.',
     feedPath: 'tutorials.xml',
   });
   xml += buildItemsXml(items);

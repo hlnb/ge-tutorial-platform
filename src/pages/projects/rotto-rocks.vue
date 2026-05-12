@@ -97,7 +97,7 @@ usePageSections([
 ]);
 
 useHead({
-  title: 'Rotto Rocks Project - GraphiteEdge',
+  title: 'Rotto Rocks Project - GraphitEdge',
   meta: [
     {
       name: 'description',

@@ -8,8 +8,8 @@ URL: graphitedge.com/tutorials/getting-started/how-internet-works
 
 Before you write your first page, it helps to understand the journey a page takes.
 
-This GraphiteEdge tutorial explains browsers, servers, HTTP, and what really happens after someone types a URL.
+This GraphitEdge tutorial explains browsers, servers, HTTP, and what really happens after someone types a URL.
 
 Start here if you want web development to feel less mysterious.
 
-CTA: Start the tutorial on GraphiteEdge.
+CTA: Start the tutorial on GraphitEdge.

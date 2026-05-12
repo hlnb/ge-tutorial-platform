@@ -1,8 +1,8 @@
-# GraphiteEdge Tutorial Platform Documentation
+# GraphitEdge Tutorial Platform Documentation
 
 ## Project Overview
 
-A Vue.js-based tutorial and blog platform for GraphiteEdge, focusing on web development education and resources.
+A Vue.js-based tutorial and blog platform for GraphitEdge, focusing on web development education and resources.
 
 ## Tech Stack
 

@@ -34,7 +34,7 @@
     <g id="footer">
       <rect x="90" y="1214" width="900" height="2" fill="#d3d4d9" />
       <text x="90" y="1268" font-family="PT Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0" fill="#8d0000">Git &amp; GitHub Basics</text>
-      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="#4d4d4d">GraphiteEdge tutorials</text>
+      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="#4d4d4d">GraphitEdge tutorials</text>
     </g>
   
 </svg>

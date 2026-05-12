@@ -80,7 +80,7 @@ const quizState = {
 				:hook="`<p>A menu card has a title, category, description, price, and maybe an image. A booking request has a name, party size, date, and notes. A filter panel has labels, ids, and active states. These values belong together.</p><p>Objects help you keep that relationship visible. Instead of scattering information across many unrelated variables, you model one meaningful thing at a time.</p>`"
 				:reflection-prompts="[
 					'Where have loose variables started to feel disconnected in your own code?',
-					'Which repeated interfaces in GraphiteEdge would benefit from stronger data grouping?'
+					'Which repeated interfaces in GraphitEdge would benefit from stronger data grouping?'
 				]"
 			/>
 

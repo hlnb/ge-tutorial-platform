@@ -1,9 +1,9 @@
 ---
 name: ship-site
-description: Safely implement, validate, and summarize GraphiteEdge changes for content, components, layouts, and tutorial pages.
+description: Safely implement, validate, and summarize GraphitEdge changes for content, components, layouts, and tutorial pages.
 ---
 
-# GraphiteEdge shipping workflow
+# GraphitEdge shipping workflow
 
 Use this skill when a task involves building or editing the site.
 

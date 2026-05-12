@@ -136,9 +136,9 @@ Regardless of which OAuth server you choose, you need to create a GitHub OAuth A
 2. **Fill in the application details:**
 
    ```
-   Application name: Graphite Edge CMS
+   Application name: GraphitEdge CMS
    Homepage URL: https://www.graphitedge.com.au
-   Application description: Content management for Graphite Edge tutorials
+   Application description: Content management for GraphitEdge tutorials
    Authorization callback URL: https://your-oauth-server.com/callback
    ```
 

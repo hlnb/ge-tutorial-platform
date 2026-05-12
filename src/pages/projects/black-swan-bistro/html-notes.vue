@@ -51,7 +51,7 @@ const loadError = ref('');
 usePageSections([{ id: 'notes', title: 'Project Notes' }]);
 
 useHead({
-  title: 'Black Swan Bistro HTML Notes - GraphiteEdge',
+  title: 'Black Swan Bistro HTML Notes - GraphitEdge',
   meta: [
     {
       name: 'description',

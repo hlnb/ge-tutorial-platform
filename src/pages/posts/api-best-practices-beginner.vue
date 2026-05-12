@@ -33,7 +33,7 @@
 
 						<!-- Main Content -->
 						<h2 class="title is-2">1. Keep It Simple and Clear</h2>
-						<p>Remember our first core value at Graphitedge—clarity over complexity? This applies perfectly to APIs. A good API should be:</p>
+						<p>Remember our first core value at GraphitEdge—clarity over complexity? This applies perfectly to APIs. A good API should be:</p>
 						<ul><li>
 							<p>Easy to understand</p></li>
 							<li><p>Predictable in its behavior</p></li>
@@ -177,7 +177,7 @@ useHead({
 				author: { '@type': 'Person', name: 'Helen Burgess' },
 				publisher: {
 					'@type': 'Organization',
-					name: 'GraphiteEdge',
+					name: 'GraphitEdge',
 					url: 'https://www.graphitedge.com.au',
 				},
 				url: canonicalUrl,

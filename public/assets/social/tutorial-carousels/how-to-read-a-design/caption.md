@@ -8,6 +8,6 @@ URL: graphitedge.com/tutorials/intermediate/how-to-read-a-design
 
 Design-to-code work gets easier when you know what to look for before writing CSS.
 
-This GraphiteEdge tutorial teaches learners how to read spacing, colour, typography, and structure from a mockup, then translate those choices into code.
+This GraphitEdge tutorial teaches learners how to read spacing, colour, typography, and structure from a mockup, then translate those choices into code.
 
-CTA: Start the tutorial on GraphiteEdge.
+CTA: Start the tutorial on GraphitEdge.

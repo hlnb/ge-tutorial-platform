@@ -18,7 +18,7 @@
     <div class="navbar-inner container">
       <div class="navbar-brand">
         <router-link class="brand" to="/" @click="closeMenu">
-          <img src="@/assets/ColourLogo.svg" alt="GraphiteEdge logo" />
+          <img src="@/assets/ColourLogo.svg" alt="GraphitEdge logo" />
         </router-link>
 
         <button

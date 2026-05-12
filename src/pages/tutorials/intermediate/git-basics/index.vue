@@ -252,7 +252,7 @@ const sectionTutorials = computed(() => {
 });
 
 useHead({
-    title: `${sectionMeta?.introCopy?.title || 'Git Basics'} - GraphiteEdge Tutorials`,
+    title: `${sectionMeta?.introCopy?.title || 'Git Basics'} - GraphitEdge Tutorials`,
     meta: [
         {
             name: 'description',

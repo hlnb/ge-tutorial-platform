@@ -108,7 +108,7 @@ const closureReflectionPrompts = [
 					'Understand the main stages in a web project from idea to launch',
 					'See how planning, structure, styling, testing, and deployment connect together',
 					'Recognise why website work is usually iterative rather than perfectly linear',
-					'Place the Black Swan Bistro project inside the larger GraphiteEdge learning journey'
+					'Place the Black Swan Bistro project inside the larger GraphitEdge learning journey'
 				]"
 				purpose="Beginners often learn HTML, CSS, JavaScript, and deployment as separate topics. This lesson connects them into one practical process so each future lesson feels like part of a bigger system rather than a disconnected skill."
 			/>
@@ -204,7 +204,7 @@ Maintenance and Improvement</code></pre>
 
 			<h2 id="black-swan-example">The Black Swan Bistro Example</h2>
 			<p>
-				GraphiteEdge uses Black Swan Bistro to show how one project grows over time instead
+				GraphitEdge uses Black Swan Bistro to show how one project grows over time instead
 				of appearing fully formed.
 			</p>
 			<ul>
@@ -286,7 +286,7 @@ Maintenance and Improvement</code></pre>
 			<h2 id="recap">Recap</h2>
 			<p>
 				The journey from idea to live website is not one magical leap. It is a series of
-				smaller, understandable stages. That is exactly how GraphiteEdge teaches web
+				smaller, understandable stages. That is exactly how GraphitEdge teaches web
 				development: first understand the map, then learn each stage well.
 			</p>
 

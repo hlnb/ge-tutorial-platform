@@ -4,7 +4,7 @@ Status: partially current. This guide reflects the live styling layers in the re
 
 ## Styling Approach
 
-GraphiteEdge currently uses:
+GraphitEdge currently uses:
 
 - Bulma as a base styling layer
 - local custom CSS for site-specific layout, typography, tutorial styling, and navigation polish

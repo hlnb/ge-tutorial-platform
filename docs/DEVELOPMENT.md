@@ -4,7 +4,7 @@ Status: current for the repository structure and scripts visible in this codebas
 
 ## Stack
 
-GraphiteEdge currently uses:
+GraphitEdge currently uses:
 
 - Vue 3
 - Vite

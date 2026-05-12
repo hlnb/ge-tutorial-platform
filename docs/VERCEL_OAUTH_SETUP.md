@@ -20,9 +20,9 @@ Your OAuth setup includes:
 3. Fill in the details:
 
    ```
-   Application name: Graphite Edge CMS
+   Application name: GraphitEdge CMS
    Homepage URL: https://www.graphitedge.com.au
-   Application description: Content management system for Graphite Edge tutorials
+   Application description: Content management system for GraphitEdge tutorials
    Authorization callback URL: https://www.graphitedge.com.au/api/auth-callback
    ```
 

@@ -1,4 +1,4 @@
-# GraphiteEdge Social Media Asset Plan
+# GraphitEdge Social Media Asset Plan
 
 Status: first working draft based on the current tutorial registry in `src/data/tutorials.js`.
 
@@ -6,7 +6,7 @@ This plan turns the existing tutorial library into calm, practical social posts.
 
 ## Positioning
 
-GraphiteEdge should sound like a steady mentor, not a hype account.
+GraphitEdge should sound like a steady mentor, not a hype account.
 
 Use posts to help learners understand what a tutorial helps them do, why the concept matters, and where it fits in the wider learning path.
 
@@ -34,7 +34,7 @@ Suggested reusable formats:
 
 Brand cues:
 
-- Primary: GraphiteEdge red `#8d0000`
+- Primary: GraphitEdge red `#8d0000`
 - Neutral: mine shaft `#4d4d4d`
 - Light background: snow `#fff9fb` or white
 - Accent options from the site: tea green `#c9e4ca`, rackley blue `#4b88a2`, light gray `#d3d4d9`
@@ -59,7 +59,7 @@ Use this structure for most posts:
 
 Example CTA options:
 
-- Start with the tutorial on GraphiteEdge.
+- Start with the tutorial on GraphitEdge.
 - Work through the lesson, then try the practice step.
 - Save this for the next time your CSS behaves strangely.
 - Use this as a checklist before you publish a site.
@@ -107,11 +107,11 @@ Caption:
 
 Before you write your first page, it helps to understand the journey a page takes.
 
-This GraphiteEdge tutorial explains browsers, servers, HTTP, and what really happens after someone types a URL.
+This GraphitEdge tutorial explains browsers, servers, HTTP, and what really happens after someone types a URL.
 
 Start here if you want web development to feel less mysterious.
 
-CTA: Read "How the Web Actually Works" on GraphiteEdge.
+CTA: Read "How the Web Actually Works" on GraphitEdge.
 
 ### Why Your CSS Isn't Working
 
@@ -135,7 +135,7 @@ This tutorial walks through the common reasons styles fail: selector mistakes, i
 
 Save this one for the next time a style refuses to show up.
 
-CTA: Work through "Why Your CSS Isn't Working" on GraphiteEdge.
+CTA: Work through "Why Your CSS Isn't Working" on GraphitEdge.
 
 ### How to Read a Design
 
@@ -155,7 +155,7 @@ Caption:
 
 Design-to-code work gets easier when you know what to look for before writing CSS.
 
-This GraphiteEdge tutorial teaches learners how to read spacing, colour, typography, and structure from a mockup, then translate those choices into code.
+This GraphitEdge tutorial teaches learners how to read spacing, colour, typography, and structure from a mockup, then translate those choices into code.
 
 CTA: Continue with the Design to Code path.
 
@@ -177,7 +177,7 @@ Caption:
 
 Git can feel intimidating because people often learn the commands before the purpose.
 
-The GraphiteEdge Git Basics series starts with why version control matters, then builds toward commits, branches, merging, remotes, and real workflows.
+The GraphitEdge Git Basics series starts with why version control matters, then builds toward commits, branches, merging, remotes, and real workflows.
 
 CTA: Start the Git & GitHub Basics series.
 
@@ -274,7 +274,7 @@ Create 4 editable templates first:
 
 Each template should include:
 
-- GraphiteEdge logo
+- GraphitEdge logo
 - Pathway label
 - Tutorial title
 - One learner promise

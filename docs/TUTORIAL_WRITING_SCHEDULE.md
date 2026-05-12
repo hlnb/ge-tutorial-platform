@@ -1,6 +1,6 @@
 # Tutorial Writing Schedule
 
-Tracks the build status of all tutorial sections and individual tutorials in the GraphiteEdge pathway. Updated against `src/data/tutorials.js` and the page files in `src/pages/tutorials/`.
+Tracks the build status of all tutorial sections and individual tutorials in the GraphitEdge pathway. Updated against `src/data/tutorials.js` and the page files in `src/pages/tutorials/`.
 
 Last updated: May 2026
 

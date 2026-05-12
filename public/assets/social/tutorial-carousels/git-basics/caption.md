@@ -8,6 +8,6 @@ URL: graphitedge.com/tutorials/intermediate/git-basics
 
 Git can feel intimidating because people often learn the commands before the purpose.
 
-The GraphiteEdge Git Basics series starts with why version control matters, then builds toward commits, branches, merging, remotes, and real workflows.
+The GraphitEdge Git Basics series starts with why version control matters, then builds toward commits, branches, merging, remotes, and real workflows.
 
-CTA: Start the tutorial on GraphiteEdge.
+CTA: Start the tutorial on GraphitEdge.

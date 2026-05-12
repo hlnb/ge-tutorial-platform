@@ -1,6 +1,6 @@
 # Hunter Tutorial Workflow
 
-Status: transitional workflow guidance. This document is intended as an internal guide for improving tutorials with Hunter-style teaching components while staying aligned with the current GraphiteEdge codebase.
+Status: transitional workflow guidance. This document is intended as an internal guide for improving tutorials with Hunter-style teaching components while staying aligned with the current GraphitEdge codebase.
 
 ## Purpose
 
@@ -9,7 +9,7 @@ Use this workflow when updating tutorial pages to:
 - strengthen lesson structure
 - improve learner clarity and reinforcement
 - keep quiz/recommendation placement consistent
-- work within the existing GraphiteEdge tutorial system instead of creating a parallel one
+- work within the existing GraphitEdge tutorial system instead of creating a parallel one
 
 ## Core Rule
 

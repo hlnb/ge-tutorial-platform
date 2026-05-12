@@ -31,7 +31,7 @@
               class="brief-brand__logo"
             />
             <div>
-              <p class="brief-kicker">GraphiteEdge Guided Project</p>
+              <p class="brief-kicker">GraphitEdge Guided Project</p>
               <h1 class="title is-1 brief-title">Black Swan Bistro Project Brief</h1>
               <p class="subtitle is-4 brief-subtitle">
                 A premium restaurant website brief for building layout, reusable components, and a
@@ -381,7 +381,7 @@
 
       <footer id="copyright" class="brief-footer">
         <p>
-          Copyright Graphitedge, Author Helen Burgess 2026. This brief is provided as a student
+          Copyright GraphitEdge, Author Helen Burgess 2026. This brief is provided as a student
           project reference for the Black Swan Bistro learning sequence.
         </p>
       </footer>
@@ -774,7 +774,7 @@ usePageSections([
 ]);
 
 useHead({
-  title: 'Black Swan Bistro Project Brief - GraphiteEdge',
+  title: 'Black Swan Bistro Project Brief - GraphitEdge',
   meta: [
     {
       name: 'description',

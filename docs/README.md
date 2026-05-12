@@ -1,6 +1,6 @@
-# GraphiteEdge Documentation
+# GraphitEdge Documentation
 
-This folder contains working documentation for the GraphiteEdge site and tutorial platform.
+This folder contains working documentation for the GraphitEdge site and tutorial platform.
 
 Some documents describe current live behavior in the repository. Others capture transitional notes or future direction. When a doc is not fully current, it should say so clearly.
 

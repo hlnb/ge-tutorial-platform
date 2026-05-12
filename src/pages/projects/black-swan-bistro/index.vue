@@ -28,7 +28,7 @@
     <section id="overview" class="box">
       <h2 class="title is-4">Project overview</h2>
       <p>
-        Black Swan Bistro is the main guided build for GraphiteEdge. It starts with your first HTML
+        Black Swan Bistro is the main guided build for GraphitEdge. It starts with your first HTML
         page, grows through layout and multi-page work, and ends with deployment and maintenance
         decisions.
       </p>
@@ -103,7 +103,7 @@ usePageSections([
 ]);
 
 useHead({
-  title: 'Black Swan Bistro Project - GraphiteEdge',
+  title: 'Black Swan Bistro Project - GraphitEdge',
   meta: [
     {
       name: 'description',
