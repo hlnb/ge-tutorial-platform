@@ -177,6 +177,7 @@ const legacyTutorialEditorialContent = {
 					description: 'Build a simple photo gallery with images and captions',
 					tags: ['HTML', 'Images', 'Gallery'],
 					path: '/projects/photo-gallery',
+					hash: '#add-gallery-items',
 				},
 			],
 			resources: [

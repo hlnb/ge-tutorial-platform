@@ -180,7 +180,7 @@
 				/>
 			</div>
 
-			<h3 class="title is-4 mt-5">Step 4: Add Individual Gallery Items</h3>
+			<h3 id="add-gallery-items" class="title is-4 mt-5">Step 4: Add Individual Gallery Items</h3>
 			<p>Add your images with captions to the gallery:</p>
 
 			<div class="codemirror-wrapper">
@@ -497,7 +497,7 @@ searchInput.addEventListener('input', (e) => {
 import { ref, computed, watch } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 
-const props = defineProps({
+defineProps({
 	currentTutorial: {
 		type: String,
 		required: false,

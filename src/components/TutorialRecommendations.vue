@@ -75,14 +75,11 @@
 												>{{ tag }}</span
 											>
 										</div>
-											<router-link
-												v-if="project.path"
-												:to="{
-													path: project.path,
-													query: { tutorial: currentPath }
-												}"
-												class="button is-success is-small mt-2"
-											>
+										<router-link
+											v-if="project.path"
+											:to="getProjectRoute(project)"
+											class="button is-success is-small mt-2"
+										>
 											Start Project
 										</router-link>
 										<a
@@ -180,6 +177,19 @@ const computedNextTutorial = computed(() => recommendations.value?.nextTutorial 
 const computedRelatedTutorials = computed(() => recommendations.value?.relatedTutorials || []);
 const computedPracticeProjects = computed(() => recommendations.value?.practiceProjects || []);
 const computedResources = computed(() => recommendations.value?.resources || []);
+
+function normalizeHash(hash) {
+	if (!hash) return undefined;
+	return hash.startsWith('#') ? hash : `#${hash}`;
+}
+
+function getProjectRoute(project) {
+	return {
+		path: project.path,
+		query: { tutorial: props.currentPath },
+		hash: normalizeHash(project.hash),
+	};
+}
 </script>
 
 <script>

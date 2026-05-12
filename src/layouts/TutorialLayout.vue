@@ -260,7 +260,7 @@ watch(showMobileNavDrawer, (isOpen) => {
   grid-template-columns: 300px 1fr;
   align-items: start;
   gap: 1.5rem;
-  max-width: 1200px;
+  max-width: 90vw;
   margin: 0 auto;
   padding: 1.5rem clamp(1rem, 4vw, 2rem);
   background: var(--tutorial-shell-bg);

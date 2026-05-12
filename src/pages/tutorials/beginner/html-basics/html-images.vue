@@ -103,14 +103,90 @@
 
 			<div class="content">
 				<h3 id="alt-attribute" class="title is-4">1. Always Include Alt Text</h3>
+				<p>
+					Alternative text is the written description that stands in for an
+					image when someone cannot see it. Screen readers announce the
+					<code>alt</code> value aloud, browsers show it when an image fails to
+					load, and search engines use it to understand what the image adds to
+					the page.
+				</p>
+				<p>
+					Good alt text is not just a label. It explains the meaning or purpose
+					of the image in the context of the page. If the image helps a sighted
+					visitor understand the content, the alt text should give screen reader
+					users the same useful information.
+				</p>
 				<CodeMirror v-model="altTextExample" :height="150" :readonly="true" />
-				<p class="mt-3">Good alt text:</p>
+				<p class="mt-3">Good alt text should:</p>
 				<ul>
 					<li>Describes the image content or function</li>
 					<li>Helps screen reader users understand the image</li>
 					<li>Displays when images fail to load</li>
 					<li>Improves SEO</li>
 				</ul>
+
+				<div id="alt-text-comparison" class="alt-text-comparison mt-5">
+					<div class="alt-text-card is-poor">
+						<img
+							:src="images.quokka"
+							alt="Image"
+							width="320"
+							height="213"
+						>
+						<h4 class="title is-5">Weak alt text</h4>
+						<p><code>alt="Image"</code></p>
+						<p>
+							This tells a screen reader user almost nothing. They know there is
+							an image, but not what it shows or why it matters.
+						</p>
+					</div>
+
+					<div class="alt-text-card is-strong">
+						<img
+							:src="images.quokka"
+							alt="A quokka facing the camera on Rottnest Island"
+							width="320"
+							height="213"
+						>
+						<h4 class="title is-5">Useful alt text</h4>
+						<p>
+							<code>alt="A quokka facing the camera on Rottnest Island"</code>
+						</p>
+						<p>
+							This gives the learner the same meaningful detail that a sighted
+							visitor gets from the image.
+						</p>
+					</div>
+				</div>
+
+				<div class="notification is-success is-light mt-4">
+					<h4 class="title is-5">How to Decide What to Write</h4>
+					<ul>
+						<li>
+							If the image teaches or explains something, describe the important
+							information.
+						</li>
+						<li>
+							If the image is a link or button, describe the action, such as
+							<code>alt="View photo gallery"</code>.
+						</li>
+						<li>
+							If the image is only decorative, use <code>alt=""</code> so screen
+							readers can skip it.
+						</li>
+						<li>
+							Avoid phrases like <code>image of</code> or <code>picture of</code>
+							unless that context is genuinely important.
+						</li>
+					</ul>
+				</div>
+
+				<h4 class="title is-5 mt-5">Suggested Code Pattern</h4>
+				<CodeMirror
+					v-model="altTextComparison"
+					:height="260"
+					:readonly="true"
+				/>
 
 				<h3 class="title is-4 mt-5">2. Use Figure with Caption</h3>
 				<CodeMirror v-model="figureExample" :height="200" :readonly="true" />
@@ -509,39 +585,11 @@
 				<CheckpointBox
 					:questions="checkpointQuestions"
 				/>
-
-				<div class="box mt-6">
-					<h2 class="title is-3">
-						<i class="fas fa-forward"></i> What's Next?
-					</h2>
-					<p>
-						Now that you can work with images, let's learn about how to
-						structure your HTML documents properly!
-					</p>
-				</div>
-
-				<div class="box has-background-info-light mt-4">
-					<h3 class="title is-5">
-						<i class="fas fa-images mr-2"></i> See Images in the Complete Projects
-					</h3>
-					<p class="mb-3">
-						Want to see how images are used throughout complete websites? 
-						Check out the reference projects to see image galleries, logos, and figures in context:
-					</p>
-					<div class="buttons">
-						<router-link to="/projects/black-swan-bistro" class="button is-primary is-small">
-							<span class="icon"><i class="fas fa-utensils"></i></span>
-							<span>Black Swan Bistro</span>
-						</router-link>
-					</div>
-				</div>
-
-				<TutorialNavigation class="mt-6" />
 			</div>
 		</div>
-<TestYourKnowledgeSection
-                  tutorial-path="/tutorials/beginner/html-basics/html-images"
-                />
+		<TestYourKnowledgeSection
+			tutorial-path="/tutorials/beginner/html-basics/html-images"
+		/>
 		<!-- Hunter Element: Closure -->
 		<ClosureSection
 			:key-takeaways="closureKeyTakeaways"
@@ -551,10 +599,8 @@
 			next-steps="<p>With images mastered, you're ready to learn about HTML document structure and semantic elements. In the next lesson, you'll discover how to organize your HTML properly using header, nav, main, article, section, aside, and footer elements.</p><p>Understanding document structure is crucial for creating accessible, SEO-friendly websites that are easy to maintain and scale.</p>"
 		/>
 
-		<!-- Add recommendations before the quiz -->
+		<!-- Add recommendations after the quiz and closure -->
 		<TutorialRecommendations :current-path="'/tutorials/beginner/html-basics/html-images'" />
-
-
 
 		<!-- Tutorial Completion -->
 		<TutorialCompletion tutorial-path="/tutorials/beginner/html-basics/html-images" />
@@ -565,9 +611,8 @@
 
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref, computed, onMounted, inject } from 'vue';
+import { ref, onMounted, inject } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
 
 useTutorialHead({
   title: 'Images in HTML',
@@ -667,6 +712,7 @@ onMounted(() => {
 				title: 'Image Attributes',
 				subsections: [
 					{ id: 'alt-attribute', title: 'Alt Attribute' },
+					{ id: 'alt-text-comparison', title: 'Alt Text Comparison' },
 				],
 			},
 			{
@@ -709,6 +755,18 @@ const altTextExample = ref(`<!-- Good alt text -->
 
 <!-- Decorative image -->
 <img src="divider.png" alt="" role="presentation">`);
+
+const altTextComparison = ref(`<!-- Too vague: screen reader users miss the point -->
+<img src="quokka.jpg" alt="Image">
+
+<!-- Better: describes the useful visual information -->
+<img
+  src="quokka.jpg"
+  alt="A quokka facing the camera on Rottnest Island"
+>
+
+<!-- Decorative only: skipped by screen readers -->
+<img src="leaf-divider.svg" alt="">`);
 
 const figureExample = ref(`<figure>
   <img src="lighthouse.jpg" 
@@ -932,5 +990,34 @@ export default {
 
 .html-icon {
 	color: #e34f26; /* HTML5 orange color */
+}
+
+.alt-text-comparison {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1.25rem;
+}
+
+.alt-text-card {
+	padding: 1rem;
+	border: 1px solid #d8e4e8;
+	border-radius: 8px;
+	background: #ffffff;
+}
+
+.alt-text-card img {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin-bottom: 1rem;
+	border-radius: 6px;
+}
+
+.alt-text-card.is-poor {
+	border-left: 4px solid #f14668;
+}
+
+.alt-text-card.is-strong {
+	border-left: 4px solid #48c78e;
 }
 </style>
