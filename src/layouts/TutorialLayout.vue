@@ -17,7 +17,7 @@
         <span>{{ isMobileNavOpen ? "Hide Lesson Menu" : "Lesson Menu" }}</span>
       </button>
 
-      <div class="content">
+      <div class="tutorial-content-shell">
         <router-view />
       </div>
 
@@ -294,7 +294,7 @@ watch(showMobileNavDrawer, (isOpen) => {
   flex-direction: column;
 }
 
-.content {
+.tutorial-content-shell {
   flex: 1;
   margin-bottom: 2rem; /* Add margin to separate content from navigation */
   background: var(--tutorial-surface);
@@ -311,7 +311,7 @@ watch(showMobileNavDrawer, (isOpen) => {
   box-shadow: var(--tutorial-surface-shadow);
 }
 
-.content :deep(.container.section) {
+.tutorial-content-shell :deep(.container.section) {
   max-width: 100% !important;
   padding-top: clamp(1.25rem, 3vw, 2rem);
   padding-right: clamp(1.25rem, 3vw, 2.25rem);
@@ -320,24 +320,24 @@ watch(showMobileNavDrawer, (isOpen) => {
   background: transparent;
 }
 
-.content :deep(.tutorial-content) {
+.tutorial-content-shell :deep(.tutorial-content) {
   max-width: 100%;
 }
 
-.content :deep(.breadcrumb) {
+.tutorial-content-shell :deep(.breadcrumb) {
   margin-top: 0;
   margin-bottom: 0.85rem;
 }
 
-.content :deep(.tutorial-meta) {
+.tutorial-content-shell :deep(.tutorial-meta) {
   margin-bottom: 1rem;
 }
 
-.content :deep(.tutorial-meta .tags) {
+.tutorial-content-shell :deep(.tutorial-meta .tags) {
   margin-bottom: 0;
 }
 
-.content :deep(.tutorial-content > h1:first-of-type) {
+.tutorial-content-shell :deep(.tutorial-content > h1:first-of-type) {
   margin-top: 0;
   margin-bottom: 1.75rem;
 }
@@ -510,7 +510,7 @@ watch(showMobileNavDrawer, (isOpen) => {
     display: inline-flex;
   }
 
-  .content :deep(.container.section) {
+  .tutorial-content-shell :deep(.container.section) {
     padding-inline: clamp(1rem, 4vw, 1.5rem);
   }
 }
