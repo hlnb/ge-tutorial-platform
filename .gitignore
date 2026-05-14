@@ -31,3 +31,4 @@ posts/*.*
 \#\#*.md
 /.specstory
 /.vite-ssg-temp/*
+/public/assets/*

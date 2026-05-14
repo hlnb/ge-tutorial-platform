@@ -1,37 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1080" height="1350" viewBox="0 0 1080 1350" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">How to Read a Design slide 3</title>
-  <desc id="desc">Notice repeated patterns. Cards, buttons, headings, spacing, and content rhythm tell you what should become reusable.</desc>
-  <rect width="1080" height="1350" fill="#fff9fb" />
-  <rect x="40" y="40" width="1000" height="1270" rx="8" fill="#ffffff" />
-  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1080 1350" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <rect x="0" y="0" width="1080" height="1350" style="fill:rgb(255,249,251);"/>
+    <g transform="matrix(1,0,0,1,-16.856,8.87249)">
+        <path d="M1040,48L1040,1302C1040,1306.41 1036.41,1310 1032,1310L48,1310C43.585,1310 40,1306.41 40,1302L40,48C40,43.585 43.585,40 48,40L1032,40C1036.41,40 1040,43.585 1040,48Z" style="fill:white;"/>
+    </g>
     <g id="brand-header">
-      <text x="90" y="104" font-family="PT Sans, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="0" fill="#4d4d4d">graphit<tspan fill="#8d0000">Edge</tspan></text>
-      <rect x="90" y="132" width="900" height="2" fill="#d3d4d9" />
-      <text x="90" y="182" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#8d0000">From Design to Website</text>
-      <text x="990" y="182" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0" fill="#4d4d4d">3/6</text>
+        <g transform="matrix(1,0,0,1,90,104)">
+            <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:30px;fill:rgb(77,77,77);">graphit</text>
+            <text x="101.66px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:30px;fill:rgb(141,0,0);">Edge</text>
+        </g>
+        <rect x="90" y="132" width="900" height="2" style="fill:rgb(211,212,217);"/>
+        <g transform="matrix(1,0,0,1,90,182)">
+            <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:24px;fill:rgb(141,0,0);">From Design to W<tspan x="204.902px 218.25px " y="0px 0px ">eb</tspan>site</text>
+        </g>
+        <g transform="matrix(1,0,0,1,990,182)">
+            <text x="-33.363px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:24px;fill:rgb(77,77,77);">3/6</text>
+        </g>
     </g>
-  
-  
-  <g id="message">
-    <text x="90" y="306" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">Notice repeated</text>
-<text x="90" y="382.16" text-anchor="start" font-family="Raleway, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="0" fill="#242424">patterns.</text>
-    <text x="92" y="510" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">Cards, buttons, headings, spacing, and</text>
-<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">content rhythm tell you what should become</text>
-<text x="92" y="560.16" text-anchor="start" font-family="PT Sans, Arial, sans-serif" font-size="38" font-weight="400" letter-spacing="0" fill="#4d4d4d">reusable.</text>
-  </g>
-  <g id="visual">
-    
-        <rect x="210" y="785" width="190" height="250" rx="8" fill="#ffffff" stroke="#d3d4d9" stroke-width="3" /><rect x="245" y="830" width="120" height="80" rx="8" fill="#f9eae1" /><rect x="245" y="940" width="120" height="18" rx="4" fill="#8d0000" opacity="0.8" /><rect x="245" y="980" width="90" height="18" rx="4" fill="#4b88a2" opacity="0.7" />
-<rect x="440" y="785" width="190" height="250" rx="8" fill="#ffffff" stroke="#d3d4d9" stroke-width="3" /><rect x="475" y="830" width="120" height="80" rx="8" fill="#f9eae1" /><rect x="475" y="940" width="120" height="18" rx="4" fill="#8d0000" opacity="0.8" /><rect x="475" y="980" width="90" height="18" rx="4" fill="#4b88a2" opacity="0.7" />
-<rect x="670" y="785" width="190" height="250" rx="8" fill="#ffffff" stroke="#d3d4d9" stroke-width="3" /><rect x="705" y="830" width="120" height="80" rx="8" fill="#f9eae1" /><rect x="705" y="940" width="120" height="18" rx="4" fill="#8d0000" opacity="0.8" /><rect x="705" y="980" width="90" height="18" rx="4" fill="#4b88a2" opacity="0.7" />
-      
-  </g>
-  
+    <g id="message">
+        <g transform="matrix(1,0,0,1,90,306)">
+            <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:68px;fill:rgb(36,36,36);">Notice repeated</text>
+        </g>
+        <g transform="matrix(1,0,0,1,90,382.16)">
+            <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:68px;fill:rgb(36,36,36);">patterns.</text>
+        </g>
+        <g transform="matrix(1,0,0,1,90.6194,510)">
+            <text x="0px" y="0px" style="font-family:'Helvetica';font-size:38px;fill:rgb(77,77,77);">Cards, buttons, headings, spacing, and</text>
+        </g>
+        <g transform="matrix(1,0,0,1,91.1946,560.013)">
+            <text x="0px" y="0px" style="font-family:'Helvetica';font-size:38px;fill:rgb(77,77,77);">content rhythm tell you what should become</text>
+        </g>
+        <g transform="matrix(1,0,0,1,89.7474,617.495)">
+            <g transform="matrix(38,0,0,38,156.323,0)">
+            </g>
+            <text x="0px" y="0px" style="font-family:'Helvetica';font-size:38px;fill:rgb(77,77,77);">reusable.</text>
+        </g>
+    </g>
+    <g id="visual">
+        <path d="M400,793L400,1027C400,1031.41 396.415,1035 392,1035L218,1035C213.585,1035 210,1031.41 210,1027L210,793C210,788.585 213.585,785 218,785L392,785C396.415,785 400,788.585 400,793Z" style="fill:white;stroke:rgb(211,212,217);stroke-width:3px;"/>
+        <path d="M365,838L365,902C365,906.415 361.415,910 357,910L253,910C248.585,910 245,906.415 245,902L245,838C245,833.585 248.585,830 253,830L357,830C361.415,830 365,833.585 365,838Z" style="fill:rgb(249,234,225);"/>
+        <path d="M365,944L365,954C365,956.208 363.208,958 361,958L249,958C246.792,958 245,956.208 245,954L245,944C245,941.792 246.792,940 249,940L361,940C363.208,940 365,941.792 365,944Z" style="fill:rgb(141,0,0);fill-opacity:0.8;"/>
+        <path d="M335,984L335,994C335,996.208 333.208,998 331,998L249,998C246.792,998 245,996.208 245,994L245,984C245,981.792 246.792,980 249,980L331,980C333.208,980 335,981.792 335,984Z" style="fill:rgb(75,136,162);fill-opacity:0.7;"/>
+        <path d="M630,793L630,1027C630,1031.41 626.415,1035 622,1035L448,1035C443.585,1035 440,1031.41 440,1027L440,793C440,788.585 443.585,785 448,785L622,785C626.415,785 630,788.585 630,793Z" style="fill:white;stroke:rgb(211,212,217);stroke-width:3px;"/>
+        <path d="M595,838L595,902C595,906.415 591.415,910 587,910L483,910C478.585,910 475,906.415 475,902L475,838C475,833.585 478.585,830 483,830L587,830C591.415,830 595,833.585 595,838Z" style="fill:rgb(249,234,225);"/>
+        <path d="M595,944L595,954C595,956.208 593.208,958 591,958L479,958C476.792,958 475,956.208 475,954L475,944C475,941.792 476.792,940 479,940L591,940C593.208,940 595,941.792 595,944Z" style="fill:rgb(141,0,0);fill-opacity:0.8;"/>
+        <path d="M565,984L565,994C565,996.208 563.208,998 561,998L479,998C476.792,998 475,996.208 475,994L475,984C475,981.792 476.792,980 479,980L561,980C563.208,980 565,981.792 565,984Z" style="fill:rgb(75,136,162);fill-opacity:0.7;"/>
+        <path d="M860,793L860,1027C860,1031.41 856.415,1035 852,1035L678,1035C673.585,1035 670,1031.41 670,1027L670,793C670,788.585 673.585,785 678,785L852,785C856.415,785 860,788.585 860,793Z" style="fill:white;stroke:rgb(211,212,217);stroke-width:3px;"/>
+        <path d="M825,838L825,902C825,906.415 821.415,910 817,910L713,910C708.585,910 705,906.415 705,902L705,838C705,833.585 708.585,830 713,830L817,830C821.415,830 825,833.585 825,838Z" style="fill:rgb(249,234,225);"/>
+        <path d="M825,944L825,954C825,956.208 823.208,958 821,958L709,958C706.792,958 705,956.208 705,954L705,944C705,941.792 706.792,940 709,940L821,940C823.208,940 825,941.792 825,944Z" style="fill:rgb(141,0,0);fill-opacity:0.8;"/>
+        <path d="M795,984L795,994C795,996.208 793.208,998 791,998L709,998C706.792,998 705,996.208 705,994L705,984C705,981.792 706.792,980 709,980L791,980C793.208,980 795,981.792 795,984Z" style="fill:rgb(75,136,162);fill-opacity:0.7;"/>
+    </g>
     <g id="footer">
-      <rect x="90" y="1214" width="900" height="2" fill="#d3d4d9" />
-      <text x="90" y="1268" font-family="PT Sans, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0" fill="#8d0000">How to Read a Design</text>
-      <text x="990" y="1268" text-anchor="end" font-family="PT Sans, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0" fill="#4d4d4d">GraphitEdge tutorials</text>
+        <rect x="90" y="1214" width="900" height="2" style="fill:rgb(211,212,217);"/>
+        <g transform="matrix(1,0,0,1,90,1268)">
+            <text x="0px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:28px;fill:rgb(141,0,0);">How to Read a Design</text>
+        </g>
+        <g transform="matrix(1,0,0,1,990,1268)">
+            <text x="-225.457px" y="0px" style="font-family:'Helvetica';font-size:24px;fill:rgb(77,77,77);">GraphitEdge tutorials</text>
+        </g>
     </g>
-  
 </svg>

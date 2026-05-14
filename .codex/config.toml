@@ -1,6 +1,6 @@
 # Repo-scoped Codex settings for GraphitEdge
 
-model = "gpt-5"
+model = "gpt-5.5"
 model_reasoning_effort = "medium"
 
 # Be cautious with code execution and keep approvals sensible for an active website.
