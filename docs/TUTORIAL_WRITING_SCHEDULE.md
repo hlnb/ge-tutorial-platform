@@ -2,7 +2,7 @@
 
 Tracks the build status of all tutorial sections and individual tutorials in the GraphitEdge pathway. Updated against `src/data/tutorials.js` and the page files in `src/pages/tutorials/`.
 
-Last updated: May 2026
+Last updated: May 19, 2026
 
 ---
 
@@ -27,7 +27,7 @@ Last updated: May 2026
 | Text Editors and VS Code | `getting-started/text-editors.vue` | ✅ Complete |
 | Setting Up Your Development Environment | `getting-started/dev-environment.vue` | ✅ Complete |
 | Browser Development Tools | `getting-started/browser-tools.vue` | ✅ Complete |
-| Copyright, Licensing, and Attribution | — | 🔴 Not started |
+| Copyright, Licensing, and Attribution | `getting-started/copyright-licensing-attribution.vue` | ✅ Complete |
 
 ---
 
@@ -44,9 +44,7 @@ Last updated: May 2026
 | HTML Forms | `beginner/html-basics/html-forms.vue` | ✅ Complete |
 | Emmet Workflow | `beginner/html-basics/html-emmet.vue` | ✅ Complete |
 
-**Small additions needed:**
-- ➕ `html-images.vue` — add alt text/accessibility callout
-- ➕ `html-text.vue` — add writing-for-the-web note (heading hierarchy, plain language)
+**Small additions:** Complete.
 
 ---
 
@@ -65,8 +63,7 @@ Last updated: May 2026
 | CSS Text | `beginner/css-basics/text.vue` | ✅ Complete |
 | Why Your CSS Isn't Working | `beginner/why-your-css-isnt-working.vue` | ✅ Complete |
 
-**Small additions needed:**
-- ➕ `colors.vue` — add colour contrast/accessibility callout
+**Small additions:** Complete.
 
 ---
 
@@ -154,7 +151,7 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | Styling Details: Selectors, Pseudo-elements, and Motion | `intermediate/styling-details-selectors-pseudo-elements-and-motion.vue` | ✅ Complete |
 | BSB Part 4B: Polish and Refine | `intermediate/black-swan-bistro-part-4b-polish-and-refine.vue` | ✅ Complete |
 | How to Debug a Broken Web Page | `intermediate/debug-broken-web-page.vue` | ✅ Complete |
-| Test and Validate Your Site | — | 🔴 Not started |
+| Test and Validate Your Site | `intermediate/test-and-validate-your-site.vue` | ✅ Complete |
 
 ---
 
@@ -183,6 +180,8 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | Framework Tradeoffs and Costs | `intermediate/frameworks-101/framework-tradeoffs-and-costs.vue` | ✅ Complete |
 | How to Evaluate a Framework Without Panic | `intermediate/frameworks-101/how-to-evaluate-a-framework.vue` | ✅ Complete |
 
+**Small additions:** Complete — section intro copy now references the Vite, Vue, and Bulma tutorials that follow.
+
 ---
 
 ## Vue Introduction (Standalone)
@@ -190,8 +189,8 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | Tutorial | File | Status |
 |---|---|---|
 | Working with Vite | `intermediate/working-with-vite.vue` | ✅ Complete |
-| First Vue App with Vite | `intermediate/first-vue-app-with-vite.vue` | 🔵 In progress |
-| Using Bulma in a Vue Project | `intermediate/using-bulma-in-a-vue-project.vue` | 🔵 In progress |
+| First Vue App with Vite | `intermediate/first-vue-app-with-vite.vue` | ✅ Complete |
+| Using Bulma in a Vue Project | `intermediate/using-bulma-in-a-vue-project.vue` | ✅ Complete |
 
 ---
 
@@ -212,7 +211,7 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 
 | Tutorial | File | Status |
 |---|---|---|
-| SEO Fundamentals / On-page SEO | `seo-analytics/on-page-seo.vue` | 🟡 Config only — unhide in tutorials.js |
+| SEO Fundamentals / On-page SEO | `seo-analytics/on-page-seo.vue` | ✅ Complete |
 | Analytics Setup | `seo-analytics/analytics-setup.vue` | 🟡 Config only — unhide in tutorials.js |
 
 ---
@@ -242,9 +241,7 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 
 | Priority | Tutorial | Section | Notes |
 |---|---|---|---|
-| 1 | Test and Validate Your Site | Design to Code | W3C validator, Lighthouse, browser testing, pre-launch QA. Sits between BSB Part 4B and BSB Part 5. |
-| 2 | Copyright, Licensing, and Attribution | Getting Started | Creative Commons, image sources, code licensing, attribution practice. Closes ICTICT418/ICTICT532. |
-| 3 | Rotto Rocks Capstone Spec | Capstone | Replace placeholder with real project brief. |
+| 1 | Rotto Rocks Capstone Spec | Capstone | Replace placeholder with real project brief. |
 
 ### Config-only tasks (no writing needed)
 
@@ -252,13 +249,12 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 |---|---|
 | Unhide Static vs Dynamic Sites | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
 | Unhide Hosting and Deployment | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
-| Unhide SEO Fundamentals | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
 | Unhide Analytics Setup | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
 
 ### Small additions to existing tutorials
 
 | Tutorial | Addition |
 |---|---|
-| Working with Images (`html-images.vue`) | Brief accessibility callout on alt text — why it matters, how to write it well |
-| Colors and Typography (`colors.vue`) | Colour contrast note — WCAG AA minimum ratio, how to check |
-| Working with Text (`html-text.vue`) | Writing-for-the-web note — heading hierarchy, scannable content, plain language |
+| Working with Images (`html-images.vue`) | ✅ Complete — alt text/accessibility callout |
+| Colors and Typography (`colors.vue`) | ✅ Complete — colour contrast callout |
+| Working with Text (`html-text.vue`) | ✅ Complete — writing-for-the-web note |

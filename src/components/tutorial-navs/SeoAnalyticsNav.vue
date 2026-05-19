@@ -9,6 +9,18 @@
         >
           {{ item.title }}
         </router-link>
+
+        <div v-if="isActive(item.path) && hasPageSections" class="page-sections">
+          <div class="page-sections-header">
+            <h4 class="section-title">On This Page</h4>
+            <span class="icon"><i class="fas fa-list-ul"></i></span>
+          </div>
+          <ul class="menu-list page-sections-list">
+            <li v-for="section in pageSections" :key="section.id">
+              <a :href="`#${section.id}`">{{ section.title }}</a>
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
   </aside>
@@ -17,9 +29,11 @@
 <script setup>
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { usePageNavigation } from '@/composables/usePageNavigation';
 import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
+const { pageSections, hasPageSections } = usePageNavigation();
 const navItems = getSectionNavItems('seo-analytics', { includeOverview: false });
 const currentIndex = computed(() => navItems.findIndex((item) => item.path === route.path));
 

@@ -63,6 +63,30 @@
 .tutorial-content {
 	background-color: var(--color-white);
 }
+
+.tutorial-content h2.title {
+	margin-top: clamp(2.75rem, 5vw, 3.5rem);
+	margin-bottom: 1.15rem;
+	line-height: 1.25;
+}
+
+.tutorial-content h2.title:first-of-type {
+	margin-top: 2rem;
+}
+
+.tutorial-content h2.title.is-2,
+.tutorial-content h2.title.is-3 {
+	font-size: clamp(1.55rem, 2.1vw, 2rem);
+}
+
+.tutorial-content h2.title + p,
+.tutorial-content h2.title + ul,
+.tutorial-content h2.title + ol,
+.tutorial-content h2.title + .notification,
+.tutorial-content h2.title + .box,
+.tutorial-content h2.title + .tutorial-figure {
+	margin-top: 0;
+}
 .tutorials-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

@@ -1213,6 +1213,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/test-and-validate-your-site': RouteRecordInfo<
+      '/tutorials/intermediate/test-and-validate-your-site',
+      '/tutorials/intermediate/test-and-validate-your-site',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/think-about-layouts': RouteRecordInfo<
       '/tutorials/intermediate/think-about-layouts',
       '/tutorials/intermediate/think-about-layouts',
@@ -2334,6 +2341,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion.vue': {
       routes:
         | '/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/test-and-validate-your-site.vue': {
+      routes:
+        | '/tutorials/intermediate/test-and-validate-your-site'
       views:
         | never
     }

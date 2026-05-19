@@ -1373,6 +1373,33 @@ const legacyTutorialEditorialContent = {
 			],
 		},
 	},
+	'seo-analytics': {
+		'on-page-seo': {
+			practiceProjects: [],
+			resources: [
+				{
+					title: 'Google Search Central: Creating helpful, reliable, people-first content',
+					url: 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content',
+					description: 'Guidance on writing useful content for people first.',
+				},
+				{
+					title: 'Google Search Central: AI features and your website',
+					url: 'https://developers.google.com/search/docs/appearance/ai-features',
+					description: 'How AI features in Search relate to website owners and publishers.',
+				},
+				{
+					title: 'Google Search Central: Performing well in AI experiences on Search',
+					url: 'https://developers.google.com/search/blog/2025/05/succeeding-in-ai-search',
+					description: 'Current Google guidance on succeeding in AI-shaped search experiences.',
+				},
+				{
+					title: 'Google Search Central: Introduction to structured data',
+					url: 'https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data',
+					description: 'How structured data helps Google understand eligible page content.',
+				},
+			],
+		},
+	},
 };
 
 export const tutorialEditorialContent = Object.fromEntries(
