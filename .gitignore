@@ -32,3 +32,5 @@ posts/*.*
 /.specstory
 /.vite-ssg-temp/*
 /public/assets/*
+!/public/assets/images/
+!/public/assets/images/**

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Findability across classic and AI search</title>
+  <desc id="desc">A diagram showing that classic search results and AI search experiences both depend on useful, accessible, well-structured web pages.</desc>
+  <rect width="960" height="540" fill="#f8fafb"/>
+  <text x="480" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#102a43">AI Search Changes the Interface, Not the Foundations</text>
+  <text x="480" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#52606d">Pages still need to be useful, crawlable, understandable, and worth visiting.</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#486581"/>
+    </marker>
+  </defs>
+
+  <rect x="80" y="180" width="250" height="175" rx="18" fill="#ffffff" stroke="#bcccdc" stroke-width="2"/>
+  <rect x="355" y="145" width="250" height="245" rx="18" fill="#fff7ed" stroke="#f0b429" stroke-width="2"/>
+  <rect x="630" y="180" width="250" height="175" rx="18" fill="#ffffff" stroke="#bcccdc" stroke-width="2"/>
+
+  <text x="205" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#102a43">Classic Search</text>
+  <text x="205" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#52606d">titles, snippets, images,</text>
+  <text x="205" y="281" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#52606d">links, rich results</text>
+
+  <text x="480" y="191" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#102a43">Your Web Page</text>
+  <text x="480" y="231" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#52606d">original explanation</text>
+  <text x="480" y="257" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#52606d">clear entities and sections</text>
+  <text x="480" y="283" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#52606d">visible content and media</text>
+  <text x="480" y="309" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#52606d">structured data when useful</text>
+  <text x="480" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#52606d">good experience after click</text>
+
+  <text x="755" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#102a43">AI Search</text>
+  <text x="755" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#52606d">AI Overviews, AI Mode,</text>
+  <text x="755" y="281" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#52606d">follow-up and multimodal queries</text>
+
+  <path d="M330 268 H350" stroke="#486581" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M605 268 H625" stroke="#486581" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M350 310 H330" stroke="#486581" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M625 310 H605" stroke="#486581" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="480" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#102a43">Findability means helping both people and systems understand why your page exists.</text>
+</svg>

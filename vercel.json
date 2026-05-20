@@ -4,6 +4,7 @@
 		{ "src": "/admin/?", "dest": "/admin/index.html" },
 		{ "src": "/(.*)", "dest": "/index.html" }
 	],
+	"installCommand": "npm ci",
 	"buildCommand": "npm run build",
 	"outputDirectory": "dist",
 	"framework": "vite"

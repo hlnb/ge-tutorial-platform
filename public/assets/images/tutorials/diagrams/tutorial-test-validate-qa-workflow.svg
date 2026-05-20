@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Pre-launch QA workflow</title>
+  <desc id="desc">A circular workflow showing structure, presentation, experience, and readiness checks feeding into a launch decision.</desc>
+  <rect width="960" height="540" fill="#f8fafb"/>
+  <text x="480" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#102a43">A Pre-launch QA Pass Tests the Whole System</text>
+  <text x="480" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#52606d">Each layer catches a different kind of issue before users do.</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#486581"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#102a43" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <path d="M300 180 C390 120 570 120 660 180" fill="none" stroke="#486581" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M720 240 C760 320 700 420 600 448" fill="none" stroke="#486581" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M560 455 C455 500 315 455 258 360" fill="none" stroke="#486581" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M235 315 C195 245 220 205 286 170" fill="none" stroke="#486581" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="110" y="145" width="260" height="120" rx="14" fill="#ffffff" stroke="#bcccdc" stroke-width="2"/>
+    <circle cx="150" cy="188" r="22" fill="#d9e2ec"/>
+    <text x="150" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#102a43">1</text>
+    <text x="188" y="176" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#102a43">Structure</text>
+    <text x="188" y="207" font-family="Arial, sans-serif" font-size="16" fill="#52606d">HTML, headings, forms,</text>
+    <text x="188" y="229" font-family="Arial, sans-serif" font-size="16" fill="#52606d">links, and semantics</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="590" y="145" width="260" height="120" rx="14" fill="#ffffff" stroke="#bcccdc" stroke-width="2"/>
+    <circle cx="630" cy="188" r="22" fill="#d9e2ec"/>
+    <text x="630" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#102a43">2</text>
+    <text x="668" y="176" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#102a43">Presentation</text>
+    <text x="668" y="207" font-family="Arial, sans-serif" font-size="16" fill="#52606d">CSS, layout, spacing,</text>
+    <text x="668" y="229" font-family="Arial, sans-serif" font-size="16" fill="#52606d">and responsive states</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="590" y="335" width="260" height="120" rx="14" fill="#ffffff" stroke="#bcccdc" stroke-width="2"/>
+    <circle cx="630" cy="378" r="22" fill="#d9e2ec"/>
+    <text x="630" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#102a43">3</text>
+    <text x="668" y="366" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#102a43">Experience</text>
+    <text x="668" y="397" font-family="Arial, sans-serif" font-size="16" fill="#52606d">Keyboard, links, forms,</text>
+    <text x="668" y="419" font-family="Arial, sans-serif" font-size="16" fill="#52606d">reading, and flow</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="110" y="335" width="260" height="120" rx="14" fill="#ffffff" stroke="#bcccdc" stroke-width="2"/>
+    <circle cx="150" cy="378" r="22" fill="#d9e2ec"/>
+    <text x="150" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#102a43">4</text>
+    <text x="188" y="366" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#102a43">Readiness</text>
+    <text x="188" y="397" font-family="Arial, sans-serif" font-size="16" fill="#52606d">Performance, metadata,</text>
+    <text x="188" y="419" font-family="Arial, sans-serif" font-size="16" fill="#52606d">images, and final copy</text>
+  </g>
+
+  <g>
+    <circle cx="480" cy="300" r="82" fill="#fff7ed" stroke="#f0b429" stroke-width="3"/>
+    <text x="480" y="286" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#102a43">Launch</text>
+    <text x="480" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#52606d">only after the</text>
+    <text x="480" y="339" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#52606d">evidence holds</text>
+  </g>
+</svg>
