@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rotto Rocks · Wireframes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --bg: #efece4;
+    --paper: #ffffff;
+    --ink: #1a1a1a;
+    --line: #1a1a1a;
+    --line-soft: #b3afa3;
+    --grey-1: #ecebe5;
+    --grey-2: #dad7cc;
+    --grey-3: #bcb8ab;
+    --grey-4: #8b8779;
+    --accent: #E76F51;
+    --accent-soft: #fbe3da;
+    --note: #5a5a5a;
+    --font-ui: "Inter", system-ui, -apple-system, sans-serif;
+    --font-hand: "Caveat", "Bradley Hand", cursive;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-ui);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line-soft);
+    padding: 18px 32px 0;
+  }
+  .topbar-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-mark {
+    width: 44px; height: 44px;
+    border: 1.5px solid var(--ink);
+    border-radius: 8px;
+    display: grid; place-items: center;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 14px;
+    background: var(--paper);
+  }
+  .brand h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .brand p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: var(--note);
+  }
+  .top-meta {
+    font-size: 12px;
+    color: var(--note);
+    text-align: right;
+  }
+  .top-meta strong { color: var(--ink); display: block; font-weight: 600; }
+
+  .page-tabs {
+    max-width: 1400px;
+    margin: 16px auto 0;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .page-tabs button {
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    padding: 10px 14px 12px;
+    margin-bottom: -1px;
+    font: inherit;
+    font-size: 13px;
+    color: var(--note);
+    cursor: pointer;
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+  .page-tabs button:hover { color: var(--ink); }
+  .page-tabs button.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ---------- Main ---------- */
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .page-head {
+    margin-bottom: 28px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .page-head h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .page-head .lede {
+    max-width: 560px;
+    color: var(--note);
+    margin: 0;
+    font-size: 13px;
+  }
+  .page-head .sections {
+    font-size: 12px;
+    color: var(--note);
+    font-family: var(--font-ui);
+  }
+  .page-head .sections span { color: var(--ink); }
+
+  /* ---------- Variation layout ---------- */
+  .variations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 1100px) {
+    .variations { grid-template-columns: 1fr; }
+  }
+  .variation {
+    background: transparent;
+  }
+  .variation > header {
+    margin-bottom: 14px;
+  }
+  .variation .vtag {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .variation h3 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .variation .vdesc {
+    margin: 0;
+    color: var(--note);
+    font-size: 12.5px;
+    max-width: 52ch;
+  }
+  .frames {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-top: 16px;
+  }
+  .frame-desktop {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .frame-mobile {
+    flex: 0 0 168px;
+  }
+
+  /* ---------- Wireframe frame ---------- */
+  .frame-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--note);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .wf {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .wf-desktop { /* full width of column */ }
+  .wf-mobile {
+    border-radius: 18px;
+    border-width: 1.5px;
+  }
+  .wf-mobile::before {
+    content: "";
+    display: block;
+    width: 30%;
+    height: 14px;
+    background: var(--ink);
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Wireframe primitives ---------- */
+  .wf-stack { display: flex; flex-direction: column; }
+  .wf-row { display: flex; }
+  .wf-grid { display: grid; gap: 8px; }
+  .wf-pad { padding: 12px; }
+  .wf-pad-sm { padding: 8px; }
+  .wf-pad-lg { padding: 18px; }
+  .wf-gap-1 { gap: 4px; }
+  .wf-gap-2 { gap: 8px; }
+  .wf-gap-3 { gap: 12px; }
+  .wf-gap-4 { gap: 16px; }
+  .wf-center { display: grid; place-items: center; }
+  .wf-between { justify-content: space-between; align-items: center; }
+  .wf-items-c { align-items: center; }
+  .wf-divider { border-top: 1px solid var(--line-soft); }
+  .wf-divider-strong { border-top: 1.5px solid var(--ink); }
+
+  /* nav bar */
+  .wf-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1.5px solid var(--ink);
+    gap: 8px;
+  }
+  .wf-logo {
+    width: 50px; height: 14px;
+    background: var(--ink);
+    border-radius: 2px;
+  }
+  .wf-nav-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .wf-nav-link {
+    height: 6px; width: 38px;
+    background: var(--grey-3);
+    border-radius: 999px;
+  }
+  .wf-nav-link.short { width: 26px; }
+  .wf-nav-link.long { width: 52px; }
+  .wf-nav-cta {
+    height: 22px; width: 64px;
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    background: var(--accent);
+  }
+  .wf-burger {
+    width: 22px; height: 16px;
+    border: 1.5px solid var(--ink);
+    border-radius: 3px;
+    background:
+      linear-gradient(var(--ink), var(--ink)) center 4px/12px 1.5px no-repeat,
+      linear-gradient(var(--ink), var(--ink)) center 8px/12px 1.5px no-repeat,
+      linear-gradient(var(--ink), var(--ink)) center 12px/12px 1.5px no-repeat,
+      var(--paper);
+  }
+
+  /* image placeholder */
+  .wf-img {
+    background:
+      repeating-linear-gradient(
+        135deg,
+        transparent 0 10px,
+        rgba(0,0,0,0.05) 10px 11px
+      ),
+      var(--grey-2);
+    border: 1px solid var(--grey-3);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+  .wf-img::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--grey-3);
+    background:
+      linear-gradient(135deg, transparent calc(50% - 0.5px), var(--grey-3) 50%, transparent calc(50% + 0.5px)),
+      linear-gradient(45deg, transparent calc(50% - 0.5px), var(--grey-3) 50%, transparent calc(50% + 0.5px));
+    opacity: 0.5;
+  }
+  .wf-img.plain::after { display: none; }
+  .wf-img.dark { background: var(--grey-4); border-color: var(--grey-4); }
+  .wf-img.dark::after { display: none; }
+
+  /* text bars */
+  .wf-line {
+    height: 6px;
+    background: var(--grey-3);
+    border-radius: 99px;
+  }
+  .wf-line.thin { height: 4px; }
+  .wf-line.thick { height: 10px; background: var(--ink); }
+  .wf-line.w-90 { width: 90%; }
+  .wf-line.w-80 { width: 80%; }
+  .wf-line.w-70 { width: 70%; }
+  .wf-line.w-60 { width: 60%; }
+  .wf-line.w-50 { width: 50%; }
+  .wf-line.w-40 { width: 40%; }
+  .wf-line.w-30 { width: 30%; }
+
+  /* heading text representation */
+  .wf-heading {
+    height: 14px;
+    background: var(--ink);
+    border-radius: 2px;
+  }
+  .wf-heading.lg { height: 20px; }
+  .wf-heading.xl { height: 26px; }
+  .wf-heading.sm { height: 10px; }
+  .wf-subhead {
+    height: 8px;
+    background: var(--grey-3);
+    border-radius: 2px;
+  }
+
+  /* text block (paragraph) */
+  .wf-para {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .wf-para .wf-line { height: 4px; }
+
+  /* buttons */
+  .wf-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 24px;
+    padding: 0 14px;
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    background: var(--paper);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .wf-btn--primary {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .wf-btn--ghost {
+    background: transparent;
+  }
+  .wf-btn--sm { height: 18px; padding: 0 10px; font-size: 9px; }
+  .wf-btn--lg { height: 32px; padding: 0 18px; font-size: 12px; }
+
+  /* chips / tags */
+  .wf-chip {
+    display: inline-flex; align-items: center;
+    height: 16px;
+    padding: 0 8px;
+    border: 1px solid var(--line-soft);
+    border-radius: 999px;
+    background: var(--grey-1);
+    font-size: 9px;
+    color: var(--note);
+    font-weight: 500;
+  }
+  .wf-chip.solid { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .wf-chip.accent { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+
+  /* card */
+  .wf-card {
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+    background: var(--paper);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .wf-card .wf-img { border-radius: 0; border-left: 0; border-right: 0; border-top: 0; }
+
+  /* icon placeholder */
+  .wf-icon {
+    width: 28px; height: 28px;
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    background: var(--paper);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .wf-icon::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+  }
+  .wf-icon.sq::after { border-radius: 0; }
+  .wf-icon.tri::after { border: 0; background:
+      conic-gradient(from 0deg, transparent 0 25%, var(--ink) 25% 75%, transparent 75% 100%);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+  .wf-icon.lg { width: 40px; height: 40px; }
+  .wf-icon.lg::after { inset: 10px; }
+  .wf-icon.xl { width: 56px; height: 56px; }
+  .wf-icon.xl::after { inset: 14px; }
+  .wf-icon.sm { width: 20px; height: 20px; }
+  .wf-icon.sm::after { inset: 4px; }
+
+  /* footer block */
+  .wf-footer-block {
+    background: var(--grey-1);
+    border-top: 1.5px solid var(--ink);
+    padding: 14px 12px;
+  }
+  .wf-footer-block .wf-line { background: var(--grey-3); }
+
+  /* annotation callouts */
+  .annot {
+    position: absolute;
+    font-family: var(--font-hand);
+    font-size: 16px;
+    color: var(--accent);
+    line-height: 1.1;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .annot::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+  .annot.left::before {
+    width: 26px; height: 1.5px; background: var(--accent);
+    margin-right: 6px;
+  }
+  .annot.right { text-align: right; }
+  .annot.right::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 6px;
+    width: 26px; height: 1.5px; background: var(--accent);
+  }
+  .annot.right::before { display: none; }
+  .annot.top {
+    position: absolute;
+  }
+
+  /* CTA banner */
+  .wf-cta-banner {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .wf-cta-banner .wf-line { background: var(--grey-3); }
+  .wf-cta-banner .wf-heading { background: var(--paper); }
+
+  /* utility text */
+  .wf-label-text {
+    font-size: 9px;
+    color: var(--note);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+  .wf-real {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .wf-real.sm { font-size: 9px; }
+  .wf-real.lg { font-size: 12px; }
+  .wf-real.muted { color: var(--note); font-weight: 500; }
+
+  /* hero specific */
+  .wf-hero-img-bg {
+    position: relative;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .wf-hero-img-bg .wf-img {
+    border-radius: 0;
+    border: 0;
+  }
+  .wf-hero-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+  .wf-hero-overlay .wf-heading { background: var(--paper); }
+  .wf-hero-overlay .wf-line { background: var(--paper); opacity: 0.85; }
+
+  /* page section title bar */
+  .wf-section-title {
+    padding: 10px 12px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .wf-section-title .wf-real { font-size: 11px; }
+
+  /* form */
+  .wf-input {
+    border: 1px solid var(--line-soft);
+    border-radius: 3px;
+    height: 22px;
+    background: var(--grey-1);
+  }
+  .wf-input.tall { height: 56px; }
+  .wf-input-label {
+    font-size: 9px;
+    color: var(--note);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .wf-field {
+    display: flex; flex-direction: column;
+  }
+
+  /* table */
+  .wf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9px;
+  }
+  .wf-table th, .wf-table td {
+    border: 1px solid var(--line-soft);
+    padding: 6px 8px;
+    text-align: left;
+  }
+  .wf-table th {
+    background: var(--grey-1);
+    font-weight: 600;
+    color: var(--note);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 8px;
+  }
+  .wf-table td .wf-line { height: 4px; }
+
+  /* footnotes / legend below variation */
+  .vnotes {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border: 1px dashed var(--line-soft);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.5);
+    font-size: 12px;
+    color: var(--note);
+  }
+  .vnotes ul { margin: 0; padding-left: 18px; }
+  .vnotes li + li { margin-top: 4px; }
+  .vnotes .key {
+    color: var(--accent);
+    font-weight: 600;
+    font-family: var(--font-hand);
+    font-size: 15px;
+    margin-right: 4px;
+  }
+
+  /* page intro card */
+  .page-note {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 24px;
+    font-size: 12.5px;
+    color: #6e2e1a;
+    max-width: 920px;
+  }
+  .page-note strong { color: var(--accent); }
+
+  /* components page specific */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 1100px) { .comp-grid { grid-template-columns: 1fr; } }
+  .comp-card {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .comp-card header {
+    margin-bottom: 14px;
+    border-bottom: 1px dashed var(--line-soft);
+    padding-bottom: 10px;
+  }
+  .comp-card h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .comp-card .ctag {
+    display: inline-block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .comp-card .cdesc {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--note);
+  }
+  .comp-card .csample {
+    margin-top: 14px;
+    background: var(--bg);
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .comp-card .cnotes {
+    margin-top: 12px;
+    font-size: 11.5px;
+    color: var(--note);
+  }
+  .comp-card .cnotes b { color: var(--ink); }
+
+  /* footer credit */
+  .endnote {
+    margin: 48px auto 0;
+    max-width: 1400px;
+    padding: 24px 0 16px;
+    border-top: 1px solid var(--line-soft);
+    font-size: 12px;
+    color: var(--note);
+    text-align: center;
+  }
+  .endnote .hand {
+    font-family: var(--font-hand);
+    color: var(--accent);
+    font-size: 18px;
+  }
+
+  /* small helpers */
+  .h6 { height: 6px; } .h8 { height: 8px; } .h10 { height: 10px; }
+  .h12 { height: 12px; } .h14 { height: 14px; } .h16 { height: 16px; }
+  .h20 { height: 20px; } .h24 { height: 24px; } .h28 { height: 28px; }
+  .h32 { height: 32px; } .h40 { height: 40px; } .h48 { height: 48px; }
+  .h56 { height: 56px; } .h64 { height: 64px; } .h80 { height: 80px; }
+  .h100 { height: 100px; } .h120 { height: 120px; } .h140 { height: 140px; }
+  .h160 { height: 160px; } .h180 { height: 180px; } .h200 { height: 200px; }
+  .flex-1 { flex: 1 1 auto; min-width: 0; }
+  .col { display: flex; flex-direction: column; }
+  .row { display: flex; }
+  .gap-2 { gap: 8px; } .gap-3 { gap: 12px; } .gap-4 { gap: 16px; }
+  .mt-2 { margin-top: 8px; } .mt-3 { margin-top: 12px; } .mt-4 { margin-top: 16px; }
+  .mb-2 { margin-bottom: 8px; }
+  .grow { flex: 1; }
+  .text-c { text-align: center; }
+</style>
+</head>
+<body>
+
+<header class="topbar" data-screen-label="Wireframe browser">
+  <div class="topbar-row">
+    <div class="brand">
+      <div class="brand-mark">RR</div>
+      <div>
+        <h1>Rotto Rocks — Wireframes</h1>
+        <p>Capstone project planning · GraphiteEdge tutorial platform</p>
+      </div>
+    </div>
+    <div class="top-meta">
+      <strong>5 pages · 2 variations each</strong>
+      Desktop + mobile · low-fi exploration
+    </div>
+  </div>
+  <nav class="page-tabs" role="tablist">
+    <button data-tab="home" class="active" role="tab">01 · Home</button>
+    <button data-tab="experiences" role="tab">02 · Experiences</button>
+    <button data-tab="about" role="tab">03 · About</button>
+    <button data-tab="plan" role="tab">04 · Plan Your Visit</button>
+    <button data-tab="contact" role="tab">05 · Contact</button>
+    <button data-tab="components" role="tab">06 · Reusable Components</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ============================================================ -->
+  <!-- HOME -->
+  <!-- ============================================================ -->
+  <section id="home" class="page active" data-screen-label="01 Home">
+    <div class="page-head">
+      <div>
+        <h2>Home page</h2>
+        <p class="lede">Introduce Rotto Rocks and guide users to key experiences. Two layout directions explore how to balance the coastal imagery with practical tour discovery.</p>
+      </div>
+      <div class="sections">Sections: <span>hero · intro · featured tours · why us · highlights · testimonial · CTA</span></div>
+    </div>
+
+    <div class="page-note">
+      <strong>How to read these:</strong> grey blocks are images, lines are text, the coral button is the primary CTA. Side notes in coral handwriting flag reusable components and layout decisions worth thinking about.
+    </div>
+
+    <div class="variations">
+
+      <!-- HOME · Variation A -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation A</span>
+          <h3>Classic hero, scannable tour grid</h3>
+          <p class="vdesc">Big image-led hero followed by a 3-up featured tours grid. Familiar tourism layout — easy for first-time visitors to scan.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <!-- nav -->
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links">
+                  <div class="wf-nav-link short"></div>
+                  <div class="wf-nav-link"></div>
+                  <div class="wf-nav-link short"></div>
+                  <div class="wf-nav-link long"></div>
+                  <div class="wf-nav-link short"></div>
+                </div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <!-- hero -->
+              <div class="wf-hero-img-bg">
+                <div class="wf-img h200"></div>
+                <div class="wf-hero-overlay">
+                  <div class="wf-heading xl" style="width: 70%"></div>
+                  <div class="wf-line w-50"></div>
+                  <div class="wf-line w-40"></div>
+                  <div style="display: flex; gap: 8px; margin-top: 6px;">
+                    <div class="wf-btn wf-btn--primary">Explore tours</div>
+                    <div class="wf-btn">Enquire</div>
+                  </div>
+                </div>
+              </div>
+              <!-- intro -->
+              <div class="wf-pad-lg col gap-2">
+                <div class="wf-heading sm" style="width: 28%"></div>
+                <div class="wf-para mt-2">
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-60"></div>
+                </div>
+              </div>
+              <!-- featured tours -->
+              <div class="wf-divider"></div>
+              <div class="wf-pad-lg">
+                <div class="row wf-between mb-2">
+                  <div class="wf-heading sm" style="width: 30%"></div>
+                  <span class="wf-real muted sm">View all →</span>
+                </div>
+                <div class="wf-grid mt-3" style="grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                  <div class="wf-card">
+                    <div class="wf-img h80"></div>
+                    <div class="col gap-2 wf-pad-sm">
+                      <span class="wf-real sm">Wadjemup Highlights</span>
+                      <div class="row gap-2">
+                        <span class="wf-chip">2hr</span>
+                        <span class="wf-chip">Easy</span>
+                      </div>
+                      <div class="wf-line w-90"></div>
+                      <div class="wf-line w-70"></div>
+                    </div>
+                  </div>
+                  <div class="wf-card">
+                    <div class="wf-img h80"></div>
+                    <div class="col gap-2 wf-pad-sm">
+                      <span class="wf-real sm">Beaches &amp; Bays</span>
+                      <div class="row gap-2">
+                        <span class="wf-chip">½ day</span>
+                        <span class="wf-chip">Moderate</span>
+                      </div>
+                      <div class="wf-line w-90"></div>
+                      <div class="wf-line w-70"></div>
+                    </div>
+                  </div>
+                  <div class="wf-card">
+                    <div class="wf-img h80"></div>
+                    <div class="col gap-2 wf-pad-sm">
+                      <span class="wf-real sm">Quokka Discovery</span>
+                      <div class="row gap-2">
+                        <span class="wf-chip">90m</span>
+                        <span class="wf-chip">Easy</span>
+                      </div>
+                      <div class="wf-line w-90"></div>
+                      <div class="wf-line w-70"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- why us -->
+              <div class="wf-divider"></div>
+              <div class="wf-pad-lg" style="background: var(--grey-1);">
+                <div class="wf-heading sm mb-2" style="width: 26%"></div>
+                <div class="wf-grid mt-3" style="grid-template-columns: repeat(4, 1fr); gap: 12px;">
+                  <div class="col gap-2"><div class="wf-icon lg"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-icon lg sq"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-icon lg"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-icon lg sq"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                </div>
+              </div>
+              <!-- testimonial -->
+              <div class="wf-pad-lg col gap-2 wf-center text-c">
+                <div class="wf-heading sm" style="width: 12%"></div>
+                <div class="col gap-2 mt-2" style="align-items: center; width: 100%;">
+                  <div class="wf-line w-70"></div>
+                  <div class="wf-line w-60"></div>
+                  <div class="wf-line w-30"></div>
+                </div>
+              </div>
+              <!-- CTA -->
+              <div class="wf-cta-banner">
+                <div class="col gap-2">
+                  <div class="wf-heading sm" style="width: 180px;"></div>
+                  <div class="wf-line w-80" style="width: 220px;"></div>
+                </div>
+                <div class="row gap-2">
+                  <div class="wf-btn wf-btn--primary">Book a tour</div>
+                  <div class="wf-btn wf-btn--ghost" style="color: white; border-color: white;">Contact</div>
+                </div>
+              </div>
+              <!-- footer -->
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;">
+                <div class="wf-logo" style="width: 32px; height: 10px;"></div>
+                <div class="wf-burger"></div>
+              </div>
+              <div class="wf-img h120 plain"></div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-heading lg" style="width: 80%"></div>
+                <div class="wf-line w-60"></div>
+                <div class="wf-btn wf-btn--primary wf-btn--sm" style="width: 100%; margin-top: 4px;">Explore tours</div>
+              </div>
+              <div class="wf-divider"></div>
+              <div class="wf-pad col gap-3">
+                <div class="wf-heading sm" style="width: 50%"></div>
+                <div class="wf-card"><div class="wf-img h48 plain"></div><div class="col gap-2 wf-pad-sm"><div class="wf-line w-80"></div><div class="row gap-2"><span class="wf-chip">2hr</span><span class="wf-chip">Easy</span></div></div></div>
+                <div class="wf-card"><div class="wf-img h48 plain"></div><div class="col gap-2 wf-pad-sm"><div class="wf-line w-80"></div><div class="row gap-2"><span class="wf-chip">½d</span><span class="wf-chip">Mod</span></div></div></div>
+                <div class="wf-card"><div class="wf-img h48 plain"></div><div class="col gap-2 wf-pad-sm"><div class="wf-line w-80"></div><div class="row gap-2"><span class="wf-chip">90m</span><span class="wf-chip">Easy</span></div></div></div>
+              </div>
+              <div class="wf-pad col gap-2" style="background: var(--grey-1);">
+                <div class="wf-heading sm" style="width: 60%"></div>
+                <div class="row gap-2 mt-2 wf-items-c"><div class="wf-icon"></div><div class="col gap-2 grow"><div class="wf-line w-90"></div><div class="wf-line w-60"></div></div></div>
+                <div class="row gap-2 wf-items-c"><div class="wf-icon sq"></div><div class="col gap-2 grow"><div class="wf-line w-90"></div><div class="wf-line w-60"></div></div></div>
+                <div class="row gap-2 wf-items-c"><div class="wf-icon"></div><div class="col gap-2 grow"><div class="wf-line w-90"></div><div class="wf-line w-60"></div></div></div>
+              </div>
+              <div class="wf-cta-banner" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-btn wf-btn--primary wf-btn--sm" style="width: 100%;">Book a tour</div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div><div class="wf-line w-60"></div><div class="row gap-2 mt-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Full-bleed hero image places brand atmosphere first — consider how much text overlays the image.</li>
+            <li><span class="key">b.</span> Featured tours = 3-up <b>Tour card</b> component, reused on Experiences page.</li>
+            <li><span class="key">c.</span> Why-us strip = 4-up <b>Feature card</b> component (icon + heading + small text).</li>
+            <li><span class="key">d.</span> Mobile collapses everything to single-column; nav uses burger menu.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- HOME · Variation B -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation B</span>
+          <h3>Editorial split hero, story-driven flow</h3>
+          <p class="vdesc">Title sits beside the imagery rather than over it. Tours appear as a horizontal scroll; highlights alternate image/text rows like a magazine article.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links">
+                  <div class="wf-nav-link short"></div>
+                  <div class="wf-nav-link"></div>
+                  <div class="wf-nav-link short"></div>
+                  <div class="wf-nav-link long"></div>
+                  <div class="wf-nav-link short"></div>
+                </div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <!-- split hero -->
+              <div class="row" style="gap: 0;">
+                <div class="flex-1 wf-pad-lg col gap-3" style="padding: 28px 22px;">
+                  <span class="wf-chip accent">Rottnest Island</span>
+                  <div class="wf-heading xl" style="width: 90%"></div>
+                  <div class="wf-heading lg" style="width: 70%"></div>
+                  <div class="wf-para mt-2">
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-line w-80"></div>
+                    <div class="wf-line w-60"></div>
+                  </div>
+                  <div class="row gap-2 mt-3">
+                    <div class="wf-btn wf-btn--primary">Explore tours</div>
+                    <div class="wf-btn">Plan your visit</div>
+                  </div>
+                </div>
+                <div class="wf-img h200" style="flex: 1.1; border-radius: 0; border: 0; border-left: 1.5px solid var(--ink);"></div>
+              </div>
+              <!-- intro band -->
+              <div class="wf-divider-strong"></div>
+              <div class="wf-pad-lg row gap-4" style="background: var(--accent-soft);">
+                <div class="flex-1 col gap-2">
+                  <div class="wf-heading sm" style="width: 35%"></div>
+                  <div class="wf-para mt-2">
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-line w-80"></div>
+                  </div>
+                </div>
+                <div class="flex-1 col gap-2">
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-70"></div>
+                  <div class="wf-line w-60"></div>
+                </div>
+              </div>
+              <!-- horizontal scroll tours -->
+              <div class="wf-divider"></div>
+              <div class="wf-pad-lg col gap-3">
+                <div class="row wf-between">
+                  <div class="wf-heading sm" style="width: 28%"></div>
+                  <div class="row gap-2">
+                    <div class="wf-icon sm"></div>
+                    <div class="wf-icon sm"></div>
+                  </div>
+                </div>
+                <div class="row gap-2 mt-2" style="overflow: hidden;">
+                  <div class="wf-card" style="flex: 0 0 26%;"><div class="wf-img h64"></div><div class="col gap-2 wf-pad-sm"><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div></div>
+                  <div class="wf-card" style="flex: 0 0 26%;"><div class="wf-img h64"></div><div class="col gap-2 wf-pad-sm"><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div></div>
+                  <div class="wf-card" style="flex: 0 0 26%;"><div class="wf-img h64"></div><div class="col gap-2 wf-pad-sm"><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div></div>
+                  <div class="wf-card" style="flex: 0 0 26%;"><div class="wf-img h64"></div><div class="col gap-2 wf-pad-sm"><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div></div>
+                </div>
+              </div>
+              <!-- alternating highlight rows -->
+              <div class="wf-divider"></div>
+              <div class="wf-pad-lg col gap-4">
+                <div class="row gap-4 wf-items-c">
+                  <div class="wf-img h100" style="flex: 1;"></div>
+                  <div class="col gap-2" style="flex: 1;">
+                    <div class="wf-heading sm" style="width: 40%"></div>
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-line w-80"></div>
+                    <div class="wf-line w-60"></div>
+                  </div>
+                </div>
+                <div class="row gap-4 wf-items-c">
+                  <div class="col gap-2" style="flex: 1;">
+                    <div class="wf-heading sm" style="width: 40%"></div>
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-line w-80"></div>
+                    <div class="wf-line w-60"></div>
+                  </div>
+                  <div class="wf-img h100" style="flex: 1;"></div>
+                </div>
+              </div>
+              <!-- quote -->
+              <div class="wf-pad-lg row gap-3" style="background: var(--grey-1);">
+                <div class="wf-img" style="width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;"></div>
+                <div class="col gap-2 grow">
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-30 mt-2"></div>
+                </div>
+              </div>
+              <!-- slim CTA -->
+              <div class="wf-cta-banner" style="background: var(--accent); color: var(--paper);">
+                <div class="wf-heading sm" style="background: var(--paper); width: 220px;"></div>
+                <div class="wf-btn" style="background: var(--paper); border-color: var(--paper);">Book a tour →</div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;">
+                <div class="wf-logo" style="width: 32px; height: 10px;"></div>
+                <div class="wf-burger"></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <span class="wf-chip accent" style="align-self: flex-start;">Rottnest Island</span>
+                <div class="wf-heading xl" style="width: 90%"></div>
+                <div class="wf-line w-70"></div>
+                <div class="wf-line w-60"></div>
+              </div>
+              <div class="wf-img h120 plain"></div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-btn wf-btn--primary wf-btn--sm" style="width: 100%;">Explore tours</div>
+                <div class="wf-btn wf-btn--sm" style="width: 100%;">Plan your visit</div>
+              </div>
+              <div class="wf-pad col gap-2" style="background: var(--accent-soft);">
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+                <div class="wf-line w-60"></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-heading sm" style="width: 50%"></div>
+                <div class="row gap-2 mt-2" style="overflow: hidden;">
+                  <div class="wf-card" style="flex: 0 0 60%;"><div class="wf-img h48 plain"></div><div class="col gap-2 wf-pad-sm"><div class="wf-line w-80"></div></div></div>
+                  <div class="wf-card" style="flex: 0 0 60%;"><div class="wf-img h48 plain"></div><div class="col gap-2 wf-pad-sm"><div class="wf-line w-80"></div></div></div>
+                </div>
+              </div>
+              <div class="wf-pad col gap-3">
+                <div class="wf-img h64 plain"></div>
+                <div class="col gap-2"><div class="wf-heading sm" style="width: 50%"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                <div class="wf-img h64 plain"></div>
+                <div class="col gap-2"><div class="wf-heading sm" style="width: 50%"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+              </div>
+              <div class="wf-pad col gap-2" style="background: var(--accent); color: white;">
+                <div class="wf-heading sm" style="background: white; width: 70%"></div>
+                <div class="wf-btn wf-btn--sm" style="background: white; width: 100%; margin-top: 4px;">Book a tour</div>
+              </div>
+              <div class="wf-footer-block"><div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div><div class="wf-line w-60"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Split hero gives more breathing room to copy — works well when the headline is the hook.</li>
+            <li><span class="key">b.</span> Horizontal scroll tours show "there's more" — but reconsider on mobile if scroll affordance isn't obvious.</li>
+            <li><span class="key">c.</span> Alternating image/text rows reuse a single <b>Content section</b> component flipped left/right.</li>
+            <li><span class="key">d.</span> Accent-coloured CTA strip near the footer keeps booking visible after long scroll.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- EXPERIENCES -->
+  <!-- ============================================================ -->
+  <section id="experiences" class="page" data-screen-label="02 Experiences">
+    <div class="page-head">
+      <div>
+        <h2>Experiences / Tours</h2>
+        <p class="lede">Present available tours in a clear, scannable layout. Help visitors compare by duration, activity level, and interest before booking.</p>
+      </div>
+      <div class="sections">Sections: <span>intro · tour grid · comparison · booking CTA</span></div>
+    </div>
+
+    <div class="variations">
+
+      <!-- EXPERIENCES · Variation A -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation A</span>
+          <h3>Filter chips + 2×2 tour grid</h3>
+          <p class="vdesc">A catalog-style layout. Filter chips at the top let visitors narrow by activity; a uniform grid below makes tours easy to compare at a glance.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links">
+                  <div class="wf-nav-link short"></div>
+                  <div class="wf-nav-link"></div>
+                  <div class="wf-nav-link short"></div>
+                  <div class="wf-nav-link long"></div>
+                  <div class="wf-nav-link short"></div>
+                </div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <!-- page header -->
+              <div class="wf-pad-lg col gap-2" style="background: var(--grey-1);">
+                <span class="wf-real muted sm">HOME &nbsp;›&nbsp; EXPERIENCES</span>
+                <div class="wf-heading xl" style="width: 50%"></div>
+                <div class="wf-line w-70"></div>
+                <div class="wf-line w-50"></div>
+              </div>
+              <!-- filters -->
+              <div class="wf-pad row gap-2 wf-between" style="border-bottom: 1px solid var(--line-soft);">
+                <div class="row gap-2 wf-items-c">
+                  <span class="wf-real sm muted">FILTER:</span>
+                  <span class="wf-chip solid">All</span>
+                  <span class="wf-chip">Walking</span>
+                  <span class="wf-chip">Cycling</span>
+                  <span class="wf-chip">Wildlife</span>
+                  <span class="wf-chip">Sunset</span>
+                  <span class="wf-chip">Family</span>
+                </div>
+                <span class="wf-real muted sm">Sort: Duration ▾</span>
+              </div>
+              <!-- 2x2 grid -->
+              <div class="wf-pad-lg">
+                <div class="wf-grid" style="grid-template-columns: repeat(2, 1fr); gap: 16px;">
+                  <div class="wf-card">
+                    <div class="wf-img h100"></div>
+                    <div class="col gap-2 wf-pad">
+                      <div class="row wf-between"><span class="wf-real">Wadjemup Highlights Walk</span><span class="wf-chip accent">2 hr</span></div>
+                      <div class="row gap-2"><span class="wf-chip">Easy</span><span class="wf-chip">First-time visitors</span></div>
+                      <div class="wf-line w-90"></div>
+                      <div class="wf-line w-70"></div>
+                      <div class="row wf-between mt-2"><span class="wf-real muted sm">from $—</span><div class="wf-btn wf-btn--sm wf-btn--primary">View tour</div></div>
+                    </div>
+                  </div>
+                  <div class="wf-card">
+                    <div class="wf-img h100"></div>
+                    <div class="col gap-2 wf-pad">
+                      <div class="row wf-between"><span class="wf-real">Beaches &amp; Bays Cycling</span><span class="wf-chip accent">½ day</span></div>
+                      <div class="row gap-2"><span class="wf-chip">Moderate</span><span class="wf-chip">Active visitors</span></div>
+                      <div class="wf-line w-90"></div>
+                      <div class="wf-line w-70"></div>
+                      <div class="row wf-between mt-2"><span class="wf-real muted sm">from $—</span><div class="wf-btn wf-btn--sm wf-btn--primary">View tour</div></div>
+                    </div>
+                  </div>
+                  <div class="wf-card">
+                    <div class="wf-img h100"></div>
+                    <div class="col gap-2 wf-pad">
+                      <div class="row wf-between"><span class="wf-real">Quokka &amp; Coastal Discovery</span><span class="wf-chip accent">90 min</span></div>
+                      <div class="row gap-2"><span class="wf-chip">Easy</span><span class="wf-chip">Wildlife lovers</span></div>
+                      <div class="wf-line w-90"></div>
+                      <div class="wf-line w-70"></div>
+                      <div class="row wf-between mt-2"><span class="wf-real muted sm">from $—</span><div class="wf-btn wf-btn--sm wf-btn--primary">View tour</div></div>
+                    </div>
+                  </div>
+                  <div class="wf-card">
+                    <div class="wf-img h100"></div>
+                    <div class="col gap-2 wf-pad">
+                      <div class="row wf-between"><span class="wf-real">Sunset Rocks Experience</span><span class="wf-chip accent">2.5 hr</span></div>
+                      <div class="row gap-2"><span class="wf-chip">Easy–Mod</span><span class="wf-chip">Couples</span></div>
+                      <div class="wf-line w-90"></div>
+                      <div class="wf-line w-70"></div>
+                      <div class="row wf-between mt-2"><span class="wf-real muted sm">from $—</span><div class="wf-btn wf-btn--sm wf-btn--primary">View tour</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- comparison -->
+              <div class="wf-divider"></div>
+              <div class="wf-pad-lg">
+                <div class="wf-heading sm mb-2" style="width: 24%"></div>
+                <table class="wf-table mt-3">
+                  <thead><tr><th>Tour</th><th>Duration</th><th>Activity</th><th>Best for</th><th>Group size</th></tr></thead>
+                  <tbody>
+                    <tr><td>Wadjemup Highlights</td><td>2 hr</td><td>Easy</td><td>First-timers, families</td><td>≤ 10</td></tr>
+                    <tr><td>Beaches &amp; Bays Cycling</td><td>½ day</td><td>Moderate</td><td>Active, couples</td><td>≤ 8</td></tr>
+                    <tr><td>Quokka Discovery</td><td>90 min</td><td>Easy</td><td>Families, wildlife</td><td>≤ 10</td></tr>
+                    <tr><td>Sunset Rocks</td><td>2.5 hr</td><td>Easy–Mod</td><td>Couples, photographers</td><td>≤ 8</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- CTA -->
+              <div class="wf-cta-banner">
+                <div class="col gap-2">
+                  <div class="wf-heading sm" style="width: 200px;"></div>
+                  <div class="wf-line w-80" style="width: 260px;"></div>
+                </div>
+                <div class="wf-btn wf-btn--primary">Send enquiry</div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;"><div class="wf-logo" style="width: 32px; height: 10px;"></div><div class="wf-burger"></div></div>
+              <div class="wf-pad col gap-2" style="background: var(--grey-1);">
+                <span class="wf-real muted sm">‹ HOME</span>
+                <div class="wf-heading lg" style="width: 80%"></div>
+                <div class="wf-line w-70"></div>
+              </div>
+              <div class="wf-pad row gap-2" style="overflow: hidden;">
+                <span class="wf-chip solid">All</span>
+                <span class="wf-chip">Walk</span>
+                <span class="wf-chip">Cycle</span>
+                <span class="wf-chip">Wild</span>
+                <span class="wf-chip">Sun</span>
+              </div>
+              <div class="wf-pad col gap-3">
+                <div class="wf-card"><div class="wf-img h64 plain"></div><div class="col gap-2 wf-pad-sm"><div class="row wf-between"><span class="wf-real sm">Wadjemup Walk</span><span class="wf-chip accent">2hr</span></div><div class="row gap-2"><span class="wf-chip">Easy</span></div><div class="wf-line w-80"></div></div></div>
+                <div class="wf-card"><div class="wf-img h64 plain"></div><div class="col gap-2 wf-pad-sm"><div class="row wf-between"><span class="wf-real sm">Beaches &amp; Bays</span><span class="wf-chip accent">½d</span></div><div class="row gap-2"><span class="wf-chip">Mod</span></div><div class="wf-line w-80"></div></div></div>
+                <div class="wf-card"><div class="wf-img h64 plain"></div><div class="col gap-2 wf-pad-sm"><div class="row wf-between"><span class="wf-real sm">Quokka Discovery</span><span class="wf-chip accent">90m</span></div><div class="row gap-2"><span class="wf-chip">Easy</span></div><div class="wf-line w-80"></div></div></div>
+                <div class="wf-card"><div class="wf-img h64 plain"></div><div class="col gap-2 wf-pad-sm"><div class="row wf-between"><span class="wf-real sm">Sunset Rocks</span><span class="wf-chip accent">2.5h</span></div><div class="row gap-2"><span class="wf-chip">E-M</span></div><div class="wf-line w-80"></div></div></div>
+              </div>
+              <div class="wf-pad col gap-2" style="background: var(--grey-1);">
+                <div class="wf-heading sm" style="width: 60%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+                <span class="wf-real muted sm mt-2">Tap to expand table ↓</span>
+              </div>
+              <div class="wf-cta-banner" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-btn wf-btn--primary wf-btn--sm" style="width: 100%;">Send enquiry</div>
+              </div>
+              <div class="wf-footer-block"><div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Filter chips above the grid are quick to scan and easy to make keyboard-accessible.</li>
+            <li><span class="key">b.</span> Comparison table is the structured-data take — best for analytical visitors; on mobile, becomes a tap-to-expand.</li>
+            <li><span class="key">c.</span> Same <b>Tour card</b> as Home — students see the value of reusable components here.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- EXPERIENCES · Variation B -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation B</span>
+          <h3>Sidebar filters + detailed list view</h3>
+          <p class="vdesc">Filters live in a sidebar so visitors can drill down by activity, duration, group, or accessibility. Tours show as wide list cards with more detail.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links">
+                  <div class="wf-nav-link short"></div><div class="wf-nav-link"></div><div class="wf-nav-link short"></div><div class="wf-nav-link long"></div><div class="wf-nav-link short"></div>
+                </div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <div class="wf-pad-lg col gap-2">
+                <span class="wf-real muted sm">HOME &nbsp;›&nbsp; EXPERIENCES</span>
+                <div class="wf-heading xl" style="width: 45%"></div>
+                <div class="wf-line w-60"></div>
+              </div>
+              <div class="wf-divider"></div>
+              <div class="row" style="align-items: stretch;">
+                <!-- sidebar -->
+                <aside class="wf-pad col gap-4" style="flex: 0 0 200px; background: var(--grey-1); border-right: 1px solid var(--line-soft);">
+                  <div class="col gap-2">
+                    <span class="wf-real sm muted">ACTIVITY</span>
+                    <div class="row gap-2 wf-items-c"><div style="width: 12px; height: 12px; border: 1.5px solid var(--ink); background: var(--accent); border-radius: 2px;"></div><div class="wf-line w-60"></div></div>
+                    <div class="row gap-2 wf-items-c"><div style="width: 12px; height: 12px; border: 1.5px solid var(--ink); border-radius: 2px;"></div><div class="wf-line w-60"></div></div>
+                    <div class="row gap-2 wf-items-c"><div style="width: 12px; height: 12px; border: 1.5px solid var(--ink); border-radius: 2px;"></div><div class="wf-line w-60"></div></div>
+                  </div>
+                  <div class="col gap-2">
+                    <span class="wf-real sm muted">DURATION</span>
+                    <div class="wf-line w-90 mt-2" style="height: 4px;"></div>
+                    <div class="row wf-between"><span class="wf-real muted sm">90 min</span><span class="wf-real muted sm">½ day</span></div>
+                  </div>
+                  <div class="col gap-2">
+                    <span class="wf-real sm muted">LEVEL</span>
+                    <div class="row gap-2"><span class="wf-chip solid">Easy</span><span class="wf-chip">Mod</span></div>
+                  </div>
+                  <div class="col gap-2">
+                    <span class="wf-real sm muted">GROUP</span>
+                    <div class="row gap-2 wf-items-c"><div style="width: 12px; height: 12px; border: 1.5px solid var(--ink); border-radius: 2px;"></div><div class="wf-line w-60"></div></div>
+                    <div class="row gap-2 wf-items-c"><div style="width: 12px; height: 12px; border: 1.5px solid var(--ink); border-radius: 2px;"></div><div class="wf-line w-60"></div></div>
+                  </div>
+                  <div class="wf-btn wf-btn--sm" style="width: 100%;">Reset filters</div>
+                </aside>
+                <!-- list -->
+                <div class="flex-1 col">
+                  <div class="wf-pad row wf-between" style="border-bottom: 1px solid var(--line-soft);">
+                    <span class="wf-real muted sm">4 TOURS</span>
+                    <span class="wf-real muted sm">Sort: Duration ▾</span>
+                  </div>
+                  <div class="wf-pad col gap-3">
+                    <div class="wf-card row" style="flex-direction: row;">
+                      <div class="wf-img" style="flex: 0 0 130px; border-radius: 0;"></div>
+                      <div class="col gap-2 wf-pad grow">
+                        <div class="row wf-between"><span class="wf-real">Wadjemup Highlights Walk</span><span class="wf-chip accent">2 hr · Easy</span></div>
+                        <div class="wf-line w-90"></div>
+                        <div class="wf-line w-80"></div>
+                        <div class="row gap-2"><span class="wf-chip">Families</span><span class="wf-chip">History</span><span class="wf-chip">Beaches</span></div>
+                        <div class="row wf-between mt-2"><span class="wf-real muted sm">Mon–Sun · ≤ 10 pax</span><div class="wf-btn wf-btn--sm wf-btn--primary">View tour</div></div>
+                      </div>
+                    </div>
+                    <div class="wf-card row" style="flex-direction: row;">
+                      <div class="wf-img" style="flex: 0 0 130px; border-radius: 0;"></div>
+                      <div class="col gap-2 wf-pad grow">
+                        <div class="row wf-between"><span class="wf-real">Beaches &amp; Bays Cycling</span><span class="wf-chip accent">½ day · Moderate</span></div>
+                        <div class="wf-line w-90"></div>
+                        <div class="wf-line w-80"></div>
+                        <div class="row gap-2"><span class="wf-chip">Active</span><span class="wf-chip">Couples</span><span class="wf-chip">Bays</span></div>
+                        <div class="row wf-between mt-2"><span class="wf-real muted sm">Wed–Sun · ≤ 8 pax</span><div class="wf-btn wf-btn--sm wf-btn--primary">View tour</div></div>
+                      </div>
+                    </div>
+                    <div class="wf-card row" style="flex-direction: row;">
+                      <div class="wf-img" style="flex: 0 0 130px; border-radius: 0;"></div>
+                      <div class="col gap-2 wf-pad grow">
+                        <div class="row wf-between"><span class="wf-real">Quokka &amp; Coastal Discovery</span><span class="wf-chip accent">90 min · Easy</span></div>
+                        <div class="wf-line w-90"></div>
+                        <div class="wf-line w-80"></div>
+                        <div class="row gap-2"><span class="wf-chip">Families</span><span class="wf-chip">Wildlife</span></div>
+                        <div class="row wf-between mt-2"><span class="wf-real muted sm">Daily · ≤ 10 pax</span><div class="wf-btn wf-btn--sm wf-btn--primary">View tour</div></div>
+                      </div>
+                    </div>
+                    <div class="wf-card row" style="flex-direction: row;">
+                      <div class="wf-img" style="flex: 0 0 130px; border-radius: 0;"></div>
+                      <div class="col gap-2 wf-pad grow">
+                        <div class="row wf-between"><span class="wf-real">Sunset Rocks Experience</span><span class="wf-chip accent">2.5 hr · Easy–Mod</span></div>
+                        <div class="wf-line w-90"></div>
+                        <div class="wf-line w-80"></div>
+                        <div class="row gap-2"><span class="wf-chip">Couples</span><span class="wf-chip">Photography</span></div>
+                        <div class="row wf-between mt-2"><span class="wf-real muted sm">Fri–Sun · ≤ 8 pax</span><div class="wf-btn wf-btn--sm wf-btn--primary">View tour</div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wf-cta-banner">
+                <div class="col gap-2"><div class="wf-heading sm" style="width: 200px;"></div><div class="wf-line w-80" style="width: 260px;"></div></div>
+                <div class="wf-btn wf-btn--primary">Send enquiry</div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;"><div class="wf-logo" style="width: 32px; height: 10px;"></div><div class="wf-burger"></div></div>
+              <div class="wf-pad col gap-2">
+                <span class="wf-real muted sm">‹ HOME</span>
+                <div class="wf-heading lg" style="width: 80%"></div>
+              </div>
+              <div class="wf-pad row gap-2 wf-between" style="background: var(--grey-1);">
+                <div class="wf-btn wf-btn--sm" style="flex: 1;">Filters (3)</div>
+                <div class="wf-btn wf-btn--sm" style="flex: 1;">Sort ▾</div>
+              </div>
+              <div class="wf-pad col gap-3">
+                <div class="wf-card"><div class="wf-img h48 plain"></div><div class="col gap-2 wf-pad-sm"><div class="row wf-between"><span class="wf-real sm">Wadjemup Walk</span><span class="wf-chip accent">2hr</span></div><div class="wf-line w-80"></div><div class="row gap-2"><span class="wf-chip">Easy</span><span class="wf-chip">Family</span></div></div></div>
+                <div class="wf-card"><div class="wf-img h48 plain"></div><div class="col gap-2 wf-pad-sm"><div class="row wf-between"><span class="wf-real sm">Beaches &amp; Bays</span><span class="wf-chip accent">½d</span></div><div class="wf-line w-80"></div><div class="row gap-2"><span class="wf-chip">Mod</span><span class="wf-chip">Couples</span></div></div></div>
+                <div class="wf-card"><div class="wf-img h48 plain"></div><div class="col gap-2 wf-pad-sm"><div class="row wf-between"><span class="wf-real sm">Quokka Discovery</span><span class="wf-chip accent">90m</span></div><div class="wf-line w-80"></div><div class="row gap-2"><span class="wf-chip">Easy</span><span class="wf-chip">Wild</span></div></div></div>
+                <div class="wf-card"><div class="wf-img h48 plain"></div><div class="col gap-2 wf-pad-sm"><div class="row wf-between"><span class="wf-real sm">Sunset Rocks</span><span class="wf-chip accent">2.5h</span></div><div class="wf-line w-80"></div><div class="row gap-2"><span class="wf-chip">Photo</span></div></div></div>
+              </div>
+              <div class="wf-cta-banner" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-btn wf-btn--primary wf-btn--sm" style="width: 100%;">Send enquiry</div>
+              </div>
+              <div class="wf-footer-block"><div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Sidebar filters scale up well — but on mobile they collapse to a "Filters" sheet/drawer.</li>
+            <li><span class="key">b.</span> Wide list cards give room for more chips, group size, and schedule notes.</li>
+            <li><span class="key">c.</span> Consider whether students should build the slider/checkbox controls themselves or use native inputs styled with CSS.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ABOUT -->
+  <!-- ============================================================ -->
+  <section id="about" class="page" data-screen-label="03 About">
+    <div class="page-head">
+      <div>
+        <h2>About Rotto Rocks</h2>
+        <p class="lede">Build trust and explain the values behind the business — story, guide expertise, slow tourism, sustainability, small-group benefits.</p>
+      </div>
+      <div class="sections">Sections: <span>story · guide · values · sustainability · CTA</span></div>
+    </div>
+
+    <div class="variations">
+      <!-- ABOUT · Variation A -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation A</span>
+          <h3>Story-led, values strip, founder photo</h3>
+          <p class="vdesc">Linear narrative: hero → story → values → sustainability → call to action. Trust built through consistent rhythm and a clear founder voice.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links">
+                  <div class="wf-nav-link short"></div><div class="wf-nav-link"></div><div class="wf-nav-link short"></div><div class="wf-nav-link long"></div><div class="wf-nav-link short"></div>
+                </div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <div class="wf-hero-img-bg">
+                <div class="wf-img h140"></div>
+                <div class="wf-hero-overlay">
+                  <div class="wf-heading xl" style="width: 50%"></div>
+                  <div class="wf-line w-40"></div>
+                </div>
+              </div>
+              <!-- intro story -->
+              <div class="wf-pad-lg row gap-4">
+                <div class="col gap-2" style="flex: 1;">
+                  <span class="wf-real muted sm">OUR STORY</span>
+                  <div class="wf-heading lg" style="width: 70%"></div>
+                  <div class="wf-line w-90 mt-2"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-60"></div>
+                </div>
+                <div class="col gap-2" style="flex: 1;">
+                  <div class="wf-line w-90 mt-4"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-70"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-50"></div>
+                </div>
+              </div>
+              <!-- values 3-up -->
+              <div class="wf-divider"></div>
+              <div class="wf-pad-lg" style="background: var(--grey-1);">
+                <div class="wf-heading sm mb-2" style="width: 20%"></div>
+                <div class="wf-grid mt-3" style="grid-template-columns: repeat(3, 1fr); gap: 14px;">
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon xl"></div><div class="wf-heading sm" style="width: 60%"></div><div class="wf-line w-90"></div><div class="wf-line w-80"></div></div>
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon xl sq"></div><div class="wf-heading sm" style="width: 60%"></div><div class="wf-line w-90"></div><div class="wf-line w-80"></div></div>
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon xl"></div><div class="wf-heading sm" style="width: 60%"></div><div class="wf-line w-90"></div><div class="wf-line w-80"></div></div>
+                </div>
+              </div>
+              <!-- sustainability -->
+              <div class="wf-pad-lg row gap-4 wf-items-c">
+                <div class="wf-img h140" style="flex: 1;"></div>
+                <div class="col gap-2" style="flex: 1.2;">
+                  <span class="wf-real muted sm">RESPONSIBLE TOURISM</span>
+                  <div class="wf-heading lg" style="width: 70%"></div>
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-60"></div>
+                  <div class="row gap-2 mt-3"><span class="wf-chip">Leave no trace</span><span class="wf-chip">Small groups</span><span class="wf-chip">Local guides</span></div>
+                </div>
+              </div>
+              <!-- guide bio -->
+              <div class="wf-pad-lg row gap-4 wf-items-c" style="background: var(--accent-soft);">
+                <div class="wf-img" style="width: 90px; height: 90px; border-radius: 50%; flex-shrink: 0;"></div>
+                <div class="col gap-2 grow">
+                  <span class="wf-real">Meet your guide — Helen</span>
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-60"></div>
+                </div>
+              </div>
+              <div class="wf-cta-banner">
+                <div class="col gap-2"><div class="wf-heading sm" style="width: 200px;"></div><div class="wf-line w-80" style="width: 240px;"></div></div>
+                <div class="wf-btn wf-btn--primary">Browse experiences</div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;"><div class="wf-logo" style="width: 32px; height: 10px;"></div><div class="wf-burger"></div></div>
+              <div class="wf-img h100 plain"></div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-heading lg" style="width: 80%"></div>
+                <div class="wf-line w-60"></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <span class="wf-real muted sm">OUR STORY</span>
+                <div class="wf-heading sm" style="width: 60%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-60"></div>
+              </div>
+              <div class="wf-pad col gap-3" style="background: var(--grey-1);">
+                <div class="wf-heading sm" style="width: 40%"></div>
+                <div class="wf-card wf-pad-sm col gap-2"><div class="wf-icon"></div><div class="wf-line w-70"></div><div class="wf-line w-90"></div></div>
+                <div class="wf-card wf-pad-sm col gap-2"><div class="wf-icon sq"></div><div class="wf-line w-70"></div><div class="wf-line w-90"></div></div>
+                <div class="wf-card wf-pad-sm col gap-2"><div class="wf-icon"></div><div class="wf-line w-70"></div><div class="wf-line w-90"></div></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-img h64 plain"></div>
+                <span class="wf-real muted sm mt-2">RESPONSIBLE TOURISM</span>
+                <div class="wf-heading sm" style="width: 60%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+              </div>
+              <div class="wf-pad col gap-2" style="background: var(--accent-soft);">
+                <div class="row gap-2 wf-items-c"><div class="wf-img" style="width: 40px; height: 40px; border-radius: 50%;"></div><span class="wf-real sm">Meet Helen</span></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+              </div>
+              <div class="wf-cta-banner" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-btn wf-btn--primary wf-btn--sm" style="width: 100%;">Browse experiences</div>
+              </div>
+              <div class="wf-footer-block"><div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Two-column story keeps reading rhythm comfortable on desktop; stacks on mobile.</li>
+            <li><span class="key">b.</span> Values strip reuses the <b>Feature card</b> component from Home.</li>
+            <li><span class="key">c.</span> Founder card uses the coral surface to draw the eye without a separate hero.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ABOUT · Variation B -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation B</span>
+          <h3>Magazine-style alternating sections</h3>
+          <p class="vdesc">A pull-quote anchors the page; content unfolds in alternating image-text rows. Closer to long-form editorial than tourism marketing.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links"><div class="wf-nav-link short"></div><div class="wf-nav-link"></div><div class="wf-nav-link short"></div><div class="wf-nav-link long"></div><div class="wf-nav-link short"></div></div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <div class="wf-pad-lg col gap-3 text-c" style="background: var(--grey-1); padding-top: 32px; padding-bottom: 32px;">
+                <span class="wf-real muted sm">ABOUT ROTTO ROCKS</span>
+                <div class="wf-heading xl" style="width: 70%; margin: 0 auto;"></div>
+                <div class="wf-line w-50" style="margin: 0 auto;"></div>
+              </div>
+              <!-- pull quote -->
+              <div class="wf-pad-lg col gap-2 text-c" style="border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink);">
+                <div class="wf-heading lg" style="width: 80%; margin: 0 auto;"></div>
+                <div class="wf-heading lg" style="width: 60%; margin: 0 auto;"></div>
+                <span class="wf-real muted sm mt-2">— Helen Burgess, founder</span>
+              </div>
+              <!-- alternating row 1 -->
+              <div class="wf-pad-lg row gap-4 wf-items-c">
+                <div class="wf-img h160" style="flex: 1;"></div>
+                <div class="col gap-2" style="flex: 1;">
+                  <span class="wf-real muted sm">01 · BEGINNINGS</span>
+                  <div class="wf-heading lg" style="width: 60%"></div>
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-60"></div>
+                </div>
+              </div>
+              <!-- alternating row 2 -->
+              <div class="wf-pad-lg row gap-4 wf-items-c" style="background: var(--accent-soft);">
+                <div class="col gap-2" style="flex: 1;">
+                  <span class="wf-real muted sm">02 · SLOW TOURISM</span>
+                  <div class="wf-heading lg" style="width: 60%"></div>
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-70"></div>
+                </div>
+                <div class="wf-img h160" style="flex: 1;"></div>
+              </div>
+              <!-- alternating row 3 -->
+              <div class="wf-pad-lg row gap-4 wf-items-c">
+                <div class="wf-img h160" style="flex: 1;"></div>
+                <div class="col gap-2" style="flex: 1;">
+                  <span class="wf-real muted sm">03 · WILDLIFE FIRST</span>
+                  <div class="wf-heading lg" style="width: 60%"></div>
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-60"></div>
+                </div>
+              </div>
+              <!-- guides 2-up -->
+              <div class="wf-divider"></div>
+              <div class="wf-pad-lg col gap-3">
+                <div class="wf-heading sm" style="width: 26%"></div>
+                <div class="wf-grid mt-3" style="grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div class="wf-card row" style="flex-direction: row;">
+                    <div class="wf-img" style="flex: 0 0 90px; border-radius: 0;"></div>
+                    <div class="col gap-2 wf-pad grow">
+                      <div class="wf-line w-60"></div>
+                      <span class="wf-real muted sm">Lead guide</span>
+                      <div class="wf-line w-90"></div>
+                      <div class="wf-line w-70"></div>
+                    </div>
+                  </div>
+                  <div class="wf-card row" style="flex-direction: row;">
+                    <div class="wf-img" style="flex: 0 0 90px; border-radius: 0;"></div>
+                    <div class="col gap-2 wf-pad grow">
+                      <div class="wf-line w-60"></div>
+                      <span class="wf-real muted sm">Cycling guide</span>
+                      <div class="wf-line w-90"></div>
+                      <div class="wf-line w-70"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wf-cta-banner" style="background: var(--accent);">
+                <div class="wf-heading sm" style="background: white; width: 220px;"></div>
+                <div class="wf-btn" style="background: white; border-color: white;">Plan your visit →</div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;"><div class="wf-logo" style="width: 32px; height: 10px;"></div><div class="wf-burger"></div></div>
+              <div class="wf-pad col gap-2 text-c" style="background: var(--grey-1);">
+                <span class="wf-real muted sm">ABOUT</span>
+                <div class="wf-heading lg" style="width: 80%; margin: 0 auto;"></div>
+                <div class="wf-line w-60" style="margin: 0 auto;"></div>
+              </div>
+              <div class="wf-pad col gap-2 text-c" style="border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink);">
+                <div class="wf-heading sm" style="width: 90%; margin: 0 auto;"></div>
+                <div class="wf-heading sm" style="width: 70%; margin: 0 auto;"></div>
+                <span class="wf-real muted sm">— Helen</span>
+              </div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-img h80 plain"></div>
+                <span class="wf-real muted sm mt-2">01 · BEGINNINGS</span>
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+              </div>
+              <div class="wf-pad col gap-2" style="background: var(--accent-soft);">
+                <div class="wf-img h80 plain"></div>
+                <span class="wf-real muted sm mt-2">02 · SLOW TOURISM</span>
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-img h80 plain"></div>
+                <span class="wf-real muted sm mt-2">03 · WILDLIFE FIRST</span>
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+              </div>
+              <div class="wf-pad col gap-3">
+                <div class="wf-card wf-pad-sm row gap-2"><div class="wf-img" style="width: 48px; height: 48px;"></div><div class="col gap-2 grow"><div class="wf-line w-60"></div><span class="wf-real muted sm">Lead guide</span></div></div>
+                <div class="wf-card wf-pad-sm row gap-2"><div class="wf-img" style="width: 48px; height: 48px;"></div><div class="col gap-2 grow"><div class="wf-line w-60"></div><span class="wf-real muted sm">Cycling guide</span></div></div>
+              </div>
+              <div class="wf-cta-banner" style="background: var(--accent); flex-direction: column; align-items: flex-start; gap: 8px;">
+                <div class="wf-heading sm" style="background: white; width: 70%"></div>
+                <div class="wf-btn wf-btn--sm" style="background: white; width: 100%;">Plan your visit</div>
+              </div>
+              <div class="wf-footer-block"><div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Numbered chapters make a long page feel like a walk — good fit for slow-tourism positioning.</li>
+            <li><span class="key">b.</span> Alternating image/text row is one component flipped — a great refactor example for students.</li>
+            <li><span class="key">c.</span> Coral CTA strip closes the page with a soft hand-off to "Plan your visit".</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PLAN YOUR VISIT -->
+  <!-- ============================================================ -->
+  <section id="plan" class="page" data-screen-label="04 Plan Your Visit">
+    <div class="page-head">
+      <div>
+        <h2>Plan Your Visit</h2>
+        <p class="lede">Help visitors prepare for their Rottnest Island experience — what to bring, getting there, weather, accessibility, safety, FAQs.</p>
+      </div>
+      <div class="sections">Sections: <span>quick info · what to bring · getting there · safety · FAQ</span></div>
+    </div>
+
+    <div class="variations">
+      <!-- PLAN · Variation A -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation A</span>
+          <h3>Quick-info strip → checklists → FAQ accordion</h3>
+          <p class="vdesc">Top-of-page summary chips answer the most common questions instantly. Below, structured content blocks invite deeper reading.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links"><div class="wf-nav-link short"></div><div class="wf-nav-link"></div><div class="wf-nav-link short"></div><div class="wf-nav-link long"></div><div class="wf-nav-link short"></div></div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <div class="wf-pad-lg col gap-2" style="background: var(--grey-1);">
+                <span class="wf-real muted sm">HOME &nbsp;›&nbsp; PLAN YOUR VISIT</span>
+                <div class="wf-heading xl" style="width: 45%"></div>
+                <div class="wf-line w-70"></div>
+              </div>
+              <!-- quick info strip: 4 boxes -->
+              <div class="wf-pad-lg">
+                <div class="wf-grid" style="grid-template-columns: repeat(4, 1fr); gap: 12px;">
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon lg"></div><span class="wf-real sm">Getting there</span><div class="wf-line w-90"></div></div>
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon lg sq"></div><span class="wf-real sm">Best season</span><div class="wf-line w-90"></div></div>
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon lg"></div><span class="wf-real sm">Weather</span><div class="wf-line w-90"></div></div>
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon lg sq"></div><span class="wf-real sm">Accessibility</span><div class="wf-line w-90"></div></div>
+                </div>
+              </div>
+              <!-- what to bring -->
+              <div class="wf-divider"></div>
+              <div class="wf-pad-lg">
+                <div class="wf-heading sm mb-2" style="width: 22%"></div>
+                <div class="wf-grid mt-3" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+                  <div class="col gap-2">
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                  </div>
+                  <div class="col gap-2">
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                  </div>
+                </div>
+              </div>
+              <!-- getting there: numbered steps -->
+              <div class="wf-pad-lg" style="background: var(--grey-1);">
+                <div class="wf-heading sm mb-2" style="width: 22%"></div>
+                <div class="wf-grid mt-3" style="grid-template-columns: repeat(3, 1fr); gap: 14px;">
+                  <div class="wf-card wf-pad col gap-2"><div class="row wf-items-c gap-2"><div style="width: 24px; height: 24px; background: var(--accent); color: white; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700;">1</div><span class="wf-real sm">Book ferry</span></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="wf-card wf-pad col gap-2"><div class="row wf-items-c gap-2"><div style="width: 24px; height: 24px; background: var(--accent); color: white; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700;">2</div><span class="wf-real sm">Meet your guide</span></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="wf-card wf-pad col gap-2"><div class="row wf-items-c gap-2"><div style="width: 24px; height: 24px; background: var(--accent); color: white; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700;">3</div><span class="wf-real sm">Start exploring</span></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                </div>
+              </div>
+              <!-- safety/weather -->
+              <div class="wf-pad-lg row gap-4 wf-items-c">
+                <div class="wf-img h140" style="flex: 1;"></div>
+                <div class="col gap-2" style="flex: 1;">
+                  <span class="wf-real muted sm">SAFETY &amp; WEATHER</span>
+                  <div class="wf-heading lg" style="width: 70%"></div>
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-80"></div>
+                  <div class="wf-line w-60"></div>
+                </div>
+              </div>
+              <!-- FAQ accordion -->
+              <div class="wf-pad-lg" style="background: var(--grey-1);">
+                <div class="wf-heading sm mb-2" style="width: 16%"></div>
+                <div class="col gap-2 mt-3">
+                  <div class="wf-card wf-pad row wf-between wf-items-c"><div class="wf-line w-60"></div><span class="wf-real muted">+</span></div>
+                  <div class="wf-card wf-pad col gap-2">
+                    <div class="row wf-between wf-items-c"><div class="wf-line w-50"></div><span class="wf-real muted">−</span></div>
+                    <div class="wf-line w-90 mt-2"></div>
+                    <div class="wf-line w-80"></div>
+                    <div class="wf-line w-60"></div>
+                  </div>
+                  <div class="wf-card wf-pad row wf-between wf-items-c"><div class="wf-line w-70"></div><span class="wf-real muted">+</span></div>
+                  <div class="wf-card wf-pad row wf-between wf-items-c"><div class="wf-line w-50"></div><span class="wf-real muted">+</span></div>
+                  <div class="wf-card wf-pad row wf-between wf-items-c"><div class="wf-line w-60"></div><span class="wf-real muted">+</span></div>
+                </div>
+              </div>
+              <div class="wf-cta-banner">
+                <div class="col gap-2"><div class="wf-heading sm" style="width: 200px;"></div><div class="wf-line w-80" style="width: 240px;"></div></div>
+                <div class="wf-btn wf-btn--primary">Send enquiry</div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;"><div class="wf-logo" style="width: 32px; height: 10px;"></div><div class="wf-burger"></div></div>
+              <div class="wf-pad col gap-2" style="background: var(--grey-1);">
+                <span class="wf-real muted sm">‹ HOME</span>
+                <div class="wf-heading lg" style="width: 80%"></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div class="wf-icon sm"></div><span class="wf-real sm">Getting there</span></div>
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><span class="wf-real sm">Best season</span></div>
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div class="wf-icon sm"></div><span class="wf-real sm">Weather</span></div>
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><span class="wf-real sm">Accessibility</span></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-heading sm" style="width: 60%"></div>
+                <div class="row gap-2 wf-items-c mt-2"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+              </div>
+              <div class="wf-pad col gap-3" style="background: var(--grey-1);">
+                <div class="wf-heading sm" style="width: 60%"></div>
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div style="width: 20px; height: 20px; background: var(--accent); color: white; border-radius: 50%; display: grid; place-items: center; font-size: 9px; font-weight: 700;">1</div><div class="col gap-2 grow"><span class="wf-real sm">Book ferry</span><div class="wf-line w-90"></div></div></div>
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div style="width: 20px; height: 20px; background: var(--accent); color: white; border-radius: 50%; display: grid; place-items: center; font-size: 9px; font-weight: 700;">2</div><div class="col gap-2 grow"><span class="wf-real sm">Meet guide</span><div class="wf-line w-90"></div></div></div>
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div style="width: 20px; height: 20px; background: var(--accent); color: white; border-radius: 50%; display: grid; place-items: center; font-size: 9px; font-weight: 700;">3</div><div class="col gap-2 grow"><span class="wf-real sm">Start exploring</span><div class="wf-line w-90"></div></div></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <div class="wf-heading sm" style="width: 40%"></div>
+                <div class="wf-card wf-pad-sm row wf-between wf-items-c"><div class="wf-line w-60"></div><span class="wf-real muted">+</span></div>
+                <div class="wf-card wf-pad-sm row wf-between wf-items-c"><div class="wf-line w-50"></div><span class="wf-real muted">+</span></div>
+                <div class="wf-card wf-pad-sm row wf-between wf-items-c"><div class="wf-line w-70"></div><span class="wf-real muted">+</span></div>
+                <div class="wf-card wf-pad-sm row wf-between wf-items-c"><div class="wf-line w-50"></div><span class="wf-real muted">+</span></div>
+              </div>
+              <div class="wf-cta-banner" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-btn wf-btn--primary wf-btn--sm" style="width: 100%;">Send enquiry</div>
+              </div>
+              <div class="wf-footer-block"><div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Quick-info chips at the top answer the four most-asked questions before any scrolling.</li>
+            <li><span class="key">b.</span> Numbered <b>Feature cards</b> reuse the same shell as values/why-us — just with a number badge.</li>
+            <li><span class="key">c.</span> FAQ uses a basic <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> accordion — keyboard-accessible by default.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- PLAN · Variation B -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation B</span>
+          <h3>In-page nav + scrollable sections</h3>
+          <p class="vdesc">A sticky table of contents on the side, with long-form sections beside it. Better when the page grows past a quick reference.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links"><div class="wf-nav-link short"></div><div class="wf-nav-link"></div><div class="wf-nav-link short"></div><div class="wf-nav-link long"></div><div class="wf-nav-link short"></div></div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <div class="wf-pad-lg col gap-2">
+                <span class="wf-real muted sm">HOME &nbsp;›&nbsp; PLAN YOUR VISIT</span>
+                <div class="wf-heading xl" style="width: 45%"></div>
+                <div class="wf-line w-60"></div>
+              </div>
+              <div class="wf-divider"></div>
+              <div class="row" style="align-items: stretch;">
+                <!-- sticky in-page nav -->
+                <aside class="wf-pad col gap-2" style="flex: 0 0 200px; background: var(--grey-1); border-right: 1px solid var(--line-soft);">
+                  <span class="wf-real sm muted">ON THIS PAGE</span>
+                  <div class="col gap-2 mt-2">
+                    <div class="row gap-2 wf-items-c"><div style="width: 4px; height: 14px; background: var(--accent);"></div><div class="wf-line w-70" style="background: var(--ink);"></div></div>
+                    <div class="row gap-2 wf-items-c" style="padding-left: 6px;"><div class="wf-line w-60"></div></div>
+                    <div class="row gap-2 wf-items-c" style="padding-left: 6px;"><div class="wf-line w-50"></div></div>
+                    <div class="row gap-2 wf-items-c" style="padding-left: 6px;"><div class="wf-line w-70"></div></div>
+                    <div class="row gap-2 wf-items-c" style="padding-left: 6px;"><div class="wf-line w-40"></div></div>
+                    <div class="row gap-2 wf-items-c" style="padding-left: 6px;"><div class="wf-line w-50"></div></div>
+                  </div>
+                  <div class="wf-divider mt-3"></div>
+                  <div class="wf-card wf-pad-sm col gap-2 mt-3">
+                    <span class="wf-real sm">Need help?</span>
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-btn wf-btn--sm wf-btn--primary" style="width: 100%;">Contact us</div>
+                  </div>
+                </aside>
+                <!-- content -->
+                <div class="flex-1 col">
+                  <div class="wf-pad-lg col gap-2">
+                    <span class="wf-real muted sm">01 · GETTING THERE</span>
+                    <div class="wf-heading lg" style="width: 60%"></div>
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-line w-80"></div>
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-line w-60"></div>
+                    <div class="row gap-2 mt-3"><span class="wf-chip">Fremantle ferry</span><span class="wf-chip">Perth ferry</span><span class="wf-chip">Hillarys ferry</span></div>
+                  </div>
+                  <div class="wf-divider"></div>
+                  <div class="wf-pad-lg col gap-2">
+                    <span class="wf-real muted sm">02 · WHAT TO BRING</span>
+                    <div class="wf-heading lg" style="width: 60%"></div>
+                    <div class="wf-grid mt-3" style="grid-template-columns: 1fr 1fr; gap: 16px;">
+                      <div class="col gap-2">
+                        <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                        <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                        <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                      </div>
+                      <div class="col gap-2">
+                        <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                        <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                        <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="wf-divider"></div>
+                  <div class="wf-pad-lg col gap-2">
+                    <span class="wf-real muted sm">03 · WEATHER &amp; SAFETY</span>
+                    <div class="wf-heading lg" style="width: 60%"></div>
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-line w-80"></div>
+                    <div class="wf-line w-60"></div>
+                  </div>
+                  <div class="wf-divider"></div>
+                  <div class="wf-pad-lg col gap-2">
+                    <span class="wf-real muted sm">04 · ACCESSIBILITY</span>
+                    <div class="wf-heading lg" style="width: 60%"></div>
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-line w-80"></div>
+                  </div>
+                  <div class="wf-divider"></div>
+                  <div class="wf-pad-lg col gap-2">
+                    <span class="wf-real muted sm">05 · FAQ</span>
+                    <div class="col gap-2 mt-2">
+                      <div class="wf-card wf-pad row wf-between wf-items-c"><div class="wf-line w-60"></div><span class="wf-real muted">+</span></div>
+                      <div class="wf-card wf-pad row wf-between wf-items-c"><div class="wf-line w-50"></div><span class="wf-real muted">+</span></div>
+                      <div class="wf-card wf-pad row wf-between wf-items-c"><div class="wf-line w-70"></div><span class="wf-real muted">+</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wf-cta-banner" style="background: var(--accent);">
+                <div class="wf-heading sm" style="background: white; width: 220px;"></div>
+                <div class="wf-btn" style="background: white; border-color: white;">Contact us →</div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;"><div class="wf-logo" style="width: 32px; height: 10px;"></div><div class="wf-burger"></div></div>
+              <div class="wf-pad col gap-2">
+                <span class="wf-real muted sm">‹ HOME</span>
+                <div class="wf-heading lg" style="width: 80%"></div>
+              </div>
+              <div class="wf-pad col gap-2" style="background: var(--grey-1);">
+                <span class="wf-real muted sm">ON THIS PAGE</span>
+                <div class="row gap-2" style="flex-wrap: wrap;">
+                  <span class="wf-chip">Getting there</span>
+                  <span class="wf-chip">What to bring</span>
+                  <span class="wf-chip">Weather</span>
+                  <span class="wf-chip">Access</span>
+                  <span class="wf-chip">FAQ</span>
+                </div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <span class="wf-real muted sm">01 · GETTING THERE</span>
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+                <div class="wf-line w-60"></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <span class="wf-real muted sm">02 · WHAT TO BRING</span>
+                <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+                <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-70"></div></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <span class="wf-real muted sm">03 · WEATHER</span>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+              </div>
+              <div class="wf-pad col gap-2">
+                <span class="wf-real muted sm">04 · FAQ</span>
+                <div class="wf-card wf-pad-sm row wf-between wf-items-c"><div class="wf-line w-60"></div><span class="wf-real muted">+</span></div>
+                <div class="wf-card wf-pad-sm row wf-between wf-items-c"><div class="wf-line w-50"></div><span class="wf-real muted">+</span></div>
+                <div class="wf-card wf-pad-sm row wf-between wf-items-c"><div class="wf-line w-70"></div><span class="wf-real muted">+</span></div>
+              </div>
+              <div class="wf-cta-banner" style="background: var(--accent); flex-direction: column; align-items: flex-start; gap: 8px;">
+                <div class="wf-heading sm" style="background: white; width: 70%"></div>
+                <div class="wf-btn wf-btn--sm" style="background: white; width: 100%;">Contact us</div>
+              </div>
+              <div class="wf-footer-block"><div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Sticky in-page nav improves orientation on a long page — but only at desktop widths.</li>
+            <li><span class="key">b.</span> Mobile collapses the side nav to a chip strip — students learn the same content, two layouts.</li>
+            <li><span class="key">c.</span> Numbered sections (<code>01</code>, <code>02</code>…) re-use a single section-header pattern.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CONTACT -->
+  <!-- ============================================================ -->
+  <section id="contact" class="page" data-screen-label="05 Contact">
+    <div class="page-head">
+      <div>
+        <h2>Contact / Booking Enquiry</h2>
+        <p class="lede">Let users enquire about a tour — form, booking details, phone/email, social links, ferry/location notes.</p>
+      </div>
+      <div class="sections">Sections: <span>page intro · form · contact info · ferry/location</span></div>
+    </div>
+
+    <div class="variations">
+      <!-- CONTACT · Variation A -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation A</span>
+          <h3>Form first, info beside</h3>
+          <p class="vdesc">Two-column layout with the booking form on the left and contact/location info on the right. Conventional, low-friction.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links"><div class="wf-nav-link short"></div><div class="wf-nav-link"></div><div class="wf-nav-link short"></div><div class="wf-nav-link long"></div><div class="wf-nav-link short"></div></div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <div class="wf-pad-lg col gap-2" style="background: var(--grey-1);">
+                <span class="wf-real muted sm">HOME &nbsp;›&nbsp; CONTACT</span>
+                <div class="wf-heading xl" style="width: 50%"></div>
+                <div class="wf-line w-70"></div>
+                <div class="wf-line w-50"></div>
+              </div>
+              <div class="wf-divider"></div>
+              <!-- two-col -->
+              <div class="wf-pad-lg row gap-4">
+                <!-- form -->
+                <div class="col gap-3" style="flex: 1.4;">
+                  <span class="wf-real">Booking enquiry</span>
+                  <div class="wf-grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="wf-field"><span class="wf-input-label">Name</span><div class="wf-input"></div></div>
+                    <div class="wf-field"><span class="wf-input-label">Email</span><div class="wf-input"></div></div>
+                  </div>
+                  <div class="wf-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                    <div class="wf-field"><span class="wf-input-label">Tour</span><div class="wf-input"></div></div>
+                    <div class="wf-field"><span class="wf-input-label">Preferred date</span><div class="wf-input"></div></div>
+                    <div class="wf-field"><span class="wf-input-label">Group size</span><div class="wf-input"></div></div>
+                  </div>
+                  <div class="wf-field"><span class="wf-input-label">Notes</span><div class="wf-input tall"></div></div>
+                  <div class="row gap-2 wf-items-c"><div style="width: 14px; height: 14px; border: 1.5px solid var(--ink); border-radius: 2px;"></div><div class="wf-line w-70"></div></div>
+                  <div class="row gap-2 mt-2"><div class="wf-btn wf-btn--primary wf-btn--lg">Send enquiry</div><div class="wf-btn">Save as draft</div></div>
+                </div>
+                <!-- info -->
+                <div class="col gap-3" style="flex: 1;">
+                  <div class="wf-card wf-pad col gap-2">
+                    <span class="wf-real">Get in touch</span>
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm"></div><div class="wf-line w-70"></div></div>
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-80"></div></div>
+                    <div class="row gap-2 wf-items-c"><div class="wf-icon sm"></div><div class="wf-line w-60"></div></div>
+                  </div>
+                  <div class="wf-card wf-pad col gap-2">
+                    <span class="wf-real">Meeting point</span>
+                    <div class="wf-line w-90"></div>
+                    <div class="wf-line w-70"></div>
+                    <div class="wf-img h64 mt-2"></div>
+                  </div>
+                  <div class="wf-card wf-pad col gap-2">
+                    <span class="wf-real">Follow</span>
+                    <div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="wf-cta-banner">
+                <div class="col gap-2"><div class="wf-heading sm" style="width: 200px;"></div><div class="wf-line w-80" style="width: 240px;"></div></div>
+                <div class="wf-btn wf-btn--primary">Browse tours</div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;"><div class="wf-logo" style="width: 32px; height: 10px;"></div><div class="wf-burger"></div></div>
+              <div class="wf-pad col gap-2" style="background: var(--grey-1);">
+                <span class="wf-real muted sm">‹ HOME</span>
+                <div class="wf-heading lg" style="width: 80%"></div>
+                <div class="wf-line w-70"></div>
+              </div>
+              <div class="wf-pad col gap-3">
+                <span class="wf-real">Booking enquiry</span>
+                <div class="wf-field"><span class="wf-input-label">Name</span><div class="wf-input"></div></div>
+                <div class="wf-field"><span class="wf-input-label">Email</span><div class="wf-input"></div></div>
+                <div class="wf-field"><span class="wf-input-label">Tour</span><div class="wf-input"></div></div>
+                <div class="wf-field"><span class="wf-input-label">Date</span><div class="wf-input"></div></div>
+                <div class="wf-field"><span class="wf-input-label">Group size</span><div class="wf-input"></div></div>
+                <div class="wf-field"><span class="wf-input-label">Notes</span><div class="wf-input tall"></div></div>
+                <div class="wf-btn wf-btn--primary" style="width: 100%;">Send enquiry</div>
+              </div>
+              <div class="wf-pad col gap-3" style="background: var(--grey-1);">
+                <div class="wf-card wf-pad-sm col gap-2"><span class="wf-real sm">Get in touch</span><div class="row gap-2 wf-items-c"><div class="wf-icon sm"></div><div class="wf-line w-70"></div></div><div class="row gap-2 wf-items-c"><div class="wf-icon sm sq"></div><div class="wf-line w-80"></div></div></div>
+                <div class="wf-card wf-pad-sm col gap-2"><span class="wf-real sm">Meeting point</span><div class="wf-line w-90"></div><div class="wf-img h48 plain"></div></div>
+                <div class="wf-card wf-pad-sm col gap-2"><span class="wf-real sm">Follow</span><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+              </div>
+              <div class="wf-footer-block"><div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Form on the left = primary action visible first; info on the right is supporting.</li>
+            <li><span class="key">b.</span> All inputs have <b>label + input</b> in a single component — students should reuse this pattern.</li>
+            <li><span class="key">c.</span> Mobile stacks the columns but keeps the same field order so muscle memory carries over.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- CONTACT · Variation B -->
+      <article class="variation">
+        <header>
+          <span class="vtag">Variation B</span>
+          <h3>Friendly hello, contact cards, centered form</h3>
+          <p class="vdesc">Lead with warm copy and three contact-method cards. The form sits below as one of several ways to get in touch — fits a low-pressure brand voice.</p>
+        </header>
+        <div class="frames">
+          <div class="frame-desktop">
+            <div class="frame-label">Desktop · 1440</div>
+            <div class="wf wf-desktop">
+              <div class="wf-nav">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-links"><div class="wf-nav-link short"></div><div class="wf-nav-link"></div><div class="wf-nav-link short"></div><div class="wf-nav-link long"></div><div class="wf-nav-link short"></div></div>
+                <div class="wf-nav-cta"></div>
+              </div>
+              <div class="wf-pad-lg col gap-2 text-c" style="padding: 32px 24px;">
+                <span class="wf-real muted sm">SAY HELLO</span>
+                <div class="wf-heading xl" style="width: 60%; margin: 0 auto;"></div>
+                <div class="wf-heading xl" style="width: 40%; margin: 0 auto;"></div>
+                <div class="wf-line w-50" style="margin: 8px auto 0;"></div>
+              </div>
+              <!-- 3 contact cards -->
+              <div class="wf-pad-lg" style="background: var(--accent-soft);">
+                <div class="wf-grid" style="grid-template-columns: repeat(3, 1fr); gap: 14px;">
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon xl"></div><span class="wf-real sm">Call us</span><div class="wf-line w-90"></div><div class="wf-line w-70"></div><div class="wf-btn wf-btn--sm mt-2" style="width: 100%;">Call</div></div>
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon xl sq"></div><span class="wf-real sm">Email us</span><div class="wf-line w-90"></div><div class="wf-line w-70"></div><div class="wf-btn wf-btn--sm mt-2" style="width: 100%;">Email</div></div>
+                  <div class="wf-card wf-pad col gap-2"><div class="wf-icon xl"></div><span class="wf-real sm">DM us</span><div class="wf-line w-90"></div><div class="wf-line w-70"></div><div class="row gap-2 mt-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+              <!-- centered form -->
+              <div class="wf-pad-lg" style="padding: 32px 22px;">
+                <div style="max-width: 520px; margin: 0 auto;" class="col gap-3">
+                  <div class="text-c col gap-2"><span class="wf-real muted sm">OR · SEND AN ENQUIRY</span><div class="wf-heading lg" style="width: 70%; margin: 0 auto;"></div></div>
+                  <div class="wf-grid mt-3" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="wf-field"><span class="wf-input-label">Name</span><div class="wf-input"></div></div>
+                    <div class="wf-field"><span class="wf-input-label">Email</span><div class="wf-input"></div></div>
+                  </div>
+                  <div class="wf-field"><span class="wf-input-label">Tour interest</span><div class="wf-input"></div></div>
+                  <div class="wf-field"><span class="wf-input-label">Tell us a bit more</span><div class="wf-input tall"></div></div>
+                  <div class="wf-btn wf-btn--primary wf-btn--lg" style="width: 100%;">Send enquiry</div>
+                </div>
+              </div>
+              <!-- ferry / location -->
+              <div class="wf-divider"></div>
+              <div class="wf-pad-lg row gap-4 wf-items-c" style="background: var(--grey-1);">
+                <div class="col gap-2" style="flex: 1;">
+                  <span class="wf-real muted sm">MEETING POINT</span>
+                  <div class="wf-heading lg" style="width: 70%"></div>
+                  <div class="wf-line w-90"></div>
+                  <div class="wf-line w-70"></div>
+                  <div class="row gap-2 mt-2"><span class="wf-chip">Fremantle ferry</span><span class="wf-chip">Hillarys ferry</span></div>
+                </div>
+                <div class="wf-img h120" style="flex: 1;"></div>
+              </div>
+              <div class="wf-footer-block">
+                <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                  <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div></div>
+                  <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="frame-mobile">
+            <div class="frame-label">Mobile · 375</div>
+            <div class="wf wf-mobile">
+              <div class="wf-nav" style="padding: 6px 10px;"><div class="wf-logo" style="width: 32px; height: 10px;"></div><div class="wf-burger"></div></div>
+              <div class="wf-pad col gap-2 text-c">
+                <span class="wf-real muted sm">SAY HELLO</span>
+                <div class="wf-heading lg" style="width: 90%; margin: 0 auto;"></div>
+                <div class="wf-line w-70" style="margin: 0 auto;"></div>
+              </div>
+              <div class="wf-pad col gap-2" style="background: var(--accent-soft);">
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div class="wf-icon"></div><div class="col gap-2 grow"><span class="wf-real sm">Call</span><div class="wf-line w-80"></div></div></div>
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div class="wf-icon sq"></div><div class="col gap-2 grow"><span class="wf-real sm">Email</span><div class="wf-line w-80"></div></div></div>
+                <div class="wf-card wf-pad-sm row gap-2 wf-items-c"><div class="wf-icon"></div><div class="col gap-2 grow"><span class="wf-real sm">DM us</span><div class="wf-line w-80"></div></div></div>
+              </div>
+              <div class="wf-pad col gap-3">
+                <span class="wf-real muted sm">SEND AN ENQUIRY</span>
+                <div class="wf-field"><span class="wf-input-label">Name</span><div class="wf-input"></div></div>
+                <div class="wf-field"><span class="wf-input-label">Email</span><div class="wf-input"></div></div>
+                <div class="wf-field"><span class="wf-input-label">Tour interest</span><div class="wf-input"></div></div>
+                <div class="wf-field"><span class="wf-input-label">Tell us more</span><div class="wf-input tall"></div></div>
+                <div class="wf-btn wf-btn--primary" style="width: 100%;">Send enquiry</div>
+              </div>
+              <div class="wf-pad col gap-2" style="background: var(--grey-1);">
+                <span class="wf-real muted sm">MEETING POINT</span>
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-img h64 plain mt-2"></div>
+              </div>
+              <div class="wf-footer-block"><div class="col gap-2"><div class="wf-line w-70"></div><div class="wf-line w-50"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="vnotes">
+          <ul>
+            <li><span class="key">a.</span> Offering three contact methods upfront respects how different visitors prefer to reach out.</li>
+            <li><span class="key">b.</span> Centered narrow form (max-width ~520px) keeps line lengths comfortable — also reusable on a newsletter signup.</li>
+            <li><span class="key">c.</span> Meeting-point card finishes the page with practical, location-grounded reassurance.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- COMPONENTS -->
+  <!-- ============================================================ -->
+  <section id="components" class="page" data-screen-label="06 Components">
+    <div class="page-head">
+      <div>
+        <h2>Reusable components</h2>
+        <p class="lede">Eight building blocks from the brief, drawn in isolation so they can be designed once and used everywhere. The whole point of a component library: change in one place, update everywhere.</p>
+      </div>
+      <div class="sections"><span>Header · Hero · Tour card · Feature card · Content section · CTA banner · Footer · Contact form</span></div>
+    </div>
+
+    <div class="page-note">
+      <strong>Refactor tip:</strong> when you build the pages, repeat first — copy/paste freely. Then look for the repetition and move it into a single CSS class or HTML partial. That's the lesson Part 4 of the tutorial sequence is teaching.
+    </div>
+
+    <div class="comp-grid">
+
+      <article class="comp-card">
+        <header>
+          <span class="ctag">01 · Header / Navigation</span>
+          <h3>Site header</h3>
+          <p class="cdesc">Sits at the top of every page. Logo on the left, primary nav, single accent CTA on the right. Collapses to a burger on mobile.</p>
+        </header>
+        <div class="csample">
+          <div class="wf wf-desktop">
+            <div class="wf-nav">
+              <div class="wf-logo"></div>
+              <div class="wf-nav-links">
+                <div class="wf-nav-link short"></div><div class="wf-nav-link"></div><div class="wf-nav-link short"></div><div class="wf-nav-link long"></div><div class="wf-nav-link short"></div>
+              </div>
+              <div class="wf-nav-cta"></div>
+            </div>
+          </div>
+          <div class="wf wf-mobile" style="margin-top: 14px; max-width: 200px;">
+            <div class="wf-nav" style="padding: 6px 10px;"><div class="wf-logo" style="width: 32px; height: 10px;"></div><div class="wf-burger"></div></div>
+          </div>
+        </div>
+        <div class="cnotes">
+          <b>Used on:</b> every page · <b>HTML:</b> <code>&lt;header&gt;</code> with <code>&lt;nav&gt;</code> inside · <b>A11y:</b> include a skip link, mark current page with <code>aria-current</code>.
+        </div>
+      </article>
+
+      <article class="comp-card">
+        <header>
+          <span class="ctag">02 · Hero section</span>
+          <h3>Page hero</h3>
+          <p class="cdesc">Two variants: full-bleed image with overlaid title (atmospheric) or split text + image (editorial). Pick one per page; don't mix.</p>
+        </header>
+        <div class="csample">
+          <div class="wf wf-desktop">
+            <div class="wf-hero-img-bg">
+              <div class="wf-img h100"></div>
+              <div class="wf-hero-overlay">
+                <div class="wf-heading lg" style="width: 60%"></div>
+                <div class="wf-line w-40"></div>
+                <div class="wf-btn wf-btn--primary wf-btn--sm" style="align-self: flex-start; margin-top: 4px;">CTA</div>
+              </div>
+            </div>
+          </div>
+          <div class="wf wf-desktop mt-3">
+            <div class="row" style="gap: 0;">
+              <div class="flex-1 wf-pad-lg col gap-2">
+                <span class="wf-chip accent" style="align-self: flex-start;">Eyebrow</span>
+                <div class="wf-heading lg" style="width: 80%"></div>
+                <div class="wf-line w-70"></div>
+                <div class="wf-btn wf-btn--primary wf-btn--sm" style="align-self: flex-start; margin-top: 4px;">CTA</div>
+              </div>
+              <div class="wf-img h100" style="flex: 1; border-radius: 0; border-left: 1.5px solid var(--ink);"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cnotes">
+          <b>Used on:</b> Home, About (full-bleed) · Experiences, Plan, Contact (slim variant) · <b>A11y:</b> ensure overlaid text has 4.5:1 contrast against the image.
+        </div>
+      </article>
+
+      <article class="comp-card">
+        <header>
+          <span class="ctag">03 · Tour card</span>
+          <h3>Tour card</h3>
+          <p class="cdesc">The single most-reused block on the site. Image, title, duration + activity chips, short description, action.</p>
+        </header>
+        <div class="csample">
+          <div class="row gap-3">
+            <div class="wf-card" style="flex: 1;">
+              <div class="wf-img h64"></div>
+              <div class="col gap-2 wf-pad-sm">
+                <div class="row wf-between"><span class="wf-real sm">Wadjemup Walk</span><span class="wf-chip accent">2 hr</span></div>
+                <div class="row gap-2"><span class="wf-chip">Easy</span><span class="wf-chip">Family</span></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-70"></div>
+                <div class="wf-btn wf-btn--sm wf-btn--primary mt-2">View tour</div>
+              </div>
+            </div>
+            <div class="wf-card row" style="flex: 1.4; flex-direction: row;">
+              <div class="wf-img" style="flex: 0 0 70px; border-radius: 0;"></div>
+              <div class="col gap-2 wf-pad-sm grow">
+                <div class="row wf-between"><span class="wf-real sm">Beaches &amp; Bays</span><span class="wf-chip accent">½ day</span></div>
+                <div class="row gap-2"><span class="wf-chip">Moderate</span></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-70"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cnotes">
+          <b>Variants:</b> vertical (grid view) · horizontal (list view) — same fields, different layout. <b>HTML:</b> <code>&lt;article&gt;</code> wrapping <code>&lt;h3&gt;</code> + image + content.
+        </div>
+      </article>
+
+      <article class="comp-card">
+        <header>
+          <span class="ctag">04 · Feature card</span>
+          <h3>Feature card</h3>
+          <p class="cdesc">Icon + short heading + supporting text. Appears in "why us", "values", "what to bring", and quick-info strips.</p>
+        </header>
+        <div class="csample">
+          <div class="row gap-3">
+            <div class="wf-card wf-pad col gap-2" style="flex: 1;">
+              <div class="wf-icon xl"></div>
+              <div class="wf-heading sm" style="width: 70%"></div>
+              <div class="wf-line w-90"></div>
+              <div class="wf-line w-80"></div>
+            </div>
+            <div class="wf-card wf-pad col gap-2" style="flex: 1;">
+              <div class="wf-icon xl sq"></div>
+              <div class="wf-heading sm" style="width: 70%"></div>
+              <div class="wf-line w-90"></div>
+              <div class="wf-line w-80"></div>
+            </div>
+            <div class="wf-card wf-pad col gap-2" style="flex: 1;">
+              <div class="row wf-items-c gap-2"><div style="width: 22px; height: 22px; background: var(--accent); color: white; border-radius: 50%; display: grid; place-items: center; font-size: 10px; font-weight: 700;">1</div><span class="wf-real sm">Numbered</span></div>
+              <div class="wf-line w-90"></div>
+              <div class="wf-line w-80"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cnotes">
+          <b>Variants:</b> with icon · with number badge (for steps) · with image (sustainability section). One CSS class, three modifiers.
+        </div>
+      </article>
+
+      <article class="comp-card">
+        <header>
+          <span class="ctag">05 · Content section</span>
+          <h3>Image + text row</h3>
+          <p class="cdesc">A 50/50 row with image on one side and text on the other. Flip the direction in CSS for alternating layouts.</p>
+        </header>
+        <div class="csample">
+          <div class="wf wf-desktop">
+            <div class="wf-pad row gap-3 wf-items-c">
+              <div class="wf-img h80" style="flex: 1;"></div>
+              <div class="col gap-2" style="flex: 1;">
+                <span class="wf-real muted sm">EYEBROW</span>
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+                <div class="wf-line w-60"></div>
+              </div>
+            </div>
+          </div>
+          <div class="wf wf-desktop mt-3">
+            <div class="wf-pad row gap-3 wf-items-c" style="background: var(--accent-soft);">
+              <div class="col gap-2" style="flex: 1;">
+                <span class="wf-real muted sm">EYEBROW</span>
+                <div class="wf-heading sm" style="width: 70%"></div>
+                <div class="wf-line w-90"></div>
+                <div class="wf-line w-80"></div>
+              </div>
+              <div class="wf-img h80" style="flex: 1;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cnotes">
+          <b>Refactor:</b> one component, two modifiers (<code>.row--reverse</code>, <code>.row--accent</code>). Stacks to single column under 768px.
+        </div>
+      </article>
+
+      <article class="comp-card">
+        <header>
+          <span class="ctag">06 · CTA banner</span>
+          <h3>Call-to-action banner</h3>
+          <p class="cdesc">Closes most pages. Heading + supporting line + button. Use sparingly — one per page.</p>
+        </header>
+        <div class="csample">
+          <div class="wf wf-desktop">
+            <div class="wf-cta-banner">
+              <div class="col gap-2"><div class="wf-heading sm" style="width: 220px;"></div><div class="wf-line w-80" style="width: 240px;"></div></div>
+              <div class="wf-btn wf-btn--primary">Send enquiry</div>
+            </div>
+          </div>
+          <div class="wf wf-desktop mt-3">
+            <div class="wf-cta-banner" style="background: var(--accent);">
+              <div class="wf-heading sm" style="background: white; width: 220px;"></div>
+              <div class="wf-btn" style="background: white; border-color: white;">Browse tours →</div>
+            </div>
+          </div>
+        </div>
+        <div class="cnotes">
+          <b>Variants:</b> dark surface (high contrast) · coral surface (warmer end-of-page). Pick one tone per page so the eye knows where the CTA is.
+        </div>
+      </article>
+
+      <article class="comp-card">
+        <header>
+          <span class="ctag">07 · Footer</span>
+          <h3>Site footer</h3>
+          <p class="cdesc">Four-column on desktop: brand + tagline, primary links, secondary links, socials. Collapses to single column on mobile.</p>
+        </header>
+        <div class="csample">
+          <div class="wf wf-desktop">
+            <div class="wf-footer-block">
+              <div class="wf-grid" style="grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 16px;">
+                <div class="col gap-2"><div class="wf-logo"></div><div class="wf-line w-90"></div><div class="wf-line w-70"></div></div>
+                <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div><div class="wf-line w-70"></div></div>
+                <div class="col gap-2"><div class="wf-line w-50"></div><div class="wf-line w-80"></div><div class="wf-line w-60"></div><div class="wf-line w-70"></div></div>
+                <div class="col gap-2"><div class="wf-line w-50"></div><div class="row gap-2"><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div><div class="wf-icon sm"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cnotes">
+          <b>HTML:</b> <code>&lt;footer&gt;</code> with nested <code>&lt;nav&gt;</code>s. <b>A11y:</b> social links need descriptive labels (<code>aria-label="Rotto Rocks on Instagram"</code>), not just icons.
+        </div>
+      </article>
+
+      <article class="comp-card">
+        <header>
+          <span class="ctag">08 · Contact form</span>
+          <h3>Booking enquiry form</h3>
+          <p class="cdesc">Eight fields: name, email, tour, date, group size, notes, consent, submit. Two columns on desktop, one on mobile.</p>
+        </header>
+        <div class="csample">
+          <div class="col gap-2">
+            <div class="wf-grid" style="grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div class="wf-field"><span class="wf-input-label">Name</span><div class="wf-input"></div></div>
+              <div class="wf-field"><span class="wf-input-label">Email</span><div class="wf-input"></div></div>
+            </div>
+            <div class="wf-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+              <div class="wf-field"><span class="wf-input-label">Tour</span><div class="wf-input"></div></div>
+              <div class="wf-field"><span class="wf-input-label">Date</span><div class="wf-input"></div></div>
+              <div class="wf-field"><span class="wf-input-label">Group</span><div class="wf-input"></div></div>
+            </div>
+            <div class="wf-field"><span class="wf-input-label">Notes</span><div class="wf-input tall"></div></div>
+            <div class="row gap-2 wf-items-c"><div style="width: 14px; height: 14px; border: 1.5px solid var(--ink); border-radius: 2px;"></div><div class="wf-line w-70"></div></div>
+            <div class="wf-btn wf-btn--primary mt-2" style="align-self: flex-start;">Send enquiry</div>
+          </div>
+        </div>
+        <div class="cnotes">
+          <b>A11y:</b> every <code>&lt;label&gt;</code> connected to its input via <code>for</code>/<code>id</code>. Visible focus states. Required fields marked with text, not colour alone.
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="endnote">
+    <span class="hand">Rotto Rocks · wireframes</span> · low-fi layouts to plan structure, content, and reusable components before writing HTML &amp; CSS.
+  </div>
+</main>
+
+<script>
+  (function () {
+    var tabs = document.querySelectorAll('.page-tabs button');
+    var pages = document.querySelectorAll('.page');
+    function activate(name) {
+      tabs.forEach(function (t) { t.classList.toggle('active', t.dataset.tab === name); });
+      pages.forEach(function (p) { p.classList.toggle('active', p.id === name); });
+      try { history.replaceState(null, '', '#' + name); } catch (e) {}
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { activate(t.dataset.tab); });
+    });
+    var initial = (location.hash || '#home').slice(1);
+    if (document.getElementById(initial)) activate(initial);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Accessibility testing workflow loop</title>
+  <desc id="desc">A loop shows the accessibility testing workflow: build, manual check, keyboard test, automated scan, fix, and retest.</desc>
+  <rect width="960" height="540" fill="#f8fbfb"/>
+  <text x="480" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#173f4f">Test accessibility as you build</text>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#263f49">
+    <circle cx="480" cy="278" r="116" fill="#ffffff" stroke="#cad7d9" stroke-width="2"/>
+    <text x="480" y="260" text-anchor="middle" font-size="24" font-weight="700" fill="#173f4f">Repeat</text>
+    <text x="480" y="290" text-anchor="middle">Small checks prevent</text>
+    <text x="480" y="315" text-anchor="middle">large rescue missions.</text>
+    <g>
+      <rect x="392" y="96" width="176" height="58" rx="12" fill="#d6e8ef" stroke="#23566b" stroke-width="2"/>
+      <text x="480" y="132" text-anchor="middle" font-weight="700">Build</text>
+      <rect x="660" y="176" width="190" height="58" rx="12" fill="#e9f4dc" stroke="#5e7f36" stroke-width="2"/>
+      <text x="755" y="212" text-anchor="middle" font-weight="700">Manual check</text>
+      <rect x="660" y="344" width="190" height="58" rx="12" fill="#fff1c7" stroke="#a66c00" stroke-width="2"/>
+      <text x="755" y="380" text-anchor="middle" font-weight="700">Keyboard test</text>
+      <rect x="392" y="424" width="176" height="58" rx="12" fill="#f3e8ff" stroke="#6d4a8c" stroke-width="2"/>
+      <text x="480" y="460" text-anchor="middle" font-weight="700">Automated scan</text>
+      <rect x="110" y="344" width="190" height="58" rx="12" fill="#ffe4e6" stroke="#8d0000" stroke-width="2"/>
+      <text x="205" y="380" text-anchor="middle" font-weight="700">Fix</text>
+      <rect x="110" y="176" width="190" height="58" rx="12" fill="#eef3f4" stroke="#78949c" stroke-width="2"/>
+      <text x="205" y="212" text-anchor="middle" font-weight="700">Retest</text>
+    </g>
+  </g>
+  <g fill="none" stroke="#23566b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M568 124 C642 132 704 148 744 176"/>
+    <path d="M755 234 C774 270 774 309 755 344"/>
+    <path d="M660 394 C630 425 596 444 568 453"/>
+    <path d="M392 453 C334 444 270 421 205 402"/>
+    <path d="M205 344 C186 308 186 270 205 234"/>
+    <path d="M300 176 C340 148 402 132 392 124"/>
+  </g>
+  <g fill="#23566b">
+    <path d="M740 164l20 23-30-5z"/>
+    <path d="M743 334l14 29-28-12z"/>
+    <path d="M580 444l-25 16 7-29z"/>
+    <path d="M308 421l-30-5 20-23z"/>
+    <path d="M217 244l-14-29 28 12z"/>
+    <path d="M382 132l25-16-7 29z"/>
+  </g>
+  <text x="480" y="512" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#31434a">Automated tools help, but keyboard testing and human judgement stay in the loop.</text>
+</svg>

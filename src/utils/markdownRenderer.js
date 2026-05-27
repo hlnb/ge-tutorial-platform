@@ -21,6 +21,11 @@ function renderInline(value) {
 	let rendered = escapeHtml(value);
 
 	rendered = rendered.replace(
+		/!\[([^\]]*)\]\(([^)]+)\)/g,
+		(_match, alt, url) =>
+			`<img src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" loading="lazy">`,
+	);
+	rendered = rendered.replace(
 		/\[([^\]]+)\]\(([^)]+)\)/g,
 		(_match, label, url) => `<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`,
 	);
@@ -102,11 +107,28 @@ function renderTable(lines) {
 }
 
 export function extractMarkdownHeadings(markdown, level = 2) {
-	const pattern = new RegExp(`^#{${level}}\\s+(.+)$`, 'gm');
-	return Array.from(markdown.matchAll(pattern)).map((match) => ({
-		title: match[1].trim(),
-		id: slugifyHeading(match[1].trim()),
-	}));
+	const headings = [];
+	const pattern = new RegExp(`^#{${level}}\\s+(.+)$`);
+	let inCodeBlock = false;
+
+	markdown.split(/\r?\n/).forEach((line) => {
+		if (line.trim().startsWith('```')) {
+			inCodeBlock = !inCodeBlock;
+			return;
+		}
+
+		if (inCodeBlock) return;
+
+		const match = line.match(pattern);
+		if (!match) return;
+
+		headings.push({
+			title: match[1].trim(),
+			id: slugifyHeading(match[1].trim()),
+		});
+	});
+
+	return headings;
 }
 
 export function renderMarkdown(markdown, { headingIds = false } = {}) {
@@ -124,10 +146,6 @@ export function renderMarkdown(markdown, { headingIds = false } = {}) {
 		const line = lines[index];
 		const trimmedLine = line.trim();
 
-		if (trimmedLine.startsWith('<!--')) {
-			continue;
-		}
-
 		if (trimmedLine.startsWith('```')) {
 			flushParagraph(paragraph, html);
 			flushList(listState, html);
@@ -144,6 +162,10 @@ export function renderMarkdown(markdown, { headingIds = false } = {}) {
 
 		if (inCodeBlock) {
 			codeState.lines.push(line);
+			continue;
+		}
+
+		if (trimmedLine.startsWith('<!--')) {
 			continue;
 		}
 

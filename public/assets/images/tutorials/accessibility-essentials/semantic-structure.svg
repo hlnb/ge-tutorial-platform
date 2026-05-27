@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Div soup compared with semantic page structure</title>
+  <desc id="desc">A messy stack of anonymous div boxes is compared with a labelled semantic page using header, nav, main, section, article, and footer.</desc>
+  <rect width="960" height="540" fill="#f8fbfb"/>
+  <text x="240" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#7c2d12">Div soup</text>
+  <text x="720" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#173f4f">Semantic structure</text>
+  <g font-family="Arial, sans-serif" font-size="18">
+    <rect x="95" y="96" width="290" height="340" rx="12" fill="#fff7ed" stroke="#c56b2d" stroke-width="2"/>
+    <rect x="135" y="130" width="210" height="42" rx="6" fill="#fed7aa"/><text x="240" y="157" text-anchor="middle" fill="#6b3414">&lt;div&gt;</text>
+    <rect x="120" y="188" width="240" height="42" rx="6" fill="#fdba74"/><text x="240" y="215" text-anchor="middle" fill="#6b3414">&lt;div&gt;</text>
+    <rect x="152" y="246" width="176" height="42" rx="6" fill="#fed7aa"/><text x="240" y="273" text-anchor="middle" fill="#6b3414">&lt;div&gt;</text>
+    <rect x="128" y="304" width="224" height="42" rx="6" fill="#fdba74"/><text x="240" y="331" text-anchor="middle" fill="#6b3414">&lt;div&gt;</text>
+    <rect x="145" y="362" width="190" height="42" rx="6" fill="#fed7aa"/><text x="240" y="389" text-anchor="middle" fill="#6b3414">&lt;span&gt;</text>
+    <text x="240" y="468" text-anchor="middle" font-size="16" fill="#79451f">Looks fine, but meaning is hidden.</text>
+    <rect x="575" y="96" width="290" height="340" rx="12" fill="#eef8fa" stroke="#23566b" stroke-width="2"/>
+    <rect x="610" y="126" width="220" height="42" rx="6" fill="#d6e8ef"/><text x="720" y="153" text-anchor="middle" fill="#173f4f">&lt;header&gt;</text>
+    <rect x="630" y="180" width="180" height="38" rx="6" fill="#e9f4dc"/><text x="720" y="205" text-anchor="middle" fill="#304b18">&lt;nav&gt;</text>
+    <rect x="600" y="232" width="240" height="118" rx="8" fill="#ffffff" stroke="#86aeb8"/>
+    <text x="720" y="260" text-anchor="middle" fill="#173f4f">&lt;main&gt;</text>
+    <rect x="620" y="276" width="200" height="32" rx="5" fill="#d6e8ef"/><text x="720" y="298" text-anchor="middle" font-size="15" fill="#173f4f">&lt;section&gt;</text>
+    <rect x="640" y="316" width="160" height="28" rx="5" fill="#fff1c7"/><text x="720" y="336" text-anchor="middle" font-size="14" fill="#6e4700">&lt;article&gt;</text>
+    <rect x="610" y="366" width="220" height="42" rx="6" fill="#f3e8ff"/><text x="720" y="393" text-anchor="middle" fill="#4a2c63">&lt;footer&gt;</text>
+    <text x="720" y="468" text-anchor="middle" font-size="16" fill="#31434a">Meaning is available to browsers and tools.</text>
+  </g>
+  <path d="M430 270h92" stroke="#51636c" stroke-width="5" stroke-linecap="round"/>
+  <path d="M515 252l28 18-28 18" fill="none" stroke="#51636c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

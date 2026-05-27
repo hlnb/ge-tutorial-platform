@@ -84,6 +84,25 @@ function getBeforeMarker(content, marker) {
 	return markerIndex === -1 ? content.trim() : content.slice(0, markerIndex).trim();
 }
 
+function stripMarkdownCommentsOutsideCode(content) {
+	const lines = content.replace(/\r\n/g, '\n').split('\n');
+	let inCodeBlock = false;
+
+	return lines
+		.filter((line) => {
+			const trimmedLine = line.trim();
+
+			if (trimmedLine.startsWith('```')) {
+				inCodeBlock = !inCodeBlock;
+				return true;
+			}
+
+			return inCodeBlock || !trimmedLine.startsWith('<!--');
+		})
+		.join('\n')
+		.trim();
+}
+
 function stripHeading(markdown) {
 	return markdown.replace(/^##\s+.+$/m, '').trim();
 }
@@ -116,6 +135,27 @@ function parseQuestionAnswerPairs(content) {
 	}
 
 	return pairs;
+}
+
+function parseCheckpointQuestions(content) {
+	const questionAnswerPairs = parseQuestionAnswerPairs(content);
+
+	if (questionAnswerPairs.length > 0) {
+		return questionAnswerPairs;
+	}
+
+	const lines = content
+		.split('\n')
+		.map((line) => line.trim())
+		.filter(Boolean);
+
+	return lines
+		.map((line) => {
+			const numberedMatch = line.match(/^\d+\.\s+(.*)$/);
+			const bulletMatch = line.match(/^[-*]\s+(.*)$/);
+			return numberedMatch?.[1] || bulletMatch?.[1] || null;
+		})
+		.filter(Boolean);
 }
 
 function parseBulletList(content) {
@@ -193,7 +233,15 @@ function parseGuidedPractice(content) {
 	return {
 		title: 'Guided Practice',
 		description: lead,
-		steps,
+		steps:
+			steps.length > 0
+				? steps
+				: [
+						{
+							title: 'Practice task',
+							instructions: withoutHeading,
+						},
+				  ],
 	};
 }
 
@@ -257,10 +305,53 @@ function parseClosure(content) {
 	};
 }
 
+function splitFollowUpAndClosure(content) {
+	if (!content) {
+		return { followUpContent: '', closureContent: '' };
+	}
+
+	const closureMatch = content.match(/^##\s+Closure\s*$/m);
+	if (!closureMatch) {
+		return { followUpContent: '', closureContent: content.trim() };
+	}
+
+	const closureStart = closureMatch.index ?? 0;
+
+	return {
+		followUpContent: content.slice(0, closureStart).trim(),
+		closureContent: content.slice(closureStart).trim(),
+	};
+}
+
 function splitMarkdownSections(content) {
 	if (!content) return [];
 
-	const headingMatches = Array.from(content.matchAll(/^##\s+(.+)$/gm));
+	const headingMatches = [];
+	const lines = content.split('\n');
+	let inCodeBlock = false;
+	let offset = 0;
+
+	lines.forEach((line) => {
+		if (line.trim().startsWith('```')) {
+			inCodeBlock = !inCodeBlock;
+			offset += line.length + 1;
+			return;
+		}
+
+		if (!inCodeBlock) {
+			const match = line.match(/^##\s+(.+)$/);
+			if (match) {
+				headingMatches.push({
+					0: line,
+					1: match[1],
+					index: offset,
+				});
+			}
+		}
+
+		offset += line.length + 1;
+	});
+
 	if (headingMatches.length === 0) {
 		return [];
 	}
@@ -291,18 +382,25 @@ export function parseMarkdownTutorial(source) {
 	const independentMarker = '<!-- INDEPENDENT PRACTICE -->';
 	const independentEndMarker = '<!-- /IndependentPractice -->';
 
-	const hookMarkdown = getBeforeMarker(body, objectivesMarker);
-	const objectivesAndConceptContent = getSectionBetween(body, objectivesMarker, [
-		checkpointMarker,
-		guidedMarker,
-	]);
+	const hookMarkdown = stripMarkdownCommentsOutsideCode(
+		getBeforeMarker(body, objectivesMarker),
+	);
+	const objectivesAndConceptContent = stripMarkdownCommentsOutsideCode(
+		getSectionBetween(body, objectivesMarker, [checkpointMarker, guidedMarker]),
+	);
 	const { objectivesContent, conceptContent } = splitObjectivesAndConcept(
 		objectivesAndConceptContent,
 	);
 	const conceptMarkdown = conceptContent.trim();
-	const checkpointContent = getSectionBetween(body, checkpointMarker, [checkpointEndMarker]);
-	const guidedContent = getSectionBetween(body, guidedMarker, [guidedEndMarker]);
-	const independentContent = getSectionBetween(body, independentMarker, [independentEndMarker]);
+	const checkpointContent = stripMarkdownCommentsOutsideCode(
+		getSectionBetween(body, checkpointMarker, [checkpointEndMarker]),
+	);
+	const guidedContent = stripMarkdownCommentsOutsideCode(
+		getSectionBetween(body, guidedMarker, [guidedEndMarker]),
+	);
+	const independentContent = stripMarkdownCommentsOutsideCode(
+		getSectionBetween(body, independentMarker, [independentEndMarker]),
+	);
 
 	let closureContent = '';
 	if (independentContent) {
@@ -312,6 +410,9 @@ export function parseMarkdownTutorial(source) {
 		const checkpointEndIndex = body.indexOf(checkpointEndMarker);
 		closureContent = body.slice(checkpointEndIndex + checkpointEndMarker.length).trim();
 	}
+
+	const { followUpContent, closureContent: finalClosureContent } =
+		splitFollowUpAndClosure(stripMarkdownCommentsOutsideCode(closureContent));
 
 	return {
 		frontmatter,
@@ -324,11 +425,12 @@ export function parseMarkdownTutorial(source) {
 		checkpoint: checkpointContent
 			? {
 					title: 'Check Your Understanding',
-					questions: parseQuestionAnswerPairs(stripHeading(checkpointContent)),
+					questions: parseCheckpointQuestions(stripHeading(checkpointContent)),
 			  }
 			: null,
 		guidedPractice: parseGuidedPractice(guidedContent),
 		independentPractice: parseIndependentPractice(independentContent),
-		closure: parseClosure(closureContent),
+		followUpSections: splitMarkdownSections(followUpContent),
+		closure: parseClosure(finalClosureContent),
 	};
 }

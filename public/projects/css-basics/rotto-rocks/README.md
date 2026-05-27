@@ -91,7 +91,9 @@ All pages include consistent header and footer navigation:
 
 ## Project Structure
 
-```# Home page with overview
+```
+rotto-rocks/
+├── index.html              # Home page with overview
 ├── activities.html         # Activities guide (500+ lines)
 ├── accommodation.html      # Lodging options (400+ lines)
 ├── transport.html          # Ferry & transport info (600+ lines)
@@ -173,16 +175,7 @@ Most comprehensive page showing advanced HTML:
 - **Getting Around the Island**: Bikes, buses, walking
 - **Weather & Cancellations**: Service interruptions
 - **Package Deals**: Combined ferry + accommodation
-- **Accessibility**: Services for travelers with disabilitiesg
-  │ ├── aerial-view.jpg
-  │ ├── sunset-beach.jpg
-  │ ├── cyclists.jpg
-  │ ├── snorkeling.jpg
-  │ ├── lighthouse-sunset.jpg
-  │ └── historic-settlement.jpg
-  └── README.md # This file
-
-```
+- **Accessibility**: Services for travelers with disabilities
 
 ## Usage
 
@@ -365,4 +358,3 @@ After completing the HTML Basics series, move to CSS Basics where you'll transfo
 - Color schemes matching island aesthetics
 
 This project provides excellent practice for real-world web development scenarios!
-```

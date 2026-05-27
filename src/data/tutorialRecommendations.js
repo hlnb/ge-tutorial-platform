@@ -7,6 +7,88 @@
  * consumers only receive editorial content.
  */
 
+const accessibilityEssentialsResources = [
+	{
+		title: 'W3C WAI Fundamentals',
+		url: 'https://www.w3.org/WAI/fundamentals/',
+		description:
+			'Authoritative W3C guidance on why accessibility matters and how people with different disabilities use the web.',
+	},
+	{
+		title: 'W3C WAI Tutorials',
+		url: 'https://www.w3.org/WAI/tutorials/',
+		description:
+			'Practical W3C tutorials for accessible page structure, menus, images, forms, and tables.',
+	},
+	{
+		title: 'Digital Accessibility Foundations Course',
+		url: 'https://www.w3.org/WAI/courses/foundations-course/',
+		description:
+			'A free W3C course for technical and non-technical learners who want an end-to-end accessibility primer.',
+	},
+	{
+		title: 'MDN Web Docs: Accessibility',
+		url: 'https://developer.mozilla.org/en-US/docs/Web/Accessibility',
+		description:
+			'Developer-focused documentation covering semantic HTML, CSS, JavaScript, and WAI-ARIA basics.',
+	},
+	{
+		title: 'WebAIM',
+		url: 'https://webaim.org/',
+		description:
+			'Plain-English articles, tutorials, and tools that bridge WCAG guidance and practical implementation.',
+	},
+	{
+		title: 'The A11Y Project',
+		url: 'https://www.a11yproject.com/',
+		description:
+			'A community-driven guide that makes accessibility concepts easier to digest.',
+	},
+	{
+		title: 'The A11Y Project Accessibility Checklist',
+		url: 'https://www.a11yproject.com/checklist/',
+		description: 'A useful checklist for checking accessibility basics as you work.',
+	},
+	{
+		title: 'Inclusive Design Principles',
+		url: 'https://inclusivedesignprinciples.org/',
+		description:
+			'A framework for designing more inclusive user experiences from the start.',
+	},
+	{
+		title: 'WAVE Web Accessibility Evaluation Tool',
+		url: 'https://wave.webaim.org/',
+		description:
+			'A browser-based tool that overlays accessibility issues directly on a page.',
+	},
+	{
+		title: 'WebAIM Contrast Checker',
+		url: 'https://webaim.org/resources/contrastchecker/',
+		description: 'A simple tool for testing WCAG colour contrast ratios.',
+	},
+];
+
+const accessibilityEssentialsTutorials = [
+	'accessibility-is-not-an-add-on',
+	'semantic-html-accessibility',
+	'images-alt-text-and-meaning',
+	'keyboard-navigation-and-focus-states',
+	'accessible-forms',
+	'colour-contrast-and-readability',
+	'aria-use-with-care',
+	'testing-accessibility-as-you-build',
+];
+
+const accessibilityEssentialsEditorialContent = Object.fromEntries(
+	accessibilityEssentialsTutorials.map((slug) => [
+		slug,
+		{
+			practiceProjects: [],
+			resources: accessibilityEssentialsResources,
+		},
+	]),
+);
+
 const legacyTutorialEditorialContent = {
 	'getting-started': {
 		'how-internet-works': {
@@ -1400,6 +1482,7 @@ const legacyTutorialEditorialContent = {
 			],
 		},
 	},
+	'accessibility-essentials': accessibilityEssentialsEditorialContent,
 };
 
 export const tutorialEditorialContent = Object.fromEntries(

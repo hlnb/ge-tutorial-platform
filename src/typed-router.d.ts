@@ -394,9 +394,30 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/projects/rotto-rocks': RouteRecordInfo<
+    '/projects/rotto-rocks/': RouteRecordInfo<
+      '/projects/rotto-rocks/',
       '/projects/rotto-rocks',
-      '/projects/rotto-rocks',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/projects/rotto-rocks/brief': RouteRecordInfo<
+      '/projects/rotto-rocks/brief',
+      '/projects/rotto-rocks/brief',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/projects/rotto-rocks/css-notes': RouteRecordInfo<
+      '/projects/rotto-rocks/css-notes',
+      '/projects/rotto-rocks/css-notes',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/projects/rotto-rocks/html-notes': RouteRecordInfo<
+      '/projects/rotto-rocks/html-notes',
+      '/projects/rotto-rocks/html-notes',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -460,6 +481,69 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/': RouteRecordInfo<
       '/tutorials/',
       '/tutorials',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/accessibility-essentials/': RouteRecordInfo<
+      '/tutorials/accessibility-essentials/',
+      '/tutorials/accessibility-essentials',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/accessibility-essentials/accessibility-is-not-an-add-on': RouteRecordInfo<
+      '/tutorials/accessibility-essentials/accessibility-is-not-an-add-on',
+      '/tutorials/accessibility-essentials/accessibility-is-not-an-add-on',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/accessibility-essentials/accessible-forms': RouteRecordInfo<
+      '/tutorials/accessibility-essentials/accessible-forms',
+      '/tutorials/accessibility-essentials/accessible-forms',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/accessibility-essentials/aria-use-with-care': RouteRecordInfo<
+      '/tutorials/accessibility-essentials/aria-use-with-care',
+      '/tutorials/accessibility-essentials/aria-use-with-care',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/accessibility-essentials/colour-contrast-and-readability': RouteRecordInfo<
+      '/tutorials/accessibility-essentials/colour-contrast-and-readability',
+      '/tutorials/accessibility-essentials/colour-contrast-and-readability',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/accessibility-essentials/images-alt-text-and-meaning': RouteRecordInfo<
+      '/tutorials/accessibility-essentials/images-alt-text-and-meaning',
+      '/tutorials/accessibility-essentials/images-alt-text-and-meaning',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/accessibility-essentials/keyboard-navigation-and-focus-states': RouteRecordInfo<
+      '/tutorials/accessibility-essentials/keyboard-navigation-and-focus-states',
+      '/tutorials/accessibility-essentials/keyboard-navigation-and-focus-states',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/accessibility-essentials/semantic-html-accessibility': RouteRecordInfo<
+      '/tutorials/accessibility-essentials/semantic-html-accessibility',
+      '/tutorials/accessibility-essentials/semantic-html-accessibility',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/accessibility-essentials/testing-accessibility-as-you-build': RouteRecordInfo<
+      '/tutorials/accessibility-essentials/testing-accessibility-as-you-build',
+      '/tutorials/accessibility-essentials/testing-accessibility-as-you-build',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -1642,9 +1726,27 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/projects/rotto-rocks.vue': {
+    'src/pages/projects/rotto-rocks/index.vue': {
       routes:
-        | '/projects/rotto-rocks'
+        | '/projects/rotto-rocks/'
+      views:
+        | never
+    }
+    'src/pages/projects/rotto-rocks/brief.vue': {
+      routes:
+        | '/projects/rotto-rocks/brief'
+      views:
+        | never
+    }
+    'src/pages/projects/rotto-rocks/css-notes.vue': {
+      routes:
+        | '/projects/rotto-rocks/css-notes'
+      views:
+        | never
+    }
+    'src/pages/projects/rotto-rocks/html-notes.vue': {
+      routes:
+        | '/projects/rotto-rocks/html-notes'
       views:
         | never
     }
@@ -1699,6 +1801,60 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/index.vue': {
       routes:
         | '/tutorials/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/accessibility-essentials/index.vue': {
+      routes:
+        | '/tutorials/accessibility-essentials/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/accessibility-essentials/accessibility-is-not-an-add-on.vue': {
+      routes:
+        | '/tutorials/accessibility-essentials/accessibility-is-not-an-add-on'
+      views:
+        | never
+    }
+    'src/pages/tutorials/accessibility-essentials/accessible-forms.vue': {
+      routes:
+        | '/tutorials/accessibility-essentials/accessible-forms'
+      views:
+        | never
+    }
+    'src/pages/tutorials/accessibility-essentials/aria-use-with-care.vue': {
+      routes:
+        | '/tutorials/accessibility-essentials/aria-use-with-care'
+      views:
+        | never
+    }
+    'src/pages/tutorials/accessibility-essentials/colour-contrast-and-readability.vue': {
+      routes:
+        | '/tutorials/accessibility-essentials/colour-contrast-and-readability'
+      views:
+        | never
+    }
+    'src/pages/tutorials/accessibility-essentials/images-alt-text-and-meaning.vue': {
+      routes:
+        | '/tutorials/accessibility-essentials/images-alt-text-and-meaning'
+      views:
+        | never
+    }
+    'src/pages/tutorials/accessibility-essentials/keyboard-navigation-and-focus-states.vue': {
+      routes:
+        | '/tutorials/accessibility-essentials/keyboard-navigation-and-focus-states'
+      views:
+        | never
+    }
+    'src/pages/tutorials/accessibility-essentials/semantic-html-accessibility.vue': {
+      routes:
+        | '/tutorials/accessibility-essentials/semantic-html-accessibility'
+      views:
+        | never
+    }
+    'src/pages/tutorials/accessibility-essentials/testing-accessibility-as-you-build.vue': {
+      routes:
+        | '/tutorials/accessibility-essentials/testing-accessibility-as-you-build'
       views:
         | never
     }

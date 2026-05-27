@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Alt text decision tree</title>
+  <desc id="desc">A decision tree asks whether an image is decorative, functional, informative, or complex and shows the matching alt text approach.</desc>
+  <rect width="960" height="540" fill="#f8fbfb"/>
+  <text x="480" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#173f4f">What should the alt text do?</text>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#263f49">
+    <rect x="350" y="84" width="260" height="58" rx="10" fill="#173f4f"/>
+    <text x="480" y="119" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">What is the image doing?</text>
+    <path d="M480 142v42M480 184H180M480 184h300" stroke="#78949c" stroke-width="3" fill="none"/>
+    <rect x="70" y="204" width="220" height="76" rx="10" fill="#e9f4dc" stroke="#5e7f36" stroke-width="2"/>
+    <text x="180" y="235" text-anchor="middle" font-weight="700">Decorative?</text>
+    <text x="180" y="260" text-anchor="middle" font-size="15">Adds no meaning</text>
+    <rect x="370" y="204" width="220" height="76" rx="10" fill="#d6e8ef" stroke="#23566b" stroke-width="2"/>
+    <text x="480" y="235" text-anchor="middle" font-weight="700">Informative?</text>
+    <text x="480" y="260" text-anchor="middle" font-size="15">Adds content meaning</text>
+    <rect x="670" y="204" width="220" height="76" rx="10" fill="#fff1c7" stroke="#a66c00" stroke-width="2"/>
+    <text x="780" y="235" text-anchor="middle" font-weight="700">Functional?</text>
+    <text x="780" y="260" text-anchor="middle" font-size="15">Acts as link/control</text>
+    <path d="M180 280v42M480 280v42M780 280v42" stroke="#78949c" stroke-width="3"/>
+    <rect x="50" y="322" width="260" height="92" rx="10" fill="#ffffff" stroke="#cad7d9"/>
+    <text x="180" y="354" text-anchor="middle" font-weight="700">Use empty alt</text>
+    <text x="180" y="382" text-anchor="middle" font-family="monospace" font-size="18">alt=""</text>
+    <rect x="350" y="322" width="260" height="92" rx="10" fill="#ffffff" stroke="#cad7d9"/>
+    <text x="480" y="354" text-anchor="middle" font-weight="700">Describe meaning</text>
+    <text x="480" y="382" text-anchor="middle" font-size="15">Say what the learner needs</text>
+    <rect x="650" y="322" width="260" height="92" rx="10" fill="#ffffff" stroke="#cad7d9"/>
+    <text x="780" y="354" text-anchor="middle" font-weight="700">Describe the action</text>
+    <text x="780" y="382" text-anchor="middle" font-size="15">Example: "View gallery"</text>
+    <path d="M480 414v42" stroke="#78949c" stroke-width="3"/>
+    <rect x="314" y="456" width="332" height="54" rx="10" fill="#f3e8ff" stroke="#6d4a8c" stroke-width="2"/>
+    <text x="480" y="489" text-anchor="middle" font-weight="700" fill="#4a2c63">Complex image? Add nearby explanation too.</text>
+  </g>
+</svg>

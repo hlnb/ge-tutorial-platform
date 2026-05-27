@@ -74,6 +74,13 @@ const independentTaskHtml = computed(() =>
 	sanitizeHtml(renderMarkdown(parsed.value.independentPractice?.task || '')),
 );
 
+const followUpSections = computed(() =>
+	(parsed.value.followUpSections || []).map((sectionItem) => ({
+		...sectionItem,
+		html: sanitizeHtml(renderMarkdown(sectionItem.markdown, { headingIds: true })),
+	})),
+);
+
 const pageSections = computed(() => {
 	const sections = conceptSections.value.map((sectionItem) => ({
 		id: sectionItem.id,
@@ -89,6 +96,9 @@ const pageSections = computed(() => {
 	if (parsed.value.independentPractice) {
 		sections.push({ id: 'independent-practice', title: 'Independent Practice' });
 	}
+	followUpSections.value.forEach((sectionItem) => {
+		sections.push({ id: sectionItem.id, title: sectionItem.title });
+	});
 	if (parsed.value.closure) {
 		sections.push({ id: 'closure', title: parsed.value.closure.title });
 	}
@@ -176,7 +186,7 @@ useHead(() => ({
 				:hook="hookHtml"
 				:reflection-prompts="[
 					`Where have you already seen ${parsed.frontmatter.title.toLowerCase()} in a real interface?`,
-					'Which part of working with data currently feels most mysterious?'
+					'Which part of this topic currently feels most important to test in a real page?'
 				]"
 				:connection="parsed.frontmatter.description"
 			/>
@@ -233,6 +243,14 @@ useHead(() => ({
 				/>
 			</section>
 
+			<section
+				v-for="sectionItem in followUpSections"
+				:key="sectionItem.id"
+				class="content markdown-tutorial-page__content"
+			>
+				<div v-html="sectionItem.html"></div>
+			</section>
+
 			<section v-if="parsed.closure" id="closure">
 				<ClosureSection
 					:title="parsed.closure.title"
@@ -279,5 +297,16 @@ useHead(() => ({
 
 .markdown-tutorial-page__content :deep(a) {
 	text-decoration: underline;
+}
+
+.markdown-tutorial-page__content :deep(img) {
+	display: block;
+	width: min(100%, 58rem);
+	height: auto;
+	margin: 2rem auto;
+	border: 1px solid #d6e8ef;
+	border-radius: 8px;
+	background: #ffffff;
+	box-shadow: 0 12px 28px rgba(35, 48, 68, 0.08);
 }
 </style>

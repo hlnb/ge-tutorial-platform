@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Low contrast card compared with readable card</title>
+  <desc id="desc">Two cards compare weak low contrast design with improved readable contrast, spacing, link treatment, and focus state.</desc>
+  <rect width="960" height="540" fill="#f8fbfb"/>
+  <text x="480" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#173f4f">Readability is more than colour choice</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="92" y="90" width="340" height="350" rx="12" fill="#f2d7d0" stroke="#d8a29a" stroke-width="2"/>
+    <text x="262" y="128" text-anchor="middle" font-size="22" font-weight="700" fill="#b98b84">Before</text>
+    <rect x="132" y="156" width="260" height="198" rx="10" fill="#e7b8af"/>
+    <text x="162" y="202" font-size="23" font-weight="700" fill="#c9958b">Special offer</text>
+    <text x="162" y="236" font-size="16" fill="#c9958b">Book today and get updates</text>
+    <text x="162" y="260" font-size="16" fill="#c9958b">about the next workshop.</text>
+    <rect x="162" y="296" width="110" height="36" rx="5" fill="#cf9187"/>
+    <text x="217" y="319" text-anchor="middle" font-size="15" fill="#f2d7d0">More</text>
+    <text x="262" y="392" text-anchor="middle" font-size="15" fill="#7b4b45">Low contrast - vague button - cramped text</text>
+    <rect x="528" y="90" width="340" height="350" rx="12" fill="#ffffff" stroke="#cad7d9" stroke-width="2"/>
+    <text x="698" y="128" text-anchor="middle" font-size="22" font-weight="700" fill="#173f4f">After</text>
+    <rect x="568" y="156" width="260" height="198" rx="10" fill="#f7faf8" stroke="#d6e8ef"/>
+    <text x="598" y="202" font-size="23" font-weight="700" fill="#173f4f">Workshop updates</text>
+    <text x="598" y="238" font-size="16" fill="#263f49">Book today and receive clear</text>
+    <text x="598" y="264" font-size="16" fill="#263f49">updates about the next workshop.</text>
+    <rect x="598" y="298" width="176" height="40" rx="5" fill="#173f4f" stroke="#facc15" stroke-width="4"/>
+    <text x="686" y="324" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">View workshop dates</text>
+    <text x="698" y="392" text-anchor="middle" font-size="15" fill="#31434a">Strong contrast - clear state - readable spacing</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#31434a">
+    <rect x="198" y="472" width="564" height="38" rx="19" fill="#eef8fa" stroke="#cad7d9"/>
+    <text x="480" y="496" text-anchor="middle">Colour should support meaning, not be the only way to understand it.</text>
+  </g>
+</svg>

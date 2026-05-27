@@ -78,6 +78,7 @@ import AiAssistedNav from "@/components/tutorial-navs/AiAssistedNav.vue";
 import BackendNav from "@/components/tutorial-navs/BackendNav.vue";
 import DeploymentsNav from "@/components/tutorial-navs/DeploymentsNav.vue";
 import SeoAnalyticsNav from "@/components/tutorial-navs/SeoAnalyticsNav.vue";
+import AccessibilityEssentialsNav from "@/components/tutorial-navs/AccessibilityEssentialsNav.vue";
 import CapstoneNav from "@/components/tutorial-navs/CapstoneNav.vue";
 import StandaloneNav from "@/components/tutorial-navs/StandaloneNav.vue";
 import TutorialNavigation from "@/components/TutorialNavigation.vue";
@@ -136,6 +137,7 @@ const sectionNavComponents = {
   backend: BackendNav,
   deployments: DeploymentsNav,
   "seo-analytics": SeoAnalyticsNav,
+  "accessibility-essentials": AccessibilityEssentialsNav,
   capstone: CapstoneNav,
 };
 

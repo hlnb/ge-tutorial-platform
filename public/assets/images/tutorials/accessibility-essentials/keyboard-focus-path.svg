@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Keyboard focus path through a page</title>
+  <desc id="desc">A webpage diagram shows focus moving from skip link to header links, main call to action, form field, and footer links in a logical order.</desc>
+  <rect width="960" height="540" fill="#f8fbfb"/>
+  <rect x="110" y="56" width="740" height="428" rx="14" fill="#ffffff" stroke="#cbd8dc" stroke-width="2"/>
+  <text x="480" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#173f4f">Keyboard focus should follow the page story</text>
+  <g font-family="Arial, sans-serif" font-size="16">
+    <rect x="145" y="82" width="178" height="36" rx="18" fill="#fff1c7" stroke="#a66c00" stroke-width="3"/>
+    <text x="234" y="106" text-anchor="middle" font-weight="700" fill="#6e4700">1 Skip link</text>
+    <rect x="145" y="138" width="670" height="64" rx="8" fill="#173f4f"/>
+    <text x="182" y="176" fill="#ffffff" font-weight="700">Site logo</text>
+    <rect x="560" y="152" width="64" height="34" rx="5" fill="#d6e8ef"/><text x="592" y="174" text-anchor="middle" fill="#173f4f">2 Home</text>
+    <rect x="638" y="152" width="82" height="34" rx="5" fill="#d6e8ef"/><text x="679" y="174" text-anchor="middle" fill="#173f4f">3 Menu</text>
+    <rect x="734" y="152" width="72" height="34" rx="5" fill="#d6e8ef"/><text x="770" y="174" text-anchor="middle" fill="#173f4f">4 Book</text>
+    <rect x="165" y="238" width="360" height="52" rx="6" fill="#e9f4dc"/>
+    <text x="345" y="270" text-anchor="middle" font-weight="700" fill="#304b18">Main content heading</text>
+    <rect x="165" y="316" width="188" height="44" rx="6" fill="#d6e8ef" stroke="#23566b" stroke-width="3"/>
+    <text x="259" y="344" text-anchor="middle" font-weight="700" fill="#173f4f">5 Call to action</text>
+    <rect x="570" y="244" width="220" height="120" rx="8" fill="#f7faf8" stroke="#cad7d9"/>
+    <text x="680" y="275" text-anchor="middle" fill="#31434a" font-weight="700">Short form</text>
+    <rect x="604" y="298" width="152" height="36" rx="5" fill="#ffffff" stroke="#23566b" stroke-width="3"/>
+    <text x="680" y="321" text-anchor="middle" fill="#173f4f">6 Email field</text>
+    <rect x="145" y="408" width="670" height="46" rx="8" fill="#eef3f4"/>
+    <text x="215" y="437" text-anchor="middle" fill="#31434a">Footer</text>
+    <rect x="640" y="416" width="78" height="30" rx="5" fill="#ffffff" stroke="#23566b" stroke-width="3"/>
+    <text x="679" y="436" text-anchor="middle" fill="#173f4f">7 Privacy</text>
+  </g>
+  <path d="M323 100 C420 105 505 133 574 152 M624 170h14 M720 170h14 M770 186 C723 228 651 257 522 262 M353 339 C430 340 521 330 604 318 M680 334 C688 374 682 397 679 416" fill="none" stroke="#a66c00" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 9"/>
+  <text x="480" y="514" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#31434a">Tab order should match reading order, and every focused control needs a visible outline.</text>
+</svg>

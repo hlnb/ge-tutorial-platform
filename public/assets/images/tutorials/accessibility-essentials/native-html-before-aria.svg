@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Native HTML before ARIA flowchart</title>
+  <desc id="desc">A flowchart asks whether HTML can solve the pattern before considering ARIA, keyboard support, state updates, and testing.</desc>
+  <rect width="960" height="540" fill="#f8fbfb"/>
+  <text x="480" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#173f4f">Native HTML before ARIA</text>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#263f49">
+    <rect x="350" y="86" width="260" height="70" rx="12" fill="#173f4f"/>
+    <text x="480" y="116" text-anchor="middle" font-weight="700" fill="#ffffff">Can HTML do this?</text>
+    <text x="480" y="140" text-anchor="middle" font-size="15" fill="#d9ecf0">Button, link, label, details, nav...</text>
+    <path d="M390 156 C300 196 230 224 178 260" stroke="#78949c" stroke-width="3" fill="none"/>
+    <path d="M570 156 C660 196 730 224 782 260" stroke="#78949c" stroke-width="3" fill="none"/>
+    <rect x="70" y="248" width="250" height="78" rx="10" fill="#e9f4dc" stroke="#5e7f36" stroke-width="2"/>
+    <text x="195" y="279" text-anchor="middle" font-size="21" font-weight="700" fill="#304b18">Yes</text>
+    <text x="195" y="304" text-anchor="middle">Use the native element.</text>
+    <rect x="640" y="248" width="250" height="78" rx="10" fill="#fff1c7" stroke="#a66c00" stroke-width="2"/>
+    <text x="765" y="279" text-anchor="middle" font-size="21" font-weight="700" fill="#6e4700">No</text>
+    <text x="765" y="304" text-anchor="middle">Consider ARIA carefully.</text>
+    <path d="M195 326v58M765 326v38" stroke="#78949c" stroke-width="3"/>
+    <rect x="78" y="384" width="234" height="76" rx="10" fill="#ffffff" stroke="#cad7d9"/>
+    <text x="195" y="413" text-anchor="middle" font-weight="700">Style it with CSS</text>
+    <text x="195" y="438" text-anchor="middle" font-size="15">Keep the built-in behaviour.</text>
+    <rect x="625" y="364" width="280" height="116" rx="10" fill="#ffffff" stroke="#cad7d9"/>
+    <text x="765" y="394" text-anchor="middle" font-weight="700">If ARIA is needed:</text>
+    <text x="765" y="420" text-anchor="middle" font-size="15">Add keyboard support</text>
+    <text x="765" y="444" text-anchor="middle" font-size="15">Update states with JavaScript</text>
+    <text x="765" y="468" text-anchor="middle" font-size="15">Test the actual interaction</text>
+    <rect x="374" y="210" width="212" height="72" rx="10" fill="#f3e8ff" stroke="#6d4a8c"/>
+    <text x="480" y="241" text-anchor="middle" font-weight="700" fill="#4a2c63">First ARIA rule</text>
+    <text x="480" y="265" text-anchor="middle" font-size="15" fill="#4a2c63">Do not use ARIA if HTML works.</text>
+  </g>
+</svg>

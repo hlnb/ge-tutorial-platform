@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Annotated accessible form</title>
+  <desc id="desc">A signup form is annotated to show visible labels, connected help text, required field explanation, grouped options, clear error text, and a descriptive submit button.</desc>
+  <rect width="960" height="540" fill="#f8fbfb"/>
+  <text x="480" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#173f4f">Accessible forms explain the task</text>
+  <rect x="120" y="84" width="440" height="382" rx="14" fill="#ffffff" stroke="#cad7d9" stroke-width="2"/>
+  <g font-family="Arial, sans-serif" fill="#263f49">
+    <text x="162" y="128" font-size="26" font-weight="700">Workshop signup</text>
+    <text x="162" y="162" font-size="16">Fields marked "required" must be completed.</text>
+    <text x="162" y="206" font-size="16" font-weight="700">Name <tspan fill="#8d0000">(required)</tspan></text>
+    <rect x="162" y="218" width="310" height="42" rx="5" fill="#ffffff" stroke="#23566b" stroke-width="2"/>
+    <text x="162" y="290" font-size="16" font-weight="700">Email address</text>
+    <rect x="162" y="302" width="310" height="42" rx="5" fill="#ffffff" stroke="#8d0000" stroke-width="3"/>
+    <text x="162" y="366" font-size="15" fill="#8d0000">Enter an email address, like name@example.com.</text>
+    <fieldset x="0" y="0"/>
+    <rect x="162" y="392" width="310" height="38" rx="5" fill="#173f4f"/>
+    <text x="317" y="416" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Register for the workshop</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#263f49" stroke="#a66c00" stroke-width="2">
+    <line x1="525" y1="202" x2="650" y2="132"/>
+    <rect x="650" y="104" width="210" height="56" rx="8" fill="#fff1c7"/>
+    <text x="755" y="128" text-anchor="middle" font-weight="700">Visible label</text>
+    <text x="755" y="150" text-anchor="middle">Connected with for/id</text>
+    <line x1="493" y1="160" x2="650" y2="214"/>
+    <rect x="650" y="184" width="230" height="62" rx="8" fill="#e9f4dc" stroke="#5e7f36"/>
+    <text x="765" y="209" text-anchor="middle" font-weight="700">Required fields</text>
+    <text x="765" y="232" text-anchor="middle">Explained in text</text>
+    <line x1="475" y1="366" x2="650" y2="314"/>
+    <rect x="650" y="284" width="230" height="66" rx="8" fill="#ffe4e6" stroke="#8d0000"/>
+    <text x="765" y="310" text-anchor="middle" font-weight="700">Specific error</text>
+    <text x="765" y="334" text-anchor="middle">Says what to fix</text>
+    <line x1="475" y1="411" x2="650" y2="410"/>
+    <rect x="650" y="382" width="230" height="56" rx="8" fill="#d6e8ef" stroke="#23566b"/>
+    <text x="765" y="407" text-anchor="middle" font-weight="700">Descriptive button</text>
+    <text x="765" y="429" text-anchor="middle">Names the action</text>
+  </g>
+</svg>

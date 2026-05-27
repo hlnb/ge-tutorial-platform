@@ -2,7 +2,7 @@
 
 Tracks the build status of all tutorial sections and individual tutorials in the GraphitEdge pathway. Updated against `src/data/tutorials.js` and the page files in `src/pages/tutorials/`.
 
-Last updated: May 19, 2026
+Last updated: May 20, 2026
 
 ---
 
@@ -144,6 +144,9 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | Building Reusable Components | `intermediate/building-reusable-components.vue` | ✅ Complete |
 | BSB Part 3: Refactor Patterns | `intermediate/black-swan-bistro-part-3.vue` | ✅ Complete |
 | CSS Grid for Repeated Layouts | `intermediate/css-grid-for-repeated-layouts.vue` | ✅ Complete |
+| Modern CSS Layout Extensions | `intermediate/modern-css-layout-extensions.vue` | 🔴 Not started |
+| Container Queries for Reusable Components | `intermediate/container-queries-for-reusable-components.vue` | 🔴 Not started |
+| Modern CSS Architecture | `intermediate/modern-css-architecture.vue` | 🔴 Not started |
 | Responsive Refinement for Reusable Components | `intermediate/responsive-refinement-for-reusable-components.vue` | ✅ Complete |
 | Multi-page Structure | `intermediate/multi-page-structure.vue` | ✅ Complete |
 | BSB Part 4: Multi-page Site | `intermediate/black-swan-bistro-part-4.vue` | ✅ Complete |
@@ -152,6 +155,14 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | BSB Part 4B: Polish and Refine | `intermediate/black-swan-bistro-part-4b-polish-and-refine.vue` | ✅ Complete |
 | How to Debug a Broken Web Page | `intermediate/debug-broken-web-page.vue` | ✅ Complete |
 | Test and Validate Your Site | `intermediate/test-and-validate-your-site.vue` | ✅ Complete |
+
+**Intermediate CSS / Build Tutorials additions:** Matching Notion tasks have already been created for each new tutorial.
+
+| Suggested order | Tutorial | Level | Priority | Pathway | Focus |
+|---|---|---|---|---|---|
+| After core Flexbox and Grid lessons | Modern CSS Layout Extensions | Intermediate | Medium | Intermediate CSS / Build Tutorials | Extend layout fundamentals with subgrid, `:has()`, fluid layout values, intrinsic layout patterns, and layout stress testing. |
+| After Modern CSS Layout Extensions | Container Queries for Reusable Components | Intermediate | Medium | Intermediate CSS / Build Tutorials | Teach `container-type`, `@container`, named containers, container query units, reusable component variants, and defensive testing. |
+| After Container Queries for Reusable Components | Modern CSS Architecture | Intermediate | Medium | Intermediate CSS / Build Tutorials | Organize resilient CSS with cascade layers, CSS responsibility layers, specificity management, layout primitives, design tokens, component-scoped CSS, and progressive enhancement. |
 
 ---
 
@@ -241,6 +252,9 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 
 | Priority | Tutorial | Section | Notes |
 |---|---|---|---|
+| Medium | Modern CSS Layout Extensions | Intermediate CSS / Build Tutorials | Level: Intermediate. Suggested order: after core Flexbox and Grid lessons. Focus: subgrid, `:has()`, fluid layout values, intrinsic layout patterns, and layout stress testing. Matching Notion task already created. |
+| Medium | Container Queries for Reusable Components | Intermediate CSS / Build Tutorials | Level: Intermediate. Suggested order: after Modern CSS Layout Extensions. Focus: `container-type`, `@container`, named containers, container query units, reusable component variants, and defensive testing. Matching Notion task already created. |
+| Medium | Modern CSS Architecture | Intermediate CSS / Build Tutorials | Level: Intermediate. Suggested order: after Container Queries for Reusable Components. Focus: cascade layers, CSS responsibility layers, specificity management, layout primitives, design tokens, component-scoped CSS, and progressive enhancement. Matching Notion task already created. |
 | 1 | Rotto Rocks Capstone Spec | Capstone | Replace placeholder with real project brief. |
 
 ### Config-only tasks (no writing needed)
