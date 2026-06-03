@@ -1122,6 +1122,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/container-queries-for-reusable-components': RouteRecordInfo<
+      '/tutorials/intermediate/container-queries-for-reusable-components',
+      '/tutorials/intermediate/container-queries-for-reusable-components',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/css-grid-for-repeated-layouts': RouteRecordInfo<
       '/tutorials/intermediate/css-grid-for-repeated-layouts',
       '/tutorials/intermediate/css-grid-for-repeated-layouts',
@@ -1272,6 +1279,13 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/intermediate/how-to-read-a-design': RouteRecordInfo<
       '/tutorials/intermediate/how-to-read-a-design',
       '/tutorials/intermediate/how-to-read-a-design',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/modern-css-layout-extensions': RouteRecordInfo<
+      '/tutorials/intermediate/modern-css-layout-extensions',
+      '/tutorials/intermediate/modern-css-layout-extensions',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -2350,6 +2364,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/intermediate/container-queries-for-reusable-components.vue': {
+      routes:
+        | '/tutorials/intermediate/container-queries-for-reusable-components'
+      views:
+        | never
+    }
     'src/pages/tutorials/intermediate/css-grid-for-repeated-layouts.vue': {
       routes:
         | '/tutorials/intermediate/css-grid-for-repeated-layouts'
@@ -2479,6 +2499,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/how-to-read-a-design.vue': {
       routes:
         | '/tutorials/intermediate/how-to-read-a-design'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/modern-css-layout-extensions.vue': {
+      routes:
+        | '/tutorials/intermediate/modern-css-layout-extensions'
       views:
         | never
     }

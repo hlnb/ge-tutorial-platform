@@ -194,7 +194,19 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects/rotto-rocks</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-27</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/projects/rotto-rocks/brief</loc>
+    <lastmod>2026-05-27</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/projects/rotto-rocks/css-notes</loc>
+    <lastmod>2026-05-27</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/projects/rotto-rocks/html-notes</loc>
+    <lastmod>2026-05-27</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/projects/selector-challenge</loc>
@@ -231,6 +243,42 @@
   <url>
     <loc>https://www.graphitedge.com.au/tutorials</loc>
     <lastmod>2026-04-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/accessibility-essentials</loc>
+    <lastmod>2026-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/accessibility-essentials/accessibility-is-not-an-add-on</loc>
+    <lastmod>2026-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/accessibility-essentials/accessible-forms</loc>
+    <lastmod>2026-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/accessibility-essentials/aria-use-with-care</loc>
+    <lastmod>2026-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/accessibility-essentials/colour-contrast-and-readability</loc>
+    <lastmod>2026-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/accessibility-essentials/images-alt-text-and-meaning</loc>
+    <lastmod>2026-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/accessibility-essentials/keyboard-navigation-and-focus-states</loc>
+    <lastmod>2026-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/accessibility-essentials/semantic-html-accessibility</loc>
+    <lastmod>2026-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/accessibility-essentials/testing-accessibility-as-you-build</loc>
+    <lastmod>2026-05-26</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/ai-assisted</loc>
@@ -418,7 +466,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/capstone/spec</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-05-27</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/deployments</loc>
@@ -533,6 +581,10 @@
     <lastmod>2026-04-22</lastmod>
   </url>
   <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/container-queries-for-reusable-components</loc>
+    <lastmod>2026-06-02</lastmod>
+  </url>
+  <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/css-grid-for-repeated-layouts</loc>
     <lastmod>2026-04-22</lastmod>
   </url>
@@ -619,6 +671,10 @@
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/how-to-read-a-design</loc>
     <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate/modern-css-layout-extensions</loc>
+    <lastmod>2026-06-02</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/multi-page-structure</loc>

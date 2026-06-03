@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">Layout decisions before writing CSS</title>
+  <desc id="desc">A flow diagram showing how content questions lead to layout choices such as Flexbox, Grid, intrinsic sizing, :has(), and subgrid.</desc>
+  <defs>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#1f2933}.title{font-size:28px;font-weight:700}.subtitle{font-size:16px;fill:#52606d}.label{font-size:16px;font-weight:700}.small{font-size:13px;fill:#52606d}.panel{fill:#fff;stroke:#cbd2d9;stroke-width:2}.question{fill:#fffaf0;stroke:#d8c6b0;stroke-width:2}.choice{fill:#d6e8ef;stroke:#4b88a2;stroke-width:2}.arrow{stroke:#738290;stroke-width:3;fill:none;marker-end:url(#arrowhead)}
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#738290"/>
+    </marker>
+  </defs>
+  <rect width="960" height="500" fill="#f8fafb"/>
+  <text x="60" y="56" class="title">Start With the Layout Question</text>
+  <text x="60" y="84" class="subtitle">Modern CSS works best when each tool answers a specific content problem.</text>
+
+  <rect x="70" y="128" width="230" height="94" rx="16" class="question"/>
+  <text x="185" y="164" text-anchor="middle" class="label">One direction?</text>
+  <text x="185" y="190" text-anchor="middle" class="small">Alignment, wrapping, spacing</text>
+
+  <rect x="365" y="128" width="230" height="94" rx="16" class="question"/>
+  <text x="480" y="164" text-anchor="middle" class="label">Rows and columns?</text>
+  <text x="480" y="190" text-anchor="middle" class="small">Repeated cards or regions</text>
+
+  <rect x="660" y="128" width="230" height="94" rx="16" class="question"/>
+  <text x="775" y="164" text-anchor="middle" class="label">Optional content?</text>
+  <text x="775" y="190" text-anchor="middle" class="small">Images, badges, actions</text>
+
+  <path d="M185 222 V282" class="arrow"/>
+  <path d="M480 222 V282" class="arrow"/>
+  <path d="M775 222 V282" class="arrow"/>
+
+  <rect x="70" y="292" width="230" height="96" rx="16" class="choice"/>
+  <text x="185" y="328" text-anchor="middle" class="label">Flexbox</text>
+  <text x="185" y="354" text-anchor="middle" class="small">Use for one-dimensional flow</text>
+
+  <rect x="365" y="292" width="230" height="96" rx="16" class="choice"/>
+  <text x="480" y="328" text-anchor="middle" class="label">Grid + minmax()</text>
+  <text x="480" y="354" text-anchor="middle" class="small">Let columns adapt naturally</text>
+
+  <rect x="660" y="292" width="230" height="96" rx="16" class="choice"/>
+  <text x="775" y="328" text-anchor="middle" class="label">:has() / subgrid</text>
+  <text x="775" y="354" text-anchor="middle" class="small">Respond to structure or tracks</text>
+
+  <rect x="210" y="424" width="540" height="42" rx="21" fill="#fff" stroke="#cbd2d9" stroke-width="2"/>
+  <text x="480" y="451" text-anchor="middle" class="label">Then stress-test with awkward real content</text>
+</svg>
