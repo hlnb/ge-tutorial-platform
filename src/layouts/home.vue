@@ -9,57 +9,50 @@
       </div>
     </section>
 
-    <slot name="learning" />
+    <slot name="projects" />
     <slot name="techstack" />
 
     <section class="features-section">
       <div class="container">
         <div class="features-header">
-          <h2>What You'll Learn with GraphitEdge</h2>
-          <p>
-            Our tutorials go beyond writing code. We help learners understand
-            the full web-development process from structure to shipping.
-          </p>
+          <h2>{{ frontmatter.systemsSection.title }}</h2>
+          <p>{{ frontmatter.systemsSection.description }}</p>
         </div>
 
         <div class="features-grid">
           <article
-            v-for="feature in frontmatter.features || []"
-            :key="feature.title"
+            v-for="feature in frontmatter.systemsSection.items || []"
+            :key="feature.heading"
             class="feature-card"
           >
-            <h3>{{ feature.title }}</h3>
-            <ul v-if="feature.items && feature.items.length">
-              <li v-for="item in feature.items" :key="item.heading">
-                {{ item.heading }}
-                <span v-if="item.description">: {{ item.description }}</span>
-              </li>
-            </ul>
+            <h3>{{ feature.heading }}</h3>
+            <p>{{ feature.description }}</p>
           </article>
         </div>
       </div>
     </section>
 
     <section
-      v-if="frontmatter.latestPosts && frontmatter.latestPosts.length"
+      v-if="frontmatter.learningPaths && frontmatter.learningPaths.length"
       class="home-section"
     >
       <div class="container">
-        <div class="latest-posts-header">
-          <h2>Latest from The Graphite Journal</h2>
+        <div class="learning-paths-header">
+          <h2>{{ frontmatter.learningPathsSection.title }}</h2>
+          <p>{{ frontmatter.learningPathsSection.description }}</p>
         </div>
-        <div class="posts-grid">
+        <div class="learning-paths-grid">
           <article
-            v-for="post in frontmatter.latestPosts"
-            :key="post.link"
-            class="post-card"
+            v-for="pathway in frontmatter.learningPaths"
+            :key="pathway.link"
+            class="learning-path-card"
           >
             <h3>
-              <router-link :to="post.link">{{ post.title }}</router-link>
+              <router-link :to="pathway.link">{{ pathway.title }}</router-link>
             </h3>
-            <p v-if="post.snippet">{{ post.snippet }}</p>
-            <router-link :to="post.link" class="read-more">
-              Read More &rarr;
+            <p>{{ pathway.description }}</p>
+            <router-link :to="pathway.link" class="read-more">
+              {{ pathway.cta }}
             </router-link>
           </article>
         </div>
@@ -98,12 +91,12 @@ export default {
 }
 
 .features-header,
-.latest-posts-header {
+.learning-paths-header {
   margin-bottom: 1.75rem;
 }
 
 .features-header h2,
-.latest-posts-header h2 {
+.learning-paths-header h2 {
   font-family: var(--font-heading);
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   font-weight: var(--weight-bold);
@@ -113,12 +106,20 @@ export default {
   color: var(--color-white);
 }
 
-.features-header p {
+.features-header p,
+.learning-paths-header p {
   max-width: 44rem;
   margin-top: 0.75rem;
-  color: rgba(255, 255, 255, 0.75);
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+.features-header p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.learning-paths-header p {
+  color: var(--fg-muted);
 }
 
 .features-grid {
@@ -128,7 +129,7 @@ export default {
 }
 
 .feature-card,
-.post-card {
+.learning-path-card {
   border-radius: 0.5rem;
   background: var(--color-white);
 }
@@ -139,46 +140,32 @@ export default {
 }
 
 .feature-card h3,
-.post-card h3 {
+.learning-path-card h3 {
   font-family: var(--font-heading);
   font-size: 0.9375rem;
   font-weight: var(--weight-bold);
   color: var(--fg-default);
 }
 
-.feature-card ul {
-  list-style: none;
-  padding: 0;
+.feature-card p {
   margin: 0.75rem 0 0;
-}
-
-.feature-card li {
   font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--fg-muted);
 }
 
-.feature-card li + li {
-  margin-top: 0.5rem;
-}
-
-.feature-card li::before {
-  content: "→ ";
-  color: var(--color-primary);
-}
-
-.posts-grid {
+.learning-paths-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.25rem;
 }
 
-.post-card {
+.learning-path-card {
   padding: 1.25rem;
   border: 1px solid #dde3e9;
 }
 
-.post-card p {
+.learning-path-card p {
   margin-top: 0.75rem;
   font-size: 0.8125rem;
   line-height: 1.5;

@@ -4,8 +4,15 @@
       <section class="home-hero">
         <div class="home-hero__overlay">
           <div class="container home-hero__content">
+            <p class="home-hero__eyebrow">GraphitEdge Web Development Education</p>
             <h1>{{ frontmatter.hero.title }}</h1>
-            <p>{{ frontmatter.hero.description }}</p>
+            <p class="home-hero__tagline">{{ frontmatter.hero.tagline }}</p>
+            <p class="home-hero__description">
+              {{ frontmatter.hero.description }}
+            </p>
+            <p class="home-hero__description">
+              {{ frontmatter.hero.supportingDescription }}
+            </p>
             <div class="home-hero__actions">
               <a href="/tutorials" class="button is-primary">Start Learning</a>
               <a href="/about" class="button home-hero__secondary-button"
@@ -19,74 +26,54 @@
 
     <template #about>
       <div class="home-about">
-        <h2>Web Development Isn't Just Code. It's a Whole Ecosystem.</h2>
+        <h2>Start with the Foundations</h2>
         <p class="home-about__lead">
-          Most tutorials teach syntax, but skip the bigger picture that makes a
-          site functional, discoverable, and successful.
+          Learn the building blocks of the web: HTML for structure, CSS for
+          layout and design, and JavaScript for interaction.
         </p>
-        <p>
-          I'm Helen Burgess, and with more than 20 years in the web industry,
-          I've seen too many developers struggle because no one explained how
-          the internet works, how deployment fits in, or how design decisions
-          turn into real interfaces.
-        </p>
-        <p>
-          At GraphitEdge, I break those missing pieces down in plain English
-          with diagrams, practical examples, and structured pathways.
-        </p>
-        <ul class="benefits-list">
-          <li>Beginners build confidence beyond syntax.</li>
-          <li>Self-taught developers fill in the gaps that hold them back.</li>
-          <li>
-            Designers moving into development learn how aesthetics become usable
-            interfaces.
-          </li>
-        </ul>
+        <div class="home-card-grid">
+          <article
+            v-for="foundation in foundations"
+            :key="foundation.heading"
+            class="home-topic-card"
+          >
+            <h3>{{ foundation.heading }}</h3>
+            <p>{{ foundation.description }}</p>
+          </article>
+        </div>
       </div>
     </template>
 
     <template #mission>
       <div class="mission-statement">
-        <h3>Our Mission</h3>
+        <p class="mission-statement__label">GraphitEdge approach</p>
         <p>
-          "Web development isn't just code. Demystifying the full process from
-          DNS to SEO, design to deployment."
+          Understand the system. Build with confidence.
         </p>
       </div>
     </template>
 
-    <template #learning>
+    <template #projects>
       <section class="section home-learning">
         <div class="container">
-          <h2>Learn Web Development by Building Real Projects</h2>
+          <h2>Build Real Projects</h2>
           <p class="home-learning__lead">
-            GraphitEdge teaches through practical projects, not disconnected
-            exercises. You learn by building something that feels real.
+            Practise your skills through guided projects that move from
+            planning and page structure to reusable components, responsive
+            layouts, and deployment.
           </p>
-          <p>
-            As you work through the curriculum, you learn not only HTML, CSS,
-            and JavaScript, but also the wider system that makes a site useful
-            and publishable.
-          </p>
-          <ul class="benefits-list">
-            <li>
-              How the internet works: domains, DNS, hosting, and deployment.
-            </li>
-            <li>How to take a design and turn it into a real website.</li>
-            <li>How effective pages support SEO, CTAs, and performance.</li>
-            <li>How to build modern interfaces with Vue and Bulma.</li>
-          </ul>
-          <p>
-            No more disconnected lessons that leave you with loose fragments.
-            GraphitEdge gives you the missing pieces in one structured learning
-            experience.
-          </p>
+          <div class="home-card-grid">
+            <article
+              v-for="project in projectHighlights"
+              :key="project.heading"
+              class="home-topic-card"
+            >
+              <h3>{{ project.heading }}</h3>
+              <p>{{ project.description }}</p>
+            </article>
+          </div>
         </div>
       </section>
-    </template>
-
-    <template #faqs>
-      <FaqSection :faqs="generalFaqs" />
     </template>
   </HomeLayout>
 </template>
@@ -94,150 +81,107 @@
 <script setup>
 import HomeLayout from "@/layouts/home.vue";
 import { useHead } from "@vueuse/head";
-import generalFaqs from "@/data/faqs";
-import FaqSection from "@/components/FaqSection.vue";
-import { posts } from "@/router/config";
 
-const getLatestPosts = () => {
-  return Object.entries(posts)
-    .map(([slug, post]) => {
-      if (post.status !== "published" || !post.publishDate) return null;
+const foundations = [
+  {
+    heading: "HTML",
+    description: "Learn how page structure gives content meaning.",
+  },
+  {
+    heading: "CSS",
+    description: "Style layouts, spacing, typography, and responsive designs.",
+  },
+  {
+    heading: "JavaScript",
+    description: "Add interaction and behaviour to your pages.",
+  },
+];
 
-      const date = new Date(post.publishDate);
-
-      if (Number.isNaN(date.getTime())) {
-        return null;
-      }
-
-      return {
-        title: post.title,
-        link: `/posts/${slug}`,
-        snippet: post.description || post.excerpt || "",
-        date,
-      };
-    })
-    .filter(Boolean)
-    .sort(
-      (firstPost, secondPost) =>
-        secondPost.date.getTime() - firstPost.date.getTime(),
-    )
-    .slice(0, 3);
-};
+const projectHighlights = [
+  {
+    heading: "Black Swan Bistro",
+    description:
+      "Plan and build a practical restaurant website from content structure to interface patterns.",
+  },
+  {
+    heading: "Rotto Rocks",
+    description:
+      "Turn a real brief into a responsive project with clearer layout and content decisions.",
+  },
+  {
+    heading: "Guided project workflow",
+    description:
+      "Practise planning, component thinking, testing, deployment, and maintenance as one connected process.",
+  },
+];
 
 const frontmatter = {
   title: "GraphitEdge",
   description:
-    "Welcome to GraphitEdge - Web Development Tutorials and Practical Projects",
+    "GraphitEdge teaches practical web development from HTML, CSS, and JavaScript to accessibility, SEO, hosting, and deployment.",
   hero: {
-    title: "Web Development Isn't Just Code",
+    title: "Learn Web Development from Code to Deployment",
+    tagline: "Understand the system. Build with confidence.",
     description:
-      "Demystifying the full process from DNS to SEO, design to deployment.",
+      "GraphitEdge is a practical web development education site created by Helen Burgess for beginners, emerging developers, designers, and small business owners who want to understand how websites are planned, built, tested, launched, and maintained.",
+    supportingDescription:
+      "Start with HTML, CSS, and JavaScript, then build confidence with accessibility, SEO, hosting, deployment, and real-world project workflows.",
   },
-  features: [
+  systemsSection: {
+    title: "Learn the Systems Behind the Web",
+    description:
+      "Go beyond code by learning the practical systems that support every website, including domains, DNS, hosting, accessibility, SEO, analytics, deployment workflows, and ethical AI-assisted development.",
+    items: [
     {
-      title: "Foundations of Web Development",
-      items: [
-        {
-          heading: "Understand the Internet",
-          description:
-            "Domains, DNS, hosting, and what actually happens behind the scenes.",
-        },
-        {
-          heading: "HTML, CSS, and JavaScript",
-          description: "The building blocks explained clearly and practically.",
-        },
-        {
-          heading: "Vue and Bulma",
-          description: "Modern tools introduced with context instead of magic.",
-        },
-      ],
+      heading: "Accessibility",
+      description:
+        "Build pages that are readable, usable, and easier to navigate with keyboards and assistive technology.",
     },
     {
-      title: "Turning Design into Reality",
-      items: [
-        {
-          heading: "Design to Code",
-          description: "Translate layouts and mockups into working interfaces.",
-        },
-        {
-          heading: "Responsive Design",
-          description:
-            "Make pages work well on phones, tablets, and desktop screens.",
-        },
-        {
-          heading: "Accessibility and Usability",
-          description:
-            "Build websites that are readable, inclusive, and clear.",
-        },
-      ],
+      heading: "SEO",
+      description:
+        "Understand how clear structure, content, metadata, and performance help people and search systems understand a page.",
     },
     {
-      title: "Web Performance and SEO",
-      items: [
-        {
-          heading: "SEO Optimization",
-          description:
-            "Understand search engines and write pages that can be found.",
-        },
-        {
-          heading: "Page Speed and Performance",
-          description: "Learn why speed matters and how to improve it.",
-        },
-        {
-          heading: "Analytics and Measurement",
-          description: "Track what is working and what needs attention.",
-        },
-      ],
+      heading: "Hosting and deployment",
+      description:
+        "Learn how domains, hosting platforms, deployment, testing, and maintenance fit together after code leaves your computer.",
     },
     {
-      title: "Deployment and Security",
-      items: [
-        {
-          heading: "Hosting and Deployment",
-          description: "Move from a local project to a live website calmly.",
-        },
-        {
-          heading: "Security Best Practices",
-          description:
-            "Protect your project and avoid common beginner mistakes.",
-        },
-        {
-          heading: "Maintenance",
-          description: "Understand what happens after a site launches.",
-        },
-      ],
+      heading: "AI-assisted development",
+      description:
+        "Use AI as a practical assistant while still learning the fundamentals that let you review, debug, and improve the work.",
+    },
+    ],
+  },
+  learningPathsSection: {
+    title: "Choose Your Learning Path",
+    description:
+      "Follow a structured pathway based on your current skill level, whether you are starting from scratch, improving your foundations, or building complete projects.",
+  },
+  learningPaths: [
+    {
+      title: "Beginner tutorials",
+      description:
+        "Start with the essentials and build a practical foundation in HTML, CSS, JavaScript, accessibility, and website structure.",
+      link: "/tutorials",
+      cta: "Explore beginner tutorials",
     },
     {
-      title: "Project-Based Learning",
-      items: [
-        {
-          heading: "Real-World Projects",
-          description:
-            "Apply your skills through complete, teachable examples.",
-        },
-        {
-          heading: "Step-by-Step Guidance",
-          description: "Learn each phase in a sequence that builds confidence.",
-        },
-      ],
+      title: "Intermediate builder pathway",
+      description:
+        "Strengthen your workflow with responsive layouts, reusable patterns, debugging, SEO, deployment, and project decisions.",
+      link: "/tutorials/intermediate",
+      cta: "View intermediate pathway",
     },
     {
-      title: "Community and Support",
-      items: [
-        {
-          heading: "Join the Community",
-          description:
-            "Find support, feedback, and encouragement from other learners.",
-        },
-        {
-          heading: "Track Your Progress",
-          description:
-            "Keep moving forward with a clearer sense of what comes next.",
-        },
-      ],
+      title: "Project-based learning",
+      description:
+        "Apply the pieces together through guided website projects that connect planning, building, testing, and launch.",
+      link: "/projects",
+      cta: "Browse projects",
     },
   ],
-  latestPosts: getLatestPosts(),
 };
 
 useHead({
@@ -246,16 +190,16 @@ useHead({
     {
       name: "description",
       content:
-        "Free web development tutorials for beginners. Learn HTML, CSS, JavaScript, DNS, and how the web works — step by step, with real-world projects.",
+        "GraphitEdge teaches practical web development for beginners, emerging developers, designers, and small business owners, from HTML, CSS, and JavaScript to accessibility, SEO, hosting, and deployment.",
     },
     {
       property: "og:title",
-      content: "GraphitEdge – Web Development Tutorials for Beginners",
+      content: "GraphitEdge – Learn Web Development from Code to Deployment",
     },
     {
       property: "og:description",
       content:
-        "Free web development tutorials for beginners. Learn HTML, CSS, JavaScript, DNS, and how the web works — step by step.",
+        "Practical web development education for beginners, emerging developers, designers, and small business owners, from foundations to deployment.",
     },
     { property: "og:type", content: "website" },
     { property: "og:url", content: "https://www.graphitedge.com.au/" },
@@ -266,12 +210,12 @@ useHead({
     { name: "twitter:card", content: "summary_large_image" },
     {
       name: "twitter:title",
-      content: "GraphitEdge – Web Development Tutorials for Beginners",
+      content: "GraphitEdge – Learn Web Development from Code to Deployment",
     },
     {
       name: "twitter:description",
       content:
-        "Free web development tutorials for beginners. Learn HTML, CSS, JavaScript, DNS, and how the web works.",
+        "Learn practical web development from HTML, CSS, and JavaScript to accessibility, SEO, hosting, and deployment.",
     },
   ],
   link: [{ rel: "canonical", href: "https://www.graphitedge.com.au/" }],
@@ -296,8 +240,18 @@ useHead({
 }
 
 .home-hero__content {
-  max-width: 700px;
+  max-width: 780px;
   text-align: center;
+}
+
+.home-hero__eyebrow {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
 }
 
 .home-hero__content h1 {
@@ -307,11 +261,20 @@ useHead({
   color: var(--color-white);
 }
 
-.home-hero__content p {
+.home-hero__tagline,
+.home-hero__description {
   margin-top: 1rem;
-  font-size: var(--text-md);
   line-height: var(--leading-normal);
   color: rgba(255, 255, 255, 0.88);
+}
+
+.home-hero__tagline {
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+}
+
+.home-hero__description {
+  font-size: 1rem;
 }
 
 .home-hero__actions {
@@ -358,6 +321,32 @@ useHead({
   line-height: 1.7;
 }
 
+.home-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.home-topic-card {
+  padding: 1.25rem;
+  border: 1px solid #dde3e9;
+  border-radius: 0.5rem;
+  background: var(--color-white);
+}
+
+.home-topic-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: var(--weight-bold);
+  color: var(--fg-default);
+}
+
+.home-topic-card p {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
 .benefits-list {
   list-style: none;
   padding: 0;
@@ -390,7 +379,8 @@ useHead({
   text-align: center;
 }
 
-.mission-statement h3 {
+.mission-statement__label {
+  margin-top: 0;
   font-size: 1rem;
   font-weight: var(--weight-bold);
   color: var(--color-white);
