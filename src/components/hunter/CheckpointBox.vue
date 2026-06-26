@@ -1,7 +1,7 @@
 <template>
 	<section class="check-understanding">
 		<div class="box checkpoint">
-			<h3>{{ icon }} {{ title }}</h3>
+			<h3><i :class="iconClass"></i> {{ title }}</h3>
 			<p v-if="description"><strong>{{ description }}</strong></p>
 
 			<!-- Questions Format (supports string or object entries) -->
@@ -65,7 +65,7 @@ const props = defineProps({
 	},
 	icon: {
 		type: String,
-		default: '⏸️'
+		default: 'fas fa-pause-circle'
 	},
 	description: {
 		type: String,
@@ -101,11 +101,12 @@ const props = defineProps({
 	},
 	confidenceScale: {
 		type: String,
-		default: '😕 Still confused | 🤔 Getting there | 😊 Got it! | 🎉 Could explain it to a friend!'
+		default: 'Still confused | Getting there | Got it | Could explain it to a friend'
 	}
 });
 
 const hasQuestions = computed(() => props.questions && props.questions.length > 0);
+const iconClass = computed(() => (props.icon.includes('fa-') ? props.icon : 'fas fa-pause-circle'));
 const questionsWithAnswers = computed(() =>
 	props.questions.filter(
 		(question) =>

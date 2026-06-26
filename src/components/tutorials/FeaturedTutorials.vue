@@ -57,7 +57,7 @@ const mostPractical = computed(() =>
 
 // "Best for DIY site owners" — hosting / deployment tutorial
 const diyPick = computed(() =>
-  props.tutorials.find((t) => t.id === 'hosting-and-deployment') || null,
+  props.tutorials.find((t) => t.id === 'deployment-fundamentals') || null,
 );
 </script>
 

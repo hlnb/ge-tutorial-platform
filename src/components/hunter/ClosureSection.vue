@@ -19,7 +19,8 @@
 				<p>{{ objectivesPrompt }}</p>
 				<ul class="objectives-checklist">
 					<li v-for="(objective, index) in objectives" :key="index">
-						✅ {{ objective }} <span class="has-text-success">{{ checkmarks[index % checkmarks.length] }}</span>
+						<i class="fas fa-check-circle has-text-success"></i>
+						{{ objective }} <span class="has-text-success">{{ checkmarks[index % checkmarks.length] }}</span>
 					</li>
 				</ul>
 				<p v-if="readinessMessage" class="mt-3">{{ readinessMessage }}</p>
@@ -33,7 +34,7 @@
 						<p v-if="prompt.title">
 							<strong>
 								<i v-if="isFontAwesomeIcon(prompt.icon)" :class="prompt.icon"></i>
-								<span v-else>{{ prompt.icon || '💭' }}</span>
+								<i v-else class="fas fa-comment-dots"></i>
 								{{ ' ' }}{{ prompt.title }}
 							</strong>
 						</p>
@@ -50,13 +51,13 @@
 
 			<!-- Real World Application -->
 			<div v-if="realWorldApplication" class="question-card mt-4">
-				<p><strong>🤔 Real-World Test:</strong></p>
+				<p><strong><i class="fas fa-globe"></i> Real-World Test:</strong></p>
 				<div v-html="realWorldApplication"></div>
 			</div>
 
 			<!-- Next Steps -->
 			<div v-if="nextSteps" class="question-card mt-4">
-				<p><strong>🎯 Looking Ahead:</strong></p>
+				<p><strong><i class="fas fa-bullseye"></i> Looking Ahead:</strong></p>
 				<div v-html="nextSteps"></div>
 			</div>
 		</div>

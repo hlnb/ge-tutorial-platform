@@ -211,7 +211,7 @@ const hunterFramework = ref({
 		reflectionPrompts: [
 			{
 				title: 'What surprised you?',
-				icon: '💭',
+				icon: 'fas fa-comment-dots',
 				content: '',
 				questions: [
 					'What was the most interesting thing you learned?',
@@ -220,7 +220,7 @@ const hunterFramework = ref({
 			},
 			{
 				title: 'Connections',
-				icon: '🔗',
+				icon: 'fas fa-link',
 				content: '<p>How does understanding the client-server model change how you think about websites?</p>',
 				questions: []
 			}

@@ -1,5 +1,7 @@
 <template>
   <div class="tutorial-layout" :class="{ 'full-width': isMainTutorialsPage }">
+    <SchemaJsonLd v-if="tutorialPageSchema.length" :schema="tutorialPageSchema" />
+
     <aside v-if="!isMainTutorialsPage" class="sidebar desktop-sidebar">
       <component :is="currentNav" v-if="currentNav" />
     </aside>
@@ -81,12 +83,19 @@ import SeoAnalyticsNav from "@/components/tutorial-navs/SeoAnalyticsNav.vue";
 import AccessibilityEssentialsNav from "@/components/tutorial-navs/AccessibilityEssentialsNav.vue";
 import CapstoneNav from "@/components/tutorial-navs/CapstoneNav.vue";
 import StandaloneNav from "@/components/tutorial-navs/StandaloneNav.vue";
+import SchemaJsonLd from "@/components/SchemaJsonLd.vue";
 import TutorialNavigation from "@/components/TutorialNavigation.vue";
 import progressService from "@/services/ProgressService";
 import { hasQuiz } from "@/utils/quizUtils";
 import {
+  createBreadcrumbSchema,
+  createCourseSchema,
+  createTutorialSchema,
+} from "@/utils/schema";
+import {
   getSectionById,
   getSectionByPath,
+  getSectionLessons,
   getTutorialByPath,
   getTutorialNavigationByPath,
   hasCustomTutorialCompletion,
@@ -149,6 +158,76 @@ const currentSection = computed(() => {
 
   const tutorial = getTutorialByPath(route.path);
   return tutorial?.section ? getSectionById(tutorial.section) : null;
+});
+
+const currentTutorialMetadata = computed(() => getTutorialByPath(route.path));
+
+const routeSectionOverview = computed(() => getSectionByPath(route.path));
+
+const breadcrumbItems = computed(() => {
+  const section = currentSection.value;
+  const tutorial = currentTutorialMetadata.value;
+
+  if (tutorial?.breadcrumbs?.length) {
+    return tutorial.breadcrumbs;
+  }
+
+  const items = [
+    { name: "Home", path: "/" },
+    { name: "Tutorials", path: "/tutorials" },
+  ];
+
+  if (section) {
+    items.push({
+      name: section.introCopy?.title || section.title,
+      path: `/tutorials/${section.slug}`,
+    });
+  }
+
+  if (tutorial && !routeSectionOverview.value) {
+    items.push({
+      name: tutorial.title,
+      path: `/tutorials/${tutorial.slug}`,
+    });
+  }
+
+  return items;
+});
+
+const tutorialPageSchema = computed(() => {
+  const section = currentSection.value;
+  const tutorial = currentTutorialMetadata.value;
+
+  if (routeSectionOverview.value) {
+    const sectionLessons = section ? getSectionLessons(section.id) : [];
+    return [
+      createCourseSchema({
+        ...section,
+        title: section?.introCopy?.title || section?.title,
+        description: section?.introCopy?.summary,
+        path: section ? `/tutorials/${section.slug}` : route.path,
+        level: section?.level,
+        keywords: [section?.topic, ...(section?.pathways || [])].filter(Boolean),
+        lessons: sectionLessons,
+      }),
+      createBreadcrumbSchema(breadcrumbItems.value),
+    ];
+  }
+
+  if (!tutorial) {
+    return [];
+  }
+
+  return [
+    createTutorialSchema({
+      ...tutorial,
+      description: tutorial.description || tutorial.summary,
+      sectionTitle: section?.introCopy?.title || section?.title,
+      pathway: tutorial.pathway || tutorial.pathways?.[0],
+      keywords: tutorial.keywords || tutorial.tags,
+    }),
+    createBreadcrumbSchema(breadcrumbItems.value),
+  ];
 });
 
 // Determine which navigation component to show based on route

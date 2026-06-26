@@ -933,6 +933,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement': RouteRecordInfo<
+      '/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement',
+      '/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/deployments/static-vs-dynamic': RouteRecordInfo<
       '/tutorials/deployments/static-vs-dynamic',
       '/tutorials/deployments/static-vs-dynamic',
@@ -2199,6 +2206,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/deployments/index.vue': {
       routes:
         | '/tutorials/deployments/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement.vue': {
+      routes:
+        | '/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement'
       views:
         | never
     }

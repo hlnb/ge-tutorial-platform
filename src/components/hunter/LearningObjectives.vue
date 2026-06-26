@@ -5,7 +5,8 @@
 			<p><strong>{{ objectivesHeader }}</strong></p>
 			<ul class="objectives-list">
 				<li v-for="(objective, index) in objectives" :key="index">
-					✓ <strong>{{ typeof objective === 'string' ? getVerbFromText(objective) : (objective.verb || getVerbFromText(objective.text)) }}</strong> 
+					<i class="fas fa-check has-text-success"></i>
+					<strong>{{ typeof objective === 'string' ? getVerbFromText(objective) : (objective.verb || getVerbFromText(objective.text)) }}</strong> 
 					{{ getObjectiveContent(objective) }}
 					<span v-if="typeof objective === 'object' && objective.bloomsLevel" class="blooms-tag">{{ objective.bloomsLevel }}</span>
 				</li>
@@ -34,7 +35,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
 	objectivesHeader: {
 		type: String,
 		default: 'By the end of this lesson, you\'ll be able to:'

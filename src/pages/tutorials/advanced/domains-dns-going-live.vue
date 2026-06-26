@@ -1,59 +1,37 @@
+<script setup>
+import { onMounted } from 'vue';
+import { useHead } from '@vueuse/head';
+import { useRouter } from 'vue-router';
+
+const targetPath =
+	'/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement#domains-dns-going-live';
+const targetUrl = `https://www.graphitedge.com.au${targetPath}`;
+const legacyRedirectMeta = { noindex: true };
+
+useHead({
+	title: 'Domains, DNS, and Going Live - Moved',
+	meta: [{ name: 'robots', content: legacyRedirectMeta.noindex ? 'noindex' : 'index' }],
+	link: [{ rel: 'canonical', href: targetUrl }],
+});
+
+const router = useRouter();
+
+onMounted(() => {
+	router.replace(targetPath);
+});
+</script>
+
 <template>
 	<div class="container section">
-		<div class="tutorial-content">
-			<nav class="breadcrumb" aria-label="breadcrumbs">
-				<ul>
-					<li>
-						<router-link to="/">
-							<i class="fa-solid fa-house mr-2"></i> Home
-						</router-link>
-					</li>
-					<li>
-						<router-link to="/tutorials">Tutorials</router-link>
-					</li>
-					<li class="is-active">
-						<a href="#" aria-current="page">Domains, DNS, and Going Live</a>
-					</li>
-				</ul>
-			</nav>
-
-			<div class="tutorial-meta">
-				<div class="tags">
-					<span class="tag is-warning">Advanced</span>
-					<span class="tag is-light">35 min</span>
-					<span class="tag is-light">DNS</span>
-					<span class="tag is-light">Deployment</span>
-				</div>
-			</div>
-
-			<h1 class="title is-1">Domains, DNS, and Going Live</h1>
-
-			<p class="subtitle is-5">
-				Point a custom domain to your hosted site and go live.
+		<div class="content">
+			<h1 class="title is-1">Domains, DNS, and Going Live Has Moved</h1>
+			<p>
+				Domain setup and DNS basics are now part of the consolidated deployment
+				fundamentals tutorial.
 			</p>
-
-			<div class="notification is-info is-light">
-				<p>
-					<i class="fas fa-hard-hat mr-2"></i><strong>Under Construction</strong>
-				</p>
-				<p>This tutorial is currently being developed. Check back soon for the full content!</p>
-			</div>
-
-			<router-link to="/tutorials" class="button is-primary is-outlined mt-4">
-				<span class="icon"><i class="fas fa-arrow-left"></i></span>
-				<span>Back to Tutorials</span>
+			<router-link :to="targetPath" class="button is-primary">
+				Go to Deployment Fundamentals
 			</router-link>
 		</div>
 	</div>
 </template>
-
-<script setup>
-import { useTutorialHead } from '@/composables/useTutorialHead';
-
-useTutorialHead({
-  title: "Domains, DNS, and Going Live",
-  description: "Learn how to connect a custom domain to your hosted site — DNS records, propagation, and going live explained.",
-  path: "/tutorials/advanced/domains-dns-going-live",
-	noindex: true,
-});
-</script>

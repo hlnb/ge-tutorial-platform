@@ -1,7 +1,7 @@
 <template>
 	<section class="anticipatory-set">
 		<div class="box engagement-hook">
-			<h3>{{ icon }} {{ title }}</h3>
+			<h3><i :class="iconClass"></i> {{ title }}</h3>
 			<div v-html="hook"></div>
 			
 			<div v-if="reflectionPrompts && reflectionPrompts.length > 0" class="reflection-prompt">
@@ -16,14 +16,16 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue';
+
+const props = defineProps({
 	title: {
 		type: String,
 		default: 'Start Here'
 	},
 	icon: {
 		type: String,
-		default: '🎯'
+		default: 'fas fa-bullseye'
 	},
 	hook: {
 		type: String,
@@ -42,6 +44,8 @@ defineProps({
 		default: ''
 	}
 });
+
+const iconClass = computed(() => (props.icon.includes('fa-') ? props.icon : 'fas fa-bullseye'));
 </script>
 
 <style scoped>

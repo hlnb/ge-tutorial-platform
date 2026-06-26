@@ -1,6 +1,6 @@
 <template>
 	<div class="box practice-guided">
-		<h3><i class="fas fa-hands-helping"></i> {{ title }}</h3>
+		<h3><i :class="iconClass"></i> {{ title }}</h3>
 		<p v-if="description">{{ description }}</p>
 		
 		<div class="steps">
@@ -11,7 +11,7 @@
 				<!-- Hints -->
 				<div v-if="step.hints && step.hints.length > 0" class="hint-box">
 					<details>
-						<summary><i class="fas fa-lightbulb"></i> 💡 {{ step.hintLabel || 'Need a hint?' }}</summary>
+						<summary><i class="fas fa-lightbulb"></i> {{ step.hintLabel || 'Need a hint?' }}</summary>
 						<div class="hint-content">
 							<div v-for="(hint, hintIndex) in step.hints" :key="hintIndex" class="hint">
 								{{ hint }}
@@ -27,7 +27,7 @@
 			<h4><i class="fas fa-check-circle"></i> {{ successCriteriaTitle }}</h4>
 			<ul>
 				<li v-for="(criterion, index) in successCriteria" :key="index">
-					☐ {{ criterion }}
+					<i class="fas fa-square"></i> {{ criterion }}
 				</li>
 			</ul>
 		</div>
@@ -38,10 +38,16 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue';
+
+const props = defineProps({
 	title: {
 		type: String,
 		default: 'Guided Practice (Support Available)'
+	},
+	icon: {
+		type: String,
+		default: 'fas fa-hands-helping'
 	},
 	description: {
 		type: String,
@@ -60,6 +66,10 @@ defineProps({
 		default: 'You\'re on track if you can:'
 	}
 });
+
+const iconClass = computed(() =>
+	props.icon.includes('fa-') ? props.icon : 'fas fa-hands-helping'
+);
 </script>
 
 <style scoped>

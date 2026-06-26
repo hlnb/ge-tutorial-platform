@@ -174,6 +174,7 @@ function tutorialsByLevel(levelId) {
     (tutorial) =>
       tutorial.lessonCount ||
       tutorial.isProject ||
+      tutorial.section === "deployments" ||
       tutorial.section === "seo-analytics" ||
       tutorial.badge === "Recommended next" ||
       tutorial.badge === "Troubleshooting",

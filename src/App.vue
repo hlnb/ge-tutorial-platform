@@ -21,6 +21,8 @@
 
 		<!-- Cookie consent component -->
 		<CookieConsent></CookieConsent>
+
+		<SchemaJsonLd :schema="globalSchema" />
 	</div>
 </template>
 
@@ -30,10 +32,16 @@ import { useRoute } from 'vue-router';
 import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 import CookieConsent from '@/components/CookieConsent.vue';
+import SchemaJsonLd from '@/components/SchemaJsonLd.vue';
 import TutorialLayout from '@/layouts/TutorialLayout.vue';
 import ProjectLayout from '@/layouts/ProjectLayout.vue';
+import {
+	createOrganizationSchema,
+	createWebsiteSchema,
+} from '@/utils/schema';
 
 const route = useRoute();
+const globalSchema = [createOrganizationSchema(), createWebsiteSchema()];
 
 // Determine if current page is a tutorial page
 const isTutorialPage = computed(() => {

@@ -1,6 +1,6 @@
 <template>
 	<div class="box practice-independent">
-		<h3>{{ icon }} {{ title }}</h3>
+		<h3><i :class="iconClass"></i> {{ title }}</h3>
 		<p v-if="description">{{ description }}</p>
 		
 		<div class="challenge-box">
@@ -55,14 +55,16 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue';
+
+const props = defineProps({
 	title: {
 		type: String,
 		default: 'Independent Challenge'
 	},
 	icon: {
 		type: String,
-		default: '💪'
+		default: 'fas fa-dumbbell'
 	},
 	description: {
 		type: String,
@@ -109,6 +111,8 @@ defineProps({
 		default: () => []
 	}
 });
+
+const iconClass = computed(() => (props.icon.includes('fa-') ? props.icon : 'fas fa-dumbbell'));
 </script>
 
 <style scoped>
