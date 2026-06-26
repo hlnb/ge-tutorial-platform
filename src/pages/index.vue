@@ -4,7 +4,9 @@
       <section class="home-hero">
         <div class="home-hero__overlay">
           <div class="container home-hero__content">
-            <p class="home-hero__eyebrow">GraphitEdge Web Development Education</p>
+            <p class="home-hero__eyebrow">
+              GraphitEdge Web Development Education
+            </p>
             <h1>{{ frontmatter.hero.title }}</h1>
             <p class="home-hero__tagline">{{ frontmatter.hero.tagline }}</p>
             <p class="home-hero__description">
@@ -47,9 +49,7 @@
     <template #mission>
       <div class="mission-statement">
         <p class="mission-statement__label">GraphitEdge approach</p>
-        <p>
-          Understand the system. Build with confidence.
-        </p>
+        <p>Understand the system. Build with confidence.</p>
       </div>
     </template>
 
@@ -58,9 +58,9 @@
         <div class="container">
           <h2>Build Real Projects</h2>
           <p class="home-learning__lead">
-            Practise your skills through guided projects that move from
-            planning and page structure to reusable components, responsive
-            layouts, and deployment.
+            Practise your skills through guided projects that move from planning
+            and page structure to reusable components, responsive layouts, and
+            deployment.
           </p>
           <div class="home-card-grid">
             <article
@@ -132,26 +132,26 @@ const frontmatter = {
     description:
       "Go beyond code by learning the practical systems that support every website, including domains, DNS, hosting, accessibility, SEO, analytics, deployment workflows, and ethical AI-assisted development.",
     items: [
-    {
-      heading: "Accessibility",
-      description:
-        "Build pages that are readable, usable, and easier to navigate with keyboards and assistive technology.",
-    },
-    {
-      heading: "SEO",
-      description:
-        "Understand how clear structure, content, metadata, and performance help people and search systems understand a page.",
-    },
-    {
-      heading: "Hosting and deployment",
-      description:
-        "Learn how domains, hosting platforms, deployment, testing, and maintenance fit together after code leaves your computer.",
-    },
-    {
-      heading: "AI-assisted development",
-      description:
-        "Use AI as a practical assistant while still learning the fundamentals that let you review, debug, and improve the work.",
-    },
+      {
+        heading: "Accessibility",
+        description:
+          "Build pages that are readable, usable, and easier to navigate with keyboards and assistive technology.",
+      },
+      {
+        heading: "SEO",
+        description:
+          "Understand how clear structure, content, metadata, and performance help people and search systems understand a page.",
+      },
+      {
+        heading: "Hosting and deployment",
+        description:
+          "Learn how domains, hosting platforms, deployment, testing, and maintenance fit together after code leaves your computer.",
+      },
+      {
+        heading: "AI-assisted development",
+        description:
+          "Use AI as a practical assistant while still learning the fundamentals that let you review, debug, and improve the work.",
+      },
     ],
   },
   learningPathsSection: {
