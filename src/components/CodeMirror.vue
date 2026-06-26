@@ -6,8 +6,24 @@
 
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue';
-import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/core';
+import bash from 'highlight.js/lib/languages/bash';
+import css from 'highlight.js/lib/languages/css';
+import javascript from 'highlight.js/lib/languages/javascript';
+import json from 'highlight.js/lib/languages/json';
+import markdown from 'highlight.js/lib/languages/markdown';
+import xml from 'highlight.js/lib/languages/xml';
 import 'highlight.js/styles/atom-one-dark.css';
+
+hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('css', css);
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('json', json);
+hljs.registerLanguage('markdown', markdown);
+hljs.registerLanguage('xml', xml);
+hljs.registerAliases(['html'], { languageName: 'xml' });
+hljs.registerAliases(['js'], { languageName: 'javascript' });
+hljs.registerAliases(['sh', 'shell'], { languageName: 'bash' });
 
 // Props with defaults
 const props = defineProps({
@@ -57,15 +73,21 @@ const codeContent = computed(() => {
 watch([codeContent, () => props.language], () => {
 	if (codeElement.value) {
 		codeElement.value.textContent = codeContent.value;
-		hljs.highlightElement(codeElement.value);
+		highlightCode();
 	}
 }, { immediate: true });
+
+function highlightCode() {
+	if (!codeElement.value) return;
+	codeElement.value.removeAttribute('data-highlighted');
+	hljs.highlightElement(codeElement.value);
+}
 
 // Initialize highlight.js
 onMounted(() => {
 	if (codeElement.value) {
 		codeElement.value.textContent = codeContent.value;
-		hljs.highlightElement(codeElement.value);
+		highlightCode();
 	}
 });
 </script>

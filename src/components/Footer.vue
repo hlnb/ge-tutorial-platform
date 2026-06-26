@@ -3,10 +3,12 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img
-            src="@/assets/ColourLogo.svg"
+          <OptimizedImage
+            :src="logoSrc"
             alt="GraphitEdge logo"
             class="footer-logo"
+            width="240"
+            height="46"
           />
           <h3 class="footer-tagline">Web Development Isn't Just Code.</h3>
           <p class="footer-copy">
@@ -89,10 +91,14 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import NewsletterSignup from "./NewsletterSignup.vue";
+import { computed, defineAsyncComponent } from "vue";
+import OptimizedImage from "@/components/OptimizedImage.vue";
+import logoUrl from "@/assets/ColourLogo.svg";
+
+const NewsletterSignup = defineAsyncComponent(() => import("./NewsletterSignup.vue"));
 
 const currentYear = computed(() => new Date().getFullYear());
+const logoSrc = logoUrl;
 </script>
 
 <style scoped>

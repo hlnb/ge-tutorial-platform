@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import VueRouter from 'unplugin-vue-router/vite';
+import { visualizer } from 'rollup-plugin-visualizer';
 import path from 'path';
 import fs from 'fs';
 
@@ -24,9 +25,17 @@ export default defineConfig({
 			routesFolder: 'src/pages',
 			extensions: ['.vue'],
 			exclude: ['**/components/**', '**/layouts/**'],
+			importMode: 'async',
+			watch: process.env.NODE_ENV !== 'production',
 			dts: 'src/typed-router.d.ts',
 		}),
 		vue(),
+		visualizer({
+			filename: 'dist/stats.html',
+			template: 'treemap',
+			gzipSize: true,
+			brotliSize: true,
+		}),
 		// Custom plugin to serve admin HTML
 		{
 			name: 'serve-admin',
@@ -58,7 +67,30 @@ export default defineConfig({
 		target: 'es2015',
 		outDir: 'dist',
 		assetsDir: 'assets',
+		sourcemap: false,
+		cssCodeSplit: true,
 		chunkSizeWarningLimit: 1000,
+		rollupOptions: {
+			output: {
+				manualChunks(id) {
+					if (id.includes('node_modules')) {
+						if (id.includes('/firebase/')) return 'vendor-firebase';
+						if (id.includes('/@codemirror/') || id.includes('/codemirror/')) {
+							return 'vendor-editor';
+						}
+						if (id.includes('/highlight.js/')) return 'vendor-highlight';
+						if (
+							id.includes('/vue/') ||
+							id.includes('/vue-router/') ||
+							id.includes('/@vueuse/') ||
+							id.includes('/@unhead/')
+						) {
+							return 'vendor-vue';
+						}
+					}
+				},
+			},
+		},
 	},
 	optimizeDeps: {
 		include: ['@emailjs/browser', 'vue-router'],

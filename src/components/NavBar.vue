@@ -18,7 +18,14 @@
     <div class="navbar-inner container">
       <div class="navbar-brand">
         <router-link class="brand" to="/" @click="closeMenu">
-          <img src="@/assets/ColourLogo.svg" alt="GraphitEdge logo" />
+          <OptimizedImage
+            :src="logoSrc"
+            alt="GraphitEdge logo"
+            width="220"
+            height="42"
+            loading="eager"
+            fetchpriority="high"
+          />
         </router-link>
 
         <button
@@ -114,10 +121,14 @@
 <script setup>
 import { computed, ref, watch, onMounted, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
-import { currentUser, isAuthenticated } from "@/services/AuthService";
+import OptimizedImage from "@/components/OptimizedImage.vue";
+import logoUrl from "@/assets/ColourLogo.svg";
 
 const route = useRoute();
 const isMenuOpen = ref(false);
+const currentUser = ref(null);
+const isAuthenticated = ref(false);
+const logoSrc = logoUrl;
 
 const isAuth = computed(
   () =>
@@ -151,6 +162,23 @@ const handleKeydown = (event) => {
 
 onMounted(() => {
   window.addEventListener("keydown", handleKeydown);
+
+  import("@/services/AuthService").then((module) => {
+    watch(
+      module.currentUser,
+      (value) => {
+        currentUser.value = value;
+      },
+      { immediate: true },
+    );
+    watch(
+      module.isAuthenticated,
+      (value) => {
+        isAuthenticated.value = value;
+      },
+      { immediate: true },
+    );
+  });
 });
 
 onBeforeUnmount(() => {

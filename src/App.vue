@@ -27,18 +27,19 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, defineAsyncComponent } from 'vue';
 import { useRoute } from 'vue-router';
 import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 import CookieConsent from '@/components/CookieConsent.vue';
 import SchemaJsonLd from '@/components/SchemaJsonLd.vue';
-import TutorialLayout from '@/layouts/TutorialLayout.vue';
-import ProjectLayout from '@/layouts/ProjectLayout.vue';
 import {
 	createOrganizationSchema,
 	createWebsiteSchema,
 } from '@/utils/schema';
+
+const TutorialLayout = defineAsyncComponent(() => import('@/layouts/TutorialLayout.vue'));
+const ProjectLayout = defineAsyncComponent(() => import('@/layouts/ProjectLayout.vue'));
 
 const route = useRoute();
 const globalSchema = [createOrganizationSchema(), createWebsiteSchema()];

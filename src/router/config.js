@@ -1,4 +1,3 @@
-import RSSFeedService from '@/services/RSSFeedService';
 import routes from './routes';
 
 // Post metadata registry (keep this for post access control)
@@ -288,7 +287,7 @@ export const scrollBehavior = (to, from, savedPosition) => {
 };
 
 export function setupRouterGuards(routerInstance) {
-	routerInstance.beforeEach((to, from, next) => {
+	routerInstance.beforeEach(async (to, from, next) => {
 		if (to.path.startsWith('/posts/')) {
 			const slug = to.path.split('/').pop();
 			checkPostAccess(slug, next);
@@ -301,6 +300,7 @@ export function setupRouterGuards(routerInstance) {
 				return;
 			}
 
+			const { default: RSSFeedService } = await import('@/services/RSSFeedService');
 			const xml =
 				to.path === '/tutorials.xml'
 					? RSSFeedService.generateTutorialsFeed()

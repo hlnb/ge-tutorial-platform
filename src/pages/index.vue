@@ -96,37 +96,23 @@ import HomeLayout from "@/layouts/home.vue";
 import { useHead } from "@vueuse/head";
 import generalFaqs from "@/data/faqs";
 import FaqSection from "@/components/FaqSection.vue";
-
-const postModules = import.meta.glob("/src/pages/posts/*.vue", { eager: true });
+import { posts } from "@/router/config";
 
 const getLatestPosts = () => {
-  return Object.entries(postModules)
-    .map(([path, module]) => {
-      let frontmatter;
+  return Object.entries(posts)
+    .map(([slug, post]) => {
+      if (post.status !== "published" || !post.publishDate) return null;
 
-      if (module && typeof module === "object") {
-        frontmatter = module.frontmatter || module.default?.frontmatter;
-      }
-
-      if (
-        !frontmatter ||
-        frontmatter.status !== "published" ||
-        !frontmatter.date
-      ) {
-        return null;
-      }
-
-      const slug = path.split("/").pop().replace(".vue", "");
-      const date = new Date(frontmatter.date);
+      const date = new Date(post.publishDate);
 
       if (Number.isNaN(date.getTime())) {
         return null;
       }
 
       return {
-        title: frontmatter.title,
+        title: post.title,
         link: `/posts/${slug}`,
-        snippet: frontmatter.description || "",
+        snippet: post.description || post.excerpt || "",
         date,
       };
     })

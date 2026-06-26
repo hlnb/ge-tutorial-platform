@@ -1,6 +1,6 @@
 ---
 name: graphitedge-tutorial-builder
-description: Create, expand, revise, or structurally align GraphitEdge tutorials using the existing tutorial system, hunter lesson components, concept-teaching diagrams, and GraphitEdge's pathway-first teaching standards.
+description: Create, expand, revise, or structurally align GraphitEdge tutorials using the existing tutorial system, hunter lesson components, concept-teaching diagrams, pathway-first teaching standards, and site-builder requirements for images, schema, accessibility, SEO, and performance.
 ---
 
 # GraphitEdge tutorial builder
@@ -15,6 +15,14 @@ Use this skill when the task is specifically about GraphitEdge tutorial authorin
 
 Do not use this skill for general site edits that are not tutorial-authoring work.
 
+## Mandatory companion standards
+
+Before implementing or reviewing tutorial changes, read `.agents/skills/graphitedge-site-builder/SKILL.md` and apply its requirements. Treat those standards as part of this tutorial workflow, especially:
+
+- tutorial images, diagrams, screenshots, alt text, captions, dimensions, and lazy/eager loading
+- tutorial schema such as `TechArticle`, `LearningResource`, `BreadcrumbList`, and `HowTo` only when the visible page content supports it
+- mobile speed, bundle size, lazy-loaded heavy components, syntax highlighting scope, and Core Web Vitals guidance
+
 ## Goals
 
 - preserve the existing GraphitEdge tutorial system
@@ -22,15 +30,17 @@ Do not use this skill for general site edits that are not tutorial-authoring wor
 - teach with explanation and structure, not just instructions
 - strengthen conceptual understanding with purposeful visuals where needed
 - keep practice work scaffolded, bounded, and realistic
+- keep tutorial images, schema, metadata, and performance aligned with the site-builder standards
 
 ## First pass
 
 Before writing or revising lesson content:
 
 1. Read `AGENTS.md`
-2. Inspect the target tutorial if it already exists
-3. Inspect nearby tutorials in the same pathway or level for patterns
-4. Reuse existing GraphitEdge architecture, section flow, components, and styling conventions before inventing anything new
+2. Read `.agents/skills/graphitedge-site-builder/SKILL.md`
+3. Inspect the target tutorial if it already exists
+4. Inspect nearby tutorials in the same pathway or level for patterns
+5. Reuse existing GraphitEdge architecture, section flow, components, and styling conventions before inventing anything new
 
 Check for existing usage of:
 
@@ -109,6 +119,8 @@ When adding or planning visuals:
 - note meaningful placement in the lesson near the concept it reinforces
 - provide accessible alt text and useful figcaptions
 - keep visuals concept-driven, calm, and readable
+- follow the site-builder image rules for format, file size, explicit dimensions, `loading`, `decoding`, and LCP treatment
+- avoid oversized PNG screenshots and resize tutorial images to the largest display size needed
 
 If a graphic is appropriate but not yet created, leave a clear note or placeholder direction that explains:
 
@@ -129,12 +141,13 @@ If a graphic is appropriate but not yet created, leave a clear note or placehold
 ## Workflow
 
 1. Inspect the target lesson and surrounding tutorial patterns
-2. Decide whether the task is a new lesson, an expansion, a structural repair, or a visual-teaching improvement
-3. Map the lesson to the appropriate GraphitEdge structure
-4. Write or revise the content in the GraphitEdge teaching voice
-5. Add or plan concept-teaching visuals where they materially improve understanding
-6. Verify imports, section order, and recommendation placement
-7. Validate build/readability, then summarize what changed and any follow-up
+2. Apply `.agents/skills/graphitedge-site-builder/SKILL.md` requirements for images, schema, SEO, accessibility, and speed
+3. Decide whether the task is a new lesson, an expansion, a structural repair, or a visual-teaching improvement
+4. Map the lesson to the appropriate GraphitEdge structure
+5. Write or revise the content in the GraphitEdge teaching voice
+6. Add or plan concept-teaching visuals where they materially improve understanding
+7. Verify imports, section order, metadata, schema fit, image handling, and recommendation placement
+8. Validate build/readability, then summarize what changed and any follow-up
 
 ## Validation and handoff
 
@@ -143,6 +156,10 @@ Before finishing:
 - verify imports are correct and only include what the lesson uses
 - verify section placement and page-section navigation stay in sync
 - verify `TutorialRecommendations` points at the correct current path
+- verify page title, meta description, one logical H1, heading order, and internal links
+- verify tutorial schema accurately describes visible content and is not added mechanically
+- verify images and diagrams follow site-builder rules for optimization, dimensions, alt text, captions, and loading behavior
+- verify heavy components, search, syntax highlighting, widgets, or media are lazy-loaded where practical
 - verify the lesson reads cleanly and does not feel cluttered
 - verify visuals, if added, are placed meaningfully and support the nearby concept
 - run the local build
@@ -153,6 +170,7 @@ In the handoff summary, include:
 
 - what tutorial structure was added or revised
 - what visuals were added, referenced, or proposed
+- what image, schema, metadata, accessibility, and performance considerations were checked
 - any assumptions made
 - any follow-up work still needed
 

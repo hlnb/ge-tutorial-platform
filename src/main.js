@@ -1,4 +1,3 @@
-import './services/firebase'; // Ensure firebase is initialized before using auth and db
 import { ViteSSG } from 'vite-ssg';
 import App from './App.vue';
 import { routes, scrollBehavior, setupRouterGuards } from './router/config';

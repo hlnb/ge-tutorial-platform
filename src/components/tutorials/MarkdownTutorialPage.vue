@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles/tutorials.css';
-import { computed } from 'vue';
+import { computed, defineAsyncComponent } from 'vue';
 import { useHead } from '@vueuse/head';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
@@ -9,7 +9,6 @@ import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import WorkingWithDataVisual from '@/components/tutorials/WorkingWithDataVisual.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import {
 	getSectionById,
@@ -19,6 +18,10 @@ import {
 import { renderMarkdown } from '@/utils/markdownRenderer';
 import { parseMarkdownTutorial } from '@/utils/markdownTutorialParser';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
+
+const WorkingWithDataVisual = defineAsyncComponent(() =>
+	import('@/components/tutorials/WorkingWithDataVisual.vue'),
+);
 
 const props = defineProps({
 	source: {

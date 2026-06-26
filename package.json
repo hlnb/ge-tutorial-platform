@@ -64,6 +64,7 @@
 		"postcss-import": "^15.1.0",
 		"prettier": "^3.5.3",
 		"rollup": "^4.40.2",
+		"rollup-plugin-visualizer": "^7.0.1",
 		"sass": "^1.68.0",
 		"unplugin-vue-router": "^0.19.2",
 		"vite": "^6.3.5",
