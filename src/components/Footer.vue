@@ -10,7 +10,9 @@
             width="240"
             height="46"
           />
-          <h3 class="footer-tagline">Web Development Isn't Just Code.</h3>
+          <h3 class="footer-tagline">
+            Understand the system. Build with confidence.
+          </h3>
           <p class="footer-copy">
             Demystifying the full process from DNS to SEO, design to deployment.
           </p>
@@ -76,8 +78,8 @@
         <div>
           <h3 class="footer-heading">Never Miss a New Tutorial</h3>
           <p class="footer-copy">
-            Join the GraphitEdge newsletter for platform updates, new
-            tutorials, and practical learning notes.
+            Join the GraphitEdge newsletter for platform updates, new tutorials,
+            and practical learning notes.
           </p>
           <NewsletterSignup />
         </div>
@@ -95,7 +97,9 @@ import { computed, defineAsyncComponent } from "vue";
 import OptimizedImage from "@/components/OptimizedImage.vue";
 import logoUrl from "@/assets/ColourLogo.svg";
 
-const NewsletterSignup = defineAsyncComponent(() => import("./NewsletterSignup.vue"));
+const NewsletterSignup = defineAsyncComponent(
+  () => import("./NewsletterSignup.vue"),
+);
 
 const currentYear = computed(() => new Date().getFullYear());
 const logoSrc = logoUrl;

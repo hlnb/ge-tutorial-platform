@@ -22,11 +22,15 @@
 		<!-- Cookie consent component -->
 		<CookieConsent></CookieConsent>
 
+		<Analytics />
+		<SpeedInsights />
 		<SchemaJsonLd :schema="globalSchema" />
 	</div>
 </template>
 
 <script setup>
+import { Analytics } from '@vercel/analytics/vue';
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 import { computed, defineAsyncComponent } from 'vue';
 import { useRoute } from 'vue-router';
 import NavBar from '@/components/NavBar.vue';

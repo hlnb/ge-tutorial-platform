@@ -171,7 +171,7 @@ const frontmatter = {
       title: "Intermediate builder pathway",
       description:
         "Strengthen your workflow with responsive layouts, reusable patterns, debugging, SEO, deployment, and project decisions.",
-      link: "/tutorials/intermediate",
+      link: "/tutorials/intermediate/think-about-layouts",
       cta: "View intermediate pathway",
     },
     {
