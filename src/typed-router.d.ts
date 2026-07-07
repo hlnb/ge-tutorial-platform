@@ -1157,8 +1157,8 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/tutorials/intermediate/design-to-code': RouteRecordInfo<
-      '/tutorials/intermediate/design-to-code',
+    '/tutorials/intermediate/design-to-code/': RouteRecordInfo<
+      '/tutorials/intermediate/design-to-code/',
       '/tutorials/intermediate/design-to-code',
       Record<never, never>,
       Record<never, never>,
@@ -1412,6 +1412,55 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/seo-analytics/on-page-seo': RouteRecordInfo<
       '/tutorials/seo-analytics/on-page-seo',
       '/tutorials/seo-analytics/on-page-seo',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-care-and-feeding/': RouteRecordInfo<
+      '/tutorials/website-care-and-feeding/',
+      '/tutorials/website-care-and-feeding',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-care-and-feeding/analytics-without-panic': RouteRecordInfo<
+      '/tutorials/website-care-and-feeding/analytics-without-panic',
+      '/tutorials/website-care-and-feeding/analytics-without-panic',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-care-and-feeding/monthly-website-health-check': RouteRecordInfo<
+      '/tutorials/website-care-and-feeding/monthly-website-health-check',
+      '/tutorials/website-care-and-feeding/monthly-website-health-check',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-care-and-feeding/overview': RouteRecordInfo<
+      '/tutorials/website-care-and-feeding/overview',
+      '/tutorials/website-care-and-feeding/overview',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-care-and-feeding/updates-backups-version-control': RouteRecordInfo<
+      '/tutorials/website-care-and-feeding/updates-backups-version-control',
+      '/tutorials/website-care-and-feeding/updates-backups-version-control',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-care-and-feeding/website-care-and-feeding-checklist': RouteRecordInfo<
+      '/tutorials/website-care-and-feeding/website-care-and-feeding-checklist',
+      '/tutorials/website-care-and-feeding/website-care-and-feeding-checklist',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-care-and-feeding/weekly-website-check': RouteRecordInfo<
+      '/tutorials/website-care-and-feeding/weekly-website-check',
+      '/tutorials/website-care-and-feeding/weekly-website-check',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -2401,9 +2450,9 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/tutorials/intermediate/design-to-code.vue': {
+    'src/pages/tutorials/intermediate/design-to-code/index.vue': {
       routes:
-        | '/tutorials/intermediate/design-to-code'
+        | '/tutorials/intermediate/design-to-code/'
       views:
         | never
     }
@@ -2620,6 +2669,48 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/seo-analytics/on-page-seo.vue': {
       routes:
         | '/tutorials/seo-analytics/on-page-seo'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-care-and-feeding/index.vue': {
+      routes:
+        | '/tutorials/website-care-and-feeding/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-care-and-feeding/analytics-without-panic.vue': {
+      routes:
+        | '/tutorials/website-care-and-feeding/analytics-without-panic'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-care-and-feeding/monthly-website-health-check.vue': {
+      routes:
+        | '/tutorials/website-care-and-feeding/monthly-website-health-check'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-care-and-feeding/overview.vue': {
+      routes:
+        | '/tutorials/website-care-and-feeding/overview'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-care-and-feeding/updates-backups-version-control.vue': {
+      routes:
+        | '/tutorials/website-care-and-feeding/updates-backups-version-control'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-care-and-feeding/website-care-and-feeding-checklist.vue': {
+      routes:
+        | '/tutorials/website-care-and-feeding/website-care-and-feeding-checklist'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-care-and-feeding/weekly-website-check.vue': {
+      routes:
+        | '/tutorials/website-care-and-feeding/weekly-website-check'
       views:
         | never
     }

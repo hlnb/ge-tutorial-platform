@@ -1,0 +1,64 @@
+<template>
+  <aside class="menu tutorial-nav module-nav">
+    <p class="menu-label">Website Care and Feeding</p>
+    <ul class="menu-list">
+      <li v-for="(item, index) in navItems" :key="item.path">
+        <router-link
+          :to="item.path"
+          :class="{ 'is-active': isActive(item.path), 'is-next': isNextTutorial(index) }"
+        >
+          {{ item.title }}
+        </router-link>
+
+        <div v-if="isActive(item.path) && hasPageSections" class="page-sections">
+          <div class="page-sections-header">
+            <h4 class="section-title">On This Page</h4>
+            <span class="icon"><i class="fas fa-list-ul"></i></span>
+          </div>
+          <ul class="menu-list page-sections-list">
+            <li v-for="section in pageSections" :key="section.id">
+              <a :href="`#${section.id}`">{{ section.title }}</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </aside>
+</template>
+
+<script setup>
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import { getSectionNavItems } from "@/data/tutorials";
+import { usePageNavigation } from "@/composables/usePageNavigation";
+
+const route = useRoute();
+const { pageSections, hasPageSections } = usePageNavigation();
+const navItems = getSectionNavItems("website-care-and-feeding", {
+  includeOverview: true,
+  overviewTitle: "Website Care and Feeding",
+});
+const currentIndex = computed(() =>
+  navItems.findIndex((item) => item.path === route.path),
+);
+
+function isActive(path) {
+  return route.path === path;
+}
+
+function isNextTutorial(index) {
+  return index === currentIndex.value + 1;
+}
+</script>
+
+<style scoped>
+@import "./nav.css";
+
+.module-nav {
+  width: 240px;
+}
+
+.tutorial-nav {
+  --tutorial-accent: #4b88a2;
+}
+</style>

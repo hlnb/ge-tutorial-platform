@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" role="img" aria-labelledby="title desc">
+  <title id="title">Website care checklist schedule</title>
+  <desc id="desc">A schedule separates website care into weekly, monthly, quarterly, after-update, and emergency checklist routines.</desc>
+  <rect width="1120" height="520" rx="28" fill="#f8fafb"/>
+  <text x="560" y="58" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#172a3a">Use the checklist as separate routines</text>
+  <text x="560" y="94" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" fill="#52606d">Not every task belongs every day. Match the routine to the moment.</text>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+    <rect x="80" y="150" width="960" height="280" rx="22" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/>
+    <g>
+      <rect x="120" y="195" width="160" height="172" rx="16" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+      <text x="200" y="234" text-anchor="middle" font-size="22" font-weight="700" fill="#0369a1">Weekly</text>
+      <text x="200" y="272" text-anchor="middle" font-size="15" fill="#1e40af">quick visible</text>
+      <text x="200" y="296" text-anchor="middle" font-size="15" fill="#1e40af">problems</text>
+    </g>
+    <g>
+      <rect x="300" y="195" width="160" height="172" rx="16" fill="#ecfdf5" stroke="#bbf7d0" stroke-width="2"/>
+      <text x="380" y="234" text-anchor="middle" font-size="22" font-weight="700" fill="#15803d">Monthly</text>
+      <text x="380" y="272" text-anchor="middle" font-size="15" fill="#166534">deeper health</text>
+      <text x="380" y="296" text-anchor="middle" font-size="15" fill="#166534">check</text>
+    </g>
+    <g>
+      <rect x="480" y="195" width="160" height="172" rx="16" fill="#fff7ed" stroke="#fed7aa" stroke-width="2"/>
+      <text x="560" y="234" text-anchor="middle" font-size="22" font-weight="700" fill="#b45309">Quarterly</text>
+      <text x="560" y="272" text-anchor="middle" font-size="15" fill="#7c2d12">purpose and</text>
+      <text x="560" y="296" text-anchor="middle" font-size="15" fill="#7c2d12">priorities</text>
+    </g>
+    <g>
+      <rect x="660" y="195" width="160" height="172" rx="16" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2"/>
+      <text x="740" y="234" text-anchor="middle" font-size="22" font-weight="700" fill="#6d28d9">Updates</text>
+      <text x="740" y="272" text-anchor="middle" font-size="15" fill="#5b21b6">test after</text>
+      <text x="740" y="296" text-anchor="middle" font-size="15" fill="#5b21b6">change</text>
+    </g>
+    <g>
+      <rect x="840" y="195" width="160" height="172" rx="16" fill="#fff1f2" stroke="#fecdd3" stroke-width="2"/>
+      <text x="920" y="234" text-anchor="middle" font-size="22" font-weight="700" fill="#be123c">Emergency</text>
+      <text x="920" y="272" text-anchor="middle" font-size="15" fill="#9f1239">check access,</text>
+      <text x="920" y="296" text-anchor="middle" font-size="15" fill="#9f1239">DNS, rollback</text>
+    </g>
+  </g>
+  <text x="560" y="482" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="650" fill="#334155">A checklist works best when it is clear enough to reuse under pressure.</text>
+</svg>

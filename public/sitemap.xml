@@ -594,7 +594,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/design-to-code</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-07-07</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/first-vue-app-with-vite</loc>
@@ -739,5 +739,33 @@
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/seo-analytics/on-page-seo</loc>
     <lastmod>2026-05-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/website-care-and-feeding</loc>
+    <lastmod>2026-07-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/website-care-and-feeding/analytics-without-panic</loc>
+    <lastmod>2026-07-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/website-care-and-feeding/monthly-website-health-check</loc>
+    <lastmod>2026-07-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/website-care-and-feeding/overview</loc>
+    <lastmod>2026-07-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/website-care-and-feeding/updates-backups-version-control</loc>
+    <lastmod>2026-07-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/website-care-and-feeding/website-care-and-feeding-checklist</loc>
+    <lastmod>2026-07-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/website-care-and-feeding/weekly-website-check</loc>
+    <lastmod>2026-07-07</lastmod>
   </url>
 </urlset>

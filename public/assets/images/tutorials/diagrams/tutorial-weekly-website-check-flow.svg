@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" role="img" aria-labelledby="title desc">
+  <title id="title">Weekly website check flow</title>
+  <desc id="desc">A quick weekly check moves from homepage and navigation to forms, mobile layout, images, analytics, and issue notes.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2 2 L10 6 L2 10 Z" fill="#2f4858"/></marker>
+    <filter id="shadow" x="-10%" y="-15%" width="120%" height="140%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#172a3a" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1120" height="520" rx="28" fill="#f8fafb"/>
+  <text x="560" y="58" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#172a3a">A weekly check is a fast triage pass</text>
+  <text x="560" y="94" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" fill="#52606d">Look for obvious user-facing problems first, then record what needs attention.</text>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" filter="url(#shadow)">
+    <g><rect x="70" y="164" width="150" height="96" rx="16" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/><text x="145" y="206" text-anchor="middle" font-size="20" font-weight="700" fill="#0369a1">Homepage</text><text x="145" y="234" text-anchor="middle" font-size="14" fill="#52606d">loads cleanly</text></g>
+    <g><rect x="250" y="164" width="150" height="96" rx="16" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/><text x="325" y="206" text-anchor="middle" font-size="20" font-weight="700" fill="#b45309">Navigation</text><text x="325" y="234" text-anchor="middle" font-size="14" fill="#52606d">goes where expected</text></g>
+    <g><rect x="430" y="164" width="150" height="96" rx="16" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/><text x="505" y="206" text-anchor="middle" font-size="20" font-weight="700" fill="#15803d">Forms</text><text x="505" y="234" text-anchor="middle" font-size="14" fill="#52606d">send and confirm</text></g>
+    <g><rect x="610" y="164" width="150" height="96" rx="16" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/><text x="685" y="206" text-anchor="middle" font-size="20" font-weight="700" fill="#6d28d9">Mobile</text><text x="685" y="234" text-anchor="middle" font-size="14" fill="#52606d">fits the screen</text></g>
+    <g><rect x="790" y="164" width="150" height="96" rx="16" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/><text x="865" y="206" text-anchor="middle" font-size="20" font-weight="700" fill="#be123c">Images</text><text x="865" y="234" text-anchor="middle" font-size="14" fill="#52606d">load properly</text></g>
+    <g><rect x="430" y="334" width="260" height="96" rx="16" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/><text x="560" y="376" text-anchor="middle" font-size="22" font-weight="700" fill="#0f766e">Issue note</text><text x="560" y="406" text-anchor="middle" font-size="15" fill="#52606d">date, page, problem, next action</text></g>
+  </g>
+  <g fill="none" stroke="#2f4858" stroke-width="4" marker-end="url(#arrow)">
+    <path d="M220 212 H238"/><path d="M400 212 H418"/><path d="M580 212 H598"/><path d="M760 212 H778"/>
+    <path d="M865 270 C850 330 725 364 704 374"/><path d="M145 270 C165 330 395 365 416 377"/>
+  </g>
+  <text x="560" y="482" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="650" fill="#334155">The weekly habit is not a full audit. It is an early-warning system.</text>
+</svg>

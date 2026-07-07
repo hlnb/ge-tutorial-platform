@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" role="img" aria-labelledby="title desc">
+  <title id="title">Analytics without panic decision loop</title>
+  <desc id="desc">A calm analytics loop moves from observe to interpret to choose one action to review later.</desc>
+  <defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2 2 L10 6 L2 10 Z" fill="#2f4858"/></marker></defs>
+  <rect width="1120" height="520" rx="28" fill="#f8fafb"/>
+  <text x="560" y="58" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="30" font-weight="700" fill="#172a3a">Use analytics as a torch, not a verdict</text>
+  <text x="560" y="94" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" fill="#52606d">Look for patterns, choose one useful action, then check again later.</text>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+    <circle cx="560" cy="286" r="82" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/>
+    <text x="560" y="278" text-anchor="middle" font-size="22" font-weight="700" fill="#172a3a">One action</text>
+    <text x="560" y="310" text-anchor="middle" font-size="15" fill="#52606d">small, useful, testable</text>
+    <rect x="128" y="190" width="220" height="96" rx="18" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="238" y="232" text-anchor="middle" font-size="22" font-weight="700" fill="#0369a1">Observe</text>
+    <text x="238" y="260" text-anchor="middle" font-size="15" fill="#1e40af">top pages, sources, devices</text>
+    <rect x="450" y="136" width="220" height="96" rx="18" fill="#ecfdf5" stroke="#bbf7d0" stroke-width="2"/>
+    <text x="560" y="178" text-anchor="middle" font-size="22" font-weight="700" fill="#15803d">Interpret</text>
+    <text x="560" y="206" text-anchor="middle" font-size="15" fill="#166534">what might this mean?</text>
+    <rect x="772" y="190" width="220" height="96" rx="18" fill="#fff7ed" stroke="#fed7aa" stroke-width="2"/>
+    <text x="882" y="232" text-anchor="middle" font-size="22" font-weight="700" fill="#b45309">Choose</text>
+    <text x="882" y="260" text-anchor="middle" font-size="15" fill="#7c2d12">one practical improvement</text>
+    <rect x="450" y="370" width="220" height="96" rx="18" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2"/>
+    <text x="560" y="412" text-anchor="middle" font-size="22" font-weight="700" fill="#6d28d9">Review</text>
+    <text x="560" y="440" text-anchor="middle" font-size="15" fill="#5b21b6">check the pattern again</text>
+  </g>
+  <g fill="none" stroke="#2f4858" stroke-width="4" marker-end="url(#arrow)">
+    <path d="M350 219 C392 178 418 170 438 172"/><path d="M682 172 C728 178 752 198 762 212"/><path d="M820 294 C765 354 710 384 682 396"/><path d="M438 396 C356 370 304 326 270 294"/>
+  </g>
+  <text x="560" y="494" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" font-weight="650" fill="#334155">Better question: what is this showing me, and what useful thing can I improve next?</text>
+</svg>

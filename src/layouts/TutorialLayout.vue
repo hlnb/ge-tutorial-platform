@@ -81,6 +81,7 @@ import BackendNav from "@/components/tutorial-navs/BackendNav.vue";
 import DeploymentsNav from "@/components/tutorial-navs/DeploymentsNav.vue";
 import SeoAnalyticsNav from "@/components/tutorial-navs/SeoAnalyticsNav.vue";
 import AccessibilityEssentialsNav from "@/components/tutorial-navs/AccessibilityEssentialsNav.vue";
+import WebsiteCareNav from "@/components/tutorial-navs/WebsiteCareNav.vue";
 import CapstoneNav from "@/components/tutorial-navs/CapstoneNav.vue";
 import StandaloneNav from "@/components/tutorial-navs/StandaloneNav.vue";
 import SchemaJsonLd from "@/components/SchemaJsonLd.vue";
@@ -147,6 +148,7 @@ const sectionNavComponents = {
   deployments: DeploymentsNav,
   "seo-analytics": SeoAnalyticsNav,
   "accessibility-essentials": AccessibilityEssentialsNav,
+  "website-care-and-feeding": WebsiteCareNav,
   capstone: CapstoneNav,
 };
 
