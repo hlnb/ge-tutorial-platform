@@ -176,7 +176,6 @@ function tutorialsByLevel(levelId) {
       tutorial.isProject ||
       tutorial.section === "deployments" ||
       tutorial.section === "seo-analytics" ||
-      tutorial.section === "website-care-and-feeding" ||
       tutorial.badge === "Recommended next" ||
       tutorial.badge === "Troubleshooting",
   );
