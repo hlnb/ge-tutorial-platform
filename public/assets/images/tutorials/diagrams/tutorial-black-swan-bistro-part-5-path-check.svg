@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Black Swan Bistro links and paths check</title>
+  <desc id="desc">Four site pages link to each other and all connect to shared CSS and image assets during the production readiness check.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .page { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .asset { fill: #fefce8; stroke: #ca8a04; stroke-width: 2; }
+      .nav { fill: none; stroke: #2563eb; stroke-width: 3; stroke-linecap: round; marker-end: url(#arrowBlue); }
+      .asset-line { fill: none; stroke: #0f766e; stroke-width: 3; stroke-dasharray: 8 7; stroke-linecap: round; marker-end: url(#arrowGreen); }
+      .title { fill: #111827; font: 700 24px Arial, sans-serif; }
+      .label { fill: #1f2937; font: 700 17px Arial, sans-serif; }
+      .body { fill: #4b5563; font: 14px Arial, sans-serif; }
+      .mono { fill: #111827; font: 14px Menlo, Consolas, monospace; }
+    </style>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#2563eb" />
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#0f766e" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="960" height="520" rx="18" />
+  <text x="48" y="58" class="title">Test paths from every page</text>
+  <text x="48" y="86" class="body">A link that works from the homepage still needs to work from Menu, About, and Contact.</text>
+
+  <rect x="98" y="138" width="170" height="104" rx="12" class="page" />
+  <text x="130" y="172" class="label">Home</text>
+  <text x="130" y="202" class="mono">index.html</text>
+
+  <rect x="390" y="138" width="170" height="104" rx="12" class="page" />
+  <text x="426" y="172" class="label">Menu</text>
+  <text x="424" y="202" class="mono">menu.html</text>
+
+  <rect x="98" y="306" width="170" height="104" rx="12" class="page" />
+  <text x="130" y="340" class="label">About</text>
+  <text x="126" y="370" class="mono">about.html</text>
+
+  <rect x="390" y="306" width="170" height="104" rx="12" class="page" />
+  <text x="424" y="340" class="label">Contact</text>
+  <text x="414" y="370" class="mono">contact.html</text>
+
+  <path d="M268 178 C310 160 348 160 386 178" class="nav" />
+  <path d="M476 242 C492 266 492 280 476 302" class="nav" />
+  <path d="M390 358 C336 382 316 382 272 358" class="nav" />
+  <path d="M182 306 C166 280 166 266 182 246" class="nav" />
+  <path d="M255 228 C310 275 340 295 392 322" class="nav" />
+  <path d="M255 322 C312 275 340 255 392 228" class="nav" />
+
+  <rect x="690" y="158" width="170" height="82" rx="12" class="asset" />
+  <text x="733" y="190" class="label">Styles</text>
+  <text x="724" y="216" class="mono">css/style.css</text>
+
+  <rect x="690" y="306" width="170" height="82" rx="12" class="asset" />
+  <text x="731" y="338" class="label">Images</text>
+  <text x="733" y="364" class="mono">images/</text>
+
+  <path d="M560 190 C606 190 638 190 686 190" class="asset-line" />
+  <path d="M560 358 C606 358 638 358 686 358" class="asset-line" />
+  <path d="M560 228 C620 260 638 300 686 334" class="asset-line" />
+  <path d="M560 322 C620 290 638 240 686 214" class="asset-line" />
+
+  <text x="112" y="462" class="body">Blue arrows: navigation links to click.</text>
+  <text x="392" y="462" class="body">Dashed arrows: shared assets each page must load.</text>
+  <text x="690" y="462" class="body">Check filenames exactly before deployment.</text>
+</svg>

@@ -20,20 +20,28 @@ const projectRecords = [
     slug: 'black-swan-bistro',
     title: 'Black Swan Bistro',
     summary:
-      'A guided restaurant-site build that grows from a single HTML page into a deployed multi-page project.',
+      'A guided restaurant-site build that grows from a single HTML page into a production-ready deployed project.',
     description:
       'Black Swan Bistro is the flagship guided project across the curriculum. It is where the beginner, builder, and deployment pathways connect into one coherent build.',
     type: 'guided',
     difficulty: 'medium',
-    duration: '7 parts',
+    duration: '7 parts + polish pass',
     icon: 'fas fa-utensils',
     pathways: ['beginner', 'builder', 'deployment'],
-    relatedSections: ['html-basics', 'css-basics', 'design-to-code', 'applied-javascript', 'deployments', 'capstone'],
+    relatedSections: [
+      'html-basics',
+      'css-basics',
+      'design-to-code',
+      'applied-javascript',
+      'deployments',
+      'capstone',
+    ],
     relatedTutorials: [
       'beginner/black-swan-bistro-part-1',
       'intermediate/black-swan-bistro-part-2',
       'intermediate/black-swan-bistro-part-3',
       'intermediate/black-swan-bistro-part-4',
+      'intermediate/black-swan-bistro-part-4b-polish-and-refine',
       'advanced/black-swan-bistro-part-5',
       'advanced/black-swan-bistro-part-6',
       'advanced/black-swan-bistro-part-7',
@@ -102,7 +110,14 @@ const projectRecords = [
       'deployments/getting-a-website-online-hosting-deployment-continuous-improvement',
       'capstone/spec',
     ],
-    tags: ['Capstone project', 'HTML', 'CSS', 'Accessibility', 'Responsive', 'SEO'],
+    tags: [
+      'Capstone project',
+      'HTML',
+      'CSS',
+      'Accessibility',
+      'Responsive',
+      'SEO',
+    ],
     liveLinks: [
       {
         label: 'View HTML reference',
@@ -141,7 +156,8 @@ const projectRecords = [
   {
     slug: 'personal-profile',
     title: 'Personal Profile Page',
-    summary: 'Create a simple profile page to practise headings, sections, and semantic HTML.',
+    summary:
+      'Create a simple profile page to practise headings, sections, and semantic HTML.',
     description:
       'A first-project exercise for learners who need a manageable page with clear structure and personal content.',
     type: 'practice',
@@ -156,8 +172,10 @@ const projectRecords = [
   {
     slug: 'recipe-page',
     title: 'Recipe Page',
-    summary: 'Practise text structure, lists, and semantic grouping with a recipe page.',
-    description: 'A beginner-friendly content page that reinforces readable HTML structure.',
+    summary:
+      'Practise text structure, lists, and semantic grouping with a recipe page.',
+    description:
+      'A beginner-friendly content page that reinforces readable HTML structure.',
     type: 'practice',
     difficulty: 'easy',
     duration: '45 min',
@@ -170,8 +188,10 @@ const projectRecords = [
   {
     slug: 'photo-gallery',
     title: 'Photo Gallery',
-    summary: 'Use images, captions, and simple page structure to build a lightweight gallery.',
-    description: 'A visual HTML practice project that supports image and figure lessons.',
+    summary:
+      'Use images, captions, and simple page structure to build a lightweight gallery.',
+    description:
+      'A visual HTML practice project that supports image and figure lessons.',
     type: 'practice',
     difficulty: 'easy',
     duration: '60 min',
@@ -184,8 +204,10 @@ const projectRecords = [
   {
     slug: 'interactive-demo',
     title: 'Interactive Demo',
-    summary: 'Build a small interactive page with forms and basic event-driven behaviour.',
-    description: 'A bridge project between HTML form work and early JavaScript interactivity.',
+    summary:
+      'Build a small interactive page with forms and basic event-driven behaviour.',
+    description:
+      'A bridge project between HTML form work and early JavaScript interactivity.',
     type: 'practice',
     difficulty: 'easy',
     duration: '45 min',
@@ -198,8 +220,10 @@ const projectRecords = [
   {
     slug: 'hello-world',
     title: 'Hello World App',
-    summary: 'Create a first JavaScript app that responds to user input and updates the page.',
-    description: 'A beginner JavaScript project focused on variables, events, and DOM updates.',
+    summary:
+      'Create a first JavaScript app that responds to user input and updates the page.',
+    description:
+      'A beginner JavaScript project focused on variables, events, and DOM updates.',
     type: 'practice',
     difficulty: 'easy',
     duration: '15 min',
@@ -212,14 +236,21 @@ const projectRecords = [
   {
     slug: 'todo-list',
     title: 'Todo List',
-    summary: 'Build a list-based app that combines forms, arrays, and DOM updates.',
-    description: 'A staple beginner project for practising dynamic rendering and state changes.',
+    summary:
+      'Build a list-based app that combines forms, arrays, and DOM updates.',
+    description:
+      'A staple beginner project for practising dynamic rendering and state changes.',
     type: 'practice',
     difficulty: 'medium',
     duration: '60 min',
     icon: 'fas fa-list-check',
     pathways: ['beginner', 'builder'],
-    relatedSections: ['html-basics', 'javascript-basics', 'dom-basics', 'frameworks-101'],
+    relatedSections: [
+      'html-basics',
+      'javascript-basics',
+      'dom-basics',
+      'frameworks-101',
+    ],
     relatedTutorials: [
       'intermediate/first-vue-app-with-vite',
       'intermediate/using-bulma-in-a-vue-project',
@@ -230,8 +261,10 @@ const projectRecords = [
   {
     slug: 'selector-challenge',
     title: 'Selector Challenge',
-    summary: 'Strengthen CSS selector fluency with a focused styling challenge.',
-    description: 'A short CSS exercise for practising targeting and specificity.',
+    summary:
+      'Strengthen CSS selector fluency with a focused styling challenge.',
+    description:
+      'A short CSS exercise for practising targeting and specificity.',
     type: 'practice',
     difficulty: 'easy',
     duration: '30 min',
@@ -244,8 +277,10 @@ const projectRecords = [
   {
     slug: 'card-components',
     title: 'Card Components',
-    summary: 'Create reusable card patterns with layout, spacing, and visual hierarchy.',
-    description: 'A component-focused CSS project that supports the builder pathway.',
+    summary:
+      'Create reusable card patterns with layout, spacing, and visual hierarchy.',
+    description:
+      'A component-focused CSS project that supports the builder pathway.',
     type: 'practice',
     difficulty: 'medium',
     duration: '45 min',
@@ -258,8 +293,10 @@ const projectRecords = [
   {
     slug: 'color-palette',
     title: 'Color Palette',
-    summary: 'Explore colour systems and typography choices for a simple design exercise.',
-    description: 'A small design-focused project that supports early visual system thinking.',
+    summary:
+      'Explore colour systems and typography choices for a simple design exercise.',
+    description:
+      'A small design-focused project that supports early visual system thinking.',
     type: 'practice',
     difficulty: 'easy',
     duration: '30 min',
@@ -272,8 +309,10 @@ const projectRecords = [
   {
     slug: 'photo-gallery-enhanced',
     title: 'Enhanced Photo Gallery',
-    summary: 'Upgrade a basic gallery with responsive layout and stronger CSS composition.',
-    description: 'A builder-path project that reinforces layout and modern styling choices.',
+    summary:
+      'Upgrade a basic gallery with responsive layout and stronger CSS composition.',
+    description:
+      'A builder-path project that reinforces layout and modern styling choices.',
     type: 'practice',
     difficulty: 'medium',
     duration: '60 min',
@@ -286,8 +325,10 @@ const projectRecords = [
   {
     slug: 'personal-profile-enhanced',
     title: 'Enhanced Personal Profile',
-    summary: 'Turn a simple profile into a more polished layout with stronger presentation.',
-    description: 'A builder project for improving spacing, layout, and visual polish.',
+    summary:
+      'Turn a simple profile into a more polished layout with stronger presentation.',
+    description:
+      'A builder project for improving spacing, layout, and visual polish.',
     type: 'practice',
     difficulty: 'medium',
     duration: '45 min',
@@ -300,8 +341,10 @@ const projectRecords = [
   {
     slug: 'todo-list-enhanced',
     title: 'Enhanced Todo List',
-    summary: 'Expand a todo app with richer styling, motion, and interaction states.',
-    description: 'A builder project that strengthens UI polish on a familiar interface.',
+    summary:
+      'Expand a todo app with richer styling, motion, and interaction states.',
+    description:
+      'A builder project that strengthens UI polish on a familiar interface.',
     type: 'practice',
     difficulty: 'medium',
     duration: '45 min',
@@ -314,8 +357,10 @@ const projectRecords = [
   {
     slug: 'photo-gallery-2',
     title: 'Photo Gallery 2',
-    summary: 'A second gallery project for practicing dynamic rendering and interaction logic.',
-    description: 'A builder-path project that extends the gallery pattern with JavaScript work.',
+    summary:
+      'A second gallery project for practicing dynamic rendering and interaction logic.',
+    description:
+      'A builder-path project that extends the gallery pattern with JavaScript work.',
     type: 'practice',
     difficulty: 'medium',
     duration: '45 min',
@@ -328,8 +373,10 @@ const projectRecords = [
   {
     slug: 'todo-list-2',
     title: 'Todo List 2',
-    summary: 'A second todo app focused on deeper array logic and filtering behaviour.',
-    description: 'A follow-on project for learners ready for more stateful DOM work.',
+    summary:
+      'A second todo app focused on deeper array logic and filtering behaviour.',
+    description:
+      'A follow-on project for learners ready for more stateful DOM work.',
     type: 'practice',
     difficulty: 'medium',
     duration: '50 min',
@@ -342,8 +389,10 @@ const projectRecords = [
   {
     slug: 'color-switcher',
     title: 'Color Switcher',
-    summary: 'Build a simple interface that changes visual state with JavaScript.',
-    description: 'A compact builder-path project for linking controls to UI updates.',
+    summary:
+      'Build a simple interface that changes visual state with JavaScript.',
+    description:
+      'A compact builder-path project for linking controls to UI updates.',
     type: 'practice',
     difficulty: 'easy',
     duration: '25 min',
@@ -356,8 +405,10 @@ const projectRecords = [
   {
     slug: 'temperature-converter',
     title: 'Temperature Converter',
-    summary: 'Use inputs, functions, and conditional logic in a practical converter tool.',
-    description: 'A straightforward builder project for practising data handling and feedback.',
+    summary:
+      'Use inputs, functions, and conditional logic in a practical converter tool.',
+    description:
+      'A straightforward builder project for practising data handling and feedback.',
     type: 'practice',
     difficulty: 'easy',
     duration: '30 min',
@@ -384,8 +435,10 @@ const projectRecords = [
   {
     slug: 'calculator',
     title: 'Calculator',
-    summary: 'Combine operators, functions, and UI controls in a practical calculator app.',
-    description: 'A classic builder project that rewards clear structure and testing.',
+    summary:
+      'Combine operators, functions, and UI controls in a practical calculator app.',
+    description:
+      'A classic builder project that rewards clear structure and testing.',
     type: 'practice',
     difficulty: 'medium',
     duration: '45 min',
@@ -398,8 +451,10 @@ const projectRecords = [
   {
     slug: 'grade-calculator',
     title: 'Grade Calculator',
-    summary: 'Practise input handling and branching logic with a simple grading tool.',
-    description: 'A small application for turning logic rules into user-facing behaviour.',
+    summary:
+      'Practise input handling and branching logic with a simple grading tool.',
+    description:
+      'A small application for turning logic rules into user-facing behaviour.',
     type: 'practice',
     difficulty: 'easy',
     duration: '30 min',
@@ -412,8 +467,10 @@ const projectRecords = [
   {
     slug: 'quiz-game',
     title: 'Quiz Game',
-    summary: 'Build an interactive quiz that tracks answers and gives feedback.',
-    description: 'A builder project that combines state, iteration, and dynamic UI updates.',
+    summary:
+      'Build an interactive quiz that tracks answers and gives feedback.',
+    description:
+      'A builder project that combines state, iteration, and dynamic UI updates.',
     type: 'practice',
     difficulty: 'medium',
     duration: '45 min',
@@ -426,8 +483,10 @@ const projectRecords = [
   {
     slug: 'css-debug-practice',
     title: 'CSS Debug Practice',
-    summary: 'Work through broken styles and layout issues in a guided debugging exercise.',
-    description: 'A troubleshooting project that supports the builder path and debugging lessons.',
+    summary:
+      'Work through broken styles and layout issues in a guided debugging exercise.',
+    description:
+      'A troubleshooting project that supports the builder path and debugging lessons.',
     type: 'practice',
     difficulty: 'medium',
     duration: '35 min',
@@ -441,7 +500,8 @@ const projectRecords = [
     slug: 'git-install',
     title: 'Git Install Check',
     summary: 'Verify your Git setup before moving into repository workflows.',
-    description: 'A deployment-path onboarding project for confirming the toolchain is ready.',
+    description:
+      'A deployment-path onboarding project for confirming the toolchain is ready.',
     type: 'practice',
     difficulty: 'easy',
     duration: '15 min',
@@ -454,8 +514,10 @@ const projectRecords = [
   {
     slug: 'git-verify',
     title: 'Git Verify',
-    summary: 'Check identity, configuration, and command-line readiness for Git work.',
-    description: 'A short deployment-path exercise for validating core Git settings.',
+    summary:
+      'Check identity, configuration, and command-line readiness for Git work.',
+    description:
+      'A short deployment-path exercise for validating core Git settings.',
     type: 'practice',
     difficulty: 'easy',
     duration: '15 min',
@@ -468,8 +530,10 @@ const projectRecords = [
   {
     slug: 'git-clone',
     title: 'Git Clone',
-    summary: 'Practise pulling a remote repository to your local machine and inspecting it.',
-    description: 'A deployment-path exercise for working with remotes and local copies.',
+    summary:
+      'Practise pulling a remote repository to your local machine and inspecting it.',
+    description:
+      'A deployment-path exercise for working with remotes and local copies.',
     type: 'practice',
     difficulty: 'easy',
     duration: '20 min',
@@ -482,8 +546,10 @@ const projectRecords = [
   {
     slug: 'git-commit',
     title: 'Git Commit',
-    summary: 'Practise staging work intentionally and writing useful commit messages.',
-    description: 'A deployment-path exercise that reinforces snapshot thinking in Git.',
+    summary:
+      'Practise staging work intentionally and writing useful commit messages.',
+    description:
+      'A deployment-path exercise that reinforces snapshot thinking in Git.',
     type: 'practice',
     difficulty: 'easy',
     duration: '20 min',
@@ -496,8 +562,10 @@ const projectRecords = [
   {
     slug: 'git-branch',
     title: 'Git Branch',
-    summary: 'Create, switch, and use branches safely while keeping work isolated.',
-    description: 'A deployment-path exercise that reinforces branching workflow habits.',
+    summary:
+      'Create, switch, and use branches safely while keeping work isolated.',
+    description:
+      'A deployment-path exercise that reinforces branching workflow habits.',
     type: 'practice',
     difficulty: 'medium',
     duration: '25 min',
@@ -510,8 +578,10 @@ const projectRecords = [
   {
     slug: 'git-merge',
     title: 'Git Merge',
-    summary: 'Combine branches and get comfortable with merge flow and conflict handling.',
-    description: 'A deployment-path exercise focused on integration and safe collaboration.',
+    summary:
+      'Combine branches and get comfortable with merge flow and conflict handling.',
+    description:
+      'A deployment-path exercise focused on integration and safe collaboration.',
     type: 'practice',
     difficulty: 'medium',
     duration: '25 min',
@@ -524,8 +594,10 @@ const projectRecords = [
   {
     slug: 'git-remote',
     title: 'Git Remote',
-    summary: 'Connect a local repository to a remote and practise pushing or pulling changes.',
-    description: 'A deployment-path exercise that supports real collaborative workflows.',
+    summary:
+      'Connect a local repository to a remote and practise pushing or pulling changes.',
+    description:
+      'A deployment-path exercise that supports real collaborative workflows.',
     type: 'practice',
     difficulty: 'medium',
     duration: '25 min',
@@ -551,13 +623,16 @@ export function getProjectBySlug(slug) {
 export function getProjectByPath(path) {
   const normalizedPath = normalizeProjectPath(path);
   const exactMatch =
-    projects.find((project) => normalizeProjectPath(project.path) === normalizedPath) || null;
+    projects.find(
+      (project) => normalizeProjectPath(project.path) === normalizedPath,
+    ) || null;
 
   if (exactMatch) return exactMatch;
 
   return (
-    projects.find((project) => normalizedPath.startsWith(`${normalizeProjectPath(project.path)}/`)) ||
-    null
+    projects.find((project) =>
+      normalizedPath.startsWith(`${normalizeProjectPath(project.path)}/`),
+    ) || null
   );
 }
 
@@ -574,26 +649,50 @@ export function getProjectsByPathway(pathwayId) {
 }
 
 export function getProjectsForSection(sectionId) {
-  return projects.filter((project) => project.relatedSections.includes(sectionId));
+  return projects.filter((project) =>
+    project.relatedSections.includes(sectionId),
+  );
 }
 
 export function getRelatedTutorialsForProject(projectOrSlug) {
   const project =
-    typeof projectOrSlug === 'string' ? getProjectBySlug(projectOrSlug) : projectOrSlug;
+    typeof projectOrSlug === 'string'
+      ? getProjectBySlug(projectOrSlug)
+      : projectOrSlug;
 
   if (!project) return [];
 
   if (project.relatedTutorials.length > 0) {
-    return tutorials.filter((tutorial) => project.relatedTutorials.includes(tutorial.slug));
+    return tutorials.filter((tutorial) =>
+      project.relatedTutorials.includes(tutorial.slug),
+    );
   }
 
-  return tutorials.filter((tutorial) => project.relatedSections.includes(tutorial.section));
+  return tutorials.filter((tutorial) =>
+    project.relatedSections.includes(tutorial.section),
+  );
 }
 
 export function getGuidedProjectParts(projectId) {
+  const getProjectPartSortValue = (part) => {
+    if (typeof part === 'number') return part;
+    if (typeof part === 'string') {
+      const number = Number.parseFloat(part);
+      if (Number.isFinite(number)) {
+        return part.toUpperCase().includes('B') ? number + 0.1 : number;
+      }
+    }
+
+    return 0;
+  };
+
   return tutorials
     .filter((tutorial) => tutorial.project === projectId)
-    .sort((a, b) => (a.projectPart ?? 0) - (b.projectPart ?? 0));
+    .sort(
+      (a, b) =>
+        getProjectPartSortValue(a.projectPart) -
+        getProjectPartSortValue(b.projectPart),
+    );
 }
 
 export function getProjectNavigationByPath(path) {
@@ -604,7 +703,9 @@ export function getProjectNavigationByPath(path) {
   }
 
   const pathwayProjects = getProjectsByPathway(project.primaryPathway);
-  const currentIndex = pathwayProjects.findIndex((item) => item.slug === project.slug);
+  const currentIndex = pathwayProjects.findIndex(
+    (item) => item.slug === project.slug,
+  );
 
   if (currentIndex === -1) {
     return { prev: null, next: null };

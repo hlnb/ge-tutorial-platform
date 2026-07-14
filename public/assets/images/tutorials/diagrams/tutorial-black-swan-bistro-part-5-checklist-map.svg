@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Black Swan Bistro pre-deployment checklist map</title>
+  <desc id="desc">A checklist map groups production readiness checks into files, links, images, metadata, accessibility, mobile, and console review.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .center { fill: #0f766e; }
+      .card { fill: #ffffff; stroke: #d1d5db; stroke-width: 2; }
+      .card-a { fill: #eff6ff; stroke: #2563eb; }
+      .card-b { fill: #fefce8; stroke: #ca8a04; }
+      .card-c { fill: #f0fdf4; stroke: #16a34a; }
+      .card-d { fill: #fff7ed; stroke: #ea580c; }
+      .card-e { fill: #fdf2f8; stroke: #db2777; }
+      .card-f { fill: #f5f3ff; stroke: #7c3aed; }
+      .title { fill: #111827; font: 700 24px Arial, sans-serif; }
+      .centerText { fill: #ffffff; font: 700 20px Arial, sans-serif; text-anchor: middle; }
+      .label { fill: #111827; font: 700 16px Arial, sans-serif; }
+      .body { fill: #4b5563; font: 13px Arial, sans-serif; }
+      .line { stroke: #94a3b8; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="960" height="520" rx="18" />
+  <text x="48" y="58" class="title">Pre-deployment checklist map</text>
+  <text x="48" y="86" class="body">A launch review covers the whole visitor experience, not just the upload step.</text>
+
+  <circle cx="480" cy="270" r="78" class="center" />
+  <text x="480" y="252" class="centerText">Black Swan</text>
+  <text x="480" y="278" class="centerText">Bistro</text>
+  <text x="480" y="304" class="centerText">launch check</text>
+
+  <line x1="420" y1="222" x2="238" y2="150" class="line" />
+  <line x1="480" y1="192" x2="480" y2="142" class="line" />
+  <line x1="540" y1="222" x2="722" y2="150" class="line" />
+  <line x1="406" y1="292" x2="238" y2="364" class="line" />
+  <line x1="480" y1="348" x2="480" y2="410" class="line" />
+  <line x1="554" y1="292" x2="722" y2="364" class="line" />
+
+  <rect x="96" y="116" width="210" height="84" rx="12" class="card card-a" />
+  <text x="126" y="148" class="label">Files</text>
+  <text x="126" y="174" class="body">Clean folder, clear names</text>
+
+  <rect x="375" y="104" width="210" height="84" rx="12" class="card card-b" />
+  <text x="405" y="136" class="label">Links and paths</text>
+  <text x="405" y="162" class="body">Pages, CSS, JS, images</text>
+
+  <rect x="654" y="116" width="210" height="84" rx="12" class="card card-c" />
+  <text x="684" y="148" class="label">Images</text>
+  <text x="684" y="174" class="body">Size, filename, alt text</text>
+
+  <rect x="96" y="330" width="210" height="84" rx="12" class="card card-d" />
+  <text x="126" y="362" class="label">Metadata</text>
+  <text x="126" y="388" class="body">Title and description</text>
+
+  <rect x="375" y="400" width="210" height="84" rx="12" class="card card-e" />
+  <text x="405" y="432" class="label">Accessibility</text>
+  <text x="405" y="458" class="body">Headings, labels, focus</text>
+
+  <rect x="654" y="330" width="210" height="84" rx="12" class="card card-f" />
+  <text x="684" y="362" class="label">Final browser test</text>
+  <text x="684" y="388" class="body">Mobile width and console</text>
+</svg>
