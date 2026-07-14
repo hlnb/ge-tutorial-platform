@@ -3193,6 +3193,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: 'Lesson 1',
     topic: 'deployment',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -3219,6 +3220,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: 'Lesson 2',
     topic: 'deployment',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -3245,6 +3247,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: 'Lesson 3',
     topic: 'deployment',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -3271,6 +3274,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: 'Lesson 4',
     topic: 'deployment',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -3297,6 +3301,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: 'Lesson 5',
     topic: 'deployment',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
@@ -3323,6 +3328,7 @@ const tutorialRecords = [
     projectTitle: null,
     badge: 'Lesson 6',
     topic: 'deployment',
+    hiddenFromCurriculum: true,
     lessonCount: null,
   },
   {
