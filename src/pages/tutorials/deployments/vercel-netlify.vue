@@ -4,7 +4,7 @@ import { useHead } from '@vueuse/head';
 import { useRouter } from 'vue-router';
 
 const targetPath =
-	'/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement#student-hosting-options';
+	'/tutorials/deployments/choosing-a-hosting-path#student-options';
 const targetUrl = `https://www.graphitedge.com.au${targetPath}`;
 const legacyRedirectMeta = { noindex: true };
 
@@ -27,10 +27,10 @@ onMounted(() => {
 			<h1 class="title is-1">Hosting and Deployment Has Moved</h1>
 			<p>
 				Netlify, Vercel, GitHub Pages, and student hosting options are now covered in
-				the consolidated deployment fundamentals tutorial.
+				the Choosing a Hosting Path lesson.
 			</p>
 			<router-link :to="targetPath" class="button is-primary">
-				Go to Deployment Fundamentals
+				Go to Choosing a Hosting Path
 			</router-link>
 		</div>
 	</div>

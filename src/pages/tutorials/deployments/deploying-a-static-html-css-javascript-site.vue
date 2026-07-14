@@ -1,5 +1,5 @@
 <template>
-  <DeploymentModulePage lesson-id="overview" />
+  <DeploymentModulePage lesson-id="deploying-a-static-html-css-javascript-site" />
 </template>
 
 <script setup>

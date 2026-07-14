@@ -1,5 +1,5 @@
 <template>
-  <DeploymentModulePage lesson-id="overview" />
+  <DeploymentModulePage lesson-id="testing-troubleshooting-and-continuous-improvement" />
 </template>
 
 <script setup>

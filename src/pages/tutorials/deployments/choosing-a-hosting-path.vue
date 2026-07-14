@@ -1,5 +1,5 @@
 <template>
-  <DeploymentModulePage lesson-id="overview" />
+  <DeploymentModulePage lesson-id="choosing-a-hosting-path" />
 </template>
 
 <script setup>

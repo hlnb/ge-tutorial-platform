@@ -1,5 +1,5 @@
 <template>
-  <DeploymentModulePage lesson-id="overview" />
+  <DeploymentModulePage lesson-id="domains-dns-and-going-live" />
 </template>
 
 <script setup>

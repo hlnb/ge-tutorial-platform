@@ -4,7 +4,7 @@ import { useHead } from '@vueuse/head';
 import { useRouter } from 'vue-router';
 
 const targetPath =
-	'/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement#domains-dns-going-live';
+	'/tutorials/deployments/domains-dns-and-going-live';
 const targetUrl = `https://www.graphitedge.com.au${targetPath}`;
 const legacyRedirectMeta = { noindex: true };
 
@@ -27,10 +27,10 @@ onMounted(() => {
 			<h1 class="title is-1">Domains, DNS, and Going Live Has Moved</h1>
 			<p>
 				Domain setup and DNS basics are now part of the consolidated deployment
-				fundamentals tutorial.
+				module.
 			</p>
 			<router-link :to="targetPath" class="button is-primary">
-				Go to Deployment Fundamentals
+				Go to Domains, DNS and Going Live
 			</router-link>
 		</div>
 	</div>

@@ -933,6 +933,34 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/deployments/building-and-deploying-a-vite-site': RouteRecordInfo<
+      '/tutorials/deployments/building-and-deploying-a-vite-site',
+      '/tutorials/deployments/building-and-deploying-a-vite-site',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/choosing-a-hosting-path': RouteRecordInfo<
+      '/tutorials/deployments/choosing-a-hosting-path',
+      '/tutorials/deployments/choosing-a-hosting-path',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/deploying-a-static-html-css-javascript-site': RouteRecordInfo<
+      '/tutorials/deployments/deploying-a-static-html-css-javascript-site',
+      '/tutorials/deployments/deploying-a-static-html-css-javascript-site',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/domains-dns-and-going-live': RouteRecordInfo<
+      '/tutorials/deployments/domains-dns-and-going-live',
+      '/tutorials/deployments/domains-dns-and-going-live',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement': RouteRecordInfo<
       '/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement',
       '/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement',
@@ -943,6 +971,20 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/deployments/static-vs-dynamic': RouteRecordInfo<
       '/tutorials/deployments/static-vs-dynamic',
       '/tutorials/deployments/static-vs-dynamic',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/testing-troubleshooting-and-continuous-improvement': RouteRecordInfo<
+      '/tutorials/deployments/testing-troubleshooting-and-continuous-improvement',
+      '/tutorials/deployments/testing-troubleshooting-and-continuous-improvement',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/understanding-hosting-and-deployment': RouteRecordInfo<
+      '/tutorials/deployments/understanding-hosting-and-deployment',
+      '/tutorials/deployments/understanding-hosting-and-deployment',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -2258,6 +2300,30 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/deployments/building-and-deploying-a-vite-site.vue': {
+      routes:
+        | '/tutorials/deployments/building-and-deploying-a-vite-site'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/choosing-a-hosting-path.vue': {
+      routes:
+        | '/tutorials/deployments/choosing-a-hosting-path'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/deploying-a-static-html-css-javascript-site.vue': {
+      routes:
+        | '/tutorials/deployments/deploying-a-static-html-css-javascript-site'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/domains-dns-and-going-live.vue': {
+      routes:
+        | '/tutorials/deployments/domains-dns-and-going-live'
+      views:
+        | never
+    }
     'src/pages/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement.vue': {
       routes:
         | '/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement'
@@ -2267,6 +2333,18 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/deployments/static-vs-dynamic.vue': {
       routes:
         | '/tutorials/deployments/static-vs-dynamic'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/testing-troubleshooting-and-continuous-improvement.vue': {
+      routes:
+        | '/tutorials/deployments/testing-troubleshooting-and-continuous-improvement'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/understanding-hosting-and-deployment.vue': {
+      routes:
+        | '/tutorials/deployments/understanding-hosting-and-deployment'
       views:
         | never
     }

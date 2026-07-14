@@ -1,5 +1,5 @@
 <template>
-  <DeploymentModulePage lesson-id="overview" />
+  <DeploymentModulePage lesson-id="understanding-hosting-and-deployment" />
 </template>
 
 <script setup>
