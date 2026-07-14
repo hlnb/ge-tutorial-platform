@@ -81,7 +81,10 @@ import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
 const { pageSections, hasPageSections } = usePageNavigation();
-const navItems = getSectionNavItems('deployments', { includeOverview: false });
+const navItems = getSectionNavItems('deployments', {
+  includeOverview: false,
+  includeSectionNavHidden: true,
+});
 const currentIndex = computed(() =>
   navItems.findIndex((item) => item.path === route.path),
 );

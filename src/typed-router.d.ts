@@ -947,9 +947,30 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/deployments/continuous-improvement-deployment-workflows': RouteRecordInfo<
+      '/tutorials/deployments/continuous-improvement-deployment-workflows',
+      '/tutorials/deployments/continuous-improvement-deployment-workflows',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/deployments/deploying-a-static-html-css-javascript-site': RouteRecordInfo<
       '/tutorials/deployments/deploying-a-static-html-css-javascript-site',
       '/tutorials/deployments/deploying-a-static-html-css-javascript-site',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/deployment-is-publishing-not-just-uploading': RouteRecordInfo<
+      '/tutorials/deployments/deployment-is-publishing-not-just-uploading',
+      '/tutorials/deployments/deployment-is-publishing-not-just-uploading',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/deployment-lab-final-checklist': RouteRecordInfo<
+      '/tutorials/deployments/deployment-lab-final-checklist',
+      '/tutorials/deployments/deployment-lab-final-checklist',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -982,9 +1003,37 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/deployments/testing-troubleshooting-live-website': RouteRecordInfo<
+      '/tutorials/deployments/testing-troubleshooting-live-website',
+      '/tutorials/deployments/testing-troubleshooting-live-website',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/traditional-shared-hosting-control-panels': RouteRecordInfo<
+      '/tutorials/deployments/traditional-shared-hosting-control-panels',
+      '/tutorials/deployments/traditional-shared-hosting-control-panels',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/understanding-hosting': RouteRecordInfo<
+      '/tutorials/deployments/understanding-hosting',
+      '/tutorials/deployments/understanding-hosting',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/deployments/understanding-hosting-and-deployment': RouteRecordInfo<
       '/tutorials/deployments/understanding-hosting-and-deployment',
       '/tutorials/deployments/understanding-hosting-and-deployment',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/deployments/uploading-html-css-javascript-website': RouteRecordInfo<
+      '/tutorials/deployments/uploading-html-css-javascript-website',
+      '/tutorials/deployments/uploading-html-css-javascript-website',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -2312,9 +2361,27 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/deployments/continuous-improvement-deployment-workflows.vue': {
+      routes:
+        | '/tutorials/deployments/continuous-improvement-deployment-workflows'
+      views:
+        | never
+    }
     'src/pages/tutorials/deployments/deploying-a-static-html-css-javascript-site.vue': {
       routes:
         | '/tutorials/deployments/deploying-a-static-html-css-javascript-site'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/deployment-is-publishing-not-just-uploading.vue': {
+      routes:
+        | '/tutorials/deployments/deployment-is-publishing-not-just-uploading'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/deployment-lab-final-checklist.vue': {
+      routes:
+        | '/tutorials/deployments/deployment-lab-final-checklist'
       views:
         | never
     }
@@ -2342,9 +2409,33 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/deployments/testing-troubleshooting-live-website.vue': {
+      routes:
+        | '/tutorials/deployments/testing-troubleshooting-live-website'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/traditional-shared-hosting-control-panels.vue': {
+      routes:
+        | '/tutorials/deployments/traditional-shared-hosting-control-panels'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/understanding-hosting.vue': {
+      routes:
+        | '/tutorials/deployments/understanding-hosting'
+      views:
+        | never
+    }
     'src/pages/tutorials/deployments/understanding-hosting-and-deployment.vue': {
       routes:
         | '/tutorials/deployments/understanding-hosting-and-deployment'
+      views:
+        | never
+    }
+    'src/pages/tutorials/deployments/uploading-html-css-javascript-website.vue': {
+      routes:
+        | '/tutorials/deployments/uploading-html-css-javascript-website'
       views:
         | never
     }

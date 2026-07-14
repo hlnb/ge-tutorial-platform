@@ -4,7 +4,7 @@ import { useHead } from '@vueuse/head';
 import { useRouter } from 'vue-router';
 
 const targetPath =
-	'/tutorials/deployments/choosing-a-hosting-path#student-options';
+	'/tutorials/deployments/choosing-a-hosting-path#three-paths';
 const targetUrl = `https://www.graphitedge.com.au${targetPath}`;
 const legacyRedirectMeta = { noindex: true };
 

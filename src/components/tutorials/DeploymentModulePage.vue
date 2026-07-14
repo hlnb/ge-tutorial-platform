@@ -4,7 +4,6 @@ import { useTutorialHead } from '@/composables/useTutorialHead';
 import { usePageSections } from '@/composables/usePageSections';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
-import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
@@ -20,6 +19,7 @@ const props = defineProps({
 
 const overviewPath =
   '/tutorials/deployments/getting-a-website-online-hosting-deployment-continuous-improvement';
+const pdfChecklistPath = '/resources/GraphiteEdge_Deployment_Checklist.pdf';
 
 const lessonSequence = [
   {
@@ -28,83 +28,131 @@ const lessonSequence = [
     title: 'Getting a Website Online',
     shortTitle: 'Overview',
     path: overviewPath,
-    duration: 'Total: 100-130 min',
+    duration: 'Total: 160-210 min',
     description:
-      'Follow the full deployment pathway from local files to hosting, Vite builds, domains, testing, troubleshooting, and continuous improvement.',
+      'Understand deployment as a complete publishing system: files, hosting, DNS, domains, testing, troubleshooting, and future updates.',
     keywords:
-      'website deployment tutorial, web hosting for beginners, deploy website, Vite deployment, DNS for beginners',
+      'website deployment tutorial, hosting for beginners, website deployment checklist, Vite deployment, DNS for beginners',
   },
   {
-    id: 'understanding-hosting-and-deployment',
+    id: 'deployment-is-publishing-not-just-uploading',
     orderLabel: 'Lesson 1',
-    title: 'Understanding Hosting and Deployment',
-    shortTitle: 'Hosting and Deployment',
-    path: '/tutorials/deployments/understanding-hosting-and-deployment',
-    duration: '10-15 min',
+    title: 'Deployment Is Publishing, Not Just Uploading',
+    shortTitle: 'Publishing Workflow',
+    path: '/tutorials/deployments/deployment-is-publishing-not-just-uploading',
+    duration: '15-20 min',
     description:
-      'Learn what website deployment means, how local files differ from live sites, and why a site working locally is not enough deployment evidence.',
+      'Learn what deployment means, why local success is not live evidence, and how browsers, servers, domains, DNS, and files work together.',
     keywords:
-      'what website deployment means, local website vs live website, web host server browser',
+      'what website deployment means, local website vs live website, index.html, relative file paths',
+  },
+  {
+    id: 'understanding-hosting',
+    orderLabel: 'Lesson 2',
+    title: 'Understanding Hosting',
+    shortTitle: 'Hosting Types',
+    path: '/tutorials/deployments/understanding-hosting',
+    duration: '20-25 min',
+    description:
+      'Compare shared hosting, static hosting, cloud hosting, VPS, dedicated servers, serverless hosting, and managed application hosting in plain English.',
+    keywords:
+      'website hosting types for beginners, shared hosting vs static hosting, VPS for students',
   },
   {
     id: 'choosing-a-hosting-path',
-    orderLabel: 'Lesson 2',
-    title: 'Choosing a Hosting Path',
-    shortTitle: 'Hosting Path',
-    path: '/tutorials/deployments/choosing-a-hosting-path',
-    duration: '15-20 min',
-    description:
-      'Compare traditional hosting, manual static hosting, and Git-based deployment so you can choose a sensible path for a student, portfolio, or business site.',
-    keywords:
-      'types of website hosting, static hosting, Git based deployment, beginner hosting choices',
-  },
-  {
-    id: 'deploying-a-static-html-css-javascript-site',
     orderLabel: 'Lesson 3',
-    title: 'Deploying a Plain HTML, CSS and JavaScript Website',
-    shortTitle: 'Deploy Static Site',
-    path: '/tutorials/deployments/deploying-a-static-html-css-javascript-site',
+    title: 'Choosing a Hosting Path',
+    shortTitle: 'Choose a Path',
+    path: '/tutorials/deployments/choosing-a-hosting-path',
     duration: '20-25 min',
     description:
-      'Prepare, publish, and test a small static HTML, CSS, and JavaScript site using a beginner-friendly deployment method.',
+      'Choose between traditional shared hosting, manual static hosting, and Git-connected deployment using realistic student and business scenarios.',
     keywords:
-      'deploy HTML CSS JavaScript website, deploy static website, index.html hosting folder',
+      'choose website hosting path, Git deployment vs manual upload, static hosting for students',
+  },
+  {
+    id: 'traditional-shared-hosting-control-panels',
+    orderLabel: 'Lesson 4',
+    title: 'Traditional Shared Hosting and Control Panels',
+    shortTitle: 'Shared Hosting',
+    path: '/tutorials/deployments/traditional-shared-hosting-control-panels',
+    duration: '25-30 min',
+    description:
+      'Understand shared hosting accounts, public web roots, control panels, account ownership, support boundaries, backups, and provider comparisons.',
+    keywords:
+      'shared hosting for students, cPanel File Manager, DirectAdmin Plesk, Australian web hosting students',
+  },
+  {
+    id: 'uploading-html-css-javascript-website',
+    orderLabel: 'Lesson 5',
+    title: 'Uploading a Plain HTML, CSS and JavaScript Website',
+    shortTitle: 'Upload Static Site',
+    path: '/tutorials/deployments/uploading-html-css-javascript-website',
+    duration: '25-30 min',
+    description:
+      'Publish a plain static website with a hosting File Manager or SFTP, check folder nesting, and test the live URL.',
+    keywords:
+      'upload HTML CSS JavaScript website, cPanel File Manager upload website, SFTP website upload',
   },
   {
     id: 'building-and-deploying-a-vite-site',
-    orderLabel: 'Lesson 4',
+    orderLabel: 'Lesson 6',
     title: 'Building and Deploying a Vite Website',
     shortTitle: 'Deploy Vite Site',
     path: '/tutorials/deployments/building-and-deploying-a-vite-site',
-    duration: '20-25 min',
+    duration: '25-30 min',
     description:
-      'Understand the Vite development server, production build, dist folder, build command, output directory, and common deployment mistakes.',
+      'Understand Vite source files, production builds, dist output, build commands, publish directories, environment variables, and routing concerns.',
     keywords:
-      'deploy Vite website, npm run build, Vite dist folder, Vercel Netlify Vite settings',
+      'deploy Vite website, npm run build, Vite dist folder, Vite base path deployment',
   },
   {
     id: 'domains-dns-and-going-live',
-    orderLabel: 'Lesson 5',
-    title: 'Domains, DNS and Going Live',
+    orderLabel: 'Lesson 7',
+    title: 'Domains, DNS, HTTPS and Going Live',
     shortTitle: 'Domains and DNS',
     path: '/tutorials/deployments/domains-dns-and-going-live',
-    duration: '15-20 min',
-    description:
-      'Learn how domains, DNS records, nameservers, HTTPS, apex domains, and www subdomains fit into a website going live.',
-    keywords:
-      'domains and DNS for beginners, A record CNAME nameservers, connect domain to website',
-  },
-  {
-    id: 'testing-troubleshooting-and-continuous-improvement',
-    orderLabel: 'Lesson 6',
-    title: 'Testing, Troubleshooting and Continuous Improvement',
-    shortTitle: 'Testing and Improvement',
-    path: '/tutorials/deployments/testing-troubleshooting-and-continuous-improvement',
     duration: '20-25 min',
     description:
-      'Test a live deployment, troubleshoot common deployment problems, use a checklist, and create a repeatable improvement workflow.',
+      'Learn how registrars, DNS providers, hosting providers, SSL certificates, apex domains, www, redirects, and DNS propagation fit together.',
     keywords:
-      'deployment testing checklist, troubleshoot website deployment, live site not updating, missing CSS deployed site',
+      'domains and DNS for beginners, A record CNAME nameservers HTTPS SSL, connect domain to hosting',
+  },
+  {
+    id: 'testing-troubleshooting-live-website',
+    orderLabel: 'Lesson 8',
+    title: 'Testing and Troubleshooting a Live Website',
+    shortTitle: 'Troubleshooting',
+    path: '/tutorials/deployments/testing-troubleshooting-live-website',
+    duration: '25-30 min',
+    description:
+      'Diagnose homepage, CSS, image, 404, white screen, caching, build, DNS, and routing problems using evidence instead of random changes.',
+    keywords:
+      'why website works locally but not online, missing CSS deployed website, white screen after deployment',
+  },
+  {
+    id: 'continuous-improvement-deployment-workflows',
+    orderLabel: 'Lesson 9',
+    title: 'Continuous Improvement and Deployment Workflows',
+    shortTitle: 'Improve Safely',
+    path: '/tutorials/deployments/continuous-improvement-deployment-workflows',
+    duration: '20-25 min',
+    description:
+      'Use manual and Git-based deployment workflows to plan, build, test, deploy, verify, monitor, improve, and repeat.',
+    keywords:
+      'website deployment workflow, continuous improvement website, Git deployment workflow beginners',
+  },
+  {
+    id: 'deployment-lab-final-checklist',
+    orderLabel: 'Lesson 10',
+    title: 'Deployment Lab and Final Checklist',
+    shortTitle: 'Deployment Lab',
+    path: '/tutorials/deployments/deployment-lab-final-checklist',
+    duration: '25-30 min',
+    description:
+      'Deploy the same tiny site through one or more workflows, compare the experience, use the deployment checklist, and apply the process to Black Swan Bistro.',
+    keywords:
+      'website deployment lab, deployment checklist, deploy deployment-test project',
   },
 ];
 
@@ -132,54 +180,323 @@ useTutorialHead({
 
 const sectionMap = {
   overview: [
+    { id: 'publishing-system', title: 'Publishing System' },
+    { id: 'five-questions', title: 'Five Questions' },
+    { id: 'outcomes', title: 'Outcomes' },
     { id: 'sequence', title: 'Lesson Sequence' },
-    { id: 'prerequisites', title: 'Prerequisites' },
-    { id: 'static-vs-vite', title: 'Static and Vite Paths' },
     { id: 'resources', title: 'Resources' },
   ],
-  'understanding-hosting-and-deployment': [
-    { id: 'what-deployment-means', title: 'What Deployment Means' },
-    { id: 'key-terms', title: 'Key Terms' },
-    { id: 'local-vs-live', title: 'Local vs Live' },
-    { id: 'checkpoint', title: 'Checkpoint' },
+  'deployment-is-publishing-not-just-uploading': [
+    { id: 'local-live', title: 'Local and Live' },
+    { id: 'system-roles', title: 'System Roles' },
+    { id: 'paths-files', title: 'Paths and Files' },
     { id: 'inspection-exercise', title: 'Inspection Exercise' },
   ],
+  'understanding-hosting': [
+    { id: 'hosting-models', title: 'Hosting Models' },
+    { id: 'hosting-comparison', title: 'Comparison Table' },
+    { id: 'student-fit', title: 'Student Fit' },
+  ],
   'choosing-a-hosting-path': [
-    { id: 'hosting-paths', title: 'Hosting Paths' },
-    { id: 'student-options', title: 'Student Options' },
-    { id: 'static-vs-dynamic', title: 'Static vs Dynamic' },
+    { id: 'three-paths', title: 'Three Paths' },
+    { id: 'workflow-comparison', title: 'Workflow Comparison' },
     { id: 'decision-exercise', title: 'Decision Exercise' },
   ],
-  'deploying-a-static-html-css-javascript-site': [
-    { id: 'project-shape', title: 'Project Shape' },
-    { id: 'folder-nesting', title: 'Folder Nesting' },
+  'traditional-shared-hosting-control-panels': [
+    { id: 'shared-hosting', title: 'Shared Hosting' },
+    { id: 'control-panels', title: 'Control Panels' },
+    { id: 'public-web-root', title: 'Public Web Root' },
+    { id: 'provider-guidance', title: 'Provider Guidance' },
+  ],
+  'uploading-html-css-javascript-website': [
+    { id: 'file-manager', title: 'File Manager' },
+    { id: 'zip-files', title: 'ZIP Files' },
+    { id: 'ftp-sftp', title: 'FTP and SFTP' },
     { id: 'guided-practice', title: 'Guided Practice' },
-    { id: 'live-testing', title: 'Live Testing' },
   ],
   'building-and-deploying-a-vite-site': [
-    { id: 'vite-builds', title: 'Vite Builds' },
-    { id: 'repo-settings', title: 'This Project Settings' },
-    { id: 'guided-practice', title: 'Guided Practice' },
-    { id: 'common-mistakes', title: 'Common Mistakes' },
+    { id: 'vite-flow', title: 'Vite Flow' },
+    { id: 'manual-vite', title: 'Manual Deployment' },
+    { id: 'git-connected-vite', title: 'Git Deployment' },
+    { id: 'vite-mistakes', title: 'Common Mistakes' },
   ],
   'domains-dns-and-going-live': [
-    { id: 'domain-dns-roles', title: 'Domain and DNS Roles' },
+    { id: 'domain-dns-roles', title: 'Roles' },
     { id: 'dns-records', title: 'DNS Records' },
     { id: 'dns-path', title: 'DNS Path' },
-    { id: 'ownership-notes', title: 'Ownership Notes' },
+    { id: 'ownership-record', title: 'Ownership Record' },
   ],
-  'testing-troubleshooting-and-continuous-improvement': [
-    { id: 'testing-system', title: 'Testing System' },
-    { id: 'common-problems', title: 'Common Problems' },
-    { id: 'continuous-improvement', title: 'Continuous Improvement' },
-    { id: 'deployment-checklist', title: 'Deployment Checklist' },
+  'testing-troubleshooting-live-website': [
+    { id: 'troubleshooting-workflow', title: 'Workflow' },
+    { id: 'problem-table', title: 'Problem Table' },
+    { id: 'developer-tools', title: 'Developer Tools' },
+  ],
+  'continuous-improvement-deployment-workflows': [
+    { id: 'improvement-cycle', title: 'Improvement Cycle' },
+    { id: 'manual-workflow', title: 'Manual Workflow' },
+    { id: 'git-workflow', title: 'Git Workflow' },
+    { id: 'monitoring-tools', title: 'Monitoring Tools' },
+  ],
+  'deployment-lab-final-checklist': [
+    { id: 'lab-project', title: 'Lab Project' },
+    { id: 'lab-options', title: 'Lab Options' },
+    { id: 'checklists', title: 'Checklists' },
     { id: 'reflection', title: 'Reflection' },
   ],
 };
 
 usePageSections(sectionMap[currentLesson.value.id] || sectionMap.overview);
 
-const copyStatus = ref('Copy checklist');
+const copyStatus = ref('Copy Markdown checklist');
+
+const learningOutcomes = [
+  'Explain deployment as a publishing system, not a single upload action.',
+  'Compare hosting models and choose a sensible path for a project.',
+  'Use traditional hosting concepts such as public web roots, File Manager, SFTP and control panels.',
+  'Build and deploy a Vite project using production output.',
+  'Connect domain, DNS, HTTPS and hosting decisions without inventing record values.',
+  'Troubleshoot live deployment problems using evidence.',
+  'Use a repeatable improvement workflow and checklist.',
+];
+
+const hostingModels = [
+  {
+    type: 'Shared hosting',
+    goodFor: 'Small business and traditional websites',
+    effort: 'Low to medium',
+    studentUse: 'Good',
+  },
+  {
+    type: 'Static hosting',
+    goodFor: 'HTML, CSS, JavaScript and frontend builds',
+    effort: 'Low',
+    studentUse: 'Excellent',
+  },
+  {
+    type: 'Cloud hosting',
+    goodFor: 'Applications that need managed infrastructure',
+    effort: 'Medium to high',
+    studentUse: 'Later learning',
+  },
+  {
+    type: 'VPS',
+    goodFor: 'Custom server applications',
+    effort: 'High',
+    studentUse: 'Usually unnecessary',
+  },
+  {
+    type: 'Dedicated server',
+    goodFor: 'Large or specialised systems',
+    effort: 'Very high',
+    studentUse: 'Not suitable',
+  },
+  {
+    type: 'Serverless platform',
+    goodFor: 'Modern apps, APIs and functions',
+    effort: 'Medium',
+    studentUse: 'Later learning',
+  },
+  {
+    type: 'Managed application hosting',
+    goodFor: 'Framework apps where the platform handles server details',
+    effort: 'Low to medium',
+    studentUse: 'Good after fundamentals',
+  },
+];
+
+const controlPanelTools = [
+  ['File Manager', 'Upload, move, rename, extract and delete files on the host.'],
+  ['Domains and subdomains', 'Connect names such as example.com or shop.example.com to sites.'],
+  ['SSL certificates', 'Enable HTTPS so browsers can use a secure connection.'],
+  ['Email accounts', 'Create mailbox accounts when the hosting plan includes email.'],
+  ['Databases', 'Manage database-backed sites such as some CMS or PHP apps.'],
+  ['PHP versions', 'Select runtime versions for PHP-based websites.'],
+  ['Backups', 'Create or restore copies, depending on what the host provides.'],
+  ['DNS tools', 'Edit records when DNS is managed by the hosting provider.'],
+  ['Error logs', 'Inspect server-side errors when a page fails.'],
+];
+
+const providerGuidance = [
+  {
+    provider: 'VentraIP',
+    url: 'https://ventraip.com.au/web-hosting/',
+    position:
+      'Primary Australian shared-hosting example for students who want local account management and support context.',
+    notes:
+      'Compare entry price, renewal price, storage, backups, email, SSL, support, data location and cancellation policy. Do not assume it is always cheapest.',
+  },
+  {
+    provider: 'Hostinger',
+    url: 'https://www.hostinger.com/web-hosting',
+    position: 'Budget-focused international option.',
+    notes: 'Useful for comparison, but students should check renewal pricing and included support carefully.',
+  },
+  {
+    provider: 'Namecheap shared hosting',
+    url: 'https://www.namecheap.com/hosting/shared/',
+    position: 'Useful for students already managing domains there.',
+    notes: 'Check whether keeping domain and hosting together helps or reduces flexibility.',
+  },
+  {
+    provider: 'DreamHost',
+    url: 'https://www.dreamhost.com/hosting/',
+    position: 'Beginner-friendly international shared-hosting option.',
+    notes: 'Compare support, renewal cost, included features and data-location expectations.',
+  },
+  {
+    provider: 'SiteGround',
+    url: 'https://www.siteground.com/web-hosting.htm',
+    position: 'Often positioned around stronger support and managed features.',
+    notes: 'Students should compare total cost, renewal pricing and whether the extra support is needed.',
+  },
+  {
+    provider: 'Crazy Domains',
+    url: 'https://www.crazydomains.com.au/web-hosting/',
+    position: 'A provider Australian students may encounter.',
+    notes: 'Compare renewal pricing, account ownership, support boundaries and cancellation policies carefully.',
+  },
+];
+
+const modernStaticHostingLinks = [
+  ['GitHub Pages', 'https://pages.github.com/'],
+  ['Netlify', 'https://www.netlify.com/'],
+  ['Vercel', 'https://vercel.com/'],
+  ['Cloudflare Pages', 'https://pages.cloudflare.com/'],
+];
+
+const freeHostingLimitations = [
+  'reduced storage or bandwidth',
+  'limited databases or no email',
+  'restricted support',
+  'provider subdomains',
+  'advertising, branding or disabled features',
+  'account inactivity rules',
+  'uncertain long-term availability',
+  'restrictions on commercial use',
+];
+
+const staticGuidedPracticeSteps = [
+  {
+    title: 'Confirm the public web root',
+    instructions:
+      '<p>Find the folder your host serves to the web. Common names include <code>public_html</code>, <code>htdocs</code>, <code>www</code> and <code>httpdocs</code>. Confirm the correct folder in your host documentation.</p>',
+  },
+  {
+    title: 'Back up or remove placeholder files',
+    instructions:
+      '<p>If the host created a placeholder homepage, download a backup before removing or replacing it. Do not delete files you do not understand on a real account.</p>',
+  },
+  {
+    title: 'Upload the project files',
+    instructions:
+      '<p>Upload <code>index.html</code>, CSS, JavaScript and image folders so <code>index.html</code> sits directly inside the public web root.</p>',
+  },
+  {
+    title: 'Test the live URL',
+    instructions:
+      '<p>Open the live address in a normal and private browser window. Check CSS, images, JavaScript, links and the browser console.</p>',
+  },
+];
+
+const viteGuidedPracticeSteps = [
+  {
+    title: 'Run the development version',
+    instructions:
+      '<p>Run the project locally, often with <code>npm run dev</code>, and fix visible local problems first.</p>',
+  },
+  {
+    title: 'Create the production build',
+    instructions:
+      '<p>Run <code>npm run build</code>. In many Vite projects, including GraphitEdge, the production output is <code>dist/</code>.</p>',
+  },
+  {
+    title: 'Inspect the output',
+    instructions:
+      '<p>Use the project preview command where configured, or inspect the generated folder so you know which files will be published.</p>',
+  },
+  {
+    title: 'Deploy and read the logs',
+    instructions:
+      '<p>For manual static hosting, deploy the built output. For Git-connected hosting, check the build command, output directory and build log.</p>',
+  },
+];
+
+const troubleshootingProblems = [
+  {
+    symptom: 'Homepage does not load',
+    causes:
+      'No index.html, incorrect public folder, files nested one level too deep, DNS not connected, or deployment failed.',
+    checks:
+      'Confirm the live URL, public web root, deployment status, DNS connection and whether index.html is directly inside the served folder.',
+    fix:
+      'Move files to the correct public folder, wait for DNS/deployment completion where appropriate, then test the live URL again.',
+  },
+  {
+    symptom: 'CSS does not load',
+    causes:
+      'Incorrect path, case mismatch, missing uploaded file, browser cache, or a server MIME issue.',
+    checks:
+      'Open DevTools Network, look for the CSS request, check status code, path, filename and capitalization.',
+    fix:
+      'Correct the href, upload the missing file, match case exactly and hard refresh or test in a private window.',
+  },
+  {
+    symptom: 'Images are missing',
+    causes:
+      'Wrong filename, uppercase/lowercase mismatch, wrong extension, local-only path, or asset not included in the build.',
+    checks:
+      'Inspect the image URL in DevTools and compare it with the actual file in the deployed folder.',
+    fix:
+      'Use project-relative paths, simple lowercase filenames and redeploy the missing assets or rebuilt output.',
+  },
+  {
+    symptom: 'Website works locally but not online',
+    causes:
+      'Missing build step, incorrect base path, missing files, unsupported server behaviour, SPA routing, or environment variables.',
+    checks:
+      'Check build output, host settings, console errors, network errors and deployment logs.',
+    fix:
+      'Build the project, deploy the correct output folder, configure routing/base path and add required environment variables.',
+  },
+  {
+    symptom: 'Updates do not appear',
+    causes:
+      'Browser cache, CDN cache, deployment still processing, wrong branch, wrong hosting directory, or edited source not included in build.',
+    checks:
+      'Check deployment timestamp, branch, build log, uploaded directory and private-window result.',
+    fix:
+      'Redeploy the correct source/output, clear or wait for caches, and confirm you are testing the right live URL.',
+  },
+  {
+    symptom: 'White screen',
+    causes:
+      'Missing JavaScript files, runtime errors, incorrect base path, missing environment variables, or broken client-side routing.',
+    checks:
+      'Open browser console, Network panel and deployment logs. Read the first meaningful error.',
+    fix:
+      'Fix the first error, rebuild, redeploy and verify. Do not change five things at once.',
+  },
+  {
+    symptom: '404 errors',
+    causes:
+      'Missing files, wrong URL, case-sensitive paths, nested directories, SPA fallback routing, or wrong deployment directory.',
+    checks:
+      'Compare requested URL with deployed files and check host routing/fallback settings.',
+    fix:
+      'Correct the path, move files, configure SPA fallback where needed and redeploy.',
+  },
+];
+
+const monitoringTools = [
+  ['Browser developer tools', 'Shows console errors, failed network requests and loaded files.'],
+  ['Lighthouse', 'Checks performance, accessibility, best practices and SEO signals.'],
+  ['Google Search Console', 'Shows indexing, search visibility and crawl problems.'],
+  ['Vercel Analytics', 'Helps Vercel-hosted projects understand traffic and performance patterns.'],
+  ['Cloudflare Web Analytics', 'Lightweight traffic analytics for sites using Cloudflare.'],
+  ['Uptime monitoring', 'Alerts when a live site becomes unavailable.'],
+  ['Deployment logs', 'Explain what happened during build and publish steps.'],
+  ['Change log', 'Records what changed, why, how it was deployed and what happened after.'],
+];
 
 const checklistMarkdown = `# Deployment Checklist
 
@@ -196,27 +513,21 @@ Use this checklist before and after deploying a website.
 | Repository URL |  |
 | Build command |  |
 | Output or public folder |  |
+| Domain registrar |  |
+| DNS provider |  |
+| Renewal date |  |
 | Date deployed |  |
 
 ## Files and folders
 
 - [ ] The homepage is named \`index.html\`.
+- [ ] \`index.html\` is directly inside the public web root or publish directory.
 - [ ] CSS, JavaScript, images and fonts are inside the project folder.
 - [ ] Paths are relative, not local paths from one computer.
 - [ ] File and folder names are simple, consistent and lowercase.
-- [ ] The correct folder will be uploaded or published.
+- [ ] ZIP files have been extracted when required.
 - [ ] For Vite projects, the production build has been created.
 - [ ] For Vite projects, the output folder matches the host settings.
-
-## Content and accessibility
-
-- [ ] The page title and main heading are meaningful.
-- [ ] Placeholder content has been removed.
-- [ ] Links and buttons use clear text.
-- [ ] Images have useful alt text where needed.
-- [ ] Text is readable on mobile.
-- [ ] Keyboard focus is visible.
-- [ ] Colour contrast is acceptable.
 
 ## Live testing
 
@@ -231,158 +542,19 @@ Use this checklist before and after deploying a website.
 
 ## Improvement log
 
-| Date | Issue or improvement | Change made | Tested locally? | Tested live? | Notes |
+| Date | Change | Reason | Deployment method | Result | Follow-up |
 |---|---|---|---|---|---|
 |  |  |  |  |  |  |
 
-If something fails, that is not failure. That is testing doing its job.`;
-
-const hostingReadinessQuestions = [
-  {
-    question: 'Why is "it works on my laptop" not enough evidence?',
-    answer:
-      'Local testing can hide missing files, local-only paths, case-sensitive filename problems, mobile issues, cache confusion, and deployment folder mistakes.',
-  },
-  {
-    question: 'What file does a static host usually look for first?',
-    answer:
-      'Most static hosts look for index.html in the public website folder or publish directory.',
-  },
-  {
-    question: 'Why should filenames be simple and lowercase?',
-    answer:
-      'Many servers treat uppercase and lowercase names as different. Simple lowercase names reduce broken CSS, JavaScript, image and link paths.',
-  },
-];
-
-const staticGuidedPracticeSteps = [
-  {
-    title: 'Create a tiny deployment test folder',
-    instructions:
-      '<p>Create a folder called <code>deployment-test</code>. Inside it, add <code>index.html</code>, <code>styles.css</code>, and <code>script.js</code>. Keep the first deployment deliberately small.</p>',
-    hints: ['Put the three files at the top level of the folder.'],
-  },
-  {
-    title: 'Test it locally',
-    instructions:
-      '<p>Open <code>index.html</code> in a browser. Confirm the stylesheet loads and the button changes the message.</p>',
-    hints: ['Fix local CSS or JavaScript problems before publishing.'],
-  },
-  {
-    title: 'Publish using one beginner-friendly method',
-    instructions:
-      '<p>Use traditional hosting, a manual static upload, GitHub Pages, or a Git-connected host. Follow the provider instructions and upload or publish the folder that contains <code>index.html</code>.</p>',
-    hints: ['Check provider documentation for current limits, plan rules and upload steps.'],
-  },
-  {
-    title: 'Test the live URL',
-    instructions:
-      '<p>Open the published URL in a normal browser and a private browser window. Check the text, layout, button, CSS and console.</p>',
-    hints: ['Testing the live URL is deployment evidence.'],
-  },
-];
-
-const viteGuidedPracticeSteps = [
-  {
-    title: 'Run the development version',
-    instructions:
-      '<p>Start with the project command, commonly <code>npm run dev</code>, and confirm the site works locally.</p>',
-  },
-  {
-    title: 'Create the production build',
-    instructions:
-      '<p>Run <code>npm run build</code>. For this repository, Vite outputs the production site to <code>dist/</code>.</p>',
-  },
-  {
-    title: 'Inspect or preview the output',
-    instructions:
-      '<p>Open the generated output folder or run the project preview command if available. You are checking the built site, not just the source files.</p>',
-  },
-  {
-    title: 'Deploy through the supported workflow',
-    instructions:
-      '<p>For this GraphitEdge project on Vercel, the deployable workflow uses the build command and output directory configured for the project. On other hosts, check the host settings before assuming the same values.</p>',
-  },
-  {
-    title: 'Read the build log and test live',
-    instructions:
-      '<p>If the build fails, read the host build log from the first error upward. After a successful deploy, test the live site in normal and private browser windows.</p>',
-  },
-];
-
-const troubleshootingProblems = [
-  {
-    title: 'Homepage not loading',
-    cause:
-      'index.html is missing, one folder too deep, or the host is looking at the wrong public folder.',
-    fix:
-      'Move index.html to the expected root, check the publish directory, redeploy and refresh the live URL.',
-  },
-  {
-    title: 'Missing CSS',
-    cause:
-      'The stylesheet path is wrong, the CSS file was not uploaded, or filename capitalisation does not match.',
-    fix:
-      'Check the link href, match file names exactly, upload the CSS file, then test the live page again.',
-  },
-  {
-    title: 'Broken images',
-    cause:
-      'Images were not uploaded, paths point to a local computer, or folder/file names changed.',
-    fix:
-      'Use relative paths, keep images inside the project, use simple lowercase filenames, and redeploy missing assets.',
-  },
-  {
-    title: 'Works locally but not online',
-    cause:
-      'Local file paths, case-sensitive filename issues, wrong folder upload, or Vite source files deployed instead of build output.',
-    fix:
-      'Check paths and filenames, verify the public folder, run the build for Vite, and deploy the correct output folder.',
-  },
-  {
-    title: 'Updates not appearing',
-    cause:
-      'Browser cache, deployment still processing, wrong site updated, or Git changes not pushed.',
-    fix:
-      'Hard refresh, test in a private browser, check the deployment dashboard, and confirm the correct repository or folder.',
-  },
-  {
-    title: 'Incorrect Vite output',
-    cause:
-      'The host is publishing the source folder instead of the generated output folder.',
-    fix:
-      'Use the project build command and output directory. For this repository, that is commonly npm run build and dist.',
-  },
-  {
-    title: 'Build failures',
-    cause:
-      'Dependency, Node version, environment variable, lint, syntax, or import errors stopped the production build.',
-    fix:
-      'Read the first meaningful build error, check the required Node version, install dependencies, then rebuild locally.',
-  },
-  {
-    title: 'Case-sensitive paths',
-    cause:
-      'The local computer tolerated a filename mismatch that the host treats as different files.',
-    fix:
-      'Make filenames and references match exactly. Lowercase kebab-case names prevent many avoidable mistakes.',
-  },
-  {
-    title: 'Browser caching',
-    cause:
-      'The browser is showing a saved older copy of CSS, JavaScript or HTML.',
-    fix:
-      'Hard refresh, test in a private window, and check the host deployment timestamp before changing code.',
-  },
-];
+Do not write passwords in this checklist.`;
 
 function copyChecklist() {
   navigator.clipboard
     .writeText(checklistMarkdown)
     .then(() => {
-      copyStatus.value = 'Checklist copied';
+      copyStatus.value = 'Markdown checklist copied';
       window.setTimeout(() => {
-        copyStatus.value = 'Copy checklist';
+        copyStatus.value = 'Copy Markdown checklist';
       }, 2400);
     })
     .catch(() => {
@@ -438,39 +610,70 @@ function printChecklist() {
       <h1 class="title is-1">{{ currentLesson.title }}</h1>
       <p class="subtitle is-5">{{ currentLesson.description }}</p>
 
-      <nav class="module-sequence" aria-label="Getting a Website Online lesson sequence">
-        <router-link
-          v-for="lesson in lessonSequence"
-          :key="lesson.id"
-          :to="lesson.path"
-          class="module-sequence__item"
-          :class="{ 'is-current': lesson.id === currentLesson.id }"
-          :aria-current="lesson.id === currentLesson.id ? 'page' : undefined"
-        >
-          <span>{{ lesson.orderLabel }}</span>
-          <strong>{{ lesson.shortTitle }}</strong>
-        </router-link>
-      </nav>
-
       <template v-if="currentLesson.id === 'overview'">
         <AnticipatorySet
-          title="Deployment Is a Workflow"
+          title="Deployment Is a Publishing System"
           icon="fas fa-rocket"
-          hook="<p>A website is not truly finished when it works on your computer. Deployment is the workflow that puts it somewhere other people can reach, then proves it works from the live URL.</p><p>This module breaks that workflow into smaller lessons so each decision has a place: hosting, files, builds, domains, testing and improvement.</p>"
+          hook="<p>A website is not truly finished when it works on your computer. Deployment is the publishing system that prepares the files, puts them on a host, connects the address, tests the live result and makes future updates safer.</p><p>The button you press matters less than understanding which part of the system that button changes.</p>"
           :reflection-prompts="[
-            'Which part of deployment feels clearest right now?',
-            'Which part feels like button pressing without enough system understanding yet?',
-            'What evidence would convince you a site is ready to share?'
+            'Where are the website files?',
+            'How will future updates reach the live website?',
+            'What evidence would prove the site works for someone else?'
           ]"
-          connection="After the general lessons, apply the process in Black Swan Bistro Part 5 rather than trying to learn the system and prepare the project at the same time."
+          connection="After this general module, Black Swan Bistro Part 5 gives you a project-specific application of the same workflow."
         />
 
-        <section id="sequence">
-          <h2 class="title is-3">The Six-Lesson Sequence</h2>
+        <section id="publishing-system">
+          <h2 class="title is-3">The Publishing Flow</h2>
+          <pre><code>Local project
+  -> Production-ready files
+  -> Hosting server
+  -> DNS
+  -> Domain name
+  -> Visitor's browser</code></pre>
           <p>
-            Work through the lessons in order. Earlier lessons explain the system;
-            later lessons apply it to real deployment work.
+            Each step answers a different question. Your editor creates the files.
+            The build or preparation step makes them ready for visitors. Hosting
+            stores and serves them. DNS points a readable domain to the right
+            service. The browser requests the files and reveals whether the system
+            actually works.
           </p>
+        </section>
+
+        <section id="five-questions">
+          <h2 class="title is-3">Five Deployment Questions</h2>
+          <ol>
+            <li>Where are the website files?</li>
+            <li>How do the files reach the server?</li>
+            <li>How does the domain point to the hosting service?</li>
+            <li>How does the browser find and request the files?</li>
+            <li>How are future updates published safely?</li>
+          </ol>
+        </section>
+
+        <section id="outcomes">
+          <h2 class="title is-3">Learning Outcomes and Prerequisites</h2>
+          <p>
+            Allow about <strong>160-210 minutes</strong> for the full module. You
+            should already be comfortable editing HTML and CSS, testing a page in
+            a browser, and using basic Git if you choose a Git-connected path.
+          </p>
+          <ul>
+            <li v-for="outcome in learningOutcomes" :key="outcome">{{ outcome }}</li>
+          </ul>
+          <p>
+            Helpful prerequisites:
+            <router-link to="/tutorials/intermediate/git-basics">Git Basics</router-link>,
+            <router-link to="/tutorials/intermediate/working-with-vite">Working with Vite</router-link>,
+            and
+            <router-link to="/tutorials/intermediate/test-and-validate-your-site">
+              Test and Validate Your Site
+            </router-link>.
+          </p>
+        </section>
+
+        <section id="sequence">
+          <h2 class="title is-3">The Ten-Lesson Sequence</h2>
           <div class="lesson-grid">
             <router-link
               v-for="lesson in lessons"
@@ -486,475 +689,510 @@ function printChecklist() {
           </div>
         </section>
 
-        <section id="prerequisites">
-          <h2 class="title is-3">Prerequisites</h2>
-          <p>
-            You should be comfortable editing HTML and CSS files, opening a project
-            in a browser, checking basic links and images, and using simple Git
-            workflows if you choose a Git-connected host.
-          </p>
-          <ul>
-            <li><router-link to="/tutorials/intermediate/git-basics">Git Basics</router-link></li>
-            <li><router-link to="/tutorials/intermediate/working-with-vite">Working with Vite</router-link></li>
-            <li><router-link to="/tutorials/intermediate/test-and-validate-your-site">Test and Validate Your Site</router-link></li>
-          </ul>
-        </section>
-
-        <section id="static-vs-vite">
-          <h2 class="title is-3">Plain Static Deployment Versus Vite Deployment</h2>
-          <p>
-            A plain HTML, CSS and JavaScript site can usually be published from the
-            folder that contains <code>index.html</code>. A Vite project has a
-            development server and source files, so it usually needs a production
-            build first. The deployable output is commonly the generated
-            <code>dist</code> folder.
-          </p>
-          <figure class="tutorial-figure tutorial-figure--wide">
-            <img
-              src="/assets/images/tutorials/diagrams/tutorial-deployment-plain-vite-files.svg"
-              alt="Comparison of plain HTML deployment using the folder with index.html and Vite deployment using a generated dist folder after a build step."
-              width="960"
-              height="540"
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption>
-              Plain static sites and Vite sites can both become static deployments,
-              but Vite adds a build step before publishing.
-            </figcaption>
-          </figure>
-        </section>
-
         <section id="resources">
-          <h2 class="title is-3">Resources and Project Application</h2>
-          <p>
-            The final lesson includes a copyable, downloadable and printable
-            deployment checklist. Keep it nearby while you apply the process to
-            <router-link to="/tutorials/advanced/black-swan-bistro-part-5">
-              Black Swan Bistro Part 5: Prepare for Deployment
-            </router-link>.
-          </p>
+          <h2 class="title is-3">Checklist and Project Application</h2>
+          <div class="box checklist-download-box">
+            <div>
+              <h3 class="title is-5">Download the GraphiteEdge Deployment Checklist</h3>
+              <p>
+                A practical pre-launch, deployment and post-launch checklist for
+                static and Vite websites. The final lesson also keeps a lightweight
+                printable Markdown checklist for in-lesson use.
+              </p>
+            </div>
+            <a
+              class="button is-primary"
+              :href="pdfChecklistPath"
+              download
+              aria-label="Download the GraphiteEdge Deployment Checklist PDF"
+            >
+              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span>Download PDF</span>
+            </a>
+          </div>
           <div class="buttons">
             <router-link
               class="button is-primary"
-              to="/tutorials/deployments/understanding-hosting-and-deployment"
+              to="/tutorials/deployments/deployment-is-publishing-not-just-uploading"
             >
               Start the tutorial
             </router-link>
-            <router-link
-              class="button is-light"
-              to="/tutorials/deployments/testing-troubleshooting-and-continuous-improvement#deployment-checklist"
-            >
-              Open the deployment checklist
+            <router-link class="button is-light" to="/tutorials/advanced/black-swan-bistro-part-5">
+              Apply it to Black Swan Bistro Part 5
             </router-link>
           </div>
         </section>
       </template>
 
-      <template v-else-if="currentLesson.id === 'understanding-hosting-and-deployment'">
-        <AnticipatorySet
-          title="Leaving Your Laptop"
-          icon="fas fa-upload"
-          hook="<p>Local files are useful while you build. A live website has to work from a server for someone else, in their browser, on their device.</p><p>That move from local project to reachable website is deployment.</p>"
-          :reflection-prompts="[
-            'Have you seen a file or image work locally but fail elsewhere?',
-            'What would you check before sending a live URL to another person?'
-          ]"
-          connection="This lesson gives the vocabulary and file checks you need before choosing a hosting path."
-        />
+      <template v-else-if="currentLesson.id === 'deployment-is-publishing-not-just-uploading'">
         <LearningObjectives
           :objectives="[
-            { verb: 'Explain', text: 'what deployment means' },
-            { verb: 'Describe', text: 'the difference between a local site and a live site' },
-            { verb: 'Identify', text: 'the roles of the browser, server and web host' },
-            { verb: 'Recognise', text: 'why local success does not prove live success' },
-            { verb: 'Spot', text: 'basic deployment risks in paths, filenames and folders' }
+            { verb: 'Explain', text: 'deployment as publishing rather than uploading' },
+            { verb: 'Describe', text: 'local development versus a live website' },
+            { verb: 'Identify', text: 'browser, hosting, DNS and domain roles' },
+            { verb: 'Compare', text: 'source files and production-ready files' },
+            { verb: 'Inspect', text: 'paths, filenames, index.html and console errors before deployment' }
           ]"
-          purpose="Deployment makes the website part of the web, not just a project folder on one computer."
+          purpose="A live site has to work from a server for someone else, not just from your own project folder."
           :prerequisites="[
             { topic: 'Files, Folders and Project Structure', link: '/tutorials/getting-started/files-folders-project-structure' },
             { topic: 'Test and Validate Your Site', link: '/tutorials/intermediate/test-and-validate-your-site' }
           ]"
         />
 
-        <h2 id="what-deployment-means" class="title is-3">What Deployment Means</h2>
+        <h2 id="local-live" class="title is-3">Local Development Versus a Live Website</h2>
         <p>
-          Deployment means publishing a website so it can be viewed online. For a
-          basic static website, the browser needs access to HTML, CSS, JavaScript,
-          images, fonts and other assets from a server or hosting platform.
+          Local development is where you build and test on your own computer. A
+          live website is stored on a hosting service and requested by visitors'
+          browsers over the web. It works on my laptop is a starting point, not
+          deployment evidence.
         </p>
-        <p>
-          Your local project folder is where you build. The host is where visitors'
-          browsers request the finished files. If those files are missing, nested
-          too deeply or referenced with fragile paths, the live site will say so.
-        </p>
-        <figure class="tutorial-figure tutorial-figure--wide">
-          <img
-            src="/assets/images/tutorials/diagrams/tutorial-deployment-workflow.svg"
-            alt="Diagram showing local website files moving through hosting or build steps to a live URL, followed by testing and improvement."
-            width="960"
-            height="540"
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption>
-            Deployment is a workflow: prepare the files, publish them to a host,
-            test the live URL, then improve the site from evidence.
-          </figcaption>
-        </figure>
 
-        <h2 id="key-terms" class="title is-3">Key Terms</h2>
+        <h2 id="system-roles" class="title is-3">The Roles in the System</h2>
         <div class="table-container">
           <table class="table is-bordered is-striped is-fullwidth">
-            <thead>
-              <tr><th>Term</th><th>Meaning</th></tr>
-            </thead>
+            <thead><tr><th>Part</th><th>What it does</th></tr></thead>
             <tbody>
-              <tr><td>Local site</td><td>The version stored on your own computer.</td></tr>
-              <tr><td>Live site</td><td>The version available online.</td></tr>
-              <tr><td>Browser</td><td>The app that requests, downloads and displays website files.</td></tr>
-              <tr><td>Server</td><td>A computer that sends website files to visitors.</td></tr>
-              <tr><td>Web host</td><td>A service that stores and serves website files.</td></tr>
-              <tr><td>Deployment</td><td>The act of publishing or updating the live site.</td></tr>
+              <tr><td>Browser</td><td>Requests files, runs JavaScript and displays the page.</td></tr>
+              <tr><td>Hosting server</td><td>Stores and serves website files.</td></tr>
+              <tr><td>DNS</td><td>Points names to the right hosting location.</td></tr>
+              <tr><td>Domain</td><td>The readable address people use.</td></tr>
+              <tr><td>Production-ready files</td><td>The files that should be served to visitors, such as static files or a Vite <code>dist</code> build.</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h2 id="local-vs-live" class="title is-3">Local Files Versus Live Websites</h2>
+        <h2 id="paths-files" class="title is-3">Paths, Filenames and <code>index.html</code></h2>
         <p>
-          Opening <code>index.html</code> from your computer is useful early
-          testing. It is not deployment. Local testing can hide paths that only
-          work on your computer, missing files hidden by cache, case-sensitive
-          filename problems and incorrect folder structure.
+          Absolute local paths fail online because visitors cannot access your
+          computer. This path only works on one student's machine:
+        </p>
+        <pre><code class="language-html">&lt;img src="/Users/student/Desktop/project/images/logo.png" alt="Company logo"&gt;</code></pre>
+        <p>Use a project-relative path instead:</p>
+        <pre><code class="language-html">&lt;img src="./images/logo.png" alt="Company logo"&gt;</code></pre>
+        <p>
+          Case-sensitive servers also care about exact filenames. If the file is
+          <code>Logo.PNG</code> but the HTML asks for <code>logo.png</code>, the
+          live site may fail even if your local computer was forgiving.
         </p>
         <p>
-          It works on my laptop is encouraging. It is not deployment evidence.
+          Most static hosts look for <code>index.html</code> first. The server
+          should not need a treasure map to find it.
         </p>
-        <CheckpointBox
-          id="checkpoint"
-          title="Checkpoint: Is This Ready to Leave Your Laptop?"
-          description="Before you deploy, can you explain these?"
-          :questions="hostingReadinessQuestions"
-        />
 
-        <h2 id="inspection-exercise" class="title is-3">File-and-Folder Inspection Exercise</h2>
-        <p>Open an existing project and check:</p>
+        <h2 id="inspection-exercise" class="title is-3">Learner Activity: Inspect a Project</h2>
         <ul class="checklist-list">
-          <li><i class="fas fa-square"></i> <code>index.html</code> exists where the host will expect it.</li>
-          <li><i class="fas fa-square"></i> CSS, JavaScript and image paths are relative.</li>
-          <li><i class="fas fa-square"></i> Filenames are lowercase and match the references exactly.</li>
-          <li><i class="fas fa-square"></i> No files are referenced from your local computer.</li>
-          <li><i class="fas fa-square"></i> Required assets are inside the project folder.</li>
-          <li><i class="fas fa-square"></i> The browser console has no obvious errors.</li>
+          <li><i class="fas fa-square"></i> Confirm <code>index.html</code> exists.</li>
+          <li><i class="fas fa-square"></i> Confirm files use relative paths.</li>
+          <li><i class="fas fa-square"></i> Confirm filenames are consistently lowercase.</li>
+          <li><i class="fas fa-square"></i> Confirm images and stylesheets load.</li>
+          <li><i class="fas fa-square"></i> Confirm no files are referenced from outside the project folder.</li>
+          <li><i class="fas fa-square"></i> Confirm the browser console has no obvious errors.</li>
         </ul>
+      </template>
+
+      <template v-else-if="currentLesson.id === 'understanding-hosting'">
+        <LearningObjectives
+          :objectives="[
+            { verb: 'Compare', text: 'major hosting models in plain English' },
+            { verb: 'Explain', text: 'why provider terminology can be inconsistent' },
+            { verb: 'Identify', text: 'which hosting types are realistic for beginner student projects' },
+            { verb: 'Avoid', text: 'unnecessary VPS or dedicated server complexity' }
+          ]"
+          purpose="Hosting is where the website lives, but different providers use similar words for very different services."
+          :prerequisites="[{ topic: 'Deployment Is Publishing, Not Just Uploading', link: '/tutorials/deployments/deployment-is-publishing-not-just-uploading' }]"
+        />
+        <h2 id="hosting-models" class="title is-3">Hosting Models in Plain English</h2>
+        <p>
+          Hosting terminology is messy. One provider may call something cloud
+          hosting, another may call a similar product managed hosting, and a third
+          may bundle several services together. Focus on what the host actually
+          does: stores files, runs code, manages servers, provides databases,
+          handles builds or connects domains.
+        </p>
+
+        <h2 id="hosting-comparison" class="title is-3">Hosting Comparison</h2>
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th>Hosting type</th>
+                <th>Good for</th>
+                <th>Technical effort</th>
+                <th>Typical student use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="model in hostingModels" :key="model.type">
+                <td>{{ model.type }}</td>
+                <td>{{ model.goodFor }}</td>
+                <td>{{ model.effort }}</td>
+                <td>{{ model.studentUse }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="student-fit" class="title is-3">What Beginners Usually Need</h2>
+        <p>
+          For most beginner work, static hosting and shared hosting are enough.
+          A VPS or dedicated server teaches server administration, not just
+          deployment. That can be valuable later, but it is usually unnecessary
+          for a first portfolio, class exercise or static business website.
+        </p>
       </template>
 
       <template v-else-if="currentLesson.id === 'choosing-a-hosting-path'">
         <LearningObjectives
           :objectives="[
-            { verb: 'Compare', text: 'traditional hosting, manual static hosting and Git-based deployment' },
-            { verb: 'Recognise', text: 'static and dynamic hosting needs' },
-            { verb: 'Choose', text: 'an appropriate deployment method for a student project' },
-            { verb: 'Explain', text: 'why free hosting may not suit every production website' },
-            { verb: 'Identify', text: 'when support, ownership and business reliability matter' }
+            { verb: 'Compare', text: 'traditional shared hosting, manual static hosting and Git-connected hosting' },
+            { verb: 'Match', text: 'hosting paths to realistic project scenarios' },
+            { verb: 'Explain', text: 'how update workflows differ' },
+            { verb: 'Check', text: 'provider terms without treating changing prices as permanent facts' }
           ]"
-          purpose="A good hosting choice fits the project, the learner, the maintenance workflow and the level of responsibility."
-          :prerequisites="[{ topic: 'Understanding Hosting and Deployment', link: '/tutorials/deployments/understanding-hosting-and-deployment' }]"
+          purpose="A sensible hosting choice fits the project, the update workflow, support needs and account ownership."
+          :prerequisites="[{ topic: 'Understanding Hosting', link: '/tutorials/deployments/understanding-hosting' }]"
         />
-        <h2 id="hosting-paths" class="title is-3">The Three Main Hosting Paths</h2>
+        <h2 id="three-paths" class="title is-3">Three Beginner Deployment Paths</h2>
         <div class="columns hosting-options">
           <div class="column">
             <div class="box">
-              <h3 class="title is-5">Traditional web hosting</h3>
-              <p>Usually provides a dashboard, file manager and public folder such as <code>public_html</code>, <code>htdocs</code> or <code>www</code>.</p>
-              <p><strong>Best for:</strong> learning where files live on a host and understanding many small business hosting accounts.</p>
-              <p><strong>Watch for:</strong> manual updates, overwrites, limited backups and unclear ownership.</p>
+              <h3 class="title is-5">Path 1: Traditional shared hosting</h3>
+              <p>Good for plain HTML/CSS/JS, small business sites, traditional hosting practice, and projects that may need email, databases or PHP later.</p>
             </div>
           </div>
           <div class="column">
             <div class="box">
-              <h3 class="title is-5">Manual static hosting</h3>
-              <p>Lets you upload a finished folder to a static host. It is useful for quick demos and tiny projects.</p>
-              <p><strong>Best for:</strong> prototypes, class exercises and first static deployments.</p>
-              <p><strong>Watch for:</strong> repeating the exact upload workflow when changes are needed.</p>
+              <h3 class="title is-5">Path 2: Manual static hosting</h3>
+              <p>Good for small static exercises, drag-and-drop deployment, quick demonstrations and simple portfolio experiments.</p>
             </div>
           </div>
           <div class="column">
             <div class="box">
-              <h3 class="title is-5">Git-based deployment</h3>
-              <p>Connects a repository to a host so pushes can trigger new deployments and build logs.</p>
-              <p><strong>Best for:</strong> ongoing projects, Vite sites, portfolios and teams.</p>
-              <p><strong>Watch for:</strong> build settings, repository permissions and logs that need careful reading.</p>
+              <h3 class="title is-5">Path 3: Git-connected hosting</h3>
+              <p>Good for Vite projects, ongoing portfolio sites, automated deployment and students learning version control.</p>
             </div>
           </div>
         </div>
 
-        <h2 id="student-options" class="title is-3">Student Hosting Options</h2>
+        <h2 id="workflow-comparison" class="title is-3">How Updates Reach the Live Site</h2>
+        <pre><code>Edit -> Zip -> Upload
+Edit -> Save -> Upload changed files with SFTP
+Edit -> Commit -> Push -> Automatic deployment</code></pre>
         <p>
-          Services, prices, quotas and signup flows change. Treat provider names
-          as examples, then check current documentation before relying on plan
-          limits or terms.
-        </p>
-        <div class="table-container">
-          <table class="table is-bordered is-striped is-fullwidth">
-            <thead>
-              <tr><th>Path</th><th>Good fit</th><th>Main caution</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Traditional hosting</td><td>Manual folder practice</td><td>Updates and backups need discipline</td></tr>
-              <tr><td>Manual static hosting</td><td>Fast static demos</td><td>Manual redeploys can become confusing</td></tr>
-              <tr><td>GitHub Pages</td><td>Simple static sites and portfolios</td><td>Requires repository confidence</td></tr>
-              <tr><td>Netlify or Vercel with Git</td><td>Ongoing Vite projects</td><td>Build settings and plan terms matter</td></tr>
-              <tr><td>Paid managed hosting</td><td>Business and client sites</td><td>Costs, support, renewals and ownership must be clear</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2 id="static-vs-dynamic" class="title is-3">Static Versus Dynamic Deployment</h2>
-        <p>
-          A static site can be served as finished files. A dynamic site needs
-          server-side processing, a database, authentication, checkout or editing
-          features. Do not choose dynamic hosting because the word sounds more
-          professional; choose it because the project needs dynamic behaviour.
+          The first workflow is simple but easy to lose track of. The second is
+          more controlled if you know which changed files matter. The third is
+          repeatable and traceable, but only once Git basics make sense.
         </p>
 
         <IndependentPractice
           id="decision-exercise"
           title="Hosting Decision Exercise"
           icon="fas fa-route"
-          task="<p>Choose a hosting path for each scenario and write one sentence explaining your reasoning.</p>"
+          task="<p>Choose a hosting path for each scenario and explain why.</p>"
           :requirements="[
-            'A tiny HTML classroom exercise',
-            'An ongoing Vite portfolio project',
-            'A small business website requiring reliability and clear ownership'
+            'Scenario A: a small HTML and CSS classroom exercise',
+            'Scenario B: a Vite portfolio project that will be updated regularly',
+            'Scenario C: a small business website requiring reliable support, email and clear account ownership'
           ]"
           :stretch-goals="[
-            'Name one risk for each hosting choice',
-            'Identify what documentation you would check before signing up'
+            'Name one risk for each path',
+            'List which provider details must be checked before purchase or signup'
           ]"
         />
       </template>
 
-      <template v-else-if="currentLesson.id === 'deploying-a-static-html-css-javascript-site'">
+      <template v-else-if="currentLesson.id === 'traditional-shared-hosting-control-panels'">
         <LearningObjectives
           :objectives="[
-            { verb: 'Prepare', text: 'a simple static project for deployment' },
-            { verb: 'Identify', text: 'the folder that must contain index.html' },
-            { verb: 'Publish', text: 'the correct files' },
-            { verb: 'Test', text: 'the live website rather than relying on local testing' },
-            { verb: 'Record', text: 'the deployment method and live URL' }
+            { verb: 'Explain', text: 'what shared hosting is' },
+            { verb: 'Identify', text: 'common control panel tools' },
+            { verb: 'Recognise', text: 'public web root folder names' },
+            { verb: 'Compare', text: 'provider guidance without relying on fragile pricing claims' },
+            { verb: 'Record', text: 'account ownership and support responsibilities' }
           ]"
-          purpose="A tiny static deployment teaches the publishing workflow without hiding problems inside a large project."
+          purpose="Traditional hosting is still common for small websites, so students should understand the account, not only the upload button."
           :prerequisites="[{ topic: 'Choosing a Hosting Path', link: '/tutorials/deployments/choosing-a-hosting-path' }]"
         />
-        <h2 id="project-shape" class="title is-3">Plain HTML, CSS and JavaScript Deployment</h2>
-        <pre><code>deployment-test/
-├── index.html
-├── styles.css
-└── script.js</code></pre>
+        <h2 id="shared-hosting" class="title is-3">What Shared Hosting Includes</h2>
+        <p>
+          Shared hosting means many customer sites live on managed hosting
+          infrastructure. A hosting account may include storage, bandwidth,
+          domains, email, databases, backups, SSL, logs and support. The host
+          manages the server environment; you still manage your files, renewals,
+          credentials, content and backups.
+        </p>
+        <p>
+          For client or business sites, account ownership matters. The business
+          should know who owns the account, who pays renewal invoices, where
+          support is requested and where backups live.
+        </p>
 
-        <h2 id="folder-nesting" class="title is-3">Correct and Incorrect Folder Nesting</h2>
-        <p>The server should not have to go on a treasure hunt for <code>index.html</code>.</p>
+        <h2 id="control-panels" class="title is-3">Control Panels You May See</h2>
+        <p>
+          cPanel, DirectAdmin, Plesk and proprietary dashboards look different,
+          but often provide equivalent functions.
+        </p>
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead><tr><th>Tool</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr v-for="tool in controlPanelTools" :key="tool[0]">
+                <td>{{ tool[0] }}</td>
+                <td>{{ tool[1] }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="public-web-root" class="title is-3">The Public Web Root</h2>
+        <pre><code>public_html/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+└── images/
+    └── logo.svg</code></pre>
+        <p>
+          The public folder may be named <code>public_html</code>,
+          <code>htdocs</code>, <code>www</code>, <code>httpdocs</code> or
+          something provider-specific. Confirm the correct folder in your host's
+          documentation.
+        </p>
+
+        <h2 id="provider-guidance" class="title is-3">Provider Guidance for Students</h2>
+        <p>
+          This section is educational, not promotional. Hosting prices, free
+          plans, renewal rates and feature limits change frequently. Check each
+          provider's current official website before signing up, distinguish
+          introductory pricing from renewal pricing, and check currency, GST and
+          cancellation terms where relevant.
+        </p>
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead><tr><th>Provider</th><th>Positioning</th><th>Compare carefully</th></tr></thead>
+            <tbody>
+              <tr v-for="provider in providerGuidance" :key="provider.provider">
+                <td>
+                  <a :href="provider.url" target="_blank" rel="noopener noreferrer">
+                    {{ provider.provider }}
+                  </a>
+                </td>
+                <td>{{ provider.position }}</td>
+                <td>{{ provider.notes }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="title is-4">Free Traditional Hosting</h3>
+        <p>
+          Free shared hosting can be useful for experimentation, but it should not
+          be recommended for real client or business sites. If you mention
+          providers such as InfinityFree, AwardSpace or FreeHosting.com, verify
+          their current terms first.
+        </p>
+        <ul>
+          <li v-for="limitation in freeHostingLimitations" :key="limitation">{{ limitation }}</li>
+        </ul>
+        <h3 class="title is-4">Preferred Free Modern Hosting for Static Projects</h3>
+        <p>
+          GitHub Pages, Netlify, Vercel and Cloudflare Pages are not traditional
+          shared hosting services. They are generally better suited to static
+          sites and frontend projects than free shared hosting, especially when a
+          project is already in Git.
+        </p>
+        <ul>
+          <li v-for="host in modernStaticHostingLinks" :key="host[0]">
+            <a :href="host[1]" target="_blank" rel="noopener noreferrer">
+              {{ host[0] }}
+            </a>
+          </li>
+        </ul>
+      </template>
+
+      <template v-else-if="currentLesson.id === 'uploading-html-css-javascript-website'">
+        <LearningObjectives
+          :objectives="[
+            { verb: 'Upload', text: 'a plain static website using File Manager or SFTP' },
+            { verb: 'Verify', text: 'that index.html is directly inside the web root' },
+            { verb: 'Explain', text: 'why uploading a ZIP is not automatically publishing' },
+            { verb: 'Protect', text: 'hosting credentials and live files' }
+          ]"
+          purpose="Manual deployment teaches exactly where files go and why folder nesting can break a homepage."
+          :prerequisites="[{ topic: 'Traditional Shared Hosting and Control Panels', link: '/tutorials/deployments/traditional-shared-hosting-control-panels' }]"
+        />
+        <h2 id="file-manager" class="title is-3">File Manager Workflow</h2>
+        <GuidedPractice
+          title="Upload a Plain Static Site"
+          icon="fas fa-upload"
+          :steps="staticGuidedPracticeSteps"
+          :success-criteria="[
+            'The correct public web root is identified',
+            'index.html is directly inside the public folder',
+            'CSS, JavaScript and images are uploaded',
+            'The live URL works in a normal and private browser window'
+          ]"
+        />
         <div class="columns">
           <div class="column">
             <div class="box">
-              <h3 class="title is-6">Usually wrong for the main address</h3>
-              <pre><code>htdocs/
-└── deployment-test/
+              <h3 class="title is-6">Common mistake</h3>
+              <pre><code>public_html/
+└── my-project/
     └── index.html</code></pre>
             </div>
           </div>
           <div class="column">
             <div class="box">
-              <h3 class="title is-6">Usually better</h3>
-              <pre><code>htdocs/
+              <h3 class="title is-6">Usually correct</h3>
+              <pre><code>public_html/
 ├── index.html
-├── styles.css
-└── script.js</code></pre>
+├── css/
+├── js/
+└── images/</code></pre>
             </div>
           </div>
         </div>
 
-        <GuidedPractice
-          id="guided-practice"
-          title="Deploy a Tiny Test Site"
-          icon="fas fa-upload"
-          :steps="staticGuidedPracticeSteps"
-          :success-criteria="[
-            'The live URL opens from a browser',
-            'The homepage loads from index.html',
-            'The stylesheet loads on the live site',
-            'The JavaScript button works on the live site',
-            'The deployment method, live URL and test result are recorded'
-          ]"
-        />
-
-        <h3 class="title is-4">Create <code>index.html</code></h3>
-        <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;Deployment Test&lt;/title&gt;
-  &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;main&gt;
-    &lt;h1&gt;My first deployed test site&lt;/h1&gt;
-    &lt;p&gt;If you can read this online, deployment worked.&lt;/p&gt;
-    &lt;button id="messageButton"&gt;Test JavaScript&lt;/button&gt;
-    &lt;p id="message"&gt;&lt;/p&gt;
-  &lt;/main&gt;
-  &lt;script src="script.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-        <h3 class="title is-4">Create <code>styles.css</code></h3>
-        <pre><code class="language-css">body {
-  font-family: system-ui, sans-serif;
-  margin: 0;
-  padding: 2rem;
-  background: #f7f3ed;
-  color: #222;
-}
-
-main {
-  max-width: 42rem;
-  margin: 0 auto;
-}
-
-button {
-  padding: 0.75rem 1rem;
-  border: 0;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}</code></pre>
-
-        <h3 class="title is-4">Create <code>script.js</code></h3>
-        <pre><code class="language-js">const button = document.querySelector('#messageButton');
-const message = document.querySelector('#message');
-
-button.addEventListener('click', () =&gt; {
-  message.textContent = 'JavaScript is working on the live site.';
-});</code></pre>
-
-        <h2 id="live-testing" class="title is-3">Record the Result</h2>
+        <h2 id="zip-files" class="title is-3">Uploading a ZIP Is Not Publishing</h2>
         <p>
-          Write down the hosting service, deployment method, live URL, folder
-          uploaded, date deployed and anything you had to fix. A live URL without
-          notes is a fragile memory.
+          Uploading <code>mywebsite.zip</code> only places an archive on the
+          server. The archive usually needs to be extracted, and the extracted
+          files need to be placed in the correct public directory. Uploading the
+          ZIP is not the same as publishing what is inside it.
         </p>
+
+        <h2 id="ftp-sftp" class="title is-3">FTP, FTPS and SFTP</h2>
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead><tr><th>Protocol</th><th>Plain-English meaning</th><th>Use</th></tr></thead>
+            <tbody>
+              <tr><td>FTP</td><td>Older file transfer protocol.</td><td>Avoid when secure alternatives are available.</td></tr>
+              <tr><td>FTPS</td><td>FTP protected with TLS.</td><td>Acceptable when supported and configured correctly.</td></tr>
+              <tr><td>SFTP</td><td>File transfer over SSH.</td><td>Prefer where supported.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          You may need a hostname, username, password, port and remote directory.
+          Suitable clients include FileZilla, Cyberduck, WinSCP and Transmit
+          as an optional paid macOS tool. Do not buy software just to complete
+          this lesson.
+        </p>
+        <pre><code>Local computer files | Remote hosting files</code></pre>
+        <div class="notification is-warning is-light">
+          <p>
+            Do not share hosting passwords, commit credentials to Git or keep
+            unused accounts open. Use separate accounts where available and store
+            credentials securely.
+          </p>
+        </div>
       </template>
 
       <template v-else-if="currentLesson.id === 'building-and-deploying-a-vite-site'">
         <LearningObjectives
           :objectives="[
-            { verb: 'Explain', text: 'why a Vite project requires a production build' },
-            { verb: 'Distinguish', text: 'source files from production output' },
-            { verb: 'Run', text: 'and inspect a Vite build' },
-            { verb: 'Identify', text: 'the correct output directory' },
-            { verb: 'Configure', text: 'common build and publish settings' },
-            { verb: 'Recognise', text: 'routing, base path and wrong output folder failures' }
+            { verb: 'Explain', text: 'Vite source files versus production output' },
+            { verb: 'Run', text: 'npm run dev and npm run build for the right purpose' },
+            { verb: 'Identify', text: 'dist, build commands and publish directories' },
+            { verb: 'Read', text: 'build logs and spot common Vite deployment mistakes' }
           ]"
-          purpose="Vite makes development fast, but deployment should use the production output rather than the development workshop."
-          :prerequisites="[{ topic: 'Deploying a Static HTML, CSS and JavaScript Site', link: '/tutorials/deployments/deploying-a-static-html-css-javascript-site' }]"
+          purpose="Vite makes development fast, but deployment should serve production output rather than the development workshop."
+          :prerequisites="[{ topic: 'Uploading a Plain HTML, CSS and JavaScript Website', link: '/tutorials/deployments/uploading-html-css-javascript-website' }]"
         />
-        <h2 id="vite-builds" class="title is-3">Development Server Versus Production Build</h2>
-        <p>During development, many Vite projects use:</p>
-        <pre><code class="language-bash">npm run dev</code></pre>
-        <p>Before deployment, they usually need:</p>
-        <pre><code class="language-bash">npm run build</code></pre>
+        <h2 id="vite-flow" class="title is-3">The Vite Deployment Flow</h2>
+        <pre><code>src/
+  -> npm run build
+  -> dist/
+  -> Hosting platform</code></pre>
         <p>
-          The build creates a production-ready output folder. In this repository,
-          Vite builds to <code>dist/</code>. That folder is the packed version
-          visitors should receive.
+          <code>npm run dev</code> starts a development server. It is for local
+          work. <code>npm run build</code> creates production-ready files. In
+          many Vite projects, the output folder is <code>dist</code>.
         </p>
-
-        <h2 id="repo-settings" class="title is-3">This Repository's Deployment Context</h2>
-        <p>
-          GraphitEdge is a Vite/Vue site hosted on Vercel. The project uses a
-          SPA rewrite in <code>vercel.json</code>, Vite SSG for production
-          builds, and Node 22.x is required by the project instructions. Do not
-          assume every Vite project has identical settings; read the repository
-          configuration and the host's current documentation.
-        </p>
-        <div class="table-container">
-          <table class="table is-bordered is-striped">
-            <thead><tr><th>Setting</th><th>Common value here</th></tr></thead>
-            <tbody>
-              <tr><td>Build command</td><td><code>npm run build</code></td></tr>
-              <tr><td>Output directory</td><td><code>dist</code></td></tr>
-              <tr><td>Node version</td><td><code>22.x</code> required by project docs</td></tr>
-            </tbody>
-          </table>
-        </div>
-
         <GuidedPractice
-          id="guided-practice"
           title="Build and Deploy a Vite Site"
           icon="fas fa-gears"
           :steps="viteGuidedPracticeSteps"
           :success-criteria="[
-            'The local development version runs',
+            'The development site runs locally',
             'The production build completes',
-            'The generated output folder is identified',
-            'The host build command and output directory are checked',
+            'The output folder is identified',
+            'Build logs are checked',
             'The live site is tested after deployment'
           ]"
         />
 
-        <h2 id="common-mistakes" class="title is-3">Common Vite Deployment Mistakes</h2>
+        <h2 id="manual-vite" class="title is-3">Manual Static Hosting With Vite</h2>
+        <p>
+          When manually deploying a Vite project to static hosting, students
+          should usually deploy the generated <code>dist</code> output, not the
+          source project folder. Check whether the host expects the folder itself
+          or the contents of the folder.
+        </p>
+
+        <h2 id="git-connected-vite" class="title is-3">Git-Connected Vite Deployment</h2>
+        <p>A Git-connected platform normally:</p>
+        <ol>
+          <li>clones the repository</li>
+          <li>installs dependencies</li>
+          <li>runs the build command</li>
+          <li>publishes the configured output directory</li>
+        </ol>
+
+        <h2 id="vite-mistakes" class="title is-3">Common Vite Deployment Mistakes</h2>
         <ul>
-          <li>Uploading the source project instead of the generated output folder.</li>
-          <li>Using the wrong output directory in the hosting dashboard.</li>
-          <li>Ignoring a build log because the local development server worked.</li>
-          <li>Forgetting that base paths and client-side routing can affect deployed URLs.</li>
-          <li>Using a host Node version that does not match the project requirement.</li>
+          <li>publishing <code>src</code></li>
+          <li>publishing the repository root when the host expects built output</li>
+          <li>using the wrong build command</li>
+          <li>setting the wrong output directory</li>
+          <li>missing environment variables</li>
+          <li>incorrect base path configuration</li>
+          <li>broken SPA routing or missing fallback configuration</li>
         </ul>
       </template>
 
       <template v-else-if="currentLesson.id === 'domains-dns-and-going-live'">
         <LearningObjectives
           :objectives="[
-            { verb: 'Distinguish', text: 'a domain registrar from a hosting provider' },
-            { verb: 'Explain', text: 'the basic role of DNS' },
-            { verb: 'Recognise', text: 'common DNS record types' },
-            { verb: 'Identify', text: 'apex domains and subdomains' },
-            { verb: 'Follow', text: 'provider instructions without guessing record values' },
-            { verb: 'Document', text: 'where domain, DNS, hosting and repository access are managed' }
+            { verb: 'Distinguish', text: 'domain registrar, DNS provider, hosting provider and web server roles' },
+            { verb: 'Recognise', text: 'A, AAAA, CNAME and nameserver records' },
+            { verb: 'Explain', text: 'HTTPS, SSL issuance and www/non-www redirects' },
+            { verb: 'Record', text: 'website ownership details without storing passwords' }
           ]"
-          purpose="Domains make sites easier to find, but DNS changes should be deliberate and documented."
-          :prerequisites="[{ topic: 'Building and Deploying a Vite Site', link: '/tutorials/deployments/building-and-deploying-a-vite-site' }]"
+          purpose="Going live is less mysterious when domain, DNS, hosting and HTTPS each have a job."
+          :prerequisites="[{ topic: 'Building and Deploying a Vite Website', link: '/tutorials/deployments/building-and-deploying-a-vite-site' }]"
         />
+        <h2 id="domain-dns-roles" class="title is-3">Who Does What?</h2>
+        <ul>
+          <li><strong>Domain registrar:</strong> registers and renews the domain.</li>
+          <li><strong>DNS provider:</strong> manages the records that point names to services.</li>
+          <li><strong>Hosting provider:</strong> stores and serves the website files or app.</li>
+          <li><strong>Web server:</strong> responds to browser requests.</li>
+          <li><strong>SSL certificate:</strong> enables HTTPS and browser trust.</li>
+        </ul>
 
-        <h2 id="domain-dns-roles" class="title is-3">Domains, DNS and Going Live</h2>
-        <p>
-          A deployment gives your site a live address, often on a hosting
-          provider's subdomain. A custom domain is the human-friendly name you
-          point at that hosted site. DNS tells browsers where that name should go.
-        </p>
-        <p>
-          You do not need a custom domain for your first student deployment.
-          Learn the hosting workflow first, then add domain setup when the site
-          is ready to be shared more seriously.
-        </p>
-
-        <h2 id="dns-records" class="title is-3">Common DNS Pieces</h2>
+        <h2 id="dns-records" class="title is-3">DNS Records and HTTPS</h2>
         <div class="table-container">
           <table class="table is-bordered is-striped is-fullwidth">
-            <thead><tr><th>Piece</th><th>Role</th></tr></thead>
+            <thead><tr><th>Item</th><th>Purpose</th></tr></thead>
             <tbody>
-              <tr><td>Domain registrar</td><td>Where the domain is registered and renewed.</td></tr>
-              <tr><td>DNS provider</td><td>The service that manages DNS records for the domain.</td></tr>
-              <tr><td>A record</td><td>Points a name to an IP address.</td></tr>
+              <tr><td>A record</td><td>Points a name to an IPv4 address.</td></tr>
+              <tr><td>AAAA record</td><td>Points a name to an IPv6 address.</td></tr>
               <tr><td>CNAME record</td><td>Points one hostname to another hostname.</td></tr>
               <tr><td>Nameservers</td><td>Tell the internet which DNS provider manages the domain.</td></tr>
               <tr><td>Apex domain</td><td>The bare domain, such as <code>example.com</code>.</td></tr>
-              <tr><td>Subdomain</td><td>A name below the domain, such as <code>www.example.com</code>.</td></tr>
-              <tr><td>HTTPS / SSL</td><td>The secure connection browsers expect for modern sites.</td></tr>
+              <tr><td>www subdomain</td><td>A common subdomain, such as <code>www.example.com</code>.</td></tr>
+              <tr><td>DNS propagation</td><td>The time it can take for DNS changes to be visible broadly.</td></tr>
+              <tr><td>HTTPS redirect</td><td>Sends visitors to the secure version of the site.</td></tr>
             </tbody>
           </table>
         </div>
+        <p>
+          Do not invent DNS values. Follow the current connection instructions
+          from the hosting provider and registrar.
+        </p>
 
         <figure id="dns-path" class="tutorial-figure tutorial-figure--wide">
           <img
@@ -966,92 +1204,201 @@ button.addEventListener('click', () =&gt; {
             decoding="async"
           />
           <figcaption>
-            Visitor -> domain -> DNS -> hosting platform -> website files. DNS
-            points the readable address at the place serving the site.
+            Visitor -> domain name -> DNS lookup -> hosting server -> website
+            files. DNS points the readable name to the place serving the site.
           </figcaption>
         </figure>
 
-        <h2 id="ownership-notes" class="title is-3">Record Ownership and Service Locations</h2>
+        <h2 id="ownership-record" class="title is-3">Website Ownership Record Exercise</h2>
+        <p>Record these details, but never write passwords in the worksheet:</p>
+        <ul>
+          <li>domain registrar</li>
+          <li>DNS provider</li>
+          <li>hosting provider</li>
+          <li>repository location</li>
+          <li>account owner</li>
+          <li>renewal date</li>
+          <li>support details</li>
+          <li>backup location</li>
+        </ul>
+      </template>
+
+      <template v-else-if="currentLesson.id === 'testing-troubleshooting-live-website'">
+        <LearningObjectives
+          :objectives="[
+            { verb: 'Diagnose', text: 'deployment problems using symptoms and evidence' },
+            { verb: 'Use', text: 'browser developer tools, network requests and deployment logs' },
+            { verb: 'Fix', text: 'one meaningful issue at a time' },
+            { verb: 'Avoid', text: 'random changes before reading the first useful error' }
+          ]"
+          purpose="Troubleshooting is calmer when you read the system before changing the system."
+          :prerequisites="[{ topic: 'Domains, DNS, HTTPS and Going Live', link: '/tutorials/deployments/domains-dns-and-going-live' }]"
+        />
+        <h2 id="troubleshooting-workflow" class="title is-3">Troubleshooting Workflow</h2>
+        <pre><code>Confirm the live URL
+  -> Check the deployment status
+  -> Open browser developer tools
+  -> Read the first meaningful error
+  -> Check paths and filenames
+  -> Check build and hosting logs
+  -> Fix one issue
+  -> Redeploy and verify</code></pre>
         <p>
-          Do not invent DNS values. Use the current instructions from your host
-          and registrar. Then record where the domain, DNS, hosting, repository,
-          billing and account recovery are managed. Future-you will be grateful.
+          Resist the urge to change things randomly. The first real error is often
+          the site trying to tell you exactly where to look.
         </p>
+
+        <h2 id="problem-table" class="title is-3">Common Live Website Problems</h2>
+        <div class="deployment-problems">
+          <details v-for="problem in troubleshootingProblems" :key="problem.symptom">
+            <summary>{{ problem.symptom }}</summary>
+            <p><strong>Likely causes:</strong> {{ problem.causes }}</p>
+            <p><strong>Checks:</strong> {{ problem.checks }}</p>
+            <p><strong>Possible fix:</strong> {{ problem.fix }}</p>
+          </details>
+        </div>
+
+        <h2 id="developer-tools" class="title is-3">What to Inspect</h2>
+        <ul>
+          <li>browser console errors</li>
+          <li>Network panel failed requests and status codes</li>
+          <li>deployment logs from the hosting provider</li>
+          <li>missing JavaScript, CSS and image files</li>
+          <li>base path and environment variable errors</li>
+          <li>case-sensitive file paths and nested folders</li>
+        </ul>
+      </template>
+
+      <template v-else-if="currentLesson.id === 'continuous-improvement-deployment-workflows'">
+        <LearningObjectives
+          :objectives="[
+            { verb: 'Explain', text: 'deployment as an ongoing improvement cycle' },
+            { verb: 'Use', text: 'manual and Git-based workflows safely' },
+            { verb: 'Choose', text: 'monitoring tools for specific problems' },
+            { verb: 'Maintain', text: 'a simple change log' }
+          ]"
+          purpose="Deployment is not the end. It is how the website starts receiving evidence from the real world."
+          :prerequisites="[{ topic: 'Testing and Troubleshooting a Live Website', link: '/tutorials/deployments/testing-troubleshooting-live-website' }]"
+        />
+        <h2 id="improvement-cycle" class="title is-3">The Improvement Cycle</h2>
+        <pre><code>Plan -> Build -> Test -> Deploy -> Verify -> Monitor -> Improve -> Repeat</code></pre>
+
+        <h2 id="manual-workflow" class="title is-3">Manual Workflow</h2>
+        <pre><code>Edit locally
+  -> Test locally
+  -> Back up live files
+  -> Upload changed files
+  -> Test live site
+  -> Record the change</code></pre>
+
+        <h2 id="git-workflow" class="title is-3">Git Workflow</h2>
+        <pre><code>Create or choose a branch
+  -> Make changes
+  -> Test locally
+  -> Commit
+  -> Push
+  -> Preview deployment
+  -> Review
+  -> Merge
+  -> Production deployment</code></pre>
+        <p>
+          Keep this beginner-friendly. The point is not to perform ceremony; the
+          point is to make changes traceable and reversible.
+        </p>
+
+        <h2 id="monitoring-tools" class="title is-3">Monitoring and Feedback Tools</h2>
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead><tr><th>Tool</th><th>Problem it helps solve</th></tr></thead>
+            <tbody>
+              <tr v-for="tool in monitoringTools" :key="tool[0]">
+                <td>{{ tool[0] }}</td>
+                <td>{{ tool[1] }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="title is-4">Improvement Log</h3>
+        <p>Memory is not a reliable release-management system.</p>
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead>
+              <tr><th>Date</th><th>Change</th><th>Reason</th><th>Deployment method</th><th>Result</th><th>Follow-up</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>YYYY-MM-DD</td><td>Compressed hero image</td><td>Slow mobile load</td><td>Git push</td><td>Lighthouse improved</td><td>Check again next month</td></tr>
+            </tbody>
+          </table>
+        </div>
       </template>
 
       <template v-else>
         <LearningObjectives
           :objectives="[
-            { verb: 'Test', text: 'a live deployment systematically' },
-            { verb: 'Troubleshoot', text: 'common file, path, build and cache problems' },
-            { verb: 'Distinguish', text: 'local testing from production testing' },
-            { verb: 'Use', text: 'a repeatable manual or Git-based improvement workflow' },
-            { verb: 'Record', text: 'changes and deployment evidence' },
-            { verb: 'Apply', text: 'a pre- and post-deployment checklist' }
+            { verb: 'Deploy', text: 'a small website through at least one workflow' },
+            { verb: 'Compare', text: 'manual, GitHub Pages and Netlify or Vercel options where practical' },
+            { verb: 'Use', text: 'the Markdown checklist and branded PDF checklist appropriately' },
+            { verb: 'Apply', text: 'the process to Black Swan Bistro Part 5' }
           ]"
-          purpose="A calm deployment workflow turns launch into a testable process instead of a dramatic guessing session."
-          :prerequisites="[{ topic: 'Domains, DNS and Going Live', link: '/tutorials/deployments/domains-dns-and-going-live' }]"
+          purpose="A small lab turns deployment from an idea into evidence."
+          :prerequisites="[{ topic: 'Continuous Improvement and Deployment Workflows', link: '/tutorials/deployments/continuous-improvement-deployment-workflows' }]"
         />
-
-        <h2 id="testing-system" class="title is-3">Test the Live Site Systematically</h2>
+        <h2 id="lab-project" class="title is-3">Deployment Lab Project</h2>
+        <pre><code>deployment-test/
+├── index.html
+├── styles.css
+└── script.js</code></pre>
         <p>
-          Test the live URL, not only the local project. Open the site in a
-          normal browser window, a private browser window and a narrow mobile
-          viewport. Check the homepage, navigation, images, CSS, JavaScript,
-          console output and any form or interactive behaviour.
+          Use the tiny site from the upload lesson, or create a similarly small
+          page. Small is the point. If something breaks, there are only a few
+          files to inspect.
         </p>
 
-        <h2 id="common-problems" class="title is-3">Common Deployment Problems</h2>
-        <div class="deployment-problems">
-          <details v-for="problem in troubleshootingProblems" :key="problem.title">
-            <summary>{{ problem.title }}</summary>
-            <p><strong>Likely cause:</strong> {{ problem.cause }}</p>
-            <p><strong>Fix:</strong> {{ problem.fix }}</p>
-          </details>
+        <h2 id="lab-options" class="title is-3">Choose at Least One Lab Option</h2>
+        <div class="columns hosting-options">
+          <div class="column">
+            <div class="box">
+              <h3 class="title is-5">Lab A: Traditional shared hosting</h3>
+              <p>Deploy using File Manager or SFTP. Record the public web root and live URL.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <h3 class="title is-5">Lab B: GitHub Pages</h3>
+              <p>Deploy through a repository workflow. Record the branch and published URL.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <h3 class="title is-5">Lab C: Netlify or Vercel</h3>
+              <p>Deploy through Git integration or a supported manual deployment. Read the deployment feedback.</p>
+            </div>
+          </div>
         </div>
 
-        <h2 id="continuous-improvement" class="title is-3">Continuous Improvement Workflow</h2>
-        <div class="box">
-          <h3 class="title is-5">Manual hosting workflow</h3>
-          <pre><code>Notice issue -> Write it down -> Fix local file -> Test locally -> Upload changed file -> Test live site -> Record the change</code></pre>
-        </div>
-        <div class="box">
-          <h3 class="title is-5">Git-based workflow</h3>
-          <pre><code>Notice issue -> Create issue or task -> Fix locally -> Test locally -> Commit -> Push -> Deployment runs -> Test live site</code></pre>
-          <p>
-            Git-based deployment creates a cleaner trail of changes. You can see
-            what changed, when it changed, and often why it changed.
-          </p>
-        </div>
-
-        <h3 class="title is-4">Student Improvement Log</h3>
-        <div class="table-container">
-          <table class="table is-bordered is-striped is-fullwidth">
-            <thead>
-              <tr>
-                <th>Date</th><th>Issue or improvement</th><th>Change made</th>
-                <th>Tested locally?</th><th>Tested live?</th><th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>YYYY-MM-DD</td><td>Navigation link broken</td><td>Fixed file path</td>
-                <td>Yes</td><td>Yes</td><td>Link now works</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2 id="deployment-checklist" class="title is-3">Deployment Checklist</h2>
-        <p>
-          Use this checklist before and after deploying a website. It is plain
-          Markdown so it can live in a README, notes app, project issue or shared
-          document.
-        </p>
+        <h2 id="checklists" class="title is-3">Deployment Checklists</h2>
         <div class="box checklist-download-box">
           <div>
-            <h3 class="title is-5">Copy or download the checklist</h3>
-            <p>Keep the checklist with the project so updates stay repeatable.</p>
+            <h3 class="title is-5">Download the GraphiteEdge Deployment Checklist</h3>
+            <p>
+              Use the branded PDF as a reusable deployment workbook. Use the
+              Markdown checklist below as a lightweight in-lesson resource.
+            </p>
+          </div>
+          <a
+            class="button is-primary"
+            :href="pdfChecklistPath"
+            download
+            aria-label="Download the GraphiteEdge Deployment Checklist PDF"
+          >
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Download PDF</span>
+          </a>
+        </div>
+        <div class="box checklist-download-box">
+          <div>
+            <h3 class="title is-5">Printable Markdown Checklist</h3>
+            <p>Copy, download or print this lightweight checklist for your project notes.</p>
           </div>
           <div class="buttons">
             <button class="button is-primary" type="button" @click="copyChecklist">
@@ -1073,28 +1420,36 @@ button.addEventListener('click', () =&gt; {
           <pre><code>{{ checklistMarkdown }}</code></pre>
         </details>
 
-        <h2 id="reflection" class="title is-3">Final Knowledge Check and Reflection</h2>
+        <h2 id="reflection" class="title is-3">Reflection Questions</h2>
         <ol>
-          <li>What is the difference between local testing and production testing?</li>
-          <li>Which problem would you check first if CSS is missing?</li>
-          <li>Why does a Vite site usually need a build before deployment?</li>
-          <li>What details should be recorded after a deployment?</li>
-          <li>How does Git-based deployment support continuous improvement?</li>
+          <li>Which method was easiest?</li>
+          <li>Which method gave the clearest feedback?</li>
+          <li>Which method would be easiest to update?</li>
+          <li>Which method would be most appropriate for a client?</li>
+          <li>Where are the domain, DNS and hosting accounts managed?</li>
+          <li>What could go wrong if account ownership is unclear?</li>
         </ol>
+        <p>
+          Next, apply this process to
+          <router-link to="/tutorials/advanced/black-swan-bistro-part-5">
+            Black Swan Bistro Part 5: Prepare for Deployment
+          </router-link>.
+        </p>
       </template>
 
       <ClosureSection
         :id="currentLesson.id === 'overview' ? undefined : 'closure'"
         :title="currentLesson.id === 'overview' ? 'Ready to Start the Pathway' : 'Ready for the Next Deployment Step'"
         :key-takeaways="[
-          'Deployment is a workflow, not a single button.',
-          'The live URL is the place where deployment evidence is gathered.',
-          'The right hosting path depends on the project, the workflow and the responsibility involved.'
+          'Deployment is a publishing workflow, not just a button.',
+          'The live URL is where deployment evidence is gathered.',
+          'The right hosting path depends on files, update workflow, support needs and ownership.',
+          'Troubleshooting starts with the first meaningful error.'
         ]"
         :objectives="[currentLesson.description]"
-        readiness-message="If you can name the next test, record the result and explain why the chosen hosting path fits, the deployment process is becoming a system you can repeat."
+        readiness-message="If you can name which part of the system you are changing, test the live result and record the outcome, deployment is becoming a repeatable workflow."
         :reflection-prompts="[
-          { icon: 'fas fa-rocket', title: 'Deployment evidence', questions: ['What would you test before sharing the live URL?'] },
+          { icon: 'fas fa-rocket', title: 'Deployment evidence', questions: ['What would prove this site works for someone else?'] },
           { icon: 'fas fa-list-check', title: 'Next action', questions: ['What should be recorded so this deployment can be repeated later?'] }
         ]"
         :next-steps="nextLesson ? `<p>Next: continue with <strong>${nextLesson.title}</strong>.</p>` : '<p>Next: apply the workflow to Black Swan Bistro Part 5.</p>'"
@@ -1138,14 +1493,6 @@ button.addEventListener('click', () =&gt; {
   text-transform: uppercase;
 }
 
-.module-sequence {
-  display: grid;
-  gap: 0.6rem;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  margin: 1.5rem 0 2rem;
-}
-
-.module-sequence__item,
 .lesson-card {
   border: 1px solid #d9e5ea;
   border-radius: 8px;
@@ -1155,18 +1502,12 @@ button.addEventListener('click', () =&gt; {
   text-decoration: none;
 }
 
-.module-sequence__item span,
 .lesson-card span,
 .lesson-card small {
   color: #64748b;
   display: block;
   font-size: 0.85rem;
   font-weight: 700;
-}
-
-.module-sequence__item.is-current {
-  border-color: #4b88a2;
-  box-shadow: inset 0 0 0 2px #4b88a2;
 }
 
 .lesson-grid {

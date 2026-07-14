@@ -5,6 +5,7 @@
 
 import {
 	getSectionLessons,
+	getSectionNavItems,
 	getTutorialByPath,
 	getTutorialNavigationByPath,
 } from '@/data/tutorials';
@@ -82,7 +83,17 @@ function getCurriculumRelatedTutorials(path, limit = 3) {
 		return [];
 	}
 
-	const lessons = getSectionLessons(tutorial.section).filter((lesson) => !lesson.comingSoon);
+	const lessons = tutorial.showInSectionNav || tutorial.section === 'deployments'
+		? getSectionNavItems(tutorial.section, {
+			includeOverview: false,
+			includeComingSoon: false,
+			includeSectionNavHidden: true,
+		}).map((lesson) => ({
+			path: lesson.path,
+			title: lesson.title,
+			slug: lesson.path.replace(/^\/tutorials\//, ''),
+		}))
+		: getSectionLessons(tutorial.section).filter((lesson) => !lesson.comingSoon);
 	const currentIndex = lessons.findIndex((lesson) => lesson.slug === tutorial.slug);
 
 	if (currentIndex === -1) {
@@ -112,7 +123,7 @@ function getCurriculumRelatedTutorials(path, limit = 3) {
 	}
 
 	return relatedLessons.map((lesson) => ({
-		path: `/tutorials/${lesson.slug}`,
+		path: lesson.path || `/tutorials/${lesson.slug}`,
 		title: lesson.title,
 	}));
 }

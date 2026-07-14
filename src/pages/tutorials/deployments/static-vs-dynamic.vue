@@ -4,7 +4,7 @@ import { useHead } from '@vueuse/head';
 import { useRouter } from 'vue-router';
 
 const targetPath =
-	'/tutorials/deployments/choosing-a-hosting-path#static-vs-dynamic';
+	'/tutorials/deployments/understanding-hosting#hosting-comparison';
 const targetUrl = `https://www.graphitedge.com.au${targetPath}`;
 const legacyRedirectMeta = { noindex: true };
 
@@ -29,7 +29,7 @@ onMounted(() => {
 				This content is now part of the consolidated deployment fundamentals tutorial.
 			</p>
 			<router-link :to="targetPath" class="button is-primary">
-				Go to Static vs Dynamic Deployment
+				Go to Understanding Hosting
 			</router-link>
 		</div>
 	</div>

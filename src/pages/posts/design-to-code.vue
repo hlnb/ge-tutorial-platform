@@ -254,7 +254,7 @@ function formatDate(dateStr) {
 }
 
 .hero {
-	background-image: url('/images/posts/design-to-code.svg');
+	background-image: url("@/assets/images/posts/design-to-code.svg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

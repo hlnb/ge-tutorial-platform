@@ -3167,16 +3167,16 @@ const tutorialRecords = [
     projectTitle: null,
     badge: 'Module overview',
     topic: 'deployment',
-    lessonCount: 6,
+    lessonCount: 10,
   },
   {
-    id: 'understanding-hosting-and-deployment',
-    title: 'Understanding Hosting and Deployment',
-    slug: 'deployments/understanding-hosting-and-deployment',
+    id: 'deployment-is-publishing-not-just-uploading',
+    title: 'Deployment Is Publishing, Not Just Uploading',
+    slug: 'deployments/deployment-is-publishing-not-just-uploading',
 
     publishDate: '2026-03-24',
     summary:
-      'Learn what deployment means, how local files differ from live sites, and why a project needs file and folder checks before going online.',
+      'Learn deployment as a publishing workflow: local versus live sites, browser and server roles, production-ready files, relative paths, case-sensitive filenames, and index.html.',
     level: 'advanced',
     levelTitle: 'Advanced',
     levelDescription: 'Deployment, domains, and long-term site care.',
@@ -3184,8 +3184,8 @@ const tutorialRecords = [
     section: 'deployments',
     stage: 2.1,
     difficulty: 'medium',
-    estimatedTime: '10-15 min',
-    tags: ['deployment', 'web-hosting', 'local-sites', 'live-sites'],
+    estimatedTime: '15-20 min',
+    tags: ['deployment', 'publishing', 'local-sites', 'live-sites', 'index-html'],
     featured: false,
     isProject: false,
     project: null,
@@ -3194,6 +3194,35 @@ const tutorialRecords = [
     badge: 'Lesson 1',
     topic: 'deployment',
     hiddenFromCurriculum: true,
+    showInSectionNav: true,
+    lessonCount: null,
+  },
+  {
+    id: 'understanding-hosting',
+    title: 'Understanding Hosting',
+    slug: 'deployments/understanding-hosting',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Compare shared hosting, static hosting, cloud hosting, VPS, dedicated servers, serverless hosting, and managed application hosting in beginner-friendly language.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    section: 'deployments',
+    stage: 2.2,
+    difficulty: 'medium',
+    estimatedTime: '20-25 min',
+    tags: ['hosting', 'shared-hosting', 'static-hosting', 'serverless', 'vps'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Lesson 2',
+    topic: 'deployment',
+    hiddenFromCurriculum: true,
+    showInSectionNav: true,
     lessonCount: null,
   },
   {
@@ -3209,37 +3238,10 @@ const tutorialRecords = [
     levelDescription: 'Deployment, domains, and long-term site care.',
     pathways: ['deployment'],
     section: 'deployments',
-    stage: 2.2,
-    difficulty: 'medium',
-    estimatedTime: '15-20 min',
-    tags: ['hosting', 'static-hosting', 'git-deployment', 'hosting-options'],
-    featured: false,
-    isProject: false,
-    project: null,
-    projectPart: null,
-    projectTitle: null,
-    badge: 'Lesson 2',
-    topic: 'deployment',
-    hiddenFromCurriculum: true,
-    lessonCount: null,
-  },
-  {
-    id: 'deploying-static-html-css-js',
-    title: 'Deploying a Plain HTML, CSS and JavaScript Website',
-    slug: 'deployments/deploying-a-static-html-css-javascript-site',
-
-    publishDate: '2026-03-24',
-    summary:
-      'Create, publish, test, and record a tiny static HTML, CSS, and JavaScript deployment.',
-    level: 'advanced',
-    levelTitle: 'Advanced',
-    levelDescription: 'Deployment, domains, and long-term site care.',
-    pathways: ['deployment'],
-    section: 'deployments',
     stage: 2.3,
     difficulty: 'medium',
     estimatedTime: '20-25 min',
-    tags: ['html', 'css', 'javascript', 'static-sites', 'deployment'],
+    tags: ['hosting', 'static-hosting', 'git-deployment', 'hosting-options'],
     featured: false,
     isProject: false,
     project: null,
@@ -3248,6 +3250,63 @@ const tutorialRecords = [
     badge: 'Lesson 3',
     topic: 'deployment',
     hiddenFromCurriculum: true,
+    showInSectionNav: true,
+    lessonCount: null,
+  },
+  {
+    id: 'traditional-shared-hosting-control-panels',
+    title: 'Traditional Shared Hosting and Control Panels',
+    slug: 'deployments/traditional-shared-hosting-control-panels',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Understand shared hosting accounts, control panels, public web roots, File Manager, domains, SSL, email, backups, provider comparisons, and account ownership.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    section: 'deployments',
+    stage: 2.4,
+    difficulty: 'medium',
+    estimatedTime: '25-30 min',
+    tags: ['shared-hosting', 'cpanel', 'file-manager', 'sftp', 'web-hosting'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Lesson 4',
+    topic: 'deployment',
+    hiddenFromCurriculum: true,
+    showInSectionNav: true,
+    lessonCount: null,
+  },
+  {
+    id: 'uploading-html-css-javascript-website',
+    title: 'Uploading a Plain HTML, CSS and JavaScript Website',
+    slug: 'deployments/uploading-html-css-javascript-website',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Deploy a plain static website with a hosting File Manager or SFTP, understand ZIP extraction, avoid folder nesting mistakes, and test the live URL.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    section: 'deployments',
+    stage: 2.5,
+    difficulty: 'medium',
+    estimatedTime: '25-30 min',
+    tags: ['html', 'css', 'javascript', 'file-manager', 'sftp', 'deployment'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Lesson 5',
+    topic: 'deployment',
+    hiddenFromCurriculum: true,
+    showInSectionNav: true,
     lessonCount: null,
   },
   {
@@ -3263,64 +3322,10 @@ const tutorialRecords = [
     levelDescription: 'Deployment, domains, and long-term site care.',
     pathways: ['deployment'],
     section: 'deployments',
-    stage: 2.4,
-    difficulty: 'medium',
-    estimatedTime: '20-25 min',
-    tags: ['vite', 'build', 'dist', 'vercel', 'netlify', 'deployment'],
-    featured: false,
-    isProject: false,
-    project: null,
-    projectPart: null,
-    projectTitle: null,
-    badge: 'Lesson 4',
-    topic: 'deployment',
-    hiddenFromCurriculum: true,
-    lessonCount: null,
-  },
-  {
-    id: 'domains-dns-going-live-module',
-    title: 'Domains, DNS and Going Live',
-    slug: 'deployments/domains-dns-and-going-live',
-
-    publishDate: '2026-03-24',
-    summary:
-      'Learn the beginner-friendly roles of domains, registrars, DNS providers, A records, CNAME records, nameservers, HTTPS, apex domains and www.',
-    level: 'advanced',
-    levelTitle: 'Advanced',
-    levelDescription: 'Deployment, domains, and long-term site care.',
-    pathways: ['deployment'],
-    section: 'deployments',
-    stage: 2.5,
-    difficulty: 'medium',
-    estimatedTime: '15-20 min',
-    tags: ['domains', 'dns', 'https', 'cname', 'a-records'],
-    featured: false,
-    isProject: false,
-    project: null,
-    projectPart: null,
-    projectTitle: null,
-    badge: 'Lesson 5',
-    topic: 'deployment',
-    hiddenFromCurriculum: true,
-    lessonCount: null,
-  },
-  {
-    id: 'deployment-testing-troubleshooting',
-    title: 'Testing, Troubleshooting and Continuous Improvement',
-    slug: 'deployments/testing-troubleshooting-and-continuous-improvement',
-
-    publishDate: '2026-03-24',
-    summary:
-      'Test the live site, troubleshoot common deployment problems, preserve a deployment checklist, and build a repeatable improvement workflow.',
-    level: 'advanced',
-    levelTitle: 'Advanced',
-    levelDescription: 'Deployment, domains, and long-term site care.',
-    pathways: ['deployment'],
-    section: 'deployments',
     stage: 2.6,
     difficulty: 'medium',
-    estimatedTime: '20-25 min',
-    tags: ['deployment-testing', 'troubleshooting', 'checklist', 'continuous-improvement'],
+    estimatedTime: '25-30 min',
+    tags: ['vite', 'build', 'dist', 'environment-variables', 'spa-routing', 'deployment'],
     featured: false,
     isProject: false,
     project: null,
@@ -3329,6 +3334,119 @@ const tutorialRecords = [
     badge: 'Lesson 6',
     topic: 'deployment',
     hiddenFromCurriculum: true,
+    showInSectionNav: true,
+    lessonCount: null,
+  },
+  {
+    id: 'domains-dns-going-live-module',
+    title: 'Domains, DNS, HTTPS and Going Live',
+    slug: 'deployments/domains-dns-and-going-live',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Learn how registrars, DNS providers, hosting providers, web servers, SSL certificates, A records, AAAA records, CNAME records, nameservers, redirects, and propagation fit together.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    section: 'deployments',
+    stage: 2.7,
+    difficulty: 'medium',
+    estimatedTime: '20-25 min',
+    tags: ['domains', 'dns', 'https', 'ssl', 'cname', 'a-records'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Lesson 7',
+    topic: 'deployment',
+    hiddenFromCurriculum: true,
+    showInSectionNav: true,
+    lessonCount: null,
+  },
+  {
+    id: 'testing-troubleshooting-live-website',
+    title: 'Testing and Troubleshooting a Live Website',
+    slug: 'deployments/testing-troubleshooting-live-website',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Diagnose live deployment problems including missing homepages, CSS, images, white screens, 404s, caching, build failures, DNS issues, and SPA routing problems.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    section: 'deployments',
+    stage: 2.8,
+    difficulty: 'medium',
+    estimatedTime: '25-30 min',
+    tags: ['deployment-testing', 'troubleshooting', 'devtools', '404-errors', 'browser-cache'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Lesson 8',
+    topic: 'deployment',
+    hiddenFromCurriculum: true,
+    showInSectionNav: true,
+    lessonCount: null,
+  },
+  {
+    id: 'continuous-improvement-deployment-workflows',
+    title: 'Continuous Improvement and Deployment Workflows',
+    slug: 'deployments/continuous-improvement-deployment-workflows',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Use manual and Git-based deployment workflows to plan, build, test, deploy, verify, monitor, improve, and repeat without losing track of changes.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    section: 'deployments',
+    stage: 2.9,
+    difficulty: 'medium',
+    estimatedTime: '20-25 min',
+    tags: ['deployment-workflow', 'continuous-improvement', 'git', 'monitoring', 'change-log'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Lesson 9',
+    topic: 'deployment',
+    hiddenFromCurriculum: true,
+    showInSectionNav: true,
+    lessonCount: null,
+  },
+  {
+    id: 'deployment-lab-final-checklist',
+    title: 'Deployment Lab and Final Checklist',
+    slug: 'deployments/deployment-lab-final-checklist',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Deploy a tiny deployment-test website through at least one workflow, compare methods, use the GraphiteEdge Deployment Checklist, and apply the process to Black Swan Bistro.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    section: 'deployments',
+    stage: 2.95,
+    difficulty: 'medium',
+    estimatedTime: '25-30 min',
+    tags: ['deployment-lab', 'deployment-checklist', 'github-pages', 'netlify', 'vercel'],
+    featured: false,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Lesson 10',
+    topic: 'deployment',
+    hiddenFromCurriculum: true,
+    showInSectionNav: true,
     lessonCount: null,
   },
   {
@@ -4196,6 +4314,13 @@ export function isTutorialVisibleInCurriculum(tutorial) {
   return !tutorial?.hiddenFromCurriculum;
 }
 
+function isTutorialVisibleInSectionNav(tutorial, includeSectionNavHidden) {
+  return (
+    isTutorialVisibleInCurriculum(tutorial) ||
+    (includeSectionNavHidden && tutorial?.showInSectionNav)
+  );
+}
+
 function isTutorialNavigable(tutorial) {
   return !tutorial?.comingSoon;
 }
@@ -4243,8 +4368,19 @@ export function getSectionLessons(sectionId) {
     .sort((a, b) => a.stage - b.stage);
 }
 
-function getSectionNavigableLessons(sectionId) {
-  return getSectionLessons(sectionId).filter(isTutorialNavigable);
+function getSectionNavLessons(sectionId, { includeSectionNavHidden }) {
+  const section = getSectionById(sectionId);
+
+  if (!section) return [];
+
+  return tutorials
+    .filter(
+      (tutorial) =>
+        tutorial.section === sectionId &&
+        tutorial.slug !== section.slug &&
+        isTutorialVisibleInSectionNav(tutorial, includeSectionNavHidden),
+    )
+    .sort((a, b) => a.stage - b.stage);
 }
 
 export function getSectionOverviewPath(sectionId) {
@@ -4258,14 +4394,18 @@ export function getSectionNavItems(
     includeOverview = true,
     overviewTitle = 'Overview',
     includeComingSoon = true,
+    includeSectionNavHidden = false,
   } = {},
 ) {
   const section = getSectionById(sectionId);
   if (!section) return [];
 
+  const sectionLessons = includeSectionNavHidden
+    ? getSectionNavLessons(sectionId, { includeSectionNavHidden })
+    : getSectionLessons(sectionId);
   const lessons = includeComingSoon
-    ? getSectionLessons(sectionId)
-    : getSectionNavigableLessons(sectionId);
+    ? sectionLessons
+    : sectionLessons.filter(isTutorialNavigable);
 
   const navItems = lessons.map((tutorial) => ({
     path: `/tutorials/${tutorial.slug}`,
@@ -4293,7 +4433,7 @@ function getPathwaySections(pathwayId) {
     );
 }
 
-function buildPathwayFlow(pathwayId) {
+function buildPathwayFlow(pathwayId, { includeSectionNavHiddenFor = [] } = {}) {
   return getPathwaySections(pathwayId).flatMap((section) => {
     const overviewTitle =
       section.id === 'getting-started' ? 'Introduction' : section.title;
@@ -4301,6 +4441,7 @@ function buildPathwayFlow(pathwayId) {
       includeOverview: true,
       includeComingSoon: false,
       overviewTitle,
+      includeSectionNavHidden: includeSectionNavHiddenFor.includes(section.id),
     });
   });
 }
@@ -4342,7 +4483,13 @@ export function getTutorialNavigationByPath(path) {
   }
 
   const primaryPathway = section.pathways[0];
-  const pathwayFlow = buildPathwayFlow(primaryPathway);
+  const includeSectionNavHiddenFor =
+    tutorial?.showInSectionNav || section.id === 'deployments'
+      ? [section.id]
+      : [];
+  const pathwayFlow = buildPathwayFlow(primaryPathway, {
+    includeSectionNavHiddenFor,
+  });
   const currentIndex = pathwayFlow.findIndex(
     (item) => item.path === normalizedPath,
   );
