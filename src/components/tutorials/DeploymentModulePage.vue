@@ -7,6 +7,7 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import GuidedPractice from '@/components/hunter/GuidedPractice.vue';
 import IndependentPractice from '@/components/hunter/IndependentPractice.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
+import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import '@/assets/styles/tutorials.css';
 
@@ -320,40 +321,46 @@ const providerGuidance = [
   {
     provider: 'VentraIP',
     url: 'https://ventraip.com.au/web-hosting/',
+    checked: '14 July 2026',
     position:
       'Primary Australian shared-hosting example for students who want local account management and support context.',
     notes:
-      'Compare entry price, renewal price, storage, backups, email, SSL, support, data location and cancellation policy. Do not assume it is always cheapest.',
+      'Official pages currently describe Australian ownership, Australian support context, cPanel-based hosting options and promotional monthly prices. Compare entry price, renewal price, storage, backups, email, SSL, support, data location and cancellation policy. Do not assume it is always cheapest.',
   },
   {
     provider: 'Hostinger',
     url: 'https://www.hostinger.com/web-hosting',
+    checked: '14 July 2026',
     position: 'Budget-focused international option.',
-    notes: 'Useful for comparison, but students should check renewal pricing and included support carefully.',
+    notes: 'Official pages currently show discounted long-term introductory pricing, renewal prices, storage, free SSL, backups and email inclusions that vary by plan. Check the subscription length and renewal rate before treating it as low-cost.',
   },
   {
     provider: 'Namecheap shared hosting',
     url: 'https://www.namecheap.com/hosting/shared/',
+    checked: '14 July 2026',
     position: 'Useful for students already managing domains there.',
-    notes: 'Check whether keeping domain and hosting together helps or reduces flexibility.',
+    notes: 'Official pages currently position shared hosting around cPanel, email accounts, SSD storage, backups and discounted first-term pricing. Check whether keeping domain and hosting together helps or reduces flexibility.',
   },
   {
     provider: 'DreamHost',
     url: 'https://www.dreamhost.com/hosting/',
+    checked: '14 July 2026',
     position: 'Beginner-friendly international shared-hosting option.',
-    notes: 'Compare support, renewal cost, included features and data-location expectations.',
+    notes: 'Official hosting pages currently present shared and managed options for small sites. Compare support, renewal cost, included email, backup model, control panel differences and data-location expectations.',
   },
   {
     provider: 'SiteGround',
     url: 'https://www.siteground.com/web-hosting.htm',
+    checked: '14 July 2026',
     position: 'Often positioned around stronger support and managed features.',
-    notes: 'Students should compare total cost, renewal pricing and whether the extra support is needed.',
+    notes: 'Official Australian pages currently show discounted introductory pricing, renewal pricing excluding GST, SSL, CDN, daily backups and email. Students should compare total cost and whether the extra managed support is needed.',
   },
   {
     provider: 'Crazy Domains',
     url: 'https://www.crazydomains.com.au/web-hosting/',
+    checked: '14 July 2026',
     position: 'A provider Australian students may encounter.',
-    notes: 'Compare renewal pricing, account ownership, support boundaries and cancellation policies carefully.',
+    notes: 'Official Australian pages currently list shared Linux hosting tiers with websites, NVMe storage, email accounts, MySQL databases, free SSL and Cloudflare CDN. Compare renewal pricing, account ownership, support boundaries and cancellation policies carefully.',
   },
 ];
 
@@ -362,6 +369,33 @@ const modernStaticHostingLinks = [
   ['Netlify', 'https://www.netlify.com/'],
   ['Vercel', 'https://vercel.com/'],
   ['Cloudflare Pages', 'https://pages.cloudflare.com/'],
+];
+
+const staticHostingGuidance = [
+  {
+    host: 'GitHub Pages',
+    use: 'Simple repository-backed static sites',
+    note:
+      'Official GitHub Pages guidance describes sites hosted directly from a repository: edit, push and changes go live.',
+  },
+  {
+    host: 'Netlify',
+    use: 'Static sites, frontend builds, previews and Git deployments',
+    note:
+      'Official pricing currently includes a free tier with custom domains, SSL, deploy previews and usage credits. Check current credit limits before using it for client work.',
+  },
+  {
+    host: 'Vercel',
+    use: 'Frontend apps, Vite projects, previews and modern framework deployment',
+    note:
+      'Official pricing separates personal/hobby and paid/team use. Check whether the project is personal, commercial, or client work before choosing a plan.',
+  },
+  {
+    host: 'Cloudflare Pages',
+    use: 'Static sites and frontend builds on Cloudflare infrastructure',
+    note:
+      'Official Pages documentation positions it as a Git-connected static and frontend hosting platform. Check build limits, functions support and domain setup details.',
+  },
 ];
 
 const freeHostingLimitations = [
@@ -625,6 +659,13 @@ function printChecklist() {
 
         <section id="publishing-system">
           <h2 class="title is-3">The Publishing Flow</h2>
+          <p>
+            Deployment is the part of web work where a private project becomes a
+            public service. That sounds grand, but the practical idea is simple:
+            the files must be prepared, placed somewhere a web server can serve
+            them, connected to a name people can use, and checked after real
+            browsers request them from the internet.
+          </p>
           <pre><code>Local project
   -> Production-ready files
   -> Hosting server
@@ -638,10 +679,22 @@ function printChecklist() {
             service. The browser requests the files and reveals whether the system
             actually works.
           </p>
+          <p>
+            A beginner mistake is treating deployment as an upload event. Upload
+            is only one possible transport method. Deployment also includes
+            deciding what should be uploaded, confirming the server is looking in
+            the right folder, checking whether the domain points to that server,
+            enabling HTTPS, and knowing how the next change will be published
+            without guessing.
+          </p>
         </section>
 
         <section id="five-questions">
           <h2 class="title is-3">Five Deployment Questions</h2>
+          <p>
+            If a deployment feels confusing, return to these questions. They turn
+            a vague problem into a system you can inspect.
+          </p>
           <ol>
             <li>Where are the website files?</li>
             <li>How do the files reach the server?</li>
@@ -649,6 +702,12 @@ function printChecklist() {
             <li>How does the browser find and request the files?</li>
             <li>How are future updates published safely?</li>
           </ol>
+          <p>
+            Those questions apply whether you use a traditional hosting control
+            panel, SFTP, GitHub Pages, Netlify, Vercel, Cloudflare Pages or a
+            more advanced application platform. The labels change. The system
+            thinking stays useful.
+          </p>
         </section>
 
         <section id="outcomes">
@@ -662,6 +721,13 @@ function printChecklist() {
             <li v-for="outcome in learningOutcomes" :key="outcome">{{ outcome }}</li>
           </ul>
           <p>
+            The module deliberately covers both traditional hosting and modern
+            static hosting. Students still meet cPanel-style accounts, public
+            web roots and SFTP in real client work, while Vite projects usually
+            fit better with build-aware platforms. You do not need to love every
+            workflow. You do need to recognise what problem each workflow solves.
+          </p>
+          <p>
             Helpful prerequisites:
             <router-link to="/tutorials/intermediate/git-basics">Git Basics</router-link>,
             <router-link to="/tutorials/intermediate/working-with-vite">Working with Vite</router-link>,
@@ -670,6 +736,15 @@ function printChecklist() {
               Test and Validate Your Site
             </router-link>.
           </p>
+          <CheckpointBox
+            title="Overview Knowledge Check"
+            description="Before starting Lesson 1, check the system model."
+            :questions="[
+              { question: 'Why is deployment more than uploading files?', answer: 'Because the files must be prepared, hosted, connected through DNS and a domain, tested live, and updated safely later.' },
+              { question: 'Which part of the system stores and serves the website files?', answer: 'The hosting server or hosting platform.' },
+              { question: 'What should you do when provider dashboards change?', answer: 'Focus on the purpose of the setting, read current provider documentation, and verify the live result.' }
+            ]"
+          />
         </section>
 
         <section id="sequence">
@@ -747,6 +822,21 @@ function printChecklist() {
           browsers over the web. It works on my laptop is a starting point, not
           deployment evidence.
         </p>
+        <p>
+          When a page opens locally, the browser can often see files through your
+          computer's file system or a local development server. That environment
+          is more forgiving than the public web in some ways and completely
+          different in others. It may hide case mismatches, allow local-only file
+          references, or serve files from a development tool that will not exist
+          on the host. A live visitor does not have your desktop, your folder
+          structure, or your terminal running in the background.
+        </p>
+        <p>
+          Deployment asks a stricter question: can a browser on another device
+          request the public URL and receive every file the page needs? That
+          includes HTML, CSS, JavaScript, images, fonts, icons and any generated
+          build assets.
+        </p>
 
         <h2 id="system-roles" class="title is-3">The Roles in the System</h2>
         <div class="table-container">
@@ -779,8 +869,22 @@ function printChecklist() {
           Most static hosts look for <code>index.html</code> first. The server
           should not need a treasure map to find it.
         </p>
+        <div class="notification is-info is-light">
+          <p>
+            <strong>Worked example:</strong> if your CSS says
+            <code>background-image: url('../Images/Hero.JPG')</code> but the
+            folder on the server is <code>images/hero.jpg</code>, the live site
+            can lose its hero image. Fix the reference and the filename so they
+            match exactly, then redeploy the changed file.
+          </p>
+        </div>
 
         <h2 id="inspection-exercise" class="title is-3">Learner Activity: Inspect a Project</h2>
+        <p>
+          Choose a small project before trying to deploy it. This activity is a
+          pre-flight check. It is much easier to fix paths and filenames before
+          the project is mixed with hosting, DNS and caching questions.
+        </p>
         <ul class="checklist-list">
           <li><i class="fas fa-square"></i> Confirm <code>index.html</code> exists.</li>
           <li><i class="fas fa-square"></i> Confirm files use relative paths.</li>
@@ -789,6 +893,14 @@ function printChecklist() {
           <li><i class="fas fa-square"></i> Confirm no files are referenced from outside the project folder.</li>
           <li><i class="fas fa-square"></i> Confirm the browser console has no obvious errors.</li>
         </ul>
+        <CheckpointBox
+          title="Publishing Knowledge Check"
+          :questions="[
+            { question: 'Why can an absolute path to /Users/student/Desktop fail online?', answer: 'The visitor and hosting server cannot access the student computer path.' },
+            { question: 'Why does index.html matter on many static hosts?', answer: 'It is the default homepage file the server looks for inside the public web root.' },
+            { question: 'What is one reason a file can work locally but fail online?', answer: 'Case-sensitive filename mismatch, missing upload, local-only path, or a build output difference.' }
+          ]"
+        />
       </template>
 
       <template v-else-if="currentLesson.id === 'understanding-hosting'">
@@ -810,6 +922,19 @@ function printChecklist() {
           does: stores files, runs code, manages servers, provides databases,
           handles builds or connects domains.
         </p>
+        <p>
+          A hosting service is a mix of responsibilities. Some services give you
+          a folder for files and a control panel. Some connect to Git and run
+          your build. Some rent you a server and expect you to configure the
+          operating system. Some hide the server almost completely and run small
+          functions when requests arrive. Beginner deployment becomes easier when
+          you choose the service that matches the site you actually built.
+        </p>
+        <pre><code>Website files
+  -> hosting account or platform
+  -> server resources
+  -> domain and DNS connection
+  -> visitor requests</code></pre>
 
         <h2 id="hosting-comparison" class="title is-3">Hosting Comparison</h2>
         <div class="table-container">
@@ -840,6 +965,22 @@ function printChecklist() {
           deployment. That can be valuable later, but it is usually unnecessary
           for a first portfolio, class exercise or static business website.
         </p>
+        <p>
+          Use shared hosting when you need a traditional account with domain
+          tools, email, databases or PHP. Use static hosting when the site is
+          HTML, CSS, JavaScript or a built frontend such as Vite. Use managed
+          application hosting later when the project has server-side framework
+          needs. Treat VPS and dedicated hosting as specialist tools, not a badge
+          of seriousness.
+        </p>
+        <CheckpointBox
+          title="Hosting Knowledge Check"
+          :questions="[
+            { question: 'Which hosting types are usually enough for beginner static sites?', answer: 'Static hosting and, in traditional environments, shared hosting.' },
+            { question: 'Why is a VPS usually unnecessary for beginner deployment?', answer: 'It adds server administration responsibilities that are separate from publishing a static site.' },
+            { question: 'Why should students be cautious with hosting terminology?', answer: 'Providers use terms inconsistently, so students should inspect what the service actually stores, builds, runs and supports.' }
+          ]"
+        />
       </template>
 
       <template v-else-if="currentLesson.id === 'choosing-a-hosting-path'">
@@ -854,6 +995,12 @@ function printChecklist() {
           :prerequisites="[{ topic: 'Understanding Hosting', link: '/tutorials/deployments/understanding-hosting' }]"
         />
         <h2 id="three-paths" class="title is-3">Three Beginner Deployment Paths</h2>
+        <p>
+          Choosing hosting is not about finding the one perfect provider. It is
+          about choosing a path that matches the project and the person who will
+          maintain it. A classroom exercise can tolerate a simpler workflow than
+          a client site with renewals, email and support responsibilities.
+        </p>
         <div class="columns hosting-options">
           <div class="column">
             <div class="box">
@@ -884,6 +1031,38 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           more controlled if you know which changed files matter. The third is
           repeatable and traceable, but only once Git basics make sense.
         </p>
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Shared hosting</th>
+                <th>Manual static hosting</th>
+                <th>Git-connected hosting</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Who is it best for?</td>
+                <td>Small business sites needing traditional account tools.</td>
+                <td>Quick static exercises and demonstrations.</td>
+                <td>Ongoing projects where changes should be traceable.</td>
+              </tr>
+              <tr>
+                <td>What can go wrong?</td>
+                <td>Wrong public folder, unclear ownership, renewal surprises.</td>
+                <td>Wrong upload folder, stale files, missing build output.</td>
+                <td>Wrong branch, failed build command, missing environment variables.</td>
+              </tr>
+              <tr>
+                <td>What should be recorded?</td>
+                <td>Account owner, renewal date, web root, support process.</td>
+                <td>Upload method, public URL, source folder, last upload date.</td>
+                <td>Repository, branch, build command, output directory, deploy URL.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <IndependentPractice
           id="decision-exercise"
@@ -898,6 +1077,14 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           :stretch-goals="[
             'Name one risk for each path',
             'List which provider details must be checked before purchase or signup'
+          ]"
+        />
+        <CheckpointBox
+          title="Hosting Path Knowledge Check"
+          :questions="[
+            { question: 'Which path suits a Vite portfolio that will be updated regularly?', answer: 'Usually Git-connected hosting, because commits can trigger builds and deployments.' },
+            { question: 'Which path may suit a small business site that needs email and clear account ownership?', answer: 'Traditional shared hosting can be appropriate if the plan, support, renewals and ownership are clear.' },
+            { question: 'Why is Edit -> Zip -> Upload risky for long-term updates?', answer: 'It is easy to lose track of which files changed and which version is live.' }
           ]"
         />
       </template>
@@ -927,6 +1114,20 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           should know who owns the account, who pays renewal invoices, where
           support is requested and where backups live.
         </p>
+        <p>
+          Shared hosting is common because it bundles many practical website
+          needs into one account. That convenience is also why students need to
+          read carefully. Storage, bandwidth, email accounts, databases, backup
+          frequency, support hours and renewal prices can vary across plans from
+          the same provider. A cheap first year is not the same thing as a cheap
+          website over three years.
+        </p>
+        <ul>
+          <li><strong>Account ownership:</strong> the client or organisation should own the account where possible.</li>
+          <li><strong>Billing responsibility:</strong> someone must receive and pay renewal notices.</li>
+          <li><strong>Backup responsibility:</strong> provider backups are useful, but students should still keep project copies.</li>
+          <li><strong>Support boundaries:</strong> hosts may help with server/account issues, but not custom code bugs.</li>
+        </ul>
 
         <h2 id="control-panels" class="title is-3">Control Panels You May See</h2>
         <p>
@@ -969,9 +1170,18 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           introductory pricing from renewal pricing, and check currency, GST and
           cancellation terms where relevant.
         </p>
+        <p>
+          Provider details below were checked against current official provider
+          pages on <strong>14 July 2026</strong>. They are deliberately written
+          as comparison guidance rather than promises. Before students buy
+          hosting, they should open the provider's current plan page and record
+          the first-term price, renewal price, currency, GST/tax treatment,
+          storage, email, databases, SSL, backups, support and cancellation
+          policy.
+        </p>
         <div class="table-container">
           <table class="table is-bordered is-striped is-fullwidth">
-            <thead><tr><th>Provider</th><th>Positioning</th><th>Compare carefully</th></tr></thead>
+            <thead><tr><th>Provider</th><th>Positioning</th><th>Compare carefully</th><th>Checked</th></tr></thead>
             <tbody>
               <tr v-for="provider in providerGuidance" :key="provider.provider">
                 <td>
@@ -981,6 +1191,7 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
                 </td>
                 <td>{{ provider.position }}</td>
                 <td>{{ provider.notes }}</td>
+                <td>{{ provider.checked }}</td>
               </tr>
             </tbody>
           </table>
@@ -995,6 +1206,12 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
         <ul>
           <li v-for="limitation in freeHostingLimitations" :key="limitation">{{ limitation }}</li>
         </ul>
+        <p>
+          Free shared hosting is most useful when the learning goal is to see a
+          control panel, upload files and understand limitations. It is not a
+          sensible default for a real client or business website because support,
+          continuity, backups and commercial-use terms matter.
+        </p>
         <h3 class="title is-4">Preferred Free Modern Hosting for Static Projects</h3>
         <p>
           GitHub Pages, Netlify, Vercel and Cloudflare Pages are not traditional
@@ -1009,6 +1226,14 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
             </a>
           </li>
         </ul>
+        <CheckpointBox
+          title="Shared Hosting Knowledge Check"
+          :questions="[
+            { question: 'What is the public web root?', answer: 'The folder the host serves to the web, such as public_html, htdocs, www or httpdocs.' },
+            { question: 'Why should students compare renewal pricing separately from entry pricing?', answer: 'Introductory prices are often temporary; the renewal price is what the site may cost after the first term.' },
+            { question: 'Why is free shared hosting unsuitable for a real business site?', answer: 'It may have limited support, uncertain continuity, restrictions, branding, reduced resources or unclear commercial terms.' }
+          ]"
+        />
       </template>
 
       <template v-else-if="currentLesson.id === 'uploading-html-css-javascript-website'">
@@ -1023,6 +1248,13 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           :prerequisites="[{ topic: 'Traditional Shared Hosting and Control Panels', link: '/tutorials/deployments/traditional-shared-hosting-control-panels' }]"
         />
         <h2 id="file-manager" class="title is-3">File Manager Workflow</h2>
+        <p>
+          A hosting File Manager is a browser-based tool for working with files
+          already on the hosting account. It is useful for beginners because it
+          makes the remote folder visible, but it is still possible to upload the
+          right files to the wrong place. Always confirm the public web root
+          before changing anything.
+        </p>
         <GuidedPractice
           title="Upload a Plain Static Site"
           icon="fas fa-upload"
@@ -1062,6 +1294,14 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           files need to be placed in the correct public directory. Uploading the
           ZIP is not the same as publishing what is inside it.
         </p>
+        <p>
+          A ZIP upload is a transport shortcut. If the host supports extraction,
+          the useful workflow is: create the ZIP from the contents of the project
+          folder, upload it into the correct public folder, extract it, then
+          check that <code>index.html</code> sits directly in the web root. If
+          extraction creates an extra wrapper folder, move the contents up one
+          level or the homepage may not load.
+        </p>
 
         <h2 id="ftp-sftp" class="title is-3">FTP, FTPS and SFTP</h2>
         <div class="table-container">
@@ -1081,6 +1321,13 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           this lesson.
         </p>
         <pre><code>Local computer files | Remote hosting files</code></pre>
+        <p>
+          The two-panel interface is the main idea: one side is your computer,
+          the other side is the hosting account. Upload from local to remote;
+          download from remote to local. Before replacing live files, check the
+          timestamp, file size and remote path. If you are not sure whether a
+          file is still needed, download a backup first.
+        </p>
         <div class="notification is-warning is-light">
           <p>
             Do not share hosting passwords, commit credentials to Git or keep
@@ -1088,6 +1335,14 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
             credentials securely.
           </p>
         </div>
+        <CheckpointBox
+          title="Manual Upload Knowledge Check"
+          :questions="[
+            { question: 'Why does public_html/my-project/index.html often fail as the homepage?', answer: 'The host may look for index.html directly inside public_html, not inside the nested my-project folder.' },
+            { question: 'What is the difference between uploading a ZIP and publishing the site?', answer: 'The ZIP must be extracted and the extracted files must be in the correct public web root.' },
+            { question: 'Which transfer method should students prefer when supported: FTP, FTPS or SFTP?', answer: 'SFTP, because it transfers files over SSH and avoids plain FTP credentials.' }
+          ]"
+        />
       </template>
 
       <template v-else-if="currentLesson.id === 'building-and-deploying-a-vite-site'">
@@ -1111,6 +1366,16 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           work. <code>npm run build</code> creates production-ready files. In
           many Vite projects, the output folder is <code>dist</code>.
         </p>
+        <p>
+          Think of the source project as the workshop and <code>dist</code> as
+          the packed result. The workshop contains source files, dependencies,
+          configuration and development conveniences. Visitors do not need that
+          whole workshop. They need the built HTML, CSS, JavaScript and assets
+          that Vite prepares for production.
+        </p>
+        <pre><code>npm run dev    # local development server
+npm run build  # production output
+npm run preview # local preview of the built output, when configured</code></pre>
         <GuidedPractice
           title="Build and Deploy a Vite Site"
           icon="fas fa-gears"
@@ -1131,6 +1396,13 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           source project folder. Check whether the host expects the folder itself
           or the contents of the folder.
         </p>
+        <p>
+          If your built files live in <code>dist/</code>, manually uploading the
+          repository root can publish the wrong thing. The host may receive
+          <code>src/</code>, <code>package.json</code> and configuration files
+          but no production-ready homepage. Build first, inspect the output,
+          then upload the output expected by the host.
+        </p>
 
         <h2 id="git-connected-vite" class="title is-3">Git-Connected Vite Deployment</h2>
         <p>A Git-connected platform normally:</p>
@@ -1140,6 +1412,27 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           <li>runs the build command</li>
           <li>publishes the configured output directory</li>
         </ol>
+        <p>
+          For a typical Vite project the build command is often
+          <code>npm run build</code> and the publish directory is often
+          <code>dist</code>. Do not type those from memory if the project differs:
+          read <code>package.json</code> and the hosting platform's framework
+          settings. If the build fails, the log is not decoration. It is the
+          first witness.
+        </p>
+        <h3 class="title is-4">Static Hosts for Vite and Frontend Builds</h3>
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead><tr><th>Platform</th><th>Useful for</th><th>Student note</th></tr></thead>
+            <tbody>
+              <tr v-for="host in staticHostingGuidance" :key="host.host">
+                <td>{{ host.host }}</td>
+                <td>{{ host.use }}</td>
+                <td>{{ host.note }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2 id="vite-mistakes" class="title is-3">Common Vite Deployment Mistakes</h2>
         <ul>
@@ -1151,6 +1444,20 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           <li>incorrect base path configuration</li>
           <li>broken SPA routing or missing fallback configuration</li>
         </ul>
+        <p>
+          If the site appears as a white page after deployment, open the browser
+          console and Network panel. Missing JavaScript files, 404s for assets,
+          or errors mentioning environment variables often point directly to the
+          deployment setting that needs attention.
+        </p>
+        <CheckpointBox
+          title="Vite Deployment Knowledge Check"
+          :questions="[
+            { question: 'What folder do students usually deploy for a manual Vite static deployment?', answer: 'The production output folder, commonly dist, rather than the source project folder.' },
+            { question: 'What does a Git-connected platform normally do after a push?', answer: 'Clone the repository, install dependencies, run the build command and publish the configured output directory.' },
+            { question: 'Where should students look first when a Vite deployment fails?', answer: 'The build log, browser console and Network panel.' }
+          ]"
+        />
       </template>
 
       <template v-else-if="currentLesson.id === 'domains-dns-and-going-live'">
@@ -1165,6 +1472,12 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           :prerequisites="[{ topic: 'Building and Deploying a Vite Website', link: '/tutorials/deployments/building-and-deploying-a-vite-site' }]"
         />
         <h2 id="domain-dns-roles" class="title is-3">Who Does What?</h2>
+        <p>
+          Domains and DNS feel abstract because nothing visible moves when you
+          change them. You are editing directions. A domain is the readable name;
+          DNS is the lookup system that tells browsers where that name should go;
+          hosting is the place that responds with the website.
+        </p>
         <ul>
           <li><strong>Domain registrar:</strong> registers and renews the domain.</li>
           <li><strong>DNS provider:</strong> manages the records that point names to services.</li>
@@ -1192,6 +1505,13 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
         <p>
           Do not invent DNS values. Follow the current connection instructions
           from the hosting provider and registrar.
+        </p>
+        <p>
+          Most domain tasks involve either changing nameservers or adding records.
+          Nameservers delegate DNS management to a provider. Individual records,
+          such as A, AAAA and CNAME records, point specific names to specific
+          destinations. Which method is correct depends on the host. Guessing DNS
+          values is how a tidy lesson becomes an afternoon of mysterious failure.
         </p>
 
         <figure id="dns-path" class="tutorial-figure tutorial-figure--wide">
@@ -1221,6 +1541,14 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           <li>support details</li>
           <li>backup location</li>
         </ul>
+        <CheckpointBox
+          title="DNS Knowledge Check"
+          :questions="[
+            { question: 'What is the difference between a registrar and a DNS provider?', answer: 'The registrar registers and renews the domain; the DNS provider manages the records that point the domain to services.' },
+            { question: 'Why should students avoid invented DNS values?', answer: 'DNS values must match the current hosting provider instructions or the domain may point to the wrong place.' },
+            { question: 'Why should passwords not be written into the ownership worksheet?', answer: 'The worksheet should record where accounts are managed, not expose credentials.' }
+          ]"
+        />
       </template>
 
       <template v-else-if="currentLesson.id === 'testing-troubleshooting-live-website'">
@@ -1247,6 +1575,12 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           Resist the urge to change things randomly. The first real error is often
           the site trying to tell you exactly where to look.
         </p>
+        <p>
+          Good troubleshooting separates symptoms from causes. "The site is
+          broken" is too broad. "The homepage loads but the CSS file returns
+          404" is useful. "The Vite JavaScript file is requested from the wrong
+          base path" is even better. Each observation narrows the system.
+        </p>
 
         <h2 id="problem-table" class="title is-3">Common Live Website Problems</h2>
         <div class="deployment-problems">
@@ -1267,6 +1601,31 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           <li>base path and environment variable errors</li>
           <li>case-sensitive file paths and nested folders</li>
         </ul>
+        <h3 class="title is-4">Case Study: CSS Missing After Upload</h3>
+        <p>
+          Symptom: the homepage text appears, but it looks unstyled. In DevTools,
+          the Network panel shows <code>css/styles.css</code> returning 404.
+          First check whether the file was uploaded. Then check exact folder and
+          filename case. If the file is really named <code>CSS/Styles.css</code>,
+          rename files and references consistently, upload again and hard-refresh
+          the page.
+        </p>
+        <h3 class="title is-4">Case Study: Vite White Screen</h3>
+        <p>
+          Symptom: the deployed page is blank. The console shows a missing
+          JavaScript bundle or a runtime error. Check the deployment log for a
+          failed build, confirm the output directory is <code>dist</code>, check
+          base path configuration, and confirm required environment variables are
+          defined on the hosting platform.
+        </p>
+        <CheckpointBox
+          title="Troubleshooting Knowledge Check"
+          :questions="[
+            { question: 'Why should students read the first meaningful error before changing files?', answer: 'It identifies the part of the system that is failing and prevents random changes.' },
+            { question: 'What should be checked when images work locally but not online?', answer: 'Filename case, extension, path, upload/build inclusion, and whether the reference points outside the project.' },
+            { question: 'What panels in browser developer tools are most useful for deployment issues?', answer: 'The Console for runtime errors and the Network panel for missing files, status codes and incorrect paths.' }
+          ]"
+        />
       </template>
 
       <template v-else-if="currentLesson.id === 'continuous-improvement-deployment-workflows'">
@@ -1282,6 +1641,12 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
         />
         <h2 id="improvement-cycle" class="title is-3">The Improvement Cycle</h2>
         <pre><code>Plan -> Build -> Test -> Deploy -> Verify -> Monitor -> Improve -> Repeat</code></pre>
+        <p>
+          Deployment is not a graduation ceremony for a website. It is the start
+          of a cycle. After a site goes live, real browsers, real networks and
+          real users provide evidence. The calm workflow is to make one sensible
+          change, test it, deploy it, verify the result and record what happened.
+        </p>
 
         <h2 id="manual-workflow" class="title is-3">Manual Workflow</h2>
         <pre><code>Edit locally
@@ -1290,6 +1655,12 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
   -> Upload changed files
   -> Test live site
   -> Record the change</code></pre>
+        <p>
+          Manual updates are acceptable for small sites if they are deliberate.
+          Keep a local copy, back up files before replacing them, upload only
+          what changed when you can, and write down the change. Without a record,
+          the next person has to solve the same mystery again.
+        </p>
 
         <h2 id="git-workflow" class="title is-3">Git Workflow</h2>
         <pre><code>Create or choose a branch
@@ -1304,6 +1675,13 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
         <p>
           Keep this beginner-friendly. The point is not to perform ceremony; the
           point is to make changes traceable and reversible.
+        </p>
+        <p>
+          For beginners, the Git workflow can stay simple: commit working
+          changes, push to the connected repository, review the preview if the
+          platform provides one, then merge or deploy to production when ready.
+          The value is not ceremony. The value is a trail of what changed and
+          when.
         </p>
 
         <h2 id="monitoring-tools" class="title is-3">Monitoring and Feedback Tools</h2>
@@ -1330,6 +1708,14 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
             </tbody>
           </table>
         </div>
+        <CheckpointBox
+          title="Continuous Improvement Knowledge Check"
+          :questions="[
+            { question: 'Why should live changes be recorded?', answer: 'A change log helps future maintainers understand what changed, why, how it was deployed and what happened next.' },
+            { question: 'What is the purpose of a preview deployment?', answer: 'It lets you inspect changes in a live-like environment before production.' },
+            { question: 'Name one monitoring tool and the problem it helps solve.', answer: 'Examples include Lighthouse for performance/accessibility checks, Search Console for search visibility, analytics for traffic patterns, uptime monitoring for outages, or deployment logs for build failures.' }
+          ]"
+        />
       </template>
 
       <template v-else>
@@ -1353,8 +1739,50 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
           page. Small is the point. If something breaks, there are only a few
           files to inspect.
         </p>
+        <h3 class="title is-4">Starter Files</h3>
+        <pre><code class="language-html">&lt;!-- index.html --&gt;
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Deployment Test&lt;/title&gt;
+    &lt;link rel="stylesheet" href="./styles.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;main&gt;
+      &lt;h1&gt;Deployment Test&lt;/h1&gt;
+      &lt;p&gt;If you can read this online, the HTML deployed.&lt;/p&gt;
+      &lt;button id="status-button"&gt;Test JavaScript&lt;/button&gt;
+      &lt;p id="status"&gt;JavaScript has not run yet.&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;script src="./script.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <pre><code class="language-css">/* styles.css */
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 2rem;
+}
+
+main {
+  border: 2px solid #4b88a2;
+  max-width: 42rem;
+  padding: 1.5rem;
+}</code></pre>
+        <pre><code class="language-js">// script.js
+document.querySelector('#status-button').addEventListener('click', () => {
+  document.querySelector('#status').textContent = 'JavaScript is running online.';
+});</code></pre>
 
         <h2 id="lab-options" class="title is-3">Choose at Least One Lab Option</h2>
+        <p>
+          Complete at least one deployment method. If time allows, complete two
+          and compare the feedback each one gives you. The goal is not to collect
+          accounts; the goal is to notice how each workflow moves files from
+          local project to live URL.
+        </p>
         <div class="columns hosting-options">
           <div class="column">
             <div class="box">
@@ -1435,6 +1863,14 @@ Edit -> Commit -> Push -> Automatic deployment</code></pre>
             Black Swan Bistro Part 5: Prepare for Deployment
           </router-link>.
         </p>
+        <CheckpointBox
+          title="Deployment Lab Knowledge Check"
+          :questions="[
+            { question: 'What evidence proves the lab deployed successfully?', answer: 'The live URL loads the HTML, CSS and JavaScript from another browser/device or private window, with no obvious console errors.' },
+            { question: 'Why is a tiny lab useful before deploying a larger project?', answer: 'It isolates the deployment workflow so problems are easier to diagnose.' },
+            { question: 'What should students record after the lab?', answer: 'The deployment method, live URL, account/platform location, source repository or folder, DNS/domain details if used, result and follow-up tasks.' }
+          ]"
+        />
       </template>
 
       <ClosureSection
