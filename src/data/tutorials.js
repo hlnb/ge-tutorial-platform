@@ -3539,15 +3539,24 @@ const tutorialRecords = [
     slug: 'advanced/black-swan-bistro-part-6',
 
     publishDate: '2026-03-24',
-    summary: 'Push the bistro project to GitHub and deploy it live on the web.',
+    summary:
+      'Publish the Bistro through traditional hosting, GitHub Pages, or Vercel, then verify the live site with a deployment checklist.',
     level: 'advanced',
     levelTitle: 'Advanced',
     levelDescription: 'Deployment, domains, and long-term site care.',
     pathways: ['deployment'],
     stage: 5,
     difficulty: 'medium',
-    estimatedTime: '50 min',
-    tags: ['deployment', 'git', 'project', 'hands-on'],
+    estimatedTime: '75-110 min',
+    tags: [
+      'deployment',
+      'git',
+      'github-pages',
+      'vercel',
+      'traditional-hosting',
+      'project',
+      'hands-on',
+    ],
     featured: false,
     isProject: true,
     project: 'black-swan-bistro',
@@ -3624,6 +3633,7 @@ const tutorialRecords = [
     estimatedTime: '40 min',
     tags: ['maintenance', 'performance', 'project', 'hands-on'],
     featured: false,
+    comingSoon: true,
     isProject: true,
     project: 'black-swan-bistro',
     projectPart: 7,
@@ -4448,7 +4458,10 @@ function buildPathwayFlow(pathwayId, { includeSectionNavHiddenFor = [] } = {}) {
 
 function buildProjectFlow(projectId) {
   return tutorials
-    .filter((tutorial) => tutorial.project === projectId)
+    .filter(
+      (tutorial) =>
+        tutorial.project === projectId && isTutorialNavigable(tutorial),
+    )
     .sort((a, b) => (a.projectPart ?? 0) - (b.projectPart ?? 0))
     .map((tutorial) => ({
       path: `/tutorials/${tutorial.slug}`,

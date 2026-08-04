@@ -335,10 +335,10 @@ watch(showMobileNavDrawer, (isOpen) => {
 
 <style scoped>
 .tutorial-layout {
-  --tutorial-shell-bg: linear-gradient(180deg, #f7fbfc 0%, #edf4f6 100%);
+  --tutorial-shell-bg: var(--bg-tutorial-shell);
   --tutorial-surface: #ffffff;
-  --tutorial-surface-border: #d8e4e8;
-  --tutorial-surface-shadow: 0 18px 40px rgba(73, 98, 113, 0.08);
+  --tutorial-surface-border: var(--border-card);
+  --tutorial-surface-shadow: 0 18px 40px var(--ge-grid);
   display: grid;
   grid-template-columns: 300px 1fr;
   align-items: start;

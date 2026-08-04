@@ -1404,6 +1404,48 @@ const legacyTutorialEditorialContent = {
           url: 'https://docs.github.com/en/pages',
           description: 'Official guide to deploying with GitHub Pages.',
         },
+        {
+          title: 'GitHub Docs: Configuring a publishing source',
+          url: 'https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site',
+          description:
+            'Official GitHub guidance for enabling GitHub Actions as the Pages publishing source.',
+        },
+        {
+          title: 'Vite: Deploying a Static Site',
+          url: 'https://vite.dev/guide/static-deploy.html',
+          description:
+            'Official Vite guidance for build output, local preview, GitHub Pages, and Vercel.',
+        },
+        {
+          title: 'GitHub Pages custom workflows',
+          url: 'https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages',
+          description:
+            'Official GitHub guidance for Pages artifacts and deployment workflows.',
+        },
+        {
+          title: 'Vercel: Deploying Git repositories',
+          url: 'https://vercel.com/docs/git',
+          description:
+            'Official Vercel guidance for repository import, build settings, and Git-triggered deployments.',
+        },
+        {
+          title: 'Vercel: Vite on Vercel',
+          url: 'https://vercel.com/docs/frameworks/frontend/vite',
+          description:
+            'Official Vercel guidance for deploying Vite projects and handling SPA deep links.',
+        },
+        {
+          title: 'cPanel File Manager',
+          url: 'https://docs.cpanel.net/cpanel/files/file-manager/',
+          description:
+            'Official cPanel guide for uploading and extracting files through File Manager.',
+        },
+        {
+          title: 'cPanel: Manage the Domain',
+          url: 'https://docs.cpanel.net/cpanel/domains/domains/manage-the-domain/',
+          description:
+            'Official cPanel guide for document roots and domain file locations.',
+        },
       ],
     },
     'black-swan-bistro-part-7': {

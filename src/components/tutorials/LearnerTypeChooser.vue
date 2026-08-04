@@ -79,8 +79,8 @@ defineEmits(['select']);
 }
 
 .learner-btn.is-active {
-  border-color: var(--color-red-berry, #8d0000);
-  background-color: #fdf5f5;
+  border-color: var(--ge-burgundy);
+  background-color: var(--ge-burgundy-soft);
 }
 
 .learner-btn strong {

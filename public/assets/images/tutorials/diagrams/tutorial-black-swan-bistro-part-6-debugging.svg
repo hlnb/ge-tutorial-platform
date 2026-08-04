@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Diagnose blank page deployment problems</title>
+  <desc id="desc">Two debugging examples: a missing deployed asset caused by an incorrect base path and a nested SPA route returning 404 after refresh.</desc>
+  <rect width="1600" height="900" fill="#fffaf2"/>
+  <text x="90" y="112" fill="#2d2724" font-family="Arial, sans-serif" font-size="46" font-weight="700">Diagnose the Blank Page</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="90" y="180" width="680" height="560" rx="20" fill="#ffffff" stroke="#2d2724" stroke-width="5"/>
+    <rect x="120" y="220" width="620" height="64" rx="10" fill="#f8f3ea"/>
+    <text x="148" y="262" fill="#4f4540" font-size="25">/assets/index.css 404</text>
+    <rect x="120" y="320" width="620" height="130" rx="12" fill="#f3eee5" stroke="#d9d0c0" stroke-width="4"/>
+    <text x="148" y="396" fill="#7a1828" font-size="31" font-weight="700">Blank or unstyled page</text>
+    <rect x="120" y="490" width="620" height="190" rx="12" fill="#2d2724"/>
+    <text x="150" y="548" fill="#fffaf2" font-size="27">Network: failed asset request</text>
+    <text x="150" y="598" fill="#f0a3af" font-size="25">missing /repository/ base path</text>
+    <text x="150" y="650" fill="#fffaf2" font-size="25">Check base and asset paths.</text>
+    <rect x="830" y="180" width="680" height="560" rx="20" fill="#ffffff" stroke="#2d2724" stroke-width="5"/>
+    <rect x="860" y="220" width="620" height="64" rx="10" fill="#f8f3ea"/>
+    <text x="888" y="262" fill="#4f4540" font-size="25">https://site.example/menu</text>
+    <rect x="860" y="320" width="620" height="130" rx="12" fill="#f3eee5" stroke="#d9d0c0" stroke-width="4"/>
+    <text x="888" y="396" fill="#7a1828" font-size="31" font-weight="700">Refresh returns server 404</text>
+    <rect x="860" y="490" width="620" height="190" rx="12" fill="#2d2724"/>
+    <text x="890" y="548" fill="#fffaf2" font-size="27">Request reaches host first</text>
+    <text x="890" y="598" fill="#f0a3af" font-size="25">client router has not loaded yet</text>
+    <text x="890" y="650" fill="#fffaf2" font-size="25">Configure fallback or use hash history.</text>
+  </g>
+  <text x="800" y="820" fill="#4f4540" font-family="Arial, sans-serif" font-size="31" text-anchor="middle">Start with the failed request. Assets and route refreshes point to different fixes.</text>
+</svg>

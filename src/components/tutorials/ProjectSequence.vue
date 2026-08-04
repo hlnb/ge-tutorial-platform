@@ -125,7 +125,7 @@ defineProps({
 
 .project-sequence__link {
   font-weight: 600;
-  color: var(--color-red-berry, #8d0000);
+  color: var(--ge-burgundy);
   text-decoration: none;
 }
 

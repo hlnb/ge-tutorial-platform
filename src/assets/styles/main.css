@@ -49,32 +49,53 @@
 }
 
 :root {
-  --color-red-berry: #8d0000;
-  --color-mahogany: #6a0808;
-  --color-tamarillo: #a21111;
-  --color-graphite-red: #e63946;
+  /* GraphitEdge brand */
+  --ge-graphite: rgb(77, 77, 77);
+  --ge-burgundy: rgb(139, 0, 0);
+  --ge-cream: rgb(247, 242, 234);
+  --ge-orange: rgb(232, 93, 4);
+
+  /* Supporting colours */
+  --ge-charcoal: rgb(41, 45, 48);
+  --ge-muted: rgb(138, 141, 143);
+  --ge-border: rgb(216, 208, 197);
+  --ge-focus: rgb(37, 99, 184);
+
+  /* Transparent variations */
+  --ge-burgundy-soft: rgba(139, 0, 0, 0.1);
+  --ge-orange-soft: rgba(232, 93, 4, 0.12);
+  --ge-graphite-border: rgba(77, 77, 77, 0.22);
+  --ge-grid: rgba(77, 77, 77, 0.08);
+  --ge-overlay: rgba(41, 45, 48, 0.72);
+
+  --color-red-berry: var(--ge-burgundy);
+  --color-red-berry-rgb: 139, 0, 0;
+  --color-red-berry-dark: rgb(104, 0, 0);
+  --color-mahogany: rgb(104, 0, 0);
+  --color-tamarillo: rgb(166, 17, 17);
+  --color-graphite-red: var(--ge-orange);
   --color-amber: #ffd166;
   --color-teal: #2ec4b6;
   --color-navy: #1a1a2e;
-  --color-dark: #23272f;
-  --color-ink: #1f2933;
-  --color-mine-shaft: #4d4d4d;
-  --color-mine-shaft-2: #444444;
-  --color-slate-gray: #738290;
-  --color-alto: #d8d8d8;
-  --color-light-gray: #d3d4d9;
-  --color-muted: #7a7a7a;
-  --color-caption: #52606d;
+  --color-dark: var(--ge-charcoal);
+  --color-ink: var(--ge-charcoal);
+  --color-mine-shaft: var(--ge-graphite);
+  --color-mine-shaft-2: var(--ge-graphite);
+  --color-slate-gray: var(--ge-muted);
+  --color-alto: var(--ge-border);
+  --color-light-gray: var(--ge-border);
+  --color-muted: var(--ge-muted);
+  --color-caption: var(--ge-graphite);
   --color-snow: #fff9fb;
   --color-white: #ffffff;
-  --color-surface: #f4f1ec;
+  --color-surface: var(--ge-cream);
   --color-linen: #f9eae1;
   --color-code-bg: #f8fafb;
   --color-tea-green: #c9e4ca;
   --color-dark-sea-green: #87bba2;
   --color-rackley: #4b88a2;
-  --color-link: #4338ca;
-  --color-link-active: #4338ca;
+  --color-link: var(--ge-burgundy);
+  --color-link-active: var(--ge-burgundy);
   --color-ferra: #7d4f50;
   --color-contessa: #cc8b86;
   --fg-default: var(--color-ink);
@@ -82,20 +103,20 @@
   --fg-subtle: var(--color-slate-gray);
   --fg-inverse: var(--color-white);
   --fg-accent: var(--color-red-berry);
-  --bg-page: #f7fbfc;
+  --bg-page: var(--ge-cream);
   --bg-surface: var(--color-white);
-  --bg-hero: var(--color-navy);
-  --bg-footer: var(--color-light-gray);
+  --bg-hero: var(--ge-charcoal);
+  --bg-footer: var(--ge-border);
   --bg-code: var(--color-code-bg);
-  --bg-warm: var(--color-linen);
-  --bg-tutorial-shell: linear-gradient(180deg, #f7fbfc 0%, #edf4f6 100%);
-  --border-subtle: rgba(15, 23, 42, 0.08);
-  --border-card: #d8e4e8;
+  --bg-warm: var(--ge-cream);
+  --bg-tutorial-shell: linear-gradient(180deg, var(--ge-cream) 0%, #ffffff 100%);
+  --border-subtle: var(--ge-grid);
+  --border-card: var(--ge-border);
   --border-default: var(--color-alto);
   --color-primary: var(--color-red-berry);
   --color-primary-hover: var(--color-tamarillo);
   --color-primary-dark: var(--color-mahogany);
-  --color-focus: #2563eb;
+  --color-focus: var(--ge-focus);
   --color-success: var(--color-tea-green);
   --color-info: var(--color-rackley);
   --color-warning: var(--color-amber);

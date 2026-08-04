@@ -68,7 +68,7 @@ const handleSubmit = async (e) => {
 
 <style scoped>
 .signup-cta {
-	background: linear-gradient(135deg, var(--color-red-berry) 0%, #ff6b6b 100%);
+	background: linear-gradient(135deg, var(--ge-burgundy) 0%, var(--ge-orange) 100%);
 	border-radius: 12px;
 	padding: 2rem;
 	color: white;

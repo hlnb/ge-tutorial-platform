@@ -104,8 +104,8 @@ const getObjectiveContent = (objective) => {
 
 .blooms-tag {
 	display: inline-block;
-	background: #e0e7ff;
-	color: #4338ca;
+	background: var(--ge-burgundy-soft);
+	color: var(--ge-burgundy);
 	padding: 0.125rem 0.5rem;
 	border-radius: 4px;
 	font-size: 0.75rem;
