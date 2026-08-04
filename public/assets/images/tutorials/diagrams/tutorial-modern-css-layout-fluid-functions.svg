@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Fluid CSS functions with minimum, preferred, and maximum values</title>
+  <desc id="desc">A diagram showing min, max, and clamp as CSS functions that protect layout values from becoming too small or too large.</desc>
+  <rect width="960" height="520" fill="#fbfaf6"/>
+  <text x="64" y="64" fill="#202124" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="32" font-weight="700">Fluid values still need boundaries</text>
+  <text x="64" y="104" fill="#60646c" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18">Use CSS functions to let values move without losing control.</text>
+
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+    <g transform="translate(82 165)">
+      <rect width="228" height="214" rx="10" fill="#ffffff" stroke="#d8ddda" stroke-width="2"/>
+      <text x="28" y="46" fill="#245c4f" font-size="24" font-weight="700">min()</text>
+      <text x="28" y="82" fill="#60646c" font-size="16">Choose the smaller value.</text>
+      <path d="M36 128h152" stroke="#245c4f" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="76" cy="128" r="15" fill="#ffd166"/>
+      <circle cx="188" cy="128" r="15" fill="#e6efe8"/>
+      <text x="36" y="172" fill="#202124" font-size="15">width: min(90%, 70rem)</text>
+    </g>
+
+    <g transform="translate(366 165)">
+      <rect width="228" height="214" rx="10" fill="#ffffff" stroke="#d8ddda" stroke-width="2"/>
+      <text x="28" y="46" fill="#245c4f" font-size="24" font-weight="700">max()</text>
+      <text x="28" y="82" fill="#60646c" font-size="16">Choose the larger value.</text>
+      <path d="M36 128h152" stroke="#245c4f" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="76" cy="128" r="15" fill="#e6efe8"/>
+      <circle cx="188" cy="128" r="15" fill="#ffd166"/>
+      <text x="36" y="172" fill="#202124" font-size="15">padding: max(1rem, 4vw)</text>
+    </g>
+
+    <g transform="translate(650 165)">
+      <rect width="228" height="214" rx="10" fill="#ffffff" stroke="#d8ddda" stroke-width="2"/>
+      <text x="28" y="46" fill="#245c4f" font-size="24" font-weight="700">clamp()</text>
+      <text x="28" y="82" fill="#60646c" font-size="16">Stay between two limits.</text>
+      <path d="M42 128h140" stroke="#245c4f" stroke-width="8" stroke-linecap="round"/>
+      <rect x="58" y="112" width="108" height="32" rx="16" fill="#ffd166"/>
+      <text x="36" y="172" fill="#202124" font-size="15">font-size: clamp(...)</text>
+    </g>
+  </g>
+</svg>

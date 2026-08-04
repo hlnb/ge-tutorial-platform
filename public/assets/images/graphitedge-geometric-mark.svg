@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 172" role="img" aria-labelledby="title description">
+  <title id="title">GraphitEdge geometric mark</title>
+  <desc id="description">A burgundy geometric G symbol with an orange facet.</desc>
+
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <path
+      d="M86 10 156 50v72l-70 40-70-40V50L86 10Z"
+      stroke="#8B0000"
+      stroke-width="11"
+    />
+    <path
+      d="m118 54-32-18-38 22v57l38 21 38-21V84H88"
+      stroke="#8B0000"
+      stroke-width="11"
+    />
+    <path
+      d="m88 84 36-20v20l-36 20Z"
+      fill="#E85D04"
+      stroke="none"
+    />
+  </g>
+</svg>

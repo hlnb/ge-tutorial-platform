@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title description">
+  <title id="title">GraphitEdge geometric logo</title>
+  <desc id="description">A burgundy geometric G mark with an orange facet beside the GraphitEdge wordmark.</desc>
+
+  <g id="geometric-mark" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <path
+      d="M86 14 146 48v68l-60 34-60-34V48L86 14Z"
+      stroke="#8B0000"
+      stroke-width="10"
+    />
+    <path
+      d="m113 52-27-15-32 18v54l32 18 32-18V82H88"
+      stroke="#8B0000"
+      stroke-width="10"
+    />
+    <path
+      d="m88 82 30-17v17L88 99Z"
+      fill="#E85D04"
+      stroke="none"
+    />
+  </g>
+
+  <text
+    x="180"
+    y="118"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="76"
+    font-weight="700"
+    letter-spacing="-2"
+  >
+    <tspan fill="#4D4D4D">Graphit</tspan><tspan fill="#8B0000">Edge</tspan>
+  </text>
+</svg>

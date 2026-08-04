@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Modern CSS selectors and adaptable media rules</title>
+  <desc id="desc">A diagram connecting the has selector, aspect-ratio, and logical properties to optional content, stable media boxes, and writing-mode-aware spacing.</desc>
+  <rect width="960" height="540" fill="#fbfaf6"/>
+  <text x="64" y="64" fill="#202124" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="32" font-weight="700">Components can respond to what they contain</text>
+  <text x="64" y="104" fill="#60646c" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18">Use these features when they express a real relationship in the layout.</text>
+
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+    <g transform="translate(74 160)">
+      <rect width="250" height="255" rx="10" fill="#ffffff" stroke="#d8ddda" stroke-width="2"/>
+      <text x="24" y="42" fill="#245c4f" font-size="22" font-weight="700">:has()</text>
+      <rect x="24" y="72" width="202" height="50" rx="8" fill="#e8f2ef"/>
+      <rect x="24" y="142" width="202" height="50" rx="8" fill="#fff7d8" stroke="#ffd166" stroke-width="2"/>
+      <text x="44" y="103" fill="#202124" font-size="15">card:has(img)</text>
+      <text x="44" y="173" fill="#202124" font-size="15">card:not(:has(img))</text>
+      <text x="24" y="226" fill="#60646c" font-size="15">Style a parent from simple content facts.</text>
+    </g>
+
+    <g transform="translate(355 160)">
+      <rect width="250" height="255" rx="10" fill="#ffffff" stroke="#d8ddda" stroke-width="2"/>
+      <text x="24" y="42" fill="#245c4f" font-size="22" font-weight="700">aspect-ratio</text>
+      <rect x="34" y="78" width="182" height="114" rx="8" fill="#e8f2ef" stroke="#245c4f" stroke-width="2"/>
+      <path d="M34 192 216 78" stroke="#87bba2" stroke-width="3"/>
+      <text x="66" y="139" fill="#202124" font-size="18" font-weight="700">16 / 10</text>
+      <text x="24" y="226" fill="#60646c" font-size="15">Reserve predictable space for media.</text>
+    </g>
+
+    <g transform="translate(636 160)">
+      <rect width="250" height="255" rx="10" fill="#ffffff" stroke="#d8ddda" stroke-width="2"/>
+      <text x="24" y="42" fill="#245c4f" font-size="22" font-weight="700">logical properties</text>
+      <rect x="52" y="78" width="146" height="104" rx="8" fill="#e8f2ef" stroke="#245c4f" stroke-width="2"/>
+      <path d="M52 206h146" stroke="#ffd166" stroke-width="7" stroke-linecap="round"/>
+      <path d="M28 130h196" stroke="#87bba2" stroke-width="4" stroke-linecap="round"/>
+      <path d="M208 120l16 10-16 10" fill="none" stroke="#87bba2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="35" y="236" fill="#60646c" font-size="15">inline and block follow writing direction.</text>
+    </g>
+  </g>
+</svg>

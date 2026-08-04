@@ -1308,6 +1308,29 @@ const legacyTutorialEditorialContent = {
         },
       ],
     },
+    'modern-css-layout-extensions': {
+      practiceProjects: [],
+      resources: [
+        {
+          title: 'MDN: CSS values and units',
+          url: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units',
+          description:
+            'Background on CSS units and values before using fluid functions such as min(), max(), and clamp().',
+        },
+        {
+          title: 'MDN: CSS Grid layout',
+          url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout',
+          description:
+            'Reference for Grid concepts including repeat(), minmax(), auto-fit, auto-fill, and subgrid.',
+        },
+        {
+          title: 'web.dev: The CSS :has() selector',
+          url: 'https://web.dev/articles/has-m105',
+          description:
+            'Practical examples of styling elements based on what they contain with the relational :has() selector.',
+        },
+      ],
+    },
     'debug-broken-web-page': {
       practiceProjects: [],
       resources: [

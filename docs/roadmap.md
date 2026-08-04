@@ -4,6 +4,39 @@ Status: current planning document based on the live repository and the tutorial 
 
 This roadmap is intentionally practical. It focuses on the next documentation and architecture alignment steps visible from the current codebase rather than on speculative future systems.
 
+
+## Phase 0: AI-Literate Curriculum Checkpoint
+
+Goal:
+
+- decide how AI-assisted development, debugging, and project-proof outcomes should be woven into the tutorial pathway before expanding more tutorial builds
+
+Why:
+
+- current coding practice has shifted toward AI-assisted workflows, but the course should not become an AI-shortcut course
+- GraphitEdge already has a strong fundamentals and project spine; the risk is that AI remains isolated in a small `ai-assisted` section instead of becoming a practical learner habit
+- the current AI-assisted pages are thin compared with the rest of the curriculum and should be reviewed before more build-out depends on them
+
+Decision needed before further tutorial-build expansion:
+
+- treat this as a checkpoint, not a full stop
+- continue small fixes, polish, and completion work already in progress
+- pause major new tutorial sequence builds until the curriculum has a clear answer for where AI usage, debugging practice, and portfolio evidence appear across the pathway
+
+Likely work:
+
+1. audit the existing pathway for AI, debugging, independent problem-solving, and project-proof moments
+2. decide whether AI-assisted development remains a standalone section, becomes repeated callouts inside tutorials, or uses both approaches
+3. define a learner-safe AI pattern: ask, inspect, explain, test, adapt, document
+4. add “what this proves you can do” outcomes to major sections and projects
+5. identify the first tutorials that should receive AI/debugging/project-proof integration before new tutorial builds continue
+
+Suggested output:
+
+- a short curriculum decision note
+- a checklist for future tutorial authors
+- priority updates for `ai-assisted`, debugging lessons, Black Swan Bistro, and Rotto Rocks
+
 ## Phase 1: Documentation Alignment
 
 Goal:
