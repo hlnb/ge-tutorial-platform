@@ -1,130 +1,212 @@
 # Content Writing Plan
 
-Covers non-tutorial written content for GraphitEdge — blog posts, platform copy, and supporting resources. Separate from the tutorial writing schedule (`TUTORIAL_WRITING_SCHEDULE.md`).
+Tracks written content that sits around the tutorial library: platform copy, blog posts, supporting resources, worksheets, and authoring collateral.
 
-Last updated: May 2026
+For tutorial page authoring, use `docs/TUTORIAL_WRITING_SCHEDULE.md`.
+For the curriculum source of truth, use `docs/CURRICULUM_ARCHITECTURE.md` and `src/data/tutorials.js`.
 
----
-
-## Content types
-
-- **Blog posts** — published to The Graphite Journal (graphitedge.com.au/posts/)
-- **Platform copy** — landing pages, section intros, about content on the site itself
-- **Supporting resources** — downloadable references, checklists, external-facing documents
+Last updated: August 11, 2026
 
 ---
 
-## Blog posts — planned
+## Current Writing Priorities
 
-### 1. Australian Training Package Alignment and RPL
+The new curriculum architecture presents GraphitEdge as a nine-stage learner journey:
 
-**Status:** Planned — not started  
-**Proposed title:** What Australian Web Development Qualifications Actually Cover — and How GraphitEdge Lines Up  
-**Alt title (RPL angle):** Can You Use Self-Directed Learning for a Web Dev Certificate IV RPL Application?
+1. Understand the Web
+2. Build the Foundations
+3. Build Real Interactions
+4. Build a Real Website
+5. Use Professional Tools
+6. Launch It
+7. Make It Better
+8. Become Independent
+9. Capstone
 
-**Audience:** Self-taught developers in Australia who want to understand how their skills map to formal qualifications, or who are considering an RPL application for ICT40120 or ICT50220.
+The main writing gap is no longer early beginner content. The repo already has strong completed pathways for Getting Started, HTML, CSS, JavaScript, DOM, Applied JavaScript, Working with Data, Design to Code, Git Basics, Frameworks 101, Deployments, Accessibility Essentials, and Website Care.
 
-**Core argument:** GraphitEdge tutorials cover the equivalent technical content of the web-focused units in the ICT Certificate IV in Information Technology (Web Development) and the ICT Diploma of Information Technology (Front End Web Development) — and go beyond them in several areas. This post shows exactly where, and explains what evidence an RPL applicant would need to demonstrate for each unit.
-
-**Sections:**
-- What RPL is and how it works in the Australian VET system
-- The units that matter — ICT40120 and ICT50220 web-focused units mapped out
-- What assessors look for: performance evidence, not just knowledge
-- How GraphitEdge tutorials map to specific units (table)
-- What a strong RPL portfolio looks like: project work, process documentation, reflective journals
-- What GraphitEdge covers that qualifications don't (Git, deployment, system-level web understanding)
-- What's still needed beyond tutorials (supervised hours, workplace context where required)
-- Where to start if you're considering RPL
-
-**Key units to cover:**
-- ICTWEB301 — Build a simple web page
-- ICTWEB401 — Research and apply web industry standards and practices
-- ICTWEB402 — Ensure basic website accessibility
-- ICTWEB406 — Test and validate a website
-- ICTWEB407 — Plan website development
-- ICTWEB411 — Create a website in a content management system
-- ICTWEB420 — Apply web authoring tool to convert client data for websites
-- ICTWEB422 — Produce digital images for the web
-- ICTWEB513 — Research and implement emerging web technology
-- ICTWEB514 — Create dynamic web pages
-- ICTWEB524 — Optimise a website
-- ICTWEB526 — Use web services APIs
-- ICTICT418 — Contribute to copyright, ethics and privacy in an ICT environment
-- ICTICT532 — Apply IP, ethics and privacy in ICT environments
-- ICTPRG556 — Apply introductory programming techniques using an MVC framework
-
-**SEO target keywords:** RPL web development Australia, ICT40120 RPL, Certificate IV web development portfolio, self-taught web developer Australia qualification, ICTWEB RPL evidence
-
-**Estimated length:** 1,500–2,000 words  
-**Format:** Long-form blog post with a unit-to-tutorial mapping table as an embedded or linked resource  
-**Repurpose potential:** Could become a GraphitEdge landing page; social posts pulling individual unit mappings
+Writing should now focus on the transition from guided project work into live-site improvement, professional judgement, and capstone independence.
 
 ---
 
-### 2. How GraphitEdge Teaches the Web as a System
+## Tutorial-Adjacent Writing Needed First
 
-**Status:** Planned — not started  
-**Proposed title:** Why We Start with DNS, Not Divs  
+These are not full tutorial pages by themselves, but they support the tutorials that still need to be authored.
 
-**Audience:** Prospective learners deciding between GraphitEdge and other learning resources; developers who learned to code but don't fully understand how the web works.
-
-**Core argument:** Most tutorials start with HTML. GraphitEdge starts with how the web actually works — DNS, HTTP, hosting, the browser rendering pipeline — because building things you don't understand leads to problems you can't debug. This post explains the philosophy and why it matters in practice.
-
-**Estimated length:** 800–1,000 words  
-**Format:** Blog post  
-**Repurpose potential:** About page copy, social content
+| Priority | Resource | Supports | Purpose |
+|---|---|---|---|
+| 1 | Black Swan Bistro live-site audit worksheet | BSB Part 7 | Give learners a structured place to record accessibility, responsive, performance, SEO, content, link, console, and maintainability findings. |
+| 2 | Black Swan Bistro improvement log template | BSB Part 8 | Help learners prioritise findings, record impact, test before/after, and explain decisions. |
+| 3 | Black Swan Bistro client-change brief | BSB Part 9 | Provide the client request for Sunday dinner opening, Wattleseed Creme Brulee, and Mothers Day lunch as a realistic maintenance prompt. |
+| 4 | SEO and analytics worksheet set | SEO/Analytics sub-pathway | Support future lessons for technical SEO, sitemaps/robots/indexing, Search Console, Analytics Setup, and measuring improvements. |
+| 5 | Professional Practice evidence templates | Professional Practice | Give learners reusable formats for case studies, project decisions, coding-agent notes, client-brief analysis, and handover documentation. |
+| 6 | Rotto Rocks capstone assessment checklist | Capstone | Clarify how learners demonstrate independent planning, implementation, testing, deployment, and maintenance decisions. |
 
 ---
+
+## Platform Copy To Review
+
+| Area | Status | Required change |
+|---|---|---|
+| `/tutorials` main page | Structurally updated | Review hero copy after the nine-stage roadmap has been live-tested. It should make the journey obvious without explaining internal repo structure. |
+| Professional Practice section | Scaffolded | Write a concise section intro once at least one Professional Practice lesson is authored. Until then, keep it clearly marked as future/scaffold content. |
+| SEO & Analytics section | Partial | Update section copy after Analytics Setup and the technical SEO lessons are written. Do not imply the whole sub-pathway is complete yet. |
+| Capstone section | Connected to Rotto Rocks | Add a stronger transition once Professional Practice has real content. The current capstone spec is useful, but the learning bridge can become clearer. |
+| About page | Needs review | Reflect the curriculum as a complete system: fundamentals, projects, professional practice, and independent capstone work. Avoid overclaiming formal qualification equivalence. |
+
+---
+
+## Blog Posts - Planned
+
+### 1. How GraphitEdge Teaches the Web as a System
+
+**Status:** Planned - high priority
+**Proposed title:** Why We Start with DNS, Not Divs
+
+**Audience:** Prospective learners deciding whether GraphitEdge fits them; developers who have written code but do not fully understand how websites work end to end.
+
+**Core argument:** GraphitEdge teaches the web as a connected system. Learners move from how browsers, servers, files, DNS, and hosting work into HTML, CSS, JavaScript, projects, deployment, maintenance, professional practice, and capstone independence.
+
+**Curriculum connection:** This is the clearest public explanation of the new nine-stage architecture.
+
+**Estimated length:** 900-1,200 words
+**Format:** Blog post, reusable as About-page copy and social content
+
+### 2. From Guided Project to Independent Build
+
+**Status:** Planned - high priority
+**Proposed title:** Why Your Second Website Should Be Less Guided Than Your First
+
+**Audience:** Learners finishing Black Swan Bistro and preparing for Rotto Rocks.
+
+**Core argument:** Black Swan Bistro teaches the workflow with guidance. Professional Practice teaches judgement. Rotto Rocks asks learners to make decisions from a brief. This post explains why that transition matters and how learners should approach it.
+
+**Curriculum connection:** Black Swan Bistro Parts 7-9, Professional Practice, and Rotto Rocks.
+
+**Estimated length:** 800-1,000 words
+**Format:** Blog post or learner guide
 
 ### 3. What Working with Data Actually Means for Front-End Developers
 
-**Status:** Planned — not started  
-**Proposed title:** fetch(), JSON, and Why Your App Needs to Talk to the Internet  
+**Status:** Planned - medium priority
+**Proposed title:** fetch(), JSON, and Why Your App Needs to Talk to the Internet
 
-**Audience:** Learners who have completed the JavaScript and DOM sections and are starting the Working with Data section; developers who have avoided async JavaScript.
+**Audience:** Learners who have completed JavaScript and DOM basics and are starting Working with Data.
 
-**Core argument:** The jump from "JavaScript that runs on the page" to "JavaScript that fetches data from somewhere else" is where a lot of self-taught developers stall. This post explains why async JavaScript exists, what fetch() actually does, and why understanding this unlocks the next stage of front-end development.
+**Core argument:** The jump from JavaScript that runs on a page to JavaScript that fetches data from somewhere else is where many self-taught developers stall. This post explains why async JavaScript exists, what `fetch()` does, and why Working with Data unlocks practical front-end features.
 
-**Estimated length:** 700–900 words  
-**Format:** Blog post, companion to the Working with Data section  
-**Repurpose potential:** Social posts, email content
+**Curriculum connection:** Build Real Interactions.
+
+**Estimated length:** 700-900 words
+**Format:** Blog post, companion to the Working with Data section
+
+### 4. Australian Training Package Alignment and RPL
+
+**Status:** Planned - lower priority until the curriculum audit settles
+**Proposed title:** What Australian Web Development Qualifications Actually Cover - and How GraphitEdge Lines Up
+
+**Audience:** Self-taught developers in Australia who want to understand how their skills might map to formal qualifications or RPL evidence.
+
+**Core argument:** GraphitEdge can help learners build evidence for many web-development skills, but formal RPL decisions belong to registered training organisations. This content must be careful, evidence-based, and avoid promising qualification outcomes.
+
+**Important caution:** Do not claim GraphitEdge is equivalent to a qualification. Frame it as learning and portfolio evidence that may support an RPL conversation.
+
+**Key units to investigate before writing:**
+
+- ICTWEB301 - Build a simple web page
+- ICTWEB401 - Research and apply web industry standards and practices
+- ICTWEB402 - Ensure basic website accessibility
+- ICTWEB406 - Test and validate a website
+- ICTWEB407 - Plan website development
+- ICTWEB411 - Create a website in a content management system
+- ICTWEB420 - Apply web authoring tool to convert client data for websites
+- ICTWEB422 - Produce digital images for the web
+- ICTWEB513 - Research and implement emerging web technology
+- ICTWEB514 - Create dynamic web pages
+- ICTWEB524 - Optimise a website
+- ICTWEB526 - Use web services APIs
+- ICTICT418 - Contribute to copyright, ethics and privacy in an ICT environment
+- ICTICT532 - Apply IP, ethics and privacy in ICT environments
+- ICTPRG556 - Apply introductory programming techniques using an MVC framework
+
+**Estimated length:** 1,500-2,000 words
+**Format:** Blog post with a separate unit-to-tutorial mapping resource
 
 ---
 
-## Platform copy — planned
+## Supporting Resources - Planned
 
-### Section intro copy review
+### Black Swan Bistro audit pack
 
-Several section landing pages may need their intro copy reviewed now that the pathway is more complete. In particular:
+**Status:** Not started
+**Supports:** BSB Part 7
+**Format:** Markdown source plus optional downloadable PDF
+**Contents:** audit checklist, findings table, severity/impact guide, evidence notes, links to relevant standalone tutorials
 
-- **Intermediate section intro** — now includes Working with Data and Vue Introduction; copy should reflect this
-- **Frameworks 101 section intro** — should reference the Vue tutorials that follow
-- **Capstone intro** — needs updating once the Rotto Rocks spec is written
+### Black Swan Bistro improvement pack
 
-### About page
+**Status:** Not started
+**Supports:** BSB Part 8
+**Format:** Markdown source plus optional downloadable PDF
+**Contents:** prioritisation matrix, before/after testing notes, improvement log, commit message prompts, reflection questions
 
-The about page should reflect the qualification alignment positioning clearly — GraphitEdge teaches to Diploma-equivalent level and beyond. Currently not written for this audience.
+### Black Swan Bistro client-change brief
 
----
+**Status:** Not started
+**Supports:** BSB Part 9
+**Format:** Brief page or downloadable handout
+**Contents:** Sunday dinner opening, Wattleseed Creme Brulee, Mothers Day lunch promotion, acceptance criteria, testing checklist, deployment checklist
 
-## Supporting resources — planned
+### SEO and analytics worksheets
+
+**Status:** Not started
+**Supports:** SEO/Analytics sub-pathway
+**Format:** Reusable worksheet set
+**Contents:** on-page SEO audit, technical SEO checks, sitemap/robots check, Search Console setup notes, analytics event/goal planning, improvement tracking
+
+### Professional Practice templates
+
+**Status:** Not started
+**Supports:** Professional Practice
+**Format:** Markdown templates, optionally exported as PDFs later
+**Contents:** project case study template, technology decision record, coding-agent review notes, client-brief worksheet, handover checklist
+
+### Rotto Rocks capstone assessment checklist
+
+**Status:** Not started
+**Supports:** Capstone
+**Format:** Checklist/rubric
+**Contents:** information architecture, technology choices, reusable patterns, accessibility approach, testing approach, deployment approach, maintenance considerations
 
 ### Unit-to-tutorial mapping table
 
-A standalone, printable/shareable reference mapping each ICT training package unit to the GraphitEdge tutorials that cover it. Companion resource to the RPL blog post.
-
-**Format:** Could be a PDF download, a dedicated page on the site, or both.  
-**Status:** Not started — depends on the RPL blog post being written first.
+**Status:** Not started
+**Supports:** RPL blog post
+**Format:** Dedicated page or PDF
+**Caution:** Must be evidence-based and must not imply guaranteed formal recognition.
 
 ---
 
-## Content ideas — backlog
+## Backlog Ideas
 
-Lower priority or not yet scoped. Capture here so they don't get lost.
+Keep these as later editorial ideas. Do not let them displace the current tutorial authoring gaps.
 
-- The difference between a static site and a web app — and why it matters when you're choosing a stack
-- What Vite actually does (and why you should understand your build tool)
-- A beginner's guide to reading error messages — the skill nobody teaches
-- Why accessibility isn't an optional extra
+- The difference between a static site and a web app
+- What Vite actually does
+- A beginner's guide to reading error messages
+- Why accessibility is not an optional extra
 - Version control for people who are scared of Git
-- What "deployed" actually means — a plain-language explainer
+- What deployed actually means
+- How to review AI-generated code without switching your brain off
+- What to include in a project handover note
+
+---
+
+## Do Not Write As New Content
+
+These ideas are already covered or should be handled inside existing/newer structures:
+
+- A duplicate general Modern Frameworks pathway: use Frameworks 101, then write the Professional Practice technology-choice lesson.
+- A standalone Static vs Dynamic Sites rewrite: this now belongs inside the deployment module.
+- A standalone Vercel/Netlify overview rewrite: this now belongs inside Choosing a Hosting Path and deployment lessons.
+- A broad "Maintain and Improve" Black Swan Bistro Part 7: split across Parts 7, 8, and 9.

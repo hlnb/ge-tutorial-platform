@@ -22,7 +22,7 @@ The canonical learner-facing stage data lives in `learningJourney` inside `src/d
 
 ## Repository Audit Summary
 
-The repository currently contains 146 tutorial records in `src/data/tutorials.js`. The broad status split is:
+The repository currently contains 158 tutorial records in `src/data/tutorials.js`. The broad status split is:
 
 | Status | Meaning |
 |---|---|
