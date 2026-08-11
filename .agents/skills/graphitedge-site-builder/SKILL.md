@@ -63,6 +63,7 @@ Use:
 - `loading="lazy"` for below-the-fold images.
 - `decoding="async"` for standard images.
 - `loading="eager"` and `fetchpriority="high"` only for the main above-the-fold LCP image.
+- For SVG diagrams, keep every text label fully inside its intended shape or canvas. Use explicit line breaks, `tspan` elements, anchoring, or wider containers so text does not overflow, clip, or look truncated.
 
 Recommended limits:
 
