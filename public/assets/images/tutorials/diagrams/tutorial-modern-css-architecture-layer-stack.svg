@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Modern CSS architecture layer stack</title>
+  <desc id="desc">A diagram showing CSS organised from broad defaults through layout, components, utilities, and page-specific overrides.</desc>
+  <rect width="960" height="540" fill="#f7f4ef"/>
+  <text x="72" y="70" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#232323">CSS has jobs. Architecture gives each job a home.</text>
+  <text x="72" y="108" font-family="Inter, Arial, sans-serif" font-size="17" fill="#5f5a54">Lower layers set broad defaults. Higher layers make smaller, intentional decisions.</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="110" y="390" width="740" height="62" rx="8" fill="#2f6f73"/>
+    <text x="142" y="428" font-size="22" font-weight="700" fill="#ffffff">base</text>
+    <text x="300" y="427" font-size="16" fill="#e7f5f4">reset, body, links, images, typography defaults</text>
+
+    <rect x="140" y="326" width="680" height="62" rx="8" fill="#4c7f59"/>
+    <text x="172" y="364" font-size="22" font-weight="700" fill="#ffffff">tokens</text>
+    <text x="330" y="363" font-size="16" fill="#eef7ee">colors, spacing, type scale, radius, shadow variables</text>
+
+    <rect x="170" y="262" width="620" height="62" rx="8" fill="#7b5e8c"/>
+    <text x="202" y="300" font-size="22" font-weight="700" fill="#ffffff">layout</text>
+    <text x="360" y="299" font-size="16" fill="#f3edf7">grids, wrappers, sections, clusters, flow spacing</text>
+
+    <rect x="200" y="198" width="560" height="62" rx="8" fill="#9b6b3f"/>
+    <text x="232" y="236" font-size="22" font-weight="700" fill="#ffffff">components</text>
+    <text x="412" y="235" font-size="16" fill="#fff4e9">cards, buttons, nav, forms, reusable patterns</text>
+
+    <rect x="230" y="134" width="500" height="62" rx="8" fill="#b84d4d"/>
+    <text x="262" y="172" font-size="22" font-weight="700" fill="#ffffff">utilities</text>
+    <text x="416" y="171" font-size="16" fill="#fff0f0">one-job helpers for spacing, visibility, alignment</text>
+  </g>
+
+  <g fill="none" stroke="#393632" stroke-width="3" stroke-linecap="round">
+    <path d="M820 142 L870 142 L870 450 L820 450"/>
+  </g>
+  <text x="790" y="500" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#393632">More specific decisions live higher up.</text>
+</svg>

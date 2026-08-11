@@ -148,7 +148,7 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | CSS Grid for Repeated Layouts | `intermediate/css-grid-for-repeated-layouts.vue` | ✅ Complete |
 | Modern CSS Layout Extensions | `intermediate/modern-css-layout-extensions.vue` | 🔴 Not started |
 | Container Queries for Reusable Components | `intermediate/container-queries-for-reusable-components.vue` | 🔴 Not started |
-| Modern CSS Architecture | `intermediate/modern-css-architecture.vue` | 🔴 Not started |
+| Modern CSS Architecture | `intermediate/modern-css-architecture.vue` | ✅ Complete |
 | Responsive Refinement for Reusable Components | `intermediate/responsive-refinement-for-reusable-components.vue` | ✅ Complete |
 | Multi-page Structure | `intermediate/multi-page-structure.vue` | ✅ Complete |
 | BSB Part 4: Multi-page Site | `intermediate/black-swan-bistro-part-4.vue` | ✅ Complete |

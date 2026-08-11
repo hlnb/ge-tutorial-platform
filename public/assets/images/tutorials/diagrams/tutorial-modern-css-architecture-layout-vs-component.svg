@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Layout rules separated from component rules</title>
+  <desc id="desc">A diagram comparing layout CSS that controls placement with component CSS that controls the reusable card itself.</desc>
+  <rect width="960" height="540" fill="#f7f4ef"/>
+  <text x="72" y="66" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#232323">Separate where things go from what things are.</text>
+  <text x="72" y="104" font-family="Inter, Arial, sans-serif" font-size="17" fill="#5f5a54">Layout classes own placement. Component classes own appearance and internal structure.</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="78" y="152" width="356" height="286" rx="8" fill="#ffffff" stroke="#2f6f73" stroke-width="4"/>
+    <text x="110" y="194" font-size="24" font-weight="700" fill="#2f6f73">layout.css</text>
+    <text x="110" y="232" font-size="16" fill="#4b4540">.section</text>
+    <text x="110" y="262" font-size="16" fill="#4b4540">.wrapper</text>
+    <text x="110" y="292" font-size="16" fill="#4b4540">.responsive-grid</text>
+    <rect x="110" y="320" width="96" height="66" rx="6" fill="#dcecea"/>
+    <rect x="218" y="320" width="96" height="66" rx="6" fill="#dcecea"/>
+    <rect x="326" y="320" width="76" height="66" rx="6" fill="#dcecea"/>
+    <text x="110" y="414" font-size="15" fill="#5f5a54">Controls gap, columns, width, and flow.</text>
+
+    <rect x="526" y="152" width="356" height="286" rx="8" fill="#ffffff" stroke="#8a2d3b" stroke-width="4"/>
+    <text x="558" y="194" font-size="24" font-weight="700" fill="#8a2d3b">components/card.css</text>
+    <rect x="586" y="232" width="236" height="130" rx="8" fill="#fffaf4" stroke="#d8cec1" stroke-width="2"/>
+    <rect x="610" y="256" width="80" height="58" rx="5" fill="#c9d8d3"/>
+    <text x="710" y="270" font-size="14" font-weight="700" fill="#232323">.testimonial</text>
+    <text x="710" y="291" font-size="14" font-weight="700" fill="#232323">-card</text>
+    <rect x="710" y="296" width="82" height="10" rx="5" fill="#d8cec1"/>
+    <rect x="610" y="334" width="160" height="10" rx="5" fill="#d8cec1"/>
+    <text x="558" y="407" font-size="15" fill="#5f5a54">Controls padding, border, image shape,</text>
+    <text x="558" y="429" font-size="15" fill="#5f5a54">and text rhythm.</text>
+  </g>
+
+  <path d="M456 296 H502" stroke="#393632" stroke-width="3" stroke-linecap="round"/>
+  <path d="M488 282 L504 296 L488 310" fill="none" stroke="#393632" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="410" y="478" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#393632">The same component can move without taking the layout with it.</text>
+</svg>

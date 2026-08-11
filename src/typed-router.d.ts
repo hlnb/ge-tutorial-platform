@@ -1395,6 +1395,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/intermediate/modern-css-architecture': RouteRecordInfo<
+      '/tutorials/intermediate/modern-css-architecture',
+      '/tutorials/intermediate/modern-css-architecture',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/intermediate/modern-css-layout-extensions': RouteRecordInfo<
       '/tutorials/intermediate/modern-css-layout-extensions',
       '/tutorials/intermediate/modern-css-layout-extensions',
@@ -2763,6 +2770,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/intermediate/how-to-read-a-design.vue': {
       routes:
         | '/tutorials/intermediate/how-to-read-a-design'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/modern-css-architecture.vue': {
+      routes:
+        | '/tutorials/intermediate/modern-css-architecture'
       views:
         | never
     }
