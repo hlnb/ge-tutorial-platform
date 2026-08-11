@@ -35,7 +35,6 @@ const sections = [
   { id: 'guided-practice', title: 'Guided Practice' },
   { id: 'independent-practice', title: 'Independent Practice' },
   { id: 'recap', title: 'Recap' },
-  { id: 'resources', title: 'Resources' },
   { id: 'closure', title: 'Closure' },
 ];
 
@@ -183,17 +182,39 @@ const baseRecommendations = getTutorialRecommendations(tutorialPath);
 const recommendationResources = [
   {
     title: 'Modern CSS Architecture worksheet',
-    url: '#resources',
+    url: tutorialPath,
+    description: 'GraphitEdge download being built.',
     type: 'coming soon',
   },
   {
     title: 'Black Swan Bistro stylesheet refactor checklist',
-    url: '#independent-practice',
+    url: tutorialPath,
+    description: 'GraphitEdge download being built.',
     type: 'coming soon',
   },
   {
     title: 'MDN: Cascade layers',
     url: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers',
+    type: 'reference',
+  },
+  {
+    title: 'MDN: Cascade and inheritance',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade',
+    type: 'reference',
+  },
+  {
+    title: 'MDN: Using CSS custom properties',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties',
+    type: 'reference',
+  },
+  {
+    title: 'BEM naming guide',
+    url: 'https://getbem.com/',
+    type: 'reference',
+  },
+  {
+    title: 'CUBE CSS',
+    url: 'https://cube.fyi/',
     type: 'reference',
   },
 ];
@@ -753,40 +774,6 @@ const recommendationResources = [
         components for reusable interface pieces, utilities for small jobs, and
         page files for rare local needs.
       </p>
-
-      <h2 id="resources" class="title is-2">Resources</h2>
-      <p>
-        The downloadable GraphitEdge worksheet and Black Swan Bistro refactor
-        checklist are currently being built. For now, use the resource references
-        below as your study path:
-      </p>
-      <ul>
-        <li>
-          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade" target="_blank" rel="noopener">
-            MDN: Cascade and inheritance
-          </a>
-        </li>
-        <li>
-          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@layer" target="_blank" rel="noopener">
-            MDN: @layer
-          </a>
-        </li>
-        <li>
-          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties" target="_blank" rel="noopener">
-            MDN: Using CSS custom properties
-          </a>
-        </li>
-        <li>
-          <a href="https://getbem.com/" target="_blank" rel="noopener">
-            BEM naming guide
-          </a>
-        </li>
-        <li>
-          <a href="https://cube.fyi/" target="_blank" rel="noopener">
-            CUBE CSS
-          </a>
-        </li>
-      </ul>
 
       <div id="closure">
         <ClosureSection
