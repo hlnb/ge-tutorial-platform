@@ -576,6 +576,20 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/advanced/black-swan-bistro-part-8': RouteRecordInfo<
+      '/tutorials/advanced/black-swan-bistro-part-8',
+      '/tutorials/advanced/black-swan-bistro-part-8',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/advanced/black-swan-bistro-part-9': RouteRecordInfo<
+      '/tutorials/advanced/black-swan-bistro-part-9',
+      '/tutorials/advanced/black-swan-bistro-part-9',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/advanced/do-you-need-a-cms': RouteRecordInfo<
       '/tutorials/advanced/do-you-need-a-cms',
       '/tutorials/advanced/do-you-need-a-cms',
@@ -1486,6 +1500,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/professional-practice/': RouteRecordInfo<
+      '/tutorials/professional-practice/',
+      '/tutorials/professional-practice',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/seo-analytics/': RouteRecordInfo<
       '/tutorials/seo-analytics/',
       '/tutorials/seo-analytics',
@@ -2040,6 +2061,18 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/advanced/black-swan-bistro-part-7.vue': {
       routes:
         | '/tutorials/advanced/black-swan-bistro-part-7'
+      views:
+        | never
+    }
+    'src/pages/tutorials/advanced/black-swan-bistro-part-8.vue': {
+      routes:
+        | '/tutorials/advanced/black-swan-bistro-part-8'
+      views:
+        | never
+    }
+    'src/pages/tutorials/advanced/black-swan-bistro-part-9.vue': {
+      routes:
+        | '/tutorials/advanced/black-swan-bistro-part-9'
       views:
         | never
     }
@@ -2820,6 +2853,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/practice.vue': {
       routes:
         | '/tutorials/practice'
+      views:
+        | never
+    }
+    'src/pages/tutorials/professional-practice/index.vue': {
+      routes:
+        | '/tutorials/professional-practice/'
       views:
         | never
     }

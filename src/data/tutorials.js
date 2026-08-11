@@ -7,8 +7,8 @@
  *  - project / projectPart / projectTitle   → optional multi-part project grouping
  *
  * Levels:   foundation, beginner, intermediate, advanced
- * Pathways: beginner, builder, deployment
- * Stages order tutorials within a level.
+ * Pathways: beginner, builder, deployment, professional-practice
+ * Learning journey stages order the learner-facing curriculum progression.
  */
 
 import { hasQuiz } from '@/utils/quizUtils';
@@ -55,6 +55,19 @@ export const pathways = [
     learnerDescription: "I've built pages and want to deploy",
     tutorialCount: 16,
     estimatedHours: '18–22',
+  },
+  {
+    id: 'professional-practice',
+    title: 'Become Independent',
+    subtitle: 'Professional Practice',
+    description:
+      'Move from guided builds into client briefs, portfolio evidence, AI-assisted workflows, documentation, and independent technology decisions.',
+    icon: 'fas fa-compass',
+    color: '#8f6a3f',
+    learnerLabel: 'Ready to practise independently',
+    learnerDescription: 'I want to make professional project decisions',
+    tutorialCount: 8,
+    estimatedHours: '8–12',
   },
 ];
 
@@ -361,7 +374,7 @@ export const sections = [
     id: 'capstone',
     title: 'Capstone',
     slug: 'capstone',
-    stage: 5,
+    stage: 6,
     level: 'advanced',
     topic: 'project',
     pathways: ['deployment'],
@@ -372,6 +385,110 @@ export const sections = [
         'Use the capstone to apply structure, styling, deployment, and maintenance thinking in one practical build.',
     },
   },
+  {
+    id: 'professional-practice',
+    title: 'Professional Practice',
+    slug: 'professional-practice',
+    stage: 5,
+    level: 'advanced',
+    topic: 'professional-practice',
+    pathways: ['professional-practice'],
+    introCopy: {
+      title: 'Professional Practice',
+      summary:
+        'Prepare for independent web work through portfolio evidence, project judgement, client briefs, AI-assisted workflows, documentation, and handover.',
+      description:
+        'This future section sits between the guided Black Swan Bistro project and the Rotto Rocks capstone. It is intentionally scaffolded so completed tutorials can be connected later without duplicating existing Frameworks 101, Git, deployment, accessibility, SEO, or website-care content.',
+    },
+  },
+];
+
+export const learningJourney = [
+  {
+    id: 'understand-the-web',
+    title: 'Understand the Web',
+    order: 1,
+    description:
+      'Start with the systems behind websites: browsers, servers, files, domains, tools, and responsible asset use.',
+    sectionIds: ['getting-started'],
+  },
+  {
+    id: 'build-the-foundations',
+    title: 'Build the Foundations',
+    order: 2,
+    description:
+      'Build your first real foundations with HTML, CSS, JavaScript syntax, and the first Black Swan Bistro page.',
+    sectionIds: ['html-basics', 'css-basics', 'javascript-basics'],
+    tutorialIds: ['bsb-part-1'],
+  },
+  {
+    id: 'build-real-interactions',
+    title: 'Build Real Interactions',
+    order: 3,
+    description:
+      'Move from language basics into DOM behaviour, interface state, reusable JavaScript, async code, JSON, and live data.',
+    sectionIds: ['dom-basics', 'applied-javascript', 'working-with-data'],
+  },
+  {
+    id: 'build-a-real-website',
+    title: 'Build a Real Website',
+    order: 4,
+    description:
+      'Turn design thinking, layout systems, reusable CSS, responsive refinement, debugging, validation, and Black Swan Bistro Parts 2-4B into a real site.',
+    sectionIds: ['design-to-code'],
+  },
+  {
+    id: 'use-professional-tools',
+    title: 'Use Professional Tools',
+    order: 5,
+    description:
+      'Add Git, frameworks literacy, Vite, Vue, and Bulma after the fundamentals are already visible.',
+    sectionIds: ['git-basics', 'frameworks-101'],
+    tutorialIds: [
+      'working-with-vite',
+      'first-vue-app-with-vite',
+      'using-bulma-in-a-vue-project',
+    ],
+  },
+  {
+    id: 'launch-it',
+    title: 'Launch It',
+    order: 6,
+    description:
+      'Prepare, test, deploy, troubleshoot, connect domains, and understand how publishing changes a project.',
+    sectionIds: ['deployments'],
+    tutorialIds: ['bsb-part-5', 'bsb-part-6'],
+  },
+  {
+    id: 'make-it-better',
+    title: 'Make It Better',
+    order: 7,
+    description:
+      'Improve live sites with accessibility, SEO, analytics, performance, maintenance habits, and deliberate post-launch project work.',
+    sectionIds: [
+      'accessibility-essentials',
+      'seo-analytics',
+      'website-care-and-feeding',
+    ],
+    tutorialIds: ['bsb-part-7', 'bsb-part-8'],
+  },
+  {
+    id: 'become-independent',
+    title: 'Become Independent',
+    order: 8,
+    description:
+      'Practise judgement: client changes, portfolio proof, AI-assisted workflow, documentation, handover, and choosing suitable technology.',
+    sectionIds: ['professional-practice'],
+    tutorialIds: ['bsb-part-9', 'do-you-need-a-cms'],
+  },
+  {
+    id: 'capstone',
+    title: 'Capstone',
+    order: 9,
+    description:
+      'Use Rotto Rocks to demonstrate independent planning, structure, implementation, testing, deployment, and maintenance decisions from a brief.',
+    sectionIds: ['capstone'],
+  },
 ];
 
 function inferSectionId(slug) {
@@ -380,6 +497,18 @@ function inferSectionId(slug) {
   );
 
   return matchingSection?.id || null;
+}
+
+function inferLearningStageId(tutorial) {
+  const section = tutorial.section ?? inferSectionId(tutorial.slug);
+  const matchingStage = learningJourney.find((stage) => {
+    const sectionMatch = stage.sectionIds?.includes(section);
+    const tutorialMatch = stage.tutorialIds?.includes(tutorial.id);
+
+    return sectionMatch || tutorialMatch;
+  });
+
+  return matchingStage?.id || null;
 }
 
 function buildProjectGrouping(tutorial) {
@@ -504,6 +633,8 @@ function enrichTutorial(tutorial) {
     ...tutorial,
     section,
     duration,
+    learningStage: tutorial.learningStage ?? inferLearningStageId(tutorial),
+    contentStatus: tutorial.contentStatus ?? (tutorial.comingSoon ? 'scaffold' : 'complete'),
     prerequisites: tutorial.prerequisites ?? [],
     quizAvailable:
       typeof tutorial.quizAvailable === 'boolean'
@@ -3618,12 +3749,12 @@ const tutorialRecords = [
   },
   {
     id: 'bsb-part-7',
-    title: 'Black Swan Bistro — Part 7 (Maintain & Improve)',
+    title: 'Black Swan Bistro — Part 7 (Audit the Live Website)',
     slug: 'advanced/black-swan-bistro-part-7',
 
     publishDate: '2026-03-24',
     summary:
-      'Add analytics, update content, improve performance, and keep the site healthy.',
+      'Audit the deployed Black Swan Bistro site before changing code: accessibility, responsive behaviour, performance, SEO, content, links, console errors, and maintainability.',
     level: 'advanced',
     levelTitle: 'Advanced',
     levelDescription: 'Deployment, domains, and long-term site care.',
@@ -3631,15 +3762,107 @@ const tutorialRecords = [
     stage: 8,
     difficulty: 'medium',
     estimatedTime: '40 min',
-    tags: ['maintenance', 'performance', 'project', 'hands-on'],
+    tags: ['audit', 'accessibility', 'performance', 'seo', 'project'],
     featured: false,
     comingSoon: true,
     isProject: true,
     project: 'black-swan-bistro',
     projectPart: 7,
-    projectTitle: 'Maintain & Improve',
+    projectTitle: 'Audit the Live Website',
     badge: 'Project',
     topic: 'project',
+    contentStatus: 'scaffold',
+    appliedConcepts: [
+      'test-and-validate-your-site',
+      'testing-accessibility-as-you-build',
+      'seo-fundamentals',
+      'weekly-website-check',
+    ],
+    relatedTutorials: [
+      'intermediate/test-and-validate-your-site',
+      'accessibility-essentials/testing-accessibility-as-you-build',
+      'seo-analytics/on-page-seo',
+      'website-care-and-feeding/weekly-website-check',
+      'website-care-and-feeding/monthly-website-health-check',
+    ],
+    lessonCount: null,
+  },
+  {
+    id: 'bsb-part-8',
+    title: 'Black Swan Bistro — Part 8 (Prioritise and Improve)',
+    slug: 'advanced/black-swan-bistro-part-8',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Use the Part 7 audit findings to choose deliberate improvements, test before and after, and document the work clearly.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    stage: 8.2,
+    difficulty: 'medium',
+    estimatedTime: '45 min',
+    tags: ['prioritisation', 'technical-debt', 'performance', 'refactoring'],
+    featured: false,
+    comingSoon: true,
+    isProject: true,
+    project: 'black-swan-bistro',
+    projectPart: 8,
+    projectTitle: 'Prioritise and Improve',
+    badge: 'Project',
+    topic: 'project',
+    contentStatus: 'scaffold',
+    prerequisites: ['bsb-part-7'],
+    appliedConcepts: [
+      'test-and-validate-your-site',
+      'refactoring-for-reuse',
+      'website-care-and-feeding-overview-lesson',
+    ],
+    relatedTutorials: [
+      'intermediate/test-and-validate-your-site',
+      'intermediate/applied-javascript/refactoring-for-reuse',
+      'website-care-and-feeding/overview',
+      'website-care-and-feeding/monthly-website-health-check',
+    ],
+    lessonCount: null,
+  },
+  {
+    id: 'bsb-part-9',
+    title: 'Black Swan Bistro — Part 9 (Respond to a Client Change)',
+    slug: 'advanced/black-swan-bistro-part-9',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Maintain the live Bistro site when the client requests Sunday dinner opening, a Wattleseed Creme Brulee dessert, and a Mothers Day lunch promotion.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment', 'professional-practice'],
+    stage: 8.4,
+    difficulty: 'medium',
+    estimatedTime: '45 min',
+    tags: ['client-change', 'git', 'deployment', 'maintenance'],
+    featured: false,
+    comingSoon: true,
+    isProject: true,
+    project: 'black-swan-bistro',
+    projectPart: 9,
+    projectTitle: 'Respond to a Client Change',
+    badge: 'Project',
+    topic: 'project',
+    learningStage: 'become-independent',
+    contentStatus: 'scaffold',
+    prerequisites: ['bsb-part-8', 'git-workflow', 'bsb-part-6'],
+    appliedConcepts: [
+      'git-workflow',
+      'updates-backups-version-control',
+      'deployment-lab-final-checklist',
+    ],
+    relatedTutorials: [
+      'intermediate/git-basics/workflow',
+      'website-care-and-feeding/updates-backups-version-control',
+      'deployments/deployment-lab-final-checklist',
+    ],
     lessonCount: null,
   },
   {
@@ -3799,6 +4022,7 @@ const tutorialRecords = [
     id: 'analytics-setup',
     title: 'Analytics Setup',
     slug: 'seo-analytics/analytics-setup',
+    section: 'seo-analytics',
 
     publishDate: '2025-10-12',
     summary:
@@ -3819,6 +4043,135 @@ const tutorialRecords = [
     badge: null,
     topic: 'seo',
     hiddenFromCurriculum: true,
+    contentStatus: 'scaffold',
+    relatedTutorials: [
+      'seo-analytics/on-page-seo',
+      'website-care-and-feeding/analytics-without-panic',
+    ],
+    lessonCount: null,
+  },
+  {
+    id: 'technical-seo-basics',
+    title: 'Technical SEO Basics',
+    slug: 'seo-analytics/technical-seo-basics',
+    section: 'seo-analytics',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Planned lesson on crawlable structure, metadata hygiene, performance signals, canonical URLs, redirects, and technical checks.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    stage: 10.2,
+    difficulty: 'medium',
+    estimatedTime: '35 min',
+    tags: ['seo', 'technical-seo', 'indexing', 'performance'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'seo',
+    hiddenFromCurriculum: true,
+    contentStatus: 'scaffold',
+    prerequisites: ['seo-fundamentals'],
+    lessonCount: null,
+  },
+  {
+    id: 'sitemaps-robots-indexing',
+    title: 'Sitemaps, robots.txt, and Indexing',
+    slug: 'seo-analytics/sitemaps-robots-indexing',
+    section: 'seo-analytics',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Planned lesson on helping search engines discover the right pages while avoiding accidental noindex or blocked-route problems.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    stage: 10.3,
+    difficulty: 'medium',
+    estimatedTime: '30 min',
+    tags: ['seo', 'sitemap', 'robots', 'indexing'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'seo',
+    hiddenFromCurriculum: true,
+    contentStatus: 'scaffold',
+    prerequisites: ['technical-seo-basics'],
+    lessonCount: null,
+  },
+  {
+    id: 'google-search-console',
+    title: 'Google Search Console',
+    slug: 'seo-analytics/google-search-console',
+    section: 'seo-analytics',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Planned lesson on verifying a site, reading search performance calmly, and using indexing reports without chasing noise.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    stage: 10.4,
+    difficulty: 'medium',
+    estimatedTime: '30 min',
+    tags: ['seo', 'search-console', 'indexing', 'measurement'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'seo',
+    hiddenFromCurriculum: true,
+    contentStatus: 'scaffold',
+    prerequisites: ['sitemaps-robots-indexing'],
+    lessonCount: null,
+  },
+  {
+    id: 'measuring-and-improving-a-website',
+    title: 'Measuring and Improving a Website',
+    slug: 'seo-analytics/measuring-and-improving-a-website',
+    section: 'seo-analytics',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Planned lesson on connecting SEO, analytics, accessibility, performance, and maintenance findings into a sensible improvement plan.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['deployment'],
+    stage: 10.6,
+    difficulty: 'medium',
+    estimatedTime: '40 min',
+    tags: ['analytics', 'seo', 'performance', 'continuous-improvement'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'seo',
+    hiddenFromCurriculum: true,
+    contentStatus: 'scaffold',
+    prerequisites: ['analytics-setup', 'google-search-console'],
+    relatedTutorials: [
+      'website-care-and-feeding/analytics-without-panic',
+      'website-care-and-feeding/monthly-website-health-check',
+    ],
     lessonCount: null,
   },
   {
@@ -4268,6 +4621,196 @@ const tutorialRecords = [
     lessonCount: null,
   },
   {
+    id: 'professional-practice-overview',
+    title: 'Professional Practice',
+    slug: 'professional-practice',
+    section: 'professional-practice',
+
+    publishDate: '2026-03-24',
+    summary:
+      'A planned bridge from guided tutorials into independent project decisions, portfolio evidence, client communication, AI-assisted workflows, and handover.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['professional-practice'],
+    stage: 11,
+    difficulty: 'medium',
+    estimatedTime: 'Section overview',
+    tags: ['portfolio', 'client-briefs', 'ai', 'documentation'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'professional-practice',
+    contentStatus: 'scaffold',
+    lessonCount: 7,
+  },
+  {
+    id: 'developer-portfolio-case-study',
+    title: 'Developer Portfolio and Project Case Study',
+    slug: 'professional-practice/developer-portfolio-case-study',
+    section: 'professional-practice',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Planned combined lesson on turning finished projects into honest portfolio evidence and practical case studies.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['professional-practice'],
+    stage: 11.1,
+    difficulty: 'medium',
+    estimatedTime: '45 min',
+    tags: ['portfolio', 'case-study', 'evidence'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'professional-practice',
+    contentStatus: 'scaffold',
+    prerequisites: ['bsb-part-8'],
+    relatedTutorials: ['capstone/spec'],
+    lessonCount: null,
+  },
+  {
+    id: 'choosing-right-technology-project',
+    title: 'Choosing the Right Technology for a Project',
+    slug: 'professional-practice/choosing-the-right-technology',
+    section: 'professional-practice',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Planned professional judgement lesson that builds on Frameworks 101 instead of duplicating a general frameworks pathway.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['professional-practice'],
+    stage: 11.2,
+    difficulty: 'medium',
+    estimatedTime: '40 min',
+    tags: ['frameworks', 'decision-making', 'technology-choice'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'professional-practice',
+    contentStatus: 'scaffold',
+    prerequisites: ['how-to-evaluate-a-framework'],
+    relatedTutorials: [
+      'intermediate/frameworks-101/how-to-evaluate-a-framework',
+      'intermediate/working-with-vite',
+      'intermediate/first-vue-app-with-vite',
+    ],
+    lessonCount: null,
+  },
+  {
+    id: 'working-effectively-with-coding-agents',
+    title: 'Working Effectively With Coding Agents',
+    slug: 'professional-practice/working-effectively-with-coding-agents',
+    section: 'professional-practice',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Planned lesson combining AI-assisted development, coding-agent collaboration, reviewing generated code, testing, and documentation.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['professional-practice'],
+    stage: 11.3,
+    difficulty: 'medium',
+    estimatedTime: '45 min',
+    tags: ['ai', 'coding-agents', 'review', 'testing'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'professional-practice',
+    contentStatus: 'scaffold',
+    relatedTutorials: [
+      'ai-assisted/workflow-integration',
+      'intermediate/debug-broken-web-page',
+      'intermediate/test-and-validate-your-site',
+    ],
+    lessonCount: null,
+  },
+  {
+    id: 'working-from-client-brief',
+    title: 'Working From a Client Brief',
+    slug: 'professional-practice/working-from-a-client-brief',
+    section: 'professional-practice',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Planned lesson on extracting scope, content, constraints, and acceptance criteria from a project brief before writing code.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['professional-practice'],
+    stage: 11.4,
+    difficulty: 'medium',
+    estimatedTime: '35 min',
+    tags: ['client-brief', 'planning', 'scope'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'professional-practice',
+    contentStatus: 'scaffold',
+    relatedTutorials: [
+      'intermediate/how-to-read-a-design',
+      'intermediate/breaking-layouts-into-sections',
+      'capstone/spec',
+    ],
+    lessonCount: null,
+  },
+  {
+    id: 'documentation-and-handover',
+    title: 'Documentation and Handover',
+    slug: 'professional-practice/documentation-and-handover',
+    section: 'professional-practice',
+
+    publishDate: '2026-03-24',
+    summary:
+      'Planned lesson on documenting what changed, how to maintain it, and what a future developer or client needs to know.',
+    level: 'advanced',
+    levelTitle: 'Advanced',
+    levelDescription: 'Deployment, domains, and long-term site care.',
+    pathways: ['professional-practice'],
+    stage: 11.5,
+    difficulty: 'medium',
+    estimatedTime: '35 min',
+    tags: ['documentation', 'handover', 'maintenance'],
+    featured: false,
+    comingSoon: true,
+    isProject: false,
+    project: null,
+    projectPart: null,
+    projectTitle: null,
+    badge: 'Coming Soon',
+    topic: 'professional-practice',
+    contentStatus: 'scaffold',
+    relatedTutorials: [
+      'website-care-and-feeding/updates-backups-version-control',
+      'website-care-and-feeding/website-care-and-feeding-checklist',
+    ],
+    lessonCount: null,
+  },
+  {
     id: 'capstone-project',
     title: 'Capstone Project',
     slug: 'capstone',
@@ -4565,7 +5108,7 @@ export const projects = [
     title: 'Black Swan Bistro Website',
     description:
       'Build a complete restaurant website from a single page to a fully deployed, multi-page site. This project spans the entire curriculum.',
-    totalParts: 7,
+    totalParts: 9,
     icon: 'fas fa-utensils',
     color: '#363636', // dark/charcoal
   },

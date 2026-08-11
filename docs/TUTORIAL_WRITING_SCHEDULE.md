@@ -2,17 +2,19 @@
 
 Tracks the build status of all tutorial sections and individual tutorials in the GraphitEdge pathway. Updated against `src/data/tutorials.js` and the page files in `src/pages/tutorials/`.
 
-Last updated: May 20, 2026
+Last updated: August 11, 2026
 
 ---
 
 ## Status codes
 
 - ✅ Complete — page file exists and content is written
-- 🔵 In progress — page file exists, content being written
+- 🔵 Scaffold — page or route exists, but authoring work remains
 - 🟡 Config only — page file exists, hidden in `tutorials.js` (`hiddenFromCurriculum: true`)
 - 🔴 Not started — no page file exists yet
 - ➕ Addition — small addition needed to an existing tutorial (not a new page)
+
+See `docs/CURRICULUM_ARCHITECTURE.md` for the current nine-stage learning journey and repository audit notes.
 
 ---
 
@@ -214,7 +216,9 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | Domains, DNS, and Going Live | `advanced/domains-dns-going-live.vue` | ✅ Complete |
 | BSB Part 5: Prepare to Deploy | `advanced/black-swan-bistro-part-5.vue` | ✅ Complete |
 | BSB Part 6 | `advanced/black-swan-bistro-part-6.vue` | ✅ Complete |
-| BSB Part 7 | `advanced/black-swan-bistro-part-7.vue` | ✅ Complete |
+| BSB Part 7: Audit the Live Website | `advanced/black-swan-bistro-part-7.vue` | 🔵 Scaffold — needs authored audit lesson |
+| BSB Part 8: Prioritise and Improve | `advanced/black-swan-bistro-part-8.vue` | 🔵 Scaffold — needs authored project lesson |
+| BSB Part 9: Respond to a Client Change | `advanced/black-swan-bistro-part-9.vue` | 🔵 Scaffold — needs authored project lesson |
 
 ---
 
@@ -223,7 +227,26 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | Tutorial | File | Status |
 |---|---|---|
 | SEO Fundamentals / On-page SEO | `seo-analytics/on-page-seo.vue` | ✅ Complete |
-| Analytics Setup | `seo-analytics/analytics-setup.vue` | 🟡 Config only — unhide in tutorials.js |
+| Technical SEO Basics | `seo-analytics/technical-seo-basics.vue` | 🔴 Scaffold in metadata only |
+| Sitemaps, robots.txt, and Indexing | `seo-analytics/sitemaps-robots-indexing.vue` | 🔴 Scaffold in metadata only |
+| Google Search Console | `seo-analytics/google-search-console.vue` | 🔴 Scaffold in metadata only |
+| Analytics Setup | `seo-analytics/analytics-setup.vue` | 🟡 Stub page/config-only — needs content before unhide |
+| Measuring and Improving a Website | `seo-analytics/measuring-and-improving-a-website.vue` | 🔴 Scaffold in metadata only |
+
+---
+
+## Professional Practice
+
+This section is structural support for the future "Become Independent" stage. It should bridge guided project work into Rotto Rocks without duplicating Git, Frameworks 101, deployment, accessibility, SEO, or Website Care content.
+
+| Tutorial | File | Status |
+|---|---|---|
+| Professional Practice Index | `professional-practice/index.vue` | 🔵 Scaffold |
+| Developer Portfolio and Project Case Study | `professional-practice/developer-portfolio-case-study.vue` | 🔴 Scaffold in metadata only |
+| Choosing the Right Technology for a Project | `professional-practice/choosing-the-right-technology.vue` | 🔴 Scaffold in metadata only |
+| Working Effectively With Coding Agents | `professional-practice/working-effectively-with-coding-agents.vue` | 🔴 Scaffold in metadata only |
+| Working From a Client Brief | `professional-practice/working-from-a-client-brief.vue` | 🔴 Scaffold in metadata only |
+| Documentation and Handover | `professional-practice/documentation-and-handover.vue` | 🔴 Scaffold in metadata only |
 
 ---
 
@@ -242,7 +265,7 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | Tutorial | File | Status |
 |---|---|---|
 | Capstone Index | `capstone/index.vue` | ✅ Complete |
-| Capstone Spec | `capstone/spec.vue` | 🔴 Needs real content — currently a placeholder |
+| Capstone Spec | `capstone/spec.vue` | ✅ Complete scaffold connected to Rotto Rocks resources |
 
 ---
 
@@ -255,15 +278,20 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | Medium | Modern CSS Layout Extensions | Intermediate CSS / Build Tutorials | Level: Intermediate. Suggested order: after core Flexbox and Grid lessons. Focus: subgrid, `:has()`, fluid layout values, intrinsic layout patterns, and layout stress testing. Matching Notion task already created. |
 | Medium | Container Queries for Reusable Components | Intermediate CSS / Build Tutorials | Level: Intermediate. Suggested order: after Modern CSS Layout Extensions. Focus: `container-type`, `@container`, named containers, container query units, reusable component variants, and defensive testing. Matching Notion task already created. |
 | Medium | Modern CSS Architecture | Intermediate CSS / Build Tutorials | Level: Intermediate. Suggested order: after Container Queries for Reusable Components. Focus: cascade layers, CSS responsibility layers, specificity management, layout primitives, design tokens, component-scoped CSS, and progressive enhancement. Matching Notion task already created. |
-| 1 | Rotto Rocks Capstone Spec | Capstone | Replace placeholder with real project brief. |
+| 1 | Black Swan Bistro Part 7 | Black Swan Bistro / Make It Better | Write the live-site audit lesson. Reference accessibility, SEO, responsive, testing, website-care, and deployment tutorials instead of reteaching them. |
+| 2 | Black Swan Bistro Part 8 | Black Swan Bistro / Make It Better | Write the prioritised improvement lesson using Part 7 findings. |
+| 3 | Black Swan Bistro Part 9 | Black Swan Bistro / Become Independent | Write the client-change maintenance lesson for Sunday dinner, Wattleseed Creme Brulee, and Mothers Day lunch. |
+| 4 | Analytics Setup | SEO and Analytics | Expand the existing stub before making it visible in the curriculum. |
+| 5 | SEO/Analytics scaffold lessons | SEO and Analytics | Technical SEO, sitemaps/robots/indexing, Search Console, and measuring/improving a website. |
+| 6 | Professional Practice lessons | Professional Practice | Portfolio/case study, technology choice, coding agents, client briefs, documentation/handover. |
 
 ### Config-only tasks (no writing needed)
 
 | Task | File to edit |
 |---|---|
-| Unhide Static vs Dynamic Sites | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
-| Unhide Hosting and Deployment | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
-| Unhide Analytics Setup | `src/data/tutorials.js` — remove `hiddenFromCurriculum: true` |
+| Keep Static vs Dynamic Sites hidden | Legacy redirect now covered by the deployment module |
+| Keep Hosting and Deployment hidden | Legacy redirect now covered by Choosing a Hosting Path |
+| Keep Analytics Setup hidden | Existing page is a stub and should be authored before unhide |
 
 ### Small additions to existing tutorials
 

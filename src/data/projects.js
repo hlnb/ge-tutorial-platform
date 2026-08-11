@@ -25,7 +25,7 @@ const projectRecords = [
       'Black Swan Bistro is the flagship guided project across the curriculum. It is where the beginner, builder, and deployment pathways connect into one coherent build.',
     type: 'guided',
     difficulty: 'medium',
-    duration: '7 parts + polish pass',
+    duration: '9 parts + polish pass',
     icon: 'fas fa-utensils',
     pathways: ['beginner', 'builder', 'deployment'],
     relatedSections: [
@@ -45,6 +45,8 @@ const projectRecords = [
       'advanced/black-swan-bistro-part-5',
       'advanced/black-swan-bistro-part-6',
       'advanced/black-swan-bistro-part-7',
+      'advanced/black-swan-bistro-part-8',
+      'advanced/black-swan-bistro-part-9',
     ],
     tags: ['Guided project', 'HTML', 'CSS', 'Deployment'],
     liveLinks: [

@@ -56,11 +56,11 @@
       <h2>Curriculum Roadmap</h2>
 
       <CurriculumLevelSection
-        v-for="level in levelData"
-        v-show="tutorialsByLevel(level.id).length"
-        :key="level.id"
-        :level="level"
-        :tutorials="tutorialsByLevel(level.id)"
+        v-for="stage in learningJourneyData"
+        v-show="tutorialsByLearningStage(stage.id).length"
+        :key="stage.id"
+        :level="stage"
+        :tutorials="tutorialsByLearningStage(stage.id)"
       />
 
       <p v-if="visibleTutorials.length === 0" class="tutorials-empty">
@@ -80,7 +80,7 @@
 import { computed, ref } from "vue";
 import {
   pathways as pathwayData,
-  levels as levelData,
+  learningJourney as learningJourneyData,
   tutorials as allTutorials,
   tutorialTypes as tutorialTypeData,
   projects as projectData,
@@ -161,23 +161,23 @@ const visibleTutorials = computed(() => {
   );
 });
 
-function tutorialsByLevel(levelId) {
-  const tutorialsForLevel = visibleTutorials.value.filter(
-    (tutorial) => tutorial.level === levelId,
-  );
+function tutorialsByLearningStage(stageId) {
+  const stage = learningJourneyData.find((item) => item.id === stageId);
+  const explicitTutorialIds = stage?.tutorialIds || [];
 
-  if (levelId === "foundation") {
-    return tutorialsForLevel;
-  }
-
-  return tutorialsForLevel.filter(
+  return visibleTutorials.value.filter(
     (tutorial) =>
-      tutorial.lessonCount ||
-      tutorial.isProject ||
-      tutorial.section === "deployments" ||
-      tutorial.section === "seo-analytics" ||
-      tutorial.badge === "Recommended next" ||
-      tutorial.badge === "Troubleshooting",
+      tutorial.learningStage === stageId &&
+      (tutorial.lessonCount ||
+        tutorial.isProject ||
+        explicitTutorialIds.includes(tutorial.id) ||
+        tutorial.section === "deployments" ||
+        tutorial.section === "seo-analytics" ||
+        tutorial.section === "professional-practice" ||
+        tutorial.section === "capstone" ||
+        tutorial.badge === "Recommended next" ||
+        tutorial.badge === "Troubleshooting" ||
+        tutorial.level === "foundation"),
   );
 }
 

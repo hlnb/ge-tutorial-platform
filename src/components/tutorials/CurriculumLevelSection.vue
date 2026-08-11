@@ -5,10 +5,11 @@
       <span
         class="level-badge"
         :style="{
-          backgroundColor: level.color,
+          backgroundColor: level.color || '#4b88a2',
           color: level.id === 'intermediate' ? '#23272f' : '#ffffff',
         }"
       >
+        <span v-if="level.order" class="level-badge__number">{{ level.order }}</span>
         {{ level.title }}
       </span>
       <p v-if="level.description" class="level-description">
@@ -59,12 +60,23 @@ defineProps({
 .level-badge {
   display: inline-flex;
   align-items: center;
+  gap: 0.45rem;
   padding: 0.35rem 0.95rem;
   border-radius: 0.25rem;
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: var(--weight-bold);
   line-height: 1.2;
+}
+
+.level-badge__number {
+  display: inline-grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 0.75rem;
 }
 
 .level-description {
