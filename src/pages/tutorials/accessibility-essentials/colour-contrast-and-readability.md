@@ -37,7 +37,7 @@ Readable design is design that does not make people fight the page.
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - explain why colour contrast matters
 - avoid relying on colour alone
@@ -425,7 +425,7 @@ Learners choose one component from a previous project and complete:
 
 ## Closure
 
-Colour and contrast are not just decoration. They are part of the interface language.
+Colour and contrast are more than decoration. They help people read and use the interface.
 
 Good visual design helps people read, understand, decide, and act. If users have to squint, guess, or hunt, the design is working against them.
 

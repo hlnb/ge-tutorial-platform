@@ -35,7 +35,7 @@
         'Which Git concept was the most surprising or interesting to you?',
         'How confident do you feel using Git in your own projects now?'
       ]"
-      connection="Let's review everything you've accomplished and look at what comes next."
+      connection="Review everything you've accomplished and look at what comes next."
     />
 
     <!-- Hunter Element 2: Learning Objectives -->
@@ -115,7 +115,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: 'Git Basics: Conclusion',
-  description: 'Wrap up the Git Basics series — review what you\'ve learned and find next steps for version control in real projects.',
+  description: 'Wrap up the Git Basics series - review what you\'ve learned and find next steps for version control in real projects.',
   path: '/tutorials/intermediate/git-basics/conclusion',
 });
 

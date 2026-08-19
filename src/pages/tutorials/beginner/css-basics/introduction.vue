@@ -36,14 +36,14 @@
 			<!-- Hunter Element 1: Anticipatory Set -->
 			<AnticipatorySet
 				title="🎨 Transforming the Web from Plain to Beautiful"
-				:hook="`<p>Every stunning website you've ever visited—from your favorite social media platform to beautifully designed portfolios—uses CSS to create its visual appeal. Without CSS, the web would be nothing but plain black text on white backgrounds.</p>
+				:hook="`<p>Every stunning website you've ever visited - from your favorite social media platform to beautifully designed portfolios - uses CSS to create its visual appeal. Without CSS, the web would be nothing but plain black text on white backgrounds.</p>
 				<p><strong>Think about it:</strong> Have you ever wondered how designers make buttons hover with color changes, create smooth animations, or ensure websites look perfect on both phones and desktops? The answer is CSS.</p>`"
 				:reflection-prompts="[
 					'What makes a website visually appealing to you?',
 					'Have you noticed how some websites adapt beautifully to your phone screen?',
 					'Why do you think separating content from design matters?'
 				]"
-				connection="In this tutorial, you'll learn the fundamental concepts of CSS and how to add professional styling to your web pages. This is where your journey into beautiful web design begins."
+				connection="You will learn the fundamental concepts of CSS and how to add professional styling to your web pages. This is where your journey into beautiful web design begins."
 			/>
 
 			<!-- Hunter Element 2: Learning Objectives -->
@@ -57,7 +57,7 @@
 					'Understand the cascade and how styles are applied',
 					'Use browser developer tools to inspect and modify CSS'
 				]"
-				purpose="CSS is the cornerstone of modern web design. Mastering these fundamentals will enable you to transform any HTML content into visually appealing, professional websites. Every web developer must understand CSS deeply—it's one of the three core technologies of the web."
+				purpose="CSS is the cornerstone of modern web design. Learning these fundamentals will enable you to transform any HTML content into visually appealing, professional websites. Every web developer must understand CSS deeply - it's one of the three core technologies of the web."
 			/>
 
 			<article class="tutorial">
@@ -68,7 +68,7 @@
 				</p>
 
 				<div class="highlight-box">
-					<h3 class="subtitle is-4">In this tutorial, you'll learn:</h3>
+					<h3 class="subtitle is-4">You will learn:</h3>
 					<ul class="icon-list">
 						<li><i class="fas fa-code"></i> What CSS is and how it works</li>
 						<li>
@@ -436,8 +436,8 @@
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Every professional website uses CSS to create its visual identity. Companies like Apple, Google, and Airbnb employ teams of CSS specialists to craft beautiful, consistent user experiences. CSS frameworks like Bootstrap and Tailwind CSS, used by millions of websites, are built on the same fundamental CSS principles you're learning now.</p><p>Understanding CSS fundamentals is crucial before using frameworks or preprocessors. These tools abstract CSS complexity, but when something breaks or needs customization, you need to understand the underlying CSS to fix it. Master the basics first, then explore advanced tools.</p>"
-			next-steps="<p>Now that you understand CSS fundamentals, you're ready to dive deeper into CSS selectors. In the next lesson, you'll master element selectors, class selectors, ID selectors, combinators, and pseudo-classes—giving you precise control over which elements receive styling.</p><p>Selectors are the foundation of CSS targeting. The better you understand selectors, the more efficiently you can write CSS and the less you'll need to modify HTML just to add styles.</p>"
+			real-world-application="<p>Every professional website uses CSS to create its visual identity. Companies like Apple, Google, and Airbnb employ teams of CSS specialists to craft beautiful, consistent user experiences. CSS frameworks like Bootstrap and Tailwind CSS, used by millions of websites, are built on the same fundamental CSS principles you're learning now.</p><p>Understanding CSS fundamentals is important before using frameworks or preprocessors. These tools abstract CSS complexity, but when something breaks or needs customization, you need to understand the underlying CSS to fix it. Master the basics first, then explore advanced tools.</p>"
+			next-steps="<p>Now that you understand CSS fundamentals, you're ready to dive deeper into CSS selectors. In the next lesson, you'll master element selectors, class selectors, ID selectors, combinators, and pseudo-classes - giving you precise control over which elements receive styling.</p><p>Selectors are the foundation of CSS targeting. The better you understand selectors, the more efficiently you can write CSS and the less you'll need to modify HTML just to add styles.</p>"
 		/>
 
 		<!-- Add recommendations before the quiz -->
@@ -474,7 +474,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "CSS Basics Introduction",
-  description: "Get started with CSS — learn what it is, how it works, and the three ways to add styles to an HTML document.",
+  description: "Get started with CSS - learn what it is, how it works, and the three ways to add styles to an HTML document.",
   path: "/tutorials/beginner/css-basics/introduction",
 });
 

@@ -256,7 +256,7 @@ const recommendationResources = [
           'How would you know whether an old selector is still safe to change?',
           'Which repeated values are already hiding in your CSS?'
         ]"
-        connection="In this lesson you will give your CSS a map: tokens, layers, components, utilities, and page-specific rules."
+        connection="You will give your CSS a map: tokens, layers, components, utilities, and page-specific rules."
       />
 
       <LearningObjectives

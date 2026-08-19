@@ -36,7 +36,7 @@ They are instructions, materials, and behaviours. The browser must assemble them
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - describe the browser loading process
 - explain the DOM

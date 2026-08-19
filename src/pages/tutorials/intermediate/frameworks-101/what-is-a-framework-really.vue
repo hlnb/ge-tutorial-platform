@@ -84,8 +84,8 @@ usePageSections(pageSections);
 			<div class="box">
 				<h3 class="title is-5">Plain-English distinction</h3>
 				<ul>
-					<li><strong>Library:</strong> “Here are useful functions or components you can use.”</li>
-					<li><strong>Framework:</strong> “Here is a way to organise the app, and your code plugs into it.”</li>
+					<li><strong>Library:</strong> "Here are useful functions or components you can use."</li>
+					<li><strong>Framework:</strong> "Here is a way to organise the app, and your code plugs into it."</li>
 				</ul>
 			</div>
 
@@ -141,7 +141,7 @@ usePageSections(pageSections);
 					},
 					{
 						title: 'Step 2: Decide which category is primary',
-						instructions: '<p>Choose the tool’s main identity: framework, library, tool, or system. Some tools overlap, but pick the primary role first.</p>',
+						instructions: '<p>Choose the tool\'s main identity: framework, library, tool, or system. Some tools overlap, but pick the primary role first.</p>',
 						hints: ['A stack can contain several categories at once.']
 					},
 					{

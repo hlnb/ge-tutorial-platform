@@ -11,7 +11,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
   title: 'Think About Layouts',
-  description: 'Develop a layout mental model before choosing CSS tools — how to read requirements and plan before you code.',
+  description: 'Develop a layout mental model before choosing CSS tools - how to read requirements and plan before you code.',
   path: '/tutorials/intermediate/think-about-layouts',
 });
 
@@ -336,7 +336,7 @@ const closureReflectionPrompts = [
 			<h2 id="guided-practice">Guided Practice</h2>
 			<GuidedPractice
 				title="Turn a visual page into a layout plan"
-				description="Use the lesson’s process in order so you practise seeing structure before making CSS decisions."
+				description="Use the lesson's process in order so you practise seeing structure before making CSS decisions."
 				:steps="guidedPracticeSteps"
 				:success-criteria="guidedPracticeSuccessCriteria"
 				success-criteria-title="You are on track if you can:"
@@ -369,14 +369,14 @@ const closureReflectionPrompts = [
 			<ul>
 				<li>
 					Every Layout
-					&mdash; especially helpful for ideas like stack, center, cluster, sidebar, and
+					 - especially helpful for ideas like stack, center, cluster, sidebar, and
 					grid as reusable layout patterns instead of one-off tricks.
 				</li>
 				<li>
 					<a href="https://getbem.com" target="_blank" rel="noopener">
-						BEM — Block Element Modifier
+						BEM - Block Element Modifier
 					</a>
-					&mdash; useful once you start naming repeated layout and UI patterns more
+					 - useful once you start naming repeated layout and UI patterns more
 					deliberately.
 				</li>
 			</ul>

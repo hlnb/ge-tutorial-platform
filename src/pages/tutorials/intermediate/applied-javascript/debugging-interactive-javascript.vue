@@ -95,8 +95,8 @@ const quizDebugExample = `function submitAnswer() {
 
 			<h2 id="read-the-symptom">Read the Symptom First</h2>
 			<p>
-				Start with the visible symptom. “The filter buttons do nothing” is better than “The
-				JavaScript is broken.” A good bug description narrows the investigation and makes the
+				Start with the visible symptom. "The filter buttons do nothing" is better than "The
+				JavaScript is broken." A good bug description narrows the investigation and makes the
 				next debugging step concrete.
 			</p>
 

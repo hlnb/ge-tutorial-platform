@@ -10,7 +10,7 @@
           </li>
           <li><router-link to="/tutorials">Tutorials</router-link></li>
           <li class="is-active">
-            <a href="#" aria-current="page">Black Swan Bistro &mdash; Part 9</a>
+            <a href="#" aria-current="page">Black Swan Bistro - Part 9</a>
           </li>
         </ul>
       </nav>
@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <h1 class="title is-1">Black Swan Bistro &mdash; Part 9</h1>
+      <h1 class="title is-1">Black Swan Bistro - Part 9</h1>
       <h2 class="subtitle is-4">Respond to a Client Change</h2>
 
       <p class="subtitle is-5">
@@ -70,7 +70,7 @@
 import { useTutorialHead } from '@/composables/useTutorialHead';
 
 useTutorialHead({
-  title: 'Black Swan Bistro — Part 9',
+  title: 'Black Swan Bistro - Part 9',
   description:
     'Respond to a Black Swan Bistro client change request with careful updates, testing, Git commits, deployment, and documentation.',
   path: '/tutorials/advanced/black-swan-bistro-part-9',

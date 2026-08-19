@@ -15,7 +15,7 @@ import { useTutorialHead } from '@/composables/useTutorialHead';
 
 useTutorialHead({
   title: "Project: AI-Generated REST API Scaffold",
-  description: "Use AI to scaffold a REST API, then review and harden the code — a practical AI-assisted development guide.",
+  description: "Use AI to scaffold a REST API, then review and harden the code - a practical AI-assisted development guide.",
   path: "/tutorials/ai-assisted/projects/ai-rest-api-scaffold",
 });
 </script>

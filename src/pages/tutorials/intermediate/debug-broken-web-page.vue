@@ -207,7 +207,7 @@ const closureReflectionPrompts = [
 				]"
 				purpose="Troubleshooting is a professional skill, not a sign that you are failing. A repeatable debugging workflow helps you learn faster and protects you from random guessing."
 				:prerequisites="[
-					{ topic: 'Black Swan Bistro — Part 4B: Polish and Refine', link: '/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine' },
+					{ topic: 'Black Swan Bistro - Part 4B: Polish and Refine', link: '/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine' },
 					{ topic: 'Cascade, Specificity, and Debugging CSS', link: '/tutorials/intermediate/cascade-specificity-and-debugging-css' }
 				]"
 			/>

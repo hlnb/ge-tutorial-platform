@@ -12,7 +12,7 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 useTutorialHead({
   title: "Selectors, Pseudo-elements & Motion",
-  description: "Add decorative pseudo-elements, smooth CSS transitions, and transforms — with accessibility-aware motion guidance.",
+  description: "Add decorative pseudo-elements, smooth CSS transitions, and transforms - with accessibility-aware motion guidance.",
   path: "/tutorials/intermediate/styling-details-selectors-pseudo-elements-and-motion",
 });
 
@@ -37,13 +37,13 @@ const checkpointQuestions = [
 		question:
 			'What is the difference between a pseudo-class (:hover) and a pseudo-element (::before)?',
 		answer:
-			'A pseudo-class selects an existing element in a particular state (hovered, focused, first-child). A pseudo-element creates a virtual sub-element that you can style — it does not exist in the HTML source.',
+			'A pseudo-class selects an existing element in a particular state (hovered, focused, first-child). A pseudo-element creates a virtual sub-element that you can style - it does not exist in the HTML source.',
 	},
 	{
 		question:
 			'Why must you always include a content property on ::before and ::after, even if it is empty?',
 		answer:
-			'The browser only generates the pseudo-element when the content property is present. Without it — even if you set width, height, and background — the pseudo-element does not render at all.',
+			'The browser only generates the pseudo-element when the content property is present. Without it - even if you set width, height, and background - the pseudo-element does not render at all.',
 	},
 	{
 		question:
@@ -55,7 +55,7 @@ const checkpointQuestions = [
 		question:
 			'A button has a hover lift using translateY(-4px). Does the element below it shift up to fill the gap?',
 		answer:
-			'No. Transforms are purely visual — the element keeps its original space in the document flow. Neighbouring elements are unaffected.',
+			'No. Transforms are purely visual - the element keeps its original space in the document flow. Neighbouring elements are unaffected.',
 	},
 ];
 
@@ -64,16 +64,16 @@ const guidedPracticeSteps = [
 	{
 		title: 'Add a decorative pseudo-element',
 		instructions:
-			'<p>Pick a heading in your project — the Black Swan Bistro site works well. Add a <code>::after</code> pseudo-element that creates a short decorative underline bar beneath the heading.</p><ol><li>Set <code>content: ""</code> (empty string)</li><li>Set <code>display: block</code></li><li>Give it a width, height, background colour, and a small margin-top</li><li>Verify in DevTools that the pseudo-element appears inside the heading element in the DOM tree</li></ol>',
+			'<p>Pick a heading in your project - the Black Swan Bistro site works well. Add a <code>::after</code> pseudo-element that creates a short decorative underline bar beneath the heading.</p><ol><li>Set <code>content: ""</code> (empty string)</li><li>Set <code>display: block</code></li><li>Give it a width, height, background colour, and a small margin-top</li><li>Verify in DevTools that the pseudo-element appears inside the heading element in the DOM tree</li></ol>',
 		hints: [
-			'A typical decorative bar might be 40–80px wide, 3px tall, with a brand colour.',
-			'If the bar does not appear, check that you have content: "" — this is the most common mistake.',
+			'A typical decorative bar might be 40-80px wide, 3px tall, with a brand colour.',
+			'If the bar does not appear, check that you have content: "" - this is the most common mistake.',
 		],
 	},
 	{
 		title: 'Add a hover transition to a link or button',
 		instructions:
-			'<p>Find a navigation link or button in your project. Add a smooth colour transition on hover:</p><ol><li>Set the <code>transition</code> property on the default state (not on :hover)</li><li>Specify the property name, duration, and timing function</li><li>Add the colour change on the <code>:hover</code> pseudo-class</li><li>Test it in the browser — it should feel smooth, not instant</li></ol>',
+			'<p>Find a navigation link or button in your project. Add a smooth colour transition on hover:</p><ol><li>Set the <code>transition</code> property on the default state (not on :hover)</li><li>Specify the property name, duration, and timing function</li><li>Add the colour change on the <code>:hover</code> pseudo-class</li><li>Test it in the browser - it should feel smooth, not instant</li></ol>',
 		hints: [
 			'Start with transition: color 0.2s ease and adjust from there.',
 			'Always set the transition on the base selector, not on :hover. The base state needs to know how to transition back.',
@@ -82,9 +82,9 @@ const guidedPracticeSteps = [
 	{
 		title: 'Create a hover lift with transform',
 		instructions:
-			'<p>Add a subtle lift effect to a card or link component:</p><ol><li>Set <code>transition: transform 0.2s ease</code> on the default state</li><li>On <code>:hover</code>, add <code>transform: translateY(-3px)</code></li><li>Optionally add a <code>box-shadow</code> transition to pair with the lift</li><li>Check that surrounding content does not shift — the transform should be purely visual</li></ol>',
+			'<p>Add a subtle lift effect to a card or link component:</p><ol><li>Set <code>transition: transform 0.2s ease</code> on the default state</li><li>On <code>:hover</code>, add <code>transform: translateY(-3px)</code></li><li>Optionally add a <code>box-shadow</code> transition to pair with the lift</li><li>Check that surrounding content does not shift - the transform should be purely visual</li></ol>',
 		hints: [
-			'Keep the lift small — 2px to 4px is enough. Larger lifts look cartoonish.',
+			'Keep the lift small - 2px to 4px is enough. Larger lifts look cartoonish.',
 			'If you want shadow and transform to transition together, list both: transition: transform 0.2s ease, box-shadow 0.2s ease.',
 		],
 	},
@@ -101,10 +101,10 @@ const guidedPracticeSteps = [
 
 // ── Closure data ──────────────────────────────────────────────────
 const closureKeyTakeaways = [
-	'Selectors let you target exactly the elements you need — combinators, attribute selectors, and pseudo-classes give precision without adding extra classes to HTML.',
+	'Selectors let you target exactly the elements you need - combinators, attribute selectors, and pseudo-classes give precision without adding extra classes to HTML.',
 	'Pseudo-elements (::before, ::after) add visual detail through CSS alone. They always require a content property.',
 	'Transitions animate property changes over time. Set them on the base state, not the trigger state.',
-	'Transforms (translate, scale, rotate) are purely visual — they do not affect document flow or surrounding elements.',
+	'Transforms (translate, scale, rotate) are purely visual - they do not affect document flow or surrounding elements.',
 	'Restrained motion supports user experience. Excessive motion undermines it. When in doubt, leave it out.',
 	'prefers-reduced-motion is not optional. Users who need reduced motion depend on your stylesheet respecting that preference.',
 ];
@@ -190,13 +190,13 @@ const closureReflectionPrompts = [
 			<AnticipatorySet
 				title="The Details That Make a Page Feel Finished"
 				icon="✨"
-				:hook="`<p>You have built layouts, written components, and debugged specificity. The page works — but it still looks like a wireframe with colour. The navigation links do not respond when you hover. The headings have no visual weight beyond bold text. Nothing <em>moves</em>.</p><p>The difference between a working page and a polished page often comes down to small, deliberate details: a subtle underline, a smooth colour shift, a card that lifts when you point at it. These details are not decoration for its own sake — they are signals that tell users where to look, what is interactive, and what just changed.</p><p>This lesson gives you the CSS tools to add that finishing layer — selectors that target exactly what you need, pseudo-elements that add visual detail without changing your HTML, and transitions and transforms that bring your page to life without overwhelming it.</p>`"
+				:hook="`<p>You have built layouts, written components, and debugged specificity. The page works - but it still looks like a wireframe with colour. The navigation links do not respond when you hover. The headings have no visual weight beyond bold text. Nothing <em>moves</em>.</p><p>The difference between a working page and a polished page often comes down to small, deliberate details: a subtle underline, a smooth colour shift, a card that lifts when you point at it. These details are not decoration for its own sake - they are signals that tell users where to look, what is interactive, and what just changed.</p><p>This lesson gives you the CSS tools to add that finishing layer - selectors that target exactly what you need, pseudo-elements that add visual detail without changing your HTML, and transitions and transforms that bring your page to life without overwhelming it.</p>`"
 				:reflection-prompts="[
 					'When you visit a polished website, what small visual details make it feel professional?',
 					'Have you ever seen an animation on a website that made it harder to use instead of easier?',
 					'Do you know the difference between a transition and a transform in CSS?'
 				]"
-				connection="This lesson builds directly on the cascade and specificity concepts from the previous tutorial. The selector knowledge you built there — especially combinators and pseudo-classes — extends here into practical styling. The motion and polish techniques will carry forward into every project you build."
+				connection="This lesson builds directly on the cascade and specificity concepts from the previous tutorial. The selector knowledge you built there - especially combinators and pseudo-classes - extends here into practical styling. The motion and polish techniques will carry forward into every project you build."
 			/>
 
 			<!-- ═══════════════════════════════════════════════════ -->
@@ -211,7 +211,7 @@ const closureReflectionPrompts = [
 					'Judge when motion supports user experience and when it detracts from it',
 					'Implement the prefers-reduced-motion media query for accessibility'
 				]"
-				purpose="These are the finishing tools. They turn a layout that works into a page that feels considered, responsive, and professional — without overcomplicating your CSS."
+				purpose="These are the finishing tools. They turn a layout that works into a page that feels considered, responsive, and professional - without overcomplicating your CSS."
 				:prerequisites="[
 					{ topic: 'Cascade, Specificity, and Debugging CSS', link: '/tutorials/intermediate/cascade-specificity-and-debugging-css' }
 				]"
@@ -224,14 +224,14 @@ const closureReflectionPrompts = [
 			<p>
 				You already know element selectors (<code>p</code>), class selectors
 				(<code>.card</code>), and ID selectors (<code>#main</code>). But CSS has a
-				much wider vocabulary for targeting elements — and using it well means you
+				much wider vocabulary for targeting elements - and using it well means you
 				can style precisely without adding extra classes to your HTML.
 			</p>
 
 			<figure class="tutorial-figure tutorial-figure--wide">
 				<img
 					src="/assets/images/tutorials/diagrams/tutorial-selector-types.svg"
-					alt="Visual table showing five selector categories — element, class, attribute, combinator, and pseudo-class — each with a CSS example and a diagram highlighting what it matches."
+					alt="Visual table showing five selector categories - element, class, attribute, combinator, and pseudo-class - each with a CSS example and a diagram highlighting what it matches."
 				/>
 				<figcaption>
 					Each selector type gives you a different level of control. Classes are
@@ -256,7 +256,7 @@ h2 ~ p { color: #52606d; }</code></pre>
 			<p>
 				The child combinator (<code>&gt;</code>) is especially useful for preventing
 				styles from leaking into nested components. If you style
-				<code>.nav a</code>, every link inside nav is affected — including links
+				<code>.nav a</code>, every link inside nav is affected - including links
 				inside a dropdown. <code>.nav &gt; a</code> targets only the direct
 				children.
 			</p>
@@ -302,7 +302,7 @@ input:required { border-left: 3px solid #e67c00; }
 input:valid { border-left-color: #2d6a4f; }</code></pre>
 			<p>
 				State pseudo-classes respond to user behaviour. <code>:focus-visible</code>
-				is especially important — it shows a focus ring for keyboard users but hides
+				is especially important - it shows a focus ring for keyboard users but hides
 				it for mouse clicks, giving you the best of both worlds for accessibility.
 			</p>
 
@@ -312,8 +312,8 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 			<h2 id="pseudo-elements">Pseudo-elements: Visual Detail Without Extra HTML</h2>
 			<p>
 				Pseudo-elements let you insert styled content before or after an element's
-				real content, entirely through CSS. They are ideal for decorative details —
-				underlines, icons, badges, dividers — that do not belong in the HTML
+				real content, entirely through CSS. They are ideal for decorative details:
+				underlines, icons, badges, and dividers that do not belong in the HTML
 				because they are presentational, not structural.
 			</p>
 
@@ -325,7 +325,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 				<figcaption>
 					<code>::before</code> and <code>::after</code> are generated inside
 					the element as its first and last children. The
-					<code>content</code> property is required — without it, nothing renders.
+					<code>content</code> property is required - without it, nothing renders.
 				</figcaption>
 			</figure>
 
@@ -387,7 +387,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 				<p>
 					<strong>Accessibility note:</strong> content generated by
 					pseudo-elements is read by some screen readers but not all. Do not put
-					meaningful text — like instructions or labels — in pseudo-elements. Use
+					meaningful text - like instructions or labels - in pseudo-elements. Use
 					them for decoration only.
 				</p>
 			</div>
@@ -406,7 +406,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 			<figure class="tutorial-figure tutorial-figure--wide">
 				<img
 					src="/assets/images/tutorials/diagrams/tutorial-transition-anatomy.svg"
-					alt="Diagram showing the four parts of a CSS transition — property, duration, timing function, and delay — with a timeline visualising a 0.3-second ease transition on hover."
+					alt="Diagram showing the four parts of a CSS transition - property, duration, timing function, and delay - with a timeline visualising a 0.3-second ease transition on hover."
 				/>
 				<figcaption>
 					A transition has four parts: which property to animate, how long it
@@ -417,7 +417,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 			<h3>Setting transitions on the base state</h3>
 			<p>
 				Transitions belong on the element's default state, not on the trigger
-				state. This ensures the transition runs in both directions — on hover
+				state. This ensures the transition runs in both directions - on hover
 				<em>and</em> on hover-out:
 			</p>
 			<pre><code>/* ✅ Correct — transition on the base state */
@@ -443,7 +443,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 			<p>
 				Be specific about which properties you transition. Using
 				<code>transition: all</code> is tempting but it can cause unexpected
-				animations on properties you did not intend to change — including expensive
+				animations on properties you did not intend to change - including expensive
 				layout properties:
 			</p>
 			<pre><code>/* ❌ Transitions everything, including layout properties */
@@ -462,15 +462,15 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 			</p>
 			<ul>
 				<li>
-					<strong><code>ease</code></strong> — starts fast, ends slow. Good
+					<strong><code>ease</code></strong> - starts fast, ends slow. Good
 					default for most hover effects.
 				</li>
 				<li>
-					<strong><code>ease-in-out</code></strong> — slow start and slow end.
+					<strong><code>ease-in-out</code></strong> - slow start and slow end.
 					Good for elements entering and leaving visibility.
 				</li>
 				<li>
-					<strong><code>linear</code></strong> — constant speed. Useful for
+					<strong><code>linear</code></strong> - constant speed. Useful for
 					progress bars or loading indicators, but feels mechanical for UI.
 				</li>
 			</ul>
@@ -480,7 +480,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="transforms">Transforms: Visual Changes Without Layout Shifts</h2>
 			<p>
-				Transforms change how an element looks — its position, size, or rotation —
+				Transforms change how an element looks: its position, size, or rotation,
 				without affecting the document flow. The element keeps its original space in
 				the layout, and neighbouring elements do not shift.
 			</p>
@@ -497,7 +497,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 				/>
 				<figcaption>
 					Transforms are purely visual. The dashed outline shows where the
-					element actually sits in the document flow — surrounding content is
+					element actually sits in the document flow - surrounding content is
 					unaffected.
 				</figcaption>
 			</figure>
@@ -574,7 +574,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 				<ul>
 					<li>
 						<strong>Does this motion serve a purpose?</strong> It should signal
-						interactivity, provide feedback, or guide attention — not just look cool.
+						interactivity, provide feedback, or guide attention - not just look cool.
 					</li>
 					<li>
 						<strong>Is the duration appropriate?</strong> UI interactions should
@@ -619,7 +619,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 				end of your stylesheet.
 			</p>
 			<p>
-				You can also be more surgical — keeping subtle colour transitions while
+				You can also be more surgical - keeping subtle colour transitions while
 				removing movement:
 			</p>
 			<pre><code>@media (prefers-reduced-motion: reduce) {
@@ -670,7 +670,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 			<!-- ═══════════════════════════════════════════════════ -->
 			<div id="independent-practice">
 				<IndependentPractice
-					task="Open a project page you have been building (the Black Swan Bistro site is ideal). Add a <strong>polish pass</strong> that applies at least four of the techniques from this lesson: a pseudo-element, a precise selector (combinator or attribute), a transition, and a transform. Each addition should serve a clear purpose — not just demonstrate a feature."
+					task="Open a project page you have been building (the Black Swan Bistro site is ideal). Add a <strong>polish pass</strong> that applies at least four of the techniques from this lesson: a pseudo-element, a precise selector (combinator or attribute), a transition, and a transform. Each addition should serve a clear purpose - not just demonstrate a feature."
 					:requirements="[
 						'At least one pseudo-element (::before or ::after) adding a decorative detail',
 						'At least one combinator or attribute selector replacing a situation where you might have added a new class',
@@ -686,7 +686,7 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 					:rubric="[
 						{ criteria: 'Purposeful detail', success: 'Every visual addition (pseudo-element, transition, transform) serves a clear UI purpose, not just decoration for its own sake' },
 						{ criteria: 'Selector precision', success: 'At least one selector uses a combinator or attribute selector to avoid adding a new class to the HTML' },
-						{ criteria: 'Restrained motion', success: 'Transitions are 0.15s–0.4s, transforms are subtle, and no animation distracts from content' },
+						{ criteria: 'Restrained motion', success: 'Transitions are 0.15s-0.4s, transforms are subtle, and no animation distracts from content' },
 						{ criteria: 'Accessibility', success: 'prefers-reduced-motion media query is present and handles all animated properties' }
 					]"
 				/>
@@ -700,20 +700,20 @@ input:valid { border-left-color: #2d6a4f; }</code></pre>
 				This lesson covered the CSS tools that turn a working layout into a polished
 				page. Combinators and pseudo-classes let you target elements precisely
 				without cluttering your HTML with extra classes. Pseudo-elements add
-				decorative detail through CSS alone — a heading underline, an external-link
-				indicator, a required-field marker — without extra DOM elements.
+				decorative detail through CSS alone - a heading underline, an external-link
+				indicator, a required-field marker - without extra DOM elements.
 			</p>
 			<p>
 				Transitions smooth out property changes over time. Set them on the base state,
 				be explicit about which properties to transition, and keep durations between
-				0.15s and 0.4s for UI interactions. Transforms — translate, scale, rotate —
+				0.15s and 0.4s for UI interactions. Transforms such as translate, scale, and rotate
 				change how an element looks without affecting its space in the document flow,
 				making them ideal for hover lifts, button presses, and subtle reveals.
 			</p>
 			<p>
 				The hardest skill is restraint. Good motion supports the user's attention.
 				Excessive motion fights it. And <code>prefers-reduced-motion</code> is not
-				a feature — it is a responsibility.
+				a feature - it is a responsibility.
 			</p>
 
 			<!-- ═══════════════════════════════════════════════════ -->

@@ -203,7 +203,7 @@ const closureReflectionPrompts = [
 				icon="⚙️"
 				:hook="anticipatoryHook"
 				:reflection-prompts="[
-					'When you hear “Vite”, do you think of a framework, a dev server, or a build tool?',
+						'When you hear &quot;Vite&quot;, do you think of a framework, a dev server, or a build tool?',
 					'What parts of a modern frontend project still feel a bit magical right now?',
 					'Have you ever run project scripts successfully without really knowing what each one did?'
 				]"
@@ -257,7 +257,7 @@ const closureReflectionPrompts = [
 					alt="Two-panel diagram comparing a framework, which structures the application code, with Vite, which runs the dev server and build workflow around the project."
 				/>
 				<figcaption>
-					This distinction is the heart of the lesson. The framework shapes the
+					This distinction is the main point of the lesson. The framework shapes the
 					interface code. Vite supports the workflow around that interface.
 				</figcaption>
 			</figure>
@@ -509,13 +509,13 @@ npm create vite@latest my-vue-app -- --template vue</code></pre>
 					<a href="https://vite.dev/guide/" target="_blank" rel="noopener">
 						Vite official guide
 					</a>
-					&mdash; the best next stop for current commands, templates, and workflow details.
+					 - the best next stop for current commands, templates, and workflow details.
 				</li>
 				<li>
 					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank" rel="noopener">
 						MDN: JavaScript modules
 					</a>
-					&mdash; useful if you want to connect Vite more clearly to modern module-based development.
+					 - useful if you want to connect Vite more clearly to modern module-based development.
 				</li>
 			</ul>
 

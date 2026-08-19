@@ -74,14 +74,14 @@
 				those materials.
 			</p>
 			<p>
-				The big beginner mistake is assuming that “online” means “free to use”.
+				The big beginner mistake is assuming that "online" means "free to use".
 				A file can be easy to download and still be protected by copyright. Before
 				you add outside material to a website, slow down and check the permission.
 			</p>
 
 			<figure class="permission-flow" aria-labelledby="permission-flow-title">
 				<figcaption id="permission-flow-title" class="has-text-weight-semibold">
-					A practical “can I use this?” decision flow
+					A practical "can I use this?" decision flow
 				</figcaption>
 				<div class="permission-steps">
 					<div class="permission-step">
@@ -124,7 +124,7 @@
 						<h3 class="title is-5">Stop and check carefully</h3>
 						<ul>
 							<li>Images copied from search results or social media</li>
-							<li>“Free” stock assets with unclear terms</li>
+							<li>"Free" stock assets with unclear terms</li>
 							<li>Music, video, logos, maps, characters, or brand material</li>
 							<li>Anything for a client, business, advertisement, or product</li>
 						</ul>
@@ -137,7 +137,7 @@
 			</h2>
 			<p>
 				In Australia, copyright is governed mainly by the
-				<em>Copyright Act 1968</em>. The Attorney-General’s Department explains
+				<em>Copyright Act 1968</em>. The Attorney-General's Department explains
 				that copyright protects original expression in forms such as writing,
 				visual images, music, moving images, software code, films, broadcasts,
 				and sound recordings.
@@ -168,15 +168,15 @@
 				</li>
 				<li>
 					<strong>Exceptions are specific:</strong> Australia has fair dealing
-					exceptions for certain purposes, but “I found it online” or “I am
-					learning” is not automatically enough.
+					exceptions for certain purposes, but "I found it online" or "I am
+					learning" is not automatically enough.
 				</li>
 			</ul>
 
 			<div class="box source-note">
 				<h3 class="title is-5">Australian learner habit</h3>
 				<p>
-					If you are unsure, start with the official Attorney-General’s Department
+					If you are unsure, start with the official Attorney-General's Department
 					pages for copyright basics, copyright owners, and copyright users. Then
 					record the source and the rule you relied on in your project notes.
 				</p>
@@ -198,7 +198,7 @@
 				permission visible.
 			</p>
 			<p>
-				Do not stop at the words “Creative Commons”. Check which licence applies.
+				Do not stop at the words "Creative Commons". Check which licence applies.
 				The conditions change what you can do.
 			</p>
 
@@ -286,10 +286,10 @@
 				There are many good places to find images for learning projects. The
 				trick is to know what kind of permission each site offers. Some sites use
 				their own free-use licence. Some host Creative Commons material. Some
-				hold public-domain or “no known copyright restrictions” archive images.
+				hold public-domain or "no known copyright restrictions" archive images.
 			</p>
 			<p>
-				That is why “copyright-free” is not always the best phrase. A safer habit
+				That is why "copyright-free" is not always the best phrase. A safer habit
 				is to ask: <strong>what licence or rights statement applies to this exact
 				image?</strong>
 			</p>
@@ -329,7 +329,7 @@
 					<h3 class="title is-5">Archives and public-domain collections</h3>
 					<ul>
 						<li>
-							<strong>Library of Congress:</strong> “Free to Use and Reuse” sets
+							<strong>Library of Congress:</strong> "Free to Use and Reuse" sets
 							of rights-free historical images.
 						</li>
 						<li>
@@ -534,7 +534,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 const copyrightCheckpointQuestions = [
 	{
-		question: 'Why is “I found it online” not enough permission to use an image?',
+		question: 'Why is "I found it online" not enough permission to use an image?',
 		answer:
 			'Because online access is not the same as a licence. The image may still be protected by copyright, and the owner may control copying, publishing, adaptation, or commercial use.',
 	},
@@ -546,7 +546,7 @@ const copyrightCheckpointQuestions = [
 	{
 		question: 'What are moral rights in the Australian copyright context?',
 		answer:
-			'Moral rights include attribution, protection against false attribution, and integrity of authorship. They focus on a creator’s connection to the work.',
+			'Moral rights include attribution, protection against false attribution, and integrity of authorship. They focus on a creator\'s connection to the work.',
 	},
 ];
 
@@ -559,7 +559,7 @@ const attributionCheckpointQuestions = [
 	{
 		question: 'What extra note should you include if you crop or edit a Creative Commons image?',
 		answer:
-			'Indicate that changes were made, such as “cropped for layout” or “colours adjusted”.',
+			'Indicate that changes were made, such as "cropped for layout" or "colours adjusted".',
 	},
 	{
 		question:

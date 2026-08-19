@@ -37,7 +37,7 @@ No. That difference is web performance.
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - explain website performance in your own words
 - identify factors that influence performance

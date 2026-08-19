@@ -7,8 +7,8 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
-  title: "Black Swan Bistro — Part 2",
-  description: "Build the homepage layout with CSS — wireframe structure, reusable patterns, and a real bistro website project.",
+  title: "Black Swan Bistro - Part 2",
+  description: "Build the homepage layout with CSS - wireframe structure, reusable patterns, and a real bistro website project.",
   path: "/tutorials/intermediate/black-swan-bistro-part-2",
 });
 
@@ -89,7 +89,7 @@ const closureReflectionPrompts = [
 						<router-link to="/tutorials">Tutorials</router-link>
 					</li>
 					<li class="is-active">
-						<a href="#" aria-current="page">Black Swan Bistro &mdash; Part 2</a>
+						<a href="#" aria-current="page">Black Swan Bistro - Part 2</a>
 					</li>
 				</ul>
 			</nav>
@@ -785,7 +785,7 @@ img {
 			</p>
 
 			<div class="notification is-info is-light">
-				<p><strong>Looking ahead:</strong> you may already notice repeated pieces like menu cards, navigation, and the footer. In the next tutorial, <router-link to="/tutorials/intermediate/css-systems-for-reusable-sections">CSS Systems for Reusable Sections</router-link>, you will formalise these shared patterns — colour tokens, spacing values, naming rules — into a small, reliable system. Then in Part 3, you will refactor repeated HTML structures into reusable components. For now, focus on visual reuse through shared CSS classes.</p>
+				<p><strong>Looking ahead:</strong> you may already notice repeated pieces like menu cards, navigation, and the footer. In the next tutorial, <router-link to="/tutorials/intermediate/css-systems-for-reusable-sections">CSS Systems for Reusable Sections</router-link>, you will formalise these shared patterns - colour tokens, spacing values, naming rules - into a small, reliable system. Then in Part 3, you will refactor repeated HTML structures into reusable components. For now, focus on visual reuse through shared CSS classes.</p>
 			</div>
 
 			<h2 id="recap">Short Recap</h2>
@@ -814,14 +814,14 @@ img {
 			<ul>
 				<li>
 					<a href="https://getbem.com" target="_blank" rel="noopener">
-						BEM — Block Element Modifier
+						BEM - Block Element Modifier
 					</a>
-					&mdash; useful for naming repeated CSS patterns clearly once your page starts to
+					 - useful for naming repeated CSS patterns clearly once your page starts to
 					grow.
 				</li>
 				<li>
 					Every Layout
-					&mdash; useful for seeing classes like container, stack, grid, and cluster as
+					 - useful for seeing classes like container, stack, grid, and cluster as
 					reusable layout patterns rather than section-specific styling.
 				</li>
 			</ul>

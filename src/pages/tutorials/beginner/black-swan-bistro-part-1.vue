@@ -13,7 +13,7 @@
 						<router-link to="/tutorials">Tutorials</router-link>
 					</li>
 					<li class="is-active">
-						<a href="#" aria-current="page">Black Swan Bistro &mdash; Part 1</a>
+						<a href="#" aria-current="page">Black Swan Bistro - Part 1</a>
 					</li>
 				</ul>
 			</nav>
@@ -28,7 +28,7 @@
 				</div>
 			</div>
 
-			<h1 class="title is-1">Black Swan Bistro &mdash; Part 1</h1>
+			<h1 class="title is-1">Black Swan Bistro - Part 1</h1>
 			<h2 class="subtitle is-4">Build Your First Web Page</h2>
 
 			<div class="notification is-link is-light">
@@ -46,13 +46,13 @@
 			<AnticipatorySet
 				title="From Blank Screen to Restaurant Website"
 				icon="🍽️"
-				:hook="`<p>You walk into a brand-new restaurant. There&rsquo;s no sign outside, no menu on the table, no information about opening hours. It doesn&rsquo;t matter how good the food is &mdash; nobody will stick around long enough to find out.</p><p>A website works the same way. You need a clear homepage that tells visitors <em>who you are</em>, <em>what you offer</em>, and <em>how to find you</em>. In this project you&rsquo;ll build exactly that &mdash; the homepage foundation for <strong>Black Swan Bistro</strong>, a fictional Perth restaurant &mdash; from an empty folder to a styled, working web page.</p>`"
+				:hook="`<p>You walk into a brand-new restaurant. There's no sign outside, no menu on the table, no information about opening hours. It doesn't matter how good the food is - nobody will stick around long enough to find out.</p><p>A website works the same way. You need a clear homepage that tells visitors <em>who you are</em>, <em>what you offer</em>, and <em>how to find you</em>. In this project you'll build exactly that - the homepage foundation for <strong>Black Swan Bistro</strong>, a fictional Perth restaurant - from an empty folder to a styled, working web page.</p>`"
 				:reflection-prompts="[
-					'Think of a restaurant website you&rsquo;ve visited. What info did you look for first?',
+					'Think of a restaurant website you\'ve visited. What info did you look for first?',
 					'What makes a homepage feel trustworthy vs. unfinished?',
 					'Have you ever left a website because it was hard to read or looked broken?'
 				]"
-				connection="Over the next 60 minutes you&rsquo;ll set up a project folder, write semantic HTML, link a stylesheet, and see your page come alive in the browser. This is Part 1 of a 7-part series that will take you from first page to fully deployed site."
+				connection="Over the next 60 minutes you'll set up a project folder, write semantic HTML, link a stylesheet, and see your page come alive in the browser. This is Part 1 of a 7-part series that will take you from first page to fully deployed site."
 			/>
 
 			<!-- ═══════════════════════════════════════════════════ -->
@@ -66,19 +66,19 @@
 					'Create a linked CSS stylesheet with colour variables, typography, and layout',
 					'Preview and debug your page in a browser'
 				]"
-				purpose="Most tutorials teach HTML and CSS as separate topics. Real projects need both working together. By building a complete page from start to finish, you&rsquo;ll see how everything connects &mdash; and you&rsquo;ll have a genuine project to show for it."
+				purpose="Most tutorials teach HTML and CSS as separate topics. Real projects need both working together. By building a complete page from start to finish, you'll see how everything connects - and you'll have a genuine project to show for it."
 			/>
 
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- STEP 1: FILE & FOLDER SETUP                       -->
 			<!-- ═══════════════════════════════════════════════════ -->
-			<h2 id="project-setup">Step 1 &mdash; Set Up Your Project</h2>
+			<h2 id="project-setup">Step 1 - Set Up Your Project</h2>
 
-			<p>Every professional web project starts the same way: an organised folder with files in predictable locations. Let&rsquo;s create ours.</p>
+			<p>Every professional web project starts the same way: an organised folder with files in predictable locations. Let's create ours.</p>
 
 			<h3 id="where-to-put-it">Where Should Your Project Live?</h3>
 
-			<p>Before you create anything, decide <strong>where</strong> on your computer your web projects will live. Pick one location and stick with it &mdash; consistency will save you time later.</p>
+			<p>Before you create anything, decide <strong>where</strong> on your computer your web projects will live. Pick one location and stick with it - consistency will save you time later.</p>
 
 			<div class="box">
 				<table class="table is-fullwidth">
@@ -91,15 +91,15 @@
 					<tbody>
 						<tr>
 							<td><strong>macOS</strong></td>
-							<td><code>~/Sites/</code> &mdash; This is the traditional web development folder on Mac. Open Finder and you&rsquo;ll find it in your home directory. If it doesn&rsquo;t exist, create it.</td>
+							<td><code>~/Sites/</code> - This is the traditional web development folder on Mac. Open Finder and you'll find it in your home directory. If it doesn't exist, create it.</td>
 						</tr>
 						<tr>
 							<td><strong>Windows</strong></td>
-							<td><code>C:\Users\YourName\Projects\</code> &mdash; Create a <code>Projects</code> folder in your user directory. Avoid putting projects on the Desktop or in OneDrive&nbsp;&mdash; syncing services can interfere with development tools.</td>
+							<td><code>C:\Users\YourName\Projects\</code> - Create a <code>Projects</code> folder in your user directory. Avoid putting projects on the Desktop or in OneDrive&nbsp; - syncing services can interfere with development tools.</td>
 						</tr>
 						<tr>
 							<td><strong>Linux</strong></td>
-							<td><code>~/projects/</code> or <code>~/Sites/</code> &mdash; Either works. Create whichever name you prefer in your home directory.</td>
+							<td><code>~/projects/</code> or <code>~/Sites/</code> - Either works. Create whichever name you prefer in your home directory.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -131,9 +131,9 @@
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- STEP 2: HTML STRUCTURE                             -->
 			<!-- ═══════════════════════════════════════════════════ -->
-			<h2 id="html-structure">Step 2 &mdash; Build the HTML</h2>
+			<h2 id="html-structure">Step 2 - Build the HTML</h2>
 
-			<p>With the folder ready, it&rsquo;s time to write the HTML. We&rsquo;ll build the page section by section, using <strong>semantic elements</strong> &mdash; HTML tags that describe <em>what</em> the content is, not just how it looks.</p>
+			<p>With the folder ready, it's time to write the HTML. We'll build the page section by section, using <strong>semantic elements</strong> - HTML tags that describe <em>what</em> the content is, not just how it looks.</p>
 
 			<h3 id="boilerplate">The Boilerplate</h3>
 
@@ -188,7 +188,7 @@
 			</div>
 
 			<div class="notification is-info is-light">
-				<p><strong>Why semantic elements?</strong> A <code>&lt;header&gt;</code> tells the browser (and screen readers) &ldquo;this is the top section of the page.&rdquo; A <code>&lt;nav&gt;</code> says &ldquo;this is navigation.&rdquo; Plain <code>&lt;div&gt;</code>s don&rsquo;t communicate anything &mdash; they&rsquo;re invisible to accessibility tools.</p>
+				<p><strong>Why semantic elements?</strong> A <code>&lt;header&gt;</code> tells the browser (and screen readers) "this is the top section of the page." A <code>&lt;nav&gt;</code> says "this is navigation." Plain <code>&lt;div&gt;</code>s don't communicate anything - they're invisible to accessibility tools.</p>
 			</div>
 
 			<h3 id="hero-section">Hero Section</h3>
@@ -217,7 +217,7 @@
 &lt;/section&gt;</code></pre>
 
 			<div class="notification is-info is-light">
-				<p><strong>Notice:</strong> We use <code>&lt;strong&gt;</code> for the chef&rsquo;s name (important information) and <code>&lt;em&gt;</code> for the tagline (emphasis). These are <em>semantic</em> choices &mdash; they convey meaning, not just bold/italic styling.</p>
+				<p><strong>Notice:</strong> We use <code>&lt;strong&gt;</code> for the chef's name (important information) and <code>&lt;em&gt;</code> for the tagline (emphasis). These are <em>semantic</em> choices - they convey meaning, not just bold/italic styling.</p>
 			</div>
 
 			<h3 id="menu-section">Featured Menu</h3>
@@ -260,7 +260,7 @@
 
 			<h3 id="hours-section">Hours &amp; Location</h3>
 
-			<p>A table is the right element when you have rows and columns of related data &mdash; like opening hours:</p>
+			<p>A table is the right element when you have rows and columns of related data - like opening hours:</p>
 
 			<pre><code>&lt;section id="hours"&gt;
     &lt;h2&gt;Hours &amp;amp; Location&lt;/h2&gt;
@@ -298,7 +298,7 @@
 &lt;/section&gt;</code></pre>
 
 			<div class="notification is-info is-light">
-				<p><strong>Why <code>&lt;address&gt;</code>?</strong> The <code>&lt;address&gt;</code> element tells search engines and screen readers &ldquo;this is contact information.&rdquo; It&rsquo;s a small semantic detail that improves accessibility and SEO.</p>
+				<p><strong>Why <code>&lt;address&gt;</code>?</strong> The <code>&lt;address&gt;</code> element tells search engines and screen readers "this is contact information." It's a small semantic detail that improves accessibility and SEO.</p>
 			</div>
 
 			<h3 id="footer-section">Footer</h3>
@@ -312,18 +312,18 @@
     &lt;/p&gt;
 &lt;/footer&gt;</code></pre>
 
-			<p>Save the file and open <code>index.html</code> in your browser. You should see all your content displayed in plain, unstyled HTML &mdash; readable, structured, and semantic. It won&rsquo;t look pretty yet, but every element is in place.</p>
+			<p>Save the file and open <code>index.html</code> in your browser. You should see all your content displayed in plain, unstyled HTML - readable, structured, and semantic. It won't look pretty yet, but every element is in place.</p>
 
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- STEP 3: CSS STYLING                                -->
 			<!-- ═══════════════════════════════════════════════════ -->
-			<h2 id="css-styling">Step 3 &mdash; Style with CSS</h2>
+			<h2 id="css-styling">Step 3 - Style with CSS</h2>
 
-			<p>Now let&rsquo;s transform that plain HTML into something that looks like a real restaurant website. Open <code>css/style.css</code> and we&rsquo;ll build the stylesheet section by section.</p>
+			<p>Now let's transform that plain HTML into something that looks like a real restaurant website. Open <code>css/style.css</code> and we'll build the stylesheet section by section.</p>
 
 			<h3 id="css-variables">Colour Variables &amp; Base Styles</h3>
 
-			<p>Start by defining the restaurant&rsquo;s brand colours as CSS custom properties. This means you only need to change one value to update the colour everywhere it&rsquo;s used:</p>
+			<p>Start by defining the restaurant's brand colours as CSS custom properties. This means you only need to change one value to update the colour everywhere it's used:</p>
 
 			<pre><code>/* ── Brand colours ─────────────────────────────── */
 :root {
@@ -350,7 +350,7 @@ body {
 }</code></pre>
 
 			<div class="notification is-warning is-light">
-				<p><strong>Why custom properties?</strong> If the client says &ldquo;make the burgundy a bit darker,&rdquo; you change <strong>one line</strong> and every heading, link, and border using <code>var(--bistro-burgundy)</code> updates automatically. This is how professionals manage colours.</p>
+				<p><strong>Why custom properties?</strong> If the client says "make the burgundy a bit darker," you change <strong>one line</strong> and every heading, link, and border using <code>var(--bistro-burgundy)</code> updates automatically. This is how professionals manage colours.</p>
 			</div>
 
 			<h3 id="css-header">Header &amp; Navigation</h3>
@@ -529,7 +529,7 @@ footer a:hover {
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- STEP 4: RESPONSIVE BASICS                         -->
 			<!-- ═══════════════════════════════════════════════════ -->
-			<h2 id="responsive">Step 4 &mdash; Make It Responsive</h2>
+			<h2 id="responsive">Step 4 - Make It Responsive</h2>
 
 			<p>Your page needs to work on phones too. Add this at the bottom of your stylesheet:</p>
 
@@ -562,27 +562,27 @@ footer a:hover {
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- STEP 5: PREVIEW & DEBUG                            -->
 			<!-- ═══════════════════════════════════════════════════ -->
-			<h2 id="preview-debug">Step 5 &mdash; Preview &amp; Debug</h2>
+			<h2 id="preview-debug">Step 5 - Preview &amp; Debug</h2>
 
 			<p>Before calling this done, run through this quick checklist:</p>
 
 			<div class="box">
 				<h3 class="title is-5">Pre-Flight Checklist</h3>
 				<ul>
-					<li><strong>Open in browser</strong> &mdash; double-click <code>index.html</code> or use VS Code&rsquo;s Live Server extension</li>
-					<li><strong>Check DevTools Console</strong> &mdash; press <kbd>F12</kbd> and look for errors (red text). A 404 means a file path is wrong</li>
-					<li><strong>Validate your HTML</strong> &mdash; right-click → &ldquo;View Page Source&rdquo; and scan for unclosed tags or typos</li>
-					<li><strong>Resize the window</strong> &mdash; does the layout hold up at phone, tablet, and desktop widths?</li>
-					<li><strong>Check links</strong> &mdash; click each nav link. They should scroll to the matching section</li>
+					<li><strong>Open in browser</strong> - double-click <code>index.html</code> or use VS Code's Live Server extension</li>
+					<li><strong>Check DevTools Console</strong> - press <kbd>F12</kbd> and look for errors (red text). A 404 means a file path is wrong</li>
+					<li><strong>Validate your HTML</strong> - right-click → "View Page Source" and scan for unclosed tags or typos</li>
+					<li><strong>Resize the window</strong> - does the layout hold up at phone, tablet, and desktop widths?</li>
+					<li><strong>Check links</strong> - click each nav link. They should scroll to the matching section</li>
 				</ul>
 			</div>
 
 			<div class="notification is-warning is-light">
 				<p><strong>Common issues:</strong></p>
 				<ul>
-					<li><strong>Styles not loading?</strong> Check the <code>&lt;link&gt;</code> tag &mdash; does <code>href="css/style.css"</code> match your actual file path?</li>
-					<li><strong>Fonts not changing?</strong> Google Fonts requires an internet connection. We&rsquo;ll add the <code>&lt;link&gt;</code> for Playfair Display in Part 2; for now the fallback serif will kick in.</li>
-					<li><strong>Nav links not scrolling?</strong> Make sure each section&rsquo;s <code>id</code> matches the <code>href</code> in the nav (e.g., <code>id="menu"</code> and <code>href="#menu"</code>).</li>
+					<li><strong>Styles not loading?</strong> Check the <code>&lt;link&gt;</code> tag - does <code>href="css/style.css"</code> match your actual file path?</li>
+					<li><strong>Fonts not changing?</strong> Google Fonts requires an internet connection. We'll add the <code>&lt;link&gt;</code> for Playfair Display in Part 2; for now the fallback serif will kick in.</li>
+					<li><strong>Nav links not scrolling?</strong> Make sure each section's <code>id</code> matches the <code>href</code> in the nav (e.g., <code>id="menu"</code> and <code>href="#menu"</code>).</li>
 				</ul>
 			</div>
 
@@ -591,10 +591,10 @@ footer a:hover {
 			<!-- ═══════════════════════════════════════════════════ -->
 			<IndependentPractice
 				title="Extend Your Homepage"
-				:task="`<p>You&rsquo;ve built the core homepage. Now add <strong>two more features</strong> on your own:</p>
+				:task="`<p>You've built the core homepage. Now add <strong>two more features</strong> on your own:</p>
 				<ol>
-					<li><strong>A &ldquo;Catering&rdquo; section</strong> between About and Menu. Include a heading, a short paragraph about Black Swan Catering for events, and a link that says &ldquo;Enquire Now&rdquo; pointing to <code>#contact</code>.</li>
-					<li><strong>A &ldquo;Gallery Preview&rdquo; section</strong> before the footer. Add three placeholder <code>&amp;lt;img&amp;gt;</code> tags with descriptive <code>alt</code> text (the images can be broken for now &mdash; we&rsquo;ll add real images in Part 2). Hint: use <code>&amp;lt;figure&amp;gt;</code> and <code>&amp;lt;figcaption&amp;gt;</code>.</li>
+						<li><strong>A &quot;Catering&quot; section</strong> between About and Menu. Include a heading, a short paragraph about Black Swan Catering for events, and a link that says &quot;Enquire Now&quot; pointing to <code>#contact</code>.</li>
+						<li><strong>A &quot;Gallery Preview&quot; section</strong> before the footer. Add three placeholder <code>&amp;lt;img&amp;gt;</code> tags with descriptive <code>alt</code> text (the images can be broken for now - we'll add real images in Part 2). Hint: use <code>&amp;lt;figure&amp;gt;</code> and <code>&amp;lt;figcaption&amp;gt;</code>.</li>
 				</ol>`"
 				:requirements="[
 					'Catering section uses a semantic &lt;section&gt; with an id',
@@ -619,9 +619,9 @@ footer a:hover {
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- WHAT YOU'VE BUILT                                  -->
 			<!-- ═══════════════════════════════════════════════════ -->
-			<h2 id="what-youve-built">What You&rsquo;ve Built</h2>
+			<h2 id="what-youve-built">What You've Built</h2>
 
-			<p>Take a moment to appreciate what you&rsquo;ve accomplished. You now have:</p>
+			<p>Take a moment to appreciate what you've accomplished. You now have:</p>
 
 			<div class="box">
 				<ul>
@@ -634,7 +634,7 @@ footer a:hover {
 
 			<h3>Coming Up in Part 2</h3>
 
-			<p>In <strong>Part 2 &mdash; Layout &amp; Sections</strong>, you&rsquo;ll take this single-column page and give it a professional multi-section layout using CSS Flexbox. You&rsquo;ll add Google Fonts, images, and refine the spacing and visual hierarchy.</p>
+			<p>In <strong>Part 2 - Layout &amp; Sections</strong>, you'll take this single-column page and give it a professional multi-section layout using CSS Flexbox. You'll add Google Fonts, images, and refine the spacing and visual hierarchy.</p>
 
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- CLOSURE                                            -->
@@ -646,8 +646,8 @@ footer a:hover {
 				:key-takeaways="closureKeyTakeaways"
 				:objectives="closureObjectives"
 				:reflection-prompts="closureReflectionPrompts"
-				:real-world-application="`<p><strong>Every real website follows this same process:</strong></p><ol><li>Set up a project folder with clear structure</li><li>Write semantic HTML with proper heading hierarchy</li><li>Link a stylesheet and define brand colours as variables</li><li>Test in the browser and fix issues with DevTools</li></ol><p>You&rsquo;ve just done all four. This is genuinely how professional web developers start every project.</p>`"
-				:next-steps="`<p>In <strong>Part 2</strong>, you&rsquo;ll transform this single-column page into a proper layout with Flexbox, add images, integrate Google Fonts, and refine the visual design. Your Black Swan Bistro site is just getting started!</p>`"
+				:real-world-application="`<p><strong>Every real website follows this same process:</strong></p><ol><li>Set up a project folder with clear structure</li><li>Write semantic HTML with proper heading hierarchy</li><li>Link a stylesheet and define brand colours as variables</li><li>Test in the browser and fix issues with DevTools</li></ol><p>You've just done all four. This is genuinely how professional web developers start every project.</p>`"
+				:next-steps="`<p>In <strong>Part 2</strong>, you'll transform this single-column page into a proper layout with Flexbox, add images, integrate Google Fonts, and refine the visual design. Your Black Swan Bistro site is just getting started!</p>`"
 			/>
 
 			<TutorialRecommendations current-path="/tutorials/beginner/black-swan-bistro-part-1" />
@@ -671,18 +671,18 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
-  title: "Black Swan Bistro — Part 1",
-  description: "Build your first web page — write semantic HTML and add CSS styling in this hands-on beginner project.",
+  title: "Black Swan Bistro - Part 1",
+  description: "Build your first web page - write semantic HTML and add CSS styling in this hands-on beginner project.",
   path: "/tutorials/beginner/black-swan-bistro-part-1",
 });
 
 // ── Sidebar sections ─────────────────────────────────────────────
 usePageSections([
-	{ id: 'project-setup', title: 'Step 1 — Project Setup' },
-	{ id: 'html-structure', title: 'Step 2 — Build the HTML' },
-	{ id: 'css-styling', title: 'Step 3 — Style with CSS' },
-	{ id: 'responsive', title: 'Step 4 — Responsive' },
-	{ id: 'preview-debug', title: 'Step 5 — Preview & Debug' },
+	{ id: 'project-setup', title: 'Step 1 - Project Setup' },
+	{ id: 'html-structure', title: 'Step 2 - Build the HTML' },
+	{ id: 'css-styling', title: 'Step 3 - Style with CSS' },
+	{ id: 'responsive', title: 'Step 4 - Responsive' },
+	{ id: 'preview-debug', title: 'Step 5 - Preview & Debug' },
 	{ id: 'what-youve-built', title: 'What You\'ve Built' },
 	{ id: 'summary', title: 'Summary' },
 ]);
@@ -736,11 +736,11 @@ const checkpointSetup = [
 const checkpointHTML = [
 	{
 		question: 'What is the difference between <section> and <div>?',
-		answer: 'A <section> is a semantic element — it tells browsers and screen readers "this is a distinct section of content." A <div> has no meaning; it\'s just a generic container. Use <section> when the content represents a thematic grouping.',
+		answer: 'A <section> is a semantic element - it tells browsers and screen readers "this is a distinct section of content." A <div> has no meaning; it\'s just a generic container. Use <section> when the content represents a thematic grouping.',
 	},
 	{
 		question: 'Why do we use <strong> for menu item names instead of <b>?',
-		answer: '<strong> means "this content is important" — screen readers will emphasise it. <b> just makes text bold visually without conveying any meaning. Semantic HTML uses <strong> for importance.',
+		answer: '<strong> means "this content is important" - screen readers will emphasise it. <b> just makes text bold visually without conveying any meaning. Semantic HTML uses <strong> for importance.',
 	},
 	{
 		question: 'What does the id attribute on a <section> do?',
@@ -756,7 +756,7 @@ const checkpointCSS = [
 	},
 	{
 		question: 'Why does the nav use display: flex and gap instead of float?',
-		answer: 'Flexbox handles horizontal spacing cleanly — items auto-centre, gap adds even spacing, and it\'s easy to switch to vertical stacking on mobile. Float-based navigation requires clearfix hacks and is harder to maintain.',
+		answer: 'Flexbox handles horizontal spacing cleanly - items auto-centre, gap adds even spacing, and it\'s easy to switch to vertical stacking on mobile. Float-based navigation requires clearfix hacks and is harder to maintain.',
 	},
 	{
 		question: 'What does box-sizing: border-box do, and why set it on every element?',
@@ -770,7 +770,7 @@ const closureKeyTakeaways = [
 	'Semantic HTML (\u003Cheader\u003E, \u003Cnav\u003E, \u003Csection\u003E, \u003Cfooter\u003E, \u003Caddress\u003E) communicates meaning to browsers, screen readers, and search engines.',
 	'CSS custom properties (--bistro-burgundy) let you manage brand colours from a single place.',
 	'A mobile-friendly @media query ensures your page works on any device.',
-	'DevTools (F12) is your debugging partner — always check the Console for errors.',
+	'DevTools (F12) is your debugging partner - always check the Console for errors.',
 ];
 
 const closureObjectives = [

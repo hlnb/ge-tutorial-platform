@@ -38,7 +38,7 @@
 				'What makes a good link versus a frustrating one?',
 				'Why do some links open in new tabs while others replace the current page?'
 			]"
-			connection="In this tutorial, you'll learn to create the connections that make the web work—one of the most fundamental and powerful tools in web development."
+			connection="You will learn to create the connections that make the web work - one of the most fundamental and powerful tools in web development."
 		/>
 
 		<!-- Hunter Element 2: Learning Objectives -->
@@ -463,7 +463,7 @@
 
 				<div class="content">
 					<p>
-						A well-organized navigation structure is crucial for website
+						A well-organized navigation structure is important for website
 						usability. Here are common navigation patterns:
 					</p>
 
@@ -628,7 +628,7 @@
 		:key-takeaways="closureKeyTakeaways"
 		:objectives="closureObjectives"
 		:reflection-prompts="closureReflectionPrompts"
-		real-world-application="<p>Every website navigation menu, every &quot;Read More&quot; button, every table of contents—they're all built with the link techniques you learned today. You now understand the fundamental connection mechanism of the entire World Wide Web!</p>"
+		real-world-application="<p>Every website navigation menu, every &quot;Read More&quot; button, every table of contents - they're all built with the link techniques you learned today. You now understand the fundamental connection mechanism of the entire World Wide Web!</p>"
 		next-steps="<p>In the next lesson, <strong>Working with Images</strong>, you'll learn how to add visual content to your pages with the img element, alt text, and responsive images!</p>"
 	/>
 
@@ -652,7 +652,7 @@ import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 useTutorialHead({
   title: 'Links and Navigation in HTML',
-  description: 'Learn how to create links and navigation in HTML — anchor tags, href attributes, relative vs absolute URLs, and linking between pages.',
+  description: 'Learn how to create links and navigation in HTML - anchor tags, href attributes, relative vs absolute URLs, and linking between pages.',
   path: '/tutorials/beginner/html-basics/html-links',
 });
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
@@ -688,7 +688,7 @@ const checkpointQuestions = [
 ];
 
 const closureKeyTakeaways = [
-	'Links are what make the web a web—they connect pages and create navigation',
+	'Links are what make the web a web - they connect pages and create navigation',
 	'Use relative URLs for internal links and absolute URLs for external resources',
 	'The href attribute is required; target, rel, and aria attributes enhance functionality and accessibility',
 	'Accessible link text describes the destination, not the action (avoid "click here")',

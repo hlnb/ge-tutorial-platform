@@ -30,12 +30,12 @@
     <!-- Hunter Element 1: Anticipatory Set -->
     <AnticipatorySet
       title="Start Here"
-      :hook="`<p>You've learned how to create branches and work on separate features. But what happens when it's time to bring everything together? Merging is how you combine work from different branches—and knowing how to handle conflicts when they arise is a critical developer skill.</p>`"
+      :hook="`<p>You've learned how to create branches and work on separate features. But what happens when it's time to bring everything together? Merging is how you combine work from different branches - and knowing how to handle conflicts when they arise is a critical developer skill.</p>`"
       :reflection-prompts="[
         'What do you think happens when two people edit the same line of code?',
         'How would you decide which changes to keep and which to discard?'
       ]"
-      connection="Let's learn how Git merging works and how to resolve conflicts like a pro."
+      connection="Learn how Git merging works and how to resolve conflicts with confidence."
     />
 
     <!-- Hunter Element 2: Learning Objectives -->
@@ -50,7 +50,7 @@
         'Be familiar with Git branching',
         'Have a Git repository with multiple branches to practice merging'
       ]"
-      purpose="Merging is how collaborative development works. Every pull request, every feature—they all end with a merge. Understanding this process is essential for working on any team."
+      purpose="Merging is how collaborative development works. Every pull request, every feature - they all end with a merge. Understanding this process is essential for working on any team."
     />
 
     <h2 class="title is-2">What is Merging?</h2>
@@ -112,7 +112,7 @@
       :key-takeaways="closureKeyTakeaways"
       :objectives="closureObjectives"
       :reflection-prompts="closureReflectionPrompts"
-      :next-steps="`<p>Now that you can merge branches and resolve conflicts, it's time to learn about <strong>remote repositories</strong>—how to share your code with the world using GitHub or GitLab.</p>`"
+      :next-steps="`<p>Now that you can merge branches and resolve conflicts, it's time to learn about <strong>remote repositories</strong> - how to share your code with the world using GitHub or GitLab.</p>`"
     />
 
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/merging'" />
@@ -134,7 +134,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: 'Merging in Git',
-  description: 'Learn how to merge branches in Git — combine work, understand fast-forward vs merge commits, and resolve conflicts.',
+  description: 'Learn how to merge branches in Git - combine work, understand fast-forward vs merge commits, and resolve conflicts.',
   path: '/tutorials/intermediate/git-basics/merging',
 });
 

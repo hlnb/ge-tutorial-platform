@@ -24,11 +24,12 @@ hiddenFromCurriculum: false
 
 Imagine walking into a building where the front door exists, although only people who can climb a ladder can reach it.
 
-That would be absurd in the physical world. On the web, we accidentally build “ladder doors” all the time: buttons that only work with a mouse, text that cannot be read against its background, forms that do not explain errors, images with no useful alternative text, and layouts that fall apart when users zoom in.
+That would be absurd in the physical world. On the web, we accidentally build "ladder doors" all the time: buttons that only work with a mouse, text that cannot be read against its background, forms that do not explain errors, images with no useful alternative text, and layouts that fall apart when users zoom in.
 
 Accessibility is the habit of asking: **Can people actually use this?**
 
-Not “does it look polished in my browser on my screen with my mouse?”  
+Not "does it look polished in my browser on my screen with my mouse?"
+
 Can people use it when they are tired, injured, using a keyboard, using a screen reader, zooming the page, dealing with glare, using a phone one-handed, or trying to complete a task quickly?
 
 That is where accessibility starts.
@@ -39,7 +40,7 @@ That is where accessibility starts.
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - explain accessibility in plain English
 - describe the four WCAG POUR principles

@@ -441,7 +441,7 @@
       <section id="real-world-examples" class="mb-6">
         <h2 class="title is-3">Real-World DOM Manipulation Examples</h2>
         <div class="box">
-          <p class="mb-4">DOM manipulation is at the heart of interactive web applications. Here are some real-world examples showing how these techniques are applied in common features:</p>
+          <p class="mb-4">DOM manipulation is central to interactive web applications. Here are some real-world examples showing how these techniques are applied in common features:</p>
           
           <div class="columns is-multiline">
             <!-- Shopping Cart Example -->
@@ -1434,8 +1434,8 @@ container.appendChild(fragment);  // Single reflow
         :key-takeaways="closureKeyTakeaways"
         :objectives="closureObjectives"
         :reflection-prompts="closureReflectionPrompts"
-        real-world-application="<p>Every time you see a modal pop up, a toast notification slide in, or a shopping cart update without a page refresh, DOM manipulation is at work. Mastering createElement, appendChild, and classList gives you the low-level control that even modern frameworks rely on under the hood.</p>"
-        next-steps="<p>You can now build and reshape page content on the fly. Next, you'll learn how to respond to user actions — clicks, key presses, form submissions — through DOM event handling, completing the loop between user and interface.</p>"
+        real-world-application="<p>Every time you see a modal pop up, a toast notification slide in, or a shopping cart update without a page refresh, DOM manipulation is at work. Learning createElement, appendChild, and classList gives you the low-level control that even modern frameworks rely on under the hood.</p>"
+        next-steps="<p>You can now build and reshape page content on the fly. Next, you'll learn how to respond to user actions - clicks, key presses, form submissions - through DOM event handling, completing the loop between user and interface.</p>"
       />
 
       <section id="next-steps" class="mb-6">
@@ -1462,13 +1462,13 @@ import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 useTutorialHead({
   title: 'DOM Manipulation',
-  description: 'Create, insert, update, and remove HTML elements dynamically with JavaScript — make your web pages interactive.',
+  description: 'Create, insert, update, and remove HTML elements dynamically with JavaScript - make your web pages interactive.',
   path: '/tutorials/beginner/dom-basics/dom-manipulation',
 });
 
 const closureKeyTakeaways = [
   'createElement and appendChild let you build new DOM nodes entirely in JavaScript',
-  'innerHTML is convenient but poses XSS risks — prefer textContent or createElement for user-supplied data',
+  'innerHTML is convenient but poses XSS risks - prefer textContent or createElement for user-supplied data',
   'classList.add, remove, and toggle give you fine-grained control over element styling',
   'setAttribute and removeAttribute manage any HTML attribute dynamically',
   'Removing elements with remove() or removeChild() keeps the DOM clean and performant',
@@ -1490,7 +1490,7 @@ const closureReflectionPrompts = [
       'When is createElement + appendChild a better choice than setting innerHTML?',
       'How would you structure code that builds a complex component (e.g., a card) from data?',
     ],
-    content: 'Choosing the right creation method balances readability, security, and performance — a judgement call you will make daily in production work.',
+    content: 'Choosing the right creation method balances readability, security, and performance - a judgement call you will make daily in production work.',
   },
   {
     icon: 'fas fa-shield-alt',

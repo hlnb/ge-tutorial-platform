@@ -182,7 +182,7 @@
 
 		<div class="box practice-guided">
 			<h3><i class="fas fa-hands-helping"></i> Guided Practice: Explore Network Commands</h3>
-			<p>Let's use command-line tools to see the internet in action!</p>
+			<p>Use command-line tools to see the internet in action!</p>
 			
 			<div class="steps">
 				<div class="step-item">
@@ -342,7 +342,7 @@
 								<li>No padlock? Don't enter sensitive information!</li>
 								<li>High ping times? Server might be geographically distant or overloaded</li>
 							</ul>
-							<p class="has-text-success"><strong>You can now diagnose network issues like a pro!</strong></p>
+							<p class="has-text-success"><strong>You can now diagnose network issues with confidence!</strong></p>
 						</div>
 						
 						<div class="question-card mt-4">
@@ -380,7 +380,7 @@ import TutorialNavigation from '@/components/TutorialNavigation.vue';
 
 useTutorialHead({
   title: 'How the Internet Works',
-  description: 'Learn how the internet works — IP addresses, DNS, HTTP, HTTPS, and web servers explained for beginner web developers.',
+  description: 'Learn how the internet works - IP addresses, DNS, HTTP, HTTPS, and web servers explained for beginner web developers.',
   path: '/tutorials/getting-started/how-internet-works',
 });
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';

@@ -76,7 +76,7 @@ element.addEventListener('eventName', function(event) {
 
         <h3>Why Are Events Important?</h3>
         <p>
-          Events are crucial for creating interactive web applications because they:
+          Events are important for creating interactive web applications because they:
         </p>
         <ul>
           <li>Enable user interaction with web pages</li>
@@ -111,7 +111,7 @@ element.addEventListener('eventName', function(event) {
       <section id="first-event-example">
         <h2>Your First Event Handler</h2>
         <p>
-          Let's start with a simple example to see how events work in practice. We'll create a button that responds
+          Start with a simple example to see how events work in practice. We'll create a button that responds
           to clicks and updates some text on the page. This demonstrates the basic structure of event handling:
           selecting an element, adding an event listener, and responding to the event.
         </p>
@@ -166,7 +166,7 @@ button.addEventListener('click', function() {
         <div class="code-example mt-4">
           <h3>Event Categories Overview</h3>
           <p>
-            Here's a comprehensive list of the most commonly used event categories in web development:
+            Common the most commonly used event categories in web development:
           </p>
           <ul class="event-categories">
             <li><strong>Mouse Events:</strong> click, dblclick, mousedown, mouseup, mousemove, mouseenter, mouseleave</li>
@@ -283,7 +283,7 @@ boxes.forEach(box => {
         <h2>Keyboard Events</h2>
         <p>
           Keyboard events are essential for handling user input and creating interactive experiences. They allow you to
-          respond to key presses, combinations, and special keys. Understanding keyboard events is crucial for building
+          respond to key presses, combinations, and special keys. Understanding keyboard events is important for building
           forms, games, and keyboard shortcuts.
         </p>
 
@@ -406,7 +406,7 @@ input.addEventListener('keydown', (e) => {
       <section id="touch-events">
         <h2>Touch Events</h2>
         <p>
-          Touch events are crucial for mobile web applications. They provide a way to handle touch interactions
+          Touch events are important for mobile web applications. They provide a way to handle touch interactions
           on touch-enabled devices. The main touch events are:
         </p>
         <ul>
@@ -479,7 +479,7 @@ if (window.TouchEvent) {
       <section id="error-handling">
         <h2>Error Handling in Events</h2>
         <p>
-          Proper error handling in event listeners is crucial for creating robust applications.
+          Proper error handling in event listeners is important for creating reliable applications.
           It helps prevent crashes, provides meaningful feedback to users, and makes debugging easier.
         </p>
 
@@ -609,7 +609,7 @@ validateButton.addEventListener('click', (e) => {
       <section id="performance">
         <h2>Performance Optimization</h2>
         <p>
-          Optimizing event handling is crucial for smooth user experiences, especially in complex applications.
+          Optimizing event handling is important for smooth user experiences, especially in complex applications.
           Here are key techniques and considerations:
         </p>
 
@@ -724,7 +724,7 @@ list?.addEventListener('click', (e) => {
         <h2>Form Events and Validation</h2>
         <p>
           Form handling requires careful consideration of user experience, accessibility, and validation.
-          Here's a comprehensive approach:
+          A good approach:
         </p>
 
         <div class="info-box">
@@ -874,7 +874,7 @@ form?.addEventListener('submit', async (e) => {
         <h2>Event Delegation</h2>
         <p>
           Event delegation is a powerful pattern for handling events efficiently,
-          especially for dynamic content. Here's a comprehensive guide:
+          especially for dynamic content. A practical guide:
         </p>
 
         <div class="info-box">
@@ -988,7 +988,7 @@ touchDemo?.addEventListener('touchstart', (e) => {
         <h2>Best Practices</h2>
         <p>
           Following best practices ensures maintainable, performant, and accessible event handling.
-          Here's a comprehensive guide:
+          A practical guide:
         </p>
 
         <div class="info-box">
@@ -1066,8 +1066,8 @@ touchDemo?.addEventListener('touchstart', (e) => {
         :key-takeaways="closureKeyTakeaways"
         :objectives="closureObjectives"
         :reflection-prompts="closureReflectionPrompts"
-        real-world-application="<p>Every interactive feature on the web — button clicks, drag-and-drop, infinite scroll, keyboard shortcuts — is powered by event handling. Understanding how events propagate, how to delegate listeners, and how to prevent default behaviour gives you the control to build polished, accessible user interfaces.</p>"
-        next-steps="<p>Congratulations — you've completed the DOM Basics series! You now have the skills to select elements, manipulate content, and respond to user actions. Consider revisiting the practice projects or exploring more advanced topics like asynchronous JavaScript and API integration.</p>"
+        real-world-application="<p>Every interactive feature on the web - button clicks, drag-and-drop, infinite scroll, keyboard shortcuts - is powered by event handling. Understanding how events propagate, how to delegate listeners, and how to prevent default behaviour gives you the control to build polished, accessible user interfaces.</p>"
+        next-steps="<p>Congratulations - you've completed the DOM Basics series! You now have the skills to select elements, manipulate content, and respond to user actions. Consider revisiting the practice projects or exploring more advanced topics like asynchronous JavaScript and API integration.</p>"
       />
 
       <section id="next-steps">
@@ -1094,7 +1094,7 @@ import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 useTutorialHead({
   title: 'DOM Events',
-  description: 'Learn how to handle user interactions in JavaScript — click, input, and keyboard events with addEventListener.',
+  description: 'Learn how to handle user interactions in JavaScript - click, input, and keyboard events with addEventListener.',
   path: '/tutorials/beginner/dom-basics/dom-events',
 });
 

@@ -26,9 +26,9 @@ hiddenFromCurriculum: false
 
 <!-- ANCHOR HOOK -->
 
-APIs don't send you a JavaScript object. They send you text — a long string of characters that *looks* like an object. Before you can use any of it, JavaScript needs to convert it. That conversion is called parsing, and the format it's parsing is **JSON**.
+APIs don't send you a JavaScript object. They send you text - a long string of characters that *looks* like an object. Before you can use any of it, JavaScript needs to convert it. That conversion is called parsing, and the format it's parsing is **JSON**.
 
-Understanding JSON isn't just about knowing its syntax. It's about knowing how to take a raw blob of data from an API — which is almost never in exactly the shape you need — and turn it into something your UI can actually use.
+Understanding JSON isn't just about knowing its syntax. It's about knowing how to take a raw blob of data from an API - which is almost never in exactly the shape you need - and turn it into something your UI can actually use.
 
 That's what this tutorial covers.
 
@@ -40,7 +40,7 @@ That's what this tutorial covers.
 
 ## What you'll learn
 
-By the end of this tutorial you'll be able to:
+After this tutorial, you'll be able to:
 
 - Explain what JSON is and how it differs from a JavaScript object
 - Use `JSON.parse()` and `JSON.stringify()` correctly
@@ -56,7 +56,7 @@ By the end of this tutorial you'll be able to:
 
 ## What is JSON?
 
-**JSON** stands for JavaScript Object Notation. It's a text format for representing structured data — and it's the universal language of web APIs. When a server sends you data, it's almost always JSON.
+**JSON** stands for JavaScript Object Notation. It's a text format for representing structured data - and it's the universal language of web APIs. When a server sends you data, it's almost always JSON.
 
 JSON looks very much like a JavaScript object literal:
 
@@ -70,7 +70,7 @@ JSON looks very much like a JavaScript object literal:
 }
 ```
 
-But it's not an object. It's a **string**. A very structured string — but a string. That's why you need to parse it before you can work with it.
+But it's not an object. It's a **string**. A very structured string - but a string. That's why you need to parse it before you can work with it.
 
 ---
 
@@ -105,7 +105,7 @@ Valid JSON value types are: string, number, boolean, null, array, and object. Th
 
 ---
 
-## JSON.parse() — string to object
+## JSON.parse() - string to object
 
 When you receive JSON from an API, you convert it to a JavaScript object using `JSON.parse()`:
 
@@ -132,9 +132,9 @@ try {
 
 ---
 
-## JSON.stringify() — object to string
+## JSON.stringify() - object to string
 
-To go the other direction — converting a JavaScript object into a JSON string — use `JSON.stringify()`:
+To go the other direction - converting a JavaScript object into a JSON string - use `JSON.stringify()`:
 
 ```js
 const user = { name: 'Helen', role: 'admin' };
@@ -160,7 +160,7 @@ console.log(JSON.stringify(user, null, 2));
 // }
 ```
 
-Useful for debugging — especially when you're logging complex nested objects.
+Useful for debugging - especially when you're logging complex nested objects.
 
 ---
 
@@ -208,7 +208,7 @@ console.log(data.user?.phone?.mobile); // undefined — no error thrown
 
 API responses rarely arrive in the exact shape your UI needs. You'll almost always need to extract, filter, or transform the data before using it. This is where array methods earn their keep.
 
-### `map()` — transform each item
+### `map()` - transform each item
 
 Use `map()` to convert an array of objects into a new array of a different shape.
 
@@ -229,7 +229,7 @@ const summaries = posts.map((post) => ({
 }));
 ```
 
-### `filter()` — keep matching items
+### `filter()` - keep matching items
 
 Use `filter()` to return only the items that meet a condition.
 
@@ -247,9 +247,9 @@ const over100 = orders.filter((order) => order.total > 100);
 // [{ id: 102, ... }]
 ```
 
-### `find()` — get one matching item
+### `find()` - get one matching item
 
-Use `find()` when you need a single item — by ID, for example.
+Use `find()` when you need a single item - by ID, for example.
 
 ```js
 const users = [
@@ -275,7 +275,7 @@ if (user) {
 
 ### Combining methods
 
-Methods chain together — and this is where they become powerful:
+Methods chain together - and this is where they become powerful:
 
 ```js
 fetch('https://jsonplaceholder.typicode.com/posts')
@@ -315,7 +315,7 @@ JSON.stringify({ created: new Date() });
 // '{"created":"2026-04-28T01:00:00.000Z"}'
 ```
 
-When you parse them back, they're still strings — not Date objects. Convert them explicitly if you need date arithmetic:
+When you parse them back, they're still strings - not Date objects. Convert them explicitly if you need date arithmetic:
 
 ```js
 const created = new Date(data.created);
@@ -333,7 +333,7 @@ JSON handles standard numbers fine, but very large integers (e.g., database IDs 
 ## Check your understanding
 
 **1. What's the key difference between a JSON string and a JavaScript object?**
-JSON is text — a string. A JavaScript object is a data structure in memory. You convert between them with `JSON.parse()` (string → object) and `JSON.stringify()` (object → string).
+JSON is text - a string. A JavaScript object is a data structure in memory. You convert between them with `JSON.parse()` (string → object) and `JSON.stringify()` (object → string).
 
 **2. Why does `JSON.stringify()` drop `undefined` values?**
 Because `undefined` is not a valid JSON value type. JSON only supports strings, numbers, booleans, null, arrays, and objects.
@@ -355,28 +355,28 @@ Use `filter()` when you want all items that match a condition (returns an array)
 
 You're going to fetch a list of todos from JSONPlaceholder and reshape the data before displaying it.
 
-**Step 1 — Fetch the todos**
+**Step 1 - Fetch the todos**
 
 Fetch from `https://jsonplaceholder.typicode.com/todos` with the full `response.ok` check pattern.
 
-**Step 2 — Filter to completed items only**
+**Step 2 - Filter to completed items only**
 
 Use `filter()` on the returned array to keep only todos where `completed === true`.
 
-**Step 3 — Extract the titles**
+**Step 3 - Extract the titles**
 
 Use `map()` on the filtered array to produce an array of title strings.
 
-**Step 4 — Limit to the first 5**
+**Step 4 - Limit to the first 5**
 
 Use `.slice(0, 5)` to keep only the first five results.
 
-**Step 5 — Log the result**
+**Step 5 - Log the result**
 
 Log the final array. You should see five completed todo titles.
 
 <details>
-<summary>Hint — chaining the methods</summary>
+<summary>Hint - chaining the methods</summary>
 
 ```js
 const titles = todos
@@ -386,7 +386,7 @@ const titles = todos
 ```
 </details>
 
-**Step 6 — Stringify for inspection**
+**Step 6 - Stringify for inspection**
 
 Log `JSON.stringify(titles, null, 2)` and compare it to the plain `console.log` output. Notice the difference in how it displays.
 
@@ -423,7 +423,7 @@ Build a **user directory** from API data.
 - [ ] Each item in the reshaped array has exactly the four properties listed above
 - [ ] The filter correctly matches company names containing `'LLC'`
 - [ ] The `find()` lookup targets a specific ID and guards against `undefined`
-- [ ] All output is readable — use `JSON.stringify` with indentation where helpful
+- [ ] All output is readable - use `JSON.stringify` with indentation where helpful
 
 <!-- /IndependentPractice -->
 
@@ -433,6 +433,6 @@ Build a **user directory** from API data.
 
 You can now fetch data, parse it, and reshape it into exactly the form your code needs. The next step is making that code cleaner and easier to read.
 
-`async`/`await` is syntactic sugar built on top of Promises — the same engine, a different way of writing it. Most modern codebases prefer it because it reads more like synchronous code while staying fully async.
+`async`/`await` is syntactic sugar built on top of Promises - the same engine, a different way of writing it. Most modern codebases prefer it because it reads more like synchronous code while staying fully async.
 
 → **Next: [async/await Patterns](./async-await)**

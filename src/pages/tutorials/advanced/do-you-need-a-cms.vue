@@ -29,7 +29,7 @@
 			<h1 class="title is-1">Do You Actually Need a CMS?</h1>
 
 			<p class="subtitle is-5">
-				Understand when a CMS makes sense &mdash; and when static HTML is just fine.
+				Understand when a CMS makes sense - and when static HTML is just fine.
 			</p>
 
 			<div class="notification is-info is-light">
@@ -52,7 +52,7 @@ import { useTutorialHead } from '@/composables/useTutorialHead';
 
 useTutorialHead({
   title: "Do You Actually Need a CMS?",
-  description: "Decide whether you need a CMS or static HTML — understand the trade-offs to choose the right approach for your site.",
+  description: "Decide whether you need a CMS or static HTML - understand the trade-offs to choose the right approach for your site.",
   path: "/tutorials/advanced/do-you-need-a-cms",
 	noindex: true,
 });

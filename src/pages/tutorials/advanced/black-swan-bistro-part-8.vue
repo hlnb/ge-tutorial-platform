@@ -10,7 +10,7 @@
           </li>
           <li><router-link to="/tutorials">Tutorials</router-link></li>
           <li class="is-active">
-            <a href="#" aria-current="page">Black Swan Bistro &mdash; Part 8</a>
+            <a href="#" aria-current="page">Black Swan Bistro - Part 8</a>
           </li>
         </ul>
       </nav>
@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <h1 class="title is-1">Black Swan Bistro &mdash; Part 8</h1>
+      <h1 class="title is-1">Black Swan Bistro - Part 8</h1>
       <h2 class="subtitle is-4">Prioritise and Improve</h2>
 
       <p class="subtitle is-5">
@@ -57,7 +57,7 @@
 import { useTutorialHead } from '@/composables/useTutorialHead';
 
 useTutorialHead({
-  title: 'Black Swan Bistro — Part 8',
+  title: 'Black Swan Bistro - Part 8',
   description:
     'Use Black Swan Bistro audit findings to prioritise and improve the live website deliberately.',
   path: '/tutorials/advanced/black-swan-bistro-part-8',

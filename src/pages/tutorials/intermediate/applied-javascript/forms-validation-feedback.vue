@@ -167,9 +167,9 @@ const quizFeedbackExample = `function submitAnswer() {
 
 			<h2 id="feedback-states">Feedback States</h2>
 			<p>
-				A useful message tells the user what happened and what to do next. “Invalid input”
+				A useful message tells the user what happened and what to do next. "Invalid input"
 				is technically feedback, but it is not helpful feedback. Specific guidance is better:
-				“Please enter an email address” or “Tell us a little more about your booking request.”
+				"Please enter an email address" or "Tell us a little more about your booking request."
 			</p>
 			<div class="notification is-success is-light">
 				<p>

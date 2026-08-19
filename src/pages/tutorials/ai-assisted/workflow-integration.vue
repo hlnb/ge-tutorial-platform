@@ -15,7 +15,7 @@ import { useTutorialHead } from '@/composables/useTutorialHead';
 
 useTutorialHead({
   title: "AI-Powered Workflow Integration",
-  description: "Integrate AI into your development workflow — scaffolding, refactoring, and automation with VS Code and Copilot.",
+  description: "Integrate AI into your development workflow - scaffolding, refactoring, and automation with VS Code and Copilot.",
   path: "/tutorials/ai-assisted/workflow-integration",
 });
 </script>

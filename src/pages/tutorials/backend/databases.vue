@@ -15,7 +15,7 @@ import { useTutorialHead } from '@/composables/useTutorialHead';
 
 useTutorialHead({
   title: "Databases: Firebase & Supabase",
-  description: "Compare Firebase and Supabase for your web project — hosted database options explained for beginner developers.",
+  description: "Compare Firebase and Supabase for your web project - hosted database options explained for beginner developers.",
   path: "/tutorials/backend/databases",
 });
 </script>

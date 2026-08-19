@@ -34,7 +34,7 @@
       <AnticipatorySet
         title="Finding Your Way Around a Web Page"
         icon="🧭"
-        :hook="`<p>Imagine you&rsquo;re standing in a hallway of a large building. You can see the room you&rsquo;re in, but you also know there are rooms above you (upstairs), rooms next to you (neighbours), and rooms inside this room (closets, alcoves). If someone says &lsquo;go to the room next door&rsquo;, you don&rsquo;t need to walk all the way back to the front entrance and start a new search &mdash; you just step sideways.</p><p>The DOM works the same way. Once you&rsquo;ve selected an element, you can <em>walk</em> from it to its parent, its children, or its siblings without going back to <code>document.querySelector()</code>. This is called <strong>DOM traversal</strong>, and it&rsquo;s one of the most powerful techniques for writing efficient, readable JavaScript.</p><p>By the end of this lesson you&rsquo;ll be able to navigate any web page&rsquo;s structure using just a handful of built-in properties.</p>`"
+        :hook="`<p>Imagine you're standing in a hallway of a large building. You can see the room you're in, but you also know there are rooms above you (upstairs), rooms next to you (neighbours), and rooms inside this room (closets, alcoves). If someone says 'go to the room next door', you don't need to walk all the way back to the front entrance and start a new search - you just step sideways.</p><p>The DOM works the same way. Once you've selected an element, you can <em>walk</em> from it to its parent, its children, or its siblings without going back to <code>document.querySelector()</code>. This is called <strong>DOM traversal</strong>, and it's one of the most powerful techniques for writing efficient, readable JavaScript.</p><p>After this lesson you'll be able to navigate any web page's structure using just a handful of built-in properties.</p>`"
       />
 
       <!-- ═══════════════════════════════════════════════════ -->
@@ -62,11 +62,11 @@
 
       <div class="box">
         <ul>
-          <li><strong>Parent</strong> &mdash; the element that directly contains this element</li>
-          <li><strong>Children</strong> &mdash; the elements directly inside this element</li>
-          <li><strong>Siblings</strong> &mdash; elements that share the same parent</li>
-          <li><strong>Ancestors</strong> &mdash; all elements above this one (parent, grandparent, &hellip;)</li>
-          <li><strong>Descendants</strong> &mdash; all elements below this one (children, grandchildren, &hellip;)</li>
+          <li><strong>Parent</strong> - the element that directly contains this element</li>
+          <li><strong>Children</strong> - the elements directly inside this element</li>
+          <li><strong>Siblings</strong> - elements that share the same parent</li>
+          <li><strong>Ancestors</strong> - all elements above this one (parent, grandparent, &hellip;)</li>
+          <li><strong>Descendants</strong> - all elements below this one (children, grandchildren, &hellip;)</li>
         </ul>
       </div>
 
@@ -198,7 +198,7 @@
       </div>
 
       <!-- ═══════════════════════════════════════════════════ -->
-      <!-- SECTION 2: Moving Up — Parent Properties          -->
+      <!-- SECTION 2: Moving Up - Parent Properties          -->
       <!-- ═══════════════════════════════════════════════════ -->
       <h2 id="moving-up">Moving Up: Parent Properties</h2>
 
@@ -215,7 +215,7 @@
       </div>
 
       <div class="notification is-info is-light">
-        <p><i class="fas fa-lightbulb mr-2"></i> <strong>Which should you use?</strong> Prefer <code>parentElement</code>. It guarantees you get an element back (or <code>null</code> if you&rsquo;ve reached the top). <code>parentNode</code> can return the document node above <code>&lt;html&gt;</code>, which is rarely what you want.</p>
+        <p><i class="fas fa-lightbulb mr-2"></i> <strong>Which should you use?</strong> Prefer <code>parentElement</code>. It guarantees you get an element back (or <code>null</code> if you've reached the top). <code>parentNode</code> can return the document node above <code>&lt;html&gt;</code>, which is rarely what you want.</p>
       </div>
 
       <h3>Climbing Multiple Levels</h3>
@@ -230,7 +230,7 @@
 <span class="variable">h2</span>.<span class="variable">parentElement</span>.<span class="variable">parentElement</span>.<span class="variable">parentElement</span>; <span class="comment">// &lt;body&gt;</span></code></pre>
       </div>
 
-      <h3>closest() &mdash; The Smart Climber</h3>
+      <h3>closest() - The Smart Climber</h3>
 
       <p>Instead of chaining <code>parentElement</code> repeatedly, use <code>closest()</code> to jump straight to the nearest ancestor that matches a CSS selector:</p>
 
@@ -252,7 +252,7 @@
       </div>
 
       <!-- ═══════════════════════════════════════════════════ -->
-      <!-- SECTION 3: Moving Down — Child Properties         -->
+      <!-- SECTION 3: Moving Down - Child Properties         -->
       <!-- ═══════════════════════════════════════════════════ -->
       <h2 id="moving-down">Moving Down: Child Properties</h2>
 
@@ -349,7 +349,7 @@
       />
 
       <!-- ═══════════════════════════════════════════════════ -->
-      <!-- SECTION 4: Moving Sideways — Sibling Properties   -->
+      <!-- SECTION 4: Moving Sideways - Sibling Properties   -->
       <!-- ═══════════════════════════════════════════════════ -->
       <h2 id="moving-sideways">Moving Sideways: Sibling Properties</h2>
 
@@ -375,7 +375,7 @@
 
       <h3>Walking All Siblings</h3>
 
-      <p>There is no built-in &ldquo;give me all siblings&rdquo; property, but you can get them by going up to the parent and then back down to its children:</p>
+      <p>There is no built-in "give me all siblings" property, but you can get them by going up to the parent and then back down to its children:</p>
 
       <div class="code-example">
         <pre v-pre><code><span class="keyword">const</span> <span class="variable">mainEl</span> = <span class="function">document.querySelector</span>(<span class="string">'main'</span>);
@@ -434,7 +434,7 @@
         </table>
       </div>
 
-      <p><strong>Node</strong> properties include <em>everything</em> &mdash; elements, text nodes (including whitespace), and comments. <strong>Element</strong> properties skip all non-element nodes and give you only the HTML tags.</p>
+      <p><strong>Node</strong> properties include <em>everything</em> - elements, text nodes (including whitespace), and comments. <strong>Element</strong> properties skip all non-element nodes and give you only the HTML tags.</p>
 
       <div class="code-example">
         <pre v-pre><code><span class="comment">// Given this HTML: &lt;ul&gt; &lt;li&gt;A&lt;/li&gt; &lt;li&gt;B&lt;/li&gt; &lt;/ul&gt;</span>
@@ -484,7 +484,7 @@
   .<span class="variable">firstElementChild</span>;       <span class="comment">// &lt;h2&gt;Welcome&lt;/h2&gt;</span></code></pre>
       </div>
 
-      <h3>Traversal vs querySelector &mdash; When to Use Which</h3>
+      <h3>Traversal vs querySelector - When to Use Which</h3>
 
       <div class="box">
         <table class="table is-fullwidth">
@@ -500,8 +500,8 @@
               <td>You need to find an element anywhere in the page</td>
             </tr>
             <tr>
-              <td>You&rsquo;re inside an event handler and need the parent card/row</td>
-              <td>You&rsquo;re setting up the page and need initial references</td>
+              <td>You're inside an event handler and need the parent card/row</td>
+              <td>You're setting up the page and need initial references</td>
             </tr>
             <tr>
               <td>The relationship is structural (parent, next sibling)</td>
@@ -509,7 +509,7 @@
             </tr>
             <tr>
               <td>You want to avoid searching the whole document again</td>
-              <td>The elements aren&rsquo;t in a predictable structural relationship</td>
+              <td>The elements aren't in a predictable structural relationship</td>
             </tr>
           </tbody>
         </table>
@@ -520,7 +520,7 @@
       <!-- ═══════════════════════════════════════════════════ -->
       <h2 id="real-world">Real-World Example: Accordion Component</h2>
 
-      <p>Here is a common pattern where DOM traversal shines &mdash; an accordion (FAQ section) where clicking a question reveals its answer:</p>
+      <p>Here is a common pattern where DOM traversal shines - an accordion (FAQ section) where clicking a question reveals its answer:</p>
 
       <div class="code-example">
         <pre v-pre><code><span class="comment">/* HTML structure */</span>
@@ -590,7 +590,7 @@
 
       <IndependentPractice
         title="DOM Navigator: Build an Interactive Tree Explorer"
-        task="Build a small interactive page that lets the user click any element and see its DOM relationships displayed in a panel. When an element is clicked, highlight its parent (red outline), children (green outline), and siblings (blue outline) using DOM traversal properties &mdash; no <code>document.querySelector</code> calls allowed for the highlighting logic."
+        task="Build a small interactive page that lets the user click any element and see its DOM relationships displayed in a panel. When an element is clicked, highlight its parent (red outline), children (green outline), and siblings (blue outline) using DOM traversal properties - no <code>document.querySelector</code> calls allowed for the highlighting logic."
         :requirements="[
           'Create an HTML page with at least 3 levels of nesting (e.g. body \u2192 main \u2192 section \u2192 p)',
           'When any element is clicked, display its tagName, parentElement, number of children, and number of siblings in an info panel',
@@ -647,7 +647,7 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 useTutorialHead({
   title: 'DOM Traversal',
-  description: 'Navigate the DOM tree in JavaScript — access parent, child, and sibling elements to find and update page content.',
+  description: 'Navigate the DOM tree in JavaScript - access parent, child, and sibling elements to find and update page content.',
   path: '/tutorials/beginner/dom-basics/dom-traversal',
 });
 
@@ -723,7 +723,7 @@ const guidedPracticeSteps = [
   },
   {
     title: 'Traverse to get the product title and price',
-    instructions: '<p>Inside the click handler, use traversal to get the product name and price from the card:</p><pre><code>// The card\'s first child element is the h3\nconst title = card.firstElementChild.textContent;\n\n// The price is the next sibling of the h3\nconst price = card.firstElementChild.nextElementSibling.textContent;\n\ninfoPanel.textContent = `Selected: ${title} \u2014 ${price}`;</code></pre><p>No <code>querySelector</code> needed &mdash; we walked from the card to its children using traversal.</p>',
+    instructions: '<p>Inside the click handler, use traversal to get the product name and price from the card:</p><pre><code>// The card\'s first child element is the h3\nconst title = card.firstElementChild.textContent;\n\n// The price is the next sibling of the h3\nconst price = card.firstElementChild.nextElementSibling.textContent;\n\ninfoPanel.textContent = `Selected: ${title} \u2014 ${price}`;</code></pre><p>No <code>querySelector</code> needed - we walked from the card to its children using traversal.</p>',
     hints: ['firstElementChild gives the h3, and nextElementSibling from the h3 gives the price paragraph.'],
   },
   {
@@ -772,7 +772,7 @@ const closureReflectionPrompts = [
 
 const closureRealWorld = '<p><strong>DOM traversal is everywhere in professional front-end development.</strong> UI component libraries like accordions, tab panels, dropdown menus, and data tables all rely heavily on traversal to connect related elements. When a user clicks a tab header, the code uses <code>nextElementSibling</code> to find the panel to show. When a row in a table is deleted, the code uses <code>parentElement</code> to find the table body and <code>children</code> to recount the rows.</p><p>Modern frameworks like Vue and React abstract some of this away, but understanding traversal helps you debug layout issues, write custom components, and work with third-party libraries that manipulate the DOM directly.</p>';
 
-const closureNextSteps = '<p>Now that you can navigate the DOM tree, you&rsquo;re ready to learn how to <strong>listen for user interactions</strong>. In the <strong>Event Handling</strong> tutorial, you&rsquo;ll learn about click events, keyboard events, and event delegation \u2014 and you&rsquo;ll see how traversal and events work together to build interactive web pages.</p>';
+const closureNextSteps = '<p>Now that you can navigate the DOM tree, you\'re ready to learn how to <strong>listen for user interactions</strong>. In the <strong>Event Handling</strong> tutorial, you\'ll learn about click events, keyboard events, and event delegation \u2014 and you\'ll see how traversal and events work together to build interactive web pages.</p>';
 </script>
 
 <style scoped>

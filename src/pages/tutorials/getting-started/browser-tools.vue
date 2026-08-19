@@ -39,7 +39,7 @@
 					'Have you ever seen a website with something broken and wondered &quot;why does this look weird?&quot;',
 					'What if you could peek &quot;under the hood&quot; of any website and see exactly how it works?'
 				]"
-				connection="That's what you'll learn today—and it's easier than you think!"
+				connection="That's what you'll learn today - and it's more approachable than it first looks."
 			/>
 
 			<!-- Hunter Element 2: Learning Objectives -->
@@ -51,7 +51,7 @@
 					'Analyze network requests and page loading performance',
 					'Test responsive designs using the Device Toolbar'
 				]"
-				purpose="DevTools are the most important tool in a web developer's arsenal. They help you understand how websites work, debug problems in seconds instead of hours, and learn from the best websites on the internet. Every single professional developer uses these tools daily—they're not optional, they're essential."
+				purpose="DevTools are the one of the most useful tools a web developer has. They help you understand how websites work, debug problems in seconds instead of hours, and learn from the best websites on the internet. Every single professional developer uses these tools daily - they're not optional, they're essential."
 			/>
 
 			<h2 id="what-are-browser-developer-tools" class="title is-3">
@@ -187,7 +187,7 @@
 				:key-takeaways="closureKeyTakeaways"
 				:objectives="closureObjectives"
 				:reflection-prompts="closureReflectionPrompts"
-				next-steps="<p>Now that you can inspect any website, you're ready to learn about <strong>Domain Names &amp; Web Hosting</strong>—how to make your websites available to the world!</p>"
+				next-steps="<p>Now that you can inspect any website, you're ready to learn about <strong>Domain Names &amp; Web Hosting</strong> - how to make your websites available to the world!</p>"
 			/>
 
 			<TutorialRecommendations :current-path="'/tutorials/getting-started/browser-tools'" />

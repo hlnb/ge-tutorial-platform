@@ -8,7 +8,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
   title: "From Idea to Live Website",
-  description: "Follow the full journey from idea to live website — planning, building, and deploying a real project explained simply.",
+  description: "Follow the full journey from idea to live website - planning, building, and deploying a real project explained simply.",
   path: "/tutorials/beginner/idea-to-live-website",
 });
 
@@ -227,7 +227,7 @@ Maintenance and Improvement</code></pre>
 			</figure>
 
 			<div class="notification is-info is-light">
-				<p><strong>Why this matters:</strong> students often think they are “behind” if their page does not look finished early. In reality, a good project becomes clearer one layer at a time.</p>
+				<p><strong>Why this matters:</strong> students often think they are "behind" if their page does not look finished early. In reality, a good project becomes clearer one layer at a time.</p>
 			</div>
 
 			<h2 id="mistakes">Common Mistakes Beginners Make</h2>
@@ -235,7 +235,7 @@ Maintenance and Improvement</code></pre>
 				<li>Trying to design, code, and publish everything at once</li>
 				<li>Worrying about polished visuals before the content structure is clear</li>
 				<li>Skipping testing and only checking the site on one screen size</li>
-				<li>Thinking a live site is “done forever” instead of something that needs care</li>
+				<li>Thinking a live site is "done forever" instead of something that needs care</li>
 			</ul>
 			<figure class="tutorial-figure tutorial-figure--wide">
 				<img
@@ -268,7 +268,7 @@ Maintenance and Improvement</code></pre>
 					>
 						Nielsen Norman Group: Homepage Design Principles
 					</a>
-					&mdash; a practical guide to what homepages need to communicate clearly.
+					 - a practical guide to what homepages need to communicate clearly.
 				</li>
 				<li>
 					<a
@@ -278,7 +278,7 @@ Maintenance and Improvement</code></pre>
 					>
 						Atomic Design by Brad Frost
 					</a>
-					&mdash; useful later when you start thinking about how small interface pieces
+					 - useful later when you start thinking about how small interface pieces
 					grow into larger page systems.
 				</li>
 			</ul>

@@ -59,8 +59,8 @@
       <section id="custom-events">
         <h2><i class="fas fa-star mr-2"></i>Custom Events</h2>
         <p>
-          The browser has dozens of built-in events &mdash; <code>click</code>, <code>keydown</code>,
-          <code>submit</code> &mdash; but sometimes you need your own. Custom events let different parts
+          The browser has dozens of built-in events - <code>click</code>, <code>keydown</code>,
+          <code>submit</code> - but sometimes you need your own. Custom events let different parts
           of your code communicate without being tightly coupled.
         </p>
 
@@ -93,7 +93,7 @@
         </div>
 
         <div class="notification is-info is-light">
-          <p><i class="fas fa-info-circle mr-2"></i><strong>When to use custom events:</strong> They shine when you have independent UI components that need to communicate. A product card can fire <code>item-added</code>, and the cart icon can listen for it &mdash; neither needs to know the other exists.</p>
+          <p><i class="fas fa-info-circle mr-2"></i><strong>When to use custom events:</strong> They shine when you have independent UI components that need to communicate. A product card can fire <code>item-added</code>, and the cart icon can listen for it - neither needs to know the other exists.</p>
         </div>
       </section>
 
@@ -156,7 +156,7 @@
       <section id="listener-options">
         <h2><i class="fas fa-sliders-h mr-2"></i>Listener Options</h2>
         <p>
-          <code>addEventListener</code> accepts a third argument &mdash; an options object that gives
+          <code>addEventListener</code> accepts a third argument - an options object that gives
           you fine-grained control over how the listener behaves:
         </p>
 
@@ -177,7 +177,7 @@
             <tr>
               <td><code>passive</code></td>
               <td>Boolean</td>
-              <td>Promises not to call <code>preventDefault()</code> &mdash; lets the browser optimise scrolling</td>
+              <td>Promises not to call <code>preventDefault()</code> - lets the browser optimise scrolling</td>
             </tr>
             <tr>
               <td><code>capture</code></td>
@@ -219,7 +219,7 @@
       <section id="throttle-and-debounce">
         <h2><i class="fas fa-tachometer-alt mr-2"></i>Throttle and Debounce</h2>
         <p>
-          Some events fire extremely frequently &mdash; <code>scroll</code>, <code>resize</code>, and <code>mousemove</code>
+          Some events fire extremely frequently - <code>scroll</code>, <code>resize</code>, and <code>mousemove</code>
           can fire hundreds of times per second. Running expensive operations on every single event kills performance.
           Two techniques solve this: <strong>throttling</strong> and <strong>debouncing</strong>.
         </p>
@@ -228,7 +228,7 @@
           <div class="column is-6">
             <div class="box">
               <h4 class="title is-5"><i class="fas fa-stopwatch mr-2"></i>Throttle</h4>
-              <p><strong>&ldquo;Run at most once every N milliseconds&rdquo;</strong></p>
+              <p><strong>"Run at most once every N milliseconds"</strong></p>
               <p>Like a speed limit. No matter how fast events fire, the handler only runs at regular intervals.</p>
               <p><strong>Use for:</strong> scroll position checks, window resize, mouse tracking</p>
             </div>
@@ -236,8 +236,8 @@
           <div class="column is-6">
             <div class="box">
               <h4 class="title is-5"><i class="fas fa-hourglass-half mr-2"></i>Debounce</h4>
-              <p><strong>&ldquo;Wait until activity stops, then run once&rdquo;</strong></p>
-              <p>Like an elevator &mdash; the door only closes when people stop getting on. Resets the timer on each new event.</p>
+              <p><strong>"Wait until activity stops, then run once"</strong></p>
+              <p>Like an elevator - the door only closes when people stop getting on. Resets the timer on each new event.</p>
               <p><strong>Use for:</strong> search input, form validation, auto-save</p>
             </div>
           </div>
@@ -298,7 +298,7 @@
         </p>
 
         <h3>event.preventDefault()</h3>
-        <p>Stops the browser&rsquo;s default action for an event. The event still propagates normally.</p>
+        <p>Stops the browser's default action for an event. The event still propagates normally.</p>
         <div class="code-example">
           <pre v-pre><code><span class="comment">// Prevent a form from submitting (validate first)</span>
 <span class="variable">form</span>.<span class="function">addEventListener</span>(<span class="string">'submit'</span>, (<span class="variable">event</span>) => {
@@ -316,7 +316,7 @@
         </div>
 
         <h3>event.stopPropagation()</h3>
-        <p>Prevents the event from bubbling up to parent elements. Use sparingly &mdash; it can break event delegation.</p>
+        <p>Prevents the event from bubbling up to parent elements. Use sparingly - it can break event delegation.</p>
         <div class="code-example">
           <pre v-pre><code><span class="comment">// Clicking the close button shouldn't also trigger the card click</span>
 <span class="variable">card</span>.<span class="function">addEventListener</span>(<span class="string">'click'</span>, () => {
@@ -330,7 +330,7 @@
         </div>
 
         <div class="notification is-danger is-light">
-          <p><i class="fas fa-exclamation-circle mr-2"></i><strong>Warning:</strong> Avoid using <code>stopPropagation()</code> as a quick fix. It prevents <em>all</em> parent listeners from seeing the event, which can break analytics tracking, accessibility features, and event delegation patterns. Often there&rsquo;s a better solution.</p>
+          <p><i class="fas fa-exclamation-circle mr-2"></i><strong>Warning:</strong> Avoid using <code>stopPropagation()</code> as a quick fix. It prevents <em>all</em> parent listeners from seeing the event, which can break analytics tracking, accessibility features, and event delegation patterns. Often there's a better solution.</p>
         </div>
       </section>
 
@@ -341,7 +341,7 @@
         <h2><i class="fas fa-crosshairs mr-2"></i>Focus Trapping for Modals</h2>
         <p>
           When a modal dialog opens, keyboard users pressing <kbd>Tab</kbd> can accidentally focus elements
-          behind the overlay. A <strong>focus trap</strong> keeps focus inside the modal until it&rsquo;s closed.
+          behind the overlay. A <strong>focus trap</strong> keeps focus inside the modal until it's closed.
           This is essential for accessibility.
         </p>
 
@@ -446,7 +446,7 @@
             'Custom events fire when notifications are created',
             'Notifications auto-dismiss using { once: true } on transitionend',
             'Escape key closes all open notifications',
-            'No memory leaks — listeners are cleaned up when notifications are removed',
+            'No memory leaks - listeners are cleaned up when notifications are removed',
           ]"
         />
       </section>
@@ -514,7 +514,7 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 useTutorialHead({
   title: 'Advanced Event Handling',
-  description: 'Go beyond basic events — custom events, debouncing, throttling, and managing event listener lifecycles.',
+  description: 'Go beyond basic events - custom events, debouncing, throttling, and managing event listener lifecycles.',
   path: '/tutorials/beginner/dom-basics/advanced-events',
 });
 
@@ -644,7 +644,7 @@ const closureReflectionPrompts = [
 
 const closureRealWorld = '<p><strong>Advanced event handling is the backbone of every modern web application.</strong> Social media feeds use throttled scroll listeners for infinite scrolling. Search bars use debounced input handlers to avoid hammering APIs. Modal dialogs use focus traps for accessibility compliance. Shopping carts use custom events to decouple the product listing from the cart icon.</p><p>Understanding these patterns is what separates a developer who can build features from one who can build features that are <em>fast, accessible, and leak-free</em>.</p>';
 
-const closureNextSteps = '<p>Now that you can handle events like a pro, it\u2019s time to learn how to <strong>create and manage dynamic content</strong>. In the <strong>Dynamic Content</strong> tutorial, you\u2019ll learn to build, update, and efficiently render content on the fly \u2014 combining everything you\u2019ve learned about DOM manipulation, traversal, and events.</p>';
+const closureNextSteps = '<p>Now that you can handle events with confidence, it\u2019s time to learn how to <strong>create and manage dynamic content</strong>. In the <strong>Dynamic Content</strong> tutorial, you\u2019ll learn to build, update, and efficiently render content on the fly \u2014 combining everything you\u2019ve learned about DOM manipulation, traversal, and events.</p>';
 </script>
 
 <style scoped>

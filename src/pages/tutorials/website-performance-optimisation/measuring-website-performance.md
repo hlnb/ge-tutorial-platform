@@ -33,7 +33,7 @@ They gather evidence. Then they decide what to do with it.
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - run Lighthouse
 - use the Network panel

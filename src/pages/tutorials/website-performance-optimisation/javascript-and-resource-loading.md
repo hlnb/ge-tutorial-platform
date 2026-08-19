@@ -33,7 +33,7 @@ It can also cost more than its file size suggests, because the browser must down
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - identify JavaScript resources
 - explain script-loading behaviour

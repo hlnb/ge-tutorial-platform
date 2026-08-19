@@ -317,7 +317,7 @@ import { usePageSections } from '@/composables/usePageSections';
 
 useTutorialHead({
   title: 'Web Development Basics',
-  description: 'Understand the fundamentals of web development — what browsers do, how pages are served, and how HTML, CSS and JavaScript fit together.',
+  description: 'Understand the fundamentals of web development - what browsers do, how pages are served, and how HTML, CSS and JavaScript fit together.',
   path: '/tutorials/getting-started/web-basics',
 });
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';

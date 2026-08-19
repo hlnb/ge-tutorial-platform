@@ -34,14 +34,14 @@
 		<!-- Hunter Element 1: Anticipatory Set -->
 		<AnticipatorySet
 			title="Start Here: Your First Web Page"
-			:hook="`<p>Every website you've ever visited—from Google to YouTube to TikTok—started with someone writing their first HTML page. Today, that someone is YOU! In just 20 minutes, you'll create a real web page that actually works in a browser.</p>
+			:hook="`<p>Every website you've ever visited - from Google to YouTube to TikTok - started with someone writing their first HTML page. Today, that someone is YOU! In just 20 minutes, you'll create a real web page that actually works in a browser.</p>
 			<p><strong>Here's the exciting part:</strong> HTML is so forgiving that you can start creating right away, making mistakes along the way, and still end up with something awesome.</p>`"
 			:reflection-prompts="[
 				'Think about your favorite website. What information does it show in the browser tab at the top?',
 				'When you search on Google, how does the page title appear in search results?',
 				'What makes a web page look organized versus messy?'
 			]"
-			connection="In this tutorial, you'll learn the skeleton that holds every single web page together!"
+			connection="You will learn the skeleton that holds every single web page together!"
 		/>
 
 		<!-- Hunter Element 2: Learning Objectives -->
@@ -52,7 +52,7 @@
 				'Create a complete restaurant web page from scratch',
 				'Practice with real-world content that could go live on the internet'
 			]"
-			purpose="Understanding HTML document structure is like learning the foundation of a house. Without it, nothing else works. This is the single most important concept in web development—master this, and you're ready to build anything on the web."
+			purpose="Understanding HTML document structure is like learning the foundation of a house. Without it, nothing else works. This is the single most important concept in web development - master this, and you're ready to build anything on the web."
 		/>
 
 		<h2 id="basic-html-document-structure" class="title is-3">
@@ -107,7 +107,7 @@
 					<code>&lt;head&gt;</code> to ensure proper character encoding
 				</li>
 				<li>
-					The <code>viewport</code> meta tag is crucial for responsive design on
+					The <code>viewport</code> meta tag is important for responsive design on
 					mobile devices
 				</li>
 			</ul>
@@ -138,7 +138,7 @@
 			Project: Black Swan Bistro
 		</h2>
 		<p>
-			Let's create a real webpage for a Perth restaurant. Here's our content:
+			Create a real webpage for a Perth restaurant. Start with this content:
 		</p>
 
 		<div class="box is-light mb-4">
@@ -146,7 +146,7 @@
 			<pre>{{ bistroContent }}</pre>
 		</div>
 
-		<p>Let's structure this content with HTML:</p>
+		<p>Structure this content with HTML:</p>
 
 		<div class="columns">
 			<div class="column is-6">
@@ -184,7 +184,7 @@
 
 			<div class="notification is-light mt-3">
 				<pre>
-Alex Chen — Web Development Student
+Alex Chen - Web Development Student
 
 About Me
 I'm learning web development from scratch. I'm interested in building
@@ -262,7 +262,7 @@ import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 useTutorialHead({
   title: 'Your First HTML Page',
-  description: 'Write your first HTML page from scratch — learn the essential tags and structure you need to build a working webpage.',
+  description: 'Write your first HTML page from scratch - learn the essential tags and structure you need to build a working webpage.',
   path: '/tutorials/beginner/html-basics/html-first-page',
 });
 import CodingOptions from '@/components/CodingOptions.vue';

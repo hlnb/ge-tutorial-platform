@@ -67,7 +67,7 @@
                 </div>
                 <div class="memory-block empty">
                   <div class="block-address">0x02</div>
-                  <div class="block-content">—</div>
+                  <div class="block-content"> - </div>
                 </div>
                 <div class="memory-block">
                   <div class="block-address">0x03</div>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="memory-block empty">
                   <div class="block-address">0x04</div>
-                  <div class="block-content">—</div>
+                  <div class="block-content"> - </div>
                 </div>
                 <div class="memory-block">
                   <div class="block-address">0x05</div>
@@ -386,8 +386,8 @@ Array.isArray(numbers);  // true</code></pre>
           :key-takeaways="closureKeyTakeaways"
           :objectives="closureObjectives"
           :reflection-prompts="closureReflectionPrompts"
-          real-world-application="<p>Arrays are the workhorse behind every list-based UI you see on the web — product catalogues, search results, notification feeds, and dashboard tables all store their items in arrays. Knowing how to filter, map, and sort arrays means you can transform raw data into polished user experiences with just a few lines of code.</p>"
-          next-steps="<p>With arrays under your belt, you're ready to tackle DOM manipulation directly. In the next lesson you'll learn how to create, modify, and remove HTML elements on the fly — turning static pages into fully dynamic interfaces.</p>"
+          real-world-application="<p>Arrays are the workhorse behind every list-based UI you see on the web - product catalogues, search results, notification feeds, and dashboard tables all store their items in arrays. Knowing how to filter, map, and sort arrays means you can transform raw data into polished user experiences with just a few lines of code.</p>"
+          next-steps="<p>With arrays under your belt, you're ready to tackle DOM manipulation directly. In the next lesson you'll learn how to create, modify, and remove HTML elements on the fly - turning static pages into fully dynamic interfaces.</p>"
         />
 
         <TutorialRecommendations :current-path="'/tutorials/beginner/dom-basics/arrays'" />
@@ -412,7 +412,7 @@ Array.isArray(numbers);  // true</code></pre>
 
   useTutorialHead({
     title: 'Arrays and Array Methods in JavaScript',
-    description: 'Master JavaScript arrays — how to create, access, and manipulate data with essential built-in array methods.',
+    description: 'Master JavaScript arrays - how to create, access, and manipulate data with essential built-in array methods.',
     path: '/tutorials/beginner/dom-basics/arrays',
   });
 
@@ -461,7 +461,7 @@ Array.isArray(numbers);  // true</code></pre>
       'Which UI elements in your project always change together (nav links, cards, list rows)?',
       'How would your debugging improve if you could loop over those pieces intentionally instead of one-off edits?'
     ],
-    connection: 'Mastering arrays lets you select, store, and transform groups of DOM nodes with the same confidence a chef has while plating service for a crowd.'
+    connection: 'Learning arrays lets you select, store, and transform groups of DOM nodes with the same confidence a chef has while plating service for a crowd.'
   };
 
   const learningObjectives = {

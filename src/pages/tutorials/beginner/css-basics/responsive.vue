@@ -15,7 +15,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "Responsive Design in CSS",
-  description: "Learn responsive web design — media queries, fluid layouts, and techniques to make sites work on any screen size.",
+  description: "Learn responsive web design - media queries, fluid layouts, and techniques to make sites work on any screen size.",
   path: "/tutorials/beginner/css-basics/responsive",
 });
 
@@ -755,7 +755,7 @@ const navigationExample = ref(`/* Responsive Navigation */
 					In 2010, Ethan Marcotte coined the term "responsive web design" to describe
 					websites that adapt to different screen sizes. Today, with users browsing on
 					smartphones, tablets, laptops, desktops, and even smart TVs, responsive design
-					isn't optional—it's essential.
+					isn't optional - it's essential.
 				</p>
 				<p>
 					But responsive design is more than just "making things fit." It's about
@@ -789,7 +789,7 @@ const navigationExample = ref(`/* Responsive Navigation */
 			<h2 class="title is-2">Introduction to Responsive Design</h2>
 			<p>
 				Responsive web design is an approach that makes web pages render well on
-				a variety of devices and window or screen sizes. In this tutorial, we'll
+				a variety of devices and window or screen sizes. We'll
 				learn how to create responsive layouts that adapt to different viewing
 				contexts.
 			</p>
@@ -1357,7 +1357,7 @@ const navigationExample = ref(`/* Responsive Navigation */
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Every modern product—from news sites to SaaS dashboards—ships with a responsive design system. Teams rely on shared breakpoints, design tokens, and documented patterns. Mastering these techniques lets you collaborate effectively with designers and ensures consistent quality across devices.</p><p>Responsive thinking is essential for accessibility, SEO, and conversion rates. Google prioritizes mobile-friendly sites, and users expect seamless experiences on any device.</p>"
+			real-world-application="<p>Every modern product - from news sites to SaaS dashboards - ships with a responsive design system. Teams rely on shared breakpoints, design tokens, and documented patterns. Learning these techniques lets you collaborate effectively with designers and ensures consistent quality across devices.</p><p>Responsive thinking is essential for accessibility, SEO, and conversion rates. Google prioritizes mobile-friendly sites, and users expect smooth experiences on any device.</p>"
 			next-steps="<p>With responsive fundamentals locked in, revisit Flexbox, Grid, and modern CSS utilities to refine your layouts. Combine these skills to build production-ready interfaces that feel native on every screen.</p>"
 	/>
 

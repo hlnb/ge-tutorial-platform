@@ -39,7 +39,7 @@ Sometimes rudely.
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - explain keyboard focus
 - test a page using only the keyboard
@@ -389,7 +389,7 @@ Learners choose one previous project and complete this report:
 
 ## Accessibility testing task
 
-Use the “mouse exile” test:
+Use the "mouse exile" test:
 
 1. Move the mouse away.
 2. Navigate the full page using only the keyboard.

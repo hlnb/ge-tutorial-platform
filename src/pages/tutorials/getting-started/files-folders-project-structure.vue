@@ -39,13 +39,13 @@
 			<AnticipatorySet
 				title="Before You Write a Single Line of Code&hellip;"
 				icon="📁"
-				:hook="`<p>Imagine you just moved into a brand new house. You have boxes of stuff everywhere &mdash; clothes, books, kitchen supplies, random cables. You <em>could</em> just dump everything on the floor and start living. But within a week you won&rsquo;t be able to find anything, and you&rsquo;ll dread coming home.</p><p>Web projects are exactly the same. Before you write any HTML, CSS, or JavaScript, you need a clean, organised place to put it all. This tutorial is about building that house &mdash; the folder structure, file names, and conventions that professional developers use every single day.</p>`"
+				:hook="`<p>Imagine you just moved into a brand new house. You have boxes of stuff everywhere - clothes, books, kitchen supplies, random cables. You <em>could</em> just dump everything on the floor and start living. But within a week you won't be able to find anything, and you'll dread coming home.</p><p>Web projects are exactly the same. Before you write any HTML, CSS, or JavaScript, you need a clean, organised place to put it all. This tutorial is about building that house - the folder structure, file names, and conventions that professional developers use every single day.</p>`"
 				:reflection-prompts="[
-					'Have you ever lost a file because you couldn&rsquo;t remember where you saved it?',
+					'Have you ever lost a file because you couldn\'t remember where you saved it?',
 					'Do you have a Downloads folder with hundreds of unsorted files right now?',
 					'What would happen if two people tried to work on a project with no agreed file structure?'
 				]"
-				connection="In the next 20 minutes, you&rsquo;ll learn the simple system that prevents all of these headaches &mdash; and you&rsquo;ll set up your first proper project folder."
+				connection="In the next 20 minutes, you'll learn the simple system that prevents all of these headaches - and you'll set up your first proper project folder."
 			/>
 
 			<!-- ═══════════════════════════════════════════════════ -->
@@ -59,7 +59,7 @@
 					'Organise CSS, JavaScript, and image files into logical folders',
 					'Identify common mistakes that break file paths and links'
 				]"
-				purpose="Every website you build &mdash; from a one-page portfolio to a full web app &mdash; starts with the same foundation: a well-organised project folder. Getting this right from day one saves you hours of debugging broken links, missing images, and tangled file paths. It also makes your projects instantly understandable to other developers (and to future-you)."
+				purpose="Every website you build - from a one-page portfolio to a full web app - starts with the same foundation: a well-organised project folder. Getting this right from day one saves you hours of debugging broken links, missing images, and tangled file paths. It also makes your projects instantly understandable to other developers (and to future-you)."
 			/>
 
 			<!-- ═══════════════════════════════════════════════════ -->
@@ -69,15 +69,15 @@
 
 			<h2 id="why-structure-matters">Why Project Structure Matters</h2>
 
-			<p>When you visit a website, your browser needs to find and load several files: the HTML page, stylesheets, scripts, images, and fonts. Every one of those files lives at a specific <strong>path</strong> on the server. If the path is wrong, the file doesn&rsquo;t load &mdash; and you get a broken page.</p>
+			<p>When you visit a website, your browser needs to find and load several files: the HTML page, stylesheets, scripts, images, and fonts. Every one of those files lives at a specific <strong>path</strong> on the server. If the path is wrong, the file doesn't load - and you get a broken page.</p>
 
 			<p>A consistent folder structure means:</p>
 
 			<ul>
-				<li><strong>Your links always work</strong> &mdash; because files are where you expect them to be</li>
-				<li><strong>Other people can help</strong> &mdash; because the layout follows industry conventions</li>
-				<li><strong>Your project scales</strong> &mdash; adding new pages or features doesn&rsquo;t create chaos</li>
-				<li><strong>Deployment is simpler</strong> &mdash; hosting platforms expect standard structures</li>
+				<li><strong>Your links always work</strong> - because files are where you expect them to be</li>
+				<li><strong>Other people can help</strong> - because the layout follows industry conventions</li>
+				<li><strong>Your project scales</strong> - adding new pages or features doesn't create chaos</li>
+				<li><strong>Deployment is simpler</strong> - hosting platforms expect standard structures</li>
 			</ul>
 
 			<div class="box analogy-box">
@@ -87,12 +87,12 @@
 					<li>Each <strong>drawer</strong> is a subfolder (css, js, images)</li>
 					<li>Each <strong>file</strong> inside is labelled clearly so you can grab it instantly</li>
 				</ul>
-				<p class="mt-2">Nobody labels a drawer &ldquo;stuff2-FINAL(1)&rdquo; &mdash; and you shouldn&rsquo;t name your files that way either.</p>
+				<p class="mt-2">Nobody labels a drawer "stuff2-FINAL(1)" - and you shouldn't name your files that way either.</p>
 			</div>
 
 			<h2 id="standard-project-folder">The Standard Project Folder</h2>
 
-			<p>Here is the folder structure used by most simple websites. You&rsquo;ll see this pattern everywhere &mdash; in courses, documentation, and real production sites:</p>
+			<p>Here is the folder structure used by most simple websites. You'll see this pattern everywhere - in courses, documentation, and real production sites:</p>
 
 			<pre><code>my-first-website/
 ├── index.html
@@ -109,16 +109,16 @@
         ├── email.svg
         └── phone.svg</code></pre>
 
-			<p>Let&rsquo;s break down each piece:</p>
+			<p>Let's break down each piece:</p>
 
 			<h3>The root folder</h3>
 			<p>The top-level folder (<code>my-first-website/</code>) is your <strong>project root</strong>. Everything lives inside it. When you open this folder in VS Code, it becomes your <strong>workspace</strong>.</p>
 
-			<h3>index.html &mdash; The front door</h3>
-			<p>Web servers look for a file called <code>index.html</code> by default. When someone visits <code>yoursite.com</code>, the server automatically serves <code>index.html</code>. That&rsquo;s why your homepage should always be called <code>index.html</code> &mdash; not <code>home.html</code>, not <code>main.html</code>, not <code>page1.html</code>.</p>
+			<h3>index.html - The front door</h3>
+			<p>Web servers look for a file called <code>index.html</code> by default. When someone visits <code>yoursite.com</code>, the server automatically serves <code>index.html</code>. That's why your homepage should always be called <code>index.html</code> - not <code>home.html</code>, not <code>main.html</code>, not <code>page1.html</code>.</p>
 
 			<div class="box highlight-box">
-				<strong><i class="fas fa-info-circle mr-2"></i>Why &ldquo;index&rdquo;?</strong>
+				<strong><i class="fas fa-info-circle mr-2"></i>Why "index"?</strong>
 				<p>The name comes from the early web, when servers would show an <em>index</em> (a directory listing) of files if no default page was specified. The convention stuck, and today every web server in the world knows to look for <code>index.html</code> first.</p>
 			</div>
 
@@ -151,26 +151,26 @@
 			<!-- Hunter Element 5: Checking for Understanding #1 -->
 			<CheckpointBox
 				title="⏸️ Pause &amp; Check: The Basics"
-				description="Make sure you&rsquo;ve got the fundamentals before we continue:"
+				description="Make sure you've got the fundamentals before we continue:"
 				:questions="checkpointQuestions1"
 				:show-self-assessment="true"
 			/>
 
 			<h2 id="naming-conventions">File and Folder Naming Rules</h2>
 
-			<p>Bad file names are one of the most common causes of broken websites. Follow these rules and you&rsquo;ll avoid hours of frustration:</p>
+			<p>Bad file names are one of the most common causes of broken websites. Follow these rules and you'll avoid hours of frustration:</p>
 
 			<h3>The golden rules</h3>
 
 			<ol>
 				<li>
 					<strong>Always use lowercase</strong>
-					<p><code>style.css</code> &mdash; not <code>Style.css</code> or <code>STYLE.CSS</code></p>
+					<p><code>style.css</code> - not <code>Style.css</code> or <code>STYLE.CSS</code></p>
 					<p>Web servers (especially Linux) treat uppercase and lowercase as different files. <code>Style.css</code> and <code>style.css</code> are two different files on a Linux server, even though they look the same on your Mac.</p>
 				</li>
 				<li>
 					<strong>Use hyphens instead of spaces</strong>
-					<p><code>my-first-website</code> &mdash; not <code>my first website</code> or <code>My First Website</code></p>
+					<p><code>my-first-website</code> - not <code>my first website</code> or <code>My First Website</code></p>
 					<p>Spaces in file names get converted to <code>%20</code> in URLs, which looks messy and can cause bugs.</p>
 				</li>
 				<li>
@@ -179,7 +179,7 @@
 				</li>
 				<li>
 					<strong>Be descriptive but short</strong>
-					<p><code>hero-banner.jpg</code> &mdash; not <code>IMG_20240315_142356.jpg</code></p>
+					<p><code>hero-banner.jpg</code> - not <code>IMG_20240315_142356.jpg</code></p>
 					<p>You should be able to tell what a file is without opening it.</p>
 				</li>
 				<li>
@@ -219,10 +219,10 @@
 
 			<h2 id="file-paths">Understanding File Paths</h2>
 
-			<p>When you link to a stylesheet, image, or another page, you&rsquo;re writing a <strong>file path</strong> &mdash; directions that tell the browser where to find that file. There are two types:</p>
+			<p>When you link to a stylesheet, image, or another page, you're writing a <strong>file path</strong> - directions that tell the browser where to find that file. There are two types:</p>
 
-			<h3>Relative paths (what you&rsquo;ll use most)</h3>
-			<p>Relative paths start from the current file&rsquo;s location:</p>
+			<h3>Relative paths (what you'll use most)</h3>
+			<p>Relative paths start from the current file's location:</p>
 
 			<pre><code class="language-html">&lt;!-- From index.html in the root --&gt;
 &lt;link rel="stylesheet" href="css/style.css"&gt;
@@ -244,8 +244,8 @@
 			<div class="box analogy-box">
 				<strong><i class="fas fa-lightbulb mr-2"></i>Think of file paths like giving directions:</strong>
 				<ul>
-					<li><strong>Relative:</strong> &ldquo;Go two doors down the hall and turn right&rdquo; &mdash; depends on where you&rsquo;re starting from</li>
-					<li><strong>Absolute:</strong> &ldquo;Go to 42 Smith Street, Sydney&rdquo; &mdash; works from anywhere</li>
+					<li><strong>Relative:</strong> "Go two doors down the hall and turn right" - depends on where you're starting from</li>
+					<li><strong>Absolute:</strong> "Go to 42 Smith Street, Sydney" - works from anywhere</li>
 				</ul>
 			</div>
 
@@ -258,7 +258,7 @@
 
 			<h2 id="common-mistakes">Common Mistakes That Break Websites</h2>
 
-			<p>Here are the problems that trip up beginners most often &mdash; and how to avoid them:</p>
+			<p>Here are the problems that trip up beginners most often - and how to avoid them:</p>
 
 			<div class="box" style="border-left: 4px solid #ffdd57;">
 				<h4><i class="fas fa-exclamation-triangle mr-2" style="color: #ffdd57;"></i>Mistake 1: Wrong case in file names</h4>
@@ -268,7 +268,7 @@
 
 			<div class="box mt-3" style="border-left: 4px solid #ffdd57;">
 				<h4><i class="fas fa-exclamation-triangle mr-2" style="color: #ffdd57;"></i>Mistake 2: Broken relative paths</h4>
-				<p>You moved a file into a subfolder but forgot to update the links that point to it. The browser can&rsquo;t find it and your images or styles disappear.</p>
+				<p>You moved a file into a subfolder but forgot to update the links that point to it. The browser can't find it and your images or styles disappear.</p>
 				<p><strong>Fix:</strong> After moving any file, search your project for references to the old path and update them.</p>
 			</div>
 
@@ -281,7 +281,7 @@
 			<div class="box mt-3" style="border-left: 4px solid #ffdd57;">
 				<h4><i class="fas fa-exclamation-triangle mr-2" style="color: #ffdd57;"></i>Mistake 4: Files outside the project folder</h4>
 				<p>You drag an image from your Desktop into your HTML, and the path is something like <code>/Users/yourname/Desktop/photo.jpg</code>. It works on your computer but nobody else can see it.</p>
-				<p><strong>Fix:</strong> Always copy files <em>into</em> your project&rsquo;s <code>images/</code> folder first, then reference them with a relative path.</p>
+				<p><strong>Fix:</strong> Always copy files <em>into</em> your project's <code>images/</code> folder first, then reference them with a relative path.</p>
 			</div>
 
 			<!-- ═══════════════════════════════════════════════════ -->
@@ -292,7 +292,7 @@
 
 			<GuidedPractice
 				title="Create Your Project Folder"
-				context="Let&rsquo;s build a project folder from scratch using your terminal (or file explorer). This is the exact structure you&rsquo;ll use for the Black Swan Bistro project later in the curriculum."
+				context="Let's build a project folder from scratch using your terminal (or file explorer). This is the exact structure you'll use for the Black Swan Bistro project later in the curriculum."
 				:steps="guidedPracticeSteps"
 				:success-criteria="[
 					'You have a folder called black-swan-bistro on your computer',
@@ -310,7 +310,7 @@
 
 			<IndependentPractice
 				title="Build a Portfolio Project Structure"
-				scenario="You&rsquo;ve been asked to start building a personal portfolio website. Before writing any content, set up the complete project structure with proper naming conventions."
+				scenario="You've been asked to start building a personal portfolio website. Before writing any content, set up the complete project structure with proper naming conventions."
 				:requirements="[
 					'Create a project folder called my-portfolio',
 					'Add index.html, about.html, and projects.html in the root',
@@ -345,8 +345,8 @@
 				:key-takeaways="closureKeyTakeaways"
 				:objectives="closureObjectives"
 				:reflection-prompts="closureReflectionPrompts"
-				:real-world-application="`<p><strong>From now on, every project you create should start the same way:</strong></p><ol><li>Create a project folder with a clear, hyphenated name</li><li>Add index.html, css/, js/, and images/ folders</li><li>Name every file in lowercase with hyphens</li><li>Use relative paths to link everything together</li></ol><p>This structure will carry you through every tutorial on this platform &mdash; and into professional work.</p>`"
-				:next-steps="`<p>Now that your files have a home, it&rsquo;s time to fill them with content! In the next tutorial you&rsquo;ll learn HTML essentials and start building real web pages inside the structure you just created.</p>`"
+				:real-world-application="`<p><strong>From now on, every project you create should start the same way:</strong></p><ol><li>Create a project folder with a clear, hyphenated name</li><li>Add index.html, css/, js/, and images/ folders</li><li>Name every file in lowercase with hyphens</li><li>Use relative paths to link everything together</li></ol><p>This structure will carry you through every tutorial on this platform - and into professional work.</p>`"
+				:next-steps="`<p>Now that your files have a home, it's time to fill them with content! In the next tutorial you'll learn HTML essentials and start building real web pages inside the structure you just created.</p>`"
 			/>
 
 			<TutorialRecommendations current-path="/tutorials/getting-started/files-folders-project-structure" />
@@ -371,7 +371,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "Files, Folders & Project Structure",
-  description: "Learn how to organise web project files and folders — a standard structure for HTML, CSS, and JavaScript projects.",
+  description: "Learn how to organise web project files and folders - a standard structure for HTML, CSS, and JavaScript projects.",
   path: "/tutorials/getting-started/files-folders-project-structure",
 });
 
@@ -398,11 +398,11 @@ const checkpointQuestions2 = [
 	},
 	{
 		question: 'If your HTML file is in the root folder and your stylesheet is in css/style.css, what href do you use?',
-		answer: 'href="css/style.css" — a relative path that goes into the css folder from the current location.',
+		answer: 'href="css/style.css" - a relative path that goes into the css folder from the current location.',
 	},
 	{
 		question: 'You moved style.css from the root into a css/ folder. What will happen if you don\'t update your HTML?',
-		answer: 'The browser won\'t find the stylesheet because the old path is now wrong. Your page will load with no styles — just plain unstyled HTML.',
+		answer: 'The browser won\'t find the stylesheet because the old path is now wrong. Your page will load with no styles - just plain unstyled HTML.',
 	},
 ];
 
@@ -446,7 +446,7 @@ const closureKeyTakeaways = [
 	'File names must be lowercase, use hyphens instead of spaces, and always include their extension',
 	'index.html is the default homepage because web servers look for it automatically',
 	'Relative paths (like css/style.css) tell the browser where to find files relative to the current file',
-	'Common mistakes — wrong case, spaces, files outside the project — are easy to avoid once you know the rules',
+	'Common mistakes - wrong case, spaces, files outside the project - are easy to avoid once you know the rules',
 ];
 
 const closureObjectives = [

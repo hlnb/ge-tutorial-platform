@@ -313,7 +313,7 @@ import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 useTutorialHead({
   title: 'Loops in JavaScript',
-  description: 'Learn how to repeat code in JavaScript — for loops, while loops, and iterating through arrays and objects.',
+  description: 'Learn how to repeat code in JavaScript - for loops, while loops, and iterating through arrays and objects.',
   path: '/tutorials/beginner/javascript-basics/loops',
 });
 
@@ -331,7 +331,7 @@ const { pageSections } = usePageSections(sections);
 
 const anticipatorySet = {
 	title: '🔁 Prep Like a Pro Line Cook',
-	hook: `<p>Imagine prepping 50 identical salads before guests arrive. You could write each instruction separately, or you could repeat the same block with a loop. Restaurants thrive on repeatable systems—so do JavaScript apps.</p>`,
+	hook: `<p>Imagine prepping 50 identical salads before guests arrive. You could write each instruction separately, or you could repeat the same block with a loop. Restaurants thrive on repeatable systems - so do JavaScript apps.</p>`,
 	reflectionPrompts: [
 		'Where do you perform the same action more than twice in your projects?',
 		'What happens when you forget to stop a repetitive task (like a timer or subscription)?',
@@ -367,11 +367,11 @@ const loopsCheckpoint = {
 
 const closureKeyTakeaways = [
 	'for loops are ideal when you know the exact number of iterations needed',
-	'while loops run as long as a condition is true—useful when the count is unknown',
+	'while loops run as long as a condition is true - useful when the count is unknown',
 	'do...while loops guarantee at least one execution before checking the condition',
 	'break exits a loop immediately; continue skips to the next iteration',
 	'Always ensure loops have a clear exit condition to prevent infinite loops',
-	'Nested loops multiply iterations—use them carefully for grids or combinations',
+	'Nested loops multiply iterations - use them carefully for grids or combinations',
 ];
 
 const closureObjectives = [

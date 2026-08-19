@@ -30,7 +30,7 @@
     <!-- Hunter Element 1: Anticipatory Set -->
     <AnticipatorySet
       title="Start Here"
-      :hook="`<p>You've got Git installed—now it's time to actually USE it! Think of these commands as the basic vocabulary of a new language. Once you learn these few essential words, you can start having conversations with Git.</p>`"
+      :hook="`<p>You've got Git installed - now it's time to actually USE it! Think of these commands as the basic vocabulary of a new language. Once you learn these few essential words, you can start having conversations with Git.</p>`"
       :reflection-prompts="[
         'Have you ever wanted to undo changes you made to a file?',
         'How do you currently save different versions of your work?'
@@ -50,7 +50,7 @@
         'Have Git installed and configured',
         'Have a project folder ready to use for practice'
       ]"
-      purpose="These basic commands are the ones you will use every single day as a developer. Mastering them now builds the muscle memory you need for efficient version control."
+      purpose="These basic commands are the ones you will use every single day as a developer. Learning them now builds the muscle memory you need for efficient version control."
     />
 
     <h2 class="title is-2">Step 1: Initialize a Repository</h2>
@@ -190,7 +190,7 @@
       :key-takeaways="closureKeyTakeaways"
       :objectives="closureObjectives"
       :reflection-prompts="closureReflectionPrompts"
-      :next-steps="`<p>Now that you know the basic commands, you're ready to learn about <strong>branching</strong>—one of Git's most powerful features for working on multiple things at once.</p>`"
+      :next-steps="`<p>Now that you know the basic commands, you're ready to learn about <strong>branching</strong> - one of Git's most powerful features for working on multiple things at once.</p>`"
     />
 
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/basic-commands'" />
@@ -212,7 +212,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: 'Basic Git Commands',
-  description: 'Learn the essential Git commands — init, add, commit, status, and log for tracking changes in your projects.',
+  description: 'Learn the essential Git commands - init, add, commit, status, and log for tracking changes in your projects.',
   path: '/tutorials/intermediate/git-basics/basic-commands',
 });
 

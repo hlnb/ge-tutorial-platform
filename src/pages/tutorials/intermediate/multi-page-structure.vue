@@ -11,7 +11,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
   title: "Multi-page Website Structure",
-  description: "Plan and build multi-page websites — organise files, navigation, and shared styles for a scalable project.",
+  description: "Plan and build multi-page websites - organise files, navigation, and shared styles for a scalable project.",
   path: "/tutorials/intermediate/multi-page-structure",
 });
 

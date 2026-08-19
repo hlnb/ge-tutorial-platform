@@ -13,7 +13,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "Text Manipulation with CSS",
-  description: "Style text with CSS — font families, sizes, weights, line height, spacing, and text-transform properties explained.",
+  description: "Style text with CSS - font families, sizes, weights, line height, spacing, and text-transform properties explained.",
   path: "/tutorials/beginner/css-basics/text",
 });
 
@@ -107,13 +107,13 @@ const checkpointQuestions = [
 		question:
 			'How do text-align and text-decoration affect readability and user experience?',
 		answer:
-			`text-align controls horizontal alignment (left, center, right, justify). Left alignment is most readable for body text in left-to-right languages. text-decoration adds underlines, overlines, or strikethroughs—use carefully as underlines imply links. Both affect readability and user expectations.`,
+			`text-align controls horizontal alignment (left, center, right, justify). Left alignment is most readable for body text in left-to-right languages. text-decoration adds underlines, overlines, or strikethroughs - use carefully as underlines imply links. Both affect readability and user expectations.`,
 	},
 ];
 
 const closureKeyTakeaways = [
 	'font-family, font-size, font-weight, and font-style control typeface appearance and emphasis',
-	'line-height affects readability—1.5 to 1.6 is optimal for body text',
+	'line-height affects readability - 1.5 to 1.6 is optimal for body text',
 	'letter-spacing and word-spacing adjust character and word spacing for visual effect',
 	'text-align, text-indent, and text-decoration control text layout and decoration',
 	'rem units provide consistent, predictable sizing relative to the root element',
@@ -534,15 +534,15 @@ const profileContentStyles = ref(`/* Content sections */
 				]"
 			>
 				<p>
-					Every day, we read thousands of words on screens—from social media posts to
+					Every day, we read thousands of words on screens - from social media posts to
 					online articles to text messages. But have you ever considered how the
 					<em>presentation</em> of those words affects your reading experience? The way
 					text is styled can make the difference between a website that's a pleasure to
 					read and one that makes your eyes hurt.
 				</p>
 				<p>
-					In this tutorial, you'll learn how to control every aspect of text appearance
-					using CSS—from choosing the right fonts to adjusting spacing, from controlling
+					You will learn how to control every aspect of text appearance
+					using CSS - from choosing the right fonts to adjusting spacing, from controlling
 					line height to creating emphasis. These skills will help you create web content
 					that's not only beautiful but also readable and accessible.
 				</p>
@@ -2303,8 +2303,8 @@ const profileContentStyles = ref(`/* Content sections */
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Typography is fundamental to professional web design. Sites like Medium, The New York Times, and Stripe are renowned for their typography—careful font choices, spacing, and hierarchy that make content pleasant to read. Good typography isn't noticed; bad typography drives users away.</p><p>Modern web typography leverages variable fonts, fluid typography (responsive font sizing), and careful performance optimization to deliver beautiful, fast-loading text across all devices. Understanding CSS text properties is the foundation for these advanced techniques.</p>"
-			next-steps="<p>With typography mastered, you're ready to tackle CSS layout—one of the most powerful aspects of CSS. In the next lesson, you'll learn positioning, display modes, floats, and layout strategies that control where elements appear on the page.</p><p>Layout is what transforms static HTML into dynamic, visually interesting web pages. Understanding layout fundamentals prepares you for Flexbox, Grid, and modern CSS layout techniques.</p>"
+			real-world-application="<p>Typography is fundamental to professional web design. Sites like Medium, The New York Times, and Stripe are renowned for their typography - careful font choices, spacing, and hierarchy that make content pleasant to read. Good typography isn't noticed; bad typography drives users away.</p><p>Modern web typography leverages variable fonts, fluid typography (responsive font sizing), and careful performance optimization to deliver beautiful, fast-loading text across all devices. Understanding CSS text properties is the foundation for these advanced techniques.</p>"
+			next-steps="<p>With typography mastered, you're ready to tackle CSS layout - one of the most powerful aspects of CSS. In the next lesson, you'll learn positioning, display modes, floats, and layout strategies that control where elements appear on the page.</p><p>Layout is what transforms static HTML into dynamic, visually interesting web pages. Understanding layout fundamentals prepares you for Flexbox, Grid, and modern CSS layout techniques.</p>"
 		/>
 
 		<!-- Add recommendations before the quiz -->

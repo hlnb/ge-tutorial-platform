@@ -432,11 +432,11 @@ body { ... }
 
       <div class="notification is-info is-light">
         <p>
-          <strong>Why this order matters — the cascade.</strong> CSS applies rules in a
+          <strong>Why this order matters - the cascade.</strong> CSS applies rules in a
           predictable order. When two rules target the same element with equal specificity,
           the one that appears <em>later</em> in the stylesheet wins. By placing shared
           foundations first and section-specific adjustments last, you let the natural cascade
-          do the work — specific rules override general ones without needing higher-specificity
+          do the work - specific rules override general ones without needing higher-specificity
           selectors or <code>!important</code>.
         </p>
         <p>
@@ -464,7 +464,7 @@ body { ... }
 
       <p>
         You do not need a full accessibility deep dive in this lesson, but you do need the
-        habit of checking whether your “shared pattern” is shared responsibly.
+        habit of checking whether your "shared pattern" is shared responsibly.
       </p>
 
       <h2 id="guided-practice">Guided Practice</h2>
@@ -502,14 +502,14 @@ body { ... }
       <ul>
         <li>
           Every Layout
-          &mdash; useful for thinking about stack, cluster, sidebar, and grid patterns as
+          - useful for thinking about stack, cluster, sidebar, and grid patterns as
           reusable building blocks.
         </li>
         <li>
           <a href="https://getbem.com" target="_blank" rel="noopener">
-            BEM — Block Element Modifier
+            BEM - Block Element Modifier
           </a>
-          &mdash; useful when your naming needs to become more deliberate as the site grows.
+          - useful when your naming needs to become more deliberate as the site grows.
         </li>
       </ul>
 

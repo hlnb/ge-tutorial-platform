@@ -19,7 +19,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "The CSS Box Model",
-  description: "Understand the CSS box model — padding, margins, borders, and how browsers calculate element size and spacing.",
+  description: "Understand the CSS box model - padding, margins, borders, and how browsers calculate element size and spacing.",
   path: "/tutorials/beginner/css-basics/box-model",
 });
 
@@ -102,7 +102,7 @@ const closureKeyTakeaways = [
 	'Padding creates internal spacing within an element, while margins create external spacing between elements',
 	'Vertical margins collapse between adjacent elements, taking the larger of the two margins',
 	'Border properties control style, width, and color of element boundaries',
-	'The box model is fundamental to all CSS layouts—understanding it is essential for spacing and positioning',
+	'The box model is fundamental to all CSS layouts - understanding it is essential for spacing and positioning',
 ];
 
 const closureObjectives = [
@@ -119,11 +119,11 @@ const closureReflectionPrompts = [
 		icon: 'fas fa-ruler-combined',
 		title: 'Layout Control',
 		questions: [
-			'Why is understanding the box model crucial for CSS layout?',
+			'Why is understanding the box model important for CSS layout?',
 			'When would you use padding versus margins to create spacing?',
 		],
 		content:
-			'The box model is the foundation of CSS layout. Every spacing, sizing, and positioning decision involves the box model. Mastering it allows you to create precise layouts and debug spacing issues quickly.',
+			'The box model is the foundation of CSS layout. Every spacing, sizing, and positioning decision involves the box model. Learning it allows you to create precise layouts and debug spacing issues quickly.',
 	},
 	{
 		icon: 'fas fa-tools',
@@ -398,14 +398,14 @@ const profilePageExercise = ref(`/* Reset and Base Styles */
 			<!-- Hunter Element 1: Anticipatory Set -->
 			<AnticipatorySet
 				title="📦 Every Element is a Box"
-				:hook="`<p>Have you ever wondered why adding padding or border to an element suddenly makes it overflow its container? Or why margins sometimes collapse? The answer lies in the CSS Box Model—one of the most important concepts in web development.</p>
+				:hook="`<p>Have you ever wondered why adding padding or border to an element suddenly makes it overflow its container? Or why margins sometimes collapse? The answer lies in the CSS Box Model - one of the most important concepts in web development.</p>
 				<p><strong>Real-world impact:</strong> Professional developers spend significant time debugging layout issues. Almost all of them trace back to misunderstanding the box model.</p>`"
 				:reflection-prompts="[
 					'Have you ever added padding to an element and been surprised by its new size?',
 					'Why do you think understanding spacing is critical for layouts?',
 					'How might browsers calculate the total space an element takes up?'
 				]"
-				connection="In this tutorial, you'll understand exactly how browsers calculate element size and spacing. Master this, and layout problems become trivial."
+				connection="In this tutorial, you'll understand how browsers calculate element size and spacing. Understand this, and layout problems become trivial."
 			/>
 
 			<!-- Hunter Element 2: Learning Objectives -->
@@ -497,7 +497,7 @@ const profilePageExercise = ref(`/* Reset and Base Styles */
 						</li>
 						<li>Each part serves a specific purpose in layout and spacing</li>
 						<li>
-							Understanding these parts is crucial for proper layout design
+							Understanding these parts is important for proper layout design
 						</li>
 					</ul>
 				</div>
@@ -1131,7 +1131,7 @@ border: 10px solid black;
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
 			real-world-application="<p>Every professional website relies on the box model for layout control. Whether creating card components, navigation menus, or complex grid layouts, the box model determines how elements are sized and spaced. Companies like Netflix, Spotify, and Medium use box model mastery to create polished, pixel-perfect interfaces.</p><p>Modern CSS frameworks like Bootstrap and Tailwind abstract the box model with utility classes, but understanding the underlying principles allows you to customize layouts, debug issues, and create designs that frameworks can't easily provide.</p>"
-			next-steps="<p>With the box model mastered, you're ready to learn CSS typography and text styling. In the next lesson, you'll discover how to control fonts, sizes, spacing, alignment, and text effects to create beautiful, readable content.</p><p>Typography is crucial for user experience—it affects readability, hierarchy, and visual appeal. Great typography makes content accessible and engaging.</p>"
+			next-steps="<p>With the box model mastered, you're ready to learn CSS typography and text styling. In the next lesson, you'll discover how to control fonts, sizes, spacing, alignment, and text effects to create beautiful, readable content.</p><p>Typography is important for user experience - it affects readability, hierarchy, and visual appeal. Great typography makes content accessible and engaging.</p>"
 		/>
 
 		<!-- Add recommendations before the quiz -->

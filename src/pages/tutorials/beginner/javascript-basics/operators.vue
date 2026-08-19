@@ -272,7 +272,7 @@
 				<i class="fas fa-chart-bar"></i> Arithmetic Operations Visualized
 			</h3>
 			<p>
-				Let's visualize how arithmetic operators work in a restaurant context:
+				Visualize how arithmetic operators work in a restaurant context:
 			</p>
 
 			<div class="columns is-multiline">
@@ -832,7 +832,7 @@ function safeDivide(numerator, denominator) {
 		<h3 class="title is-4">Try It Yourself</h3>
 		<div class="box try-it-box">
 			<p class="mb-4">
-				Let's practice using operators with some real-world examples. Open your browser's console
+				Practice using operators with some real-world examples. Open your browser's console
 				(F12 or right-click → Inspect → Console) and try these calculations:
 			</p>
 			
@@ -995,7 +995,7 @@ function safeDivide(numerator, denominator) {
 				<i class="fas fa-balance-scale"></i> Comparison Operators Visualized
 			</h3>
 			<p>
-				Let's visualize how comparison operators work using restaurant prices:
+				Visualize how comparison operators work using restaurant prices:
 			</p>
 
 			<div class="columns is-multiline">
@@ -1503,7 +1503,7 @@ function safeDivide(numerator, denominator) {
 				<i class="fas fa-project-diagram"></i> Logical Operators Visualized
 			</h3>
 			<p>
-				Let's visualize how logical operators work using Venn diagrams and
+				Visualize how logical operators work using Venn diagrams and
 				circuit diagrams:
 			</p>
 
@@ -2096,7 +2096,7 @@ function safeDivide(numerator, denominator) {
 			<h3 class="title is-4">
 				<i class="fas fa-exchange-alt"></i> Assignment Operators Visualized
 			</h3>
-			<p>Let's visualize how assignment operators change variable values:</p>
+			<p>Visualize how assignment operators change variable values:</p>
 
 			<h4 class="title is-5 mt-4">Before and After Visualization</h4>
 			<div class="columns is-multiline">
@@ -2568,7 +2568,7 @@ function safeDivide(numerator, denominator) {
 
 		<h2 id="practice" class="title is-2">Practice Exercises</h2>
 		<p>
-			Let's practice using operators with real-world scenarios from our restaurant theme:
+			Practice using operators with real-world scenarios from our restaurant theme:
 		</p>
 
 		<div class="columns is-multiline">
@@ -2747,8 +2747,8 @@ function safeDivide(numerator, denominator) {
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Operators are at the heart of every interactive feature on the web. E-commerce sites use arithmetic operators to calculate totals and discounts. Login systems use comparison operators to validate credentials. Search filters use logical operators to combine multiple criteria. Mastering operators means you can build the decision-making logic behind any application.</p>"
-			next-steps="<p>Now that you can perform calculations and comparisons, you're ready to learn about conditionals. In the next lesson, you'll use if statements, switch cases, and ternary operators to make your programs respond differently based on conditions—bringing true decision-making to your code.</p>"
+			real-world-application="<p>Operators sit inside every interactive feature on the web. E-commerce sites use arithmetic operators to calculate totals and discounts. Login systems use comparison operators to validate credentials. Search filters use logical operators to combine multiple criteria. Learning operators means you can build the decision-making logic behind any application.</p>"
+			next-steps="<p>Now that you can perform calculations and comparisons, you're ready to learn about conditionals. In the next lesson, you'll use if statements, switch cases, and ternary operators to make your programs respond differently based on conditions - bringing true decision-making to your code.</p>"
 		/>
 
 		<!-- Recommendations for next steps -->
@@ -2775,19 +2775,19 @@ import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 useTutorialHead({
   title: 'Operators & Expressions in JavaScript',
-  description: 'Learn arithmetic, comparison, and logical operators in JavaScript — the building blocks of expressions and conditions.',
+  description: 'Learn arithmetic, comparison, and logical operators in JavaScript - the building blocks of expressions and conditions.',
   path: '/tutorials/beginner/javascript-basics/operators',
 });
 
 const anticipatorySet = {
 	title: '🧮 Calculating Every Check',
-	hook: `<p>Before the dining room opens, managers run numbers: expected guests, revenue goals, discounts, and staffing needs. Every decision relies on operators—add, compare, and evaluate data quickly so the night runs smoothly.</p>`,
+	hook: `<p>Before the dining room opens, managers run numbers: expected guests, revenue goals, discounts, and staffing needs. Every decision relies on operators - add, compare, and evaluate data quickly so the night runs smoothly.</p>`,
 	reflectionPrompts: [
 		'When was the last time you split a bill or calculated a tip in your head?',
 		'How do you currently compare options (prices, routes, schedules) when making decisions?',
 		'Which everyday rules could be expressed as AND/OR logic?'
 	],
-	connection: 'Mastering JavaScript operators gives you the mental calculator needed to build responsive UI, pricing tools, and decision logic throughout the rest of this series.'
+	connection: 'Learning JavaScript operators gives you the mental calculator needed to build responsive UI, pricing tools, and decision logic throughout the rest of this series.'
 };
 
 const learningObjectives = {

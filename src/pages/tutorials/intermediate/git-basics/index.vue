@@ -35,7 +35,7 @@
                 version control before.
             </p>
             <p>
-                By the end of this series, you'll be able to track changes to your code,
+                After this series, you'll be able to track changes to your code,
                 collaborate with others, and understand the core concepts of Git.
             </p>
         </div>

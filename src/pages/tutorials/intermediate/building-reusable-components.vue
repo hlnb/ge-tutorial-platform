@@ -11,7 +11,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
   title: 'Building Reusable Components',
-  description: 'Define stable HTML structures with predictable class names — a practical guide to building reusable web components.',
+  description: 'Define stable HTML structures with predictable class names - a practical guide to building reusable web components.',
   path: '/tutorials/intermediate/building-reusable-components',
 });
 
@@ -38,7 +38,7 @@ const checkpointQuestions = [
 			'A repeated card pattern becomes component-style when it has a stable HTML structure, predictable class names, and clear rules about which parts can change.',
 	},
 	{
-		question: 'Why should a component have a small “contract” between its HTML and CSS?',
+		question: 'Why should a component have a small "contract" between its HTML and CSS?',
 		answer:
 			'The contract makes the component easier to reuse because the markup and CSS agree on what each class is responsible for.',
 	},
@@ -201,7 +201,7 @@ const closureReflectionPrompts = [
 			/>
 
 			<div class="notification is-info is-light">
-				<p><strong>Building on CSS Systems:</strong> In <router-link to="/tutorials/intermediate/css-systems-for-reusable-sections">CSS Systems for Reusable Sections</router-link>, you organised shared tokens, spacing values, and naming rules so your CSS stays consistent as a site grows. This tutorial takes that further. Instead of shared styles alone, you will define stable HTML structures — markup and CSS together — that you can reuse across sections and pages.</p>
+				<p><strong>Building on CSS Systems:</strong> In <router-link to="/tutorials/intermediate/css-systems-for-reusable-sections">CSS Systems for Reusable Sections</router-link>, you organised shared tokens, spacing values, and naming rules so your CSS stays consistent as a site grows. This tutorial takes that further. Instead of shared styles alone, you will define stable HTML structures - markup and CSS together - that you can reuse across sections and pages.</p>
 			</div>
 
 			<h2 id="what-components-mean">What Components Mean Without a Framework</h2>
@@ -260,7 +260,7 @@ const closureReflectionPrompts = [
 
 			<p>
 				The exact dish changes. The structure stays stable. That is the shift from
-				“several similar cards” to “a reusable card pattern.”
+				"several similar cards" to "a reusable card pattern."
 			</p>
 
 			<CheckpointBox
@@ -388,7 +388,7 @@ const closureReflectionPrompts = [
 &lt;/nav&gt;</code></pre>
 
 			<p>
-				The structure stays stable as you move from page to page. That makes Part 4’s
+				The structure stays stable as you move from page to page. That makes Part 4's
 				multi-page work much easier later.
 			</p>
 			<figure class="tutorial-figure tutorial-figure--wide">
@@ -434,7 +434,7 @@ const closureReflectionPrompts = [
 				title="Independent Practice: Design one reusable pattern"
 				description="Now apply component-style thinking to a new repeated interface piece."
 				task-title="Your Task:"
-				task="<p>Choose one repeated pattern from a small website idea: a testimonial card, menu item, service card, footer link group, or call-to-action block. Define the component’s stable HTML structure and write the shared CSS rules it would need.</p><p>Keep the task small. You are building one reusable pattern, not a full site.</p>"
+				task="<p>Choose one repeated pattern from a small website idea: a testimonial card, menu item, service card, footer link group, or call-to-action block. Define the component's stable HTML structure and write the shared CSS rules it would need.</p><p>Keep the task small. You are building one reusable pattern, not a full site.</p>"
 				:requirements="[
 					'Choose one realistic repeated interface pattern',
 					'Identify what stays the same and what changes between instances',
@@ -457,14 +457,14 @@ const closureReflectionPrompts = [
 			<ul>
 				<li>
 					<a href="https://getbem.com" target="_blank" rel="noopener">
-						BEM — Block Element Modifier
+						BEM - Block Element Modifier
 					</a>
-					&mdash; useful for understanding component-like naming and predictable
+					 - useful for understanding component-like naming and predictable
 					relationships between outer blocks and inner parts.
 				</li>
 				<li>
 					Every Layout
-					&mdash; useful for seeing reusable layout patterns as composable building
+					 - useful for seeing reusable layout patterns as composable building
 					blocks rather than one-off page tricks.
 				</li>
 			</ul>

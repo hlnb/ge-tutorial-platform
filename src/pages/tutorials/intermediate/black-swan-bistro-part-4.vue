@@ -11,8 +11,8 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 useTutorialHead({
-  title: "Black Swan Bistro — Part 4",
-  description: "Expand the bistro project to a multi-page site — add a shared header, footer, and consistent navigation.",
+  title: "Black Swan Bistro - Part 4",
+  description: "Expand the bistro project to a multi-page site - add a shared header, footer, and consistent navigation.",
   path: "/tutorials/intermediate/black-swan-bistro-part-4",
 });
 
@@ -21,10 +21,10 @@ usePageSections([
 	{ id: 'what-you-will-build', title: 'What You Will Build' },
 	{ id: 'project-brief-structure', title: 'Project Brief for Multi-page Structure' },
 	{ id: 'site-structure', title: 'Multi-page Structure' },
-	{ id: 'file-setup', title: 'Step 1 — File Setup' },
+	{ id: 'file-setup', title: 'Step 1 - File Setup' },
 	{
 		id: 'shared-shell',
-		title: 'Step 2 — Shared Shell',
+		title: 'Step 2 - Shared Shell',
 		subsections: [
 			{ id: 'shared-header', title: 'Shared Header' },
 			{ id: 'shared-footer', title: 'Shared Footer' },
@@ -32,15 +32,15 @@ usePageSections([
 	},
 	{
 		id: 'build-pages',
-		title: 'Step 3 — Build Pages',
+		title: 'Step 3 - Build Pages',
 		subsections: [
 			{ id: 'menu-page', title: 'Menu Page' },
 			{ id: 'about-page', title: 'About Page' },
 			{ id: 'contact-page', title: 'Contact Page' },
 		],
 	},
-	{ id: 'active-nav', title: 'Step 4 — Active Navigation' },
-	{ id: 'shared-css', title: 'Step 5 — Page-Specific CSS' },
+	{ id: 'active-nav', title: 'Step 4 - Active Navigation' },
+	{ id: 'shared-css', title: 'Step 5 - Page-Specific CSS' },
 	{ id: 'checkpoint', title: 'Checkpoint' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
@@ -76,8 +76,8 @@ const guidedPracticeSteps = [
 		instructions:
 			'<p>Open <code>index.html</code> and copy the entire <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code> blocks into a new file called <code>menu.html</code>. Keep the same <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;head&gt;</code>, and stylesheet link.</p><p>Tip: copy the full document, then delete the homepage content between header and footer. That gives you a clean shell to fill.</p>',
 		hints: [
-			'Make sure the <link> tag still says href="css/style.css" — the path is the same because menu.html is at the same directory level.',
-			'Update the <title> tag to say "Menu — Black Swan Bistro".',
+			'Make sure the <link> tag still says href="css/style.css" - the path is the same because menu.html is at the same directory level.',
+			'Update the <title> tag to say "Menu - Black Swan Bistro".',
 		],
 	},
 	{
@@ -111,7 +111,7 @@ const guidedPracticeSteps = [
 		instructions:
 			'<p>Open <code>index.html</code> in your browser and click every navigation link. Verify:</p><ul><li>Each link opens the correct page</li><li>The active link highlights correctly on every page</li><li>The header and footer look identical on every page</li><li>The stylesheet loads on every page (check that colours and spacing appear)</li></ul>',
 		hints: [
-			'If a link is broken, check the href value. If menu.html is at the project root, the link should be href="menu.html" — no slashes, no subfolders.',
+			'If a link is broken, check the href value. If menu.html is at the project root, the link should be href="menu.html" - no slashes, no subfolders.',
 		],
 	},
 ];
@@ -122,7 +122,7 @@ const closureKeyTakeaways = [
 	'Each page is a separate HTML file at the project root, sharing relative paths to CSS and images.',
 	'The is-active class on navigation links tells the visitor which page they are viewing.',
 	'Page-specific CSS keeps unique layout rules from cluttering the shared stylesheet.',
-	'Good component structure from Part 3 made this expansion straightforward — reusable patterns paid off immediately.',
+	'Good component structure from Part 3 made this expansion straightforward - reusable patterns paid off immediately.',
 ];
 
 const closureObjectives = [
@@ -176,7 +176,7 @@ const closureReflectionPrompts = [
 					</li>
 					<li class="is-active">
 						<a href="#" aria-current="page"
-							>Black Swan Bistro &mdash; Part 4</a
+							>Black Swan Bistro - Part 4</a
 						>
 					</li>
 				</ul>
@@ -191,7 +191,7 @@ const closureReflectionPrompts = [
 				</div>
 			</div>
 
-			<h1 class="title is-1">Black Swan Bistro &mdash; Part 4</h1>
+			<h1 class="title is-1">Black Swan Bistro - Part 4</h1>
 			<h2 class="subtitle is-4">Multi-page Site</h2>
 
 			<!-- ═══════════════════════════════════════════════════ -->
@@ -200,7 +200,7 @@ const closureReflectionPrompts = [
 			<AnticipatorySet
 				title="One Page Is Not a Website Yet."
 				icon="🗂️"
-				:hook="`<p>In Parts 1–3, you built a homepage for the Black Swan Bistro. You structured the HTML, created a wireframe layout, and refactored repeated patterns into reusable components.</p><p>That homepage is solid. But a real restaurant site needs more than one page. Visitors expect a dedicated menu, an about page, and a way to get in touch. Part 4 is where the bistro becomes a real multi-page website.</p><p>The good news: the reusable components you built in Part 3 — site header, footer, menu cards, and navigation — are about to prove their worth. You will copy those shared structures into new pages and see the benefit of consistent naming and predictable patterns firsthand.</p>`"
+				:hook="`<p>In Parts 1-3, you built a homepage for the Black Swan Bistro. You structured the HTML, created a wireframe layout, and refactored repeated patterns into reusable components.</p><p>That homepage is solid. But a real restaurant site needs more than one page. Visitors expect a dedicated menu, an about page, and a way to get in touch. Part 4 is where the bistro becomes a real multi-page website.</p><p>The good news: the reusable components you built in Part 3 - site header, footer, menu cards, and navigation - are about to prove their worth. You will copy those shared structures into new pages and see the benefit of consistent naming and predictable patterns firsthand.</p>`"
 				:reflection-prompts="[
 					'What parts of the homepage belong on every page of the site?',
 					'What new content does each page need that the homepage does not have?',
@@ -220,7 +220,7 @@ const closureReflectionPrompts = [
 					'Add an active state to navigation links so visitors know which page they are on',
 					'Organise page-specific CSS alongside shared component styles without conflicts'
 				]"
-				purpose="Building a multi-page site with plain HTML and CSS teaches you how websites actually work at the file level. Frameworks automate some of this later, but the underlying concepts — shared structure, relative paths, navigation states — stay the same."
+				purpose="Building a multi-page site with plain HTML and CSS teaches you how websites actually work at the file level. Frameworks automate some of this later, but the underlying concepts - shared structure, relative paths, navigation states - stay the same."
 				:prerequisites="[
 					{ topic: 'Multi-page Structure', link: '/tutorials/intermediate/multi-page-structure' },
 					{ topic: 'BSB Part 3: Component Refactor', link: '/tutorials/intermediate/black-swan-bistro-part-3' }
@@ -232,8 +232,8 @@ const closureReflectionPrompts = [
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="intro">Tutorial Introduction</h2>
 			<p>
-				Until now, the Black Swan Bistro has been a single page. Everything — the hero, the
-				menu preview, the about blurb, the booking CTA — lives in one long
+				Until now, the Black Swan Bistro has been a single page. Everything - the hero, the
+				menu preview, the about blurb, the booking CTA - lives in one long
 				<code>index.html</code>.
 			</p>
 			<p>
@@ -242,14 +242,14 @@ const closureReflectionPrompts = [
 				Part 4 expands the bistro into four distinct pages:
 			</p>
 			<ul>
-				<li><strong>Home</strong> — the existing homepage, trimmed to an overview</li>
-				<li><strong>Menu</strong> — the full food and drinks menu</li>
-				<li><strong>About</strong> — the restaurant story and team</li>
-				<li><strong>Contact</strong> — location, hours, and how to book</li>
+				<li><strong>Home</strong> - the existing homepage, trimmed to an overview</li>
+				<li><strong>Menu</strong> - the full food and drinks menu</li>
+				<li><strong>About</strong> - the restaurant story and team</li>
+				<li><strong>Contact</strong> - location, hours, and how to book</li>
 			</ul>
 			<p>
 				Every page shares the same header, navigation, footer, and stylesheet. That means
-				the reusable components from Part 3 do most of the structural work — you just need
+				the reusable components from Part 3 do most of the structural work - you just need
 				to add page-specific content in the middle.
 			</p>
 
@@ -258,7 +258,7 @@ const closureReflectionPrompts = [
 					<strong>Project checkpoint:</strong> you should have the Part 3 refactored
 					homepage before beginning this lesson, with named components for the header,
 					navigation, menu cards, CTA blocks, and footer. If your refactor is not
-					complete, go back and finish it first — this lesson depends on those shared
+					complete, go back and finish it first - this lesson depends on those shared
 					patterns.
 				</p>
 			</div>
@@ -268,7 +268,7 @@ const closureReflectionPrompts = [
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="what-you-will-build">What You Will Build</h2>
 			<p>
-				By the end of this tutorial, your Black Swan Bistro project will have four
+				After this tutorial, your Black Swan Bistro project will have four
 				working HTML pages linked together with consistent navigation. The visitor will
 				be able to browse between pages, always see the same header and footer, and
 				always know which page they are on thanks to an active navigation state.
@@ -277,7 +277,7 @@ const closureReflectionPrompts = [
 			<figure class="tutorial-figure tutorial-figure--wide">
 				<img
 					src="/assets/images/tutorials/diagrams/tutorial-black-swan-bistro-part-4-site-map.svg"
-					alt="Site map showing four pages — Home, Menu, About, and Contact — connected by navigation arrows."
+					alt="Site map showing four pages - Home, Menu, About, and Contact - connected by navigation arrows."
 				/>
 				<figcaption>
 					The final site structure: four pages connected through shared navigation.
@@ -312,12 +312,12 @@ const closureReflectionPrompts = [
 			</p>
 			<ol>
 				<li>
-					<strong>Shared structure</strong> — the header, navigation, and footer are
+					<strong>Shared structure</strong> - the header, navigation, and footer are
 					identical on every page. You copy them into each file so the visitor
 					experiences a consistent site.
 				</li>
 				<li>
-					<strong>Page-specific content</strong> — the middle of each page is unique.
+					<strong>Page-specific content</strong> - the middle of each page is unique.
 					The menu page shows dishes. The about page tells the story. The contact page
 					gives directions.
 				</li>
@@ -343,11 +343,11 @@ const closureReflectionPrompts = [
 			</p>
 
 			<!-- ═══════════════════════════════════════════════════ -->
-			<!-- STEP 1 — FILE SETUP                                -->
+			<!-- STEP 1 - FILE SETUP                                -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="file-setup">Step 1: Set Up the New Files</h2>
 			<p>
-				Create three new HTML files at the project root — the same level where
+				Create three new HTML files at the project root - the same level where
 				<code>index.html</code> already lives. Do <strong>not</strong> put them inside a
 				subfolder. Keeping all pages at the same level means every page can use the same
 				relative paths to the shared stylesheet and images.
@@ -382,7 +382,7 @@ touch menu.html about.html contact.html</code></pre>
 			</div>
 
 			<!-- ═══════════════════════════════════════════════════ -->
-			<!-- STEP 2 — SHARED SHELL                              -->
+			<!-- STEP 2 - SHARED SHELL                              -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="shared-shell">Step 2: Copy the Shared Shell</h2>
 			<p>
@@ -404,9 +404,9 @@ touch menu.html about.html contact.html</code></pre>
 				What changes:
 			</p>
 			<ul>
-				<li>The <code>&lt;title&gt;</code> tag — update it for each page</li>
-				<li>The <code>&lt;main&gt;</code> content — replace with page-specific sections</li>
-				<li>The active navigation link — move <code>is-active</code> to the current page&rsquo;s link</li>
+				<li>The <code>&lt;title&gt;</code> tag - update it for each page</li>
+				<li>The <code>&lt;main&gt;</code> content - replace with page-specific sections</li>
+				<li>The active navigation link - move <code>is-active</code> to the current page's link</li>
 			</ul>
 
 			<h3 id="shared-header">The Shared Header</h3>
@@ -452,7 +452,7 @@ touch menu.html about.html contact.html</code></pre>
 &lt;/footer&gt;</code></pre>
 
 			<!-- ═══════════════════════════════════════════════════ -->
-			<!-- STEP 3 — BUILD PAGES                               -->
+			<!-- STEP 3 - BUILD PAGES                               -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="build-pages">Step 3: Build Each Page</h2>
 			<p>
@@ -554,7 +554,7 @@ touch menu.html about.html contact.html</code></pre>
 
 			<h3 id="about-page">The About Page</h3>
 			<p>
-				The about page tells the restaurant&rsquo;s story. It does not need cards — it uses
+				The about page tells the restaurant's story. It does not need cards - it uses
 				simple content sections and possibly an image.
 			</p>
 			<pre><code>&lt;main&gt;
@@ -644,13 +644,13 @@ touch menu.html about.html contact.html</code></pre>
 &lt;/main&gt;</code></pre>
 
 			<!-- ═══════════════════════════════════════════════════ -->
-			<!-- STEP 4 — ACTIVE NAVIGATION                         -->
+			<!-- STEP 4 - ACTIVE NAVIGATION                         -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="active-nav">Step 4: Mark the Active Navigation Link</h2>
 			<p>
 				When a visitor arrives on the menu page, they should immediately see that
-				&ldquo;Menu&rdquo; is the active link. This is a small usability detail that
-				makes a big difference — it tells the visitor where they are in the site without
+				"Menu" is the active link. This is a small usability detail that
+				makes a big difference - it tells the visitor where they are in the site without
 				them having to think about it.
 			</p>
 
@@ -665,7 +665,7 @@ touch menu.html about.html contact.html</code></pre>
 			</figure>
 
 			<p>
-				Add a class called <code>is-active</code> to the current page&rsquo;s navigation
+				Add a class called <code>is-active</code> to the current page's navigation
 				link. On <code>menu.html</code>, the Menu link gets the class:
 			</p>
 			<pre><code>&lt;!-- In menu.html --&gt;
@@ -689,17 +689,17 @@ touch menu.html about.html contact.html</code></pre>
 			<div class="notification is-info is-light">
 				<p>
 					<strong>One active link per page.</strong> Make sure only the current
-					page&rsquo;s link carries <code>is-active</code>. If you copy-pasted the nav
+					page's link carries <code>is-active</code>. If you copy-pasted the nav
 					from another page, double-check that you moved the class to the correct link.
 				</p>
 			</div>
 
 			<!-- ═══════════════════════════════════════════════════ -->
-			<!-- STEP 5 — PAGE-SPECIFIC CSS                         -->
+			<!-- STEP 5 - PAGE-SPECIFIC CSS                         -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="shared-css">Step 5: Organise Page-Specific CSS</h2>
 			<p>
-				Most of your CSS is shared — the component styles, layout helpers, and
+				Most of your CSS is shared - the component styles, layout helpers, and
 				foundations apply to every page. But some pages may need a few unique rules. The
 				contact page, for example, might use an <code>.info-grid</code> layout that the
 				menu page does not need.
@@ -737,13 +737,13 @@ touch menu.html about.html contact.html</code></pre>
 				<h3 class="title is-5">Option B: Separate Page Stylesheets</h3>
 				<p>
 					If page-specific CSS grows, you can create separate files and link them in the
-					page&rsquo;s <code>&lt;head&gt;</code> after the shared stylesheet:
+					page's <code>&lt;head&gt;</code> after the shared stylesheet:
 				</p>
 				<pre><code>&lt;link rel="stylesheet" href="css/style.css"&gt;
 &lt;link rel="stylesheet" href="css/contact.css"&gt;</code></pre>
 				<p>
 					This keeps the shared styles untouched and isolates page-specific rules. Either
-					approach is fine — pick whichever feels more manageable for your project.
+					approach is fine - pick whichever feels more manageable for your project.
 				</p>
 			</div>
 
@@ -821,7 +821,7 @@ touch menu.html about.html contact.html</code></pre>
 			</p>
 			<p>
 				You also added active navigation states so visitors always know which page they are
-				on — a small detail that makes the site feel intentional and complete.
+				on - a small detail that makes the site feel intentional and complete.
 			</p>
 			<p>
 				The main limitation of this approach is manual repetition: every time you change

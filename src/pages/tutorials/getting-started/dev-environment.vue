@@ -48,7 +48,7 @@
 					'Have you ever tried to code in a plain text editor like Notepad? What was difficult about it?',
 					'What makes a workspace comfortable and productive for you?'
 				]"
-				connection="By the end of this lesson, you'll have a professional development setup that makes coding a joy!"
+				connection="After this lesson, you'll have a professional development setup that makes coding easier."
 			/>
 
 			<!-- Hunter Element 2: Learning Objectives -->
@@ -59,7 +59,7 @@
 					'Add essential VS Code extensions that enhance productivity',
 					'Verify your setup is working correctly'
 				]"
-				purpose="Your development environment is where you'll spend most of your time as a developer. A proper setup provides syntax highlighting to catch typos, live previews to see changes instantly, and debugging tools to fix errors quickly. This one-time setup will pay dividends for your entire coding journey."
+				purpose="Your development environment is where you'll spend most of your time as a developer. A proper setup provides syntax highlighting to catch typos, live previews to see changes instantly, and debugging tools to fix errors quickly. This one-time setup will help throughout your coding work."
 			/>
 
 			<h2 id="web-browser">Web Browser</h2>
@@ -276,7 +276,7 @@
 				:key-takeaways="closureKeyTakeaways"
 				:objectives="closureObjectives"
 				:reflection-prompts="closureReflectionPrompts"
-				next-steps="<p>With your development environment ready, you're all set to start coding! Next, we'll explore <strong>Browser Developer Tools</strong>—your secret weapon for inspecting, debugging, and understanding websites like a pro!</p>"
+				next-steps="<p>With your development environment ready, you're ready to start coding. Next, we'll explore <strong>Browser Developer Tools</strong> - your most useful tool for inspecting, debugging, and understanding websites with confidence!</p>"
 			/>
 
 			<TutorialRecommendations :current-path="'/tutorials/getting-started/dev-environment'" />
@@ -296,7 +296,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
   title: 'Setting Up Your Dev Environment',
-  description: 'Set up your web development environment step by step — VS Code, Node.js, and the tools you need to start building websites.',
+  description: 'Set up your web development environment step by step - VS Code, Node.js, and the tools you need to start building websites.',
   path: '/tutorials/getting-started/dev-environment',
 });
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';

@@ -61,7 +61,7 @@ const guidedPracticeSteps = [
 	{
 		title: 'Step 2: Read spacing, type, and pattern clues',
 		instructions:
-			'<p>Now inspect the design more closely. Look for repeated container widths, section gaps, heading sizes, button treatments, and card shells.</p><p>Your goal is to move from “this looks nice” to “these are the rules I can see.”</p>',
+			'<p>Now inspect the design more closely. Look for repeated container widths, section gaps, heading sizes, button treatments, and card shells.</p><p>Your goal is to move from "this looks nice" to "these are the rules I can see."</p>',
 		hints: [
 			'If the same kind of space or style appears twice, write it down as a repeated rule.',
 			'You do not need exact values to notice visual consistency.',
@@ -191,7 +191,7 @@ const closureReflectionPrompts = [
 					'Spot repeated visual patterns that will matter later for reuse',
 					'Create coding notes that make the HTML and CSS stages more deliberate'
 				]"
-				purpose="Design-to-code work becomes much easier once you stop asking “what should I copy first?” and start asking “what information does this design give me about structure, hierarchy, and repetition?”"				:prerequisites="[
+					purpose="Design-to-code work becomes much easier once you stop asking &quot;what should I copy first?&quot; and start asking &quot;what information does this design give me about structure, hierarchy, and repetition?&quot;"				:prerequisites="[
 					{ topic: 'How to Think About Layouts', link: '/tutorials/intermediate/think-about-layouts' }
 				]"			/>
 
@@ -371,12 +371,12 @@ const closureReflectionPrompts = [
 					>
 						Nielsen Norman Group: Homepage Design Principles
 					</a>
-					&mdash; strong for understanding hierarchy, scanning, and what users expect from
+					 - strong for understanding hierarchy, scanning, and what users expect from
 					a homepage.
 				</li>
 				<li>
 					Every Layout
-					&mdash; helpful for recognising repeated layout patterns beneath the visual
+					 - helpful for recognising repeated layout patterns beneath the visual
 					surface of a mockup.
 				</li>
 			</ul>

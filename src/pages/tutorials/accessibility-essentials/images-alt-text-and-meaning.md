@@ -45,7 +45,7 @@ Context decides the alt text.
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - explain what alt text is for
 - identify decorative, informative, functional, and complex images
@@ -126,7 +126,7 @@ Example:
 >
 ```
 
-The alt text should convey the image’s meaning, not every visual detail.
+The alt text should convey the image's meaning, not every visual detail.
 
 ### Functional images
 
@@ -239,7 +239,7 @@ Example:
 
 - The food image has alt text because it helps identify the dish visually shown.
 - The divider image is decorative, so it uses `alt=""`.
-- The linked calendar icon uses alt text describing the link purpose: “Book a table”.
+- The linked calendar icon uses alt text describing the link purpose: "Book a table".
 - The section has an accessible label connected to its heading.
 - Users who cannot see the images still get the relevant meaning.
 
@@ -384,7 +384,7 @@ Learners audit one existing project and create an image inventory:
 - Writing file names as alt text.
 - Stuffing alt text with keywords.
 - Describing decorative images that should be ignored.
-- Describing an icon’s appearance instead of its function.
+- Describing an icon's appearance instead of its function.
 - Making alt text too long when nearby content already explains the image.
 - Forgetting that SVGs and icons also need accessible treatment when meaningful.
 

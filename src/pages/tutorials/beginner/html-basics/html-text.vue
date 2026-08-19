@@ -41,7 +41,7 @@
 					'Why do headings on a page get smaller as you go down?',
 					'How does proper text structure help people read faster?'
 				]"
-				connection="In this lesson, you'll master the art of organizing and formatting text—skills you'll use on every single website you build."
+				connection="You'll learn to organizing and formatting text - skills you'll use on every single website you build."
 			/>
 
 			<!-- Hunter Element 2: Learning Objectives -->
@@ -53,7 +53,7 @@
 					'Create well-structured content with paragraphs and line breaks',
 					'Build organized lists (ordered, unordered, and description lists)'
 				]"
-				purpose="Text structure is the backbone of content on the web. Master this and you'll create websites that are easy to read, rank well in search engines, and are accessible to everyone—including people using screen readers."
+				purpose="Text structure is the backbone of content on the web. Master this and you'll create websites that are easy to read, rank well in search engines, and are accessible to everyone - including people using screen readers."
 			/>
 
 			<div id="writing-for-web" class="box mt-4">
@@ -238,7 +238,7 @@
 				<h2 class="title is-3"><i class="fas fa-laptop-code"></i> Your Task</h2>
 				<p>
 					Now that you've learned about headings, text formatting, and lists,
-					let's put it all together! You'll create a restaurant menu page that
+					put it all together! You'll create a restaurant menu page that
 					uses all these elements effectively.
 				</p>
 
@@ -372,7 +372,7 @@ Soups & Salads
 		:objectives="closureObjectives"
 		:reflection-prompts="closureReflectionPrompts"
 		real-world-application="<p>Every blog post, article, documentation page, and content-heavy website relies on the text formatting you learned today. These are the most frequently used HTML elements in professional web development!</p>"
-		next-steps="<p>In the next lesson, <strong>Working with Links</strong>, you'll learn how to connect pages together and create navigation—the foundation of the web itself!</p>"
+		next-steps="<p>In the next lesson, <strong>Working with Links</strong>, you'll learn how to connect pages together and create navigation - the foundation of the web itself!</p>"
 	/>
 
 	<!-- Add recommendations after the quiz and closure -->
@@ -456,7 +456,7 @@ const closureReflectionPrompts = [
 
 useTutorialHead({
   title: 'Working with Text in HTML',
-  description: 'Learn how to format text in HTML — headings, paragraphs, bold, italic, lists, and other essential text elements explained for beginners.',
+  description: 'Learn how to format text in HTML - headings, paragraphs, bold, italic, lists, and other essential text elements explained for beginners.',
   path: '/tutorials/beginner/html-basics/html-text',
 });
 

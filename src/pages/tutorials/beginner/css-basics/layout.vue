@@ -15,7 +15,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "CSS Layout Basics",
-  description: "Learn the fundamentals of CSS layout — display, position, float, and how browsers arrange elements on a page.",
+  description: "Learn the fundamentals of CSS layout - display, position, float, and how browsers arrange elements on a page.",
   path: "/tutorials/beginner/css-basics/layout",
 });
 
@@ -139,7 +139,7 @@ const closureReflectionPrompts = [
 			'How do floats affect surrounding elements?',
 		],
 		content:
-			'Understanding document flow—how elements naturally lay out—is crucial for predicting layout behavior. Positioning and floats remove elements from normal flow, which can solve problems but also create unexpected results if not understood.',
+			'Understanding document flow - how elements naturally lay out - is important for predicting layout behavior. Positioning and floats remove elements from normal flow, which can solve problems but also create unexpected results if not understood.',
 	},
 ];
 

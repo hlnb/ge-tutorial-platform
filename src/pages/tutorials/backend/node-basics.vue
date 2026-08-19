@@ -15,7 +15,7 @@ import { useTutorialHead } from '@/composables/useTutorialHead';
 
 useTutorialHead({
   title: "Node.js Basics",
-  description: "Get started with Node.js — environment setup, package.json, modules, and running your first server-side scripts.",
+  description: "Get started with Node.js - environment setup, package.json, modules, and running your first server-side scripts.",
   path: "/tutorials/backend/node-basics",
 });
 </script>

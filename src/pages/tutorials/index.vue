@@ -1,5 +1,5 @@
 <template>
-  <!-- Tutorials page — renders TutorialsPage component when on /tutorials -->
+  <!-- Tutorials page - renders TutorialsPage component when on /tutorials -->
   <TutorialsPage v-if="isMainTutorialsPage" />
 </template>
 

@@ -41,7 +41,7 @@ HTML already has meaning built in. Accessibility often begins by using that mean
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - define semantic HTML
 - choose appropriate elements for common page sections
@@ -88,7 +88,7 @@ A real `button`:
 
 A `div` with a click event does none of that automatically.
 
-HTML is not merely the box the design arrives in. HTML is the document’s structure.
+HTML is not only the box the design arrives in. HTML is the document's structure.
 
 ---
 
@@ -172,8 +172,8 @@ Use a button when the user does something on the current page:
 
 A useful test:
 
-- “Go to...” usually means a link.
-- “Do something...” usually means a button.
+- "Go to..." usually means a link.
+- "Do something..." usually means a button.
 
 Examples:
 
@@ -431,7 +431,7 @@ In the browser:
 
 ## Closure
 
-Semantic HTML is accessibility’s first power tool. It gives the browser a map of the page before we ask CSS to dress it up or JavaScript to make it dance.
+Semantic HTML is accessibility's first power tool. It gives the browser a map of the page before we ask CSS to dress it up or JavaScript to make it dance.
 
 Good structure does not solve every accessibility problem. It does prevent many unnecessary ones.
 

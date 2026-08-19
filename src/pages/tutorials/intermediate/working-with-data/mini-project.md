@@ -29,7 +29,7 @@ hiddenFromCurriculum: false
 
 The previous four tutorials gave you the pieces. This one puts them together into something real.
 
-You're going to build **World Explorer** — a small web app that fetches country data from a live public API, displays it as a card grid, and lets users filter by region. No frameworks, no libraries, no build tools. Just HTML, CSS, and the async JavaScript skills you've built up in this section.
+You're going to build **World Explorer** - a small web app that fetches country data from a live public API, displays it as a card grid, and lets users filter by region. No frameworks, no libraries, no build tools. Just HTML, CSS, and the async JavaScript skills you've built up in this section.
 
 By the time you're done, you'll have a complete working example of the most common pattern in modern web development: *fetch data → reshape it → render it to the UI.*
 
@@ -47,7 +47,7 @@ By the time you're done, you'll have a complete working example of the most comm
 
 ---
 
-> **Before you start:** This project assumes you've worked through the whole Working with Data section. You'll be using all of it — Promises, `fetch()`, JSON, and `async`/`await` — in a single codebase.
+> **Before you start:** This project assumes you've worked through the whole Working with Data section. You'll be using all of it - Promises, `fetch()`, JSON, and `async`/`await` - in a single codebase.
 
 ---
 
@@ -56,11 +56,11 @@ By the time you're done, you'll have a complete working example of the most comm
 A page that:
 
 1. Shows a loading message while data fetches
-2. Renders a grid of country cards — each with a flag, country name, capital city, population, and region
+2. Renders a grid of country cards - each with a flag, country name, capital city, population, and region
 3. Lets the user filter cards by region using buttons
 4. Shows a friendly error message if the fetch fails
 
-The data comes from the **REST Countries API** (`restcountries.com`) — a free, public API with no sign-up or API key required.
+The data comes from the **REST Countries API** (`restcountries.com`) - a free, public API with no sign-up or API key required.
 
 ---
 
@@ -216,7 +216,7 @@ main { padding: 2rem; }
 
 ---
 
-## Step 1 — Fetch the data
+## Step 1 - Fetch the data
 
 Open `app.js`. Start with the fetch function. You're requesting a filtered set of fields to keep the response lean:
 
@@ -234,11 +234,11 @@ async function fetchCountries() {
 }
 ```
 
-This function returns a Promise that resolves to the raw API data. Notice there's no `try`/`catch` here — that belongs in the calling code, which decides what to do with the error.
+This function returns a Promise that resolves to the raw API data. Notice there's no `try`/`catch` here - that belongs in the calling code, which decides what to do with the error.
 
 ---
 
-## Step 2 — Understand the data shape
+## Step 2 - Understand the data shape
 
 Before rendering, it's worth understanding what the API sends back. Each country object looks like this:
 
@@ -260,16 +260,16 @@ Before rendering, it's worth understanding what the API sends back. Each country
 
 A few things to note:
 
-- `name` is an object — you want `name.common`
-- `capital` is an **array** — use `capital[0]` to get the city string, and guard against countries with no capital
-- `population` is a raw number — you'll want to format it for display
+- `name` is an object - you want `name.common`
+- `capital` is an **array** - use `capital[0]` to get the city string, and guard against countries with no capital
+- `population` is a raw number - you'll want to format it for display
 - `flags.png` is the image URL; `flags.alt` is the accessible description
 
 ---
 
-## Step 3 — Reshape the data
+## Step 3 - Reshape the data
 
-Write a function that converts raw API data into a clean, flat array — only the fields you need:
+Write a function that converts raw API data into a clean, flat array - only the fields you need:
 
 ```js
 function reshapeCountries(rawData) {
@@ -290,7 +290,7 @@ function reshapeCountries(rawData) {
 
 ---
 
-## Step 4 — Render a single card
+## Step 4 - Render a single card
 
 Write a function that takes one country object and returns an HTML string:
 
@@ -315,11 +315,11 @@ function createCard(country) {
 }
 ```
 
-`loading="lazy"` defers image loading until the card is near the viewport — important when you're rendering hundreds of images at once.
+`loading="lazy"` defers image loading until the card is near the viewport - important when you're rendering hundreds of images at once.
 
 ---
 
-## Step 5 — Render all cards
+## Step 5 - Render all cards
 
 Write a function that takes an array of countries and renders them into the grid:
 
@@ -343,7 +343,7 @@ function renderCards(countries) {
 
 ---
 
-## Step 6 — Handle loading and error states
+## Step 6 - Handle loading and error states
 
 ```js
 function showLoading() {
@@ -361,7 +361,7 @@ Short, focused, single-purpose functions. Each one owns one UI state.
 
 ---
 
-## Step 7 — Wire it together
+## Step 7 - Wire it together
 
 Now write the main `init` function that runs when the page loads:
 
@@ -387,7 +387,7 @@ The `allCountries` variable stores the full dataset so filtering can work on it 
 
 ---
 
-## Step 8 — Add region filtering
+## Step 8 - Add region filtering
 
 ```js
 const filterBar = document.getElementById('filter-bar');
@@ -410,7 +410,7 @@ filterBar.addEventListener('click', (event) => {
 });
 ```
 
-This uses **event delegation** — one listener on the parent `#filter-bar` instead of six listeners on individual buttons. `closest('.filter-btn')` finds the clicked button even if the click lands on a child element.
+This uses **event delegation** - one listener on the parent `#filter-bar` instead of six listeners on individual buttons. `closest('.filter-btn')` finds the clicked button even if the click lands on a child element.
 
 ---
 
@@ -523,13 +523,13 @@ init();
 So the filtering event listener can access the full dataset without triggering a second network request. Data fetched once, used many times.
 
 **2. Why is there no `try`/`catch` inside `fetchCountries()`?**
-The function's job is to fetch and parse — not to decide what to do with errors. Keeping error handling in `init()` (the calling code) makes each function responsible for one thing.
+The function's job is to fetch and parse - not to decide what to do with errors. Keeping error handling in `init()` (the calling code) makes each function responsible for one thing.
 
 **3. What does `event.target.closest('.filter-btn')` do that `event.target` alone doesn't?**
-`event.target` is whatever was clicked — which might be a child element inside the button (like a text node). `closest()` walks up the DOM to find the nearest matching ancestor, so the click registers correctly regardless of where exactly on the button the user clicked.
+`event.target` is whatever was clicked - which might be a child element inside the button (like a text node). `closest()` walks up the DOM to find the nearest matching ancestor, so the click registers correctly regardless of where exactly on the button the user clicked.
 
 **4. What does `toLocaleString()` do to the population number?**
-It formats the number with locale-appropriate thousands separators — so `25687041` becomes `25,687,041` in an en-AU context. Makes large numbers readable without manual string formatting.
+It formats the number with locale-appropriate thousands separators - so `25687041` becomes `25,687,041` in an en-AU context. Makes large numbers readable without manual string formatting.
 
 <!-- /CheckpointBox -->
 
@@ -542,21 +542,21 @@ It formats the number with locale-appropriate thousands separators — so `25687
 
 Extend World Explorer with one or more of the following features. Each one applies skills from this section in a slightly different way.
 
-**Option A — Search by name**
+**Option A - Search by name**
 
-Add a text input above the card grid. As the user types, filter `allCountries` to show only countries whose name includes the search string (case-insensitive). The region filter and search should work together — searching should filter within the currently selected region.
+Add a text input above the card grid. As the user types, filter `allCountries` to show only countries whose name includes the search string (case-insensitive). The region filter and search should work together - searching should filter within the currently selected region.
 
-**Option B — Sort controls**
+**Option B - Sort controls**
 
-Add a `<select>` dropdown with options: *Name (A–Z)*, *Name (Z–A)*, *Population (high to low)*, *Population (low to high)*. When the selection changes, re-sort and re-render the current filtered list.
+Add a `<select>` dropdown with options: *Name (A-Z)*, *Name (Z-A)*, *Population (high to low)*, *Population (low to high)*. When the selection changes, re-sort and re-render the current filtered list.
 
-**Option C — Country detail panel**
+**Option C - Country detail panel**
 
-When a card is clicked, fetch detailed data for that country from `https://restcountries.com/v3.1/name/${country.name}?fullText=true` and display it in a side panel or modal — including languages, currencies, and bordering countries.
+When a card is clicked, fetch detailed data for that country from `https://restcountries.com/v3.1/name/${country.name}?fullText=true` and display it in a side panel or modal - including languages, currencies, and bordering countries.
 
 **Success criteria (for whichever option you choose):**
 
-- [ ] The feature works alongside existing filtering — it doesn't break region buttons
+- [ ] The feature works alongside existing filtering - it doesn't break region buttons
 - [ ] Loading and error states are still handled correctly
 - [ ] No second full fetch of all countries is triggered
 - [ ] The UI updates without a page reload
@@ -570,12 +570,12 @@ When a card is clicked, fetch detailed data for that country from `https://restc
 
 You've finished the Working with Data section. Here's what you can now do:
 
-- Write async JavaScript with confidence — Promises, `async`/`await`, error handling
+- Write async JavaScript with confidence - Promises, `async`/`await`, error handling
 - Fetch data from real APIs using `fetch()` with proper response and error checking
 - Parse, navigate, and reshape JSON using `map()`, `filter()`, `find()`, and `sort()`
 - Render dynamic data to the DOM and respond to user interaction
 - Handle loading and error states in a UI
 
-These skills sit at the centre of almost every front-end project you'll build from here. The next section — Frameworks 101 — builds directly on them. As you'll see, the reason frameworks exist is largely to make patterns like this one easier to manage at scale.
+These skills sit at the centre of almost every front-end project you'll build from here. The next section - Frameworks 101 - builds directly on them. As you'll see, the reason frameworks exist is largely to make patterns like this one easier to manage at scale.
 
 → **Next: [Frameworks 101](../frameworks-101/what-is-a-framework-really)**

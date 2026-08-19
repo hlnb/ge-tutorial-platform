@@ -34,7 +34,7 @@ How resources are compressed, cached, stored, and delivered also affects the vis
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - explain browser caching
 - recognise caching headers

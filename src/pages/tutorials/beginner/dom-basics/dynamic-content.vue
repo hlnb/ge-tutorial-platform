@@ -60,7 +60,7 @@
         <h2><i class="fas fa-plus-circle mr-2"></i>Creating Elements</h2>
         <p>
           The <code>document.createElement()</code> method creates a new HTML element in memory.
-          It doesn&rsquo;t appear on the page until you insert it into the DOM.
+          It doesn't appear on the page until you insert it into the DOM.
         </p>
 
         <div class="code-example">
@@ -184,8 +184,8 @@
         <h2><i class="fas fa-layer-group mr-2"></i>DocumentFragment: Batch Insertions</h2>
         <p>
           Every time you insert an element into the DOM, the browser recalculates layout and repaints.
-          If you&rsquo;re adding 50 items one by one, that&rsquo;s 50 recalculations. A <code>DocumentFragment</code>
-          lets you build everything in memory first, then insert it all at once &mdash; only one recalculation.
+          If you're adding 50 items one by one, that's 50 recalculations. A <code>DocumentFragment</code>
+          lets you build everything in memory first, then insert it all at once - only one recalculation.
         </p>
 
         <div class="columns is-multiline">
@@ -225,7 +225,7 @@
         </div>
 
         <div class="notification is-success is-light">
-          <p><i class="fas fa-bolt mr-2"></i><strong>Performance rule of thumb:</strong> If you&rsquo;re adding more than 3&ndash;5 elements at once, use a DocumentFragment. The browser only does one layout calculation instead of one per element.</p>
+          <p><i class="fas fa-bolt mr-2"></i><strong>Performance rule of thumb:</strong> If you're adding more than 3-5 elements at once, use a DocumentFragment. The browser only does one layout calculation instead of one per element.</p>
         </div>
       </section>
 
@@ -236,7 +236,7 @@
         <h2><i class="fas fa-list mr-2"></i>Building Dynamic Lists</h2>
         <p>
           The most common dynamic content pattern is a list that users can add to and
-          delete from. Here&rsquo;s a complete, production-quality pattern:
+          delete from. Here's a complete, production-quality pattern:
         </p>
 
         <div class="code-example">
@@ -271,7 +271,7 @@
         </div>
 
         <div class="notification is-warning is-light">
-          <p><i class="fas fa-shield-alt mr-2"></i><strong>Security note:</strong> When using <code>innerHTML</code> with user input, always sanitise the input first to prevent XSS attacks. For plain text, prefer <code>textContent</code> which is always safe. The example above uses <code>innerHTML</code> only for the predefined button markup &mdash; the user text should be escaped or set via <code>textContent</code> on the span separately.</p>
+          <p><i class="fas fa-shield-alt mr-2"></i><strong>Security note:</strong> When using <code>innerHTML</code> with user input, always sanitise the input first to prevent XSS attacks. For plain text, prefer <code>textContent</code> which is always safe. The example above uses <code>innerHTML</code> only for the predefined button markup - the user text should be escaped or set via <code>textContent</code> on the span separately.</p>
         </div>
       </section>
 
@@ -410,7 +410,7 @@
       <section id="real-world">
         <h2><i class="fas fa-globe mr-2"></i>Real-World Example: Comment Section</h2>
         <p>
-          Let&rsquo;s put it all together with a comment section that creates, renders, and
+          Let's put it all together with a comment section that creates, renders, and
           deletes comments dynamically:
         </p>
 
@@ -557,7 +557,7 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 useTutorialHead({
   title: 'Dynamic Content with JavaScript',
-  description: 'Create, insert, and manage HTML elements dynamically with JavaScript — update your page without full reloads.',
+  description: 'Create, insert, and manage HTML elements dynamically with JavaScript - update your page without full reloads.',
   path: '/tutorials/beginner/dom-basics/dynamic-content',
 });
 

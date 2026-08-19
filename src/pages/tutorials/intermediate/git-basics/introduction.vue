@@ -30,12 +30,12 @@
     <!-- Hunter Element 1: Anticipatory Set -->
     <AnticipatorySet
       title="Start Here"
-      :hook="`<p>Every professional developer uses version control. Imagine writing an essay and accidentally deleting a paragraph—wouldn't it be great to have an &quot;undo history&quot; that goes back forever? That's exactly what Git does for your code.</p><p>Git is the most widely used version control system in the world, and understanding it is essential for any developer.</p>`"
+      :hook="`<p>Every professional developer uses version control. Imagine writing an essay and accidentally deleting a paragraph - wouldn't it be great to have an &quot;undo history&quot; that goes back forever? That's exactly what Git does for your code.</p><p>Git is the most widely used version control system in the world, and understanding it is essential for any developer.</p>`"
       :reflection-prompts="[
         'Have you ever lost work because you saved over an important file?',
         'How do you currently keep track of changes to your projects?'
       ]"
-      connection="In this lesson, you'll discover how Git solves these problems and why it's a must-have skill for developers."
+      connection="You'll discover how Git solves these problems and why it's a core skill for developers."
     />
 
     <!-- Hunter Element 2: Learning Objectives -->
@@ -63,7 +63,7 @@
 
     <h2 class="title is-2">What is Version Control?</h2>
     <p>
-      Before diving into Git, let's understand what version control is and why it's important.
+      Before you work with Git, let's understand what version control is and why it's important.
     </p>
     <p>
       <strong>Version control</strong> is a system that records changes to files over time so that you can recall specific versions later. It allows you to:
@@ -370,7 +370,7 @@
 
     <h2 class="title is-2">Core Concepts</h2>
     <p>
-      Before we dive into installation and commands, let's familiarize ourselves with some core Git terminology:
+      Before we get into installation and commands, let's familiarize ourselves with some core Git terminology:
     </p>
 
     <div class="table-container">
@@ -416,7 +416,7 @@
 
     <h2 class="title is-2">Hands-On Example: Your First Git Workflow</h2>
     <p>
-      Let's walk through a simple example of how Git might be used in a typical workflow:
+      Walk through a simple example of how Git might be used in a typical workflow:
     </p>
 
     <div class="box code-example">
@@ -549,7 +549,7 @@ import { usePageSections } from '@/composables/usePageSections';
 
 useTutorialHead({
   title: 'Introduction to Git',
-  description: 'Learn why version control matters and how Git works — the essential foundation for managing code as a developer.',
+  description: 'Learn why version control matters and how Git works - the essential foundation for managing code as a developer.',
   path: '/tutorials/intermediate/git-basics/introduction',
 });
 

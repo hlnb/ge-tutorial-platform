@@ -100,7 +100,7 @@ const independentPracticeRubric = [
 	{
 		criteria: 'Custom CSS judgment',
 		success:
-			'Custom CSS is added where needed for the project’s own rhythm or polish rather than replacing the framework wholesale.',
+			'Custom CSS is added where needed for the project\'s own rhythm or polish rather than replacing the framework wholesale.',
 	},
 	{
 		criteria: 'Reasoning',
@@ -118,7 +118,7 @@ const closureKeyTakeaways = [
 
 const closureObjectives = [
 	'Install and import Bulma into a Vue project',
-	'Map a familiar interface to Bulma’s common component and layout patterns',
+	'Map a familiar interface to Bulma\'s common component and layout patterns',
 	'Use Bulma classes without losing template readability',
 	'Decide where custom CSS should still shape the final interface',
 ];
@@ -211,7 +211,7 @@ const closureReflectionPrompts = [
 				makes the example feel less artificial.
 			</p>
 			<p>
-				The teaching goal is not “Bulma forever.” The teaching goal is to let learners see
+				The teaching goal is not "Bulma forever." The teaching goal is to let learners see
 				how a CSS framework can reduce repetitive structure work while leaving the real
 				interface decisions visible.
 			</p>
@@ -227,7 +227,7 @@ const closureReflectionPrompts = [
 import 'bulma/css/bulma.min.css';</code></pre>
 
 			<p>
-				This gives the project access to Bulma’s ready-made class patterns without changing
+				This gives the project access to Bulma's ready-made class patterns without changing
 				the fact that Vue is still handling the app structure and state.
 			</p>
 
@@ -312,7 +312,7 @@ import 'bulma/css/bulma.min.css';</code></pre>
 				/>
 				<figcaption>
 					Framework classes can carry a lot of structure, but they should not hide the
-					places where your own CSS still needs to express the project’s decisions.
+					places where your own CSS still needs to express the project's decisions.
 				</figcaption>
 			</figure>
 
@@ -359,13 +359,13 @@ import 'bulma/css/bulma.min.css';</code></pre>
 					<a href="https://bulma.io/documentation/start/installation/" target="_blank" rel="noopener">
 						Bulma installation guide
 					</a>
-					&mdash; the official installation reference, including the npm package.
+					 - the official installation reference, including the npm package.
 				</li>
 				<li>
 					<a href="https://bulma.io/" target="_blank" rel="noopener">
 						Bulma homepage and documentation
 					</a>
-					&mdash; helpful for scanning the component vocabulary and common layout primitives.
+					 - helpful for scanning the component vocabulary and common layout primitives.
 				</li>
 			</ul>
 
@@ -389,7 +389,7 @@ import 'bulma/css/bulma.min.css';</code></pre>
 
 			<TutorialRecommendations
 				:current-path="'/tutorials/intermediate/using-bulma-in-a-vue-project'"
-				:next-tutorial="{ path: '/tutorials/advanced/black-swan-bistro-part-5', title: 'Black Swan Bistro — Part 5 (Prepare for Deployment)' }"
+				:next-tutorial="{ path: '/tutorials/advanced/black-swan-bistro-part-5', title: 'Black Swan Bistro - Part 5 (Prepare for Deployment)' }"
 				:related-tutorials="[
 					{ path: '/tutorials/intermediate/first-vue-app-with-vite', title: 'First Vue App with Vite' },
 					{ path: '/tutorials/intermediate/frameworks-101/why-css-frameworks-exist', title: 'Why CSS Frameworks Exist' }

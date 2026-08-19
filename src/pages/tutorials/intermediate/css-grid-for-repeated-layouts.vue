@@ -11,7 +11,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
   title: 'CSS Grid for Repeated Layouts',
-  description: 'Use CSS Grid for two-dimensional layouts — rows, columns, and template areas explained with real examples.',
+  description: 'Use CSS Grid for two-dimensional layouts - rows, columns, and template areas explained with real examples.',
   path: '/tutorials/intermediate/css-grid-for-repeated-layouts',
 });
 

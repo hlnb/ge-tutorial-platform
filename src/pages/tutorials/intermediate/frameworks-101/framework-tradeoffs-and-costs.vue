@@ -103,7 +103,7 @@ usePageSections(pageSections);
 				title="Checkpoint for Understanding"
 				:questions="[
 					{
-						question: 'Why is “frameworks are better” too simplistic?',
+							question: 'Why is &quot;frameworks are better&quot; too simplistic?',
 						answer: 'Because frameworks bring real benefits in some contexts and real costs in others. The right decision depends on the project, team, and goals.'
 					},
 					{

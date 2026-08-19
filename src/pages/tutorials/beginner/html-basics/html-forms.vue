@@ -33,7 +33,7 @@
 		<!-- Hunter Element 1: Anticipatory Set -->
 		<AnticipatorySet
 			title="📋 Forms: The Gateway to User Interaction"
-			:hook="`<p>Every time you log in, search, comment, or buy something online, you're using a form. Forms are how users communicate with websites—they're the bridge between people and data.</p>
+			:hook="`<p>Every time you log in, search, comment, or buy something online, you're using a form. Forms are how users communicate with websites - they're the bridge between people and data.</p>
 			<p><strong>Think about it:</strong> Google's homepage is basically just a search form. Facebook is built around status update forms. Amazon's checkout is a multi-step form. Forms run the internet!</p>`"
 			:reflection-prompts="[
 				'How many forms have you filled out today online?',
@@ -52,14 +52,14 @@
 				'Create accessible forms with proper labels and structure',
 				'Build user-friendly forms that guide users to success'
 			]"
-			purpose="Forms are essential for any interactive website. Whether you're building a contact form, login page, or checkout process, understanding forms is crucial. This is one of the most practical and immediately useful skills in web development."
+			purpose="Forms are essential for any interactive website. Whether you're building a contact form, login page, or checkout process, understanding forms is important. This is one of the most practical and immediately useful skills in web development."
 		/>
 
 		<CodingOptions filename="form.html" />
 
 		<h2 id="form-basics" class="title is-3">Basic Form Structure</h2>
 		<p>
-			Forms are used to collect user input. Let's start with a basic form
+			Forms are used to collect user input. Start with a basic form
 			structure:
 		</p>
 
@@ -358,7 +358,7 @@
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
 			real-world-application="<p>Forms are the primary way users interact with web applications. Every login, search, comment, purchase, and profile update happens through a form. Major websites like Google, Facebook, Amazon, and GitHub rely on well-designed forms to deliver their core functionality.</p><p>Professional form development requires balancing user experience (clear labels, helpful validation, logical flow) with security (server-side validation, CSRF tokens, rate limiting). Understanding HTML form fundamentals is essential before adding JavaScript enhancements or integrating with backend systems.</p>"
-			next-steps="<p>Now that you understand forms, you're ready to learn about proper HTML document structure. In the next lesson, you'll discover semantic HTML5 elements like header, nav, main, article, section, aside, and footer that give your pages meaning and structure.</p><p>Semantic HTML is crucial for accessibility, SEO, and creating maintainable codebases that other developers can understand and work with effectively.</p>"
+			next-steps="<p>Now that you understand forms, you're ready to learn about proper HTML document structure. In the next lesson, you'll discover semantic HTML5 elements like header, nav, main, article, section, aside, and footer that give your pages meaning and structure.</p><p>Semantic HTML is important for accessibility, SEO, and creating maintainable codebases that other developers can understand and work with effectively.</p>"
 		/>
 
 		<!-- Add recommendations before the quiz -->
@@ -381,7 +381,7 @@ import CodingOptions from '@/components/CodingOptions.vue';
 
 useTutorialHead({
   title: 'HTML Forms',
-  description: 'Build HTML forms from scratch — inputs, labels, buttons, and form attributes explained step by step for beginner web developers.',
+  description: 'Build HTML forms from scratch - inputs, labels, buttons, and form attributes explained step by step for beginner web developers.',
   path: '/tutorials/beginner/html-basics/html-forms',
 });
 import CodeMirror from '@/components/CodeMirror.vue';

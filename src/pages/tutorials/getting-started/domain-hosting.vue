@@ -49,7 +49,7 @@
 					'When you type &quot;google.com&quot; in your browser, what do you think happens behind the scenes?',
 					'Why do some websites have extensions like .com, .org, or .com.au?'
 				]"
-				connection="By the end of this lesson, you'll know exactly how to launch your site to the world!"
+				connection="After this lesson, you'll know how to launch your site to the world!"
 			/>
 
 			<!-- Hunter Element 2: Learning Objectives -->
@@ -64,7 +64,7 @@
 				purpose="Understanding domains and hosting is essential for launching any website. Whether you're building a personal portfolio, starting a business, or creating an app, you need to know how to make it accessible to users around the world. Making the right choices here can save you hundreds of dollars and countless hours of frustration."
 			/>
 
-			<p>In this tutorial, you'll learn:</p>
+			<p>You will learn:</p>
 			<ul>
 				<li>What domain names and DNS are</li>
 				<li>How web hosting works</li>
@@ -307,7 +307,7 @@
 		<!-- Guided Practice -->
 		<div class="box practice-guided">
 			<h2 id="setup-process" class="title is-2"><i class="fas fa-hands-helping"></i> Guided Practice: Connecting Domain to Hosting</h2>
-			<p>Let's walk through the process of connecting your domain to your hosting step by step.</p>
+			<p>Walk through the process of connecting your domain to your hosting step by step.</p>
 			
 			<div class="steps">
 				<div class="step-item">
@@ -357,8 +357,8 @@
 							<summary><i class="fas fa-lightbulb"></i> 💡 Need a hint?</summary>
 							<div class="hint-content">
 								<div class="hint">For platforms like GitHub Pages, Netlify, or Vercel, they'll provide specific DNS instructions in their documentation.</div>
-								<div class="hint">Double-check you've copied the values exactly—one typo can break your connection!</div>
-								<div class="hint">Most platforms provide both "www" and "non-www" (apex domain) configuration—set up both for best results.</div>
+								<div class="hint">Double-check you've copied the values exactly - one typo can break your connection!</div>
+								<div class="hint">Most platforms provide both "www" and "non-www" (apex domain) configuration - set up both for best results.</div>
 							</div>
 						</details>
 					</div>
@@ -472,8 +472,8 @@
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			:real-world-application="`<p><strong>After setting up your domain and hosting, don&rsquo;t forget these important steps:</strong></p><ul><li>Set up an SSL certificate (often free with Let&rsquo;s Encrypt) so your site uses HTTPS</li><li>Configure email if needed</li><li>Test your website on different devices and browsers</li><li>Set up regular backups</li></ul>`"
-			:next-steps="`<p>Now that you understand how to get your website online, the next tutorial covers <strong>Files, Folders &amp; Project Structure</strong> &mdash; how to organise your project files with proper naming conventions before you start writing code.</p>`"
+			:real-world-application="`<p><strong>After setting up your domain and hosting, don't forget these important steps:</strong></p><ul><li>Set up an SSL certificate (often free with Let's Encrypt) so your site uses HTTPS</li><li>Configure email if needed</li><li>Test your website on different devices and browsers</li><li>Set up regular backups</li></ul>`"
+			:next-steps="`<p>Now that you understand how to get your website online, the next tutorial covers <strong>Files, Folders &amp; Project Structure</strong> - how to organise your project files with proper naming conventions before you start writing code.</p>`"
 		/>
 
 		<TutorialRecommendations current-path="/tutorials/getting-started/domain-hosting" />
@@ -505,7 +505,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 
 useTutorialHead({
   title: 'Domains and Web Hosting Explained',
-  description: 'Understand how domain names and web hosting work — what they are, how they connect, and how to choose the right options for your site.',
+  description: 'Understand how domain names and web hosting work - what they are, how they connect, and how to choose the right options for your site.',
   path: '/tutorials/getting-started/domain-hosting',
 });
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';

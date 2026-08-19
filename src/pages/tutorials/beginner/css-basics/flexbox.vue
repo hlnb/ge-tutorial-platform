@@ -16,7 +16,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "CSS Flexbox",
-  description: "Master CSS Flexbox — create flexible one-dimensional layouts with proper alignment and distribution of elements.",
+  description: "Master CSS Flexbox - create flexible one-dimensional layouts with proper alignment and distribution of elements.",
   path: "/tutorials/beginner/css-basics/flexbox",
 });
 
@@ -385,7 +385,7 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 				</p>
 				<p>
 					Flexbox (Flexible Box Layout) gives you powerful control over how elements are
-					distributed and aligned in one dimension—either horizontally or vertically. Once
+					distributed and aligned in one dimension - either horizontally or vertically. Once
 					you understand its mental model, tasks that were once frustrating become
 					trivial. In this tutorial, you'll master Flexbox and discover why it's become
 					one of the most essential tools in modern CSS.
@@ -612,7 +612,7 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 			<section :id="sections[2].id" class="mb-6">
 				<h2 class="title is-2">{{ sections[2].title }}</h2>
 				<p>
-					Let's look at some practical examples of how Flexbox can be used to
+					Look at some practical examples of how Flexbox can be used to
 					create common UI patterns.
 				</p>
 
@@ -744,7 +744,7 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 					<h3 id="bistro-style-guide" class="title is-3">The Black Swan Bistro Style Guide</h3>
 					<p>
 						For The Black Swan Bistro restaurant site, we'll use Flexbox to
-						create an elegant, appetizing layout that showcases the restaurant's
+						create an elegant, appetizing layout that presents the restaurant's
 						offerings and ambiance.
 					</p>
 
@@ -1146,8 +1146,8 @@ body {
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Product teams use Flexbox for navigation bars, dashboards, pricing cards, and countless UI components. Frameworks like Bootstrap and Tailwind rely on Flexbox under the hood. Mastering Flexbox makes custom component work faster and helps you debug framework utilities with confidence.</p><p>Design systems often start with Flexbox primitives (stacks, clusters, sidebar layouts). Your ability to implement these patterns accurately ensures consistency across apps.</p>"
-			next-steps="<p>Next up is the modern CSS module, where you will learn advanced techniques (Grid, clamp(), container queries) building on Flexbox fundamentals. Continue practicing by recreating real-world layouts—Flexbox is foundational to all responsive design work.</p>"
+			real-world-application="<p>Product teams use Flexbox for navigation bars, dashboards, pricing cards, and countless UI components. Frameworks like Bootstrap and Tailwind rely on Flexbox under the hood. Learning Flexbox makes custom component work faster and helps you debug framework utilities with confidence.</p><p>Design systems often start with Flexbox primitives (stacks, clusters, sidebar layouts). Your ability to implement these patterns accurately ensures consistency across apps.</p>"
+			next-steps="<p>Next up is the modern CSS module, where you will learn advanced techniques (Grid, clamp(), container queries) building on Flexbox fundamentals. Continue practicing by recreating real-world layouts - Flexbox is foundational to all responsive design work.</p>"
 		/>
 
 		<!-- Add recommendations before the quiz -->

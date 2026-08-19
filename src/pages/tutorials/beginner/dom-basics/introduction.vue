@@ -184,7 +184,7 @@ document
 
       <section id="practice" class="practice-section">
         <h2>Practice: Exploring the DOM</h2>
-        <p>Let's use what you already know from JavaScript to explore the DOM. Open your browser's console and try these examples:</p>
+        <p>Use what you already know from JavaScript to explore the DOM. Open your browser's console and try these examples:</p>
 
         <div class="box practice-box">
           <h3>Exercise 1: Viewing DOM Elements</h3>
@@ -243,7 +243,7 @@ document
         :key-takeaways="closureKeyTakeaways"
         :objectives="closureObjectives"
         :reflection-prompts="closureReflectionPrompts"
-        real-world-application="<p>The DOM is the backbone of every interactive website. Whether you're building a simple contact form or a complex single-page application, understanding how the browser represents your HTML as a tree of objects is essential. Every framework — React, Vue, Angular — ultimately works by manipulating the DOM on your behalf.</p>"
+        real-world-application="<p>The DOM is the backbone of every interactive website. Whether you're building a simple contact form or a complex single-page application, understanding how the browser represents your HTML as a tree of objects is essential. Every framework - React, Vue, Angular - ultimately works by manipulating the DOM on your behalf.</p>"
         next-steps="<p>Now that you understand the DOM's structure and how JavaScript can access it, you're ready to learn about arrays and array methods. In the next lesson, you'll discover how to work with collections of DOM elements efficiently.</p>"
       />
 

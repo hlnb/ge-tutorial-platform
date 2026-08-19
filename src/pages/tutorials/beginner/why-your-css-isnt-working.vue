@@ -16,7 +16,7 @@
 						<router-link to="/tutorials/beginner">Beginner</router-link>
 					</li>
 					<li class="is-active">
-						<a href="#" aria-current="page">Why Your CSS Isn&rsquo;t Working</a>
+						<a href="#" aria-current="page">Why Your CSS Isn't Working</a>
 					</li>
 				</ul>
 			</nav>
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 
-			<h1 class="title is-1">Why Your CSS Isn&rsquo;t Working (And How to Fix It)</h1>
+			<h1 class="title is-1">Why Your CSS Isn't Working (And How to Fix It)</h1>
 
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- HUNTER ELEMENT 1: ANTICIPATORY SET                -->
@@ -39,13 +39,13 @@
 			<AnticipatorySet
 				title="You Wrote the CSS. Nothing Changed."
 				icon="🤔"
-				:hook="`<p>You&rsquo;ve carefully written a CSS rule. You save the file. You switch to the browser and hit refresh. And&hellip; nothing. The page looks exactly the same. No error message. No warning. Just silence.</p><p>This is one of the most frustrating experiences in web development &mdash; and it happens to <em>everyone</em>, from first-day beginners to senior engineers. CSS fails silently. When something is wrong, the browser doesn&rsquo;t shout at you the way JavaScript does. It just quietly ignores the broken rule and moves on.</p><p>The good news? There are only a handful of reasons CSS doesn&rsquo;t work, and once you know what they are, you can diagnose any problem in under a minute.</p>`"
+				:hook="`<p>You've carefully written a CSS rule. You save the file. You switch to the browser and hit refresh. And&hellip; nothing. The page looks exactly the same. No error message. No warning. Just silence.</p><p>This is one of the most frustrating experiences in web development - and it happens to <em>everyone</em>, from first-day beginners to senior engineers. CSS fails silently. When something is wrong, the browser doesn't shout at you the way JavaScript does. It just quietly ignores the broken rule and moves on.</p><p>The good news? There are only a handful of reasons CSS doesn't work, and once you know what they are, you can diagnose any problem in under a minute.</p>`"
 				:reflection-prompts="[
 					'Have you ever changed a CSS property and refreshed the page, only to see nothing happen?',
 					'Do you know how to check whether your browser is actually loading your stylesheet?',
 					'If two CSS rules target the same element, how does the browser decide which one wins?'
 				]"
-				connection="In the next 30 minutes, you&rsquo;ll learn the most common reasons CSS breaks &mdash; and build a systematic debugging checklist you can use every time something doesn&rsquo;t look right."
+				connection="In the next 30 minutes, you'll learn the most common reasons CSS breaks - and build a systematic debugging checklist you can use every time something doesn't look right."
 			/>
 
 			<!-- ═══════════════════════════════════════════════════ -->
@@ -59,7 +59,7 @@
 					'Use browser DevTools to inspect, toggle, and edit CSS rules in real time',
 					'Apply a systematic debugging checklist to fix broken styles quickly'
 				]"
-				purpose="Professional developers spend a surprising amount of time debugging CSS. The difference between a beginner and an expert isn&rsquo;t that experts never have CSS problems &mdash; it&rsquo;s that they can find and fix them in seconds. This tutorial gives you the same mental checklist that experienced developers use, so you stop guessing and start diagnosing."
+				purpose="Professional developers spend a surprising amount of time debugging CSS. The difference between a beginner and an expert isn't that experts never have CSS problems - it's that they can find and fix them in seconds. This tutorial gives you the same mental checklist that experienced developers use, so you stop guessing and start diagnosing."
 			/>
 
 			<!-- ═══════════════════════════════════════════════════ -->
@@ -67,7 +67,7 @@
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="css-loading">Is Your CSS Even Loading?</h2>
 
-			<p>Before you blame your rules, make sure the browser is actually reading your stylesheet. This is the number one cause of &ldquo;my CSS isn&rsquo;t working&rdquo; for beginners &mdash; and it&rsquo;s the easiest to fix.</p>
+			<p>Before you blame your rules, make sure the browser is actually reading your stylesheet. This is the number one cause of "my CSS isn't working" for beginners - and it's the easiest to fix.</p>
 
 			<h3>Check 1: Is the &lt;link&gt; tag in your HTML?</h3>
 
@@ -79,7 +79,7 @@
     &lt;link rel="stylesheet" href="css/style.css"&gt;
 &lt;/head&gt;</code></pre>
 
-			<p>If this line is missing, your CSS file exists but the browser has no idea it&rsquo;s there. It&rsquo;s like writing a letter and never posting it.</p>
+			<p>If this line is missing, your CSS file exists but the browser has no idea it's there. It's like writing a letter and never posting it.</p>
 
 			<h3>Check 2: Is the file path correct?</h3>
 
@@ -115,7 +115,7 @@
 
 			<div class="box" style="border-left: 4px solid #ffdd57;">
 				<h4><i class="fas fa-exclamation-triangle mr-2" style="color: #ffdd57;"></i>Case matters on servers</h4>
-				<p><code>style.css</code> and <code>Style.css</code> are the same file on your Mac &mdash; but on a Linux web server, they&rsquo;re two different files. Always use lowercase filenames.</p>
+				<p><code>style.css</code> and <code>Style.css</code> are the same file on your Mac - but on a Linux web server, they're two different files. Always use lowercase filenames.</p>
 			</div>
 
 			<h3>Check 3: Browser cache</h3>
@@ -129,7 +129,7 @@
 				<li><strong>Windows/Linux:</strong> <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></li>
 			</ul>
 
-			<p>Or open DevTools (F12), go to the <strong>Network</strong> tab, and tick <strong>&ldquo;Disable cache&rdquo;</strong> while DevTools is open.</p>
+			<p>Or open DevTools (F12), go to the <strong>Network</strong> tab, and tick <strong>"Disable cache"</strong> while DevTools is open.</p>
 
 			<div class="box analogy-box">
 				<strong><i class="fas fa-lightbulb mr-2"></i>Think of caching like a photocopy:</strong>
@@ -141,11 +141,11 @@
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="syntax-errors">Syntax Errors: The Silent Breakers</h2>
 
-			<p>CSS doesn&rsquo;t throw error messages like JavaScript. If you make a syntax mistake, the browser silently skips the broken rule &mdash; and sometimes everything that comes after it.</p>
+			<p>CSS doesn't throw error messages like JavaScript. If you make a syntax mistake, the browser silently skips the broken rule - and sometimes everything that comes after it.</p>
 
 			<h3>Missing curly brackets</h3>
 
-			<p>If you forget a closing <code>}</code>, the browser can&rsquo;t tell where your rule ends. <strong>Every rule below the missing bracket may also break.</strong></p>
+			<p>If you forget a closing <code>}</code>, the browser can't tell where your rule ends. <strong>Every rule below the missing bracket may also break.</strong></p>
 
 			<div class="columns mt-4">
 				<div class="column">
@@ -192,7 +192,7 @@ color navy;
 color: navy
 font-size: 2rem</code></pre>
 
-			<p>A missing semicolon can cause the next property to be treated as part of the current value &mdash; the browser sees <code>color: navy font-size: 2rem</code> as one invalid value and ignores both.</p>
+			<p>A missing semicolon can cause the next property to be treated as part of the current value - the browser sees <code>color: navy font-size: 2rem</code> as one invalid value and ignores both.</p>
 
 			<h3>Space between value and unit</h3>
 
@@ -209,8 +209,8 @@ margin: 1.5 rem;</code></pre>
 			<p>CSS requires the number and unit to be one continuous token. A space between them makes the value invalid, and the rule is silently ignored.</p>
 
 			<div class="box highlight-box">
-				<strong><i class="fas fa-info-circle mr-2"></i>Why doesn&rsquo;t CSS show error messages?</strong>
-				<p>CSS was designed to be <strong>forward-compatible</strong>. When browsers encounter a property or value they don&rsquo;t understand, they skip it instead of crashing. This means new CSS features can be added without breaking old browsers &mdash; but it also means your typos get silently ignored instead of flagged.</p>
+				<strong><i class="fas fa-info-circle mr-2"></i>Why doesn't CSS show error messages?</strong>
+				<p>CSS was designed to be <strong>forward-compatible</strong>. When browsers encounter a property or value they don't understand, they skip it instead of crashing. This means new CSS features can be added without breaking old browsers - but it also means your typos get silently ignored instead of flagged.</p>
 			</div>
 
 			<CheckpointBox
@@ -224,11 +224,11 @@ margin: 1.5 rem;</code></pre>
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="selector-issues">Selector Issues: Targeting the Wrong Thing</h2>
 
-			<p>Your CSS might be perfectly valid, but if the selector doesn&rsquo;t match any element in your HTML, the rule has nothing to style.</p>
+			<p>Your CSS might be perfectly valid, but if the selector doesn't match any element in your HTML, the rule has nothing to style.</p>
 
 			<h3>Typos in class and ID names</h3>
 
-			<p>This is embarrassingly common &mdash; and hard to spot because CSS gives you no warning:</p>
+			<p>This is embarrassingly common - and hard to spot because CSS gives you no warning:</p>
 
 			<pre><code>&lt;!-- HTML --&gt;
 &lt;div class="hero-banner"&gt;...&lt;/div&gt;
@@ -284,7 +284,7 @@ h1, h2 {
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="specificity-cascade">Specificity &amp; the Cascade</h2>
 
-			<p>This is where beginners get stuck the most. You write a rule, the selector is correct, the syntax is perfect &mdash; but the browser is applying a <em>different</em> rule instead. Why?</p>
+			<p>This is where beginners get stuck the most. You write a rule, the selector is correct, the syntax is perfect - but the browser is applying a <em>different</em> rule instead. Why?</p>
 
 			<h3>The cascade: last rule wins</h3>
 
@@ -357,7 +357,7 @@ p.intro {
 
 			<div class="box analogy-box">
 				<strong><i class="fas fa-lightbulb mr-2"></i>Think of specificity like an address:</strong>
-				<p>&ldquo;Deliver this to <em>any house</em> on the street&rdquo; (element selector) is vague. &ldquo;Deliver to <em>the blue house</em>&rdquo; (class) is more specific. &ldquo;Deliver to <em>42 Smith Street</em>&rdquo; (ID) is exact. The more specific instruction always wins.</p>
+				<p>"Deliver this to <em>any house</em> on the street" (element selector) is vague. "Deliver to <em>the blue house</em>" (class) is more specific. "Deliver to <em>42 Smith Street</em>" (ID) is exact. The more specific instruction always wins.</p>
 			</div>
 
 			<h3>The <code>!important</code> trap</h3>
@@ -368,14 +368,14 @@ p.intro {
     color: red !important;
 }</code></pre>
 
-			<p>This works &mdash; but it&rsquo;s a trap. Once you start using <code>!important</code>, the only way to override <em>that</em> rule is with <em>another</em> <code>!important</code>, and soon your stylesheet becomes an unmanageable mess. Professional developers treat <code>!important</code> as a last resort, not a first fix.</p>
+			<p>This works - but it's a trap. Once you start using <code>!important</code>, the only way to override <em>that</em> rule is with <em>another</em> <code>!important</code>, and soon your stylesheet becomes an unmanageable mess. Professional developers treat <code>!important</code> as a last resort, not a first fix.</p>
 
 			<div class="box" style="border-left: 4px solid #f14668;">
 				<h4><i class="fas fa-ban mr-2" style="color: #f14668;"></i>Instead of <code>!important</code>:</h4>
 				<ol>
 					<li>Make your selector <strong>more specific</strong> (add a class or parent selector)</li>
 					<li>Move the rule <strong>later</strong> in the stylesheet</li>
-					<li>Remove the conflicting rule that&rsquo;s winning</li>
+					<li>Remove the conflicting rule that's winning</li>
 				</ol>
 			</div>
 
@@ -390,9 +390,9 @@ p.intro {
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="inheritance-conflicts">Inheritance &amp; Third-Party Conflicts</h2>
 
-			<p>Some CSS properties are <strong>inherited</strong> &mdash; child elements automatically pick up the value from their parent. Others are not.</p>
+			<p>Some CSS properties are <strong>inherited</strong> - child elements automatically pick up the value from their parent. Others are not.</p>
 
-			<h3>What inherits and what doesn&rsquo;t</h3>
+			<h3>What inherits and what doesn't</h3>
 
 			<div class="columns mt-4">
 				<div class="column">
@@ -425,7 +425,7 @@ p.intro {
 
 			<h3>Third-party CSS conflicts</h3>
 
-			<p>If you&rsquo;re using a CSS framework (Bootstrap, Bulma, Tailwind) or a CMS theme, their styles load <em>alongside</em> yours. When your rules don&rsquo;t seem to take effect, the framework&rsquo;s rules are probably winning the specificity battle.</p>
+			<p>If you're using a CSS framework (Bootstrap, Bulma, Tailwind) or a CMS theme, their styles load <em>alongside</em> yours. When your rules don't seem to take effect, the framework's rules are probably winning the specificity battle.</p>
 
 			<pre><code>/* Bulma's button styles might be:
    .button { background-color: white; }
@@ -437,14 +437,14 @@ p.intro {
 }
 /* Specificity: 20 — wins! */</code></pre>
 
-			<p><strong>Tip:</strong> In DevTools, look for rules with a line-through &mdash; that means they&rsquo;re being overridden by a more specific rule. The winning rule is shown above it.</p>
+			<p><strong>Tip:</strong> In DevTools, look for rules with a line-through - that means they're being overridden by a more specific rule. The winning rule is shown above it.</p>
 
 			<!-- ═══════════════════════════════════════════════════ -->
 			<!-- CONTENT SECTION 6: Browser DevTools               -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="devtools">Browser DevTools: Your CSS Debugger</h2>
 
-			<p>DevTools is the single most valuable tool for debugging CSS. Every browser has them built in &mdash; no installation required.</p>
+			<p>DevTools is the most useful tool for debugging CSS. Every browser has them built in - no installation required.</p>
 
 			<h3>Opening DevTools</h3>
 
@@ -456,31 +456,31 @@ p.intro {
 
 			<h3>The Elements panel</h3>
 
-			<p>The Elements panel shows your HTML on the left and the CSS rules for the selected element on the right. This is where you&rsquo;ll do most of your debugging.</p>
+			<p>The Elements panel shows your HTML on the left and the CSS rules for the selected element on the right. This is where you'll do most of your debugging.</p>
 
 			<h3>Key debugging techniques</h3>
 
 			<ol>
 				<li>
-					<strong>Inspect the element</strong> &mdash; Right-click the problem element &rarr; Inspect. The Styles panel shows every CSS rule that applies.
+					<strong>Inspect the element</strong> - Right-click the problem element &rarr; Inspect. The Styles panel shows every CSS rule that applies.
 				</li>
 				<li>
-					<strong>Look for crossed-out rules</strong> &mdash; A line through a property means it&rsquo;s being <strong>overridden</strong> by another rule. Look above it to see what&rsquo;s winning.
+					<strong>Look for crossed-out rules</strong> - A line through a property means it's being <strong>overridden</strong> by another rule. Look above it to see what's winning.
 				</li>
 				<li>
-					<strong>Toggle rules on/off</strong> &mdash; Click the checkbox next to any property to disable it temporarily. This is the fastest way to find which rule is causing a problem.
+					<strong>Toggle rules on/off</strong> - Click the checkbox next to any property to disable it temporarily. This is the fastest way to find which rule is causing a problem.
 				</li>
 				<li>
-					<strong>Edit values live</strong> &mdash; Click on any value (e.g. <code>navy</code>) and type a new one. The page updates instantly. This lets you experiment without touching your file.
+					<strong>Edit values live</strong> - Click on any value (e.g. <code>navy</code>) and type a new one. The page updates instantly. This lets you experiment without touching your file.
 				</li>
 				<li>
-					<strong>Check the Computed tab</strong> &mdash; This shows the <em>final</em> value the browser is actually using, after all cascade and inheritance calculations.
+					<strong>Check the Computed tab</strong> - This shows the <em>final</em> value the browser is actually using, after all cascade and inheritance calculations.
 				</li>
 			</ol>
 
 			<div class="box analogy-box">
 				<strong><i class="fas fa-lightbulb mr-2"></i>DevTools is like an X-ray for your page:</strong>
-				<p>It lets you see inside the page &mdash; which rules are applied, which are overridden, and exactly why. If CSS is the clothes your page wears, DevTools lets you see the skeleton underneath.</p>
+				<p>It lets you see inside the page - which rules are applied, which are overridden, and exactly why. If CSS is the clothes your page wears, DevTools lets you see the skeleton underneath.</p>
 			</div>
 
 			<h3>The outline trick for layout debugging</h3>
@@ -492,7 +492,7 @@ p.intro {
     outline: 1px solid red;
 }</code></pre>
 
-			<p>This draws a red border around every element so you can see their boundaries. Unlike <code>border</code>, <code>outline</code> doesn&rsquo;t affect the element&rsquo;s size or layout, so it won&rsquo;t change what you&rsquo;re debugging.</p>
+			<p>This draws a red border around every element so you can see their boundaries. Unlike <code>border</code>, <code>outline</code> doesn't affect the element's size or layout, so it won't change what you're debugging.</p>
 
 			<CheckpointBox
 				title="⏸️ Check: DevTools"
@@ -505,7 +505,7 @@ p.intro {
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="layout-gotchas">Layout Gotchas</h2>
 
-			<p>Some CSS problems aren&rsquo;t about individual properties &mdash; they&rsquo;re about how elements interact with each other in the layout.</p>
+			<p>Some CSS problems aren't about individual properties - they're about how elements interact with each other in the layout.</p>
 
 			<h3>Overflow issues</h3>
 
@@ -514,12 +514,12 @@ p.intro {
 			<ul>
 				<li>Fixed-width elements inside a flexible container</li>
 				<li>Images wider than their parent (fix: <code>img { max-width: 100%; }</code>)</li>
-				<li>Padding or borders adding to the element&rsquo;s total width (fix: <code>box-sizing: border-box</code>)</li>
+				<li>Padding or borders adding to the element's total width (fix: <code>box-sizing: border-box</code>)</li>
 			</ul>
 
 			<h3>Collapsed margins</h3>
 
-			<p>When two vertical margins touch, they don&rsquo;t add up &mdash; the larger one wins. This is called <strong>margin collapsing</strong> and it catches everyone off guard:</p>
+			<p>When two vertical margins touch, they don't add up - the larger one wins. This is called <strong>margin collapsing</strong> and it catches everyone off guard:</p>
 
 			<pre><code>/* You'd expect 40px of space between them.
    You actually get 30px (the larger margin wins). */
@@ -532,7 +532,7 @@ p {
 
 			<h3>Z-index confusion</h3>
 
-			<p><code>z-index</code> only works on elements with a <code>position</code> value other than <code>static</code>. This is the most common reason z-index &ldquo;doesn&rsquo;t work&rdquo;:</p>
+			<p><code>z-index</code> only works on elements with a <code>position</code> value other than <code>static</code>. This is the most common reason z-index "doesn't work":</p>
 
 			<pre><code>/* ❌ Won't work — no position set */
 .popup {
@@ -550,20 +550,20 @@ p {
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="debugging-checklist">Your CSS Debugging Checklist</h2>
 
-			<p>When your CSS isn&rsquo;t working, run through this checklist in order. Most problems are found in the first three steps:</p>
+			<p>When your CSS isn't working, run through this checklist in order. Most problems are found in the first three steps:</p>
 
 			<div class="box" style="border-left: 4px solid #48c774;">
 				<h4><i class="fas fa-clipboard-check mr-2" style="color: #48c774;"></i>The Checklist</h4>
 				<ol>
-					<li><strong>Is the stylesheet linked?</strong> &mdash; Check the <code>&lt;link&gt;</code> tag in your HTML <code>&lt;head&gt;</code></li>
-					<li><strong>Is the file path correct?</strong> &mdash; Check for typos and wrong folder paths</li>
-					<li><strong>Is it cached?</strong> &mdash; Do a hard refresh (<kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>)</li>
-					<li><strong>Any syntax errors?</strong> &mdash; Check for missing <code>{}</code>, <code>:</code>, and <code>;</code></li>
-					<li><strong>Does the selector match?</strong> &mdash; Check class/ID spelling, dots, and hashes</li>
-					<li><strong>Is it being overridden?</strong> &mdash; Open DevTools and look for crossed-out rules</li>
-					<li><strong>Is specificity losing?</strong> &mdash; Make your selector more specific</li>
-					<li><strong>Is it inherited or not?</strong> &mdash; Check whether the property inherits</li>
-					<li><strong>Browser compatibility?</strong> &mdash; Check MDN for browser support</li>
+					<li><strong>Is the stylesheet linked?</strong> - Check the <code>&lt;link&gt;</code> tag in your HTML <code>&lt;head&gt;</code></li>
+					<li><strong>Is the file path correct?</strong> - Check for typos and wrong folder paths</li>
+					<li><strong>Is it cached?</strong> - Do a hard refresh (<kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>)</li>
+					<li><strong>Any syntax errors?</strong> - Check for missing <code>{}</code>, <code>:</code>, and <code>;</code></li>
+					<li><strong>Does the selector match?</strong> - Check class/ID spelling, dots, and hashes</li>
+					<li><strong>Is it being overridden?</strong> - Open DevTools and look for crossed-out rules</li>
+					<li><strong>Is specificity losing?</strong> - Make your selector more specific</li>
+					<li><strong>Is it inherited or not?</strong> - Check whether the property inherits</li>
+					<li><strong>Browser compatibility?</strong> - Check MDN for browser support</li>
 				</ol>
 			</div>
 
@@ -583,7 +583,7 @@ p {
 
 			<GuidedPractice
 				title="Debug a Broken Stylesheet"
-				description="You&rsquo;ve been given a webpage with CSS that isn&rsquo;t working. Use your debugging checklist to find and fix each issue."
+				description="You've been given a webpage with CSS that isn't working. Use your debugging checklist to find and fix each issue."
 				:steps="guidedPracticeSteps"
 				:success-criteria="[
 					'All headings are styled with the correct colours',
@@ -610,7 +610,7 @@ p {
 
 			<IndependentPractice
 				title="CSS Detective: Find All the Bugs"
-				task="You&rsquo;ve been hired to fix a client&rsquo;s website. Their stylesheet has <strong>7 different CSS problems</strong> &mdash; a mix of loading issues, syntax errors, selector problems, and specificity conflicts. Create a simple HTML page with an intentionally broken stylesheet, then systematically find and fix each bug using DevTools and the debugging checklist."
+				task="You've been hired to fix a client's website. Their stylesheet has <strong>7 different CSS problems</strong> - a mix of loading issues, syntax errors, selector problems, and specificity conflicts. Create a simple HTML page with an intentionally broken stylesheet, then systematically find and fix each bug using DevTools and the debugging checklist."
 				:requirements="[
 					'Create an HTML page with at least a header, nav, hero section, and footer',
 					'Write a CSS file with at least 7 intentional bugs (mix of categories from this tutorial)',
@@ -629,7 +629,7 @@ p {
 					{ criteria: '7+ intentional bugs covering at least 3 categories', success: 'Meets expectations' },
 					{ criteria: 'Each bug is documented with the fix in a comment', success: 'Meets expectations' },
 					{ criteria: 'DevTools was used (not just guessing) to diagnose', success: 'Meets expectations' },
-					{ criteria: 'Stretch goals attempted — third-party conflict or z-index fix', success: 'Exceeds expectations' },
+					{ criteria: 'Stretch goals attempted - third-party conflict or z-index fix', success: 'Exceeds expectations' },
 					{ criteria: 'Clean, well-organised final stylesheet after all fixes', success: 'Exceeds expectations' }
 				]"
 			/>
@@ -667,7 +667,7 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 useTutorialHead({
   title: "Why Your CSS Isn't Working",
-  description: "Debug CSS that won't apply — understand cascade, specificity, and inheritance with a step-by-step troubleshooting checklist.",
+  description: "Debug CSS that won't apply - understand cascade, specificity, and inheritance with a step-by-step troubleshooting checklist.",
   path: "/tutorials/beginner/why-your-css-isnt-working",
 });
 

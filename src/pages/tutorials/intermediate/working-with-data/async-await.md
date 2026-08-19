@@ -36,7 +36,7 @@ getUser(1)
   .catch((error) => handleError(error));
 ```
 
-This is fine. But `async`/`await` lets you write the same logic so it reads top to bottom — like synchronous code — while staying fully asynchronous underneath:
+This is fine. But `async`/`await` lets you write the same logic so it reads top to bottom - like synchronous code - while staying fully asynchronous underneath:
 
 ```js
 async function loadComments() {
@@ -55,7 +55,7 @@ Same engine. Different syntax. This tutorial shows you how to use it.
 
 ## What you'll learn
 
-By the end of this tutorial you'll be able to:
+After this tutorial, you'll be able to:
 
 - Explain what `async` and `await` do and how they relate to Promises
 - Rewrite a `.then()` chain as an `async`/`await` function
@@ -65,7 +65,7 @@ By the end of this tutorial you'll be able to:
 
 ---
 
-> **Before you start:** `async`/`await` is built on Promises — it's not a replacement, it's a cleaner way to write them. You should be comfortable with Promises and `.then()` chaining before reading this tutorial.
+> **Before you start:** `async`/`await` is built on Promises - it's not a replacement, it's a cleaner way to write them. You should be comfortable with Promises and `.then()` chaining before reading this tutorial.
 
 ---
 
@@ -84,13 +84,13 @@ async function greet() {
 greet().then((message) => console.log(message)); // 'Hello'
 ```
 
-Even though `greet` just returns a plain string, `async` wraps it in a resolved Promise automatically. This means async functions always fit into Promise chains — you can call `.then()` on them.
+Even though `greet` just returns a plain string, `async` wraps it in a resolved Promise automatically. This means async functions always fit into Promise chains - you can call `.then()` on them.
 
 ---
 
 ## The await keyword
 
-`await` pauses execution *within the async function* until a Promise resolves, then gives you the resolved value directly — no `.then()` needed.
+`await` pauses execution *within the async function* until a Promise resolves, then gives you the resolved value directly - no `.then()` needed.
 
 ```js
 async function loadUser() {
@@ -110,7 +110,7 @@ function loadUser() {
 }
 ```
 
-Same result. The `async`/`await` version reads like a simple sequence of steps — which is exactly what it is.
+Same result. The `async`/`await` version reads like a simple sequence of steps - which is exactly what it is.
 
 **Important:** `await` only pauses the *function* it's inside. The rest of your program keeps running. It doesn't freeze the browser.
 
@@ -138,13 +138,13 @@ async function loadUser(id) {
 }
 ```
 
-The `catch` block handles everything that could go wrong inside the `try` — network failures, the `response.ok` check, parsing errors, anything. One handler for all of it.
+The `catch` block handles everything that could go wrong inside the `try` - network failures, the `response.ok` check, parsing errors, anything. One handler for all of it.
 
 ---
 
 ## Rewriting a Promise chain
 
-Here's a direct before/after comparison — the same logic in both styles.
+Here's a direct before/after comparison - the same logic in both styles.
 
 **Promise chain:**
 
@@ -190,7 +190,7 @@ Both functions return a Promise that resolves to an array of titles (or an empty
 
 One common mistake with `async`/`await` is making requests sequential when they could run at the same time.
 
-**Slow — sequential (each waits for the previous):**
+**Slow - sequential (each waits for the previous):**
 
 ```js
 async function loadDashboard() {
@@ -203,7 +203,7 @@ async function loadDashboard() {
 
 If `getUser`, `getPosts`, and `getTodos` don't depend on each other, there's no reason to queue them. **`Promise.all()`** runs them in parallel and waits for all to finish:
 
-**Fast — parallel:**
+**Fast - parallel:**
 
 ```js
 async function loadDashboard() {
@@ -216,7 +216,7 @@ async function loadDashboard() {
 }
 ```
 
-`Promise.all()` takes an array of Promises and returns a single Promise that resolves when all of them have resolved — giving you an array of results in the same order. If any one rejects, the whole thing rejects.
+`Promise.all()` takes an array of Promises and returns a single Promise that resolves when all of them have resolved - giving you an array of results in the same order. If any one rejects, the whole thing rejects.
 
 Here's a real example with `fetch`:
 
@@ -252,7 +252,7 @@ async function loadUserWithPosts(userId) {
 
 **Forgetting `await`**
 
-Without `await`, you get the Promise object — not the resolved value:
+Without `await`, you get the Promise object - not the resolved value:
 
 ```js
 async function broken() {
@@ -293,7 +293,7 @@ If two requests don't depend on each other's results, use `Promise.all()`. Seque
 ## Check your understanding
 
 **1. What does adding `async` to a function do?**
-It allows the use of `await` inside the function, and makes the function always return a Promise — even if it returns a plain value.
+It allows the use of `await` inside the function, and makes the function always return a Promise - even if it returns a plain value.
 
 **2. What does `await` actually do?**
 It pauses execution within the async function until the awaited Promise resolves, then gives you the resolved value directly. It doesn't block the rest of the program.
@@ -302,7 +302,7 @@ It pauses execution within the async function until the awaited Promise resolves
 With `.then()` chains you add `.catch()` at the end. With `async`/`await` you use a `try`/`catch` block inside the function. Both catch the same errors.
 
 **4. When should you use `Promise.all()` instead of sequential `await` calls?**
-When the requests are independent — when one doesn't need the result of another to run. `Promise.all()` runs them in parallel, reducing total wait time to the slowest single request.
+When the requests are independent - when one doesn't need the result of another to run. `Promise.all()` runs them in parallel, reducing total wait time to the slowest single request.
 
 <!-- /CheckpointBox -->
 
@@ -315,7 +315,7 @@ When the requests are independent — when one doesn't need the result of anothe
 
 You're going to rewrite an existing Promise chain as an `async`/`await` function, then extend it with parallel requests.
 
-**Step 1 — Start with a Promise chain**
+**Step 1 - Start with a Promise chain**
 
 Copy this function into your editor:
 
@@ -338,12 +338,12 @@ function getUserAndPosts(userId) {
 }
 ```
 
-**Step 2 — Rewrite it as async/await**
+**Step 2 - Rewrite it as async/await**
 
 Create a new function `getUserAndPostsAsync(userId)` that produces the same result using `async`/`await` and `try`/`catch`.
 
 <details>
-<summary>Hint — structure</summary>
+<summary>Hint - structure</summary>
 
 ```js
 async function getUserAndPostsAsync(userId) {
@@ -364,13 +364,13 @@ async function getUserAndPostsAsync(userId) {
 ```
 </details>
 
-**Step 3 — Call it and log the results**
+**Step 3 - Call it and log the results**
 
 Call `getUserAndPostsAsync(1)` and log the user's name and the number of posts returned.
 
-**Step 4 — Optimise with Promise.all()**
+**Step 4 - Optimise with Promise.all()**
 
-Notice that in your rewrite, the posts request waits for the user request to finish — but it doesn't need to, because you're passing the `userId` directly. Refactor to fetch both in parallel using `Promise.all()`.
+Notice that in your rewrite, the posts request waits for the user request to finish - but it doesn't need to, because you're passing the `userId` directly. Refactor to fetch both in parallel using `Promise.all()`.
 
 <!-- /GuidedPractice -->
 
@@ -416,6 +416,6 @@ Build an **async data loader** that fetches three independent resources in paral
 
 ## What's next
 
-You now have the full async toolkit: Promises, `fetch()`, JSON, and `async`/`await`. The final tutorial in this section puts it all together in a practical mini-project — fetching real data from a public API and rendering it to the page.
+You now have the full async toolkit: Promises, `fetch()`, JSON, and `async`/`await`. The final tutorial in this section puts it all together in a practical mini-project - fetching real data from a public API and rendering it to the page.
 
 → **Next: [Mini-project: Fetch and Display Live Data](./mini-project)**

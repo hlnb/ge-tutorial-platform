@@ -387,14 +387,14 @@ const closureReflectionPrompts = [
 			<ul>
 				<li>
 					Every Layout
-					&mdash; particularly valuable for thinking about page sections as compositional
+					 - particularly valuable for thinking about page sections as compositional
 					layout structures rather than page-specific hacks.
 				</li>
 				<li>
 					<a href="https://getbem.com" target="_blank" rel="noopener">
-						BEM — Block Element Modifier
+						BEM - Block Element Modifier
 					</a>
-					&mdash; helpful once you start naming the page regions and repeated blocks in a
+					 - helpful once you start naming the page regions and repeated blocks in a
 					clear, predictable way.
 				</li>
 			</ul>

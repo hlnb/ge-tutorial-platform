@@ -292,7 +292,7 @@ import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 useTutorialHead({
   title: 'Getting Started with JavaScript',
-  description: 'Begin your JavaScript journey — understand what JS does, how it runs in the browser, and write your first lines of code.',
+  description: 'Begin your JavaScript journey - understand what JS does, how it runs in the browser, and write your first lines of code.',
   path: '/tutorials/beginner/javascript-basics/introduction',
 });
 
@@ -330,7 +330,7 @@ const learningObjectives = {
 		'Write and run small interactive snippets using DOM events',
 		'Explain real-world scenarios where JavaScript creates value'
 	],
-	purpose: 'These fundamentals ensure every future JavaScript concept—variables, logic, or complex apps—rests on a confident understanding of where and how code runs.'
+	purpose: 'These fundamentals ensure every future JavaScript concept - variables, logic, or complex apps - rests on a confident understanding of where and how code runs.'
 };
 
 const foundationCheckpoint = {

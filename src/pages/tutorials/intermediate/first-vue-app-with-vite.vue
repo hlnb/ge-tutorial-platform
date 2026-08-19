@@ -63,7 +63,7 @@ const guidedPracticeSteps = [
 	{
 		title: 'Step 2: Reframe the Todo List around state',
 		instructions:
-			'<p>List the core pieces of data the Todo List needs: the text currently being typed, the array of todo items, and each item’s completion state.</p><p>Then ask: which of these values should live in reactive state rather than being read from the DOM each time?</p>',
+			'<p>List the core pieces of data the Todo List needs: the text currently being typed, the array of todo items, and each item\'s completion state.</p><p>Then ask: which of these values should live in reactive state rather than being read from the DOM each time?</p>',
 		hints: [
 			'If the value changes and the interface should respond, it is usually a state candidate.',
 			'The browser still shows the UI, but Vue is now keeping the source of truth in data.',
@@ -137,7 +137,7 @@ const closureReflectionPrompts = [
 		icon: 'fas fa-repeat',
 		title: 'State and Rendering',
 		questions: [
-			'What changes when you think “change the data” instead of “manually rewrite the DOM”?',
+			'What changes when you think "change the data" instead of "manually rewrite the DOM"?',
 			'Which part of the Todo List is easiest to understand as reactive state?'
 		],
 	},
@@ -368,7 +368,7 @@ function addTodo() {
 			<ul>
 				<li>typing into an input updates reactive state</li>
 				<li>clicking a button calls a function that changes the state</li>
-				<li>checking a box toggles one task’s completion flag</li>
+				<li>checking a box toggles one task's completion flag</li>
 				<li>the template updates because the data changed</li>
 			</ul>
 			<p>
@@ -410,13 +410,13 @@ function addTodo() {
 					<a href="https://vuejs.org/guide/quick-start.html" target="_blank" rel="noopener">
 						Vue official quick start
 					</a>
-					&mdash; the official guide to creating a Vue app with the Vite-based scaffold.
+					 - the official guide to creating a Vue app with the Vite-based scaffold.
 				</li>
 				<li>
 					<a href="https://vite.dev/guide/" target="_blank" rel="noopener">
 						Vite official guide
 					</a>
-					&mdash; useful when you want to separate the app framework from the build tool around it.
+					 - useful when you want to separate the app framework from the build tool around it.
 				</li>
 			</ul>
 

@@ -35,7 +35,7 @@ Good architecture still matters, and performance optimisation should never becom
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - inspect CSS transfer size
 - identify potentially unused CSS

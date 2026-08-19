@@ -11,7 +11,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
   title: 'Flexbox for Real Layouts',
-  description: 'Apply CSS Flexbox to practical page layouts — navigation bars, card grids, and one-dimensional component patterns.',
+  description: 'Apply CSS Flexbox to practical page layouts - navigation bars, card grids, and one-dimensional component patterns.',
   path: '/tutorials/intermediate/flexbox-for-real-layouts',
 });
 
@@ -34,14 +34,14 @@ usePageSections(sections);
 
 const checkpointQuestions = [
   {
-    question: 'If a layout’s main relationship runs left to right, which axis is Flexbox primarily managing?',
+    question: 'If a layout\'s main relationship runs left to right, which axis is Flexbox primarily managing?',
     answer:
       'The main axis. That is why properties like justify-content control space distribution in that primary direction.',
   },
   {
     question: 'Why is a card body often a good use of flex-direction: column?',
     answer:
-      'Because the card’s internal relationship usually runs top to bottom: title, text, metadata, and action all need a controlled vertical flow.',
+      'Because the card\'s internal relationship usually runs top to bottom: title, text, metadata, and action all need a controlled vertical flow.',
   },
   {
     question: 'Predict what happens if a navigation cluster is built as one rigid row with no wrapping or gap strategy.',
@@ -360,7 +360,7 @@ const closureReflectionPrompts = [
 }</code></pre>
 
       <p>
-        This approach works well when the section is still fundamentally one-dimensional: two
+        This approach works well when the section is still mostly one-dimensional: two
         related items in one main relationship. If the layout starts needing strict rows and
         columns together, that is when Grid becomes a better conversation.
       </p>
@@ -441,7 +441,7 @@ const closureReflectionPrompts = [
       <h2 id="guided-practice">Guided Practice</h2>
       <GuidedPractice
         title="Build a small Flexbox layout on purpose"
-        description="Use the lesson’s ideas to set up one-direction layout relationships more deliberately instead of relying on trial and error."
+        description="Use the lesson's ideas to set up one-direction layout relationships more deliberately instead of relying on trial and error."
         :steps="guidedPracticeSteps"
         :success-criteria="guidedPracticeSuccessCriteria"
         success-criteria-title="You are on track if you can:"
@@ -480,11 +480,11 @@ const closureReflectionPrompts = [
           >
             CSS-Tricks: A Complete Guide to Flexbox
           </a>
-          &mdash; useful for revisiting the full property set with visual examples.
+          - useful for revisiting the full property set with visual examples.
         </li>
         <li>
           Every Layout
-          &mdash; useful for connecting Flexbox decisions to real patterns like cluster,
+          - useful for connecting Flexbox decisions to real patterns like cluster,
           sidebar, and stack.
         </li>
       </ul>

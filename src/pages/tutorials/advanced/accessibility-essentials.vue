@@ -52,7 +52,7 @@ import { useTutorialHead } from '@/composables/useTutorialHead';
 
 useTutorialHead({
   title: "Accessibility Essentials",
-  description: "Learn web accessibility — semantic HTML, ARIA, colour contrast, keyboard navigation, and screen reader basics.",
+  description: "Learn web accessibility - semantic HTML, ARIA, colour contrast, keyboard navigation, and screen reader basics.",
   path: "/tutorials/advanced/accessibility-essentials",
 	noindex: true,
 });

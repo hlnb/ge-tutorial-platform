@@ -30,12 +30,12 @@
     <!-- Hunter Element 1: Anticipatory Set -->
     <AnticipatorySet
       title="Start Here"
-      :hook="`<p>Before you can start tracking your code, you need the right tools installed. Think of this like a carpenter setting up their workshop—you need your tools ready before you can build anything.</p><p>The good news? Installing Git takes just a few minutes, and once it's done, you're ready to start versioning your projects!</p>`"
+      :hook="`<p>Before you can start tracking your code, you need the right tools installed. Think of this like a carpenter setting up their workshop - you need your tools ready before you can build anything.</p><p>The good news? Installing Git takes just a few minutes, and once it's done, you're ready to start versioning your projects!</p>`"
       :reflection-prompts="[
         'Have you ever installed a command-line tool before?',
         'Do you know which operating system you are using?'
       ]"
-      connection="Let's get Git installed and configured so you can start using it right away."
+      connection="Get Git installed and configured so you can start using it right away."
     />
 
     <!-- Hunter Element 2: Learning Objectives -->
@@ -243,7 +243,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: 'Installing Git & Recommended Tools',
-  description: 'Install Git and set up recommended tools — a step-by-step guide for Mac, Windows, and Linux developers.',
+  description: 'Install Git and set up recommended tools - a step-by-step guide for Mac, Windows, and Linux developers.',
   path: '/tutorials/intermediate/git-basics/installation',
 });
 

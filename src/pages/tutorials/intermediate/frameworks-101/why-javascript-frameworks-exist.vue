@@ -101,7 +101,7 @@ usePageSections(pageSections);
 					<div class="flow-card"><strong>UI stays in sync</strong></div>
 				</div>
 				<figcaption>
-					The promise is not “no logic needed.” The promise is a clearer relationship between changing data and displayed UI.
+					The promise is not "no logic needed." The promise is a clearer relationship between changing data and displayed UI.
 				</figcaption>
 			</figure>
 

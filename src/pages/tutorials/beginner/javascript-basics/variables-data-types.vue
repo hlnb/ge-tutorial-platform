@@ -210,7 +210,7 @@
 		</div>
 
 		<h2 id="practice" class="title is-2">Interactive Practice: Restaurant Menu System</h2>
-		<p>Let's put everything together by creating a simple restaurant menu system:</p>
+		<p>Put everything together by creating a simple restaurant menu system:</p>
 
 		<div class="box practice-box">
 			<h3 class="title is-4">Step 1: Create Menu Items</h3>
@@ -276,8 +276,8 @@
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Every web application relies on variables and data types to manage information—from e-commerce shopping carts tracking item prices and quantities, to social media platforms storing user profiles as objects. Understanding how to choose the right data type and organize information with arrays and objects is essential for building any real-world application.</p>"
-			next-steps="<p>Now that you can store and organize data, you're ready to learn about operators. In the next lesson, you'll discover how to perform calculations, make comparisons, and combine conditions—the building blocks of program logic.</p>"
+			real-world-application="<p>Every web application relies on variables and data types to manage information - from e-commerce shopping carts tracking item prices and quantities, to social media platforms storing user profiles as objects. Understanding how to choose the right data type and organize information with arrays and objects is essential for building any real-world application.</p>"
+			next-steps="<p>Now that you can store and organize data, you're ready to learn about operators. In the next lesson, you'll discover how to perform calculations, make comparisons, and combine conditions - the building blocks of program logic.</p>"
 		/>
 
 		<!-- Tutorial Recommendations -->
@@ -305,7 +305,7 @@ import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 useTutorialHead({
   title: 'Variables and Data Types in JavaScript',
-  description: 'Learn how to store and work with data in JavaScript — variables, strings, numbers, booleans, and null explained.',
+  description: 'Learn how to store and work with data in JavaScript - variables, strings, numbers, booleans, and null explained.',
   path: '/tutorials/beginner/javascript-basics/variables-data-types',
 });
 
@@ -319,13 +319,13 @@ const { pageSections } = usePageSections(sections);
 
 const anticipatorySet = {
 	title: '🍽️ Stocking the Digital Pantry',
-	hook: `<p>Before dinner service, chefs inventory every ingredient so the team knows exactly what's available, what's fresh, and what needs to be replenished. JavaScript variables work the same way—you label data so your app can grab the right "ingredient" the moment it's needed.</p>`,
+	hook: `<p>Before dinner service, chefs inventory every ingredient so the team knows exactly what's available, what's fresh, and what needs to be replenished. JavaScript variables work the same way - you label data so your app can grab the right "ingredient" the moment it's needed.</p>`,
 	reflectionPrompts: [
 		'What real-world information do you track every day (budgets, workouts, orders)?',
 		'When would you insist a value never change once set?',
 		'How could organized data make your next project easier to maintain?'
 	],
-	connection: 'In this lesson you will practice naming, storing, and organizing data so your future functions, components, and APIs always know where to find the right values.'
+	connection: 'You will practice naming, storing, and organizing data so your future functions, components, and APIs always know where to find the right values.'
 };
 
 const learningObjectives = {
@@ -349,7 +349,7 @@ const variableCheckpoint = {
 	],
 	tips: [
 		'Start with const, then switch to let only when reassignment is required.',
-		'Pair data with meaning—objects for labeled properties, arrays for ordered lists.',
+		'Pair data with meaning - objects for labeled properties, arrays for ordered lists.',
 		'Log typeof checks in the console to verify assumptions before bugs grow.'
 	]
 };

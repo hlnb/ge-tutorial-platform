@@ -12,7 +12,7 @@ import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 useTutorialHead({
   title: "Cascade, Specificity & Debugging CSS",
-  description: "Understand how CSS cascade and specificity determine which styles win — and debug when styles don't apply.",
+  description: "Understand how CSS cascade and specificity determine which styles win - and debug when styles don't apply.",
   path: "/tutorials/intermediate/cascade-specificity-and-debugging-css",
 });
 
@@ -43,7 +43,7 @@ const checkpointQuestions = [
 		question:
 			'You set font-family on the body element, but you never set it on a paragraph inside a section. Why does the paragraph still use that font?',
 		answer:
-			'Because font-family is an inherited property. When no direct rule sets it, the paragraph inherits the value from its nearest ancestor that has one — in this case, body.',
+			'Because font-family is an inherited property. When no direct rule sets it, the paragraph inherits the value from its nearest ancestor that has one - in this case, body.',
 	},
 	{
 		question:
@@ -64,7 +64,7 @@ const guidedPracticeSteps = [
 	{
 		title: 'Find the conflict in DevTools',
 		instructions:
-			'<p>Open any web page you have been working on — your Black Swan Bistro project is ideal. Right-click an element that has a colour or font style and choose <strong>Inspect</strong>.</p><p>In the <strong>Styles</strong> panel, look at the list of rules targeting that element. Can you find a property that appears in more than one rule? If so, one of them should be struck through.</p>',
+			'<p>Open any web page you have been working on - your Black Swan Bistro project is ideal. Right-click an element that has a colour or font style and choose <strong>Inspect</strong>.</p><p>In the <strong>Styles</strong> panel, look at the list of rules targeting that element. Can you find a property that appears in more than one rule? If so, one of them should be struck through.</p>',
 		hints: [
 			'Navigation links are a good place to start because they often have hover states and layout rules from multiple selectors.',
 			'If nothing is struck through, try adding a temporary rule in the Styles panel to create a conflict on purpose.',
@@ -84,14 +84,14 @@ const guidedPracticeSteps = [
 		instructions:
 			'<p>If your stylesheet has a style conflict that is currently resolved by source order or a selector that is more specific than it needs to be, try refactoring it:</p><ol><li>Lower the specificity of the over-specific selector (e.g. remove unnecessary parent selectors)</li><li>Make both selectors equal specificity and rely on deliberate source order</li><li>Verify in DevTools that the intended rule still wins</li></ol>',
 		hints: [
-			'A selector like nav ul li a.link can often be simplified to .site-nav__link — same element, lower specificity, clearer intent.',
+			'A selector like nav ul li a.link can often be simplified to .site-nav__link - same element, lower specificity, clearer intent.',
 			'If you are using component-based class names from the BSB project, they should already be low specificity.',
 		],
 	},
 	{
 		title: 'Trace an inherited value',
 		instructions:
-			'<p>Select a deeply nested element — a paragraph inside a section inside main. In the <strong>Computed</strong> tab of DevTools, find a property like <code>color</code> or <code>font-family</code>.</p><p>Click the arrow or expand the property to see where the value was inherited from. Trace the chain back to the element that set it.</p>',
+			'<p>Select a deeply nested element - a paragraph inside a section inside main. In the <strong>Computed</strong> tab of DevTools, find a property like <code>color</code> or <code>font-family</code>.</p><p>Click the arrow or expand the property to see where the value was inherited from. Trace the chain back to the element that set it.</p>',
 		hints: [
 			'Switch from the Styles tab to the Computed tab to see the final resolved value.',
 			'The Computed tab shows "Inherited from body" or similar labels when a value was not set directly.',
@@ -102,7 +102,7 @@ const guidedPracticeSteps = [
 // ── Closure data ──────────────────────────────────────────────────
 const closureKeyTakeaways = [
 	'The cascade resolves style conflicts in a clear order: origin and importance, then specificity, then source order.',
-	'Specificity is a three-column comparison (IDs, classes, elements) — not a single total.',
+	'Specificity is a three-column comparison (IDs, classes, elements) - not a single total.',
 	'Inheritance passes text-related properties down the DOM tree automatically. Layout properties do not inherit.',
 	'DevTools shows exactly which rule wins and which rules lose. Debugging starts there, not by guessing.',
 	'Keeping specificity low and consistent is the best way to avoid !important and make stylesheets maintainable.',
@@ -186,7 +186,7 @@ const closureReflectionPrompts = [
 			<AnticipatorySet
 				title="Why Did My Style Disappear?"
 				icon="🔍"
-				:hook="`<p>You write a CSS rule. It should work. You reload the page and nothing changes. Or worse — some other style appears instead of yours, and you have no idea where it came from.</p><p>This is one of the most common frustrations in CSS. The good news is that the browser is not acting randomly. It follows a precise set of rules called the <strong>cascade</strong> to decide which style wins when multiple rules target the same element.</p><p>Once you understand those rules, CSS debugging stops feeling like guesswork and starts feeling like detective work.</p>`"
+				:hook="`<p>You write a CSS rule. It should work. You reload the page and nothing changes. Or worse - some other style appears instead of yours, and you have no idea where it came from.</p><p>This is one of the most common frustrations in CSS. The good news is that the browser is not acting randomly. It follows a precise set of rules called the <strong>cascade</strong> to decide which style wins when multiple rules target the same element.</p><p>Once you understand those rules, CSS debugging stops feeling like guesswork and starts feeling like detective work.</p>`"
 				:reflection-prompts="[
 					'Have you ever added !important to force a style to work? Did it feel like a fix or a workaround?',
 					'When two CSS rules conflict, how do you currently figure out which one wins?',
@@ -243,21 +243,21 @@ const closureReflectionPrompts = [
 				<h3 class="title is-5">The Four Cascade Layers</h3>
 				<ol>
 					<li>
-						<strong>Origin and importance</strong> — browser defaults, your
+						<strong>Origin and importance</strong> - browser defaults, your
 						stylesheet, and <code>!important</code> declarations are ranked. Your
 						author styles override browser defaults.
 						<code>!important</code> overrides everything else.
 					</li>
 					<li>
-						<strong>Specificity</strong> — among rules from the same origin, the
+						<strong>Specificity</strong> - among rules from the same origin, the
 						more specific selector wins. This is where most conflicts are decided.
 					</li>
 					<li>
-						<strong>Source order</strong> — if two rules have the same origin and
+						<strong>Source order</strong> - if two rules have the same origin and
 						specificity, the one that appears later in the stylesheet wins.
 					</li>
 					<li>
-						<strong>Inheritance</strong> — if no rule targets the property
+						<strong>Inheritance</strong> - if no rule targets the property
 						directly, some properties (like <code>color</code> and
 						<code>font-family</code>) inherit from the parent element.
 					</li>
@@ -280,16 +280,16 @@ const closureReflectionPrompts = [
 			</p>
 			<ul>
 				<li>
-					<strong>Column A — IDs.</strong> Each <code>#id</code> in the selector
+					<strong>Column A - IDs.</strong> Each <code>#id</code> in the selector
 					adds 1 to this column.
 				</li>
 				<li>
-					<strong>Column B — Classes, attributes, and pseudo-classes.</strong>
+					<strong>Column B - Classes, attributes, and pseudo-classes.</strong>
 					Each <code>.class</code>, <code>[attribute]</code>, or
 					<code>:hover</code> adds 1 here.
 				</li>
 				<li>
-					<strong>Column C — Element types and pseudo-elements.</strong> Each
+					<strong>Column C - Element types and pseudo-elements.</strong> Each
 					<code>p</code>, <code>nav</code>, or <code>::before</code> adds 1 here.
 				</li>
 			</ul>
@@ -305,14 +305,14 @@ const closureReflectionPrompts = [
 					alt="Table showing five selectors with their specificity scores in three columns: IDs, Classes, and Elements. Selectors are ordered from lowest to highest specificity."
 				/>
 				<figcaption>
-					Specificity is not a single total — it is a three-column comparison.
+					Specificity is not a single total - it is a three-column comparison.
 					One ID outweighs any number of classes.
 				</figcaption>
 			</figure>
 
 			<h3>Working through examples</h3>
 			<p>
-				Let's score some real selectors:
+				Score some real selectors:
 			</p>
 			<pre><code>/* 0-0-1 — one element selector */
 p { color: grey; }
@@ -332,7 +332,7 @@ nav .site-nav__link { color: #1f2933; }
 			<p>
 				If <code>.warning</code> and <code>p</code> both target the same paragraph,
 				<code>.warning</code> wins because 0-1-0 beats 0-0-1 in the class column.
-				Source order does not matter here — the class always wins.
+				Source order does not matter here - the class always wins.
 			</p>
 
 			<div class="notification is-warning is-light">
@@ -357,7 +357,7 @@ nav .site-nav__link { color: #1f2933; }
 }</code></pre>
 			<p>
 				That sounds useful, but it is a trap. If two rules both use
-				<code>!important</code>, they fall back to the normal cascade — and now both
+				<code>!important</code>, they fall back to the normal cascade - and now both
 				sides of the conflict are harder to override. Use
 				<code>!important</code> only as a last resort, and treat it as a code smell
 				that suggests the specificity structure needs rethinking.
@@ -377,7 +377,7 @@ nav .site-nav__link { color: #1f2933; }
 			<p>
 				But not all properties inherit. Layout and box-model properties like
 				<code>border</code>, <code>padding</code>, <code>margin</code>, and
-				<code>display</code> do <strong>not</strong> inherit — otherwise every
+				<code>display</code> do <strong>not</strong> inherit - otherwise every
 				child element would duplicate its parent's border, which would be chaos.
 			</p>
 
@@ -473,7 +473,7 @@ nav .site-nav__link { color: #1f2933; }
 section .button { background: grey; }</code></pre>
 			<p>
 				The second rule is more specific. The fix is usually to keep both selectors at
-				the same specificity — for example, by removing the unnecessary parent
+				the same specificity - for example, by removing the unnecessary parent
 				<code>section</code> from the second rule.
 			</p>
 
@@ -496,7 +496,7 @@ section .button { background: grey; }</code></pre>
    Adding a direct rule will override the inheritance. */
 .card { color: #1f2933; }</code></pre>
 			<p>
-				Inheritance is not a bug — it is the expected behaviour. But it can be
+				Inheritance is not a bug - it is the expected behaviour. But it can be
 				confusing if you do not realise the value is coming from an ancestor.
 			</p>
 
@@ -566,7 +566,7 @@ section .button { background: grey; }</code></pre>
 			<div class="notification is-info is-light">
 				<p>
 					<strong>Computed tab tip:</strong> the Computed tab is especially useful
-					for tracing inheritance. It shows where a value came from — whether it was
+					for tracing inheritance. It shows where a value came from - whether it was
 					set directly or inherited from an ancestor.
 				</p>
 			</div>
@@ -612,7 +612,7 @@ section .button { background: grey; }</code></pre>
 				<h3 class="title is-5">Avoid <code>!important</code> Except for Utilities</h3>
 				<p>
 					The one reasonable use of <code>!important</code> is for small utility
-					classes that must always win — like a visually-hidden class or a
+					classes that must always win - like a visually-hidden class or a
 					print-only override. Everywhere else, prefer fixing the specificity
 					structure.
 				</p>
@@ -683,14 +683,14 @@ section .button { background: grey; }</code></pre>
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="recap">Recap</h2>
 			<p>
-				The cascade is not a mystery — it is a decision tree. When two rules target
+				The cascade is not a mystery - it is a decision tree. When two rules target
 				the same property on the same element, the browser checks origin and
 				importance first, then specificity, then source order. If no rule targets
 				the property at all, inheritance may supply a value from a parent element.
 			</p>
 			<p>
 				Specificity is the layer that causes the most confusion. But once you can
-				score selectors in three columns — IDs, classes, elements — you can predict
+				score selectors in three columns - IDs, classes, elements - you can predict
 				which rule wins before you open the browser. And when something unexpected
 				happens, DevTools shows you the browser's reasoning directly.
 			</p>
@@ -710,7 +710,7 @@ section .button { background: grey; }</code></pre>
 					:key-takeaways="closureKeyTakeaways"
 					:objectives="closureObjectives"
 					:reflection-prompts="closureReflectionPrompts"
-					next-steps="Next, you will explore selectors, pseudo-elements, and motion — using the specificity awareness from this lesson to make confident styling decisions."
+					next-steps="Next, you will explore selectors, pseudo-elements, and motion - using the specificity awareness from this lesson to make confident styling decisions."
 				/>
 			</div>
 

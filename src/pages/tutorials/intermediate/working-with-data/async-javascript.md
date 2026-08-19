@@ -26,13 +26,13 @@ hiddenFromCurriculum: false
 
 <!-- ANCHOR HOOK -->
 
-You've been writing JavaScript that runs line by line — one thing, then the next, then the next. That's fine for manipulating the DOM, validating a form, or building a to-do list. But what happens when your code needs to *wait*?
+You've been writing JavaScript that runs line by line - one thing, then the next, then the next. That's fine for manipulating the DOM, validating a form, or building a to-do list. But what happens when your code needs to *wait*?
 
 Ask yourself: what would happen if you clicked a button and your entire browser froze for three seconds while a slow database responded? No scrolling. No typing. Nothing. That's what synchronous JavaScript does when it hits something slow.
 
-Async JavaScript is the answer. It lets your code say: "Go start this — come back to me when it's ready" — and carry on with everything else in the meantime.
+Async JavaScript is the answer. It lets your code say: "Go start this - come back to me when it's ready" - and carry on with everything else in the meantime.
 
-This tutorial explains how that works, and introduces **Promises** — the foundation for all modern async patterns in JavaScript.
+This tutorial explains how that works, and introduces **Promises** - the foundation for all modern async patterns in JavaScript.
 
 <!-- TODO: Add visual placeholder `public/assets/tutorials/working-with-data/async-flow-overview.svg` showing call stack, Web APIs, callback queue, and event loop handoff. -->
 
@@ -42,7 +42,7 @@ This tutorial explains how that works, and introduces **Promises** — the found
 
 ## What you'll learn
 
-By the end of this tutorial you'll be able to:
+After this tutorial, you'll be able to:
 
 - Explain what synchronous and asynchronous execution mean, and why the difference matters
 - Describe what a Promise is and what the three states of a Promise represent
@@ -53,7 +53,7 @@ By the end of this tutorial you'll be able to:
 
 <!-- PREREQUISITES NOTE -->
 
-> **Before you start:** You should be comfortable with functions, objects, and callbacks. If you've worked through the Applied JavaScript series — particularly *State and UI Thinking* and *Objects for Real Features* — you're in good shape.
+> **Before you start:** You should be comfortable with functions, objects, and callbacks. If you've worked through the Applied JavaScript series - particularly *State and UI Thinking* and *Objects for Real Features* - you're in good shape.
 
 ---
 
@@ -61,7 +61,7 @@ By the end of this tutorial you'll be able to:
 
 JavaScript is **single-threaded**. That means it has one call stack, and it processes one piece of code at a time, in order. This is fine for most tasks.
 
-The problem arises when a task takes time — loading a file, querying a database, calling an API. If JavaScript ran those tasks synchronously, it would block everything else until they finished.
+The problem arises when a task takes time - loading a file, querying a database, calling an API. If JavaScript ran those tasks synchronously, it would block everything else until they finished.
 
 ```js
 // Imaginary synchronous fetch — do NOT do this
@@ -73,13 +73,13 @@ In a browser, this means the UI freezes. The user can't click, scroll, or type. 
 
 The solution is to hand off slow work to the browser's Web APIs, which run separately from the JavaScript call stack. When the work is done, the result is returned to JavaScript via a **callback queue** and processed when the stack is free. This is the **event loop** model.
 
-You don't need to fully understand the event loop mechanics to write good async code — but knowing it exists helps explain why async code *looks* different from synchronous code.
+You don't need to fully understand the event loop mechanics to write good async code - but knowing it exists helps explain why async code *looks* different from synchronous code.
 
 ---
 
 ## Callbacks: the original async pattern
 
-Before Promises, async code used **callbacks** — functions passed as arguments, to be called when work was done.
+Before Promises, async code used **callbacks** - functions passed as arguments, to be called when work was done.
 
 ```js
 function loadUser(id, callback) {
@@ -94,7 +94,7 @@ loadUser(1, (user) => {
 });
 ```
 
-This works. But callbacks have a well-known problem: nesting. When one async operation depends on another, which depends on another, you end up with deeply nested, hard-to-read code — often called **callback hell**.
+This works. But callbacks have a well-known problem: nesting. When one async operation depends on another, which depends on another, you end up with deeply nested, hard-to-read code - often called **callback hell**.
 
 ```js
 loadUser(1, (user) => {
@@ -112,7 +112,7 @@ Promises were introduced to solve this.
 
 ## What is a Promise?
 
-A **Promise** is an object that represents the eventual result of an asynchronous operation. It doesn't have the result yet — it's a *promise* that a result will arrive.
+A **Promise** is an object that represents the eventual result of an asynchronous operation. It doesn't have the result yet - it's a *promise* that a result will arrive.
 
 You can think of it like ordering a coffee. The barista hands you a number. You haven't got the coffee yet, but you have a *promise* of coffee. You can keep moving around, do other things, and when your number is called, you collect it.
 
@@ -120,9 +120,9 @@ A Promise has three possible states:
 
 | State | Meaning |
 |-------|---------|
-| **Pending** | The operation is in progress — no result yet |
-| **Fulfilled** | The operation completed successfully — a result is available |
-| **Rejected** | The operation failed — an error is available |
+| **Pending** | The operation is in progress - no result yet |
+| **Fulfilled** | The operation completed successfully - a result is available |
+| **Rejected** | The operation failed - an error is available |
 
 Once a Promise is fulfilled or rejected, it stays that way. It won't flip back to pending, and it won't change state again.
 
@@ -144,7 +144,7 @@ const myPromise = new Promise((resolve, reject) => {
 });
 ```
 
-In practice you'll rarely create Promises from scratch — most of the time you'll be working with Promises returned by built-in APIs like `fetch()`. But understanding how they're built helps you understand how they behave.
+In practice you'll rarely create Promises from scratch - most of the time you'll be working with Promises returned by built-in APIs like `fetch()`. But understanding how they're built helps you understand how they behave.
 
 ---
 
@@ -162,7 +162,7 @@ myPromise
   });
 ```
 
-`.then()` and `.catch()` both return new Promises, which means you can **chain** them — each step receives the result of the previous one.
+`.then()` and `.catch()` both return new Promises, which means you can **chain** them - each step receives the result of the previous one.
 
 ```js
 fetch('/api/user')
@@ -175,7 +175,7 @@ fetch('/api/user')
   });
 ```
 
-This flat chain is far more readable than nested callbacks — and it's the pattern `fetch()` is built on. You'll see it in the next tutorial.
+This flat chain is far more readable than nested callbacks - and it's the pattern `fetch()` is built on. You'll see it in the next tutorial.
 
 ---
 
@@ -239,7 +239,7 @@ Because `.then()` itself returns a new Promise, passing its return value to the 
 
 You're going to build a small Promise-based function that simulates fetching a product, then log its details.
 
-**Step 1 — Create the function**
+**Step 1 - Create the function**
 
 Write a function called `getProduct` that accepts an `id` parameter and returns a Promise.
 
@@ -251,7 +251,7 @@ function getProduct(id) {
 }
 ```
 
-**Step 2 — Add the async logic**
+**Step 2 - Add the async logic**
 
 Inside the Promise, use `setTimeout` to simulate a 600ms delay. If `id` is a positive number, resolve with an object: `{ id, name: 'Espresso Machine', price: 299 }`. If `id` is 0 or negative, reject with `new Error('Product not found')`.
 
@@ -269,17 +269,17 @@ setTimeout(() => {
 ```
 </details>
 
-**Step 3 — Call it with `.then()` and `.catch()`**
+**Step 3 - Call it with `.then()` and `.catch()`**
 
 Call `getProduct(1)` and chain `.then()` to log the product name and price. Add `.catch()` to log the error message.
 
-**Step 4 — Test the error case**
+**Step 4 - Test the error case**
 
 Call `getProduct(0)`. Confirm your `.catch()` handles it without crashing.
 
-**Step 5 — Add a log before the call**
+**Step 5 - Add a log before the call**
 
-Add `console.log('Requesting product...')` *before* calling `getProduct`. Confirm it appears in the console *before* the product details — even though the delay is only 600ms.
+Add `console.log('Requesting product...')` *before* calling `getProduct`. Confirm it appears in the console *before* the product details - even though the delay is only 600ms.
 
 <!-- /GuidedPractice -->
 
@@ -298,7 +298,7 @@ Build a small **order status checker** using Promises.
 - Simulate a 1-second delay with `setTimeout`
 - If `orderId` is between 1000 and 9999 (a valid order number), resolve with an object: `{ orderId, status: 'dispatched', estimatedDelivery: '2 days' }`
 - If `orderId` is outside that range, reject with `new Error('Order not found')`
-- Call the function with a valid ID and log a readable message: e.g. *"Order 1042: dispatched — arrives in 2 days"*
+- Call the function with a valid ID and log a readable message: e.g. *"Order 1042: dispatched - arrives in 2 days"*
 - Call the function with an invalid ID and handle the error gracefully
 
 **Success criteria:**
@@ -316,7 +316,7 @@ Build a small **order status checker** using Promises.
 
 ## What's next
 
-You can now read and write Promise-based async code. The next step is putting that to practical use with `fetch()` — the browser's built-in tool for making network requests and loading real data from APIs.
+You can now read and write Promise-based async code. The next step is putting that to practical use with `fetch()` - the browser's built-in tool for making network requests and loading real data from APIs.
 
 In the next tutorial you'll make your first HTTP request, handle the two-step response pattern, and start working with real data from an external source.
 

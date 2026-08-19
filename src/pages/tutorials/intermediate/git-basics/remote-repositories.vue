@@ -30,12 +30,12 @@
     <!-- Hunter Element 1: Anticipatory Set -->
     <AnticipatorySet
       title="Start Here"
-      :hook="`<p>So far, your Git repository lives only on your computer. But what if your hard drive fails? What if you want to collaborate with others? Remote repositories solve both problems—they're copies of your project hosted online that you can push to and pull from.</p>`"
+      :hook="`<p>So far, your Git repository lives only on your computer. But what if your hard drive fails? What if you want to collaborate with others? Remote repositories solve both problems - they're copies of your project hosted online that you can push to and pull from.</p>`"
       :reflection-prompts="[
         'Have you ever lost work because it was only saved on one device?',
         'How do teams currently share code with each other?'
       ]"
-      connection="Let's learn how to connect your local Git repository to the cloud using GitHub or GitLab."
+      connection="Learn how to connect your local Git repository to the cloud using GitHub or GitLab."
     />
 
     <!-- Hunter Element 2: Learning Objectives -->
@@ -64,7 +64,7 @@
       <li>Access your project from multiple devices</li>
     </ul>
     <p>
-      Popular platforms for hosting remote repositories include <strong>GitHub</strong>, <strong>GitLab</strong>, and <strong>Bitbucket</strong>. In this tutorial, we'll focus on GitHub and GitLab.
+      Popular platforms for hosting remote repositories include <strong>GitHub</strong>, <strong>GitLab</strong>, and <strong>Bitbucket</strong>. We'll focus on GitHub and GitLab.
     </p>
 
     <h2 class="title is-2">Step 1: Set Up an Account</h2>
@@ -228,7 +228,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: 'Remote Repositories in Git',
-  description: 'Push, pull, and collaborate using remote Git repositories — a practical guide to working with GitHub or GitLab.',
+  description: 'Push, pull, and collaborate using remote Git repositories - a practical guide to working with GitHub or GitLab.',
   path: '/tutorials/intermediate/git-basics/remote-repositories',
 });
 

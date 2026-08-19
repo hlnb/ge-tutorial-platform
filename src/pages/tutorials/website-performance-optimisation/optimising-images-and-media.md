@@ -35,7 +35,7 @@ The solution is not: make every image tiny and blurry. The goal is: deliver enou
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - choose an appropriate image format
 - resize an image for its intended display

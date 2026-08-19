@@ -36,7 +36,7 @@
 				code before.
 			</p>
 			<p>
-				By the end of this series, you'll be able to add interactivity to web
+				After this series, you'll be able to add interactivity to web
 				pages and understand the core concepts of programming.
 			</p>
 		</div>

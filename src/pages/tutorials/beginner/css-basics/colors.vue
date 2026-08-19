@@ -16,7 +16,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "Working with Colors in CSS",
-  description: "Learn how to use color in web design — hex, RGB, HSL, and CSS custom properties for consistent, accessible palettes.",
+  description: "Learn how to use color in web design - hex, RGB, HSL, and CSS custom properties for consistent, accessible palettes.",
   path: "/tutorials/beginner/css-basics/colors",
 });
 
@@ -110,7 +110,7 @@ const checkpointQuestions = [
 const closureKeyTakeaways = [
 	'CSS supports multiple color models (HEX, RGB, HSL, named colors) for precise control',
 	'CSS custom properties help manage consistent color palettes and enable theming',
-	'color affects text, background-color affects element backgrounds—use both for contrast',
+	'color affects text, background-color affects element backgrounds - use both for contrast',
 	'Gradients, transparency, and overlays add depth while maintaining readability',
 	'Accessible color contrast (4.5:1 for text) is required for inclusive design',
 	'Global color tokens make large projects easier to maintain',
@@ -329,7 +329,7 @@ const blackSwanAdvancedExample = ref(`/* Black Swan Bistro Advanced Challenge */
 }
 `);
 
-const profilePageBasicExample = ref(`/* Personal Profile Page — Basic Exercise */
+const profilePageBasicExample = ref(`/* Personal Profile Page - Basic Exercise */
 .profile-primary {
 	color: #2C3E50;
 }
@@ -343,7 +343,7 @@ const profilePageBasicExample = ref(`/* Personal Profile Page — Basic Exercise
 }
 `);
 
-const profilePageAdvancedExample = ref(`/* Personal Profile Page — Advanced Challenge */
+const profilePageAdvancedExample = ref(`/* Personal Profile Page - Advanced Challenge */
 .profile-gradient {
 	background: linear-gradient(135deg, #2C3E50, #3498DB);
 }
@@ -1004,7 +1004,7 @@ const profilePageAdvancedExample = ref(`/* Personal Profile Page — Advanced Ch
 
 				<p>
 					Using CSS custom properties to create a consistent color scheme makes
-					it easier to maintain and update your design. Let's see how to
+					it easier to maintain and update your design. See how to
 					implement this:
 				</p>
 
@@ -1035,7 +1035,7 @@ const profilePageAdvancedExample = ref(`/* Personal Profile Page — Advanced Ch
 			<section id="text-contrast">
 				<h3 class="title is-3">Text and Background Contrast</h3>
 				<p>
-					Ensuring good contrast between text and background colors is crucial
+					Ensuring good contrast between text and background colors is important
 					for readability and accessibility.
 				</p>
 
@@ -1111,7 +1111,7 @@ const profilePageAdvancedExample = ref(`/* Personal Profile Page — Advanced Ch
 		<section id="practical-exercises" class="mt-6">
 			<h2 class="title is-2">Practical Exercises</h2>
 			<p>
-				Let's apply what we've learned about colors to our example websites.
+				Apply what we've learned about colors to our example websites.
 			</p>
 
 			<div class="notification is-info is-light">
@@ -1565,7 +1565,7 @@ const profilePageAdvancedExample = ref(`/* Personal Profile Page — Advanced Ch
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Brand guidelines from companies like Airbnb, Shopify, and Spotify rely on carefully curated color systems powered by CSS variables. Product teams use palettes to signal states (success, warning, danger) and to create memorable identities. Mastering CSS colors lets you implement and maintain these systems at scale.</p><p>Advanced workflows use design tokens synced between design tools and code. Your ability to translate a palette into reusable CSS variables and utility classes makes collaboration with designers seamless.</p>"
+			real-world-application="<p>Brand guidelines from companies like Airbnb, Shopify, and Spotify rely on carefully curated color systems powered by CSS variables. Product teams use palettes to signal states (success, warning, danger) and to create memorable identities. Learning CSS colors lets you implement and maintain these systems at scale.</p><p>Advanced workflows use design tokens synced between design tools and code. Your ability to translate a palette into reusable CSS variables and utility classes makes collaboration with designers smoother.</p>"
 			next-steps="<p>Next up: Flexbox. After learning colors and typography, you're ready to master modern layout systems. Flexbox unlocks responsive navigation bars, cards, and component alignment with minimal code.</p><p>Understanding color foundations ensures your layouts are both functional and visually polished.</p>"
 		/>
 

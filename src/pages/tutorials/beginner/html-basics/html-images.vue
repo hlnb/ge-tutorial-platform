@@ -32,13 +32,13 @@
 		<AnticipatorySet
 			title="🖼️ A Picture is Worth 1000 Words"
 			:hook="`<p>Images make the web beautiful, engaging, and memorable. Studies show that people remember 80% of what they see compared to only 20% of what they read. That's why every successful website uses images strategically!</p>
-			<p><strong>Did you know?</strong> Images make up about 50% of the total bytes downloaded for an average web page. Learning to use images properly is crucial for creating fast, accessible, and beautiful websites.</p>`"
+			<p><strong>Did you know?</strong> Images make up about 50% of the total bytes downloaded for an average web page. Learning to use images properly is important for creating fast, accessible, and beautiful websites.</p>`"
 			:reflection-prompts="[
 				'What grabs your attention more: a wall of text or an eye-catching image?',
 				'Have you noticed some websites load slowly because of too many large images?',
 				'How do blind users experience images on websites?'
 			]"
-			connection="In this lesson, you'll master adding images to your websites—from basic display to advanced optimization and accessibility."
+			connection="You'll master adding images to your websites - from basic display to advanced optimization and accessibility."
 		/>
 
 		<!-- Hunter Element 2: Learning Objectives -->
@@ -208,7 +208,7 @@
 
 			<div class="content">
 				<p>
-					Choosing the right image format and optimizing your images is crucial
+					Choosing the right image format and optimizing your images is important
 					for web performance.
 				</p>
 
@@ -429,7 +429,7 @@
 			<h2 class="title is-3">
 				<i class="fas fa-star"></i> Restaurant Website Exercise
 			</h2>
-			<p>Let's practice by adding images to the Black Swan Bistro website:</p>
+			<p>Practice by adding images to the Black Swan Bistro website:</p>
 
 			<div class="tutorial-card mt-4">
 				<div class="columns">
@@ -596,7 +596,7 @@
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
 			real-world-application="<p>Images are essential for engaging users and conveying information quickly. Professional websites use images strategically: e-commerce sites showcase products, news sites illustrate stories, portfolio sites display work samples, and corporate sites build brand identity through visual elements.</p><p>Understanding image optimization and accessibility ensures your images enhance rather than hinder the user experience. Tools like TinyPNG, ImageOptim, and modern formats like WebP help keep your sites fast and responsive while maintaining visual quality.</p>"
-			next-steps="<p>With images mastered, you're ready to learn about HTML document structure and semantic elements. In the next lesson, you'll discover how to organize your HTML properly using header, nav, main, article, section, aside, and footer elements.</p><p>Understanding document structure is crucial for creating accessible, SEO-friendly websites that are easy to maintain and scale.</p>"
+			next-steps="<p>With images mastered, you're ready to learn about HTML document structure and semantic elements. In the next lesson, you'll discover how to organize your HTML properly using header, nav, main, article, section, aside, and footer elements.</p><p>Understanding document structure is important for creating accessible, SEO-friendly websites that are easy to maintain and scale.</p>"
 		/>
 
 		<!-- Add recommendations after the quiz and closure -->
@@ -616,7 +616,7 @@ import CodeMirror from '@/components/CodeMirror.vue';
 
 useTutorialHead({
   title: 'Images in HTML',
-  description: 'Learn how to add images to HTML pages — the img tag, src, alt text, and best practices for accessible, performant web images.',
+  description: 'Learn how to add images to HTML pages - the img tag, src, alt text, and best practices for accessible, performant web images.',
   path: '/tutorials/beginner/html-basics/html-images',
 });
 import CodingOptions from '@/components/CodingOptions.vue';
@@ -632,7 +632,7 @@ const checkpointQuestions = [
 	{
 		question: 'What is the purpose of the alt attribute in the <img> element?',
 		answer:
-			"The alt attribute provides alternative text for images, which is crucial for accessibility (screen readers), SEO, and displaying text when images fail to load. It should describe the image's content or function.",
+			"The alt attribute provides alternative text for images, which is important for accessibility (screen readers), SEO, and displaying text when images fail to load. It should describe the image's content or function.",
 	},
 	{
 		question: 'Which image format would you choose for a company logo, and why?',
@@ -686,7 +686,7 @@ const closureReflectionPrompts = [
 			'What strategies can you use to optimize images without sacrificing quality?'
 		],
 		content:
-			'Image optimization is crucial for user experience, especially on mobile devices with slower connections. Always balance quality with performance.',
+			'Image optimization is important for user experience, especially on mobile devices with slower connections. Always balance quality with performance.',
 	},
 ];
 
@@ -855,7 +855,7 @@ const galleryHint = ref(
       <img src="images/alex-chen.jpg"
            alt="Portrait of Alex Chen smiling at the camera"
            width="400">
-      <figcaption>Alex Chen — Web Development Student</figcaption>
+      <figcaption>Alex Chen - Web Development Student</figcaption>
     </figure>
   </div>
 

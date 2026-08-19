@@ -11,7 +11,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
   title: "Responsive Refinement for Components",
-  description: "Make reusable components responsive — adapt layouts at different breakpoints without breaking component structure.",
+  description: "Make reusable components responsive - adapt layouts at different breakpoints without breaking component structure.",
   path: "/tutorials/intermediate/responsive-refinement-for-reusable-components",
 });
 

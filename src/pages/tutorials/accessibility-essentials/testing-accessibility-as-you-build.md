@@ -40,7 +40,7 @@ The good news: you can start with a small repeatable workflow.
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - run a basic manual accessibility check
 - use keyboard testing as a first-line habit

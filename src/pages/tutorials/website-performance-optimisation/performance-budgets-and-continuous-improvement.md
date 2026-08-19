@@ -35,7 +35,7 @@ That is why performance needs a repeatable improvement process.
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - create a performance budget
 - prioritise improvements

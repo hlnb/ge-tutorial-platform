@@ -11,7 +11,7 @@ import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 
 useTutorialHead({
-  title: "Black Swan Bistro — Part 4b: Polish",
+  title: "Black Swan Bistro - Part 4b: Polish",
   description: "Clean up CSS, add subtle interactions, and refine the bistro site for accessibility and visual polish.",
   path: "/tutorials/intermediate/black-swan-bistro-part-4b-polish-and-refine",
 });
@@ -21,7 +21,7 @@ usePageSections([
 	{ id: 'what-polish-means', title: 'What Polish Means' },
 	{
 		id: 'pass-1-cascade-cleanup',
-		title: 'Pass 1 — Cascade Cleanup',
+		title: 'Pass 1 - Cascade Cleanup',
 		subsections: [
 			{ id: 'audit-specificity', title: 'Audit Specificity' },
 			{ id: 'simplify-selectors', title: 'Simplify Selectors' },
@@ -29,7 +29,7 @@ usePageSections([
 	},
 	{
 		id: 'pass-2-detail-selectors',
-		title: 'Pass 2 — Detail Selectors',
+		title: 'Pass 2 - Detail Selectors',
 		subsections: [
 			{ id: 'pseudo-classes', title: 'Pseudo-classes' },
 			{ id: 'pseudo-elements', title: 'Pseudo-elements' },
@@ -37,14 +37,14 @@ usePageSections([
 	},
 	{
 		id: 'pass-3-motion',
-		title: 'Pass 3 — Restrained Motion',
+		title: 'Pass 3 - Restrained Motion',
 		subsections: [
 			{ id: 'transitions', title: 'Transitions' },
 			{ id: 'transforms', title: 'Transforms' },
 			{ id: 'reduced-motion', title: 'Reduced Motion' },
 		],
 	},
-	{ id: 'pass-4-final-review', title: 'Pass 4 — Final Review' },
+	{ id: 'pass-4-final-review', title: 'Pass 4 - Final Review' },
 	{ id: 'checkpoint', title: 'Checkpoint' },
 	{ id: 'guided-practice', title: 'Guided Practice' },
 	{ id: 'independent-practice', title: 'Independent Practice' },
@@ -79,7 +79,7 @@ const guidedPracticeSteps = [
 		instructions:
 			'<p>Open DevTools on the BSB homepage. Find one element where a style is being overridden. Check the Styles panel to see which selector wins and why.</p><p>If the winning selector uses an ID or a long chain like <code>.hero .container .section-title</code>, rewrite it using a single class. Confirm the visual result stays the same.</p>',
 		hints: [
-			'Look for crossed-out styles in the Styles panel — those are the losing rules.',
+			'Look for crossed-out styles in the Styles panel - those are the losing rules.',
 			'A single class like .hero-title is almost always better than a long chain of descendant selectors.',
 		],
 	},
@@ -88,17 +88,17 @@ const guidedPracticeSteps = [
 		instructions:
 			'<p>In your shared stylesheet, find the <code>.site-nav__link</code> rule. Add a colour or border-bottom change on hover, with a transition:</p><pre><code>.site-nav__link {\n  transition: color 0.2s ease;\n}\n\n.site-nav__link:hover {\n  color: var(--color-golden-orange);\n}</code></pre><p>Check that the active link still looks distinct from the hover state.</p>',
 		hints: [
-			'Keep the transition under 0.3s — navigation should feel instant, not sluggish.',
+			'Keep the transition under 0.3s - navigation should feel instant, not sluggish.',
 			'Only transition the property you are changing. Avoid transition: all.',
 		],
 	},
 		{
 			title: 'Add a subtle card lift on hover',
 			instructions:
-				'<p>Find your <code>.menu-card</code> component rule. Add a transform and box-shadow on hover:</p><pre><code>.menu-card {\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.menu-card:hover,\n.menu-card:focus-within {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);\n}</code></pre><p>The lift should be small — just enough to signal interactivity.</p>',
+				'<p>Find your <code>.menu-card</code> component rule. Add a transform and box-shadow on hover:</p><pre><code>.menu-card {\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.menu-card:hover,\n.menu-card:focus-within {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);\n}</code></pre><p>The lift should be small - just enough to signal interactivity.</p>',
 		hints: [
 			'translateY(-2px) is subtle. More than -4px starts to look jumpy.',
-			'Test with your keyboard too — :hover alone does not help keyboard users. Consider adding :focus-within if the card contains a link.',
+			'Test with your keyboard too - :hover alone does not help keyboard users. Consider adding :focus-within if the card contains a link.',
 		],
 	},
 	{
@@ -114,11 +114,11 @@ const guidedPracticeSteps = [
 
 // ── Closure data ──────────────────────────────────────────────────
 const closureKeyTakeaways = [
-	'Polish is deliberate refinement, not decoration — every change should solve a real problem or improve a real interaction.',
+	'Polish is deliberate refinement, not decoration - every change should solve a real problem or improve a real interaction.',
 	'Cascade cleanup comes first because high-specificity CSS makes every future change harder.',
 	'Pseudo-classes and pseudo-elements add detail without adding HTML clutter.',
 	'Transitions and transforms should be restrained: fast, purposeful, and limited to interactive moments.',
-	'The prefers-reduced-motion query is not optional — it is an accessibility requirement for any site with motion.',
+	'The prefers-reduced-motion query is not optional - it is an accessibility requirement for any site with motion.',
 	'A Polish Pass is something you can repeat with every project: audit, detail, motion, review.',
 ];
 
@@ -193,7 +193,7 @@ const closureReflectionPrompts = [
 			<AnticipatorySet
 				title="From Working to Finished"
 				icon="✨"
-				:hook="`<p>After Part 4, the Black Swan Bistro is a working multi-page site. It has shared navigation, reusable components, responsive layouts, and consistent styling. That is real progress.</p><p>But working is not the same as finished. The navigation links do not respond to hover. The cards sit flat on the page. Some selectors are more specific than they need to be, which will make future changes harder. Small details — a transition here, a pseudo-element there — are what turn a functional layout into a site that feels considered.</p><p>This is a polish pass. It is structured, deliberate, and restrained. You are not redesigning. You are refining.</p>`"
+				:hook="`<p>After Part 4, the Black Swan Bistro is a working multi-page site. It has shared navigation, reusable components, responsive layouts, and consistent styling. That is real progress.</p><p>But working is not the same as finished. The navigation links do not respond to hover. The cards sit flat on the page. Some selectors are more specific than they need to be, which will make future changes harder. Small details - a transition here, a pseudo-element there - are what turn a functional layout into a site that feels considered.</p><p>This is a polish pass. It is structured, deliberate, and restrained. You are not redesigning. You are refining.</p>`"
 				:reflection-prompts="[
 					'What is the difference between a site that works and a site that feels finished?',
 					'Have you ever added hover effects or animations that made a page feel worse instead of better?',
@@ -227,10 +227,10 @@ const closureReflectionPrompts = [
 				Bistro site in four focused passes, each building on the last:
 			</p>
 			<ol>
-				<li><strong>Cascade cleanup</strong> — audit specificity and simplify selectors</li>
-				<li><strong>Detail selectors</strong> — add hover states, focus styles, and decorative pseudo-elements</li>
-				<li><strong>Restrained motion</strong> — add transitions and transforms to interactive moments</li>
-				<li><strong>Final review</strong> — check accessibility, reduced motion, and overall feel</li>
+				<li><strong>Cascade cleanup</strong> - audit specificity and simplify selectors</li>
+				<li><strong>Detail selectors</strong> - add hover states, focus styles, and decorative pseudo-elements</li>
+				<li><strong>Restrained motion</strong> - add transitions and transforms to interactive moments</li>
+				<li><strong>Final review</strong> - check accessibility, reduced motion, and overall feel</li>
 			</ol>
 			<p>
 				Each pass is short and focused. You are not rewriting the site. You are making
@@ -259,12 +259,12 @@ const closureReflectionPrompts = [
 			</ul>
 			<p>
 				None of these changes are large on their own. Together, they signal care and
-				intention. And the process of adding them teaches restraint — knowing when a
+				intention. And the process of adding them teaches restraint - knowing when a
 				detail helps and when it just adds noise.
 			</p>
 
 			<!-- ═══════════════════════════════════════════════════ -->
-			<!-- PASS 1 — CASCADE CLEANUP                          -->
+			<!-- PASS 1 - CASCADE CLEANUP                          -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="pass-1-cascade-cleanup">Pass 1: Cascade Cleanup</h2>
 			<p>
@@ -284,8 +284,8 @@ const closureReflectionPrompts = [
 				<li>Are there long descendant chains like <code>.hero .container .section-title</code> that could be a single class?</li>
 			</ul>
 			<p>
-				Write down each problem you find. You do not need to fix everything at once —
-				just build a clear picture before changing anything.
+				Write down each problem you find. You do not need to fix everything at once.
+				Build a clear picture before changing anything.
 			</p>
 
 			<h3 id="simplify-selectors">Simplify Selectors</h3>
@@ -305,7 +305,7 @@ const closureReflectionPrompts = [
 			</p>
 
 			<!-- ═══════════════════════════════════════════════════ -->
-			<!-- PASS 2 — DETAIL SELECTORS                         -->
+			<!-- PASS 2 - DETAIL SELECTORS                         -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="pass-2-detail-selectors">Pass 2: Detail Selectors</h2>
 			<p>
@@ -315,7 +315,7 @@ const closureReflectionPrompts = [
 
 			<h3 id="pseudo-classes">Pseudo-classes for Interaction</h3>
 			<p>
-				Review every interactive element on the site — links, buttons, cards that contain
+				Review every interactive element on the site - links, buttons, cards that contain
 				links, and navigation items. Each one should have clear <code>:hover</code> and
 				<code>:focus-visible</code> states.
 			</p>
@@ -356,7 +356,7 @@ const closureReflectionPrompts = [
 }</code></pre>
 
 			<!-- ═══════════════════════════════════════════════════ -->
-			<!-- PASS 3 — MOTION                                   -->
+			<!-- PASS 3 - MOTION                                   -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="pass-3-motion">Pass 3: Restrained Motion</h2>
 			<p>
@@ -370,7 +370,7 @@ const closureReflectionPrompts = [
 				are simple:
 			</p>
 			<ul>
-				<li>Only transition the properties you are changing — never use <code>transition: all</code></li>
+				<li>Only transition the properties you are changing - never use <code>transition: all</code></li>
 				<li>Keep durations between 0.15s and 0.3s for interactive feedback</li>
 				<li>Use <code>ease</code> or <code>ease-out</code> for most hover transitions</li>
 			</ul>
@@ -431,7 +431,7 @@ const closureReflectionPrompts = [
 			</p>
 
 			<!-- ═══════════════════════════════════════════════════ -->
-			<!-- PASS 4 — FINAL REVIEW                             -->
+			<!-- PASS 4 - FINAL REVIEW                             -->
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="pass-4-final-review">Pass 4: Final Review</h2>
 			<p>
@@ -502,7 +502,7 @@ const closureReflectionPrompts = [
 			<!-- ═══════════════════════════════════════════════════ -->
 			<h2 id="recap">Recap</h2>
 			<p>
-				In this tutorial, you applied a structured polish workflow to the Black Swan
+				You applied a structured polish workflow to the Black Swan
 				Bistro site:
 			</p>
 			<ol>

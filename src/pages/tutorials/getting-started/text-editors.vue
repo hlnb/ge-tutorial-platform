@@ -46,7 +46,7 @@
 					'Have you ever used Notepad or TextEdit to write something? What was missing?',
 					'What features would make writing code easier than writing in a basic text file?'
 				]"
-				connection="By the end of this lesson, you'll know exactly which editor fits your needs and how to start using it like a pro!"
+				connection="After this lesson, you'll know which editor fits your needs and how to start using it with confidence!"
 			/>
 
 			<!-- Hunter Element 2: Learning Objectives -->
@@ -102,7 +102,7 @@
 
 			<h3>Integrated Development Environments (IDEs)</h3>
 			<p>
-				These are comprehensive development tools that include a text editor
+				These are full development tools that include a text editor
 				along with other features:
 			</p>
 			<ul>
@@ -249,7 +249,7 @@
 			<!-- Guided Practice -->
 			<div class="box practice-guided">
 				<h3><i class="fas fa-hands-helping"></i> Guided Practice: Setting Up VS Code</h3>
-				<p>Let's walk through installing and configuring VS Code together.</p>
+				<p>Walk through installing and configuring VS Code together.</p>
 				
 				<div class="steps">
 					<div class="step-item">
@@ -260,7 +260,7 @@
 								<summary><i class="fas fa-lightbulb"></i> 💡 Need a hint?</summary>
 								<div class="hint-content">
 									<div class="hint">The big blue download button will automatically detect your OS (Windows, Mac, or Linux).</div>
-									<div class="hint">Run the installer and use all default options—they're designed to work well for beginners.</div>
+									<div class="hint">Run the installer and use all default options - they're designed to work well for beginners.</div>
 								</div>
 							</details>
 						</div>
@@ -294,7 +294,7 @@
 								<summary><i class="fas fa-lightbulb"></i> 💡 Need a hint?</summary>
 								<div class="hint-content">
 									<div class="hint">Use Ctrl+S (Cmd+S on Mac) to save files.</div>
-									<div class="hint">The <code>!</code> + Tab trick is an Emmet abbreviation—a powerful shortcut system built into VS Code.</div>
+									<div class="hint">The <code>!</code> + Tab trick is an Emmet abbreviation - a powerful shortcut system built into VS Code.</div>
 									<div class="hint">Right-click the file and choose "Open with Live Server" to see it in your browser.</div>
 								</div>
 							</details>
@@ -454,7 +454,7 @@ const checkpointQuestions1 = [
 	},
 	{
 		question: 'When might you choose an IDE over a code editor?',
-		answer: 'You might choose an IDE when working on large, complex projects that benefit from comprehensive features like built-in compilers, debuggers, and project management tools all in one place. IDEs are especially useful for enterprise development.',
+		answer: 'You might choose an IDE when working on large, complex projects that benefit from broader features like built-in compilers, debuggers, and project management tools all in one place. IDEs are especially useful for enterprise development.',
 	},
 	{
 		question: 'Name three code editors mentioned in this section.',

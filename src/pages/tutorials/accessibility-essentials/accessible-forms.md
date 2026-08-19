@@ -28,7 +28,7 @@ Forms are where websites ask users to do work.
 That work might be simple: enter an email address.  
 It might be stressful: apply for support, book a medical appointment, submit a payment, or report a problem.
 
-A form is not just a collection of boxes. It is a conversation.
+A form is more than a collection of boxes. It is how the page asks for information and responds to the user.
 
 Bad forms mumble.  
 Good forms explain what they need, why they need it, and what went wrong when something needs fixing.
@@ -39,7 +39,7 @@ Good forms explain what they need, why they need it, and what went wrong when so
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - connect labels to form controls
 - write helpful form instructions
@@ -105,7 +105,7 @@ Do not rely only on colour or an asterisk with no explanation.
 <input id="email" name="email" type="email" required>
 ```
 
-You can also include the word “required” directly in the label:
+You can also include the word "required" directly in the label:
 
 ```html
 <label for="email">Email address <span>(required)</span></label>
@@ -471,7 +471,7 @@ Learners choose a form from a previous project and complete:
 ## Common mistakes
 
 - Using placeholders as the only labels.
-- Writing vague errors such as “Invalid field”.
+- Writing vague errors such as "Invalid field".
 - Marking fields as required using colour alone.
 - Forgetting `type="submit"` on submit buttons.
 - Not grouping radio buttons.

@@ -174,7 +174,7 @@ const quizRenderingExample = `function renderQuestion() {
 				<FlowSteps
 					:steps="[
 						{ title: 'Start with data', description: 'Use one consistent item shape, such as title, category, and price.' },
-						{ title: 'Apply one template', description: 'Keep the card shell stable and insert each item’s changing values into it.' },
+						{ title: 'Apply one template', description: 'Keep the card shell stable and insert each item\'s changing values into it.' },
 						{ title: 'Render the collection', description: 'Show many items consistently so filtering and empty states stay manageable.' }
 					]"
 				/>
@@ -194,7 +194,7 @@ const quizRenderingExample = `function renderQuestion() {
 				<h3 class="title is-5">Useful empty-state questions</h3>
 				<ul>
 					<li>Should the result count update?</li>
-					<li>Should a “no matches” message appear?</li>
+					<li>Should a "no matches" message appear?</li>
 					<li>Should the user have an easy reset action?</li>
 				</ul>
 			</div>

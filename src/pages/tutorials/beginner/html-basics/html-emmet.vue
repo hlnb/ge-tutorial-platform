@@ -379,7 +379,7 @@ import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 useTutorialHead({
   title: 'Emmet: Write HTML & CSS Faster',
-  description: 'Speed up your HTML and CSS with Emmet abbreviations — the essential shortcut tool built into VS Code for faster markup.',
+  description: 'Speed up your HTML and CSS with Emmet abbreviations - the essential shortcut tool built into VS Code for faster markup.',
   path: '/tutorials/beginner/html-basics/html-emmet',
 });
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
@@ -417,7 +417,7 @@ const closureKeyTakeaways = [
 	'The > operator creates child elements, + creates siblings, and * multiplies elements',
 	'Use . for classes, # for IDs, and [] for custom attributes in Emmet abbreviations',
 	'Emmet is built into VS Code and most modern code editors, requiring no installation',
-	'Mastering Emmet abbreviations can speed up your HTML/CSS workflow by 50% or more',
+	'Learning Emmet abbreviations can speed up your HTML/CSS workflow by 50% or more',
 ];
 
 const closureObjectives = [

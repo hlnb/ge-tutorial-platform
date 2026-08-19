@@ -41,7 +41,7 @@ ARIA is a useful tool. It is not a forgiveness spell for chaotic markup.
 
 ## What you'll learn
 
-By the end of this lesson, you will be able to:
+After this lesson, you will be able to:
 
 - explain what ARIA is for
 - describe roles, properties, and states

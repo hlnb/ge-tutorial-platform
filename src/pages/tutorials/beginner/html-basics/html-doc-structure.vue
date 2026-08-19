@@ -33,14 +33,14 @@
 		<!-- Hunter Element 1: Anticipatory Set -->
 		<AnticipatorySet
 			title="🏛️ Building the Foundation"
-			:hook="`<p>Think of HTML structure like building a house. You need a solid foundation, walls that make sense, and rooms organized logically. The same goes for web pages—proper structure is invisible but absolutely essential.</p>
+			:hook="`<p>Think of HTML structure like building a house. You need a solid foundation, walls that make sense, and rooms organized logically. The same goes for web pages - proper structure is invisible but absolutely essential.</p>
 			<p><strong>Here's why this matters:</strong> Google and other search engines rely heavily on document structure to understand and rank your content. Screen readers use it to help blind users navigate. Poor structure = poor SEO + poor accessibility.</p>`"
 			:reflection-prompts="[
 				'Have you noticed that well-organized websites are easier to navigate?',
 				'Why do some websites rank higher in Google search results?',
 				'How do blind users navigate websites without seeing them?'
 			]"
-			connection="In this tutorial, you'll learn to build properly structured HTML documents that work beautifully for humans, search engines, and assistive technologies."
+			connection="You will learn to build properly structured HTML documents that work beautifully for humans, search engines, and assistive technologies."
 		/>
 
 		<!-- Hunter Element 2: Learning Objectives -->
@@ -284,7 +284,7 @@
 			</div>
 
 			<p class="mt-4">
-				Now that we understand the visual structure of a webpage, let's explore
+				Now that you understand the visual structure of a webpage, let's explore
 				how to set up the technical foundation with proper metadata.
 			</p>
 		</div>
@@ -301,7 +301,7 @@
 					<router-link to="/tutorials/beginner/html-basics/html-first-page"
 						>Your First HTML Page</router-link
 					>, we learned about the basic HTML structure and essential meta tags.
-					Now, let's dive deeper into metadata and explore additional tags that
+					Next, look more closely at metadata and explore additional tags that
 					make our pages more powerful.
 				</p>
 			</div>
@@ -315,7 +315,7 @@
 			<div class="tutorial-card mt-4">
 				<h3 class="title is-4">Beyond the Basics: Advanced Metadata</h3>
 				<p>
-					Building on our previous knowledge, let's explore additional metadata
+					Building on that, let's explore additional metadata
 					that can improve our pages:
 				</p>
 
@@ -409,7 +409,7 @@
 			</div>
 
 			<p class="mt-4">
-				Now that we understand semantic elements, let's look at common ways to
+				Now that you understand semantic elements, let's look at common ways to
 				combine them into full page layouts.
 			</p>
 		</div>
@@ -1133,7 +1133,7 @@ This is a new line
 				<i class="fas fa-utensils section-icon"></i> Project: Black Swan Bistro
 			</h2>
 			<p>
-				Let's apply what we've learned to improve our bistro website. This
+				Apply what we've learned to improve our bistro website. This
 				project will incorporate proper metadata, semantic HTML, and a clear
 				content structure:
 			</p>
@@ -1151,7 +1151,7 @@ This is a new line
 			</div>
 
 			<p class="mt-4">
-				Ready for a bigger challenge? Let's try creating a more complex website
+				Ready for a bigger challenge? Try creating a more complex website
 				structure.
 			</p>
 		</div>
@@ -1273,7 +1273,7 @@ This is a new line
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
 			real-world-application="<p>Professional websites rely on proper document structure for SEO, accessibility, and maintainability. Major sites like The New York Times, GitHub, and Medium use semantic HTML to organize content hierarchically, making it easy for both users and search engines to understand.</p><p>Proper structure also makes it easier for teams to collaborate on code. When structure follows semantic conventions, new developers can quickly understand how a page is organized without reading every line of code. This reduces bugs, speeds up development, and creates more maintainable projects.</p>"
-			next-steps="<p>Now that you understand proper HTML document structure, you're ready to learn Emmet—a powerful toolkit that helps you write HTML faster using shortcuts and abbreviations. Emmet will dramatically speed up your workflow while reinforcing the HTML patterns you've learned.</p><p>After mastering Emmet, you'll have completed the HTML Basics series and be ready to move into CSS, where you'll learn to style and lay out the semantic HTML structures you've been creating.</p>"
+			next-steps="<p>Now that you understand proper HTML document structure, you're ready to learn Emmet - a powerful toolkit that helps you write HTML faster using shortcuts and abbreviations. Emmet will dramatically speed up your workflow while reinforcing the HTML patterns you've learned.</p><p>After mastering Emmet, you'll have completed the HTML Basics series and be ready to move into CSS, where you'll learn to style and lay out the semantic HTML structures you've been creating.</p>"
 		/>
 
 		<!-- Add recommendations before the quiz -->
@@ -1296,7 +1296,7 @@ import TutorialNavigation from '@/components/TutorialNavigation.vue';
 
 useTutorialHead({
   title: 'HTML Document Structure',
-  description: 'Understand the structure of an HTML document — DOCTYPE, html, head, and body tags explained step by step for beginners.',
+  description: 'Understand the structure of an HTML document - DOCTYPE, html, head, and body tags explained step by step for beginners.',
   path: '/tutorials/beginner/html-basics/html-doc-structure',
 });
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
@@ -1356,7 +1356,7 @@ const closureReflectionPrompts = [
 			'What would happen if you used only <div> elements instead of semantic elements?'
 		],
 		content:
-			'Semantic HTML is like using chapter titles and section headings in a book—it creates structure and meaning that helps everyone (humans and machines) understand your content better.',
+			'Semantic HTML is like using chapter titles and section headings in a book - it creates structure and meaning that helps everyone (humans and machines) understand your content better.',
 	},
 	{
 		icon: 'fas fa-universal-access',
@@ -1366,7 +1366,7 @@ const closureReflectionPrompts = [
 			'Why is proper document structure a foundation for accessibility?'
 		],
 		content:
-			"Accessible websites benefit everyone. Good structure enables keyboard navigation, screen reader shortcuts, and search engine understanding. It's not just about compliance—it's about building a better web for all users.",
+			"Accessible websites benefit everyone. Good structure enables keyboard navigation, screen reader shortcuts, and search engine understanding. It's about building a web that more people can use, not only about compliance.",
 	},
 ];
 

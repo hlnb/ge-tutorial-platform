@@ -15,7 +15,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "Modern CSS",
-  description: "Discover modern CSS features and best practices — custom properties, nesting, and techniques for maintainable stylesheets.",
+  description: "Discover modern CSS features and best practices - custom properties, nesting, and techniques for maintainable stylesheets.",
   path: "/tutorials/beginner/css-basics/modern",
 });
 
@@ -498,7 +498,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 				title="🚀 CSS Has Evolved"
 				:reflection-prompts="[
 					'Have you ever copied the same color code or value multiple times across a stylesheet?',
-					'What happens when you need to change that value—how many places do you have to update?',
+					'What happens when you need to change that value - how many places do you have to update?',
 					'How do modern development tools like JavaScript frameworks handle reusable values?',
 				]"
 			>
@@ -512,7 +512,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 					Today's CSS includes custom properties (variables), powerful functions like
 					calc() and clamp(), modern selectors, logical properties, and sophisticated
 					layout systems. In this tutorial, you'll discover how these features can make
-					your stylesheets more maintainable, flexible, and powerful—without needing any
+					your stylesheets more maintainable, flexible, and powerful - without needing any
 					preprocessor.
 				</p>
 			</AnticipatorySet>
@@ -540,7 +540,7 @@ const logicalPracticalExample = ref(`/* Real-world Examples */
 			<h2 class="title is-2">Introduction to Modern CSS</h2>
 			<p>
 				Modern CSS provides powerful features that make our stylesheets more
-				maintainable, flexible, and easier to work with. In this tutorial, we'll
+				maintainable, flexible, and easier to work with. We'll
 				explore these features and how they can improve your web development
 				workflow.
 			</p>

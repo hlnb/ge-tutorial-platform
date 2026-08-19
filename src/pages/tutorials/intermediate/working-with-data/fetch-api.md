@@ -26,7 +26,7 @@ hiddenFromCurriculum: false
 
 <!-- ANCHOR HOOK -->
 
-Every time you scroll a social media feed, search a product catalogue, or check the weather in a browser app, JavaScript is fetching data from a server. Not from the HTML file — from a separate data source, on demand, without reloading the page.
+Every time you scroll a social media feed, search a product catalogue, or check the weather in a browser app, JavaScript is fetching data from a server. Not from the HTML file - from a separate data source, on demand, without reloading the page.
 
 That's `fetch()`. It's the browser's built-in tool for making HTTP requests, and it's built entirely on Promises.
 
@@ -40,7 +40,7 @@ You already understand Promises. This tutorial puts them to work.
 
 ## What you'll learn
 
-By the end of this tutorial you'll be able to:
+After this tutorial, you'll be able to:
 
 - Use `fetch()` to make a GET request to a real API
 - Explain why `fetch()` requires two `.then()` steps to get usable data
@@ -63,15 +63,15 @@ fetch('https://jsonplaceholder.typicode.com/users/1');
 // returns a Promise<Response>
 ```
 
-`jsonplaceholder.typicode.com` is a free fake API used for practice. It returns realistic-looking JSON data and requires no sign-up or API key — you'll use it throughout this section.
+`jsonplaceholder.typicode.com` is a free fake API used for practice. It returns realistic-looking JSON data and requires no sign-up or API key - you'll use it throughout this section.
 
 ---
 
 ## The two-step response pattern
 
-Here's the part that trips people up. When the Promise from `fetch()` resolves, you don't immediately have your data. You have a **Response object** — a wrapper that represents the HTTP response.
+Here's the part that trips people up. When the Promise from `fetch()` resolves, you don't immediately have your data. You have a **Response object** - a wrapper that represents the HTTP response.
 
-To get the actual data out of it, you need to call `.json()` on the response. And `.json()` is *also* async — it returns another Promise.
+To get the actual data out of it, you need to call `.json()` on the response. And `.json()` is *also* async - it returns another Promise.
 
 This means every basic `fetch()` call has two `.then()` steps:
 
@@ -86,7 +86,7 @@ fetch('https://jsonplaceholder.typicode.com/users/1')
   });
 ```
 
-**Why two steps?** The browser receives the HTTP response in a stream. The headers arrive first — before the body is fully downloaded. The first `.then()` fires when the headers arrive. `.json()` then reads the rest of the stream and parses it. It's efficient, but it does mean you always need both steps.
+**Why two steps?** The browser receives the HTTP response in a stream. The headers arrive first - before the body is fully downloaded. The first `.then()` fires when the headers arrive. `.json()` then reads the rest of the stream and parses it. It's efficient, but it does mean you always need both steps.
 
 ---
 
@@ -105,7 +105,7 @@ fetch('https://jsonplaceholder.typicode.com/users/1')
   .then((data) => console.log(data));
 ```
 
-The most important property is **`response.ok`** — a boolean that's `true` when the status code is in the 200–299 range (success) and `false` for anything else (404, 500, etc.).
+The most important property is **`response.ok`** - a boolean that's `true` when the status code is in the 200-299 range (success) and `false` for anything else (404, 500, etc.).
 
 ---
 
@@ -115,9 +115,9 @@ This is the most common mistake beginners make with `fetch()`:
 
 > **`fetch()` does not reject on HTTP errors.**
 
-If the server returns a 404 or 500, the Promise still *resolves* — because the network request itself succeeded. You get a Response object with `ok: false`, but no error is thrown.
+If the server returns a 404 or 500, the Promise still *resolves* - because the network request itself succeeded. You get a Response object with `ok: false`, but no error is thrown.
 
-Your `.catch()` only fires for genuine network failures — no internet connection, DNS failure, request blocked by CORS, and so on.
+Your `.catch()` only fires for genuine network failures - no internet connection, DNS failure, request blocked by CORS, and so on.
 
 To handle HTTP errors correctly, check `response.ok` in the first `.then()` and throw an error manually if needed:
 
@@ -137,7 +137,7 @@ fetch('https://jsonplaceholder.typicode.com/users/999')
   });
 ```
 
-By throwing inside `.then()`, you force the error into the `.catch()` handler — keeping all your error handling in one place.
+By throwing inside `.then()`, you force the error into the `.catch()` handler - keeping all your error handling in one place.
 
 ---
 
@@ -192,13 +192,13 @@ getUser(1)
   .catch((error) => console.error(error.message));
 ```
 
-Notice there's no `.catch()` inside `getUser` — the function returns the Promise and lets the caller handle errors. This is a clean pattern: fetch functions fetch and parse, calling code decides what to do.
+Notice there's no `.catch()` inside `getUser` - the function returns the Promise and lets the caller handle errors. This is a clean pattern: fetch functions fetch and parse, calling code decides what to do.
 
 ---
 
 ## What about POST requests?
 
-`fetch()` defaults to a GET request. To send data to a server — creating a new resource — you pass a second argument with the request options:
+`fetch()` defaults to a GET request. To send data to a server - creating a new resource - you pass a second argument with the request options:
 
 ```js
 fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -216,7 +216,7 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
   .then((data) => console.log(data));
 ```
 
-This tutorial focuses on GET requests because that's where you'll start when consuming data. POST, PUT, and DELETE follow the same pattern — just with different `method` values and a `body`.
+This tutorial focuses on GET requests because that's where you'll start when consuming data. POST, PUT, and DELETE follow the same pattern - just with different `method` values and a `body`.
 
 ---
 
@@ -229,10 +229,10 @@ This tutorial focuses on GET requests because that's where you'll start when con
 The first step fires when the response headers arrive. `.json()` then reads the body stream and parses it asynchronously, which is why it also returns a Promise.
 
 **2. What does `response.ok` tell you?**
-It's `true` when the HTTP status code is in the 200–299 range (success), and `false` for any other status including 404 and 500.
+It's `true` when the HTTP status code is in the 200-299 range (success), and `false` for any other status including 404 and 500.
 
 **3. Why won't `.catch()` fire on a 404 response?**
-Because `fetch()` only rejects on network-level failures (no connection, CORS block, DNS error). A 404 is a valid HTTP response — the request completed, the server just said "not found". You need to check `response.ok` and throw manually.
+Because `fetch()` only rejects on network-level failures (no connection, CORS block, DNS error). A 404 is a valid HTTP response - the request completed, the server just said "not found". You need to check `response.ok` and throw manually.
 
 **4. What's the benefit of returning the Promise chain from a fetch function rather than logging inside it?**
 It keeps the function focused on one job (fetch and parse), and lets the caller decide how to use or display the data. It also makes the function reusable in different contexts.
@@ -248,17 +248,17 @@ It keeps the function focused on one job (fetch and parse), and lets the caller 
 
 You're going to fetch a list of users from JSONPlaceholder and display their names and email addresses.
 
-**Step 1 — Write the fetch call**
+**Step 1 - Write the fetch call**
 
 Call `fetch('https://jsonplaceholder.typicode.com/users')` and chain the two-step response pattern.
 
-**Step 2 — Add the `response.ok` check**
+**Step 2 - Add the `response.ok` check**
 
 In the first `.then()`, check `response.ok`. If it's false, throw an error with the status code in the message.
 
-**Step 3 — Log the data**
+**Step 3 - Log the data**
 
-In the second `.then()`, receive the `users` array and use `forEach` to log each user's `name` and `email`. Format it as: `Helen Burgess — helen@example.com`.
+In the second `.then()`, receive the `users` array and use `forEach` to log each user's `name` and `email`. Format it as: `Helen Burgess - helen@example.com`.
 
 <details>
 <summary>Hint</summary>
@@ -270,11 +270,11 @@ users.forEach((user) => {
 ```
 </details>
 
-**Step 4 — Add `.catch()`**
+**Step 4 - Add `.catch()`**
 
 Add a `.catch()` that logs `'Failed to load users: '` followed by the error message.
 
-**Step 5 — Test the error case**
+**Step 5 - Test the error case**
 
 Change the URL to `'https://jsonplaceholder.typicode.com/nonexistent'`. Confirm your error handler fires and logs a useful message.
 
@@ -293,7 +293,7 @@ Build a **post loader** function that fetches posts for a specific user and retu
 
 - Write a function `getPostsByUser(userId)` that accepts a user ID and returns a Promise
 - Fetch from `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
-- Check `response.ok` — throw a descriptive error if the request failed
+- Check `response.ok` - throw a descriptive error if the request failed
 - Return an array of post titles (strings), not the full post objects
 - Call the function with userId `1` and log the resulting titles
 - Call the function with an invalid URL path and confirm the error is handled
@@ -312,8 +312,8 @@ Build a **post loader** function that fetches posts for a specific user and retu
 
 ## What's next
 
-You can now fetch data from a real API and handle the full response lifecycle — including errors that `fetch()` won't catch on its own.
+You can now fetch data from a real API and handle the full response lifecycle - including errors that `fetch()` won't catch on its own.
 
-But raw JSON from an API often needs work before it's useful — filtering, reshaping, nesting. The next tutorial covers **working with JSON**: what it is, how to parse and stringify it, and the array methods you'll reach for every time you work with API data.
+But raw JSON from an API often needs work before it's useful - filtering, reshaping, nesting. The next tutorial covers **working with JSON**: what it is, how to parse and stringify it, and the array methods you'll reach for every time you work with API data.
 
 → **Next: [Working with JSON](./working-with-json)**

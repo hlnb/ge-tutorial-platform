@@ -461,7 +461,7 @@
 				<li>✅ Template literals with conditional text</li>
 				<li>❌ Complex conditions (use if/else)</li>
 				<li>❌ Multiple outcomes (use if/else if)</li>
-				<li>❌ When readability is crucial</li>
+				<li>❌ When readability is important</li>
 			</ul>
 		</div>
 
@@ -594,7 +594,7 @@
 			<h3 class="title is-4">
 				<i class="fas fa-star"></i> Challenge: Order Validation System
 			</h3>
-			<p>Create a comprehensive order validation system that checks multiple conditions:</p>
+			<p>Create a complete order validation system that checks multiple conditions:</p>
 			
 			<CodeMirror
 				:code="challengeCode"
@@ -669,7 +669,7 @@
 
 		<h2 class="title is-2">Challenge: Black Swan Bistro Menu Filter</h2>
 		<p>
-			Let's put everything together by creating a menu filtering system for our
+			Put everything together by creating a menu filtering system for our
 			restaurant:
 		</p>
 
@@ -724,8 +724,8 @@
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Conditionals power every decision your applications make. From showing different content based on user roles, to validating form inputs before submission, to toggling dark mode based on user preference—if/else logic is everywhere. Games use conditionals to determine win/lose states, and APIs use them to return appropriate responses based on request parameters.</p>"
-			next-steps="<p>Now that your programs can make decisions, you're ready to learn about loops. In the next lesson, you'll discover how to repeat actions efficiently—processing arrays of data, iterating through lists, and automating repetitive tasks that would be impractical to write out one by one.</p>"
+			real-world-application="<p>Conditionals power every decision your applications make. From showing different content based on user roles, to validating form inputs before submission, to toggling dark mode based on user preference - if/else logic is everywhere. Games use conditionals to determine win/lose states, and APIs use them to return appropriate responses based on request parameters.</p>"
+			next-steps="<p>Now that your programs can make decisions, you're ready to learn about loops. In the next lesson, you'll discover how to repeat actions efficiently - processing arrays of data, iterating through lists, and automating repetitive tasks that would be impractical to write out one by one.</p>"
 		/>
 
 		<!-- Recommendations for next steps -->
@@ -753,13 +753,13 @@ import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 useTutorialHead({
   title: 'Control Flow in JavaScript',
-  description: 'Master if/else, switch, and ternary operators in JavaScript — make decisions and control code execution.',
+  description: 'Master if/else, switch, and ternary operators in JavaScript - make decisions and control code execution.',
   path: '/tutorials/beginner/javascript-basics/conditionals',
 });
 
 const anticipatorySet = {
 	title: '🧭 Routing the Dinner Rush',
-	hook: `<p>Hosts decide where every party sits, kitchens switch menus midday, and chefs handle dietary requests—all by evaluating conditions in seconds. Control flow is the mental playbook that keeps service smooth.</p>`,
+	hook: `<p>Hosts decide where every party sits, kitchens switch menus midday, and chefs handle dietary requests - all by evaluating conditions in seconds. Control flow is the mental playbook that keeps service smooth.</p>`,
 	reflectionPrompts: [
 		'When have you needed different outcomes based on time, size, or preference?',
 		'How do you personally keep track of multiple "if this, then that" rules?',

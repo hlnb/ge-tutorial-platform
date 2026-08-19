@@ -269,7 +269,7 @@
 
 		<div class="box">
 			<h3 class="title is-4">Practical Project Application</h3>
-			<p>Let's look at how functions are used in real projects, like our photo gallery:</p>
+			<p>Look at how functions are used in real projects, like our photo gallery:</p>
 			<div class="codemirror-wrapper">
 				<CodeMirror
 					v-model="galleryExample"
@@ -290,8 +290,8 @@
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Functions are the backbone of every JavaScript application. React components are functions. Express route handlers are functions. Event listeners, array methods like map and filter, API calls—all built on functions. Professional codebases are organized entirely around well-named, focused functions that compose together to create complex features from simple, testable parts.</p>"
-			next-steps="<p>Congratulations on completing JavaScript Basics! You're now ready to move on to DOM Basics, where you'll learn how to use JavaScript to interact with HTML elements on the page—selecting elements, changing content, and responding to user events to build truly interactive web applications.</p>"
+			real-world-application="<p>Functions are the backbone of every JavaScript application. React components are functions. Express route handlers are functions. Event listeners, array methods like map and filter, API calls - all built on functions. Professional codebases are organized entirely around well-named, focused functions that compose together to create complex features from simple, testable parts.</p>"
+			next-steps="<p>Congratulations on completing JavaScript Basics! You're now ready to move on to DOM Basics, where you'll learn how to use JavaScript to interact with HTML elements on the page - selecting elements, changing content, and responding to user events to build truly interactive web applications.</p>"
 		/>
 
 		<TutorialRecommendations :current-path="'/tutorials/beginner/javascript-basics/functions'" />
@@ -320,7 +320,7 @@ import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue'
 
 useTutorialHead({
   title: 'JavaScript Functions',
-  description: 'Learn how to write and use functions in JavaScript — declarations, expressions, parameters, return values, and scope.',
+  description: 'Learn how to write and use functions in JavaScript - declarations, expressions, parameters, return values, and scope.',
   path: '/tutorials/beginner/javascript-basics/functions',
 });
 
@@ -337,13 +337,13 @@ const { pageSections } = usePageSections(sections);
 
 const anticipatorySet = {
 	title: '👩‍🍳 Signature Recipes on Repeat',
-	hook: `<p>Restaurants rely on detailed recipes so every dish tastes the same no matter who is cooking. Functions give your codebase that same consistency—wrap a process once, reuse it everywhere.</p>`,
+	hook: `<p>Restaurants rely on detailed recipes so every dish tastes the same no matter who is cooking. Functions give your codebase that same consistency - wrap a process once, reuse it everywhere.</p>`,
 	reflectionPrompts: [
 		'Which steps in your current project do you repeat in multiple files?',
 		'How could reusable functions reduce bugs when requirements change?',
 		'What information (parameters) do your "recipes" always need to succeed?'
 	],
-	connection: 'Mastering functions lets you compose complex features from reliable, testable building blocks rather than rewriting logic each time.'
+	connection: 'Learning functions lets you compose complex features from reliable, testable building blocks rather than rewriting logic each time.'
 };
 
 const learningObjectives = {
@@ -365,7 +365,7 @@ const functionsCheckpoint = {
 		'How will you document the purpose and expected return value of each function?'
 	],
 	tips: [
-		'Keep each function responsible for one task—compose instead of nesting.',
+		'Keep each function responsible for one task - compose instead of nesting.',
 		'Default parameters make helpers more resilient to missing data.',
 		'Name functions with verbs so their intent is obvious in call sites.'
 	]
@@ -375,7 +375,7 @@ const closureKeyTakeaways = [
 	'Functions package reusable logic that can be called by name with different arguments',
 	'Parameters let functions accept input; return values send results back to the caller',
 	'Arrow functions provide concise syntax especially useful for callbacks and array methods',
-	'Scope determines where variables are accessible—function scope keeps data private',
+	'Scope determines where variables are accessible - function scope keeps data private',
 	'Default and rest parameters make functions more flexible and resilient',
 	'Closures allow inner functions to remember variables from their outer scope',
 ];

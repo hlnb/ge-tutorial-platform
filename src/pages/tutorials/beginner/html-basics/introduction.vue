@@ -31,7 +31,7 @@
 		<!-- Hunter Element 1: Anticipatory Set -->
 		<AnticipatorySet
 			title="🌐 Welcome to the World of HTML"
-			:hook="`<p>Every single website you've ever visited—every social media post, every online game, every video you've watched—was built with HTML. It's the foundation of the entire web.</p>
+			:hook="`<p>Every single website you've ever visited - every social media post, every online game, every video you've watched - was built with HTML. It's the foundation of the entire web.</p>
 			<p><strong>Here's the amazing thing:</strong> HTML was created in 1989 by one person who just wanted scientists to share documents. Today, it powers billions of websites and connects the entire world.</p>`"
 			:reflection-prompts="[
 				'Have you ever right-clicked on a website and selected View Source?',
@@ -609,7 +609,7 @@
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Every website you've ever visited—from social media to online shopping—is built with HTML at its core. Understanding HTML gives you the power to create, modify, and understand the digital world around you.</p>"
+			real-world-application="<p>Every website you've ever visited - from social media to online shopping - is built with HTML in its basic structure. Understanding HTML gives you the power to create, modify, and understand the digital world around you.</p>"
 			next-steps="<p>In the next lesson, <strong>HTML: Your First Page</strong>, you'll create a complete HTML document from scratch with proper structure, headings, paragraphs, and links. You'll build something you can actually share!</p>"
 		/>
 
@@ -697,7 +697,7 @@ const frontmatter = {
 
 useTutorialHead({
   title: 'Introduction to HTML',
-  description: 'Learn what HTML is and how it works — the markup language behind every web page, explained for absolute beginners.',
+  description: 'Learn what HTML is and how it works - the markup language behind every web page, explained for absolute beginners.',
   path: '/tutorials/beginner/html-basics/introduction',
 });
 

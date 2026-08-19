@@ -16,7 +16,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: "CSS Selectors",
-  description: "Master CSS selectors — target elements by type, class, ID, attribute, and pseudo-class to apply styles precisely.",
+  description: "Master CSS selectors - target elements by type, class, ID, attribute, and pseudo-class to apply styles precisely.",
   path: "/tutorials/beginner/css-basics/selectors",
 });
 
@@ -195,14 +195,14 @@ defineExpose({
 			<!-- Hunter Element 1: Anticipatory Set -->
 			<AnticipatorySet
 				title="🎯 The Power of Precise Targeting"
-				:hook="`<p>Imagine you're decorating a house—you wouldn't paint every room the same color, right? CSS selectors are like having specific instructions: 'paint this bedroom blue,' 'make all kitchen walls white,' or 'add gold trim to the living room door.'</p>
+				:hook="`<p>Imagine you're decorating a house - you wouldn't paint every room the same color, right? CSS selectors are like having specific instructions: 'paint this bedroom blue,' 'make all kitchen walls white,' or 'add gold trim to the living room door.'</p>
 				<p><strong>Why selectors matter:</strong> Professional websites use hundreds of different styles. Selectors let you apply the right style to the right element without affecting anything else.</p>`"
 				:reflection-prompts="[
 					'How do you think websites apply different styles to different sections?',
 					'What would happen if you could only style ALL paragraphs the same way?',
 					'How might you target just one specific element among many similar ones?'
 				]"
-				connection="In this tutorial, you'll master CSS selectors—the foundation of precise, efficient styling. This is what separates beginners from professional developers."
+				connection="In this tutorial, you'll master CSS selectors - the foundation of precise, efficient styling. This is what separates beginners from professional developers."
 			/>
 
 			<!-- Hunter Element 2: Learning Objectives -->
@@ -216,7 +216,7 @@ defineExpose({
 					'Write efficient, maintainable selector patterns',
 					'Debug selector issues using browser dev tools'
 				]"
-				purpose="Selectors are the most fundamental skill in CSS. Master them and you can style anything on the web with precision and confidence. Poor selector knowledge leads to messy, unmaintainable code—strong selector skills make you a CSS expert."
+				purpose="Selectors are the most fundamental skill in CSS. Master them and you can style anything on the web with precision and confidence. Poor selector knowledge leads to messy, unmaintainable code - strong selector skills make you a CSS expert."
 			/>
 
 			<p class="lead">
@@ -235,7 +235,7 @@ defineExpose({
 			<div class="box">
 				<h2 class="title is-4">Understanding CSS Rules</h2>
 				<p>
-					Before diving into selectors, let's understand how CSS rules are
+					Before you work with selectors, let's understand how CSS rules are
 					written in both internal and external styles:
 				</p>
 
@@ -689,7 +689,7 @@ h1 {
 			<h2 class="title is-3">Combining Selectors</h2>
 			<p>
 				Combinators allow us to select elements based on their relationship with
-				other elements. Let's look at the two most common combinators.
+				other elements. Look at the two most common combinators.
 			</p>
 
 			<div id="descendant-combinator" class="mt-4">
@@ -1257,7 +1257,7 @@ p:only-child {
 		<div id="practical-exercises" class="mt-6">
 			<h2 id="practice" class="title is-3">Practical Exercises</h2>
 			<p>
-				Let's practice organizing selectors for our restaurant websites. We'll
+				Practice organizing selectors for our restaurant websites. We'll
 				focus on structuring our CSS selectors before adding properties in later
 				lessons.
 			</p>
@@ -1458,8 +1458,8 @@ textarea {}</code></pre>
 			:key-takeaways="closureKeyTakeaways"
 			:objectives="closureObjectives"
 			:reflection-prompts="closureReflectionPrompts"
-			real-world-application="<p>Professional CSS relies heavily on selector strategy. Large codebases from companies like GitHub, Airbnb, and Shopify use methodologies like BEM (Block Element Modifier) to manage selector specificity and prevent conflicts. Understanding selectors deeply allows you to write CSS that scales from small projects to enterprise applications.</p><p>Modern CSS frameworks like Tailwind and CSS-in-JS solutions abstract selectors, but when debugging or customizing, you need to understand how selectors work. Mastering selectors makes you a more effective developer regardless of the tools you use.</p>"
-			next-steps="<p>With selectors mastered, you're ready to learn the CSS Box Model—one of the most fundamental concepts in CSS layout. The box model explains how elements occupy space, including content, padding, borders, and margins. Understanding the box model is essential for controlling layout and spacing.</p><p>Every CSS layout challenge involves the box model. Whether you're centering content, creating grids, or debugging spacing issues, box model knowledge is your foundation. Let's dive in!</p>"
+			real-world-application="<p>Professional CSS relies heavily on selector strategy. Large codebases from companies like GitHub, Airbnb, and Shopify use methodologies like BEM (Block Element Modifier) to manage selector specificity and prevent conflicts. Understanding selectors deeply allows you to write CSS that scales from small projects to enterprise applications.</p><p>Modern CSS frameworks like Tailwind and CSS-in-JS solutions abstract selectors, but when debugging or customizing, you need to understand how selectors work. Learning selectors makes you a more effective developer regardless of the tools you use.</p>"
+			next-steps="<p>With selectors mastered, you're ready to learn the CSS Box Model - one of the most fundamental concepts in CSS layout. The box model explains how elements occupy space, including content, padding, borders, and margins. Understanding the box model is essential for controlling layout and spacing.</p><p>Every CSS layout challenge involves the box model. Whether you're centering content, creating grids, or debugging spacing issues, box model knowledge is your foundation. Let's dive in!</p>"
 		/>
 
 		<!-- Add recommendations before the quiz -->

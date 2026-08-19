@@ -7,8 +7,8 @@ import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 
 useTutorialHead({
-  title: "Black Swan Bistro — Part 3",
-  description: "Refactor your bistro project into reusable components — stable HTML structures and predictable class naming patterns.",
+  title: "Black Swan Bistro - Part 3",
+  description: "Refactor your bistro project into reusable components - stable HTML structures and predictable class naming patterns.",
   path: "/tutorials/intermediate/black-swan-bistro-part-3",
 });
 
@@ -88,7 +88,7 @@ const closureReflectionPrompts = [
 						<router-link to="/tutorials">Tutorials</router-link>
 					</li>
 					<li class="is-active">
-						<a href="#" aria-current="page">Black Swan Bistro &mdash; Part 3</a>
+						<a href="#" aria-current="page">Black Swan Bistro - Part 3</a>
 					</li>
 				</ul>
 			</nav>
@@ -102,7 +102,7 @@ const closureReflectionPrompts = [
 				</div>
 			</div>
 
-			<h1 class="title is-1">Black Swan Bistro &mdash; Part 3</h1>
+			<h1 class="title is-1">Black Swan Bistro - Part 3</h1>
 			<h2 class="subtitle is-4">Refactor Repeated Patterns into Components</h2>
 
 			<AnticipatorySet
@@ -156,7 +156,7 @@ const closureReflectionPrompts = [
 			<div class="notification is-light">
 				<p>
 					<strong>Keep the client brief close:</strong> the components you are about to
-					build — navigation, cards, calls to action, footer — come directly from the
+					build - navigation, cards, calls to action, footer - come directly from the
 					content and structure described in the
 					<a href="/projects/black-swan-bistro-client-brief.pdf" target="_blank">Black Swan Bistro client brief</a>.
 					If you are unsure what belongs inside a component, the brief tells you what the

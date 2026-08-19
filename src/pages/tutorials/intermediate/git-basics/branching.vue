@@ -30,12 +30,12 @@
     <!-- Hunter Element 1: Anticipatory Set -->
     <AnticipatorySet
       title="Start Here"
-      :hook="`<p>Imagine you're writing an essay and want to try a completely different approach—but you don't want to lose your current version. What if you could create a copy, experiment freely, and merge the best parts back? That's exactly what Git branches let you do with code!</p>`"
+      :hook="`<p>Imagine you're writing an essay and want to try a completely different approach - but you don't want to lose your current version. What if you could create a copy, experiment freely, and merge the best parts back? That's exactly what Git branches let you do with code!</p>`"
       :reflection-prompts="[
         'Have you ever wanted to try something new in a project without risking breaking what already works?',
         'How do you think teams work on different features at the same time without stepping on each other\'s toes?'
       ]"
-      connection="Branching is one of Git's most powerful features. Let's learn how to use it."
+      connection="Branching is one of Git's most powerful features. Learn how to use it."
     />
 
     <!-- Hunter Element 2: Learning Objectives -->
@@ -50,7 +50,7 @@
         'Be familiar with basic Git commands',
         'Have a Git repository ready to practice with'
       ]"
-      purpose="Branching is how professional teams work on features, fix bugs, and experiment—all without breaking the main codebase. It's a skill you'll use every day."
+      purpose="Branching is how professional teams work on features, fix bugs, and experiment - all without breaking the main codebase. It's a skill you'll use every day."
     />
 
     <h2 class="title is-2">What is a Branch?</h2>
@@ -205,7 +205,7 @@
       :key-takeaways="closureKeyTakeaways"
       :objectives="closureObjectives"
       :reflection-prompts="closureReflectionPrompts"
-      :next-steps="`<p>Now that you understand branching, the next step is to learn about <strong>merging</strong>—how to combine branch changes and handle conflicts.</p>`"
+      :next-steps="`<p>Now that you understand branching, the next step is to learn about <strong>merging</strong> - how to combine branch changes and handle conflicts.</p>`"
     />
 
     <TutorialRecommendations :current-path="'/tutorials/intermediate/git-basics/branching'" />
@@ -227,7 +227,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: 'Git Branching',
-  description: 'Learn how to create and manage Git branches — work on features and fixes without affecting your main codebase.',
+  description: 'Learn how to create and manage Git branches - work on features and fixes without affecting your main codebase.',
   path: '/tutorials/intermediate/git-basics/branching',
 });
 

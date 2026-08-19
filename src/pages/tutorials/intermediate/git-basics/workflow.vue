@@ -30,12 +30,12 @@
     <!-- Hunter Element 1: Anticipatory Set -->
     <AnticipatorySet
       title="Start Here"
-      :hook="`<p>You've learned individual Git commands—but how do they all fit together in practice? Professional developers follow a consistent workflow every day: make changes, stage, commit, push, pull. Understanding this flow is what separates knowing Git commands from actually using Git effectively.</p>`"
+      :hook="`<p>You've learned individual Git commands - but how do they all fit together in practice? Professional developers follow a consistent workflow every day: make changes, stage, commit, push, pull. Understanding this flow is what separates knowing Git commands from actually using Git effectively.</p>`"
       :reflection-prompts="[
         'What steps do you currently take when you finish working on a feature?',
         'How do teams keep their code in sync when multiple people are working at the same time?'
       ]"
-      connection="Let's put everything together into the workflow you will use every day as a developer."
+      connection="Put everything together into the workflow you will use every day as a developer."
     />
 
     <!-- Hunter Element 2: Learning Objectives -->
@@ -50,7 +50,7 @@
         'Understand Git branching',
         'Know how to connect to a remote repository'
       ]"
-      purpose="The Git workflow is the daily routine of every professional developer. Mastering it makes collaboration seamless and keeps your projects organized."
+      purpose="The Git workflow is the daily routine of every professional developer. Learning it makes collaboration seamless and keeps your projects organized."
     />
 
     <h2 class="title is-2">What is a Git Workflow?</h2>
@@ -241,7 +241,7 @@ import TutorialCompletion from '@/components/TutorialCompletion.vue';
 
 useTutorialHead({
   title: 'Git Workflow',
-  description: 'Learn the daily Git workflow developers follow — stage, commit, push, and review changes in a real project.',
+  description: 'Learn the daily Git workflow developers follow - stage, commit, push, and review changes in a real project.',
   path: '/tutorials/intermediate/git-basics/workflow',
 });
 

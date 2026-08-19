@@ -90,7 +90,7 @@ usePageSections(pageSections);
 			<p>
 				Frameworks are easier to learn responsibly when the learner already understands what
 				the framework is abstracting. If fundamentals are still shaky, the abstraction can
-				hide too much. That does not mean “never learn frameworks.” It means sequence matters.
+				hide too much. That does not mean "never learn frameworks." It means sequence matters.
 			</p>
 
 			<figure class="tutorial-figure tutorial-figure--wide">

@@ -55,7 +55,7 @@ useHead({
     <div class="notification is-info is-light mb-6">
       <p>
         <i class="fas fa-info-circle mr-2"></i>
-        <strong>What is the DOM?</strong> The Document Object Model is a programming interface that lets JavaScript interact with HTML and CSS on a webpage. When a browser loads a page, it creates a tree-like structure of every element — that tree is the DOM.
+        <strong>What is the DOM?</strong> The Document Object Model is a programming interface that lets JavaScript interact with HTML and CSS on a webpage. When a browser loads a page, it creates a tree-like structure of every element - that tree is the DOM.
       </p>
     </div>
 
@@ -72,7 +72,7 @@ useHead({
         <div class="card">
           <div class="card-content">
             <h4 class="title is-5"><i class="fas fa-plug mr-2"></i>JavaScript + the DOM</h4>
-            <p>JavaScript uses DOM methods like <code>querySelector</code>, <code>createElement</code>, and <code>addEventListener</code> to select elements, build new content, and respond to user actions — turning static HTML into dynamic, interactive applications.</p>
+            <p>JavaScript uses DOM methods like <code>querySelector</code>, <code>createElement</code>, and <code>addEventListener</code> to select elements, build new content, and respond to user actions - turning static HTML into dynamic, interactive applications.</p>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@ useHead({
         <div class="card">
           <div class="card-content">
             <h4 class="title is-5"><i class="fas fa-bolt mr-2"></i>Why It Matters</h4>
-            <p>Every interactive feature you see on the web — dropdown menus, form validation, live search, infinite scroll — works because JavaScript manipulates the DOM in real time. Mastering the DOM is the gateway to building real web applications.</p>
+            <p>Every interactive feature you see on the web - dropdown menus, form validation, live search, infinite scroll - works because JavaScript manipulates the DOM in real time. Learning the DOM is the gateway to building real web applications.</p>
           </div>
         </div>
       </div>
@@ -93,8 +93,8 @@ useHead({
       </h3>
       <p>Before starting this tutorial series, you should have:</p>
       <ul>
-        <li><i class="fas fa-check mr-2"></i><strong>HTML & CSS basics</strong> — understanding of elements, attributes, and styling (<router-link to="/tutorials/beginner/html-basics">HTML tutorials</router-link> | <router-link to="/tutorials/beginner/css-basics">CSS tutorials</router-link>)</li>
-        <li><i class="fas fa-check mr-2"></i><strong>JavaScript fundamentals</strong> — variables, functions, loops, and conditionals (<router-link to="/tutorials/beginner/javascript-basics">JS tutorials</router-link>)</li>
+        <li><i class="fas fa-check mr-2"></i><strong>HTML & CSS basics</strong> - understanding of elements, attributes, and styling (<router-link to="/tutorials/beginner/html-basics">HTML tutorials</router-link> | <router-link to="/tutorials/beginner/css-basics">CSS tutorials</router-link>)</li>
+        <li><i class="fas fa-check mr-2"></i><strong>JavaScript fundamentals</strong> - variables, functions, loops, and conditionals (<router-link to="/tutorials/beginner/javascript-basics">JS tutorials</router-link>)</li>
         <li><i class="fas fa-check mr-2"></i><strong>A modern web browser</strong> with developer tools (Chrome, Firefox, or Edge)</li>
       </ul>
     </div>
