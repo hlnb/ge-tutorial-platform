@@ -1584,6 +1584,69 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/website-performance-optimisation/': RouteRecordInfo<
+      '/tutorials/website-performance-optimisation/',
+      '/tutorials/website-performance-optimisation',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-performance-optimisation/caching-compression-and-content-delivery': RouteRecordInfo<
+      '/tutorials/website-performance-optimisation/caching-compression-and-content-delivery',
+      '/tutorials/website-performance-optimisation/caching-compression-and-content-delivery',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-performance-optimisation/css-and-web-font-performance': RouteRecordInfo<
+      '/tutorials/website-performance-optimisation/css-and-web-font-performance',
+      '/tutorials/website-performance-optimisation/css-and-web-font-performance',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-performance-optimisation/how-browsers-load-and-render-websites': RouteRecordInfo<
+      '/tutorials/website-performance-optimisation/how-browsers-load-and-render-websites',
+      '/tutorials/website-performance-optimisation/how-browsers-load-and-render-websites',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-performance-optimisation/javascript-and-resource-loading': RouteRecordInfo<
+      '/tutorials/website-performance-optimisation/javascript-and-resource-loading',
+      '/tutorials/website-performance-optimisation/javascript-and-resource-loading',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-performance-optimisation/measuring-website-performance': RouteRecordInfo<
+      '/tutorials/website-performance-optimisation/measuring-website-performance',
+      '/tutorials/website-performance-optimisation/measuring-website-performance',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-performance-optimisation/optimising-images-and-media': RouteRecordInfo<
+      '/tutorials/website-performance-optimisation/optimising-images-and-media',
+      '/tutorials/website-performance-optimisation/optimising-images-and-media',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-performance-optimisation/performance-budgets-and-continuous-improvement': RouteRecordInfo<
+      '/tutorials/website-performance-optimisation/performance-budgets-and-continuous-improvement',
+      '/tutorials/website-performance-optimisation/performance-budgets-and-continuous-improvement',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/website-performance-optimisation/understanding-website-performance': RouteRecordInfo<
+      '/tutorials/website-performance-optimisation/understanding-website-performance',
+      '/tutorials/website-performance-optimisation/understanding-website-performance',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -2932,6 +2995,60 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/website-care-and-feeding/weekly-website-check.vue': {
       routes:
         | '/tutorials/website-care-and-feeding/weekly-website-check'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-performance-optimisation/index.vue': {
+      routes:
+        | '/tutorials/website-performance-optimisation/'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-performance-optimisation/caching-compression-and-content-delivery.vue': {
+      routes:
+        | '/tutorials/website-performance-optimisation/caching-compression-and-content-delivery'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-performance-optimisation/css-and-web-font-performance.vue': {
+      routes:
+        | '/tutorials/website-performance-optimisation/css-and-web-font-performance'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-performance-optimisation/how-browsers-load-and-render-websites.vue': {
+      routes:
+        | '/tutorials/website-performance-optimisation/how-browsers-load-and-render-websites'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-performance-optimisation/javascript-and-resource-loading.vue': {
+      routes:
+        | '/tutorials/website-performance-optimisation/javascript-and-resource-loading'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-performance-optimisation/measuring-website-performance.vue': {
+      routes:
+        | '/tutorials/website-performance-optimisation/measuring-website-performance'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-performance-optimisation/optimising-images-and-media.vue': {
+      routes:
+        | '/tutorials/website-performance-optimisation/optimising-images-and-media'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-performance-optimisation/performance-budgets-and-continuous-improvement.vue': {
+      routes:
+        | '/tutorials/website-performance-optimisation/performance-budgets-and-continuous-improvement'
+      views:
+        | never
+    }
+    'src/pages/tutorials/website-performance-optimisation/understanding-website-performance.vue': {
+      routes:
+        | '/tutorials/website-performance-optimisation/understanding-website-performance'
       views:
         | never
     }

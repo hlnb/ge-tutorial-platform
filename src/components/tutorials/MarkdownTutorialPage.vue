@@ -22,6 +22,9 @@ import { sanitizeHtml } from '@/utils/sanitizeHtml';
 const WorkingWithDataVisual = defineAsyncComponent(() =>
 	import('@/components/tutorials/WorkingWithDataVisual.vue'),
 );
+const WebsitePerformanceVisual = defineAsyncComponent(() =>
+	import('@/components/tutorials/WebsitePerformanceVisual.vue'),
+);
 
 const props = defineProps({
 	source: {
@@ -133,8 +136,34 @@ const visualMap = {
 	},
 };
 
+const performanceVisualMap = {
+	'/tutorials/website-performance-optimisation/understanding-website-performance': {
+		'core-web-vitals': ['core-web-vitals'],
+		'the-optimisation-cycle': ['optimisation-cycle'],
+	},
+	'/tutorials/website-performance-optimisation/how-browsers-load-and-render-websites': {
+		'the-browser-loading-journey': ['browser-rendering-path'],
+	},
+	'/tutorials/website-performance-optimisation/optimising-images-and-media': {
+		'responsive-images': ['responsive-images'],
+	},
+	'/tutorials/website-performance-optimisation/javascript-and-resource-loading': {
+		'javascript-costs-more-than-bytes': ['javascript-processing'],
+	},
+	'/tutorials/website-performance-optimisation/caching-compression-and-content-delivery': {
+		'delivery-pathway': ['caching-cdn-flow'],
+	},
+	'/tutorials/website-performance-optimisation/performance-budgets-and-continuous-improvement': {
+		'prioritisation-matrix': ['priority-matrix'],
+	},
+};
+
 function getSectionVisuals(sectionId) {
 	return visualMap[props.currentPath]?.[sectionId] || [];
+}
+
+function getPerformanceVisuals(sectionId) {
+	return performanceVisualMap[props.currentPath]?.[sectionId] || [];
 }
 
 useHead(() => ({
@@ -209,6 +238,11 @@ useHead(() => ({
 					<div v-html="sectionItem.html"></div>
 					<WorkingWithDataVisual
 						v-for="variant in getSectionVisuals(sectionItem.id)"
+						:key="`${sectionItem.id}-${variant}`"
+						:variant="variant"
+					/>
+					<WebsitePerformanceVisual
+						v-for="variant in getPerformanceVisuals(sectionItem.id)"
 						:key="`${sectionItem.id}-${variant}`"
 						:variant="variant"
 					/>

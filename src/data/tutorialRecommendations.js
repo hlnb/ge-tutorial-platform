@@ -90,6 +90,214 @@ const accessibilityEssentialsEditorialContent = Object.fromEntries(
   ]),
 );
 
+const websitePerformanceEditorialContent = {
+  'understanding-website-performance': {
+    practiceProjects: [],
+    resources: [
+      {
+        title: 'web.dev: Web Vitals',
+        url: 'https://web.dev/articles/vitals',
+        description: 'Google guidance on the user-centred metrics covered in this lesson.',
+      },
+      {
+        title: 'MDN: Web performance',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/Performance',
+        description: 'A broader reference for how performance affects the web experience.',
+      },
+      {
+        title: 'Chrome for Developers: Performance',
+        url: 'https://developer.chrome.com/docs/performance',
+        description: 'Practical Chrome guidance for measuring and improving performance.',
+      },
+    ],
+  },
+  'how-browsers-load-and-render-websites': {
+    practiceProjects: [],
+    resources: [
+      {
+        title: 'MDN: Web performance',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/Performance',
+        description: 'Reference material for browser loading and rendering performance.',
+      },
+      {
+        title: 'MDN: Critical rendering path',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path',
+        description: 'A closer look at how browsers turn resources into rendered pixels.',
+      },
+      {
+        title: 'Chrome DevTools documentation',
+        url: 'https://developer.chrome.com/docs/devtools',
+        description: 'Official documentation for inspecting browser behaviour.',
+      },
+    ],
+  },
+  'measuring-website-performance': {
+    practiceProjects: [],
+    resources: [
+      {
+        title: 'Chrome for Developers: Lighthouse',
+        url: 'https://developer.chrome.com/docs/lighthouse',
+        description: 'Official instructions for running and interpreting Lighthouse audits.',
+      },
+      {
+        title: 'Chrome DevTools: Network panel',
+        url: 'https://developer.chrome.com/docs/devtools/network',
+        description: 'Inspect requests, transferred sizes, timing, and loading waterfalls.',
+      },
+      {
+        title: 'PageSpeed Insights',
+        url: 'https://pagespeed.web.dev/',
+        description: 'Compare lab findings with available real-user field data.',
+      },
+      {
+        title: 'WebPageTest',
+        url: 'https://www.webpagetest.org/',
+        description: 'Run detailed performance tests from different devices and locations.',
+      },
+    ],
+  },
+  'optimising-images-and-media': {
+    practiceProjects: [],
+    resources: [
+      {
+        title: 'Affinity',
+        url: 'https://www.affinity.studio/',
+        description: 'Prepare, resize, crop, and export source image assets.',
+      },
+      {
+        title: 'Squoosh',
+        url: 'https://squoosh.app/',
+        description: 'Compare image formats, compression settings, quality, and file size.',
+      },
+      {
+        title: 'web.dev: Image performance',
+        url: 'https://web.dev/learn/performance/image-performance',
+        description: 'Practical guidance on efficient image loading and delivery.',
+      },
+      {
+        title: 'MDN: Image file type and format guide',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types',
+        description: 'Compare common web image formats and their appropriate uses.',
+      },
+      {
+        title: 'MDN: Responsive images',
+        url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images',
+        description: 'Learn how srcset and sizes help browsers choose suitable image files.',
+      },
+    ],
+  },
+  'css-and-web-font-performance': {
+    practiceProjects: [],
+    resources: [
+      {
+        title: 'Chrome DevTools: Coverage',
+        url: 'https://developer.chrome.com/docs/devtools/coverage',
+        description: 'Inspect used and unused CSS and JavaScript during a page load.',
+      },
+      {
+        title: 'MDN: Web fonts',
+        url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts',
+        description: 'Understand web-font formats, declarations, and loading behaviour.',
+      },
+      {
+        title: 'web.dev: Font performance',
+        url: 'https://web.dev/learn/performance/optimize-web-fonts',
+        description: 'Techniques for reducing font transfer and rendering delays.',
+      },
+      {
+        title: 'Fontsource',
+        url: 'https://fontsource.org/',
+        description: 'Self-hostable open-source fonts packaged for web projects.',
+      },
+    ],
+  },
+  'javascript-and-resource-loading': {
+    practiceProjects: [],
+    resources: [
+      {
+        title: 'Chrome DevTools: Performance panel',
+        url: 'https://developer.chrome.com/docs/devtools/performance',
+        description: 'Inspect main-thread activity, script work, rendering, and responsiveness.',
+      },
+      {
+        title: 'Vite: Build for production',
+        url: 'https://vite.dev/guide/build',
+        description: 'Official guidance for creating and inspecting a Vite production build.',
+      },
+      {
+        title: 'MDN: script element',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script',
+        description: 'Reference for script loading attributes and module behaviour.',
+      },
+      {
+        title: 'web.dev: JavaScript performance',
+        url: 'https://web.dev/learn/performance/optimize-javascript',
+        description: 'Strategies for reducing JavaScript transfer and processing cost.',
+      },
+    ],
+  },
+  'caching-compression-and-content-delivery': {
+    practiceProjects: [],
+    resources: [
+      {
+        title: 'MDN: HTTP caching',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching',
+        description: 'A detailed guide to browser and intermediary caching behaviour.',
+      },
+      {
+        title: 'MDN: Content-Encoding',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding',
+        description: 'Reference for gzip, Brotli, and other transfer encodings.',
+      },
+      {
+        title: 'Vercel documentation: Caching',
+        url: 'https://vercel.com/docs/headers/cache-control-headers',
+        description: 'How cache-control headers affect content delivered through Vercel.',
+      },
+      {
+        title: 'Chrome DevTools: Network reference',
+        url: 'https://developer.chrome.com/docs/devtools/network/reference',
+        description: 'Reference for inspecting response headers and network delivery.',
+      },
+    ],
+  },
+  'performance-budgets-and-continuous-improvement': {
+    practiceProjects: [],
+    resources: [
+      {
+        title: 'Chrome DevTools',
+        url: 'https://developer.chrome.com/docs/devtools',
+        description: 'Inspect and validate website behaviour throughout an audit.',
+      },
+      {
+        title: 'Lighthouse',
+        url: 'https://developer.chrome.com/docs/lighthouse',
+        description: 'Run repeatable audits before and after targeted improvements.',
+      },
+      {
+        title: 'PageSpeed Insights',
+        url: 'https://pagespeed.web.dev/',
+        description: 'Review lab measurements and available field data.',
+      },
+      {
+        title: 'WebPageTest',
+        url: 'https://www.webpagetest.org/',
+        description: 'Run detailed tests across varied devices, networks, and locations.',
+      },
+      {
+        title: 'web.dev: Learn Performance',
+        url: 'https://web.dev/learn/performance',
+        description: 'A structured course covering practical web performance work.',
+      },
+      {
+        title: 'MDN: Web performance',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/Performance',
+        description: 'Reference material for performance APIs, concepts, and techniques.',
+      },
+    ],
+  },
+};
+
 const legacyTutorialEditorialContent = {
   'getting-started': {
     'how-internet-works': {
@@ -1636,6 +1844,7 @@ const legacyTutorialEditorialContent = {
       ],
     },
   },
+  'website-performance-optimisation': websitePerformanceEditorialContent,
   'accessibility-essentials': accessibilityEssentialsEditorialContent,
 };
 
