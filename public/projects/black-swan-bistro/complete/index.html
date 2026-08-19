@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Meet Black Swan Bistro, a fictional modern Australian restaurant serving seasonal food in a relaxed Perth dining room."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Black Swan Bistro | Seasonal Dining in Perth</title>
+    <link
+      rel="icon"
+      href="assets/images/black-swan-logo.webp"
+      type="image/webp"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a
+          class="site-logo"
+          href="index.html"
+          aria-label="Black Swan Bistro home"
+        >
+          <img
+            src="assets/images/black-swan-logo.webp"
+            alt=""
+            width="300"
+            height="250"
+          />
+          <span>Black Swan Bistro</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          aria-label="Open navigation"
+          data-nav-toggle
+        >
+          <span class="nav-toggle__icon" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-navigation"
+          class="site-nav"
+          aria-label="Main navigation"
+          data-navigation
+        >
+          <ul class="site-nav__list">
+            <li>
+              <a class="site-nav__link" href="index.html" aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li><a class="site-nav__link" href="menu.html">Menu</a></li>
+            <li><a class="site-nav__link" href="about.html">About</a></li>
+            <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="home-title">
+        <img
+          class="hero__image"
+          src="assets/images/bistro-storefront.webp"
+          alt="Tables and chairs arranged outside a relaxed neighbourhood bistro"
+          width="1280"
+          height="1920"
+          fetchpriority="high"
+        />
+        <div class="hero__content">
+          <p class="eyebrow">Modern Australian dining in Perth</p>
+          <h1 id="home-title">Black Swan Bistro</h1>
+          <p class="hero__lead">
+            Seasonal produce, thoughtful cooking and a dining room where good
+            food never needs to feel formal.
+          </p>
+          <div class="button-row">
+            <a class="button" href="contact.html#reservation"
+              >Reserve a table</a
+            >
+            <a class="button button--outline" href="menu.html"
+              >Explore the menu</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--paper" aria-labelledby="featured-title">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">From the kitchen</p>
+            <h2 id="featured-title">A few bistro favourites</h2>
+            <p>
+              Our menu moves with the season. These enduring favourites show the
+              simple, produce-led approach at the centre of every service.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="menu-card">
+              <img
+                class="menu-card__image"
+                src="assets/images/bistro-pasta.webp"
+                alt="Fresh pasta finished with tomato and grated cheese"
+                width="1280"
+                height="851"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="menu-card__body">
+                <span class="dish-label">House-made</span>
+                <div class="menu-card__meta">
+                  <h3>Coastal linguine</h3>
+                  <p class="menu-card__price">$26</p>
+                </div>
+                <p class="menu-card__description">
+                  Tomato, roasted garlic, herbs and lemon pangrattato.
+                </p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img
+                class="menu-card__image"
+                src="assets/images/bistro-lasagna.webp"
+                alt="Layered baked pasta served with a crisp parmesan wafer"
+                width="1280"
+                height="854"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="menu-card__body">
+                <span class="dish-label">Bistro classic</span>
+                <div class="menu-card__meta">
+                  <h3>Slow-braised lasagne</h3>
+                  <p class="menu-card__price">$27</p>
+                </div>
+                <p class="menu-card__description">
+                  Beef ragu, tomato, parmesan and a light bechamel.
+                </p>
+              </div>
+            </article>
+
+            <article class="menu-card">
+              <img
+                class="menu-card__image"
+                src="assets/images/bistro-steak.webp"
+                alt="Grilled steak served with potatoes and dressed seasonal leaves"
+                width="1280"
+                height="1134"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="menu-card__body">
+                <span class="dish-label">Locally sourced</span>
+                <div class="menu-card__meta">
+                  <h3>Market steak</h3>
+                  <p class="menu-card__price">$34</p>
+                </div>
+                <p class="menu-card__description">
+                  Grilled beef, crushed potatoes, garden leaves and pepper jus.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="home-story-title">
+        <div class="container split">
+          <div class="split__media">
+            <img
+              src="assets/images/bistro-interior.webp"
+              alt="Warm brick dining room with timber tables and pendant lights"
+              width="1280"
+              height="853"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="split__content">
+            <p class="eyebrow">A neighbourhood table</p>
+            <h2 id="home-story-title">Made for lingering a little longer</h2>
+            <p>
+              Black Swan Bistro is a fictional Perth restaurant built around a
+              straightforward idea: cook seasonal ingredients carefully and
+              welcome people warmly.
+            </p>
+            <p>
+              Our room is relaxed, our menu is concise, and our team is always
+              ready to explain what is fresh today.
+            </p>
+            <a class="button button--dark" href="about.html">Read our story</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band" aria-labelledby="home-cta-title">
+        <div class="container cta-band__inner">
+          <div>
+            <h2 id="home-cta-title">Dinner plans, sorted</h2>
+            <p>
+              We are open daily from 9am to 9pm. Send a reservation request
+              before you arrive.
+            </p>
+          </div>
+          <a class="button" href="contact.html#reservation">Request a table</a>
+        </div>
+      </section>
+
+      <section class="newsletter" aria-labelledby="newsletter-title">
+        <div class="container newsletter__inner">
+          <div>
+            <h2 id="newsletter-title">Seasonal notes from the kitchen</h2>
+            <p>
+              Join our demonstration mailing list for menu updates and special
+              dining nights.
+            </p>
+          </div>
+          <form class="inline-form" data-demo-form>
+            <div class="form-field">
+              <label for="newsletter-email">Email address</label>
+              <input
+                id="newsletter-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+              <p class="form-status" aria-live="polite" data-form-status></p>
+            </div>
+            <button class="button button--dark" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>Black Swan Bistro</h2>
+          <address>123 Coastal Road<br />Perth WA 6000</address>
+          <p>
+            This is a fictional restaurant created for the GraphitEdge guided
+            project.
+          </p>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <ul>
+            <li><a href="menu.html">View the menu</a></li>
+            <li><a href="about.html">Meet the bistro</a></li>
+            <li><a href="contact.html#reservation">Request a table</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <p>Open daily<br />9am-9pm</p>
+          <p><a href="tel:+61812345678">(08) 1234 5678</a></p>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <div class="container">
+          <p>
+            &copy; 2026 Black Swan Bistro. GraphitEdge educational
+            demonstration.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

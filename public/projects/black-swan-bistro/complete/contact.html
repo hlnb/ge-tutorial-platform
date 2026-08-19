@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Find the fictional Black Swan Bistro contact details, opening hours, location and demonstration reservation form."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Contact and Reservations | Black Swan Bistro</title>
+    <link
+      rel="icon"
+      href="assets/images/black-swan-logo.webp"
+      type="image/webp"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a
+          class="site-logo"
+          href="index.html"
+          aria-label="Black Swan Bistro home"
+        >
+          <img
+            src="assets/images/black-swan-logo.webp"
+            alt=""
+            width="300"
+            height="250"
+          />
+          <span>Black Swan Bistro</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          aria-label="Open navigation"
+          data-nav-toggle
+        >
+          <span class="nav-toggle__icon" aria-hidden="true"></span>
+        </button>
+        <nav
+          id="main-navigation"
+          class="site-nav"
+          aria-label="Main navigation"
+          data-navigation
+        >
+          <ul class="site-nav__list">
+            <li><a class="site-nav__link" href="index.html">Home</a></li>
+            <li><a class="site-nav__link" href="menu.html">Menu</a></li>
+            <li><a class="site-nav__link" href="about.html">About</a></li>
+            <li>
+              <a class="site-nav__link" href="contact.html" aria-current="page"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero" aria-labelledby="contact-title">
+        <img
+          class="page-hero__image"
+          src="assets/images/bistro-storefront.webp"
+          alt="Tables and chairs arranged outside a relaxed neighbourhood bistro"
+          width="1280"
+          height="1920"
+          fetchpriority="high"
+        />
+        <div class="page-hero__content">
+          <p class="eyebrow">Plan your visit</p>
+          <h1 id="contact-title">Contact Black Swan Bistro</h1>
+          <p>
+            Opening hours, practical details and a simple way to request a
+            table.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--paper" aria-labelledby="visit-title">
+        <div class="container contact-grid">
+          <div>
+            <p class="eyebrow">Visit the bistro</p>
+            <h2 id="visit-title">Everything you need before you arrive</h2>
+            <ul class="contact-list">
+              <li>
+                <strong>Address</strong>
+                123 Coastal Road, Perth WA 6000
+              </li>
+              <li>
+                <strong>Phone</strong>
+                <a href="tel:+61812345678">(08) 1234 5678</a>
+              </li>
+              <li>
+                <strong>Email</strong>
+                <a href="mailto:hello@blackswanbistro.example"
+                  >hello@blackswanbistro.example</a
+                >
+              </li>
+              <li>
+                <strong>Accessibility</strong>
+                Step-free entrance and accessible bathroom. Contact the team for
+                seating needs.
+              </li>
+            </ul>
+
+            <table class="hours-table">
+              <caption>
+                Opening hours
+              </caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Monday-Friday</th>
+                  <td>9am-9pm</td>
+                </tr>
+                <tr>
+                  <th scope="row">Saturday</th>
+                  <td>9am-9pm</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sunday</th>
+                  <td>9am-9pm</td>
+                </tr>
+                <tr>
+                  <th scope="row">Public holidays</th>
+                  <td>Please call ahead</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="reservation">
+            <p class="eyebrow">Reservation request</p>
+            <h2>Tell us when you would like to visit</h2>
+            <p class="lede">
+              This educational demonstration form validates in the browser but
+              does not send or store personal information.
+            </p>
+            <form class="contact-form" data-demo-form>
+              <div>
+                <label for="name">Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div>
+                <label for="date">Preferred date</label>
+                <input id="date" name="date" type="date" required />
+              </div>
+              <div>
+                <label for="guests">Guests</label>
+                <select id="guests" name="guests" required>
+                  <option value="">Choose a party size</option>
+                  <option value="1">1 guest</option>
+                  <option value="2">2 guests</option>
+                  <option value="3">3 guests</option>
+                  <option value="4">4 guests</option>
+                  <option value="5">5 guests</option>
+                  <option value="6">6 guests</option>
+                  <option value="7+">7 or more guests</option>
+                </select>
+              </div>
+              <div class="contact-form__full">
+                <label for="message">Dietary requirements or notes</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+                <p class="form-hint">
+                  Do not enter sensitive information into this demonstration.
+                </p>
+              </div>
+              <div class="contact-form__full">
+                <button class="button button--dark" type="submit">
+                  Send reservation request
+                </button>
+                <p class="form-status" aria-live="polite" data-form-status></p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div
+          class="container location-visual"
+          aria-label="Illustrated location guide"
+        >
+          <div class="location-visual__label">
+            <div class="location-visual__marker" aria-hidden="true">
+              <span>BS</span>
+            </div>
+            <h2>Find us near the coast</h2>
+            <p>123 Coastal Road, Perth WA 6000</p>
+            <p>This fictional address is shown for educational purposes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="general-enquiry-title">
+        <div class="container split">
+          <div class="split__media">
+            <img
+              src="assets/images/bistro-interior.webp"
+              alt="Warm brick dining room with timber tables and pendant lights"
+              width="1280"
+              height="853"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="split__content">
+            <p class="eyebrow">Something else?</p>
+            <h2 id="general-enquiry-title">General enquiries</h2>
+            <p>
+              For group dining, accessibility arrangements or questions about
+              the current menu, call during opening hours or email the fictional
+              address below.
+            </p>
+            <p>
+              <a href="mailto:hello@blackswanbistro.example"
+                >hello@blackswanbistro.example</a
+              ><br />
+              <a href="tel:+61812345678">(08) 1234 5678</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>Black Swan Bistro</h2>
+          <address>123 Coastal Road<br />Perth WA 6000</address>
+          <p>
+            This is a fictional restaurant created for the GraphitEdge guided
+            project.
+          </p>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <ul>
+            <li><a href="menu.html">View the menu</a></li>
+            <li><a href="about.html">Meet the bistro</a></li>
+            <li><a href="contact.html#reservation">Request a table</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <p>Open daily<br />9am-9pm</p>
+          <p><a href="tel:+61812345678">(08) 1234 5678</a></p>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <div class="container">
+          <p>
+            &copy; 2026 Black Swan Bistro. GraphitEdge educational
+            demonstration.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

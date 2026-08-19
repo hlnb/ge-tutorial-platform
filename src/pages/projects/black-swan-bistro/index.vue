@@ -17,7 +17,7 @@
     <div class="tags mb-4">
       <span class="tag is-primary">Guided Project</span>
       <span class="tag is-info">Beginner to Deployment</span>
-      <span class="tag is-warning">7 parts + polish pass</span>
+      <span class="tag is-warning">9 parts + polish pass</span>
     </div>
 
     <h1 class="title is-1">Black Swan Bistro</h1>
@@ -75,8 +75,8 @@
     <section id="resources" class="box">
       <h2 class="title is-4">Reference versions</h2>
       <p class="mb-3">
-        Use these finished versions to compare your work, inspect structure, and
-        understand how the project evolves.
+        Open the completed multi-page site or compare the earlier HTML and CSS
+        stages to understand how the project evolves.
       </p>
       <div class="buttons">
         <router-link
@@ -108,25 +108,25 @@
 </template>
 
 <script setup>
-import { useHead } from '@vueuse/head';
-import { usePageSections } from '@/composables/usePageSections';
-import { getGuidedProjectParts, getProjectBySlug } from '@/data/projects';
+import { useHead } from "@vueuse/head";
+import { usePageSections } from "@/composables/usePageSections";
+import { getGuidedProjectParts, getProjectBySlug } from "@/data/projects";
 
-const project = getProjectBySlug('black-swan-bistro');
-const projectParts = getGuidedProjectParts('black-swan-bistro');
+const project = getProjectBySlug("black-swan-bistro");
+const projectParts = getGuidedProjectParts("black-swan-bistro");
 
 usePageSections([
-  { id: 'overview', title: 'Overview' },
-  { id: 'pathways', title: 'Pathways' },
-  { id: 'parts', title: 'Project Parts' },
-  { id: 'resources', title: 'Reference Versions' },
+  { id: "overview", title: "Overview" },
+  { id: "pathways", title: "Pathways" },
+  { id: "parts", title: "Project Parts" },
+  { id: "resources", title: "Reference Versions" },
 ]);
 
 useHead({
-  title: 'Black Swan Bistro Project - GraphitEdge',
+  title: "Black Swan Bistro Project - GraphitEdge",
   meta: [
     {
-      name: 'description',
+      name: "description",
       content: project.summary,
     },
   ],

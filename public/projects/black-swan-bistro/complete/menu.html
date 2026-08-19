@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore the fictional Black Swan Bistro menu, including seasonal starters, mains, salads, desserts and drinks."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Menu | Black Swan Bistro</title>
+    <link
+      rel="icon"
+      href="assets/images/black-swan-logo.webp"
+      type="image/webp"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a
+          class="site-logo"
+          href="index.html"
+          aria-label="Black Swan Bistro home"
+        >
+          <img
+            src="assets/images/black-swan-logo.webp"
+            alt=""
+            width="300"
+            height="250"
+          />
+          <span>Black Swan Bistro</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          aria-label="Open navigation"
+          data-nav-toggle
+        >
+          <span class="nav-toggle__icon" aria-hidden="true"></span>
+        </button>
+        <nav
+          id="main-navigation"
+          class="site-nav"
+          aria-label="Main navigation"
+          data-navigation
+        >
+          <ul class="site-nav__list">
+            <li><a class="site-nav__link" href="index.html">Home</a></li>
+            <li>
+              <a class="site-nav__link" href="menu.html" aria-current="page"
+                >Menu</a
+              >
+            </li>
+            <li><a class="site-nav__link" href="about.html">About</a></li>
+            <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero" aria-labelledby="menu-title">
+        <img
+          class="page-hero__image"
+          src="assets/images/bistro-pasta.webp"
+          alt="Fresh pasta with tomato and grated cheese"
+          width="1280"
+          height="851"
+          fetchpriority="high"
+        />
+        <div class="page-hero__content">
+          <p class="eyebrow">Seasonal and locally minded</p>
+          <h1 id="menu-title">Our Menu</h1>
+          <p>
+            Familiar bistro cooking, shaped by Western Australian produce and
+            the season.
+          </p>
+        </div>
+      </section>
+
+      <nav class="category-nav" aria-label="Menu categories">
+        <ul class="category-nav__list">
+          <li><a href="#starters">Starters</a></li>
+          <li><a href="#mains">Mains</a></li>
+          <li><a href="#salads">Salads</a></li>
+          <li><a href="#desserts">Desserts</a></li>
+          <li><a href="#drinks">Drinks</a></li>
+        </ul>
+      </nav>
+
+      <section class="section section--paper" aria-label="Complete menu">
+        <div class="container">
+          <section
+            id="starters"
+            class="menu-section"
+            aria-labelledby="starters-title"
+          >
+            <div class="menu-section__heading">
+              <div>
+                <p class="eyebrow">To begin</p>
+                <h2 id="starters-title">Starters</h2>
+              </div>
+              <p>Designed to share, although we will not insist.</p>
+            </div>
+            <div class="menu-list">
+              <article class="menu-item">
+                <h3>Albany sourdough</h3>
+                <p>Whipped cultured butter and sea salt.</p>
+                <strong>$9</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Roasted field mushrooms</h3>
+                <p>Garlic, thyme, goat curd and toasted rye.</p>
+                <strong>$16</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Fremantle sardines</h3>
+                <p>Charred lemon, parsley and pickled shallot.</p>
+                <strong>$18</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Pumpkin arancini</h3>
+                <p>Smoked mozzarella and sage.</p>
+                <strong>$15</strong>
+              </article>
+            </div>
+          </section>
+
+          <section
+            id="mains"
+            class="menu-section"
+            aria-labelledby="mains-title"
+          >
+            <div class="menu-section__heading">
+              <div>
+                <p class="eyebrow">From the kitchen</p>
+                <h2 id="mains-title">Mains</h2>
+              </div>
+              <p>Seasonal produce, careful cooking and generous plates.</p>
+            </div>
+            <div class="menu-grid">
+              <article class="menu-card">
+                <img
+                  class="menu-card__image"
+                  src="assets/images/bistro-steak.webp"
+                  alt="Grilled steak served with potatoes and dressed leaves"
+                  width="1280"
+                  height="1134"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="menu-card__body">
+                  <span class="dish-label">Bistro favourite</span>
+                  <div class="menu-card__meta">
+                    <h3>Market steak</h3>
+                    <p class="menu-card__price">$34</p>
+                  </div>
+                  <p class="menu-card__description">
+                    Crushed potatoes, garden leaves and pepper jus.
+                  </p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <img
+                  class="menu-card__image"
+                  src="assets/images/bistro-lasagna.webp"
+                  alt="Layered baked pasta served with a parmesan wafer"
+                  width="1280"
+                  height="854"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="menu-card__body">
+                  <span class="dish-label">Slow-cooked</span>
+                  <div class="menu-card__meta">
+                    <h3>Beef lasagne</h3>
+                    <p class="menu-card__price">$27</p>
+                  </div>
+                  <p class="menu-card__description">
+                    Beef ragu, tomato, parmesan and light bechamel.
+                  </p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <img
+                  class="menu-card__image"
+                  src="assets/images/bistro-pasta.webp"
+                  alt="Fresh pasta with tomato and grated cheese"
+                  width="1280"
+                  height="851"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="menu-card__body">
+                  <span class="dish-label">House-made</span>
+                  <div class="menu-card__meta">
+                    <h3>Coastal linguine</h3>
+                    <p class="menu-card__price">$26</p>
+                  </div>
+                  <p class="menu-card__description">
+                    Tomato, roasted garlic, herbs and lemon pangrattato.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <div class="menu-list">
+              <article class="menu-item">
+                <h3>Pan-roasted barramundi</h3>
+                <p>Lemon butter sauce, broccolini and crushed potatoes.</p>
+                <strong>$28</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Steak sandwich</h3>
+                <p>Caramelised onion, rocket, mustard and chips.</p>
+                <strong>$22</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Charred pumpkin risotto</h3>
+                <p>Sage, parmesan and toasted pepitas.</p>
+                <strong>$25</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Chicken under a brick</h3>
+                <p>Roast garlic, greens and rosemary jus.</p>
+                <strong>$29</strong>
+              </article>
+            </div>
+          </section>
+
+          <section
+            id="salads"
+            class="menu-section"
+            aria-labelledby="salads-title"
+          >
+            <div class="menu-section__heading">
+              <div>
+                <p class="eyebrow">Fresh and bright</p>
+                <h2 id="salads-title">Salads and sides</h2>
+              </div>
+              <p>Useful alongside a main, substantial enough on their own.</p>
+            </div>
+            <div class="menu-list">
+              <article class="menu-item">
+                <h3>Garden salad</h3>
+                <p>Seasonal greens, cucumber, herbs and house vinaigrette.</p>
+                <strong>$14</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Roasted beetroot</h3>
+                <p>Orange, goat curd, walnuts and bitter leaves.</p>
+                <strong>$17</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Crisp potatoes</h3>
+                <p>Rosemary salt and roasted garlic aioli.</p>
+                <strong>$12</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Charred broccolini</h3>
+                <p>Lemon, almonds and chilli.</p>
+                <strong>$13</strong>
+              </article>
+            </div>
+          </section>
+
+          <section
+            id="desserts"
+            class="menu-section"
+            aria-labelledby="desserts-title"
+          >
+            <div class="menu-section__heading">
+              <div>
+                <p class="eyebrow">One last thing</p>
+                <h2 id="desserts-title">Desserts</h2>
+              </div>
+              <p>Small comforts, made in our kitchen.</p>
+            </div>
+            <div class="menu-list">
+              <article class="menu-item">
+                <h3>Dark chocolate tart</h3>
+                <p>Creme fraiche and cocoa nib.</p>
+                <strong>$14</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Lemon posset</h3>
+                <p>Macadamia shortbread and seasonal berries.</p>
+                <strong>$13</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Local cheese</h3>
+                <p>Fruit paste, pickles and sourdough crackers.</p>
+                <strong>$19</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Vanilla bean affogato</h3>
+                <p>Espresso and house-made vanilla ice cream.</p>
+                <strong>$11</strong>
+              </article>
+            </div>
+          </section>
+
+          <section
+            id="drinks"
+            class="menu-section"
+            aria-labelledby="drinks-title"
+          >
+            <div class="menu-section__heading">
+              <div>
+                <p class="eyebrow">By the glass</p>
+                <h2 id="drinks-title">Drinks</h2>
+              </div>
+              <p>
+                A short list of Western Australian favourites and alcohol-free
+                options.
+              </p>
+            </div>
+            <div class="menu-list">
+              <article class="menu-item">
+                <h3>Great Southern riesling</h3>
+                <p>Dry, citrus-led and mineral.</p>
+                <strong>$12</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Margaret River cabernet</h3>
+                <p>Blackcurrant, cedar and fine tannin.</p>
+                <strong>$14</strong>
+              </article>
+              <article class="menu-item">
+                <h3>Coastal spritz</h3>
+                <p>Grapefruit, rosemary and sparkling water.</p>
+                <strong>$9</strong>
+              </article>
+              <article class="menu-item">
+                <h3>House lemonade</h3>
+                <p>Lemon, native mint and soda.</p>
+                <strong>$7</strong>
+              </article>
+            </div>
+          </section>
+
+          <aside class="dietary-note" aria-labelledby="dietary-title">
+            <h2 id="dietary-title">Dietary requirements</h2>
+            <p>
+              Vegetarian and gluten-aware choices are available. Please tell the
+              team about allergies when booking so the kitchen can advise you
+              accurately.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="cta-band" aria-labelledby="menu-cta-title">
+        <div class="container cta-band__inner">
+          <div>
+            <h2 id="menu-cta-title">Ready to join us?</h2>
+            <p>
+              The menu changes with availability, but a warm welcome remains
+              constant.
+            </p>
+          </div>
+          <a class="button" href="contact.html#reservation">Request a table</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>Black Swan Bistro</h2>
+          <address>123 Coastal Road<br />Perth WA 6000</address>
+          <p>
+            This is a fictional restaurant created for the GraphitEdge guided
+            project.
+          </p>
+        </div>
+        <div>
+          <h3>Visit</h3>
+          <ul>
+            <li><a href="menu.html">View the menu</a></li>
+            <li><a href="about.html">Meet the bistro</a></li>
+            <li><a href="contact.html#reservation">Request a table</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <p>Open daily<br />9am-9pm</p>
+          <p><a href="tel:+61812345678">(08) 1234 5678</a></p>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <div class="container">
+          <p>
+            &copy; 2026 Black Swan Bistro. GraphitEdge educational
+            demonstration.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
