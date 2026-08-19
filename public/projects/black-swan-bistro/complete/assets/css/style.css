@@ -27,6 +27,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: clip;
   background: var(--cream);
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
@@ -232,6 +233,7 @@ h3 {
 
 .nav-toggle {
   display: none;
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
   padding: 0;
@@ -299,6 +301,7 @@ h3 {
 
 .hero__content {
   width: min(calc(100% - 3rem), 920px);
+  min-width: 0;
   padding-block: 5rem;
   text-align: center;
 }
@@ -393,6 +396,7 @@ h3 {
 
 .page-hero__content {
   width: min(calc(100% - 3rem), 800px);
+  min-width: 0;
   padding-block: 4rem;
   text-align: center;
 }
@@ -991,7 +995,10 @@ textarea {
   }
 
   h1 {
-    font-size: 2.45rem;
+    max-width: 100%;
+    font-size: 2.15rem;
+    overflow-wrap: break-word;
+    text-wrap: balance;
   }
 
   h2 {
@@ -1004,6 +1011,22 @@ textarea {
 
   .site-header__inner {
     gap: 1rem;
+  }
+
+  .site-logo {
+    min-width: 0;
+    gap: 0.55rem;
+    font-size: 1rem;
+  }
+
+  .site-logo img {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .site-logo span {
+    overflow-wrap: break-word;
   }
 
   .nav-toggle {
