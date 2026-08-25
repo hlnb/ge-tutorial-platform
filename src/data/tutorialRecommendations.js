@@ -298,6 +298,209 @@ const websitePerformanceEditorialContent = {
   },
 };
 
+const technicalSeoResources = {
+  'technical-seo-basics': [
+    {
+      title: 'Google: Crawling and indexing overview',
+      url: 'https://developers.google.com/search/docs/crawling-indexing',
+      description: 'Authoritative overview of discovery, crawling, rendering, indexing, and related controls.',
+    },
+    {
+      title: 'Google: How Search works',
+      url: 'https://developers.google.com/search/docs/fundamentals/how-search-works',
+      description: 'Broader explanation of how Google discovers, indexes, and serves pages.',
+    },
+    {
+      title: 'RFC 9110: HTTP Semantics',
+      url: 'https://www.rfc-editor.org/rfc/rfc9110.html',
+      description: 'The web standard behind HTTP responses used throughout this pathway.',
+    },
+  ],
+  'crawlable-site-architecture': [
+    {
+      title: 'Google link best practices',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/links-crawlable',
+      description: 'Guidance on links that Google can crawl and understand.',
+    },
+    {
+      title: 'Google URL structure guidance',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/url-structure',
+      description: 'Current guidance on URL structure and crawl-friendly site organisation.',
+    },
+    {
+      title: 'WHATWG HTML: links',
+      url: 'https://html.spec.whatwg.org/multipage/links.html',
+      description: 'The HTML standard behind links and navigation relationships.',
+    },
+  ],
+  'robots-noindex-access-control': [
+    {
+      title: 'RFC 9309: Robots Exclusion Protocol',
+      url: 'https://www.rfc-editor.org/rfc/rfc9309.html',
+      description: 'The standard for robots.txt crawler access rules.',
+    },
+    {
+      title: 'Google robots.txt introduction',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/robots/intro',
+      description: 'How Google interprets robots.txt and what it is for.',
+    },
+    {
+      title: 'Google noindex guidance',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/block-indexing',
+      description: 'How to prevent indexing with noindex when the crawler can fetch the page.',
+    },
+    {
+      title: 'Bing robots meta tags',
+      url: 'https://www.bing.com/webmasters/help/robots-meta-tags-and-attributes-that-bing-supports-5198d240',
+      description: 'Bing-specific support for robots meta tags and attributes.',
+    },
+  ],
+  'sitemaps-robots-indexing': [
+    {
+      title: 'Google: Build and submit a sitemap',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap',
+      description: 'Current Google guidance for sitemap construction and submission.',
+    },
+    {
+      title: 'Sitemaps XML protocol',
+      url: 'https://www.sitemaps.org/protocol.html',
+      description: 'The shared XML protocol, including size and URL limits.',
+    },
+    {
+      title: 'Bing Webmaster Guidelines',
+      url: 'https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a',
+      description: 'Bing guidance on sitemaps, canonical URLs, links, and site quality.',
+    },
+  ],
+  'canonical-urls-and-duplicates': [
+    {
+      title: 'Google canonicalisation guidance',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls',
+      description: 'How Google uses redirects, canonicals, sitemaps, and other signals.',
+    },
+    {
+      title: 'Google URL structure guidance',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/url-structure',
+      description: 'Reference for avoiding unnecessary URL duplication.',
+    },
+    {
+      title: 'Google faceted-navigation guidance',
+      url: 'https://developers.google.com/crawling/docs/faceted-navigation',
+      description: 'Optional extension for larger catalogue and filtered-navigation systems.',
+    },
+  ],
+  'status-codes-redirects-and-removals': [
+    {
+      title: 'RFC 9110: HTTP Semantics',
+      url: 'https://www.rfc-editor.org/rfc/rfc9110.html',
+      description: 'The standard reference for HTTP status semantics.',
+    },
+    {
+      title: 'Google redirects and Search',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/301-redirects',
+      description: 'Search-specific guidance for redirects and site moves.',
+    },
+    {
+      title: 'Google crawling-error and soft-404 guidance',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors',
+      description: 'How Google describes crawl errors, soft 404s, and server issues.',
+    },
+  ],
+  'javascript-seo-vite-vue': [
+    {
+      title: 'Google JavaScript SEO basics',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics',
+      description: 'Current Google guidance on JavaScript crawling, rendering, links, and metadata.',
+    },
+    {
+      title: 'Google mobile-first indexing best practices',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing',
+      description: 'How mobile-rendered content affects indexing and diagnostics.',
+    },
+    {
+      title: 'Google page experience',
+      url: 'https://developers.google.com/search/docs/appearance/page-experience',
+      description: 'How page experience fits alongside other search and performance signals.',
+    },
+  ],
+  'structured-data-implementation': [
+    {
+      title: 'Schema.org getting started',
+      url: 'https://schema.org/docs/gs.html',
+      description: 'The shared vocabulary foundation for structured data.',
+    },
+    {
+      title: 'Google structured-data introduction',
+      url: 'https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data',
+      description: 'Google guidance on structured data and supported search features.',
+    },
+    {
+      title: 'Google general structured-data policies',
+      url: 'https://developers.google.com/search/docs/appearance/structured-data/sd-policies',
+      description: 'Policies requiring accurate, visible, non-misleading markup.',
+    },
+    {
+      title: 'Google structured-data testing tools',
+      url: 'https://developers.google.com/search/docs/appearance/structured-data',
+      description: 'Official testing tools for syntax, feature eligibility, and troubleshooting.',
+    },
+  ],
+  'google-search-console': [
+    {
+      title: 'Google: Get started with Search Console',
+      url: 'https://developers.google.com/search/docs/monitor-debug/search-console-start',
+      description: 'Current Search Console guidance for monitoring and debugging search presence.',
+    },
+    {
+      title: 'Google: Search operators for debugging',
+      url: 'https://developers.google.com/search/docs/monitor-debug/search-operators',
+      description: 'Why search operators are limited compared with verified-property tools.',
+    },
+    {
+      title: 'Bing Webmaster Guidelines',
+      url: 'https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a',
+      description: 'Bing guidance for crawl, index, quality, and diagnostic expectations.',
+    },
+    {
+      title: 'IndexNow protocol',
+      url: 'https://www.indexnow.org/documentation',
+      description: 'Protocol documentation for optional changed-URL notifications.',
+    },
+  ],
+  'measuring-and-improving-a-website': [
+    {
+      title: 'Google Search documentation updates',
+      url: 'https://developers.google.com/search/updates',
+      description: 'Recheck current guidance before making future audit recommendations.',
+    },
+    {
+      title: 'Google: Get started with Search Console',
+      url: 'https://developers.google.com/search/docs/monitor-debug/search-console-start',
+      description: 'Use proportionate monitoring for indexing, sitemaps, and diagnostics.',
+    },
+    {
+      title: 'Bing Webmaster Guidelines',
+      url: 'https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a',
+      description: 'Compare crawl, index, and maintenance guidance across search systems.',
+    },
+    {
+      title: 'web.dev: Web Vitals',
+      url: 'https://web.dev/articles/vitals',
+      description: 'Continue performance investigation through the existing performance pathway.',
+    },
+  ],
+};
+
+const technicalSeoEditorialContent = Object.fromEntries(
+  Object.entries(technicalSeoResources).map(([slug, resources]) => [
+    slug,
+    {
+      practiceProjects: [],
+      resources,
+    },
+  ]),
+);
+
 const legacyTutorialEditorialContent = {
   'getting-started': {
     'how-internet-works': {
@@ -1843,6 +2046,7 @@ const legacyTutorialEditorialContent = {
         },
       ],
     },
+    ...technicalSeoEditorialContent,
   },
   'website-performance-optimisation': websitePerformanceEditorialContent,
   'accessibility-essentials': accessibilityEssentialsEditorialContent,

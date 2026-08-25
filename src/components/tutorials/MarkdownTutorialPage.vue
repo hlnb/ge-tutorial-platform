@@ -25,6 +25,9 @@ const WorkingWithDataVisual = defineAsyncComponent(() =>
 const WebsitePerformanceVisual = defineAsyncComponent(() =>
 	import('@/components/tutorials/WebsitePerformanceVisual.vue'),
 );
+const TechnicalSeoVisual = defineAsyncComponent(() =>
+	import('@/components/tutorials/TechnicalSeoVisual.vue'),
+);
 
 const props = defineProps({
 	source: {
@@ -158,12 +161,49 @@ const performanceVisualMap = {
 	},
 };
 
+const technicalSeoVisualMap = {
+	'/tutorials/seo-analytics/technical-seo-basics': {
+		'the-search-pipeline': ['pipeline'],
+	},
+	'/tutorials/seo-analytics/crawlable-site-architecture': {
+		'architecture-is-a-link-system': ['site-graph'],
+	},
+	'/tutorials/seo-analytics/robots-noindex-access-control': {
+		'crawl-index-and-access-are-different-controls': ['directives'],
+	},
+	'/tutorials/seo-analytics/sitemaps-robots-indexing': {
+		'sitemaps-are-discovery-hints': ['sitemap'],
+	},
+	'/tutorials/seo-analytics/canonical-urls-and-duplicates': {
+		'canonicalisation-consolidates-signals': ['canonical'],
+	},
+	'/tutorials/seo-analytics/status-codes-redirects-and-removals': {
+		'status-codes-are-web-semantics': ['status-flow'],
+	},
+	'/tutorials/seo-analytics/javascript-seo-vite-vue': {
+		'initial-html-and-rendered-dom': ['js-timeline'],
+	},
+	'/tutorials/seo-analytics/structured-data-implementation': {
+		'three-validation-gates': ['structured-data'],
+	},
+	'/tutorials/seo-analytics/google-search-console': {
+		'reports-answer-different-questions': ['diagnosis'],
+	},
+	'/tutorials/seo-analytics/measuring-and-improving-a-website': {
+		'audit-the-system-not-the-score': ['audit'],
+	},
+};
+
 function getSectionVisuals(sectionId) {
 	return visualMap[props.currentPath]?.[sectionId] || [];
 }
 
 function getPerformanceVisuals(sectionId) {
 	return performanceVisualMap[props.currentPath]?.[sectionId] || [];
+}
+
+function getTechnicalSeoVisuals(sectionId) {
+	return technicalSeoVisualMap[props.currentPath]?.[sectionId] || [];
 }
 
 useHead(() => ({
@@ -243,6 +283,11 @@ useHead(() => ({
 					/>
 					<WebsitePerformanceVisual
 						v-for="variant in getPerformanceVisuals(sectionItem.id)"
+						:key="`${sectionItem.id}-${variant}`"
+						:variant="variant"
+					/>
+					<TechnicalSeoVisual
+						v-for="variant in getTechnicalSeoVisuals(sectionItem.id)"
 						:key="`${sectionItem.id}-${variant}`"
 						:variant="variant"
 					/>

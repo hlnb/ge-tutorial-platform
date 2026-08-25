@@ -1528,9 +1528,86 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/seo-analytics/canonical-urls-and-duplicates': RouteRecordInfo<
+      '/tutorials/seo-analytics/canonical-urls-and-duplicates',
+      '/tutorials/seo-analytics/canonical-urls-and-duplicates',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/crawlable-site-architecture': RouteRecordInfo<
+      '/tutorials/seo-analytics/crawlable-site-architecture',
+      '/tutorials/seo-analytics/crawlable-site-architecture',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/google-search-console': RouteRecordInfo<
+      '/tutorials/seo-analytics/google-search-console',
+      '/tutorials/seo-analytics/google-search-console',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/javascript-seo-vite-vue': RouteRecordInfo<
+      '/tutorials/seo-analytics/javascript-seo-vite-vue',
+      '/tutorials/seo-analytics/javascript-seo-vite-vue',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/measuring-and-improving-a-website': RouteRecordInfo<
+      '/tutorials/seo-analytics/measuring-and-improving-a-website',
+      '/tutorials/seo-analytics/measuring-and-improving-a-website',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/seo-analytics/on-page-seo': RouteRecordInfo<
       '/tutorials/seo-analytics/on-page-seo',
       '/tutorials/seo-analytics/on-page-seo',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/robots-noindex-access-control': RouteRecordInfo<
+      '/tutorials/seo-analytics/robots-noindex-access-control',
+      '/tutorials/seo-analytics/robots-noindex-access-control',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/sitemaps-robots-indexing': RouteRecordInfo<
+      '/tutorials/seo-analytics/sitemaps-robots-indexing',
+      '/tutorials/seo-analytics/sitemaps-robots-indexing',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/status-codes-redirects-and-removals': RouteRecordInfo<
+      '/tutorials/seo-analytics/status-codes-redirects-and-removals',
+      '/tutorials/seo-analytics/status-codes-redirects-and-removals',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/structured-data-implementation': RouteRecordInfo<
+      '/tutorials/seo-analytics/structured-data-implementation',
+      '/tutorials/seo-analytics/structured-data-implementation',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/technical-seo': RouteRecordInfo<
+      '/tutorials/seo-analytics/technical-seo',
+      '/tutorials/seo-analytics/technical-seo',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/seo-analytics/technical-seo-basics': RouteRecordInfo<
+      '/tutorials/seo-analytics/technical-seo-basics',
+      '/tutorials/seo-analytics/technical-seo-basics',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -2950,9 +3027,75 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/seo-analytics/canonical-urls-and-duplicates.vue': {
+      routes:
+        | '/tutorials/seo-analytics/canonical-urls-and-duplicates'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/crawlable-site-architecture.vue': {
+      routes:
+        | '/tutorials/seo-analytics/crawlable-site-architecture'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/google-search-console.vue': {
+      routes:
+        | '/tutorials/seo-analytics/google-search-console'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/javascript-seo-vite-vue.vue': {
+      routes:
+        | '/tutorials/seo-analytics/javascript-seo-vite-vue'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/measuring-and-improving-a-website.vue': {
+      routes:
+        | '/tutorials/seo-analytics/measuring-and-improving-a-website'
+      views:
+        | never
+    }
     'src/pages/tutorials/seo-analytics/on-page-seo.vue': {
       routes:
         | '/tutorials/seo-analytics/on-page-seo'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/robots-noindex-access-control.vue': {
+      routes:
+        | '/tutorials/seo-analytics/robots-noindex-access-control'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/sitemaps-robots-indexing.vue': {
+      routes:
+        | '/tutorials/seo-analytics/sitemaps-robots-indexing'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/status-codes-redirects-and-removals.vue': {
+      routes:
+        | '/tutorials/seo-analytics/status-codes-redirects-and-removals'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/structured-data-implementation.vue': {
+      routes:
+        | '/tutorials/seo-analytics/structured-data-implementation'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/technical-seo.vue': {
+      routes:
+        | '/tutorials/seo-analytics/technical-seo'
+      views:
+        | never
+    }
+    'src/pages/tutorials/seo-analytics/technical-seo-basics.vue': {
+      routes:
+        | '/tutorials/seo-analytics/technical-seo-basics'
       views:
         | never
     }

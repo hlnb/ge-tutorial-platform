@@ -23,6 +23,15 @@
         </div>
       </li>
     </ul>
+
+    <div class="sidebar-footer">
+      <router-link to="/tutorials" class="button is-small is-fullwidth">
+        <i class="fas fa-arrow-left"></i> All Tutorials
+      </router-link>
+      <router-link to="/my-progress" class="button is-small is-fullwidth">
+        <i class="fas fa-chart-line"></i> My Progress
+      </router-link>
+    </div>
   </aside>
 </template>
 
@@ -34,7 +43,10 @@ import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
 const { pageSections, hasPageSections } = usePageNavigation();
-const navItems = getSectionNavItems('seo-analytics', { includeOverview: false });
+const navItems = getSectionNavItems('seo-analytics', {
+  includeOverview: false,
+  includeSectionNavHidden: true,
+});
 const currentIndex = computed(() => navItems.findIndex((item) => item.path === route.path));
 
 function isActive(path) {
