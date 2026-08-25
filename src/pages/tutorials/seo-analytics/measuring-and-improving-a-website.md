@@ -81,9 +81,47 @@ Inventory scoped URLs. Capture status, final URL, canonical, index directive, si
 
 Severity is impact plus scope, not tool colour.
 
+### Evidence standards
+
+Good audit evidence is specific enough for another person to reproduce. For each finding, record:
+
+- exact URL tested
+- date and time or reporting date range
+- tool and environment
+- status code, final URL, directive, canonical, or rendered-content observation
+- screenshot or export only when it proves the point
+- what the evidence does not prove
+
+Avoid vague findings such as "SEO is bad" or "page not indexed." Replace them with findings like: "`/summer-menu` is listed in the sitemap, redirects to `/menu`, and should be removed from the sitemap generation rule." That finding has evidence, a cause, and a testable fix.
+
+### Severity examples
+
+Severity should reflect harm and scope:
+
+| Finding | Likely severity | Why |
+|---|---|---|
+| Whole public site blocked by `Disallow: /` after launch | Critical | prevents crawling across important pages |
+| Primary service page has no internal links | High | important page may not be discovered |
+| Sitemap lists five redirected old URLs | Medium | conflicting discovery signals with limited user impact |
+| One page has vague link text | Low | clarity issue, not a system blocker |
+| Thank-you page is `noindex` | Observation | expected if intentional |
+
+When unsure, choose the lower severity and explain the uncertainty. Overstating severity makes the audit less useful.
+
 ### Phase 4 - Prioritise
 
 For each finding include the finding, affected URLs, evidence, reproduction steps, consequence, smallest fix, owner, dependency, change risk, and verification method. Prioritise blockers and signal conflicts before cosmetic metadata refinements.
+
+### Repair planning with confidence
+
+Each proposed repair should answer four questions:
+
+1. What exact behaviour will change?
+2. What could break if the change is wrong?
+3. How will we verify the result?
+4. When should we recheck search-engine reports?
+
+For example, changing a URL slug may create more risk than benefit if the current URL is already indexed, linked, and understandable. Updating internal links to point directly to the canonical URL may be lower risk and still improve signal consistency.
 
 ### Phase 5 - Repair a bounded sample
 
@@ -163,6 +201,10 @@ Implement or document three fixes across discovery/link or sitemap, response/dir
 
 Repeat the original tests. Record which assumption changed because of evidence.
 
+**Step 7 - Prepare the handoff**
+
+Write the repair plan for a real maintainer. Include exact files, settings, redirects, or CMS fields where possible. Separate tasks you completed from tasks that require account access, deployment, or owner approval.
+
 <!-- /GuidedPractice -->
 
 <!-- INDEPENDENT PRACTICE -->
@@ -177,6 +219,7 @@ Submit the final technical SEO audit and repair plan.
 - cover the ten audit areas
 - include the assessment rubric with self-assessed points
 - protect private data and verification material
+- include one example finding written in full with evidence, consequence, fix, and retest
 
 **Success criteria:**
 
@@ -184,6 +227,7 @@ Submit the final technical SEO audit and repair plan.
 - priorities match impact and scope
 - three fixes include before/after evidence
 - recommendations do not promise rankings, indexing, or rich-result display
+- the handoff is clear enough for another maintainer to act on
 
 <!-- /IndependentPractice -->
 

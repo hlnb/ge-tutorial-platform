@@ -57,6 +57,35 @@ Those stages are connected, but they are not the same job:
 
 Search is a pipeline, not a simple ladder. A system may revisit a URL many times. It may crawl a page and decide not to index it. It may index a page and rarely serve it because another result better matches the query. That is why ranking advice should wait until crawl and index evidence are checked.
 
+## Read Symptoms by Stage
+
+A common beginner mistake is to treat every search problem as a content problem. Content matters, but technical SEO asks a more basic question first: can the page travel through the system without conflicting signals?
+
+Use the symptom to choose your first test:
+
+| Symptom | Likely first stage to inspect | Useful first question |
+|---|---|---|
+| New page cannot be found anywhere | Discovery | Is there a crawlable internal link or sitemap entry? |
+| Search tool reports a crawl error | Crawling | What status and final URL does the server return? |
+| Page content appears only after interaction | Rendering | Is the important content in the rendered DOM without special user action? |
+| Page is crawled but excluded | Indexing | Is the page canonical, indexable, useful, and non-duplicate? |
+| Page is indexed but has no traffic | Serving | Does it match a real query and compete with better results? |
+
+This sequence prevents wasted work. Rewriting a title tag will not fix a URL blocked by robots rules. Adding schema will not help a page that returns a fake `200 OK` not-found response. Improving copy may be worthwhile later, but first you need to know whether the page is technically eligible to appear.
+
+## What Each Tool Can and Cannot Prove
+
+Technical SEO confidence comes from combining evidence. No single tool sees the whole system.
+
+- A browser proves one user can load the page under current conditions.
+- View Source proves what the initial HTML contains.
+- Elements proves what the browser DOM contains after rendering.
+- The Network panel proves status, final URL, redirects, headers, and failed resources for that visit.
+- A sitemap proves the site is offering a discovery hint, not that the URL was indexed.
+- Search Console or Bing Webmaster Tools prove observations for a verified property, usually with delay.
+
+When a tool reports a problem, ask: which stage is this about, how current is the evidence, and what would confirm it independently?
+
 ## Evidence Cards
 
 Place each Black Swan Bistro observation at the strongest stage it proves:
@@ -116,6 +145,10 @@ Find at least one internal `<a href>` link pointing to the page. If none exists,
 
 Write one observation for discovery, response, rendering, and indexability. Mark your confidence as high, medium, or low.
 
+**Step 6 - Name the next test**
+
+For each weak or unknown stage, write the next most useful test before proposing a fix. This keeps the diagnosis disciplined.
+
 <!-- /GuidedPractice -->
 
 <!-- INDEPENDENT PRACTICE -->
@@ -130,12 +163,14 @@ Create a one-page search pipeline evidence map for a learner-owned page.
 - name the tool used for each observation
 - separate observed facts from inferences
 - include one confidence statement for each stage
+- identify the highest-risk stage and the next test you would run
 
 **Success criteria:**
 
 - each claim is tied to evidence
 - you avoid assuming indexing from discovery alone
 - you identify the next test before suggesting a fix
+- your recommendation is proportionate to the stage where evidence is weakest
 
 <!-- /IndependentPractice -->
 

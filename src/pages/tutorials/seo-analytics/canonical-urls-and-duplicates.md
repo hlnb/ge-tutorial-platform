@@ -53,6 +53,36 @@ Use a permanent redirect when the old URL should no longer be used. Use `rel="ca
 
 Canonical targets should be absolute, indexable, successful, and not redirected where avoidable. Do not canonicalise genuinely different pages just to suppress them.
 
+## Signals Should Agree
+
+Canonicalisation works best when the whole site tells the same story. The canonical tag is important, but it is only one signal among several.
+
+Check whether these signals point to the same preferred URL:
+
+| Signal | Healthy pattern | Conflict example |
+|---|---|---|
+| Internal links | link to the preferred URL | navigation links to `/menu/` while canonical says `/menu` |
+| Redirects | old variants redirect to the preferred URL | `/summer-menu` redirects to `/menu`, but `/menu` canonicalises back to `/summer-menu` |
+| Canonical tag | self-canonical on the preferred page | canonical points to a URL that redirects |
+| Sitemap | lists only preferred canonical URLs | sitemap includes both `/menu` and `/menu/` |
+| Page content | duplicate variants are genuinely similar | canonical used between pages with different intent |
+
+When signals disagree, search systems may still choose a canonical, but you have made the decision harder. Your job is not to force a choice with one tag. Your job is to make the preferred choice obvious and consistent.
+
+## When Not to Canonicalise
+
+Do not use canonical tags as a hiding place for unresolved architecture decisions.
+
+Avoid canonicalising when:
+
+- the pages serve different locations, audiences, products, dates, or intents
+- the target page does not contain the information the visitor expected
+- the source page should really redirect because the old URL is gone
+- the page should be `noindex` because it is useful to users but not useful in search
+- the duplicate exists because internal links, filters, or route rules need repair
+
+For example, two suburb service pages may look similar but still answer different local intent. Collapsing them into one canonical can remove useful specificity. A tracking parameter version of the same menu page, by contrast, is usually a good canonical candidate.
+
 ## Choose the Right Consolidation
 
 | Scenario | Best first choice | Why |
@@ -107,6 +137,10 @@ Check internal links and sitemap entries. Draw the current signal cluster.
 
 Choose redirect, canonical, self-canonical, noindex, or no change. Retest the repaired path.
 
+**Step 6 - Check the supporting signals**
+
+After choosing a repair, confirm internal links and sitemap entries also point to the preferred URL. If they do not, the tag is carrying too much of the work alone.
+
 <!-- /GuidedPractice -->
 
 <!-- INDEPENDENT PRACTICE -->
@@ -122,12 +156,14 @@ Create a canonical cluster worksheet for three important pages.
 - choose the preferred canonical
 - name the remediation
 - define the verification method
+- identify one variant that should redirect, canonicalise, noindex, or remain separate
 
 **Success criteria:**
 
 - signals point consistently at the chosen URL
 - genuinely different pages are not collapsed together
 - redirects are used for actual moves
+- the final recommendation explains why the chosen mechanism matches user intent
 
 <!-- /IndependentPractice -->
 

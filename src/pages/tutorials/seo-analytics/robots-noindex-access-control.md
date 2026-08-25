@@ -49,6 +49,19 @@ After this lesson, you will be able to:
 
 For non-HTML resources such as PDFs, an `X-Robots-Tag: noindex` header can carry index directives. For private or staging content, use authentication, network restrictions, or another real access-control mechanism.
 
+## The Order of Operations Matters
+
+A directive only works if the relevant system can see it. This is why the sequence matters:
+
+1. A crawler checks `robots.txt` before requesting a URL.
+2. If crawling is allowed, the crawler can request the page or file.
+3. If the response is fetched, page-level meta directives or headers can be read.
+4. If indexing is allowed, the page can be considered for the index.
+
+So a public HTML page that should stay out of search often needs to be crawlable with `noindex`, not blocked. A private dashboard needs a login, not `noindex`. A deleted page needs an honest response, not a robots rule that hides the evidence.
+
+Use `robots.txt` mainly to reduce unnecessary crawling of public low-value patterns, not to clean up every index problem.
+
 ## Decision Table
 
 | Goal | Correct first mechanism | Avoid |
@@ -72,6 +85,19 @@ Sitemap: https://example.com/sitemap.xml
 This file is a crawler instruction, not a content inventory. Do not block CSS or JavaScript that search systems need to render public pages. Do not put secrets, tokens, or private paths in a public robots file.
 
 > **Screenshot placeholder:** Add a genuine, redacted robots tester or raw robots response screenshot when available. Never include private staging URLs or tokens.
+
+## Failure Modes to Recognise
+
+These mistakes are common enough to deserve special attention:
+
+- blocking `/assets/`, `/css/`, or `/js/` so rendered pages cannot be understood
+- adding `noindex` to a page and then blocking that same page from being fetched
+- listing sensitive staging paths in a public robots file
+- using `Disallow` to handle deleted content that should return `404` or `410`
+- applying broad rules such as `Disallow: /` during launch and forgetting to remove them
+- assuming all crawlers obey robots rules equally
+
+When you audit a rule, write the intended outcome before judging the mechanism. A rule that is wrong for privacy may still be acceptable for crawl hygiene on a large public site. Context matters.
 
 <!-- CHECKPOINT BOX -->
 
@@ -110,6 +136,10 @@ Open `/robots.txt`, identify user-agent groups, disallowed paths, and sitemap de
 
 Confirm important public CSS and JavaScript are not blocked when they are needed for rendering.
 
+**Step 5 - Test the contradiction**
+
+For any URL with both a crawl rule and an index directive, explain whether a crawler can actually see the directive.
+
 <!-- /GuidedPractice -->
 
 <!-- INDEPENDENT PRACTICE -->
@@ -124,12 +154,14 @@ Create a crawl/index/privacy decision record for five URL groups on your site.
 - state the intended outcome
 - check for conflicts between crawl and index controls
 - identify the verification method
+- note whether the rule is temporary or permanent
 
 **Success criteria:**
 
 - private content uses real access control
 - `noindex` pages remain crawlable where needed
 - removal decisions use honest HTTP responses
+- robots rules do not block resources needed to render public pages
 
 <!-- /IndependentPractice -->
 

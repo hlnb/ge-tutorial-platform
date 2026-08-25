@@ -50,6 +50,21 @@ Important navigation should render as anchors with real `href` values. Critical 
 
 SPA, static generation, prerendering, and server rendering solve different product and delivery needs. Do not treat any of them as a ranking switch. Choose based on evidence.
 
+## Rendering Options and Trade-Offs
+
+Rendering architecture is a delivery decision. The right choice depends on content, freshness, interactivity, hosting, maintenance skill, and risk.
+
+| Option | Strength | Risk to watch |
+|---|---|---|
+| Client-side SPA | simple deployment and rich interaction | thin initial HTML, weak status handling, metadata gaps |
+| Static site generation | fast content pages with strong initial HTML | build complexity and stale generated content if workflow is weak |
+| Prerendering selected routes | improves important public pages without full SSR | route coverage can drift as the site grows |
+| Server-side rendering | fresh HTML per request and better status control | more moving parts, hosting constraints, runtime failures |
+
+The practical question is not "Is Vue bad for SEO?" It is: which pages need strong initial HTML, unique metadata, accurate status responses, and reliable content before JavaScript? A portfolio gallery, tutorial article, product page, booking page, and logged-in dashboard may need different answers.
+
+For Vite/Vue sites, a small improvement can often solve the real problem: generate public content routes, ensure router links render anchors, add per-route metadata, handle not-found routes honestly, and avoid hiding primary content behind client-only interactions.
+
 ## Vite and Vue Checks
 
 | Check | Why it matters | Evidence |
@@ -62,6 +77,20 @@ SPA, static generation, prerendering, and server rendering solve different produ
 | Mobile rendered view | tests mobile-first content parity | responsive rendered content |
 
 > **Screenshot placeholder:** Add real View Source, Elements, Network, and mobile-rendered screenshots only from current, redacted project captures.
+
+## Mobile Parity and Deferred Content
+
+Search systems primarily evaluate mobile content. A desktop-only navigation link, collapsed content that is absent from the DOM, or route metadata that changes only after a delayed client request can create uneven evidence.
+
+Check whether the mobile route still provides:
+
+- the same primary heading and main content
+- crawlable links to important related pages
+- unique title, description, canonical, and structured data where used
+- images and resources that are not blocked by robots rules
+- content that appears without requiring a user-only gesture
+
+Deferred content is not automatically wrong. Reviews, comments, maps, and interactive widgets may load after the main page. The risk appears when the content needed to understand the page does not exist until a fragile script, personalisation call, or interaction succeeds.
 
 <!-- CHECKPOINT BOX -->
 
@@ -100,6 +129,10 @@ Use a mobile viewport. Confirm the same essential content, metadata, structured 
 
 Mark each issue as content delivery, routing/status, metadata, resource access, or performance.
 
+**Step 5 - Choose the smallest remedy**
+
+For each finding, choose a proportionate fix: metadata update, real anchor link, prerendered route, host rewrite change, not-found handling, resource unblock, or deeper rendering architecture change.
+
 <!-- /GuidedPractice -->
 
 <!-- INDEPENDENT PRACTICE -->
@@ -116,12 +149,14 @@ Write a rendering decision note.
 - user/search impact
 - smallest viable remedy
 - proof required after change
+- reason a larger rendering change is or is not justified
 
 **Success criteria:**
 
 - conclusions use initial and rendered evidence
 - mobile parity is checked
 - proposed remedies are proportionate
+- recommendations do not treat one rendering model as universally best
 
 <!-- /IndependentPractice -->
 

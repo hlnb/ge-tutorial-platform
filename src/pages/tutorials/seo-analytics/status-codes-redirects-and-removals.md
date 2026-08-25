@@ -49,6 +49,33 @@ A permanent redirect should lead to the closest real replacement, preferably in 
 
 Persistent `5xx` failures can reduce crawling and availability. A custom error page does not change the underlying status.
 
+## Choose the Response From Intent
+
+Start with what actually happened to the resource. Then choose the response.
+
+| Intent | Better response | Reasoning |
+|---|---|---|
+| The content moved and has a close replacement | `301` or `308` | users and signals should transfer to the new URL |
+| The content is temporarily elsewhere | `302` or `307` | the original URL may be useful again |
+| The content is gone with no replacement | `404` or `410` | the address should not pretend to succeed |
+| The site is temporarily unavailable | `503` | communicates temporary server-side failure |
+| The user is not authorised | `401` or `403` | access is denied, not missing |
+
+Do not redirect every missing page to the homepage. That may feel tidy, but it gives users an irrelevant destination and search systems a weak signal. A helpful 404 page with search, navigation, and contact options is often better than a misleading redirect.
+
+## Redirect Quality
+
+A redirect is a promise that the destination is the best available replacement. Check:
+
+- relevance: the new page satisfies the same or very similar intent
+- permanence: the status code matches whether the move is lasting
+- chain length: the path resolves in one hop where practical
+- consistency: internal links and sitemaps use the final URL
+- loops: no URL redirects back into itself or a repeating chain
+- method preservation: use `307` or `308` when preserving the request method matters
+
+For most learner sites, the highest-value redirect work is simple: map old public URLs to close new URLs, remove redirected URLs from the sitemap, and update internal links so visitors do not rely on redirects during normal navigation.
+
 ## Response Decision Table
 
 | Situation | Response | User-facing content | Follow-up |
@@ -99,6 +126,10 @@ Open the final page and check whether content matches the status semantics.
 
 Update internal links, redirect rules, sitemap entries, or deletion handling as needed.
 
+**Step 5 - Retest the exact URL**
+
+Repeat the original request after the repair. Record the new status, final URL, number of hops, and whether the visible content matches the response.
+
 <!-- /GuidedPractice -->
 
 <!-- INDEPENDENT PRACTICE -->
@@ -116,12 +147,14 @@ Create a redirect/removal plan for a hypothetical five-page migration.
 - internal-link update
 - sitemap update
 - verification method
+- whether the visible page content matches the HTTP response
 
 **Success criteria:**
 
 - moved pages redirect to close replacements
 - gone pages return honest 404/410 responses
 - no redirect chain is longer than necessary
+- internal links point to final URLs rather than relying on redirects
 
 <!-- /IndependentPractice -->
 

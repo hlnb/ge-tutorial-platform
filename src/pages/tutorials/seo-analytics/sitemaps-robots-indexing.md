@@ -50,6 +50,20 @@ Include absolute, canonical URLs that the site genuinely wants indexed. Exclude 
 
 `changefreq` and `priority` are optional protocol hints. They are not ranking controls.
 
+## Build the Sitemap From Decisions, Not Hope
+
+A reliable sitemap is the result of earlier decisions:
+
+1. Which URLs are canonical?
+2. Which canonical URLs return successful responses?
+3. Which pages are intended to be indexed?
+4. Which pages are meaningful enough to discover through search?
+5. Which pages changed in a way that justifies updating `lastmod`?
+
+If those decisions are unclear, the sitemap becomes a wish list. A redirected URL in the sitemap tells crawlers to request an address the site no longer prefers. A `noindex` URL in the sitemap asks for discovery while also saying not to index the page. Those conflicts may not break a site, but they reduce trust in the site's signals.
+
+Small sites can often maintain a sitemap through the route or content registry. Larger sites need generation rules that exclude drafts, private pages, internal search results, parameter variants, and error routes by default.
+
 ## Minimal Valid Sitemap
 
 ```xml
@@ -79,6 +93,19 @@ A single sitemap is limited to 50,000 URLs or 50 MB uncompressed by the protocol
 | duplicate tracking URL | No | consolidate to the canonical |
 
 > **Screenshot placeholder:** Add a real, redacted Search Console Sitemaps report only after a verified property is available.
+
+## Testing a Sitemap Like a Developer
+
+Do not stop at "the XML opens in a browser." Test the file in layers:
+
+- Syntax: the XML is well-formed and uses the correct namespace.
+- URL format: every `<loc>` is absolute and uses the preferred protocol and host.
+- Response: every listed URL returns a successful final response.
+- Canonical: every listed URL is the preferred canonical version.
+- Index directive: every listed URL is allowed to be indexed.
+- Freshness: `lastmod` changes only when the page meaningfully changes.
+
+When a generated sitemap fails, fix the source rule rather than hand-editing the output. Otherwise the next build will recreate the mistake.
 
 <!-- CHECKPOINT BOX -->
 
@@ -121,6 +148,10 @@ Add the full sitemap address to `robots.txt`, then submit it in webmaster tools 
 
 Submission proves submission. Discovery proves the system knows the URL. Indexing requires separate evidence.
 
+**Step 6 - Fix the generation rule**
+
+If a bad URL appears, identify the data source or route rule that included it. Record the rule change that would prevent the same class of mistake.
+
 <!-- /GuidedPractice -->
 
 <!-- INDEPENDENT PRACTICE -->
@@ -137,12 +168,14 @@ Deliver a validated sitemap plus an evidence table.
 - index directive
 - inclusion decision
 - last meaningful modification
+- source of the sitemap entry
 
 **Success criteria:**
 
 - every listed URL is absolute and canonical
 - no `noindex`, blocked, redirected, or error URL is listed
 - you can explain what the sitemap does and does not prove
+- sitemap output is generated from maintainable rules where possible
 
 <!-- /IndependentPractice -->
 

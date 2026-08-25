@@ -58,6 +58,22 @@ Validation has three levels:
 
 Eligibility is not a display guarantee and is not a shortcut to ranking.
 
+## Choose the Main Entity
+
+Most structured-data mistakes begin before the JSON is written. The author has not decided what the page is mainly about.
+
+Ask:
+
+- Is this page a local business homepage, a specific article, a product, an event, a course, a recipe, or something else?
+- Which facts are visible to a visitor without needing private knowledge?
+- Which URL is the canonical page for this entity?
+- Which properties are stable enough to maintain accurately?
+- Is the target search feature supported for this page type?
+
+For a tutorial page, `TechArticle` or `LearningResource` may be honest. For a restaurant homepage, `Restaurant` may be honest if the visible page includes business facts. For a menu page, the relationship between the restaurant and its menu may matter more than adding every possible property.
+
+Specific is useful only when it is accurate. An incomplete but truthful block is better than an ambitious block full of stale or unverifiable claims.
+
 ## Entity Inventory First
 
 Before writing markup for Black Swan Bistro, list facts visible on the page: business name, page URL, menu URL, address if visible, opening hours if visible, and contact details if visible. Do not invent ratings, prices, addresses, opening hours, or business facts.
@@ -75,6 +91,14 @@ Before writing markup for Black Swan Bistro, list facts visible on the page: bus
 This example is deliberately minimal. Production values must come from verified visible business information.
 
 > **Screenshot placeholder:** Add real, current, redacted captures from Schema Markup Validator and Google Rich Results Test after testing a real page.
+
+## Maintenance Is Part of Accuracy
+
+Structured data can quietly become wrong. Opening hours change, events pass, prices move, authorship changes, URLs migrate, and images are replaced.
+
+Before adding a property, decide where that fact will be maintained. Good sources include the same content registry, CMS field, route metadata, or business data source that renders the visible page. Riskier sources include hand-coded JSON-LD copied between pages, hard-coded dates, or claims added only for a test.
+
+Use this rule: if the visible page changes, the structured data should change through the same workflow or an obvious nearby workflow. Otherwise the markup will eventually disagree with the page.
 
 <!-- CHECKPOINT BOX -->
 
@@ -117,6 +141,10 @@ Use accurate canonical URLs and required properties only when the facts are avai
 
 Run a syntax check, Schema Markup Validator, and Rich Results Test when relevant. Compare every property with visible content.
 
+**Step 6 - Plan maintenance**
+
+For each property, record where the fact comes from and who or what process would update it.
+
 <!-- /GuidedPractice -->
 
 <!-- INDEPENDENT PRACTICE -->
@@ -132,12 +160,14 @@ Create a structured-data evidence pack.
 - validator results
 - visible-content cross-check
 - eligibility statement without display promises
+- maintenance source for important properties
 
 **Success criteria:**
 
 - markup is accurate and visible-content aligned
 - warnings and errors are interpreted separately
 - no business facts are invented
+- the JSON-LD can stay accurate when page content changes
 
 <!-- /IndependentPractice -->
 

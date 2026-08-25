@@ -51,6 +51,23 @@ Verify ownership safely. Page Indexing answers site-wide pattern questions. URL 
 
 Bing has its own crawl and index evidence. IndexNow can notify participating search engines about added, updated, or deleted URLs, but it is optional and not an indexing guarantee.
 
+## Interpret Reports With Intent
+
+A report is useful only when compared with what the site intended. A `noindex` thank-you page appearing under excluded URLs may be healthy. A new service page missing from the index may deserve investigation. A redirect reported as not indexed may be expected if the destination is correct.
+
+Use this triage pattern:
+
+| Report observation | First interpretation | Next check |
+|---|---|---|
+| Submitted URL blocked by robots | sitemap and robots signals conflict | inspect sitemap inclusion and robots rule |
+| Crawled - currently not indexed | search engine has seen the URL but not selected it | check content quality, duplication, canonical, and timing |
+| Duplicate, chose different canonical | canonical signals may disagree | compare canonical tag, sitemap, redirects, and internal links |
+| Page with redirect | often expected | confirm the destination is relevant and listed instead |
+| Soft 404 | success status may not match content | inspect HTTP response and visible page |
+| Structured-data warning | may be optional or feature-limiting | compare warning with target feature requirements |
+
+Do not optimise by count alone. Sort by important page types, affected templates, recent changes, and whether the behaviour matches the site's decisions.
+
 ## Diagnosis Template
 
 | Field | What to record |
@@ -65,6 +82,17 @@ Bing has its own crawl and index evidence. IndexNow can notify participating sea
 Monthly or change-triggered review is usually more useful than compulsive daily checking for a small site.
 
 > **Screenshot placeholder:** Use real, redacted Search Console and Bing captures only. Remove verification strings, private queries, account identifiers, and private URLs.
+
+## From Report to Action
+
+A calm diagnosis separates four things:
+
+- Evidence: the exact report, URL, date range, and status.
+- Inference: what the evidence probably means.
+- Action: the smallest change that addresses the cause.
+- Retest: how and when to check whether the change worked.
+
+Some retests are immediate, such as requesting a URL after a redirect change. Search Console reports may take days or weeks to settle. That delay is not failure by itself. Record the expected review window so the site owner does not rework the same issue every morning.
 
 <!-- CHECKPOINT BOX -->
 
@@ -103,6 +131,10 @@ Mark each as expected, needs investigation, or action required. Give one reason.
 
 Use the diagnosis template and include a retest plan.
 
+**Step 5 - Limit the action list**
+
+Choose the three most important actions only. Put expected exclusions and low-risk observations into a monitoring section instead of pretending everything is urgent.
+
 <!-- /GuidedPractice -->
 
 <!-- INDEPENDENT PRACTICE -->
@@ -117,12 +149,14 @@ Write a five-item search-health brief for a real or supplied property.
 - state which observations need no action
 - separate evidence, inference, and recommendation
 - include dates, tools, and affected URLs
+- include an expected retest window for each action
 
 **Success criteria:**
 
 - report choice matches the question
 - sensitive account data is not exposed
 - the brief is calm, bounded, and actionable
+- expected behaviour is not reported as a defect
 
 <!-- /IndependentPractice -->
 
