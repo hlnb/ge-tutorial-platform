@@ -72,7 +72,11 @@ The following table uses an illustrative 1600 x 900 photographic image. The size
 
 These are teaching examples, not file-size promises. Students must measure their own assets.
 
-> **Asset placeholder:** Add `image-formats-comparison.webp` after real test assets are produced. Use the same photograph exported as PNG, JPEG, WebP, and AVIF, with actual file sizes and percentage reduction relative to the original.
+![The same cafe photograph compared as PNG, JPEG, WebP and AVIF with measured file sizes and reductions.](/images/tutorials/web-performance/optimising-images-and-media/image-formats-comparison.webp){width=1504 height=1000}
+
+*These supplied exports are examples, not a matched-quality benchmark. Full-image export settings were not independently verified, and the AVIF detail crop uses a different export from the full-size AVIF.*
+
+[View full-size image](/images/tutorials/web-performance/optimising-images-and-media/image-formats-comparison.webp)
 
 ## Choosing a format
 
@@ -90,6 +94,12 @@ The correct answer is: test the image. Not: always use format X.
 Affinity can be used as the professional image-preparation tool for cropping, resizing, and exporting source assets. The current Affinity product is presented by Affinity as a free professional photo, design, and layout application, but export support and interface details should be checked before screenshot instructions are finalised.
 
 Squoosh is useful for learning because it lets students compare compression visually. It complements Affinity rather than replacing it, especially when comparing JPEG, WebP, and AVIF.
+
+![Squoosh comparing the cafe image with an AVIF export, with resize, quality and effort settings visible.](/images/tutorials/web-performance/optimising-images-and-media/squoosh-compression-comparison.webp){width=2500 height=1867}
+
+*This separate Squoosh run shows a 1600 x 900 resize and AVIF quality 50. Its displayed saving applies to that run, not the full-size AVIF in the comparison above.*
+
+[View full-size image](/images/tutorials/web-performance/optimising-images-and-media/squoosh-compression-comparison.webp)
 
 > **Screenshot placeholders:** Add `affinity-crop-workflow.webp`, `affinity-resize-workflow.webp`, and `affinity-webp-export.webp` from the real current interface. Do not use one enormous screenshot.
 

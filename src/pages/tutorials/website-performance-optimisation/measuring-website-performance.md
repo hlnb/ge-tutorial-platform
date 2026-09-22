@@ -73,7 +73,11 @@ To run your first audit:
 9. Record the resulting measurements.
 10. Read the diagnostics before making changes.
 
-> **Screenshot placeholder:** Add `devtools-lighthouse-annotated.webp` from the current Chrome interface. Annotate the Performance checkbox, mobile/desktop choice, and Analyse button. Keep the screenshot readable rather than crowded.
+![Lighthouse setup with Navigation mode, device selection, Performance category and Analyse page load button.](/images/tutorials/web-performance/measuring-website-performance/devtools-lighhouse-annotated.webp){width=2978 height=1832}
+
+*Choose the test mode, device and categories before running Lighthouse. The visible stored-data warning is a reason to use a clean test session.*
+
+[View full-size image](/images/tutorials/web-performance/measuring-website-performance/devtools-lighhouse-annotated.webp)
 
 ## Lab data and field data
 
@@ -98,7 +102,11 @@ To find the largest files:
 7. Identify the five largest resources.
 8. Record their filename, type, transferred size, and load time.
 
-> **Screenshot placeholder:** Add `devtools-network-annotated.webp` from the current Network panel sorted by Size. Add numbered callouts to resource name, type, size, and waterfall.
+![Network requests sorted by size with annotations for request names, types, sizes and the waterfall.](/images/tutorials/web-performance/measuring-website-performance/devtools-network-annotated.webp){width=2956 height=1866}
+
+*Use the Size column to find large resources, then inspect their type and request timing.*
+
+[View full-size image](/images/tutorials/web-performance/measuring-website-performance/devtools-network-annotated.webp)
 
 ## Performance baseline worksheet
 

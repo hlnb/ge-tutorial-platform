@@ -110,6 +110,12 @@ Create a JavaScript inventory.
 
 Open Network, reload the page, and filter by JS.
 
+![Network panel filtered to JavaScript, listing script names, sizes, initiators and load times.](/images/tutorials/web-performance/javascript-and-resource-loading/devtools-resouce-loading.webp){width=1978 height=1638}
+
+*Use the JS filter to build a script inventory. Inspect each request's URL and initiator before classifying it as first-party or third-party.*
+
+[View full-size image](/images/tutorials/web-performance/javascript-and-resource-loading/devtools-resouce-loading.webp)
+
 **Step 2 - Classify scripts**
 
 Record transfer size, whether each script is first-party or third-party, its likely purpose, and whether it is needed immediately.

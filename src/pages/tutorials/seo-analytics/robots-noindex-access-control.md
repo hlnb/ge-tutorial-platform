@@ -84,7 +84,11 @@ Sitemap: https://example.com/sitemap.xml
 
 This file is a crawler instruction, not a content inventory. Do not block CSS or JavaScript that search systems need to render public pages. Do not put secrets, tokens, or private paths in a public robots file.
 
-> **Screenshot placeholder:** Add a genuine, redacted robots tester or raw robots response screenshot when available. Never include private staging URLs or tokens.
+![GraphitEdge robots.txt showing crawler directives and a sitemap URL.](/images/tutorials/technical-seo/robots-noindex-access-control/seo-robots-response.webp){width=1590 height=754}
+
+*These public directives guide cooperating crawlers. Disallow is not authentication or access control.*
+
+[View full-size image](/images/tutorials/technical-seo/robots-noindex-access-control/seo-robots-response.webp)
 
 ## Failure Modes to Recognise
 

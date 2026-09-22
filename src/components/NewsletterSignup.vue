@@ -1,5 +1,14 @@
 <template>
 	<form class="newsletter-form" @submit="handleSubmit">
+		<input
+			v-model="website"
+			class="form-honeypot"
+			type="text"
+			name="website"
+			tabindex="-1"
+			autocomplete="off"
+			aria-hidden="true"
+		/>
 		<div class="form-content">
 			<input
 				v-model="email"
@@ -49,6 +58,7 @@
 import { ref } from 'vue';
 
 const email = ref('');
+const website = ref('');
 const status = ref('idle');
 const errorMessage = ref('');
 
@@ -65,6 +75,7 @@ const handleSubmit = async (e) => {
 			body: JSON.stringify({
 				email: email.value,
 				source: 'tutorial', // This will use BREVO_TUTORIAL_LIST_ID
+				website: website.value,
 			}),
 		});
 
@@ -91,6 +102,14 @@ const handleSubmit = async (e) => {
 .newsletter-form {
 	max-width: 500px;
 	margin: 0 auto;
+}
+
+.form-honeypot {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }
 
 .form-content {

@@ -86,7 +86,11 @@ In DevTools:
 
 Look for `cache-control`, `content-encoding`, and `content-type`.
 
-> **Screenshot placeholder:** Add a current DevTools response-header screenshot with `cache-control`, `content-encoding`, and `content-type` highlighted.
+![CSS response headers highlighting Cache-Control, Content-Encoding and Content-Type.](/images/tutorials/web-performance/javascript-and-resource-loading/devtools-response-headers.webp){width=2240 height=1568}
+
+*This response uses Brotli (br) and text/css. Its max-age=0, must-revalidate policy requires revalidation; it is not an example of long-lived immutable caching.*
+
+[View full-size image](/images/tutorials/web-performance/javascript-and-resource-loading/devtools-response-headers.webp)
 
 ## CDN concept
 

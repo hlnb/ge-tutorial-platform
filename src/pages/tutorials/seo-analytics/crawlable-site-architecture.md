@@ -90,7 +90,11 @@ Before changing URLs, ask whether the benefit outweighs the migration cost. Rena
 | Footer link | stable utility discovery | Privacy, Contact, Sitemap |
 | XML sitemap | discovery hint | canonical URL inventory |
 
-> **Screenshot placeholder:** Add a genuine Elements-panel screenshot showing a real `<a href>` for a project link when available. Redact private URLs if needed.
+![Elements panel highlighting the Start Learning anchor with href set to /tutorials.](/images/tutorials/technical-seo/crawlable-site-architecture/seo-crawable-anchor.webp){width=2924 height=1560}
+
+*The Start Learning control is an anchor with a real destination, making the link available for discovery.*
+
+[View full-size image](/images/tutorials/technical-seo/crawlable-site-architecture/seo-crawable-anchor.webp)
 
 ## Common Architecture Problems
 

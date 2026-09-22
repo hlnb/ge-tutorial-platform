@@ -12,6 +12,15 @@
 			</ul>
 		</div>
 		<form class="signup-form" @submit="handleSubmit">
+			<input
+				v-model="website"
+				class="form-honeypot"
+				type="text"
+				name="website"
+				tabindex="-1"
+				autocomplete="off"
+				aria-hidden="true"
+			/>
 			<div class="field">
 				<input
 					v-model="email"
@@ -32,6 +41,7 @@
 import { ref } from 'vue';
 
 const email = ref('');
+const website = ref('');
 const status = ref('idle');
 const errorMessage = ref('');
 
@@ -48,6 +58,7 @@ const handleSubmit = async (e) => {
 			body: JSON.stringify({
 				email: email.value,
 				source: 'blog',
+				website: website.value,
 			}),
 		});
 
@@ -74,6 +85,14 @@ const handleSubmit = async (e) => {
 	color: white;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	margin: 2rem 0;
+}
+
+.form-honeypot {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }
 
 .signup-content {

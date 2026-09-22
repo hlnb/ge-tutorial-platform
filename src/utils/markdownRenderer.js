@@ -21,9 +21,11 @@ function renderInline(value) {
 	let rendered = escapeHtml(value);
 
 	rendered = rendered.replace(
-		/!\[([^\]]*)\]\(([^)]+)\)/g,
-		(_match, alt, url) =>
-			`<img src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" loading="lazy">`,
+		/!\[([^\]]*)\]\(([^)]+)\)(?:\{width=(\d+) height=(\d+)\})?/g,
+		(_match, alt, url, width, height) => {
+			const dimensions = width && height ? ` width="${width}" height="${height}"` : '';
+			return `<img src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async"${dimensions}>`;
+		},
 	);
 	rendered = rendered.replace(
 		/\[([^\]]+)\]\(([^)]+)\)/g,

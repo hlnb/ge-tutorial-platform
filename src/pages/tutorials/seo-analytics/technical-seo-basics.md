@@ -102,7 +102,11 @@ The useful habit is to write both sides of the evidence: what it proves and what
 
 Use tools in pairs. A browser visit shows what one user sees. The Network panel shows the document response. View Source shows the initial HTML. Elements shows the rendered DOM. Search Console and Bing Webmaster Tools show search-engine observations for verified properties, with scope and delay.
 
-> **Screenshot placeholder:** Add a genuine, redacted Chrome DevTools Network screenshot showing the document request, status, final URL, and response headers when a real project capture is available. Do not fabricate this interface.
+![Chrome Network panel showing the GraphitEdge document request, 200 OK status and response headers.](/images/tutorials/technical-seo/technical-seo-basics/seo-document-response.webp){width=2872 height=1730}
+
+*The document request shows the requested URL, HTTP status and response headers. A successful response alone does not prove indexing.*
+
+[View full-size image](/images/tutorials/technical-seo/technical-seo-basics/seo-document-response.webp)
 
 <!-- CHECKPOINT BOX -->
 

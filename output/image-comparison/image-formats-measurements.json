@@ -1,0 +1,66 @@
+[
+  {
+    "format": "PNG",
+    "full_file": "cafe-original-1536x864.png",
+    "full_bytes": 2348146,
+    "dimensions": [
+      1536,
+      864
+    ],
+    "reduction_percent": 0.0,
+    "crop_file": "cafe-original-cropped-320x320.png",
+    "crop_bytes": 170573,
+    "crop_dimensions": [
+      320,
+      320
+    ]
+  },
+  {
+    "format": "JPEG",
+    "full_file": "cafe-jpeg-1536x864.jpg",
+    "full_bytes": 1438004,
+    "dimensions": [
+      1536,
+      864
+    ],
+    "reduction_percent": 38.760025994976466,
+    "crop_file": "cafe-jpeg-cropped-320x320.jpg",
+    "crop_bytes": 114133,
+    "crop_dimensions": [
+      320,
+      320
+    ]
+  },
+  {
+    "format": "WebP",
+    "full_file": "cafe-webp-1536x864.webp",
+    "full_bytes": 555662,
+    "dimensions": [
+      1536,
+      864
+    ],
+    "reduction_percent": 76.33613923495388,
+    "crop_file": "cafe-webp-cropped-320x320.webp",
+    "crop_bytes": 42280,
+    "crop_dimensions": [
+      320,
+      320
+    ]
+  },
+  {
+    "format": "AVIF",
+    "full_file": "cafe-avif-1536x864.avif",
+    "full_bytes": 1787733,
+    "dimensions": [
+      1536,
+      864
+    ],
+    "reduction_percent": 23.86619060313967,
+    "crop_file": "cafe-avif-cropped-320x320.avif",
+    "crop_bytes": 10741,
+    "crop_dimensions": [
+      320,
+      320
+    ]
+  }
+]

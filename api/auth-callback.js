@@ -1,103 +1,104 @@
-/**
- * GitHub OAuth Callback Handler for Sveltia CMS
- * 
- * This handles the redirect from GitHub after user authorization.
- * It processes the callback and sends the data back to the CMS popup window.
- */
+import {
+	clearStateCookie,
+	getAllowedOrigins,
+	getSingleQueryValue,
+	readStateCookie,
+	sendOAuthResult,
+	statesMatch,
+} from './lib/oauth.js';
+
+const DEFAULT_CALLBACK_URL =
+	'https://www.graphitedge.com.au/api/auth-callback';
 
 export default async function handler(req, res) {
-  const { code, state } = req.query;
+	if (req.method !== 'GET') {
+		res.setHeader('Allow', 'GET');
+		return res.status(405).json({ message: 'Method not allowed' });
+	}
 
-  // Generate the HTML response that will send data to the CMS
-  const html = `
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Authenticating...</title>
-  <meta charset="utf-8">
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background: #f5f5f5;
-    }
-    .container {
-      text-align: center;
-      padding: 2rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .spinner {
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid #333;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 1rem;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .error {
-      color: #d32f2f;
-      margin-top: 1rem;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="spinner"></div>
-    <p>Completing authentication...</p>
-    <p class="error" id="error" style="display: none;"></p>
-  </div>
-  
-  <script>
-    (function() {
-      function receiveMessage(message) {
-        window.opener.postMessage(
-          'authorization:github:success:${JSON.stringify({ code, state })}',
-          message.origin
-        );
-        window.close();
-      }
+	const allowedOrigins = getAllowedOrigins();
+	const code = getSingleQueryValue(req.query?.code);
+	const state = getSingleQueryValue(req.query?.state);
+	const expectedState = readStateCookie(req.headers?.cookie);
 
-      // Check if we have the required data
-      const code = '${code}';
-      const state = '${state || ''}';
+	res.setHeader('Set-Cookie', clearStateCookie());
 
-      if (!code) {
-        document.getElementById('error').textContent = 'Authentication failed: No authorization code received';
-        document.getElementById('error').style.display = 'block';
-      } else {
-        // Send message to opener window (CMS)
-        if (window.opener) {
-          window.opener.postMessage(
-            'authorization:github:success:' + JSON.stringify({ code: code, state: state }),
-            '*'
-          );
-          
-          // Close window after a short delay
-          setTimeout(function() {
-            window.close();
-          }, 1000);
-        } else {
-          document.getElementById('error').textContent = 'Authentication window error. Please try again.';
-          document.getElementById('error').style.display = 'block';
-        }
-      }
-    })();
-  </script>
-</body>
-</html>
-  `;
+	if (
+		!code ||
+		code.length > 1024 ||
+		!state ||
+		!expectedState ||
+		!statesMatch(expectedState, state)
+	) {
+		return sendOAuthResult(res, {
+			allowedOrigins,
+			error: 'Authentication could not be verified. Please try again.',
+		});
+	}
 
-  res.setHeader('Content-Type', 'text/html');
-  res.status(200).send(html);
+	const clientId = process.env.OAUTH_GITHUB_CLIENT_ID;
+	const clientSecret = process.env.OAUTH_GITHUB_CLIENT_SECRET;
+	if (!clientId || !clientSecret) {
+		console.error('GitHub OAuth credentials are not configured');
+		return sendOAuthResult(res, {
+			allowedOrigins,
+			error: 'CMS authentication is temporarily unavailable.',
+		});
+	}
+
+	try {
+		const tokenResponse = await fetch(
+			'https://github.com/login/oauth/access_token',
+			{
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					client_id: clientId,
+					client_secret: clientSecret,
+					code,
+					redirect_uri:
+						process.env.OAUTH_GITHUB_CALLBACK_URL || DEFAULT_CALLBACK_URL,
+				}),
+			},
+		);
+
+		if (!tokenResponse.ok) {
+			console.error('GitHub OAuth token exchange failed', {
+				status: tokenResponse.status,
+			});
+			return sendOAuthResult(res, {
+				allowedOrigins,
+				error: 'GitHub authentication failed. Please try again.',
+			});
+		}
+
+		const data = await tokenResponse.json();
+		if (
+			typeof data.access_token !== 'string' ||
+			!data.access_token ||
+			data.access_token.length > 2048
+		) {
+			console.error('GitHub OAuth response did not include a valid token');
+			return sendOAuthResult(res, {
+				allowedOrigins,
+				error: 'GitHub authentication failed. Please try again.',
+			});
+		}
+
+		return sendOAuthResult(res, {
+			allowedOrigins,
+			token: data.access_token,
+		});
+	} catch (error) {
+		console.error('GitHub OAuth request failed', {
+			name: error instanceof Error ? error.name : 'UnknownError',
+		});
+		return sendOAuthResult(res, {
+			allowedOrigins,
+			error: 'CMS authentication is temporarily unavailable.',
+		});
+	}
 }

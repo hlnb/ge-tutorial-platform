@@ -1,91 +1,64 @@
-/**
- * GitHub OAuth Handler for Sveltia CMS on Vercel
- * 
- * This serverless function handles the OAuth authentication flow
- * between Sveltia CMS and GitHub.
- * 
- * Required Environment Variables:
- * - OAUTH_GITHUB_CLIENT_ID: Your GitHub OAuth App Client ID
- * - OAUTH_GITHUB_CLIENT_SECRET: Your GitHub OAuth App Client Secret
- */
+import {
+	createOAuthState,
+	createStateCookie,
+	getAllowedOrigins,
+	getOAuthScope,
+	getSingleQueryValue,
+	isAllowedSite,
+	sendOAuthResult,
+} from './lib/oauth.js';
+
+const DEFAULT_CALLBACK_URL =
+	'https://www.graphitedge.com.au/api/auth-callback';
 
 export default async function handler(req, res) {
-  // Enable CORS for CMS access
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+	if (req.method !== 'GET') {
+		res.setHeader('Allow', 'GET');
+		return res.status(405).json({ message: 'Method not allowed' });
+	}
 
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+	const clientId = process.env.OAUTH_GITHUB_CLIENT_ID;
+	const clientSecret = process.env.OAUTH_GITHUB_CLIENT_SECRET;
+	const provider = getSingleQueryValue(req.query?.provider);
+	const siteId = getSingleQueryValue(req.query?.site_id);
+	const allowedOrigins = getAllowedOrigins();
 
-  // Validate environment variables
-  const clientId = process.env.OAUTH_GITHUB_CLIENT_ID;
-  const clientSecret = process.env.OAUTH_GITHUB_CLIENT_SECRET;
+	if (provider !== 'github') {
+		return sendOAuthResult(res, {
+			allowedOrigins,
+			error: 'This Git provider is not supported.',
+		});
+	}
 
-  if (!clientId || !clientSecret) {
-    console.error('Missing OAuth environment variables');
-    return res.status(500).json({
-      error: 'Server configuration error',
-      message: 'OAuth credentials not configured. Set OAUTH_GITHUB_CLIENT_ID and OAUTH_GITHUB_CLIENT_SECRET in Vercel environment variables.',
-    });
-  }
+	if (!isAllowedSite(siteId, allowedOrigins)) {
+		return sendOAuthResult(res, {
+			allowedOrigins,
+			error: 'This site is not allowed to use the CMS authenticator.',
+		});
+	}
 
-  const { code, state } = req.query;
+	if (!clientId || !clientSecret) {
+		console.error('GitHub OAuth credentials are not configured');
+		return sendOAuthResult(res, {
+			allowedOrigins,
+			error: 'CMS authentication is temporarily unavailable.',
+		});
+	}
 
-  // If no code, redirect to GitHub OAuth authorization
-  if (!code) {
-    // Explicitly use the production URL
-    const callbackUrl = 'https://www.graphitedge.com.au/api/auth-callback';
-    console.log('Using callback URL:', callbackUrl);
-    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(callbackUrl)}&scope=repo,user${state ? `&state=${state}` : ''}`;
-    
-    return res.redirect(302, githubAuthUrl);
-  }
+	const callbackUrl =
+		process.env.OAUTH_GITHUB_CALLBACK_URL || DEFAULT_CALLBACK_URL;
+	const state = createOAuthState();
+	const params = new URLSearchParams({
+		client_id: clientId,
+		redirect_uri: callbackUrl,
+		scope: getOAuthScope(),
+		state,
+	});
 
-  try {
-    // Exchange code for access token
-    const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        client_id: clientId,
-        client_secret: clientSecret,
-        code: code,
-      }),
-    });
-
-    if (!tokenResponse.ok) {
-      throw new Error(`GitHub API responded with ${tokenResponse.status}`);
-    }
-
-    const data = await tokenResponse.json();
-
-    // Check for errors in response
-    if (data.error) {
-      console.error('GitHub OAuth error:', data);
-      return res.status(401).json({
-        error: 'Authentication failed',
-        message: data.error_description || data.error,
-      });
-    }
-
-    // Return access token to CMS
-    // The CMS expects a specific response format
-    return res.status(200).json({
-      token: data.access_token,
-      provider: 'github',
-    });
-
-  } catch (error) {
-    console.error('OAuth error:', error);
-    return res.status(500).json({
-      error: 'Internal server error',
-      message: error.message,
-    });
-  }
+	res.setHeader('Cache-Control', 'no-store');
+	res.setHeader('Set-Cookie', createStateCookie(state));
+	return res.redirect(
+		302,
+		`https://github.com/login/oauth/authorize?${params.toString()}`,
+	);
 }

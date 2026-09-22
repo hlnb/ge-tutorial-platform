@@ -8,6 +8,7 @@ backend:
   branch: master # or main, depending on your default branch
   base_url: https://www.graphitedge.com.au # Your Vercel deployment URL
   auth_endpoint: api/auth # Vercel serverless function endpoint
+  auth_scope: public_repo # The repository is public; do not request private-repo access
 
 # Local backend for development (comment out when in production)
 # local_backend: true

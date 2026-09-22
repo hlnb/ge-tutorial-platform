@@ -62,7 +62,11 @@ Chrome Coverage can help identify CSS and JavaScript that did not execute or app
 
 Important: unused during one page load does not automatically mean unused everywhere.
 
-> **Screenshot placeholder:** Add `devtools-coverage.webp` showing resource, total bytes, and unused bytes in the current Chrome Coverage interface.
+![Chrome Coverage listing CSS resources with total bytes, unused bytes and usage bars.](/images/tutorials/web-performance/css-and-web-font-performance/devtools-coverage.webp){width=2592 height=1638}
+
+*Coverage describes this recorded session. Exercise other pages and states before deciding that unused CSS can be removed.*
+
+[View full-size image](/images/tutorials/web-performance/css-and-web-font-performance/devtools-coverage.webp)
 
 ## Fonts are resources
 

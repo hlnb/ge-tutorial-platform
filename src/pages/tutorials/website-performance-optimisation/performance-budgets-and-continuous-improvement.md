@@ -81,6 +81,10 @@ Use evidence to choose which problems matter most.
 
 Return to the website measured earlier.
 
+[View the full baseline Lighthouse capture for GraphitEdge's Web Basics page](/images/tutorials/web-performance/performance-budgets-and-continuous-improvement/performance-audit-before.webp).
+
+This captured run reports a Performance score of 68 and includes a stored-data warning. Treat it as a record of that test, not a clean baseline or proof of improvement. Establish a clean baseline and retest the same URL, device and settings after a targeted change. An after capture is still pending.
+
 1. Use the existing baseline.
 2. Identify findings.
 3. Prioritise issues.
