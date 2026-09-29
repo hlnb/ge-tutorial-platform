@@ -141,9 +141,17 @@ For a Vercel-hosted Vue site, enable Web Analytics for the project, install `@ve
 
 For GA4, create a web data stream and install the Google tag directly or through the site's approved tag manager, then use Realtime to verify the visit. Plausible and PostHog remain optional specialist choices for projects that can justify their cost and additional capabilities. Follow the current provider instructions linked in Additional Resources because installation details and plan limits can change.
 
-> **Screenshot pending - Vercel Web Analytics verification:** Add a real, redacted capture of GraphitEdge's Vercel Analytics dashboard after the deployed integration has been checked. Do not expose account names, private URLs, visitor details, or sensitive project information.
+![Vercel Web Analytics production dashboard for GraphitEdge showing a seven-day visitor trend with page and referrer panels.](/images/tutorials/analytics/analytics-vercel-realtime.webp){width=2882 height=1580}
 
-> **Screenshot pending - first verified action:** Add a real, redacted capture showing one approved page view or goal event after the production setup has been tested. If data is still processing, label it "pending verification" rather than inventing a result.
+*The production dashboard contains recorded visitor and page-view activity, confirming that the deployed Vercel Analytics integration is collecting data. Summary values have been obscured for privacy.*
+
+[View full-size Vercel Analytics dashboard](/images/tutorials/analytics/analytics-vercel-realtime.webp)
+
+![Vercel Web Analytics detail showing the visitor trend together with recorded pages and referring websites.](/images/tutorials/analytics/analytics-conditional-stats.webp){width=2362 height=1470}
+
+*The Pages and Referrers panels provide supporting evidence about where visits occurred and how visitors arrived. They do not prove why a visitor chose a page or whether the visit achieved the site's intended outcome.*
+
+[View full-size analytics detail](/images/tutorials/analytics/analytics-conditional-stats.webp)
 
 ## Measure Whether an Optimisation Worked
 
