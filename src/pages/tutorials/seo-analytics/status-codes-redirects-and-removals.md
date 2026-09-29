@@ -87,7 +87,13 @@ For most learner sites, the highest-value redirect work is simple: map old publi
 | Deleted page without replacement | 404/410 | helpful not-found page | remove internal links |
 | Server overload | 503 | temporary error | fix capacity; do not serve fake 200 |
 
-> **Screenshot placeholder:** Add a real Network-panel or command-line capture showing a redirect chain and final response. Do not invent headers.
+![Chrome Network panel showing the final document request for a public page returning 200 OK.](/images/tutorials/technical-seo/status-codes-redirects-and-removals/seo-redirect-chain.webp){width=1402 height=1238}
+
+*This capture proves that the selected final URL returned `200 OK`. It does not show the earlier redirect hops, so it cannot establish the full chain by itself.*
+
+[View full-size image](/images/tutorials/technical-seo/status-codes-redirects-and-removals/seo-redirect-chain.webp)
+
+> **Remaining evidence:** Add a Network or command-line capture that visibly lists each redirect response and the final destination.
 
 <!-- CHECKPOINT BOX -->
 

@@ -94,7 +94,11 @@ For example, two suburb service pages may look similar but still answer differen
 | regional service pages | self-canonical if genuinely different | different user intent |
 | filtered catalogue pages | case-by-case | may need architecture, noindex, or canonical decisions |
 
-> **Screenshot placeholder:** Add a real page-source screenshot of one canonical element from a project page when available.
+![Page source highlighting the canonical link for the How the Internet Works tutorial.](/images/tutorials/technical-seo/canonical-urls-and-duplicates/seo-canonical-source.webp){width=2864 height=612}
+
+*The canonical element names the preferred public URL for this page. It is a strong hint that should agree with redirects, internal links and the sitemap.*
+
+[View full-size image](/images/tutorials/technical-seo/canonical-urls-and-duplicates/seo-canonical-source.webp)
 
 <!-- CHECKPOINT BOX -->
 

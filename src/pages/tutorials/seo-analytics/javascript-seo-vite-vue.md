@@ -76,7 +76,31 @@ For Vite/Vue sites, a small improvement can often solve the real problem: genera
 | Nonsense route request | finds fake `200` not-found risks | status and visible page |
 | Mobile rendered view | tests mobile-first content parity | responsive rendered content |
 
-> **Screenshot placeholder:** Add real View Source, Elements, Network, and mobile-rendered screenshots only from current, redacted project captures.
+Use several views of the same public route because each one answers a different question.
+
+![View Source showing server-rendered GraphitEdge HTML, including the canonical link and the start of the main content.](/images/tutorials/technical-seo/javascript-seo-vite-vue/seo-vue-view-source.webp){width=2894 height=720}
+
+*View Source shows that useful HTML and metadata exist in the initial response before client-side interaction.*
+
+[View full-size source image](/images/tutorials/technical-seo/javascript-seo-vite-vue/seo-vue-view-source.webp)
+
+![Chrome Elements panel showing the rendered GraphitEdge document structure after JavaScript has run.](/images/tutorials/technical-seo/javascript-seo-vite-vue/seo-vue-rendered-dom.webp){width=1430 height=1024}
+
+*Elements shows the current rendered DOM. Compare it with View Source to find content that depends on client-side rendering.*
+
+[View full-size rendered DOM image](/images/tutorials/technical-seo/javascript-seo-vite-vue/seo-vue-rendered-dom.webp)
+
+![Chrome Network panel showing a directly requested nested tutorial route returning 200 OK with an HTML content type.](/images/tutorials/technical-seo/javascript-seo-vite-vue/seo-vue-route-network.webp){width=1410 height=2342}
+
+*A direct request to the nested route returns an HTML document with `200 OK`. Test a nonexistent route separately because this capture does not prove correct not-found handling.*
+
+[View full-size route response image](/images/tutorials/technical-seo/javascript-seo-vite-vue/seo-vue-route-network.webp)
+
+![GraphitEdge tutorial rendered at a 393 by 852 mobile viewport with the main menu, lesson menu and page title visible.](/images/tutorials/technical-seo/javascript-seo-vite-vue/seo-vue-mobile-render.webp){width=1520 height=1714}
+
+*The mobile rendering retains navigation and the primary page heading. Continue checking the full lesson for content parity and usable controls.*
+
+[View full-size mobile rendering image](/images/tutorials/technical-seo/javascript-seo-vite-vue/seo-vue-mobile-render.webp)
 
 ## Mobile Parity and Deferred Content
 

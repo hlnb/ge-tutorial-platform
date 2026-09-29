@@ -92,7 +92,11 @@ A single sitemap is limited to 50,000 URLs or 50 MB uncompressed by the protocol
 | has `noindex` | No | not intended for indexing |
 | duplicate tracking URL | No | consolidate to the canonical |
 
-> **Screenshot placeholder:** Add a real, redacted Search Console Sitemaps report only after a verified property is available.
+![Google Search Console Sitemaps report showing the submitted GraphitEdge sitemap with a Success status and 229 discovered pages.](/images/tutorials/technical-seo/sitemaps-robots-indexing/seo-search-console-sitemaps.webp){width=2868 height=1490}
+
+*Search Console successfully read this sitemap and discovered 229 pages. This confirms sitemap processing, not that every listed URL was indexed.*
+
+[View full-size image](/images/tutorials/technical-seo/sitemaps-robots-indexing/seo-search-console-sitemaps.webp)
 
 ## Testing a Sitemap Like a Developer
 

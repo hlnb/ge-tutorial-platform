@@ -81,7 +81,13 @@ Do not optimise by count alone. Sort by important page types, affected templates
 
 Monthly or change-triggered review is usually more useful than compulsive daily checking for a small site.
 
-> **Screenshot placeholder:** Use real, redacted Search Console and Bing captures only. Remove verification strings, private queries, account identifiers, and private URLs.
+![Google Search Console Page Indexing report listing URLs classified as Page with redirect.](/images/tutorials/technical-seo/google-search-console/seo-search-console-page-indexing.webp){width=2916 height=2081}
+
+*“Page with redirect” is often an expected exclusion. Check that each source URL redirects to the intended destination and that internal links and the sitemap use the final URL.*
+
+[View full-size image](/images/tutorials/technical-seo/google-search-console/seo-search-console-page-indexing.webp)
+
+> **Remaining evidence:** Add a redacted Bing Webmaster Tools capture when one is available.
 
 ## From Report to Action
 

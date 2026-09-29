@@ -90,7 +90,17 @@ Before writing markup for Black Swan Bistro, list facts visible on the page: bus
 
 This example is deliberately minimal. Production values must come from verified visible business information.
 
-> **Screenshot placeholder:** Add real, current, redacted captures from Schema Markup Validator and Google Rich Results Test after testing a real page.
+![Schema Markup Validator showing the tested public URL, TechArticle and LearningResource types, and zero errors or warnings.](/images/tutorials/technical-seo/structured-data-implementation/seo-schema-validator.webp){width=2868 height=1820}
+
+*The validator confirms that the structured data parses without errors or warnings. Validation does not prove that the claims are accurate or that a search feature will appear.*
+
+[View full-size Schema Markup Validator image](/images/tutorials/technical-seo/structured-data-implementation/seo-schema-validator.webp)
+
+![Google Rich Results Test showing one valid article item with non-critical issues and the detected tutorial schema fields.](/images/tutorials/technical-seo/structured-data-implementation/seo-rich-results-test.webp){width=2710 height=4408}
+
+*The Rich Results Test found one valid item, while also reporting optional fields and date-format issues. A valid item is not a guarantee that Google will show a rich result.*
+
+[View full-size Rich Results Test image](/images/tutorials/technical-seo/structured-data-implementation/seo-rich-results-test.webp)
 
 ## Maintenance Is Part of Accuracy
 
