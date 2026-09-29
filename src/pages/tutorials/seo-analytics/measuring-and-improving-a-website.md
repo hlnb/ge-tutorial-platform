@@ -8,7 +8,7 @@ pathway: deployment
 category: advanced
 level: advanced
 order: 10
-estimatedTime: 150
+estimatedTime: 170
 difficulty: intermediate
 prerequisites:
   - seo-analytics/google-search-console
@@ -39,12 +39,15 @@ After this project, you will be able to:
 - classify findings by impact and scope
 - prioritise a 30-day repair plan
 - retest changes with the original method
+- define a baseline and decide whether a bounded optimisation was successful
 
 > **Before you start:** Complete the previous Technical SEO lessons. Do not collect private analytics, search-query data, verification tokens, or account screenshots unless they are necessary, permitted, and redacted.
 
 ## Audit the System, Not the Score
 
 Technical SEO is maintenance of agreements: links point somewhere real, servers answer honestly, directives do not conflict, machine-readable data matches visible content, and monitoring checks whether those agreements still hold.
+
+Measurement adds one more discipline: decide what success means before changing the site. A valid fix may improve crawlability without producing an immediate traffic change, while a traffic increase does not prove that a particular technical change caused it.
 
 The audit must cover:
 
@@ -59,15 +62,45 @@ The audit must cover:
 9. Search Console or Bing evidence when access exists
 10. HTTPS and Core Web Vitals integration, referring back to the performance pathway
 
+## Match the Evidence to the Outcome
+
+Use more than one evidence layer when the audit includes optimisation work:
+
+| Layer | Question | Suitable evidence |
+|---|---|---|
+| Implementation | Did the code or configuration change as intended? | response, source, DOM, directive, sitemap, or structured-data test |
+| Search processing | Has a search engine recrawled or re-evaluated the URL? | dated Search Console or Bing evidence |
+| User experience | Did the page become faster or easier to use? | repeatable lab test, field data, or a task-based check |
+| Site outcome | Did visitor behaviour move in the intended direction? | a defined analytics goal, count, and rate |
+
+Do not substitute one layer for another. A live URL test can verify access but not future indexing. An indexed page can still perform poorly for users. A higher conversion count may reflect more traffic rather than a better page.
+
+## Define Success Before the Change
+
+For each optimisation being measured, record:
+
+- the problem and affected page set
+- one hypothesis explaining why the change should help
+- the primary metric and any guardrail metrics
+- the baseline dates, values, filters, sample size, and evidence source
+- the exact implementation and deployment date
+- a suitable comparison period and expected processing delay
+- known confounders such as campaigns, outages, seasonality, or simultaneous releases
+- the decision rule: keep, revise, reverse, or continue monitoring
+
+There is no universal traffic, conversion, or performance target. Use the site's purpose, its own baseline, and a proportionate threshold agreed before the change. Report absolute counts with rates so that a small sample is visible.
+
+Reuse [Measuring Website Performance](/tutorials/website-performance-optimisation/measuring-website-performance) for repeatable lab and field tests. Use [Analytics Setup and Measurement Foundations](/tutorials/seo-analytics/analytics-setup) to choose and verify behaviour or outcome metrics. This audit should link to those records rather than duplicate their dashboards.
+
 ## Required Workflow
 
 ### Phase 1 - Define scope
 
-Name the site, owner or permission, date, environment, and page sample. State business or user outcomes for the most important pages. Identify constraints and unavailable accounts.
+Name the site, owner or permission, date, environment, and page sample. State business or user outcomes for the most important pages. Identify constraints and unavailable accounts. For any optimisation comparison, write the hypothesis and metric definition before making the change.
 
 ### Phase 2 - Collect evidence
 
-Inventory scoped URLs. Capture status, final URL, canonical, index directive, sitemap membership, incoming links, title/H1, and rendered-content check. Retain screenshots only when they prove a finding.
+Inventory scoped URLs. Capture status, final URL, canonical, index directive, sitemap membership, incoming links, title/H1, and rendered-content check. Retain screenshots only when they prove a finding. Record baseline values as unavailable when the relevant account or historical data does not exist.
 
 ### Phase 3 - Classify findings
 
@@ -129,7 +162,9 @@ Implement or describe three fixes: one discovery/link or sitemap fix, one respon
 
 ### Phase 6 - Retest
 
-Repeat the original test. "Code changed" is not verification. Record actual versus expected results and remaining uncertainty.
+Repeat the original technical test. "Code changed" is not verification. Record actual versus expected results and remaining uncertainty.
+
+If the repair also has a performance or visitor-outcome hypothesis, verify that the measurement setup still works and compare the agreed later period with the baseline. Keep metric definitions and filters consistent. A pending crawl, small sample, or unavailable historical baseline is a limitation to report, not a result to invent.
 
 ## Required Final Artefacts
 
@@ -140,6 +175,7 @@ Repeat the original test. "Code changed" is not verification. Record actual vers
 - prioritised 30-day repair plan
 - before/after evidence for three fixes
 - monitoring plan for after deployment, monthly review, and major route/domain changes
+- measurement plan for one bounded optimisation, including baseline, comparison, limitations, and decision
 - short reflection: "Which assumption did the evidence overturn?"
 
 ## Assessment Rubric
@@ -168,6 +204,9 @@ It must. Intentional redirects, `noindex`, and duplicates should not become fake
 
 **3. Did each proposed action include a retest?**
 Yes. A fix is incomplete until the original evidence has been checked again.
+
+**4. Can a later traffic increase prove that one technical repair caused it?**
+Not by itself. Check the baseline, traffic mix, timing, other releases, seasonality, and the evidence chain before describing causation.
 
 <!-- /CheckpointBox -->
 
@@ -199,7 +238,7 @@ Implement or document three fixes across discovery/link or sitemap, response/dir
 
 **Step 6 - Retest and reflect**
 
-Repeat the original tests. Record which assumption changed because of evidence.
+Repeat the original tests. For one optimisation, compare the agreed metric with its baseline and note processing delays or confounders. Record which assumption changed because of evidence.
 
 **Step 7 - Prepare the handoff**
 
@@ -220,6 +259,7 @@ Submit the final technical SEO audit and repair plan.
 - include the assessment rubric with self-assessed points
 - protect private data and verification material
 - include one example finding written in full with evidence, consequence, fix, and retest
+- include one measurement plan with a real baseline or a clearly stated unavailable-data limitation
 
 **Success criteria:**
 
@@ -237,6 +277,7 @@ Submit the final technical SEO audit and repair plan.
 - I can separate observation, inference, action, and retest.
 - I can prioritise blockers before polish.
 - I can protect private account and verification data.
+- I can define success before a change and compare it with an honest baseline.
 
 ## Closure
 

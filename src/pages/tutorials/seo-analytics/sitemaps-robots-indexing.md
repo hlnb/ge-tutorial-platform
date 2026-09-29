@@ -8,7 +8,7 @@ pathway: deployment
 category: advanced
 level: advanced
 order: 4
-estimatedTime: 45
+estimatedTime: 60
 difficulty: intermediate
 prerequisites:
   - seo-analytics/robots-noindex-access-control
@@ -111,6 +111,44 @@ Do not stop at "the XML opens in a browser." Test the file in layers:
 
 When a generated sitemap fails, fix the source rule rather than hand-editing the output. Otherwise the next build will recreate the mistake.
 
+## Submit and Verify the Sitemap
+
+Publishing the file and submitting it are separate steps. Submit only after the sitemap and its listed URLs pass the checks above.
+
+### Google Search Console
+
+1. Open the correct verified property and confirm you have permission to submit a sitemap.
+2. Request the public sitemap URL in a browser or command-line client. It must be accessible to Google without signing in.
+3. Open **Sitemaps**, enter the sitemap path for that property, and submit it.
+4. Record the submitted URL, submission date, status, last read date, and discovered-page count when they are available.
+5. If Google reports a fetch or parsing problem, reproduce it against the public file before changing the site.
+6. Use the Page indexing report's sitemap filter to investigate the index state of that submitted set.
+
+Search Console records a sitemap address; it does not upload the XML file. A successful result means Google fetched and processed the file. It does not mean every URL was crawled or indexed.
+
+### Bing Webmaster Tools
+
+1. Open the correct verified Bing property.
+2. Open **Sitemaps**, choose **Submit sitemap**, and provide the public sitemap URL.
+3. Record whether the sitemap was submitted directly, discovered, or imported, together with its processing state and discovered-URL count.
+4. Use Bing URL Inspection or Site Explorer for important URLs that need individual diagnosis.
+
+Importing a property from Search Console can make verification easier, but do not assume that a Google submission proves Bing processed the sitemap. Check Bing's own result.
+
+> **Screenshot pending - Bing Sitemaps:** Add a real, redacted Bing Webmaster Tools Sitemaps capture when authorised access is available. Do not invent a success state, discovered-URL count, warning, or error.
+
+### Read Each State Precisely
+
+| State | What it proves | What it does not prove |
+|---|---|---|
+| sitemap published | the file exists at its public address | a search engine has fetched it |
+| sitemap submitted | the address was sent through the tool | the file was processed successfully |
+| success or processed | the service could read the sitemap | every listed URL was crawled or indexed |
+| URL discovered | the service knows the URL | the page was selected for indexing |
+| indexing pending | the final decision is not yet visible | the implementation failed |
+
+Processing and indexing can take time. If the file is fetchable, valid, and submitted, record the pending state and review date. Investigate a reported fetch, syntax, response, directive, or canonical conflict; do not manufacture a technical fault simply because indexing is not immediate.
+
 <!-- CHECKPOINT BOX -->
 
 ## Check your understanding
@@ -123,6 +161,9 @@ No. It should list the preferred final canonical URL instead.
 
 **3. What does an honest `lastmod` describe?**
 A meaningful modification to the page content or representation, not merely a site rebuild.
+
+**4. What does a successful sitemap status prove?**
+It proves the search service could fetch and process the sitemap. It does not prove that every listed URL is indexed.
 
 <!-- /CheckpointBox -->
 
@@ -146,7 +187,7 @@ Record status, final URL, canonical, and index directive for each entry.
 
 **Step 4 - Add discovery wiring**
 
-Add the full sitemap address to `robots.txt`, then submit it in webmaster tools when you have property access.
+Add the full sitemap address to `robots.txt`, then follow the Google and Bing submission workflows when you have property access. If access or processing is pending, record that limitation instead of inventing a result.
 
 **Step 5 - State what each result proves**
 
@@ -180,6 +221,7 @@ Deliver a validated sitemap plus an evidence table.
 - no `noindex`, blocked, redirected, or error URL is listed
 - you can explain what the sitemap does and does not prove
 - sitemap output is generated from maintainable rules where possible
+- Google and Bing submission evidence is included or clearly labelled pending
 
 <!-- /IndependentPractice -->
 

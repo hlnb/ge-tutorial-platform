@@ -367,9 +367,14 @@ const technicalSeoResources = {
       description: 'The shared XML protocol, including size and URL limits.',
     },
     {
-      title: 'Bing Webmaster Guidelines',
-      url: 'https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a',
-      description: 'Bing guidance on sitemaps, canonical URLs, links, and site quality.',
+      title: 'Google: Sitemaps report',
+      url: 'https://support.google.com/webmasters/answer/7451001?hl=en',
+      description: 'How to submit a sitemap and interpret fetch, processing, and discovered-URL results.',
+    },
+    {
+      title: 'Bing: Sitemaps',
+      url: 'https://www.bing.com/webmasters/help/sitemaps-3b5cf6ed',
+      description: 'Bing guidance for submitting and monitoring sitemap files.',
     },
   ],
   'canonical-urls-and-duplicates': [
@@ -452,14 +457,24 @@ const technicalSeoResources = {
       description: 'Current Search Console guidance for monitoring and debugging search presence.',
     },
     {
-      title: 'Google: Search operators for debugging',
-      url: 'https://developers.google.com/search/docs/monitor-debug/search-operators',
-      description: 'Why search operators are limited compared with verified-property tools.',
+      title: 'Google: Page indexing report',
+      url: 'https://support.google.com/webmasters/answer/7440203?hl=en',
+      description: 'How to investigate site-wide indexing patterns and expected exclusions.',
     },
     {
-      title: 'Bing Webmaster Guidelines',
-      url: 'https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a',
-      description: 'Bing guidance for crawl, index, quality, and diagnostic expectations.',
+      title: 'Google: URL Inspection tool',
+      url: 'https://support.google.com/webmasters/answer/9012289?hl=en',
+      description: 'Indexed and live URL evidence, canonical information, and request-indexing limits.',
+    },
+    {
+      title: 'Bing: URL Inspection',
+      url: 'https://www.bing.com/webmasters/help/url-inspection-55a30305',
+      description: 'Bing index, live URL, SEO, and markup diagnostics for one URL.',
+    },
+    {
+      title: 'Bing: Site Explorer',
+      url: 'https://www.bing.com/webmasters/help/site-explorer-c680da37',
+      description: 'Site-wide URL groups and filters for crawl, index, redirect, robots, and canonical diagnosis.',
     },
     {
       title: 'IndexNow protocol',
@@ -487,6 +502,33 @@ const technicalSeoResources = {
       title: 'web.dev: Web Vitals',
       url: 'https://web.dev/articles/vitals',
       description: 'Continue performance investigation through the existing performance pathway.',
+    },
+  ],
+  'analytics-setup': [
+    {
+      title: 'Vercel: Web Analytics',
+      url: 'https://vercel.com/docs/analytics',
+      description: 'Overview of Vercel Web Analytics, available dimensions, privacy model, and project integration.',
+    },
+    {
+      title: 'Vercel: Web Analytics quickstart',
+      url: 'https://vercel.com/docs/analytics/quickstart',
+      description: 'Enable Web Analytics, add the framework package, deploy, and verify page-view data.',
+    },
+    {
+      title: 'Vercel: Web Analytics limits and pricing',
+      url: 'https://vercel.com/docs/analytics/limits-and-pricing',
+      description: 'Current Hobby and paid-plan event allowances, reporting windows, and feature limits.',
+    },
+    {
+      title: 'Google: Set up Analytics for a website',
+      url: 'https://support.google.com/analytics/answer/14183469?hl=en',
+      description: 'Current GA4 web data stream, Google tag, and Realtime verification steps.',
+    },
+    {
+      title: 'Vercel: Analytics privacy and compliance',
+      url: 'https://vercel.com/docs/analytics/privacy-policy',
+      description: 'Data collection, anonymisation, sensitive URL handling, and customer configuration responsibilities.',
     },
   ],
 };

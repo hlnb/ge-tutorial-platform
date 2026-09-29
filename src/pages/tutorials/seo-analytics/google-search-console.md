@@ -8,7 +8,7 @@ pathway: deployment
 category: advanced
 level: advanced
 order: 9
-estimatedTime: 55
+estimatedTime: 75
 difficulty: intermediate
 prerequisites:
   - seo-analytics/structured-data-implementation
@@ -51,6 +51,67 @@ Verify ownership safely. Page Indexing answers site-wide pattern questions. URL 
 
 Bing has its own crawl and index evidence. IndexNow can notify participating search engines about added, updated, or deleted URLs, but it is optional and not an indexing guarantee.
 
+## Use Page Indexing for Patterns
+
+The Page indexing report answers a site-level question: which known URLs are indexed, and which broad reasons explain the others? Use it to find patterns across a template, directory, or sitemap rather than to prove the status of one URL.
+
+1. Select the correct verified property and note the reporting date.
+2. Review indexed and not-indexed groups without assuming that "not indexed" means broken.
+3. Open a reason and inspect representative example URLs.
+4. Filter by submitted sitemap when you need to assess a defined set of preferred URLs.
+5. Compare the result with the site's intent: redirect, `noindex`, duplicate, canonical, removed page, or indexable page.
+6. Use URL Inspection for an important individual URL before recommending a change.
+
+![Google Search Console Page Indexing report listing URLs classified as Page with redirect.](/images/tutorials/technical-seo/google-search-console/seo-search-console-page-indexing.webp){width=2916 height=2081}
+
+*"Page with redirect" is often an expected exclusion. Check that each source URL redirects to the intended destination and that internal links and the sitemap use the final URL.*
+
+[View full-size image](/images/tutorials/technical-seo/google-search-console/seo-search-console-page-indexing.webp)
+
+Validation in Search Console asks Google to recheck a group after a fix. It does not make an intentionally excluded URL indexable and it does not guarantee that a suitable page will be indexed.
+
+## Inspect One URL Carefully
+
+URL Inspection separates two useful views:
+
+- **Indexed information** describes the version and signals Google currently has for the URL. It can include the last crawl, fetch result, crawl permission, index permission, referring discovery sources, and Google's selected canonical.
+- **Test live URL** checks whether the current page can be fetched and appears indexable now. It does not prove that the page will be indexed or that every indexing system will make the same decision.
+
+For a canonical diagnosis, record both the canonical declared in the page and the canonical selected by Google. Then compare redirects, internal links, sitemap membership, protocol, hostname, and visible content. A different selected canonical is evidence to investigate signal consistency, not permission to add canonicals blindly.
+
+Request indexing only after the important URL is published, returns the intended response, is crawlable and indexable, and has the correct canonical content. Use a sitemap for a set of URLs. Repeated requests do not guarantee faster inclusion.
+
+> **Screenshot pending - Search Console URL Inspection:** Add a real, redacted capture showing the indexed result and relevant canonical evidence. Add a separate live-test capture only when it supports the lesson. Do not expose private URLs, query data, or account details.
+
+An inspection can be successful while indexing remains pending. Search systems still decide whether and when to crawl and index a page. Record the request date and a sensible review window; do not report a recently submitted URL as a failed implementation solely because it is not indexed yet.
+
+## Connect the Sitemap Evidence
+
+The Sitemaps report shows whether Google could fetch and process a submitted sitemap and how many URLs it discovered from that file. It does not prove that every URL was crawled or indexed.
+
+Before diagnosing an indexing gap, confirm that the sitemap is public, the submitted address is correct, the relevant URL is the preferred canonical version, and the Page indexing report is filtered to that sitemap where useful. Complete the construction and submission workflow in [XML Sitemaps and Discovery Signals](/tutorials/seo-analytics/sitemaps-robots-indexing).
+
+## Use Bing's Equivalent Tools
+
+Do not repeat the whole Google investigation in different words. Keep the same diagnostic question and use Bing's evidence:
+
+| Question | Bing tool | Useful evidence |
+|---|---|---|
+| What does Bing know about one URL? | URL Inspection | index status, crawl details, SEO or markup issues, and live URL result |
+| Which site areas show crawl or index problems? | Site Explorer | indexed, error, redirect, robots, `noindex`, and canonical-filtered URL groups |
+| Could Bing process the submitted file? | Sitemaps | submission source, processing status, last submission, and discovered URLs |
+| What broad issues has Bing detected? | Site Scan and SEO reports | reproducible technical observations to verify on the live page |
+
+Use Bing URL Inspection to compare the indexed evidence with the live URL. If a URL redirects, inspect the destination separately because the live test does not diagnose the destination on your behalf. Request indexing only after the page itself is ready.
+
+Submit the same canonical-only sitemap in Bing Webmaster Tools, then record its processing status and discovered URL count. Importing a verified Search Console property can reduce setup work, but the Bing property and submitted sitemap still need to be checked.
+
+IndexNow is an optional freshness notification for changed URLs. It complements, rather than replaces, crawlable links, a correct sitemap, and Bing's diagnostic tools. A successful notification is not an indexing or ranking promise.
+
+> **Screenshot pending - Bing URL Inspection:** Add a real, redacted capture of an indexed or live URL result when authorised access is available. Label processing or indexing as pending when that is the real state.
+
+> **Screenshot pending - Bing diagnostic view:** Add a real, redacted Site Explorer or Site Scan capture only when it demonstrates a diagnosis used in the lesson.
+
 ## Interpret Reports With Intent
 
 A report is useful only when compared with what the site intended. A `noindex` thank-you page appearing under excluded URLs may be healthy. A new service page missing from the index may deserve investigation. A redirect reported as not indexed may be expected if the destination is correct.
@@ -81,14 +142,6 @@ Do not optimise by count alone. Sort by important page types, affected templates
 
 Monthly or change-triggered review is usually more useful than compulsive daily checking for a small site.
 
-![Google Search Console Page Indexing report listing URLs classified as Page with redirect.](/images/tutorials/technical-seo/google-search-console/seo-search-console-page-indexing.webp){width=2916 height=2081}
-
-*“Page with redirect” is often an expected exclusion. Check that each source URL redirects to the intended destination and that internal links and the sitemap use the final URL.*
-
-[View full-size image](/images/tutorials/technical-seo/google-search-console/seo-search-console-page-indexing.webp)
-
-> **Remaining evidence:** Add a redacted Bing Webmaster Tools capture when one is available.
-
 ## From Report to Action
 
 A calm diagnosis separates four things:
@@ -98,7 +151,7 @@ A calm diagnosis separates four things:
 - Action: the smallest change that addresses the cause.
 - Retest: how and when to check whether the change worked.
 
-Some retests are immediate, such as requesting a URL after a redirect change. Search Console reports may take days or weeks to settle. That delay is not failure by itself. Record the expected review window so the site owner does not rework the same issue every morning.
+Some technical retests are immediate, such as confirming the live redirect response. Search Console and Bing reports may take days or weeks to settle, and requesting indexing does not make that process immediate. That delay is not failure by itself. Record the request date and expected review window so the site owner does not rework the same issue every morning.
 
 <!-- CHECKPOINT BOX -->
 
@@ -112,6 +165,9 @@ URL Inspection is the better diagnostic source for a verified property. Search o
 
 **3. Does IndexNow guarantee indexing?**
 No. It is a notification protocol for changed URLs, not a promise of indexing or ranking.
+
+**4. What should you compare when diagnosing a canonical mismatch?**
+Compare the page-declared canonical, search engine-selected canonical, redirects, internal links, sitemap URL, hostname, protocol, and page content.
 
 <!-- /CheckpointBox -->
 
@@ -127,7 +183,7 @@ Classify each case as discovery, indexing, enhancement, security, performance, o
 
 **Step 2 - Read the evidence**
 
-Inspect examples such as a redirect URL excluded from indexing, a valid `noindex` page, "Duplicate, Google chose different canonical", a sitemap fetch error, a live URL blocked by robots, and a structured-data warning.
+Inspect examples such as a redirect URL excluded from indexing, a valid `noindex` page, "Duplicate, Google chose different canonical", a sitemap fetch error, a live URL blocked by robots, and a structured-data warning. Record whether the evidence came from Page indexing, URL Inspection, the live test, or a Bing equivalent.
 
 **Step 3 - Triage the result**
 
@@ -135,7 +191,7 @@ Mark each as expected, needs investigation, or action required. Give one reason.
 
 **Step 4 - Write the diagnosis**
 
-Use the diagnosis template and include a retest plan.
+Use the diagnosis template and include canonical evidence where relevant. Separate an immediate technical retest from the later report or indexing review.
 
 **Step 5 - Limit the action list**
 
@@ -169,7 +225,9 @@ Write a five-item search-health brief for a real or supplied property.
 ## Before you continue
 
 - I can choose the report that matches the question.
+- I can use Page indexing for patterns and URL Inspection for one URL.
 - I can recognise expected exclusions.
+- I can map a Google diagnosis to the relevant Bing tool without assuming identical results.
 - I can use evidence without chasing every count.
 - I can write a retest plan.
 
