@@ -33,6 +33,7 @@ import { Analytics } from '@vercel/analytics/vue';
 import { SpeedInsights } from '@vercel/speed-insights/vue';
 import { computed, defineAsyncComponent } from 'vue';
 import { useRoute } from 'vue-router';
+import { useHead } from '@vueuse/head';
 import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 import CookieConsent from '@/components/CookieConsent.vue';
@@ -46,6 +47,14 @@ const TutorialLayout = defineAsyncComponent(() => import('@/layouts/TutorialLayo
 const ProjectLayout = defineAsyncComponent(() => import('@/layouts/ProjectLayout.vue'));
 
 const route = useRoute();
+useHead(() => ({
+	link: [
+		{
+			rel: 'canonical',
+			href: `https://www.graphitedge.com.au${route.path.replace(/\/+$/, '') || '/'}`,
+		},
+	],
+}));
 const globalSchema = [createOrganizationSchema(), createWebsiteSchema()];
 
 // Determine if current page is a tutorial page
