@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/api-best-practices-beginner</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/backend-programming</loc>
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/modern-js-patterns</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/responsive-design</loc>
@@ -66,11 +66,11 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/web-performance-optimization</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/web-security-essentials</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/posts/work-with-clients</loc>
@@ -321,6 +321,10 @@
     <lastmod>2026-08-19</lastmod>
   </url>
   <url>
+    <loc>https://www.graphitedge.com.au/tutorials/beginner</loc>
+    <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/black-swan-bistro-part-1</loc>
     <lastmod>2026-08-19</lastmod>
   </url>
@@ -330,15 +334,15 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/box-model</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/colors</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/flexbox</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/introduction</loc>
@@ -354,7 +358,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/responsive</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/css-basics/selectors</loc>
@@ -370,15 +374,15 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/advanced-events</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/arrays</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/dom-events</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/dom-manipulation</loc>
@@ -386,11 +390,11 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/dom-traversal</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/dynamic-content</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/dom-basics/introduction</loc>
@@ -402,7 +406,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-doc-structure</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-emmet</loc>
@@ -410,7 +414,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-first-page</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-forms</loc>
@@ -426,11 +430,11 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/html-text</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/html-basics/introduction</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/idea-to-live-website</loc>
@@ -450,7 +454,7 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics/introduction</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics/loops</loc>
@@ -462,11 +466,11 @@
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/javascript-basics/variables-data-types</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/beginner/why-your-css-isnt-working</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/capstone</loc>
@@ -571,6 +575,10 @@
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/getting-started/web-basics</loc>
     <lastmod>2026-08-19</lastmod>
+  </url>
+  <url>
+    <loc>https://www.graphitedge.com.au/tutorials/intermediate</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
   <url>
     <loc>https://www.graphitedge.com.au/tutorials/intermediate/applied-javascript</loc>

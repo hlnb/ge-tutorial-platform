@@ -368,7 +368,7 @@ const basicTemplate = ref(`<!DOCTYPE html>
 		<title>My First Web Page</title>
 	</head>
 	<body>
-		<h1>Hello, World!</h1>
+		<h2>Hello, World!</h2>
 		<p>This is my first web page.</p>
 	</body>
 </html>`);
@@ -402,7 +402,7 @@ const exerciseCode = ref(`<!DOCTYPE html>
 		<title>Black Swan Bistro</title>
 	</head>
 	<body>
-		<h1>Black Swan Bistro</h1>
+		<h2>Black Swan Bistro</h2>
 
 		<h2>The Restaurant</h2>
 		<p>

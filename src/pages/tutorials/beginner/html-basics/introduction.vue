@@ -753,20 +753,20 @@ const { pageSections } = usePageSections(sections);
 
 const elementExample = ref('<p>This is a paragraph.</p>');
 
-const firstExample = ref(`<h1>Hello, World!</h1>
+const firstExample = ref(`<h2>Hello, World!</h2>
 <p>This is my first HTML element.</p>`);
 
 const exerciseCode = ref(`<!-- Write your profile here -->
-<h1></h1>
+<h2></h2>
 <p></p>
 
-<h2>My Hobbies</h2>
+<h3>My Hobbies</h3>
 <p></p>`);
 
-const solutionExample = ref(`<h1>John Smith</h1>
+const solutionExample = ref(`<h2>John Smith</h2>
 <p>Hi! I'm John, a web development student.</p>
 
-<h2>My Hobbies</h2>
+<h3>My Hobbies</h3>
 <p>I enjoy reading, hiking, and learning to code!</p>`);
 
 const sanitizedFirstPreview = computed(() =>

@@ -26,7 +26,7 @@ hiddenFromCurriculum: true
 
 The generated sitemap proudly lists the old menu URL, the redirected booking URL, a `noindex` thank-you page, and the new canonical pages. The file is syntactically valid but tells four different stories.
 
-A sitemap helps when it is boringly accurate.
+A sitemap helps only when its entries are current and accurate.
 
 <!-- LEARNING OBJECTIVES -->
 
@@ -50,7 +50,7 @@ Include absolute, canonical URLs that the site genuinely wants indexed. Exclude 
 
 `changefreq` and `priority` are optional protocol hints. They are not ranking controls.
 
-## Build the Sitemap From Decisions, Not Hope
+## Decide Which URLs Belong in the Sitemap
 
 A reliable sitemap is the result of earlier decisions:
 
@@ -234,4 +234,4 @@ Deliver a validated sitemap plus an evidence table.
 
 ## Closure
 
-A sitemap is useful when it is boringly accurate. Its job is to reduce ambiguity, not decorate a build.
+Keep the sitemap current and accurate. It should list the canonical URLs you want search systems to discover.

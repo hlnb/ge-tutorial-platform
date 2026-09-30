@@ -438,9 +438,8 @@ const profilePageAdvancedExample = ref(`/* Personal Profile Page - Advanced Chal
 		<section id="color-theory">
 			<h2 class="title is-2">Color Theory</h2>
 			<p>
-				Understanding color theory is essential for creating visually appealing
-				and effective web designs. Let's explore the fundamental concepts that
-				will help you make better color choices.
+				Color theory gives you a practical way to choose colours that work together
+				and keep text readable. Begin with the models browsers use to represent colour.
 			</p>
 
 			<section id="rgb-model">
@@ -832,8 +831,8 @@ const profilePageAdvancedExample = ref(`/* Personal Profile Page - Advanced Chal
 		<section id="backgrounds">
 			<h2 class="title is-2">Working with Backgrounds</h2>
 			<p>
-				CSS provides several properties to control background colors and
-				effects. Let's explore how to use them effectively.
+				CSS can apply solid colours, images, gradients, and layered effects to an
+				element's background.
 			</p>
 
 			<section id="background-color">
@@ -952,7 +951,7 @@ const profilePageAdvancedExample = ref(`/* Personal Profile Page - Advanced Chal
 		<section id="practical-examples">
 			<h2 class="title is-2">Practical Examples</h2>
 			<p>
-				Let's explore some real-world examples of working with colors in CSS.
+				The following examples combine CSS colours into practical interface patterns.
 			</p>
 
 			<section id="color-schemes">

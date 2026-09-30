@@ -38,7 +38,7 @@ After this lesson, you will be able to:
 - separate search diagnostics, user analytics, performance evidence, and business outcomes
 - turn a website goal into a useful measurement question
 - define baseline metrics before making an optimisation change
-  - choose between existing hosting analytics, GA4, and specialist tools without installing everything
+- choose between existing hosting analytics, GA4, and specialist tools without installing everything
 - install and verify analytics without collecting unnecessary personal data
 - compare before-and-after evidence and explain what the result can and cannot prove
 
@@ -264,4 +264,4 @@ Produce a one-page analytics setup and measurement brief for a real or teaching 
 
 ## Closure
 
-Good analytics is a small, trustworthy measurement system. Define the decision, collect the minimum useful evidence, verify it, and compare changes honestly.
+Start with the decision you need to make. Collect the minimum useful evidence, verify the setup, and compare later results with the recorded baseline.

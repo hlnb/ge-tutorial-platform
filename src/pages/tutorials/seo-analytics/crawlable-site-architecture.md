@@ -26,7 +26,7 @@ hiddenFromCurriculum: true
 
 The restaurant menu exists, but the only way to open it is a JavaScript click handler on a styled `<div>`. Visitors can click it; a crawler may not discover a usable URL.
 
-Crawlable architecture is not just a sitemap. It is the everyday link structure of the site.
+A sitemap can help with discovery, but the site's everyday links form its crawlable architecture.
 
 <!-- LEARNING OBJECTIVES -->
 
@@ -188,4 +188,4 @@ Create a before/after architecture diagram plus a short rationale for three inte
 
 ## Closure
 
-Good architecture tells the truth twice: people can see where to go, and the HTML exposes a real address.
+A useful site structure works for people and crawlers. Visitors can see where to go, and each destination appears in a real link.

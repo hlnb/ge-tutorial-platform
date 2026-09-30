@@ -1,5 +1,5 @@
 ---
-title: "Final Project: Technical SEO Audit and Repair Plan"
+title: "SEO Audit and Repair Plan"
 slug: seo-analytics/measuring-and-improving-a-website
 description: Complete a technical SEO audit with evidence, severity, prioritised fixes, and a retest plan for a real or teaching project site.
 section: SEO & Analytics
@@ -45,7 +45,7 @@ After this project, you will be able to:
 
 ## Audit the System, Not the Score
 
-Technical SEO is maintenance of agreements: links point somewhere real, servers answer honestly, directives do not conflict, machine-readable data matches visible content, and monitoring checks whether those agreements still hold.
+A technical SEO audit checks that links reach real pages, servers return the right responses, directives agree, and machine-readable data matches visible content. Monitoring shows whether those conditions still hold after deployment.
 
 Measurement adds one more discipline: decide what success means before changing the site. A valid fix may improve crawlability without producing an immediate traffic change, while a traffic increase does not prove that a particular technical change caused it.
 

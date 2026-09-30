@@ -167,7 +167,7 @@
 
 		<h2 id="adding-javascript" class="title is-2 mt-6">Adding JavaScript to HTML</h2>
 		<p>
-			There are three ways to add JavaScript to your webpage. Let's explore each method with practical examples:
+			There are three ways to add JavaScript to a webpage. Each method suits a different situation:
 		</p>
 
 		<!-- Method 1: Inline JavaScript -->

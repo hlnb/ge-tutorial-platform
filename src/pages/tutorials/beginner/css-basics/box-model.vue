@@ -506,8 +506,8 @@ const profilePageExercise = ref(`/* Reset and Base Styles */
 			<div id="box-components" class="box mt-4">
 				<h3 class="title is-4">Box Model Components</h3>
 				<p>
-					Let's explore each layer of the box model in detail, starting from the
-					inside out.
+					The box model has four layers. We will work from the content area out to
+					the margin.
 				</p>
 
 				<div class="components-grid mt-4">
@@ -925,8 +925,8 @@ border: 10px solid black;
 		<div id="practical-usage" class="mt-6">
 			<h2 class="title is-3">Practical Usage</h2>
 			<p>
-				Let's explore common patterns and real-world applications of the box
-				model.
+				These common patterns show how the box model controls spacing and size
+				in a working layout.
 			</p>
 
 			<div id="common-patterns" class="box mt-4">

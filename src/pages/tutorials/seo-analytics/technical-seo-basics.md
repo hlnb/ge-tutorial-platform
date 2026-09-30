@@ -1,5 +1,5 @@
 ---
-title: "From URL to Search Result: the Technical SEO System"
+title: "Technical SEO System"
 slug: seo-analytics/technical-seo-basics
 description: Learn how discovery, crawling, rendering, indexing, and serving fit together so you can diagnose technical SEO problems by evidence, not guesswork.
 section: SEO & Analytics
@@ -187,4 +187,4 @@ Create a one-page search pipeline evidence map for a learner-owned page.
 
 ## Closure
 
-Technical SEO begins with locating the broken hand-off. If you cannot name the stage, you are still guessing.
+Start by identifying which stage failed. Until you can do that, any proposed fix is a guess.

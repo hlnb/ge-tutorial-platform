@@ -1105,7 +1105,7 @@ const navigationExample = ref(`/* Responsive Navigation */
 					<CodeMirror v-model="fluidTypographyExample" readonly />
 
 					<div class="typography-demo mt-4">
-						<h1 class="fluid-title">Fluid Heading</h1>
+						<h2 class="fluid-title">Fluid Heading</h2>
 						<p class="fluid-text">
 							This text scales smoothly between viewport sizes.
 						</p>

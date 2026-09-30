@@ -125,7 +125,7 @@
         <!-- Basic Array Operations Section -->
         <section id="array-basics" class="tutorial-section mb-6">
           <h2>Basic Array Operations</h2>
-          <p>Arrays in JavaScript are versatile data structures that can store multiple values in a single variable. Let's explore the fundamental operations:</p>
+          <p>An array stores several values in one variable. Start with the operations you will use most often:</p>
 
           <div class="method-examples">
             <div id="creating-arrays" class="method-card">

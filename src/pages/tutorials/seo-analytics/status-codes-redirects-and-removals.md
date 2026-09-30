@@ -1,5 +1,5 @@
 ---
-title: HTTP Status Codes, Redirects, and Removed Pages
+title: Status Codes and Redirects
 slug: seo-analytics/status-codes-redirects-and-removals
 description: Learn how HTTP responses, redirects, 404s, 410s, and soft 404s affect technical SEO diagnosis and site maintenance.
 section: SEO & Analytics
@@ -173,4 +173,4 @@ Create a redirect/removal plan for a hypothetical five-page migration.
 
 ## Closure
 
-The most search-friendly response is the truthful one. A moved page should say where it moved; a missing page should admit it is missing.
+Choose the response that matches what happened. Redirect a moved page, and return a genuine error status when no replacement exists.

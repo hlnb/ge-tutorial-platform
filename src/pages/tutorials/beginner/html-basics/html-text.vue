@@ -479,18 +479,17 @@ onMounted(() => {
 	];
 });
 
-const headingExample = ref(`<h1>Main Title</h1>
-<h2>Major Section</h2>
-<h3>Subsection</h3>
-<h4>Minor Section</h4>
-<h5>Small Heading</h5>
-<h6>Smallest Heading</h6>`);
+const headingExample = ref(`<h2>Main Title</h2>
+<h3>Major Section</h3>
+<h4>Subsection</h4>
+<h5>Minor Section</h5>
+<h6>Small Heading</h6>`);
 
 const webWritingExample = ref(`<section>
-  <h1>Black Swan Bistro</h1>
+  <h2>Black Swan Bistro</h2>
   <p>Modern Australian food in a relaxed dining room.</p>
 
-  <h2>Plan Your Visit</h2>
+  <h3>Plan Your Visit</h3>
   <ul>
     <li>Dinner: Tuesday to Saturday, 5:30pm-10pm</li>
     <li>Sunday lunch: 12pm-3pm</li>
@@ -534,7 +533,7 @@ const listExample = ref(`<!-- Unordered List -->
 </ol>`);
 
 const practiceCode = ref(`<!-- Start with your restaurant page here -->
-<h1>Your Restaurant Name</h1>
+<h2>Your Restaurant Name</h2>
 
 `);
 
@@ -559,10 +558,10 @@ const updatePracticePreview = () => {
 // Solution for basic text structure
 const basicSolution = ref(`
 <div class="restaurant-info">
-  <h1>Black Swan Bistro</h1>
+  <h2>Black Swan Bistro</h2>
   <p class="tagline">Elegant Dining, Modern Australian Cuisine</p>
 
-  <h2>Hours of Operation</h2>
+  <h3>Hours of Operation</h3>
   <p>Tuesday-Saturday: 5:30pm-10pm</p>
   <p>Sunday Lunch: 12pm-3pm</p>
   <p>Closed Mondays</p>

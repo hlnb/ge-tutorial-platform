@@ -193,4 +193,4 @@ Write a rendering decision note.
 
 ## Closure
 
-JavaScript is not the SEO problem. Unclear URLs, weak first responses, inaccessible content, and untested assumptions are the problem.
+JavaScript itself is not the issue. Test whether each route has a clear URL, an honest response, accessible content, and consistent metadata.

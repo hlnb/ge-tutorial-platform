@@ -190,4 +190,4 @@ Create a structured-data evidence pack.
 
 ## Closure
 
-Structured data should make an honest page easier for machines to interpret. It should never make the page claim more than a visitor can verify.
+Structured data helps machines interpret the facts already visible on the page. Every property should match something a visitor can verify.

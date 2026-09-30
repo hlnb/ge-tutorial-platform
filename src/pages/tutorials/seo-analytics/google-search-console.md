@@ -1,5 +1,5 @@
 ---
-title: Search Console, Bing Webmaster Tools, and Diagnosis
+title: Search Tools and Diagnosis
 slug: seo-analytics/google-search-console
 description: Learn how to use search-engine reports calmly, separating evidence, inference, action, and retest.
 section: SEO & Analytics
@@ -233,4 +233,4 @@ Write a five-item search-health brief for a real or supplied property.
 
 ## Closure
 
-The goal is not to make every report line green. The goal is to know whether important pages are discoverable, technically sound, and behaving as intended.
+Use the reports to check whether important pages are discoverable, technically sound, and behaving as intended. Expected exclusions can remain excluded.

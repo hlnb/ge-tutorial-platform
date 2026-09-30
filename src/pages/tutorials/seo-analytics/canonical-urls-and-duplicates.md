@@ -180,4 +180,4 @@ Create a canonical cluster worksheet for three important pages.
 
 ## Closure
 
-Canonicalisation is the site making a consistent recommendation. One tag cannot outvote a confused architecture forever.
+Canonicalisation works when redirects, internal links, sitemap entries, and canonical tags all point to the same preferred URL.

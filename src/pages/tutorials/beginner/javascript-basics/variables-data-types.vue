@@ -121,7 +121,7 @@
 
 		<h2 id="data-types" class="title is-2">JavaScript Data Types</h2>
 		<p>
-			JavaScript has several built-in data types that help us work with different kinds of information. Let's explore each one with practical examples from a restaurant management system.
+			JavaScript has several built-in data types for different kinds of information. The examples below use data from a restaurant management system.
 		</p>
 
 		<div class="data-types-grid">

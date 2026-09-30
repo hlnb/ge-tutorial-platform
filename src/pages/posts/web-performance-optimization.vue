@@ -14,13 +14,13 @@
 			</section>
 			<article class="content blog-post">
 				<p class="lead">
-					Ever wondered why some websites feel lightning-fast while others make you want to close the tab? Let's dive into the real-world impact of web performance and how you can make your site blazingly fast.
+					A slow page makes visitors wait before they can read, navigate, or complete a task. This guide explains how to measure that delay and make practical improvements.
 				</p>
 
 						<h2 class="title is-1">The Business Case for Speed 📈</h2>
 
 						<p>
-							Here's a reality check: A 1-second delay in page load time leads to:
+							A 1-second delay in page load time has been linked to:
 						</p>
 
 						<ul>
@@ -30,13 +30,13 @@
 						</ul>
 
 						<p>
-							Just ask Walmart—they saw a 2% increase in conversions for every second of improvement in load time. That's real money on the table.
+							Walmart reported a 2% increase in conversions for every second of improvement in load time.
 						</p>
 
 						<h2>Core Web Vitals: Your Performance North Star</h2>
 
 						<p>
-							Google's Core Web Vitals aren't just buzzwords. They're metrics that directly impact user experience and SEO:
+							Google's Core Web Vitals measure loading, responsiveness, and visual stability. They affect user experience and SEO:
 						</p>
 
 						<ul>
@@ -48,7 +48,7 @@
 						<h3>Real World Case Study: GraphitEdge's Performance Journey</h3>
 
 						<p>
-							When I first launched GraphitEdge, our tutorial platform's LCP was sitting at 3.8 seconds—not ideal for a site teaching web development best practices! Here's how we transformed our performance:
+							When I first launched GraphitEdge, the tutorial platform's LCP was 3.8 seconds. We made the following changes:
 						</p>
 
 						<ol>
@@ -84,7 +84,7 @@ location /static/ {
 						<h3>2. Image Optimization That Works</h3>
 
 						<p>
-							Don't just compress—optimize intelligently:
+							Choose the image format, dimensions, and compression level deliberately:
 						</p>
 
 						<ul>
@@ -211,7 +211,7 @@ location /static/ {
 						</ul>
 
 						<p>
-							Share your performance challenges and wins—I love diving deep into web optimization discussions with fellow developers!
+							Share your performance questions or results through any of the channels above.
 						</p>
 
 						<div class="tags">
@@ -495,4 +495,4 @@ a:hover {
 		font-size: 1.2rem;
 	}
 }
-</style> 
+</style>

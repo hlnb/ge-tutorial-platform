@@ -485,8 +485,8 @@ const cardLayoutCSS = `/* Card Layout with Flexbox */
 			<section :id="sections[1].id" class="mb-6">
 				<h2 class="title is-2">{{ sections[1].title }}</h2>
 				<p>
-					Flexbox provides several properties to control the layout of flex
-					containers and items. Let's explore the most important ones.
+					Flexbox properties control the container's main axis, alignment, spacing,
+					and the behaviour of individual items.
 				</p>
 
 				<div :id="sections[1].subsections[0].id" class="mb-5">
@@ -1095,7 +1095,7 @@ body {
 							<ul>
 								<li>Build the menu section with categories and menu items</li>
 								<li>
-									Create a responsive layout for showcasing special dishes or
+									Create a responsive layout that presents special dishes or
 									events
 								</li>
 							</ul>

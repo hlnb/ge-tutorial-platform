@@ -667,6 +667,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/tutorials/beginner/': RouteRecordInfo<
+      '/tutorials/beginner/',
+      '/tutorials/beginner',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/tutorials/beginner/black-swan-bistro-part-1': RouteRecordInfo<
       '/tutorials/beginner/black-swan-bistro-part-1',
       '/tutorials/beginner/black-swan-bistro-part-1',
@@ -1118,6 +1125,13 @@ declare module 'vue-router/auto-routes' {
     '/tutorials/getting-started/web-basics': RouteRecordInfo<
       '/tutorials/getting-started/web-basics',
       '/tutorials/getting-started/web-basics',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/tutorials/intermediate/': RouteRecordInfo<
+      '/tutorials/intermediate/',
+      '/tutorials/intermediate',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -2289,6 +2303,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/tutorials/beginner/index.vue': {
+      routes:
+        | '/tutorials/beginner/'
+      views:
+        | never
+    }
     'src/pages/tutorials/beginner/black-swan-bistro-part-1.vue': {
       routes:
         | '/tutorials/beginner/black-swan-bistro-part-1'
@@ -2676,6 +2696,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tutorials/getting-started/web-basics.vue': {
       routes:
         | '/tutorials/getting-started/web-basics'
+      views:
+        | never
+    }
+    'src/pages/tutorials/intermediate/index.vue': {
+      routes:
+        | '/tutorials/intermediate/'
       views:
         | never
     }

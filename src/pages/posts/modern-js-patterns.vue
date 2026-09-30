@@ -16,32 +16,31 @@
 				<div class="content">
 					<article class="blog-post">
 						<div class="post-hero">
-							<h1 class="title is-1">
+							<h2 class="title is-2">
 								<i class="fas fa-bolt section-icon"></i> Modern JavaScript Essentials: A Beginner's Guide to Cleaner Code
-							</h1>
+							</h2>
 						</div>
 
 						<!-- Introduction -->
-						<blockquote><p><em>Demystifying arrow functions, destructuring, and modules—because modern JavaScript should be accessible to everyone</em></p></blockquote>
-						<p>Remember when JavaScript felt like a maze of function() {} statements and global variables? Don't worry—you're not alone. JavaScript has evolved to become more intuitive and beginner-friendly, and in this guide, we'll explore three powerful features that will make your code cleaner and more manageable.</p>
-						<p>Whether you're just starting out or filling in knowledge gaps, we'll walk through <strong>three game-changing ES6+ features</strong> that every developer should know:</p>
+						<blockquote><p><em>Arrow functions, destructuring, and modules in everyday JavaScript</em></p></blockquote>
+						<p>Modern JavaScript gives you shorter ways to write functions, extract values from data, and split code across files. This guide covers three ES6+ features that you will see in current projects:</p>
 						<ul>
 							<li>🔹 <strong>Arrow functions</strong></li>
 							<li>🔹 <strong>Destructuring</strong></li>
 							<li>🔹 <strong>Modules</strong></li>
 						</ul>
-						<p>And we’ll round out with real-world <strong>modern JavaScript patterns</strong> that make your code more maintainable.</p>
+						<p>The final examples combine these features into patterns that are easier to maintain.</p>
 						<hr>
 
 						<h2>🔹 Arrow Functions: A Simpler Way to Write Functions</h2>
-						<p>Remember the clunky function() {} syntax? Arrow functions are like its cooler, more streamlined cousin. They not only help you write less code but also make it easier to read. And hey—if they feel strange at first, that's totally normal! Let's break them down step by step.</p>
+						<p>Arrow functions provide a compact function syntax. They also handle <code>this</code> differently from regular functions, which matters in callbacks and object methods.</p>
 						<h3>✏️ Old way:</h3>
 						<pre><code>function greet(name) {
   return 'Hello, ' + name;
 }</code></pre>
 						<h3>✅ Modern way:</h3>
 						<pre><code>const greet = (name) => `Hello, ${name}`;</code></pre>
-						<p>One cool thing about arrow functions is how they handle something called <code>this</code>. Don't worry if that term is new to you—the main thing to know is that arrow functions make it easier to work with timers and events. Let's see how:</p>
+						<p>Arrow functions inherit <code>this</code> from the surrounding scope. That behaviour is useful in callbacks such as this timer:</p>
 						<h3>Example: Timer with arrow function</h3>
 						<pre><code>const timer = {
   count: 0,
@@ -58,7 +57,7 @@ timer.start();</code></pre>
 						<hr>
 
 						<h2>🔹 Destructuring: A Cleaner Way to Work with Data</h2>
-						<p>Think of destructuring like unpacking a suitcase—instead of digging through the whole thing to find what you need, you can pull out exactly what you want in one go. Let's explore how this makes your code more organized and easier to manage.</p>
+						<p>Destructuring extracts selected values from an object or array into variables. It can remove repetitive property access when the names remain clear.</p>
 						<h3>✏️ Old way:</h3>
 						<pre><code>const person = { name: 'Helen', age: 30 };
 const name = person.name;
@@ -75,7 +74,7 @@ const age = person.age;</code></pre>
 						<hr>
 
 						<h2>🔹 Modules: Building Blocks for Better Code</h2>
-						<p>Remember when all your JavaScript code lived in one giant file? Modules are like organizing your code into neat, labeled boxes. They help keep your code tidy and make it easier to share with others. Let's explore how they work!</p>
+						<p>Modules let you separate code by responsibility and explicitly choose what each file exports. Other files can then import only what they need.</p>
 						<h3>Exporting multiple named functions:</h3>
 						<pre><code>// utils.js
 export const add = (a, b) => a + b;
@@ -93,8 +92,8 @@ export default function multiply(a, b) {
 						<p>🔗 <a target="_blank" rel="noopener noreferrer nofollow" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">MDN: JavaScript modules</a></p>
 						<hr>
 
-						<h2>⚡ Putting It All Together: Real Examples You Can Use</h2>
-						<p>Now comes the fun part! Let's see how these features work together in real situations. Feel free to experiment with these patterns—they're more like recipes than rules. Try modifying them for your own needs!</p>
+						<h2>Putting the features together</h2>
+						<p>These examples combine modern syntax in small tasks. Change the data and function names to test how each pattern behaves.</p>
 						<h3>1. Getting Data from an API (The Modern Way)</h3>
 						<pre><code>const fetchUser = async (id) => {
   const response = await fetch(`/api/users/${id}`);
@@ -113,21 +112,21 @@ export default function multiply(a, b) {
 						<p>🔗 <a target="_blank" rel="noopener noreferrer nofollow" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator">MDN: Nullish coalescing operator</a></p>
 						<hr>
 
-						<h2>🧰 Quick Reference Guide</h2>
+						<h2>Quick reference</h2>
 						<table style="min-width: 50px"><colgroup><col><col></colgroup><tbody><tr><th><strong>Feature</strong></th><th><strong>Best For</strong></th></tr><tr><td><strong>Arrow functions</strong></td><td>Callbacks, concise syntax, avoiding manual this</td></tr><tr><td><strong>Destructuring</strong></td><td>Cleaner code, object/array handling</td></tr><tr><td><strong>Modules</strong></td><td>Better structure, reusable code</td></tr></tbody></table>
 						<hr>
 
-						<h2>📘 Ready to Explore Further?</h2>
+						<h2>Further reading</h2>
 						<ul>
 							<li>📚 <a target="_blank" rel="noopener noreferrer nofollow" href="http://JavaScript.info">JavaScript.info</a><a target="_blank" rel="noopener noreferrer nofollow" href="https://javascript.info/"> Full Tutorial</a></li>
 							<li>🛠️ <a target="_blank" rel="noopener noreferrer nofollow" href="https://es6-features.org/">ES6 Features Overview</a></li>
-							<li>🧑‍💻 <a target="_blank" rel="noopener noreferrer nofollow" href="https://frontendmasters.com/">Frontend Masters – ES6 for Everyone</a></li>
+							<li>🧑‍💻 <a target="_blank" rel="noopener noreferrer nofollow" href="https://frontendmasters.com/">Frontend Masters: ES6 for Everyone</a></li>
 							<li>🎓 <a target="_blank" rel="noopener noreferrer nofollow" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">MDN: ES6 In Depth Series</a></li>
 						</ul>
 						<hr>
 
-						<h2>💬 Let's Learn Together</h2>
-						<p>We've covered a lot, and it's okay if some concepts still feel fuzzy—that's part of the learning process! What modern JavaScript features are you excited to try? Having trouble with any particular concept? Share your experiments or questions in the comments, or connect with our community on <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/graphitedge">LinkedIn</a> or <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/">Bluesky</a>. Remember, every developer started somewhere, and we're here to help you grow!</p>
+						<h2>Try the patterns</h2>
+						<p>Use one of these features in a small script, then compare it with the version you would have written before. Share your experiment or question in the comments, or connect with the GraphitEdge community on <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/graphitedge">LinkedIn</a> or <a target="_blank" rel="noopener noreferrer" href="https://bsky.app/">Bluesky</a>.</p>
 
 						<!-- CTA Box -->
 						<div class="cta-box">
@@ -152,7 +151,7 @@ export const frontmatter = {
 	author: 'Helen Burgess',
 	image: '/images/posts/modern-js-patterns.svg',
 	description:
-		'Demystifying arrow functions, destructuring, and modules—because modern JavaScript should be accessible to everyone.',
+		'Learn how arrow functions, destructuring, and modules work in everyday JavaScript.',
 	tags: ['JavaScript', 'ES6', 'Patterns', 'Web Development'],
 	status: 'published',
 };

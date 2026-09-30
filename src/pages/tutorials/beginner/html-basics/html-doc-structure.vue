@@ -284,8 +284,8 @@
 			</div>
 
 			<p class="mt-4">
-				Now that you understand the visual structure of a webpage, let's explore
-				how to set up the technical foundation with proper metadata.
+				The next step is setting up the page's metadata inside
+				<code>&lt;head&gt;</code>.
 			</p>
 		</div>
 
@@ -307,16 +307,15 @@
 			</div>
 
 			<p>
-				The <code>&lt;head&gt;</code> section contains crucial information that
-				enhances your webpage's functionality, searchability, and social media
-				presence:
+				The <code>&lt;head&gt;</code> section contains information browsers, search
+				engines, and social platforms use to understand and present the page:
 			</p>
 
 			<div class="tutorial-card mt-4">
 				<h3 class="title is-4">Beyond the Basics: Advanced Metadata</h3>
 				<p>
-					Building on that, let's explore additional metadata
-					that can improve our pages:
+					These additional tags control how the page appears in search results
+					and when someone shares its URL:
 				</p>
 
 				<h3 class="title is-4 mt-5">SEO and Social Media Metadata</h3>
@@ -381,8 +380,8 @@
 				<i class="fas fa-puzzle-piece section-icon"></i> Semantic HTML
 			</h2>
 			<p>
-				Semantic HTML gives meaning to our content structure, making it more
-				accessible and easier to maintain. Let's explore the key elements:
+				Semantic HTML describes the purpose of each part of the page. This helps
+				assistive technology, search engines, and developers understand the structure.
 			</p>
 
 			<div class="tutorial-card mt-4">

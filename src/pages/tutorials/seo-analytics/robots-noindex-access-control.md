@@ -178,4 +178,4 @@ Create a crawl/index/privacy decision record for five URL groups on your site.
 
 ## Closure
 
-Directives are instructions to cooperative crawlers. Authentication is a locked door. Do not ask a sign on the fence to do the lock's job.
+Use directives to guide cooperative crawlers. Use authentication or network controls when content must be private.

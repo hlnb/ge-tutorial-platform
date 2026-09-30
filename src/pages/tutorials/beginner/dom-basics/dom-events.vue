@@ -149,9 +149,8 @@ button.addEventListener('click', function() {
       <section id="event-types">
         <h2>Interactive Event Examples</h2>
         <p>
-          Let's explore different types of events through an interactive demonstration. This example shows how various
-          events work in practice, from mouse movements to keyboard input. Try interacting with the elements below
-          to see how different events are triggered and handled.
+          This demonstration responds to mouse and keyboard events. Interact with the elements below and watch
+          which event fires and how its handler updates the page.
         </p>
         <div class="interactive-demo">
           <div id="eventTypesDemo" class="demo-box">
@@ -562,7 +561,7 @@ class ValidationError extends Error {
 validateButton.addEventListener('click', (e) => {
   try {
     const age = parseInt(ageInput.value);
-    if (isNaN(age) || age < 1 || age > 100) {
+    if (isNaN(age) || age &lt; 1 || age > 100) {
       throw new ValidationError('Age must be between 1 and 100');
     }
     validationErrorResult.textContent = 'Valid age!';
@@ -687,7 +686,7 @@ list?.addEventListener('click', (e) => {
 });
 
 // 3. Performance Monitoring
-// (Example only — runtime demo below is guarded)
+// Example only; the runtime demo below is guarded.
 // const observer = new PerformanceObserver((list) => {
 //   for (const entry of list.getEntries()) {
 //     console.log('Performance:', entry);
@@ -799,7 +798,7 @@ const usernameError = document.getElementById('username-error');
 
 username?.addEventListener('input', (e) => {
   const value = (e.target as HTMLInputElement).value;
-  if (value.length < 3) {
+  if (value.length &lt; 3) {
     usernameError!.textContent = 'Username must be at least 3 characters';
     username.setAttribute('aria-invalid', 'true');
   } else {
