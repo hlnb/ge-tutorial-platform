@@ -71,6 +71,8 @@
 			<img
 				src="/images/tutorials/getting-started/client-server.svg"
 				alt="Client-Server Model"
+				width="800"
+				height="400"
 			/>
 		</div>
 
@@ -114,6 +116,8 @@
 			<img
 				src="/images/tutorials/getting-started/website-technologies.svg"
 				alt="Web Technologies"
+				width="800"
+				height="400"
 			/>
 		</div>
 
@@ -199,10 +203,12 @@ alert('Hello!');
 
 		<div class="image-container">
 			<img
-					src="/images/tutorials/getting-started/browser-process.svg"
-					alt="Browser Process"
-				/>
-			</div>
+				src="/images/tutorials/getting-started/browser-process.svg"
+				alt="Browser Process"
+				width="800"
+				height="300"
+			/>
+		</div>
 
 			<ol>
 				<li>
