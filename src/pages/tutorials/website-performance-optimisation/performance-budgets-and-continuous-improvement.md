@@ -81,9 +81,19 @@ Use evidence to choose which problems matter most.
 
 Return to the website measured earlier.
 
-[View the full baseline Lighthouse capture for GraphitEdge's Web Basics page](/images/tutorials/web-performance/performance-budgets-and-continuous-improvement/performance-audit-before.webp).
+![Baseline Lighthouse audit for the GraphitEdge Web Basics page showing a Performance score of 65, with Accessibility 95, Best Practices 100, and SEO 100.](/images/tutorials/web-performance/performance-budgets-and-continuous-improvement/performance-audit-before.webp){width=2926 height=2020}
 
-This captured run reports a Performance score of 68 and includes a stored-data warning. Treat it as a record of that test, not a clean baseline or proof of improvement. Establish a clean baseline and retest the same URL, device and settings after a targeted change. An after capture is still pending.
+*Before: the baseline capture shows a Performance score of 65 and includes a stored-data warning. Treat it as a record of that test, not a universal benchmark.*
+
+[View the full baseline Lighthouse capture](/images/tutorials/web-performance/performance-budgets-and-continuous-improvement/performance-audit-before.webp)
+
+![Follow-up Lighthouse audit for the same GraphitEdge Web Basics page showing a Performance score of 92, with Accessibility 95, Best Practices 100, and SEO 100.](/images/tutorials/web-performance/performance-budgets-and-continuous-improvement/performance-audit-after.webp){width=2942 height=2010}
+
+*After: the follow-up capture shows a Performance score of 92. It was run in an incognito window, which helps reduce stored-browser-data noise, although Lighthouse results can still vary between runs.*
+
+[View the full follow-up Lighthouse capture](/images/tutorials/web-performance/performance-budgets-and-continuous-improvement/performance-audit-after.webp)
+
+These captures give you a concrete before-and-after example. Establish a clean baseline, make one targeted change at a time where practical, and retest the same URL, device and settings after the change.
 
 1. Use the existing baseline.
 2. Identify findings.
@@ -95,7 +105,7 @@ This captured run reports a Performance score of 68 and includes a stored-data w
 
 | Measurement | Before | After | Change |
 | --- | --- | --- | --- |
-| Lighthouse Performance | | | |
+| Lighthouse Performance | 65 | 92 | +27 |
 | LCP | | | |
 | INP if available | | | |
 | CLS | | | |
