@@ -1242,6 +1242,7 @@ const tutorialRecords = [
   },
   {
     id: 'why-your-css-isnt-working',
+    learningStage: 'build-the-foundations',
     title: "Why Your CSS Isn't Working (And How to Fix It)",
     slug: 'beginner/why-your-css-isnt-working',
 
@@ -1645,6 +1646,7 @@ const tutorialRecords = [
   },
   {
     id: 'idea-to-live-website',
+    learningStage: 'understand-the-web',
     title: 'From Idea to Live Website: The Full Journey Explained',
     slug: 'beginner/idea-to-live-website',
 
@@ -2277,6 +2279,7 @@ const tutorialRecords = [
   },
   {
     id: 'debug-broken-web-page',
+    learningStage: 'build-a-real-website',
     title: 'How to Debug a Broken Web Page (Step-by-Step)',
     slug: 'intermediate/debug-broken-web-page',
 
@@ -5425,39 +5428,92 @@ export function getSectionNavItems(
   return navItems;
 }
 
-function getPathwaySections(pathwayId) {
-  return sections
-    .filter((section) => section.pathways.includes(pathwayId))
-    .sort(
-      (a, b) =>
-        (a.stage ?? Number.MAX_SAFE_INTEGER) -
-        (b.stage ?? Number.MAX_SAFE_INTEGER),
-    );
+// The sidebar and Previous/Next links share the curriculum roadmap order.
+export function getCurriculumNavGroups() {
+  return [...learningJourney]
+    .sort((a, b) => a.order - b.order)
+    .map((stage) => {
+      const lessons = tutorials.filter((tutorial) =>
+        tutorial.learningStage === stage.id &&
+        !tutorial.project &&
+        (isTutorialVisibleInCurriculum(tutorial) || tutorial.showInSectionNav),
+      );
+      // Some section introductions exist as routes without a tutorial record.
+      const overviews = sections
+        .filter((section) => stage.sectionIds?.includes(section.id) &&
+          !lessons.some((tutorial) => tutorial.slug === section.slug))
+        .map((section) => ({
+          slug: section.slug,
+          title: `${section.title}: Overview`,
+          comingSoon: getTutorialByPath(`/tutorials/${section.slug}`)?.comingSoon ?? false,
+          stage: Math.min(...lessons.filter((lesson) => lesson.section === section.id)
+            .map((lesson) => lesson.stage), section.stage) - 0.01,
+        }));
+      return {
+        id: stage.id,
+        title: stage.title,
+        items: [...lessons, ...overviews]
+          .sort((a, b) => a.stage - b.stage)
+          .map((tutorial) => ({
+            path: `/tutorials/${tutorial.slug}`,
+            title: tutorial.title,
+            comingSoon: tutorial.comingSoon ?? false,
+          })),
+      };
+    })
+    .filter((group) => group.items.length);
 }
 
-function buildPathwayFlow(pathwayId, { includeSectionNavHiddenFor = [] } = {}) {
-  return getPathwaySections(pathwayId).flatMap((section) => {
-    const overviewTitle =
-      section.id === 'getting-started' ? 'Introduction' : section.title;
-    return getSectionNavItems(section.id, {
-      includeOverview: true,
-      includeComingSoon: false,
-      overviewTitle,
-      includeSectionNavHidden: includeSectionNavHiddenFor.includes(section.id),
-    });
-  });
+export function getTutorialSidebarByPath(path) {
+  const normalizedPath = normalizeTutorialPath(path);
+  const tutorial = getTutorialByPath(normalizedPath);
+  const projectId =
+    normalizedPath === '/projects/black-swan-bistro'
+      ? 'black-swan-bistro'
+      : tutorial?.project;
+  if (projectId) {
+    const project = projects.find((item) => item.id === projectId);
+    return {
+      title: project?.title || 'Project Guide',
+      project: true,
+      groups: [
+        {
+          id: projectId,
+          title: 'Project Parts',
+          items: [
+            ...(projectId === 'black-swan-bistro'
+              ? [
+                  {
+                    path: '/projects/black-swan-bistro',
+                    title: 'Project Overview',
+                  },
+                ]
+              : []),
+            ...buildProjectFlow(projectId, { includeComingSoon: true }),
+          ],
+        },
+      ],
+    };
+  }
+  return {
+    title: 'Curriculum Pathway',
+    project: false,
+    groups: getCurriculumNavGroups(),
+  };
 }
 
-function buildProjectFlow(projectId) {
+function buildProjectFlow(projectId, { includeComingSoon = false } = {}) {
   return tutorials
     .filter(
       (tutorial) =>
-        tutorial.project === projectId && isTutorialNavigable(tutorial),
+        tutorial.project === projectId &&
+        (includeComingSoon || isTutorialNavigable(tutorial)),
     )
     .sort((a, b) => (a.projectPart ?? 0) - (b.projectPart ?? 0))
     .map((tutorial) => ({
       path: `/tutorials/${tutorial.slug}`,
       title: tutorial.title,
+      comingSoon: tutorial.comingSoon ?? false,
     }));
 }
 
@@ -5479,22 +5535,9 @@ export function getTutorialNavigationByPath(path) {
     }
   }
 
-  const section =
-    getSectionByPath(normalizedPath) ||
-    (tutorial?.section ? getSectionById(tutorial.section) : null);
-
-  if (!section) {
-    return { prev: null, next: null };
-  }
-
-  const primaryPathway = section.pathways[0];
-  const includeSectionNavHiddenFor =
-    tutorial?.showInSectionNav || section.id === 'deployments'
-      ? [section.id]
-      : [];
-  const pathwayFlow = buildPathwayFlow(primaryPathway, {
-    includeSectionNavHiddenFor,
-  });
+  const pathwayFlow = getCurriculumNavGroups()
+    .flatMap((group) => group.items)
+    .filter((item) => !item.comingSoon);
   const currentIndex = pathwayFlow.findIndex(
     (item) => item.path === normalizedPath,
   );

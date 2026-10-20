@@ -70,3 +70,21 @@ When relevant, also check:
 3. obvious layout shift or oversized content problems
 
 These are valuable, but they do not replace build/lint/basic route verification.
+
+## Curriculum navigation regression checks
+
+Run `node --test scripts/test-sidebar-navigation.js` after changing curriculum
+metadata or sidebar navigation. It checks the shared nine-stage roadmap, lesson
+coverage, section overviews, Previous/Next order, and the separate Black Swan
+Bistro project sequence (including Part 4B and planned parts).
+
+`CurriculumSidebarNav.vue` is the shared desktop/mobile menu for tutorial routes
+and the Black Swan Bistro project overview. Its data comes from
+`getCurriculumNavGroups()` and `getTutorialSidebarByPath()` in `src/data/tutorials.js`.
+Project parts keep their existing URLs; they do not appear in the tutorial menu.
+Planned lessons appear as text and are excluded from Previous/Next links.
+
+In the browser, check a Getting Started lesson, a Design to Code lesson, a
+deployment lesson, and a Bistro part. Expand a roadmap stage using Enter, verify
+the active link, and repeat in the mobile drawer. Check the Bistro project overview
+also lists every part, with Part 9 marked Coming soon until its status changes.

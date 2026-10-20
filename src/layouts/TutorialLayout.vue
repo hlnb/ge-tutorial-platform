@@ -1,6 +1,9 @@
 <template>
   <div class="tutorial-layout" :class="{ 'full-width': isMainTutorialsPage }">
-    <SchemaJsonLd v-if="tutorialPageSchema.length" :schema="tutorialPageSchema" />
+    <SchemaJsonLd
+      v-if="tutorialPageSchema.length"
+      :schema="tutorialPageSchema"
+    />
 
     <aside v-if="!isMainTutorialsPage" class="sidebar desktop-sidebar">
       <component :is="currentNav" v-if="currentNav" />
@@ -66,25 +69,7 @@
 <script setup>
 import { ref, provide, watch, computed, onMounted, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
-import HTMLBasicsNav from "@/components/tutorial-navs/HTMLBasicsNav.vue";
-import GetStartedNav from "@/components/tutorial-navs/GetStartedNav.vue";
-import CSSBasicsNav from "@/components/tutorial-navs/CSSBasicsNav.vue";
-import JavaScriptBasicsNav from "@/components/tutorial-navs/JavaScriptBasicsNav.vue";
-import DOMBasicsNav from "@/components/tutorial-navs/DOMBasicsNav.vue";
-import GitBasicsNav from "@/components/tutorial-navs/GitBasicsNav.vue";
-import DesignToCodeNav from "@/components/tutorial-navs/DesignToCodeNav.vue";
-import AppliedJavaScriptNav from "@/components/tutorial-navs/AppliedJavaScriptNav.vue";
-import WorkingWithDataNav from "@/components/tutorial-navs/WorkingWithDataNav.vue";
-import Frameworks101Nav from "@/components/tutorial-navs/Frameworks101Nav.vue";
-import AiAssistedNav from "@/components/tutorial-navs/AiAssistedNav.vue";
-import BackendNav from "@/components/tutorial-navs/BackendNav.vue";
-import DeploymentsNav from "@/components/tutorial-navs/DeploymentsNav.vue";
-import SeoAnalyticsNav from "@/components/tutorial-navs/SeoAnalyticsNav.vue";
-import AccessibilityEssentialsNav from "@/components/tutorial-navs/AccessibilityEssentialsNav.vue";
-import WebsitePerformanceNav from "@/components/tutorial-navs/WebsitePerformanceNav.vue";
-import WebsiteCareNav from "@/components/tutorial-navs/WebsiteCareNav.vue";
-import CapstoneNav from "@/components/tutorial-navs/CapstoneNav.vue";
-import StandaloneNav from "@/components/tutorial-navs/StandaloneNav.vue";
+import CurriculumSidebarNav from "@/components/tutorial-navs/CurriculumSidebarNav.vue";
 import SchemaJsonLd from "@/components/SchemaJsonLd.vue";
 import TutorialNavigation from "@/components/TutorialNavigation.vue";
 import progressService from "@/services/ProgressService";
@@ -130,29 +115,6 @@ const scrollThrottleDelay = 1000; // 1 second delay between scroll tracking upda
 const isMainTutorialsPage = computed(() => {
   return route.path === "/tutorials";
 });
-
-// (nav components are returned directly from the computed `currentNav`)
-
-const sectionNavComponents = {
-  "html-basics": HTMLBasicsNav,
-  "getting-started": GetStartedNav,
-  "css-basics": CSSBasicsNav,
-  "javascript-basics": JavaScriptBasicsNav,
-  "dom-basics": DOMBasicsNav,
-  "git-basics": GitBasicsNav,
-  "design-to-code": DesignToCodeNav,
-  "applied-javascript": AppliedJavaScriptNav,
-  "working-with-data": WorkingWithDataNav,
-  "frameworks-101": Frameworks101Nav,
-  "ai-assisted": AiAssistedNav,
-  backend: BackendNav,
-  deployments: DeploymentsNav,
-  "seo-analytics": SeoAnalyticsNav,
-  "accessibility-essentials": AccessibilityEssentialsNav,
-  "website-performance-optimisation": WebsitePerformanceNav,
-  "website-care-and-feeding": WebsiteCareNav,
-  capstone: CapstoneNav,
-};
 
 const currentSection = computed(() => {
   const sectionOverview = getSectionByPath(route.path);
@@ -211,7 +173,9 @@ const tutorialPageSchema = computed(() => {
         description: section?.introCopy?.summary,
         path: section ? `/tutorials/${section.slug}` : route.path,
         level: section?.level,
-        keywords: [section?.topic, ...(section?.pathways || [])].filter(Boolean),
+        keywords: [section?.topic, ...(section?.pathways || [])].filter(
+          Boolean,
+        ),
         lessons: sectionLessons,
       }),
       createBreadcrumbSchema(breadcrumbItems.value),
@@ -234,10 +198,7 @@ const tutorialPageSchema = computed(() => {
   ];
 });
 
-// Determine which navigation component to show based on route
-const currentNav = computed(() => {
-  return sectionNavComponents[currentSection.value?.id] || StandaloneNav;
-});
+const currentNav = CurriculumSidebarNav;
 
 // Reset pageSections when route changes
 watch(
@@ -322,7 +283,7 @@ provide("hasQuiz", tutorialHasQuiz);
 provide("currentTutorial", currentTutorial);
 
 const showMobileNavTrigger = computed(() => {
-  return !isMainTutorialsPage.value && !!currentNav.value;
+  return !isMainTutorialsPage.value && !!currentNav;
 });
 
 const showMobileNavDrawer = computed(() => {

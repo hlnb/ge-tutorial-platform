@@ -1,5 +1,6 @@
 <template>
-  <div class="menu tutorial-nav project-nav">
+  <CurriculumSidebarNav v-if="currentProject?.slug === 'black-swan-bistro'" />
+  <div v-else class="menu tutorial-nav project-nav">
     <h2 class="title is-4">
       <i class="fas fa-diagram-project nav-header-icon"></i>
       Project Guide
@@ -55,13 +56,14 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { usePageNavigation } from '@/composables/usePageNavigation';
+import { computed } from "vue";
+import CurriculumSidebarNav from "@/components/tutorial-navs/CurriculumSidebarNav.vue";
+import { usePageNavigation } from "@/composables/usePageNavigation";
 import {
   getProjectByPath,
   getProjectsByPathway,
   getRelatedTutorialsForProject,
-} from '@/data/projects';
+} from "@/data/projects";
 
 const { currentPath, pageSections, hasPageSections } = usePageNavigation();
 
@@ -79,7 +81,7 @@ const relatedTutorials = computed(() => {
 </script>
 
 <style scoped>
-@import '../tutorial-navs/nav.css';
+@import "../tutorial-navs/nav.css";
 
 .project-nav {
   --tutorial-accent: #4b88a2;
