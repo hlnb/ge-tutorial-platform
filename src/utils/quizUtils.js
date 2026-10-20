@@ -72,57 +72,24 @@ export function getQuizQuestions(section, tutorial) {
  * @returns {boolean} - True if the tutorial has a quiz, false otherwise
  */
 export function hasQuiz(path) {
-	// Extract section and tutorial from path
-	const pathParts = path.split('/').filter(Boolean);
-
-	if (pathParts.length < 3) return false;
-
-	// Handle paths with 'beginner' segment
-	let section, tutorial;
-	if (pathParts.includes('beginner')) {
-		const beginnerIndex = pathParts.indexOf('beginner');
-		if (beginnerIndex + 2 >= pathParts.length) return false;
-		section = pathParts[beginnerIndex + 1];
-		tutorial = pathParts[beginnerIndex + 2];
-	} else {
-		section = pathParts[1];
-		tutorial = pathParts[2];
-	}
-
-	// Get quiz questions
-	const questions = getQuizQuestions(section, tutorial);
-
-	// Return true if there are questions
-	return questions.length > 0;
+	return getQuizQuestionsForPath(path).length > 0;
 }
 
 /**
- * Get quiz questions for a tutorial path
- * @param {string} path - The full path of the tutorial (e.g., '/tutorials/html-basics/first-page')
- * @returns {Array} - Array of quiz questions or empty array if not found
+ * Resolve both legacy tutorial paths and paths containing a curriculum level.
+ * Unknown collections, missing lessons, and non-path inputs have no quiz.
  */
 export function getQuizQuestionsForPath(path) {
-	if (!path) return [];
+	if (typeof path !== 'string') return [];
 
-	// Extract section and tutorial from path
-	const pathParts = path.split('/').filter(Boolean);
-
-	if (pathParts.length < 3) return [];
-
-	// Handle paths with 'beginner' segment
-	let section, tutorial;
-	if (pathParts.includes('beginner')) {
-		const beginnerIndex = pathParts.indexOf('beginner');
-		if (beginnerIndex + 2 >= pathParts.length) return [];
-		section = pathParts[beginnerIndex + 1];
-		tutorial = pathParts[beginnerIndex + 2];
-	} else {
-		section = pathParts[1];
-		tutorial = pathParts[2];
+	const parts = path.split(/[?#]/, 1)[0].split('/').filter(Boolean);
+	if (parts.shift() !== 'tutorials') return [];
+	if (['beginner', 'intermediate', 'advanced'].includes(parts[0])) {
+		parts.shift();
 	}
+	if (parts.length !== 2) return [];
 
-	// Get quiz questions
-	return getQuizQuestions(section, tutorial);
+	return getQuizQuestions(parts[0], parts[1]);
 }
 
 /**

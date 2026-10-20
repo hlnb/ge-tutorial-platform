@@ -2,20 +2,6 @@
   <nav class="menu tutorial-nav" :aria-label="navigation.title">
     <h2 class="title is-4">{{ navigation.title }}</h2>
 
-    <div v-if="hasPageSections" class="page-sections">
-      <h3 class="menu-label">On This Page</h3>
-      <ul class="menu-list page-sections-list">
-        <li v-for="section in pageSections" :key="section.id">
-          <a :href="`#${section.id}`">{{ section.title }}</a>
-          <ul v-if="section.subsections?.length">
-            <li v-for="subsection in section.subsections" :key="subsection.id">
-              <a :href="`#${subsection.id}`">{{ subsection.title }}</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
     <details
       v-for="group in navigation.groups"
       :key="`${currentPath}:${group.id}`"
@@ -39,6 +25,20 @@
         </li>
       </ul>
     </details>
+
+    <div v-if="hasPageSections" class="page-sections">
+      <h3 class="menu-label">On This Page</h3>
+      <ul class="menu-list page-sections-list">
+        <li v-for="section in pageSections" :key="section.id">
+          <a :href="`#${section.id}`">{{ section.title }}</a>
+          <ul v-if="section.subsections?.length">
+            <li v-for="subsection in section.subsections" :key="subsection.id">
+              <a :href="`#${subsection.id}`">{{ subsection.title }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
 
     <div class="sidebar-footer">
       <router-link v-if="!navigation.project" to="/projects/black-swan-bistro">

@@ -125,12 +125,17 @@
 						<button
 							v-if="showResults && index === quizQuestions.length - 1"
 							class="button is-success"
+							:disabled="isSaving"
 							@click="finishQuiz"
 						>
 							Finish Quiz
 						</button>
 					</div>
 				</div>
+
+				<p v-if="saveError" class="notification is-danger mt-4" role="alert">
+					{{ saveError }}
+				</p>
 
 				<div
 					v-if="quizQuestions && quizQuestions.length > 0"
@@ -239,6 +244,8 @@ const currentQuestionIndex = ref(0);
 const selectedAnswers = ref([]);
 const showResults = ref(false);
 const score = ref(0);
+const isSaving = ref(false);
+const saveError = ref('');
 
 // Computed properties
 const currentPath = computed(() => props.tutorialPath || route.path);
@@ -272,12 +279,15 @@ const getScoreClass = computed(() => {
 
 // Check if quiz was previously completed
 const checkQuizStatus = async () => {
+	const path = currentPath.value;
 	const progress = await progressService.getProgress();
-	if (progress?.completedQuizzes?.includes(currentPath.value)) {
+	if (currentPath.value !== path) return;
+	const result = progress?.quizResults?.[path];
+	if (Number.isInteger(result?.score) && result.score >= 0 && result.score <= quizQuestions.value.length) {
+		score.value = result.score;
 		quizCompleted.value = true;
-		if (progress?.quizResults?.[currentPath.value]?.score) {
-			score.value = progress.quizResults[currentPath.value].score;
-		}
+	} else if (progress?.completedQuizzes?.includes(currentPath.value)) {
+		quizCompleted.value = true;
 	}
 };
 
@@ -317,27 +327,42 @@ const calculateScore = () => {
 };
 
 // Finish the quiz and save progress
-const finishQuiz = () => {
-	quizCompleted.value = true;
-	showResults.value = false;
+const finishQuiz = async () => {
+	if (isSaving.value || !quizQuestions.value?.length) return;
 
-	// Save quiz completion to progress service
-	if (progressService.isProgressTrackingEnabled() && quizQuestions.value) {
-		progressService.saveQuizResult(
-			currentPath.value,
-			String(score.value),
-			String(quizQuestions.value.length)
-		);
-	}
-
-	emit('quiz-completed', {
+	const path = currentPath.value;
+	const total = quizQuestions.value.length;
+	const result = {
 		score: score.value,
-		total: quizQuestions.value ? quizQuestions.value.length : 0,
-	});
+		total,
+		maxScore: total,
+		percentage: Math.round((score.value / total) * 100),
+		passed: score.value / total >= 0.8,
+	};
+	isSaving.value = true;
+	saveError.value = '';
+	try {
+		if (progressService.isProgressTrackingEnabled()) {
+			const saved = await progressService.saveQuizResult(path, result);
+			if (!saved) {
+				if (currentPath.value === path) saveError.value = 'Your result could not be saved. Please try Finish Quiz again.';
+				return;
+			}
+		}
+		if (currentPath.value !== path) return;
+		quizCompleted.value = true;
+		showResults.value = false;
+		emit('quiz-completed', result);
+	} catch {
+		if (currentPath.value === path) saveError.value = 'Your result could not be saved. Please try Finish Quiz again.';
+	} finally {
+		isSaving.value = false;
+	}
 };
 
 // Reset the quiz
 const resetQuiz = () => {
+	saveError.value = '';
 	quizStarted.value = false;
 	quizCompleted.value = false;
 	currentQuestionIndex.value = 0;
@@ -359,7 +384,7 @@ const reviewAnswers = () => {
 
 // Watch for route changes to reset the quiz
 watch(
-	() => route.path,
+	currentPath,
 	() => {
 		resetQuiz();
 		checkQuizStatus();

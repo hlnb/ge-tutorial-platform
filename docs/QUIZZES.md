@@ -110,3 +110,27 @@ If a quiz does not appear:
 3. check `src/utils/quizUtils.js`
 4. confirm the page is rendering `TestYourKnowledgeSection` or the intended quiz wrapper
 5. check for console warnings or component import issues
+
+## Route lookup and saved results
+
+Quiz lookup accepts `/tutorials/<section>/<lesson>` and routes with an optional
+`beginner`, `intermediate`, or `advanced` segment. Trailing slashes, query strings,
+and fragments do not affect availability. Unknown collections and lessons return
+no questions; extra nested path segments do not fall back to another quiz.
+
+Finishing a quiz saves numeric `score`, `total`, `maxScore`, and `percentage`, plus
+`passed` and `completedAt`. The pass threshold is 80%, matching the quiz's green
+success tier. All finished attempts, including zero scores, are retained and can
+be restored on reload. A passing attempt adds the route to `completedQuizzes`;
+retakes update the latest result without duplicating or revoking that completion.
+
+The Finish Quiz action waits for persistence. A failed read or write leaves the
+answers available with a retry message and does not emit successful completion.
+When progress tracking is disabled, the attempt finishes without a storage write.
+This follows the service's existing tracking decision; it does not change consent
+or authentication policy.
+
+Run `npm run test:quiz` under Node 22. The tests use Node's experimental VM modules
+to isolate Firebase and browser storage without network access or new dependencies.
+They exercise real quiz data, component logic, guest and mocked Firestore saves,
+invalid results, storage failures, retries, and completion boundaries.

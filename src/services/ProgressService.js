@@ -32,7 +32,7 @@ function getCurrentUserId() {
 }
 
 // Load progress from Firestore or localStorage
-async function loadProgress() {
+async function loadProgress({ strict = false } = {}) {
 	const userId = getCurrentUserId();
 	let progress;
 	if (userId && db) {
@@ -46,6 +46,7 @@ async function loadProgress() {
 				progress = { ...defaultProgress };
 			}
 		} catch (error) {
+			if (strict) throw error;
 			console.error('Error loading progress from Firestore:', error);
 			progress = { ...defaultProgress };
 		}
@@ -60,6 +61,7 @@ async function loadProgress() {
 				progress = { ...defaultProgress };
 			}
 		} catch (error) {
+			if (strict) throw error;
 			console.error('Error loading progress from localStorage:', error);
 			progress = { ...defaultProgress };
 		}
@@ -166,18 +168,33 @@ async function updateTutorialProgress(tutorialPath, progressData) {
 // Save quiz result
 async function saveQuizResult(quizId, result) {
 	if (!isProgressTrackingEnabled()) return false;
+	if (typeof quizId !== 'string' || !quizId.trim() ||
+		!result || !Number.isInteger(result.score) || !Number.isInteger(result.total) ||
+		result.total <= 0 || result.score < 0 || result.score > result.total ||
+		typeof result.passed !== 'boolean' || result.passed !== (result.score / result.total >= 0.8)) return false;
 
 	try {
-		const progress = await loadProgress();
-		progress.quizResults[quizId] = {
-			...result,
-			completedAt: new Date().toISOString()
+		// A failed read must not turn into a write based on empty default progress.
+		const existing = await loadProgress({ strict: true });
+		const progress = {
+			...existing,
+			completedQuizzes: [...existing.completedQuizzes],
+			quizResults: {
+				...existing.quizResults,
+				[quizId]: {
+					score: result.score,
+					total: result.total,
+					maxScore: result.total,
+					percentage: Math.round((result.score / result.total) * 100),
+					passed: result.passed,
+					completedAt: new Date().toISOString(),
+				},
+			},
 		};
 		if (result.passed && !progress.completedQuizzes.includes(quizId)) {
 			progress.completedQuizzes.push(quizId);
 		}
-		await saveProgress(progress);
-		return true;
+		return await saveProgress(progress);
 	} catch (error) {
 		console.error('Error saving quiz result:', error);
 		return false;

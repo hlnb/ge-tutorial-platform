@@ -12,6 +12,7 @@
 		"build": "vite-ssg build && node scripts/generate-sitemap.js",
 		"build:spa": "vite build && node scripts/generate-sitemap.js",
 		"preview": "vite preview",
+		"test:quiz": "node --experimental-vm-modules scripts/test-quiz-progress.js",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix",
 		"format": "prettier --write src/",
 		"generate:sitemap": "node scripts/generate-sitemap.js",
