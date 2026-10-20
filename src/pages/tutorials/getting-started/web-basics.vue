@@ -387,15 +387,6 @@ const closureReflectionPrompts = [
 	},
 ];
 
-const frontmatter = {
-	title: 'Web Basics',
-	description: 'Learn the basics of web development',
-	author: 'Helen Burgess',
-	date: '2024-03-20',
-	tags: ['web development', 'beginner', 'web basics'],
-	duration: '20 minutes',
-	difficulty: 'beginner',
-};
 
 const sections = [
 	{
@@ -438,7 +429,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 </script>
 
 <style scoped>

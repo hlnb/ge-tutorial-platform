@@ -1291,7 +1291,7 @@ This is a new line
 import { useTutorialHead } from '@/composables/useTutorialHead';
 import { ref, onMounted, inject, computed } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import '@/components/TutorialNavigation.vue';
 
 useTutorialHead({
   title: 'HTML Document Structure',

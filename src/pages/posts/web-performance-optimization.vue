@@ -267,7 +267,7 @@ import { useHead } from '@vueuse/head';
 import { format } from 'date-fns';
 import PostVisibility from '@/components/PostVisibility.vue';
 import PostNavigation from '@/components/PostNavigation.vue';
-import BlogSignup from '@/components/BlogSignup.vue';
+import '@/components/BlogSignup.vue';
 
 // Define frontmatter for the post
 
@@ -305,7 +305,7 @@ useHead({
 });
 
 // Initialize page sections
-const { sections } = usePageSections();
+usePageSections();
 
 onMounted(() => {
 	// Add any post-specific initialization here

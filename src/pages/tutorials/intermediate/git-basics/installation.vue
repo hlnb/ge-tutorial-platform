@@ -232,7 +232,6 @@ git config --global user.email 'your.email@example.com'`"
 
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';

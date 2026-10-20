@@ -291,7 +291,6 @@
 
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { createCodeRunner } from '@/utils/codeRunner';
@@ -315,7 +314,7 @@ const sections = [
 	{ id: 'practice', title: 'Interactive Practice' },
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const anticipatorySet = {
 	title: '🍽️ Stocking the Digital Pantry',

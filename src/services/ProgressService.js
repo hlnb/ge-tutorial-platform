@@ -5,7 +5,7 @@
 
 import { auth, db } from './firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+import 'firebase/auth';
 
 // Constants
 const PROGRESS_STORAGE_KEY = 'tutorial_progress';
@@ -112,31 +112,7 @@ function isProgressTrackingEnabled() {
 	return true;
 }
 
-// Enable progress tracking
-function enableProgressTracking() {
-	if (typeof window === 'undefined') return;
 
-	try {
-		const storage = getStorage();
-		if (!storage) return;
-		storage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(defaultProgress));
-	} catch (error) {
-		console.error('Error enabling progress tracking:', error);
-	}
-}
-
-// Disable progress tracking
-function disableProgressTracking() {
-	if (typeof window === 'undefined') return;
-
-	try {
-		const storage = getStorage();
-		if (!storage) return;
-		storage.removeItem(PROGRESS_STORAGE_KEY);
-	} catch (error) {
-		console.error('Error disabling progress tracking:', error);
-	}
-}
 
 // Get current progress
 async function getProgress() {
@@ -274,7 +250,7 @@ async function trackProgress(tutorialPath) {
 	if (!isProgressTrackingEnabled() || !tutorialPath) return false;
 
 	try {
-		const progress = await loadProgress();
+		await loadProgress();
 		
 		// Update tutorial progress
 		await updateTutorialProgress(tutorialPath, {

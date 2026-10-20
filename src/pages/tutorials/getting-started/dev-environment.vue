@@ -339,13 +339,6 @@ const closureReflectionPrompts = [
 	},
 ];
 
-const frontmatter = {
-	title: 'Setting Up Your Development Environment',
-	description: 'Learn how to set up your development environment',
-	author: 'Helen Burgess',
-	date: '2024-03-20',
-	tags: ['web development', 'beginner', 'development environment'],
-};
 
 const sections = [
 	{
@@ -366,7 +359,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 </script>
 
 <style scoped>

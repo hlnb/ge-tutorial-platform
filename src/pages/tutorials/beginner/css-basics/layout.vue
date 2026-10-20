@@ -1,8 +1,7 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref, computed, inject, onMounted, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import progressService from '@/services/ProgressService';
+import { ref } from 'vue';
+import '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
@@ -76,7 +75,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const checkpointQuestions = [
 	{
@@ -603,29 +602,6 @@ const floatColumnsExample = ref(`/* Two-column layout using floats */
 	}
 }`);
 
-const clearExample = ref(`/* Clear example */
-.clear-demo::after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-.float-left {
-	float: left;
-	width: 100px;
-	height: 100px;
-	margin-right: 10px;
-	padding: 10px;
-	background: #e9ecef;
-	border: 1px solid #dee2e6;
-}
-
-.cleared {
-	clear: both;
-	padding: 10px;
-	background: #f8f9fa;
-	border: 1px solid #dee2e6;
-}`);
 </script>
 
 <template>

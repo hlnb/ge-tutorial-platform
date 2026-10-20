@@ -266,14 +266,6 @@ useTutorialHead({
   path: '/tutorials/getting-started/browser-tools',
 });
 
-const frontmatter = {
-	title: 'Browser Developer Tools',
-	description:
-		'Learn how to use browser developer tools to inspect, debug, and test web pages.',
-	author: 'Helen Burgess',
-	date: '2024-03-20',
-	tags: ['web development', 'beginner', 'browser developer tools'],
-};
 
 const sections = [
 	{
@@ -308,7 +300,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 </script>
 
 <style scoped>

@@ -498,14 +498,6 @@ const closureReflectionPrompts = [
 	},
 ];
 
-const frontmatter = {
-	title: 'Text Editors',
-	description:
-		'Learn about different text editors for web development and how to choose the right one for your needs.',
-	author: 'Helen Burgess',
-	date: '2024-03-20',
-	tags: ['web development', 'beginner', 'text editors'],
-};
 
 const sections = [
 	{
@@ -547,7 +539,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 </script>
 
 <style scoped>

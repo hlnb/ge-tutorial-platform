@@ -11,7 +11,7 @@ import './assets/main.css';
 export const createApp = ViteSSG(
 	App,
 	{ routes, scrollBehavior },
-	({ app, router }) => {
+	({ router }) => {
 		setupRouterGuards(router);
 	},
 );

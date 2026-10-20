@@ -10,69 +10,8 @@ import { domBasicsQuizzes } from '@/data/quizzes/dom-basics';
 import { gitBasicsQuizzes } from '@/data/quizzes/git-basics';
 
 // Add JavaScript Basics quizzes
-const javascriptBasicsQuizzes = {
-	'/tutorials/beginner/javascript-basics/introduction': [
-		{
-			text: 'What is JavaScript primarily used for in web development?',
-			options: [
-				'Styling web pages',
-				'Creating the structure of web pages',
-				'Adding interactivity to web pages',
-				'Hosting web pages',
-			],
-			correctAnswer: 2,
-		},
-		{
-			text: 'Which of the following is NOT a way to add JavaScript to an HTML page?',
-			options: [
-				'Inline JavaScript',
-				'Internal JavaScript',
-				'External JavaScript',
-				'Imported JavaScript',
-			],
-			correctAnswer: 3,
-		},
-		{
-			text: 'What does DOM stand for?',
-			options: [
-				'Document Object Model',
-				'Data Object Model',
-				'Document Oriented Markup',
-				'Digital Object Management',
-			],
-			correctAnswer: 0,
-		},
-		{
-			text: 'Which method is used to find an HTML element by its ID?',
-			options: [
-				'document.findElement()',
-				'document.querySelector()',
-				'document.getElementById()',
-				'document.getElementByName()',
-			],
-			correctAnswer: 2,
-		},
-		{
-			text: 'In JavaScript, what is the correct way to write an if statement?',
-			options: [
-				'if (x === 5) then { ... }',
-				'if x = 5 then { ... }',
-				'if x === 5 { ... }',
-				'if (x === 5) { ... }',
-			],
-			correctAnswer: 3,
-		},
-	],
-};
 
 // Add the JavaScript Basics quizzes to the allQuizzes object
-const allQuizzes = {
-	...htmlBasicsQuizzes,
-	...cssBasicsQuizzes,
-	...javascriptBasicsQuizzes,
-	...domBasicsQuizzes,
-	...gitBasicsQuizzes
-};
 
 /**
  * Get quiz questions for a specific tutorial

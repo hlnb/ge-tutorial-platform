@@ -544,7 +544,7 @@ import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
-import TutorialCompletion from '@/components/TutorialCompletion.vue';
+import '@/components/TutorialCompletion.vue';
 import { usePageSections } from '@/composables/usePageSections';
 
 useTutorialHead({
@@ -579,15 +579,6 @@ const closureReflectionPrompts = [
   },
 ];
 
-const frontmatter = {
-  title: 'Introduction to Git',
-  description: 'Learn the basics of Git version control system',
-  category: 'Git Basics',
-  level: 'Beginner',
-  order: 3,
-  tags: ['git', 'version control', 'tutorial', 'beginner'],
-  lastUpdated: '2025-05-12',
-};
 
 
 //page sections
@@ -601,7 +592,7 @@ const sections = [
   { id: 'challenge',title: 'Challenge' }
 ];
 
-const { pageSections,} = usePageSections(sections); 
+usePageSections(sections); 
 
 
 

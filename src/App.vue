@@ -69,19 +69,7 @@ const isProjectPage = computed(() => {
 	return path.startsWith('/projects/') && path !== '/projects/';
 });
 
-// Handle consent update
-const handleConsentUpdate = (settings) => {
-	// Here you can initialize tracking based on settings
-	if (settings.progress) {
-		initializeProgressTracking();
-	}
-};
 
-// Initialize progress tracking
-const initializeProgressTracking = () => {
-	// This function will be implemented later
-	// It will set up the necessary tracking for student progress
-};
 </script>
 
 <style>

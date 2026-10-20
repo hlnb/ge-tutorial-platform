@@ -145,7 +145,7 @@ function formatDate(date) {
 		const parsedDate =
 			typeof date === 'string' ? parseISO(date) : new Date(date);
 		return format(parsedDate, 'MMMM d, yyyy');
-	} catch (error) {
+	} catch {
 		console.warn('Invalid date:', date);
 		return '';
 	}
@@ -169,7 +169,7 @@ onMounted(async () => {
 			(post) => !publishedPosts.value.find((p) => p.slug === post.slug),
 		);
 		publishedPosts.value = [...publishedPosts.value, ...newPosts];
-	} catch (error) {
+	} catch {
 		console.info('Using router posts only');
 	}
 });

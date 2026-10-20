@@ -1223,7 +1223,7 @@ const sections = [
 ]
 
 // Provide sections data for the page navigation
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 
 
@@ -1342,7 +1342,7 @@ function initializeFormValidation() {
         }
 
         try {
-          const formData = new FormData(formEl)
+          new FormData(formEl);
           // Simulate API call
           await new Promise(resolve => setTimeout(resolve, 1000))
           formResult.textContent = 'Form submitted successfully!'
@@ -1524,7 +1524,7 @@ function initializeTouchEvents() {
   const resultTouch = document.getElementById('touchResult')
   
   if (touchArea && resultTouch) {
-    touchArea.addEventListener('touchstart', (e) => {
+    touchArea.addEventListener('touchstart', () => {
       if (resultTouch) resultTouch.textContent = 'Touch started'
     })
     

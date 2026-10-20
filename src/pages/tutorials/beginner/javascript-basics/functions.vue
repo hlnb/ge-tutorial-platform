@@ -333,7 +333,7 @@ const sections = [
 	{ id: 'modern-patterns', title: 'Modern Function Patterns' },
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const anticipatorySet = {
 	title: '👩‍🍳 Signature Recipes on Repeat',

@@ -63,14 +63,13 @@
 </template>
 
 <script setup>
-import { ref, inject } from 'vue';
+import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { usePageNavigation } from '@/composables/usePageNavigation';
 import { getSectionNavItems } from '@/data/tutorials';
 
 const route = useRoute();
 const { pageSections, hasPageSections } = usePageNavigation();
-const pageSectionsInject = inject('pageSections', ref([]));
 
 const navItems = getSectionNavItems('design-to-code');
 

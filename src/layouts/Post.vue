@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue';
+import { ref, watch } from 'vue';
 import { useHead } from '@vueuse/head';
 
 const frontmatter = ref(null);

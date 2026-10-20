@@ -300,7 +300,6 @@
 
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import { usePageSections } from '@/composables/usePageSections';
@@ -327,7 +326,7 @@ const sections = [
 	{ id: 'practice', title: 'Practice Time' },
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const anticipatorySet = {
 	title: '🔁 Prep Like a Pro Line Cook',

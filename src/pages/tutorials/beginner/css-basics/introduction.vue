@@ -459,13 +459,11 @@ export default {
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
 import CodeMirror from '@/components/CodeMirror.vue';
-import { format } from 'date-fns';
-import { ref, computed, inject, onMounted, watch } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import { usePageSections } from '@/composables/usePageSections';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import { useRoute } from 'vue-router';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
@@ -490,28 +488,7 @@ const frontmatter = {
 	difficulty: 'beginner',
 };
 
-const formatDate = (date) => {
-	return format(new Date(date), 'MMMM do, yyyy');
-};
 
-const codeExamples = {
-	cssSyntax: `selector {
-  property: value;
-  another-property: value;
-}`,
-
-	badExamples: `.Header {} /* Uppercase */
-.nav_menu {} /* Underscore */
-.searchbox1 {} /* Numbers at end */
-.featured!article {} /* Special characters */
-.s {} /* Not descriptive */`,
-
-	goodExamples: `.header {} /* Lowercase */
-.nav-menu {} /* Hyphen */
-.search-box {} /* Descriptive */
-.featured-article {} /* Clean naming */
-.site-navigation {} /* Clear purpose */`,
-};
 
 const checkpointQuestions = [
 	{

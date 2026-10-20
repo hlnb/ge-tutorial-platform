@@ -61,7 +61,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   orderLabel: {
     type: String,
     required: true,

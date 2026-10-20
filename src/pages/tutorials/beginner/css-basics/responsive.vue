@@ -1,8 +1,7 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref, computed, inject, onMounted, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import progressService from '@/services/ProgressService';
+import { ref } from 'vue';
+import '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
@@ -96,7 +95,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const checkpointQuestions = [
 	{
@@ -161,83 +160,10 @@ const closureReflectionPrompts = [
 	},
 ];
 
-const responsiveHolyGrail = ref(`/* Holy Grail Layout - Responsive */
-@media (max-width: 768px) {
-  .holy-grail-content,
-  .holy-grail-nav,
-  .holy-grail-ads {
-    float: none;
-    width: 100%;
-  }
-}`);
 
-const responsiveContainer = ref(`/* Responsive Container */
-@media (max-width: 992px) {
-  .main-content,
-  .sidebar {
-    float: none;
-    width: 100%;
-    padding-right: 0;
-  }
-  
-  .sidebar {
-    margin-top: 2rem;
-  }
-}`);
 
-const responsiveMenu = ref(`/* Responsive Menu */
-@media (max-width: 768px) {
-  .menu-column {
-    float: none;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 2rem;
-  }
-}`);
 
-const responsiveGrid = ref(`/* Responsive Grid */
-@media (max-width: 768px) {
-  .grid-item {
-    width: 50%;
-  }
-}
 
-@media (max-width: 480px) {
-  .grid-item {
-    width: 100%;
-  }
-}`);
-
-const responsiveNav = ref(`/* Responsive Navigation */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 2rem;
-}
-
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-  }
-  
-  .nav-menu.is-active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: white;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-}`);
 
 const desktopFirstExample = ref(`/* ❌ Desktop-First Approach */
 .container {

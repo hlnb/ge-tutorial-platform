@@ -687,13 +687,6 @@ const closureReflectionPrompts = [
 	},
 ];
 
-const frontmatter = {
-	title: 'Introduction to HTML',
-	description: 'Learn about HTML, its history, and create your first web page',
-	author: 'Helen Burgess',
-	date: '2024-03-20',
-	tags: ['web development', 'beginner', 'html'],
-};
 
 useTutorialHead({
   title: 'Introduction to HTML',
@@ -749,7 +742,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const elementExample = ref('<p>This is a paragraph.</p>');
 

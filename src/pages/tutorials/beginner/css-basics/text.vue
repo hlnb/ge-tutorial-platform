@@ -1,6 +1,6 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref, onMounted, inject } from 'vue';
+import { ref } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
@@ -84,7 +84,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const checkpointQuestions = [
 	{
@@ -273,35 +273,6 @@ const textSpacingExample = ref(`/* Text spacing examples */
   word-spacing: -0.1em;      /* Tighter word spacing */
 }`);
 
-const textDecorationExample = ref(`/* Text decoration examples */
-.underline {
-  text-decoration: underline;
-}
-
-.custom-underline {
-  text-decoration: underline;
-  text-decoration-color: #ff6b6b;
-  text-decoration-thickness: 2px;
-  text-decoration-style: wavy;
-}
-
-.line-through {
-  text-decoration: line-through;
-}
-
-.overline {
-  text-decoration: overline;
-}
-
-.no-decoration {
-  text-decoration: none;  /* Removes decoration */
-}
-
-/* Multiple decorations */
-.multiple-lines {
-  text-decoration: underline overline;
-  text-decoration-color: #4a90e2;
-}`);
 
 // Add vertical alignment example
 const verticalAlignExample = ref(`/* Vertical alignment examples */
@@ -363,34 +334,7 @@ const fontFaceExample = ref(`/* Modern font-face declaration */
 }`);
 
 // Add a performance example
-const fontPerformanceExample = ref(`/* Font loading strategies */
-/* Preload critical fonts */
-<link
-  rel="preload"
-  href="fonts/myfont.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
->
 
-/* Control loading behavior */
-@font-face {
-  font-family: 'MyWebFont';
-  src: url('fonts/myfont.woff2') format('woff2');
-  font-display: swap;    /* Show fallback until font loads */
-}
-
-/* Subset fonts for better performance */
-@font-face {
-  font-family: 'MyWebFont-Subset';
-  src: url('fonts/myfont-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF;  /* Latin characters only */
-}`);
-
-const traditionalFontStackExample = ref(`/* Traditional web safe font stacks */
-.serif {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}`);
 
 const systemFontStackExample = ref(`/* Modern system font stack */
 body {

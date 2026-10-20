@@ -1,14 +1,13 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref, computed, inject, onMounted } from 'vue';
+import { ref, computed } from 'vue';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { html } from '@codemirror/lang-html';
 import { css } from '@codemirror/lang-css';
 import { javascript } from '@codemirror/lang-javascript';
 import { usePageSections } from '@/composables/usePageSections';
-import { useRoute } from 'vue-router';
-import progressService from '@/services/ProgressService';
+import '@/services/ProgressService';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -69,7 +68,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const checkpointQuestions = [
 	{

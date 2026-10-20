@@ -376,7 +376,7 @@
 
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead.js';
-import TutorialNavigation from '@/components/TutorialNavigation.vue';
+import '@/components/TutorialNavigation.vue';
 
 useTutorialHead({
   title: 'How the Internet Works',
@@ -386,10 +386,10 @@ useTutorialHead({
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import CheckpointBox from '@/components/hunter/CheckpointBox.vue';
-import ClosureSection from '@/components/hunter/ClosureSection.vue';
-import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
-import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
-import TutorialCompletion from '@/components/TutorialCompletion.vue';
+import '@/components/hunter/ClosureSection.vue';
+import '@/components/TestYourKnowledgeSection.vue';
+import '@/components/TutorialRecommendations.vue';
+import '@/components/TutorialCompletion.vue';
 
 const checkpointQuestions1 = [
 	{
@@ -417,32 +417,8 @@ const checkpointQuestions2 = [
 	},
 ];
 
-const closureKeyTakeaways = [
-	'The internet is a network of networks where data travels in packets between IP addresses',
-	'DNS is the internet\'s phonebook - converting memorable domain names into computer-readable IP addresses',
-	'HTTP transfers data while HTTPS adds encryption for security (always use HTTPS for sensitive data!)',
-	'Web servers are always listening, waiting to process your requests and send back responses',
-	'Every website interaction involves: DNS lookup \u2192 Connect to IP \u2192 HTTP request \u2192 Server processing \u2192 Response delivery',
-];
 
-const closureObjectives = [
-	'Explain how data travels using packets and IP addresses',
-	'Describe the DNS lookup process',
-	'Identify HTTP vs HTTPS differences',
-	'Understand how servers work',
-];
 
-const closureReflectionPrompts = [
-	{
-		title: '\ud83d\udcad Reflection Questions',
-		questions: [
-			'What surprised you most about how the internet works?',
-			'How will understanding DNS help you as a web developer?',
-			'Why is HTTPS more important today than ever?',
-			'If you had to explain the internet to someone, what analogy would you use?',
-		],
-	},
-];
 </script>
 
 <style scoped>

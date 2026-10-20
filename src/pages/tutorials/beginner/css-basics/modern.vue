@@ -1,8 +1,7 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref, computed, onMounted, inject, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import progressService from '@/services/ProgressService';
+import { ref } from 'vue';
+import '@/services/ProgressService';
 import CodeMirror from '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
@@ -19,7 +18,6 @@ useTutorialHead({
   path: "/tutorials/beginner/css-basics/modern",
 });
 
-const progressEnabled = ref(true);
 
 const frontmatter = {
 	title: 'Modern CSS',
@@ -93,7 +91,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const checkpointQuestions = [
 	{
@@ -198,29 +196,6 @@ const modernSelectorsExample = ref(`/* Modern CSS Selectors */
 	margin-block: 0.5em;
 }`);
 
-const cssFunctionsExample = ref(`/* Basic CSS Function Examples */
-.container {
-	/* Calculate width minus padding */
-	width: calc(100% - 2rem);
-	
-	/* Clamp value between min and max */
-	font-size: clamp(1rem, 2vw, 1.5rem);
-	
-	/* Use minimum of multiple values */
-	margin: min(2rem, 5vw);
-	
-	/* Use maximum of multiple values */
-	padding: max(1rem, 2vh);
-}
-
-/* Combining functions */
-.responsive-element {
-	width: clamp(
-		300px,
-		calc(50% + 2rem),
-		800px
-	);
-}`);
 
 const functionExamplesCode = ref(`/* Real-world Examples */
 
@@ -283,22 +258,6 @@ const clampExample = ref(`/* clamp() Examples */
 	padding: clamp(1rem, 3vw, 3rem);
 }`);
 
-const minMaxExample = ref(`/* min() and max() Examples */
-.card {
-	/* Use smaller of two values */
-	padding: min(2rem, 5vw);
-	
-	/* Use larger of two values */
-	margin: max(1rem, 2vh);
-}
-
-.image {
-	/* Responsive but constrained width */
-	width: min(100%, 500px);
-	
-	/* Ensure minimum readable size */
-	font-size: max(12px, 1em);
-}`);
 
 const minmaxExample = ref(`/* minmax() Grid Examples */
 .grid-container {

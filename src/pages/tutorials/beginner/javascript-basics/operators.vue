@@ -2897,7 +2897,7 @@ const sections = [
   }
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 // Toggle solution visibility
 const showSolution = ref(false);
@@ -3036,24 +3036,6 @@ console.log('Total: $' + total.toFixed(2)); // $75.87
 let change = 100 - total;
 console.log('Change: $' + change.toFixed(2)); // $24.13`;
 
-const tryArithmeticExamples = `// Try these calculations
-10 + 5          // Addition
-20 - 7          // Subtraction
-4 * 6           // Multiplication
-15 / 3          // Division
-10 % 3          // Remainder
-2 ** 3          // Exponentiation
-
-// Order of operations
-2 + 3 * 4       // Multiplication first
-(2 + 3) * 4     // Parentheses first
-
-// Increment and decrement
-let count = 5;
-count++;        // Increment
-console.log(count);
-count--;        // Decrement
-console.log(count);`;
 
 const doubleEqualsExample = `// Double equals (==) examples
 5 == 5      // true (same value, same type)
@@ -3141,64 +3123,10 @@ console.log('Tip per person: $' + tip); // $6.3
 bill += tip; // bill = bill + tip
 console.log('Total per person: $' + bill.toFixed(2)); // $37.80`;
 
-const arithmeticExpressionExample = `// Arithmetic expressions
-let subtotal = 24.99 + 18.99 + 7.99; // 51.97
-let tax = subtotal * 0.08; // 4.16
-let total = subtotal + tax; // 56.13`;
 
-const stringExpressionExample = `// String expressions
-let firstName = "John";
-let lastName = "Smith";
-let fullName = firstName + " " + lastName; // "John Smith"
 
-let greeting = \`Welcome to our restaurant, \${fullName}!\`; 
-// "Welcome to our restaurant, John Smith!"`;
 
-const logicalExpressionExample = `// Logical expressions
-let isVIP = true;
-let hasReservation = false;
-let canSkipLine = isVIP || hasReservation; // true
 
-let isWeekend = true;
-let hasSpecialMenu = false;
-let canOrderSpecial = !isWeekend && hasSpecialMenu; // false`;
-
-const assignmentExpressionExample = `// Assignment expressions
-let bill = 50;
-let tip = bill * 0.15; // 7.5
-
-// This is both an assignment and an arithmetic expression
-let total = bill += tip; // 57.5
-
-// Multiple assignments
-let x = y = z = 10; // All three variables get value 10`;
-
-const complexExpressionExample = `// Complex expression example
-let appetizer = 12.99;
-let entree = 24.99;
-let dessert = 8.99;
-let drinkPrice = 5.99;
-let numDrinks = 2;
-
-// Calculate bill with tax and tip
-let subtotal = appetizer + entree + dessert + (drinkPrice * numDrinks);
-let tax = subtotal * 0.08;
-let tip = subtotal * 0.18;
-let total = subtotal + tax + tip;
-
-console.log('Subtotal: $' + subtotal.toFixed(2)); // $58.95
-console.log('Tax: $' + tax.toFixed(2)); // $4.72
-console.log('Tip: $' + tip.toFixed(2)); // $10.61
-console.log('Total: $' + total.toFixed(2)); // $74.28
-
-// Check if bill is over budget
-let budget = 70;
-let isOverBudget = total > budget;
-console.log('Is over budget? ' + isOverBudget); // true
-
-// Calculate how much over budget
-let amountOverBudget = isOverBudget ? total - budget : 0;
-console.log('Amount over budget: $' + amountOverBudget.toFixed(2)); // $4.28`;
 
 const htmlSetupCode = `<!DOCTYPE html>
 <html>

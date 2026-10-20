@@ -1,11 +1,9 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref, computed, inject, onMounted, watch } from 'vue';
-import { sanitizeHtml } from '@/utils/sanitizeHtml';
-import CodeMirror from '@/components/CodeMirror.vue';
+import '@/utils/sanitizeHtml';
+import '@/components/CodeMirror.vue';
 import { usePageSections } from '@/composables/usePageSections';
-import { useRoute } from 'vue-router';
-import progressService from '@/services/ProgressService';
+import '@/services/ProgressService';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -62,7 +60,6 @@ const sections = [
 
 const { pageSections } = usePageSections(sections);
 
-const route = useRoute();
 
 const checkpointQuestions = [
 	{
@@ -132,37 +129,8 @@ const closureReflectionPrompts = [
 ];
 
 // Example code
-const elementExample = ref(
-	'<!-- HTML -->\n' +
-		'<h1>Welcome to my website</h1>\n' +
-		'<p>This is a paragraph with navy text.</p>\n' +
-		'<p>This is another paragraph that will also be styled.</p>\n\n' +
-		'/* CSS */\n' +
-		'p {\n' +
-		'  color: navy;\n' +
-		'  line-height: 1.6;\n' +
-		'}\n\n' +
-		'h1 {\n' +
-		'  color: #333;\n' +
-		'  font-size: 2em;\n' +
-		'}',
-);
 
 // Preview
-const sanitizedElementPreview = computed(() => {
-	const previewHtml =
-		'<div class="preview-example">' +
-		'<style>' +
-		'.preview-example p { color: navy; line-height: 1.6; }' +
-		'.preview-example h1 { color: #333; font-size: 2em; }' +
-		'</style>' +
-		'<h1>Welcome to my website</h1>' +
-		'<p>This is a paragraph with navy text.</p>' +
-		'<p>This is another paragraph that will also be styled.</p>' +
-		'</div>';
-
-	return sanitizeHtml(previewHtml);
-});
 
 defineExpose({
 	pageSections,

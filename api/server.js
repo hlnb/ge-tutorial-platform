@@ -1,11 +1,8 @@
 import 'dotenv/config';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 import express from 'express';
 import cors from 'cors';
 import progressRoutes from './routes/progress.js';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = process.env.PORT || 3000;
 

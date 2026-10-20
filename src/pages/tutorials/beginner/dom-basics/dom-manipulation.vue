@@ -1450,7 +1450,7 @@ container.appendChild(fragment);  // Single reflow
 
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue';
 import { usePageSections } from '@/composables/usePageSections'
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue'
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue'
@@ -1694,7 +1694,7 @@ function initElementStyler() {
   if (!(isInput(bgColorInput) && isInput(textColorInput) && isInput(borderRadiusInput) && isSelect(classSelect) && isHTMLElement(previewElement))) return;
   
   // Background color change
-  bgColorInput.addEventListener('input', function(e) {
+  bgColorInput.addEventListener('input', function() {
     if (!(typeof window !== 'undefined' && window.HTMLElement && previewElement instanceof window.HTMLElement)) return;
     /** @type {HTMLElement} */
     const pe = previewElement;
@@ -1702,7 +1702,7 @@ function initElementStyler() {
   });
   
   // Text color change
-  textColorInput.addEventListener('input', function(e) {
+  textColorInput.addEventListener('input', function() {
     if (!(typeof window !== 'undefined' && window.HTMLElement && previewElement instanceof window.HTMLElement)) return;
     /** @type {HTMLElement} */
     const pe = previewElement;
@@ -1710,7 +1710,7 @@ function initElementStyler() {
   });
   
   // Border radius change
-  borderRadiusInput.addEventListener('input', function(e) {
+  borderRadiusInput.addEventListener('input', function() {
     if (!(typeof window !== 'undefined' && window.HTMLElement && previewElement instanceof window.HTMLElement)) return;
     /** @type {HTMLElement} */
     const pe = previewElement;

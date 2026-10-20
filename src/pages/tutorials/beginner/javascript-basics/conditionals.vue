@@ -862,20 +862,7 @@ for (let i = 0; i < menuItems.length; i++) {
   console.log(menuItems[i]);
 }`;
 
-const forOfCode = `let prices = [24.99, 29.99, 19.99];
-for (let price of prices) {
-  console.log(\`$\${price}\`);
-}`;
 
-const forInCode = `let dish = {
-  name: 'Salmon',
-  price: 24.99,
-  isAvailable: true
-};
-
-for (let key in dish) {
-  console.log(\`\${key}: \${dish[key]}\`);
-}`;
 
 const whileLoopCode = `let orders = 3;
 while (orders > 0) {
@@ -1063,7 +1050,7 @@ const sections = [
   }
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 // New code examples for ternary and truthy/falsy sections
 const ternaryCode = `// Instead of:

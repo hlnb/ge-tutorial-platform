@@ -309,7 +309,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const anticipatorySet = {
 	title: '🚀 Ignite Your Interactive Ideas',
@@ -384,15 +384,6 @@ const closureReflectionPrompts = [
 	},
 ];
 
-const frontmatter = {
-	title: 'Foundations-Getting Started',
-	description: 'Get started with JavaScript programming',
-	category: 'JavaScript Basics',
-	level: 'Beginner',
-	order: 1,
-	tags: ['javascript', 'basics', 'foundations', 'web development'],
-	lastUpdated: '2023-10-15',
-};
 // Reactive variables for the interactive demo
 const demoMessage = ref('');
 const messageColor = ref('is-primary');

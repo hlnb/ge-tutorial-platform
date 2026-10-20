@@ -487,7 +487,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 </script>
 
 <style scoped>

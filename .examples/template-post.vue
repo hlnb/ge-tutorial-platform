@@ -62,7 +62,7 @@ export const frontmatter = {
 </script>
 
 <script setup>
-import Mirror from '@/components/Mirror.vue';
+import '@/components/Mirror.vue';
 import PostVisibility from '@/components/PostVisibility.vue';
 import PostNavigation from '@/components/PostNavigation.vue';
 import { ref, onMounted } from 'vue';

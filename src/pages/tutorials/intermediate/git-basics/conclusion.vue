@@ -105,7 +105,6 @@
 
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref } from 'vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
 import LearningObjectives from '@/components/hunter/LearningObjectives.vue';
 import ClosureSection from '@/components/hunter/ClosureSection.vue';

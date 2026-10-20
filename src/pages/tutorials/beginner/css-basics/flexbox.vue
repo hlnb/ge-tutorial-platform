@@ -1,11 +1,9 @@
 <script setup>
 import { useTutorialHead } from '@/composables/useTutorialHead';
-import { ref, computed, inject, onMounted } from 'vue';
 import { usePageSections } from '@/composables/usePageSections';
-import { useRoute } from 'vue-router';
-import progressService from '@/services/ProgressService';
-import CodeMirror from '@/components/CodeMirror.vue';
-import { sanitizeHtml } from '@/utils/sanitizeHtml';
+import '@/services/ProgressService';
+import '@/components/CodeMirror.vue';
+import '@/utils/sanitizeHtml';
 import TestYourKnowledgeSection from '@/components/TestYourKnowledgeSection.vue';
 import TutorialRecommendations from '@/components/TutorialRecommendations.vue';
 import AnticipatorySet from '@/components/hunter/AnticipatorySet.vue';
@@ -21,8 +19,6 @@ useTutorialHead({
 });
 
 // Define a ref for the code editor instances
-const codeEditors = ref([]);
-const progressEnabled = ref(true);
 
 const frontmatter = {
 	title: 'CSS Flexbox',
@@ -68,7 +64,7 @@ const sections = [
 	},
 ];
 
-const { pageSections } = usePageSections(sections);
+usePageSections(sections);
 
 const checkpointQuestions = [
 	{

@@ -126,10 +126,6 @@ function setMinDate() {
 	minDate.value = now.toISOString().slice(0, 16);
 }
 
-function openEditModal(post) {
-	selectedPost.value = { ...post };
-	isModalActive.value = true;
-}
 
 function closeModal() {
 	isModalActive.value = false;

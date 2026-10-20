@@ -524,37 +524,8 @@ Array.isArray(numbers);  // true</code></pre>
     }
   ];
 
-  const frontmatter = {
-    title: 'Arrays and Array Methods in JavaScript',
-    description: 'Learn how to work with arrays and array methods in JavaScript, with a focus on DOM manipulation.',
-    difficulty: 'Beginner',
-    duration: '30 minutes',
-    tags: ['JavaScript', 'DOM', 'Arrays'],
-    nextSteps: [
-      {
-        path: '/tutorials/beginner/javascript/loops',
-        title: 'JavaScript Loops',
-        description: 'Learn how to use loops to iterate over arrays and perform repeated operations efficiently.'
-      },
-      {
-        path: '/tutorials/beginner/dom-basics/photo-gallery-2',
-        title: 'Photo Gallery Project',
-        description: 'Build a dynamic photo gallery using arrays to manage and display images.'
-      },
-      {
-        path: '/tutorials/beginner/dom-basics/todo-list-2',
-        title: 'Todo List Project',
-        description: 'Create a todo list application that uses arrays to manage tasks and their states.'
-      },
-      {
-        path: '/tutorials/beginner/dom-basics/dom-manipulation',
-        title: 'DOM Manipulation',
-        description: 'Learn how to modify HTML elements and their properties using JavaScript.'
-      }
-    ]
-  };
 
-  const { pageSections } = usePageSections(sections);
+  usePageSections(sections);
   // DOM Collection Demo
   const demoElements = ref(null);
   const collectionResult = ref('');
