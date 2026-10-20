@@ -717,10 +717,6 @@ const submitChallenge = () => {
   alert('Thanks for your submission! Keep thinking about how Git can help your workflow!');
 };
 
-// Quiz handling
-const onQuizCompleted = (results) => {
-  saveQuizResult('git-basics-intro-quiz', results);
-};
 </script>
 
 <script>

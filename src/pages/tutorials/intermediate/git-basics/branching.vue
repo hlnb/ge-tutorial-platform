@@ -256,10 +256,6 @@ const closureReflectionPrompts = [
     ],
   },
 ];
-
-const onQuizCompleted = (results) => {
-  saveQuizResult('git-basics-branching-quiz', results);
-};
 </script>
 
 <script>

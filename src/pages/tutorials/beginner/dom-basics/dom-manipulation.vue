@@ -867,7 +867,7 @@
                       <h4 class="title is-6 has-text-danger">❌ Inefficient</h4>
                       <div class="code-example">
                           <pre v-pre><code v-pre>// Adding items one at a time (forces multiple reflows)
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i &lt; 100; i++) {
   const item = document.createElement('div');
   item.textContent = `Item ${i}`;
   container.appendChild(item);  // Causes reflow each time
@@ -881,7 +881,7 @@ for (let i = 0; i < 100; i++) {
                           <pre v-pre><code v-pre>// Using DocumentFragment (single reflow)
 const fragment = document.createDocumentFragment();
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i &lt; 100; i++) {
   const item = document.createElement('div');
   item.textContent = `Item ${i}`;
   fragment.appendChild(item);

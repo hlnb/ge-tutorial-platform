@@ -269,10 +269,6 @@ const closureReflectionPrompts = [
     ],
   },
 ];
-
-const onQuizCompleted = (results) => {
-  saveQuizResult('git-basics-workflow-quiz', results);
-};
 </script>
 
 <script>

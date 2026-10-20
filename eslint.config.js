@@ -19,10 +19,10 @@ export default [
   // Prettier integration
   configPrettier,
 
-  // Node.js files (API, config files)
+  // Node.js files (API, scripts, config files)
   {
     name: 'app/node-files',
-    files: ['api/**/*.js', 'vite.config.js', 'postcss.config.js', 'eslint.config.js'],
+    files: ['api/**/*.js', 'scripts/**/*.js', 'vite.config.js', 'postcss.config.js', 'eslint.config.js'],
     languageOptions: {
       globals: {
         // Node.js globals
@@ -36,15 +36,17 @@ export default [
         module: 'readonly',
         exports: 'readonly',
         fetch: 'readonly', // Node.js 18+ has fetch
+        URL: 'readonly',
+        URLSearchParams: 'readonly',
       },
       sourceType: 'module',
     },
   },
 
-  // Browser files (Vue components, frontend JS)
+  // Browser files (Vue components, frontend JS, archived routers)
   {
     name: 'app/browser-files',
-    files: ['src/**/*.{js,vue}', 'playground/**/*.js'],
+    files: ['src/**/*.{js,vue}', 'playground/**/*.js', '.archive/router/*.js'],
     languageOptions: {
       globals: {
         // Browser globals

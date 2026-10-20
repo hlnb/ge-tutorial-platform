@@ -163,10 +163,6 @@ const closureReflectionPrompts = [
     ],
   },
 ];
-
-const onQuizCompleted = (results) => {
-  saveQuizResult('git-basics-merging-quiz', results);
-};
 </script>
 
 <script>

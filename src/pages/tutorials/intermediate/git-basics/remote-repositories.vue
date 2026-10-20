@@ -257,10 +257,6 @@ const closureReflectionPrompts = [
     ],
   },
 ];
-
-const onQuizCompleted = (results) => {
-  saveQuizResult('git-basics-remote-repositories-quiz', results);
-};
 </script>
 
 <script>
