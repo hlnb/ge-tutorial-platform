@@ -5496,7 +5496,7 @@ export function getTutorialSidebarByPath(path) {
     };
   }
   return {
-    title: 'Curriculum Pathway',
+    title: 'Learning Pathway',
     project: false,
     groups: getCurriculumNavGroups(),
   };
@@ -5599,7 +5599,7 @@ export const projects = [
     id: 'black-swan-bistro',
     title: 'Black Swan Bistro Website',
     description:
-      'Build a complete restaurant website from a single page to a fully deployed, multi-page site. This project spans the entire curriculum.',
+      'Build a complete restaurant website, starting with a single page and progressing to a fully deployed, multi-page site. This hands-on project brings together the skills you develop throughout your learning journey.'
     totalParts: 9,
     icon: 'fas fa-utensils',
     color: '#363636', // dark/charcoal

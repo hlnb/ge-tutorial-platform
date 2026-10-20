@@ -205,10 +205,8 @@ const closureReflectionPrompts = [
 
 			<h2 id="why-bulma-here">Why Bulma Fits Here</h2>
 			<p>
-				If you want to introduce a CSS framework gently, Bulma is a reasonable choice in
-				this curriculum because its class names are readable and its role is easier to
-				describe in plain English. It also matches the existing GraphitEdge stack, which
-				makes the example feel less artificial.
+			If you're ready to explore CSS frameworks, Bulma is a great place to start.
+			Its readable class names make it easier to understand how a framework works without getting overwhelmed. We use Bulma in GraphitEdge, so you'll see practical examples of how it fits into a real website project.
 			</p>
 			<p>
 				The teaching goal is not "Bulma forever." The teaching goal is to let learners see

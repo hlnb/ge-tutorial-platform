@@ -5,14 +5,12 @@
     <section class="projects-hero">
       <h1 class="title is-1">Projects by pathway</h1>
       <p class="subtitle is-4">
-        Use guided, reference, and practice projects to apply the curriculum in real builds.
+        Use guided, reference, and practice projects to apply the learning in real builds.
       </p>
 
       <div class="notification is-info is-light">
         <p>
-          <strong>Pathway-first learning:</strong> the projects area now follows the same
-          curriculum structure as the tutorial system, so learners can move between lessons,
-          reference builds, and practice projects without losing context.
+          <strong>Pathway-first learning:</strong> the projects area now follows the same learning paths as the tutorials, making it easy to move between lessons, reference builds, and hands-on projects without losing your place.
         </p>
       </div>
     </section>

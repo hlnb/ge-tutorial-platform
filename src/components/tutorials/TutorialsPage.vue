@@ -12,7 +12,7 @@
           Start Beginner Path
         </button>
         <a href="#curriculum-roadmap" class="button is-light"
-          >Browse Full Curriculum</a
+          >Explore All Tutorials</a
         >
       </div>
     </section>
@@ -53,7 +53,7 @@
     </div>
 
     <div id="curriculum-roadmap" class="curriculum-roadmap">
-      <h2>Curriculum Roadmap</h2>
+      <h2>Tutorial Roadmap</h2>
 
       <CurriculumLevelSection
         v-for="stage in learningJourneyData"
