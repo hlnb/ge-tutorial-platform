@@ -339,7 +339,6 @@ const closureReflectionPrompts = [
 	},
 ];
 
-
 const sections = [
 	{
 		id: 'web-browser',

@@ -687,7 +687,6 @@ const closureReflectionPrompts = [
 	},
 ];
 
-
 useTutorialHead({
   title: 'Introduction to HTML',
   description: 'Learn what HTML is and how it works - the markup language behind every web page, explained for absolute beginners.',

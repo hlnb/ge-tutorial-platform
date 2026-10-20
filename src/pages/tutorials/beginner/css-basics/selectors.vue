@@ -60,7 +60,6 @@ const sections = [
 
 const { pageSections } = usePageSections(sections);
 
-
 const checkpointQuestions = [
 	{
 		question:
@@ -127,10 +126,6 @@ const closureReflectionPrompts = [
 			'Specificity wars lead to unmaintainable CSS filled with !important declarations. Plan your selector strategy early: keep specificity low and consistent, use methodologies like BEM, and reserve higher specificity for truly specific cases.',
 	},
 ];
-
-// Example code
-
-// Preview
 
 defineExpose({
 	pageSections,

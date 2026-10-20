@@ -862,8 +862,6 @@ for (let i = 0; i < menuItems.length; i++) {
   console.log(menuItems[i]);
 }`;
 
-
-
 const whileLoopCode = `let orders = 3;
 while (orders > 0) {
   console.log(\`Processing order: \${orders}\`);

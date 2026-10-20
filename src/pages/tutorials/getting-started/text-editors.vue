@@ -498,7 +498,6 @@ const closureReflectionPrompts = [
 	},
 ];
 
-
 const sections = [
 	{
 		id: 'introduction',

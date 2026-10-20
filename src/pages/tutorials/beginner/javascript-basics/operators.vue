@@ -3036,7 +3036,6 @@ console.log('Total: $' + total.toFixed(2)); // $75.87
 let change = 100 - total;
 console.log('Change: $' + change.toFixed(2)); // $24.13`;
 
-
 const doubleEqualsExample = `// Double equals (==) examples
 5 == 5      // true (same value, same type)
 5 == "5"    // true (same value, different type)
@@ -3122,11 +3121,6 @@ console.log('Tip per person: $' + tip); // $6.3
 // Total per person
 bill += tip; // bill = bill + tip
 console.log('Total per person: $' + bill.toFixed(2)); // $37.80`;
-
-
-
-
-
 
 const htmlSetupCode = `<!DOCTYPE html>
 <html>

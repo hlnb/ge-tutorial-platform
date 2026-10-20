@@ -488,8 +488,6 @@ const frontmatter = {
 	difficulty: 'beginner',
 };
 
-
-
 const checkpointQuestions = [
 	{
 		question:

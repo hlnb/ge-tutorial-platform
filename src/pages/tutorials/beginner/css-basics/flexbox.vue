@@ -18,8 +18,6 @@ useTutorialHead({
   path: "/tutorials/beginner/css-basics/flexbox",
 });
 
-// Define a ref for the code editor instances
-
 const frontmatter = {
 	title: 'CSS Flexbox',
 	description: 'Learn how to create flexible layouts with CSS Flexbox',

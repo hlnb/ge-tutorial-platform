@@ -160,11 +160,6 @@ const closureReflectionPrompts = [
 	},
 ];
 
-
-
-
-
-
 const desktopFirstExample = ref(`/* ❌ Desktop-First Approach */
 .container {
   /* Start with desktop styles */

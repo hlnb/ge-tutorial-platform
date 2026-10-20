@@ -18,7 +18,6 @@ useTutorialHead({
   path: "/tutorials/beginner/css-basics/modern",
 });
 
-
 const frontmatter = {
 	title: 'Modern CSS',
 	description:
@@ -196,7 +195,6 @@ const modernSelectorsExample = ref(`/* Modern CSS Selectors */
 	margin-block: 0.5em;
 }`);
 
-
 const functionExamplesCode = ref(`/* Real-world Examples */
 
 /* Responsive padding that scales with viewport */
@@ -257,7 +255,6 @@ const clampExample = ref(`/* clamp() Examples */
 	/* Responsive padding */
 	padding: clamp(1rem, 3vw, 3rem);
 }`);
-
 
 const minmaxExample = ref(`/* minmax() Grid Examples */
 .grid-container {

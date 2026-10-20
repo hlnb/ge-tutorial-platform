@@ -126,7 +126,6 @@ function setMinDate() {
 	minDate.value = now.toISOString().slice(0, 16);
 }
 
-
 function closeModal() {
 	isModalActive.value = false;
 	selectedPost.value = {};

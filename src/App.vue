@@ -69,7 +69,6 @@ const isProjectPage = computed(() => {
 	return path.startsWith('/projects/') && path !== '/projects/';
 });
 
-
 </script>
 
 <style>

@@ -579,8 +579,6 @@ const closureReflectionPrompts = [
   },
 ];
 
-
-
 //page sections
 const sections = [
   { id: 'introduction',title: 'Introduction' },
@@ -592,9 +590,7 @@ const sections = [
   { id: 'challenge',title: 'Challenge' }
 ];
 
-usePageSections(sections); 
-
-
+usePageSections(sections);
 
 // Interactive Git timeline demo
 const currentCommit = ref(1);

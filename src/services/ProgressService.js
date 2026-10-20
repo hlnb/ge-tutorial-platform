@@ -112,8 +112,6 @@ function isProgressTrackingEnabled() {
 	return true;
 }
 
-
-
 // Get current progress
 async function getProgress() {
 	if (!isProgressTrackingEnabled()) return null;

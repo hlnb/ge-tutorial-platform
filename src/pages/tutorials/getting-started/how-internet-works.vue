@@ -417,8 +417,6 @@ const checkpointQuestions2 = [
 	},
 ];
 
-
-
 </script>
 
 <style scoped>

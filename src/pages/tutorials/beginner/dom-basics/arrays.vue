@@ -524,7 +524,6 @@ Array.isArray(numbers);  // true</code></pre>
     }
   ];
 
-
   usePageSections(sections);
   // DOM Collection Demo
   const demoElements = ref(null);

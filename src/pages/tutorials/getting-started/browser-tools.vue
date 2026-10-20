@@ -266,7 +266,6 @@ useTutorialHead({
   path: '/tutorials/getting-started/browser-tools',
 });
 
-
 const sections = [
 	{
 		id: 'what-are-browser-developer-tools',

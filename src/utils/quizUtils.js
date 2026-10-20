@@ -9,10 +9,6 @@ import jsBasicsQuizzes from '@/data/quizzes/javascript-basics';
 import { domBasicsQuizzes } from '@/data/quizzes/dom-basics';
 import { gitBasicsQuizzes } from '@/data/quizzes/git-basics';
 
-// Add JavaScript Basics quizzes
-
-// Add the JavaScript Basics quizzes to the allQuizzes object
-
 /**
  * Get quiz questions for a specific tutorial
  * @param {string} section - The tutorial section (e.g., 'html-basics', 'css-basics')

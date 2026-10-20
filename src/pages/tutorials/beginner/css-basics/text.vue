@@ -273,7 +273,6 @@ const textSpacingExample = ref(`/* Text spacing examples */
   word-spacing: -0.1em;      /* Tighter word spacing */
 }`);
 
-
 // Add vertical alignment example
 const verticalAlignExample = ref(`/* Vertical alignment examples */
 .v-baseline {
@@ -334,7 +333,6 @@ const fontFaceExample = ref(`/* Modern font-face declaration */
 }`);
 
 // Add a performance example
-
 
 const systemFontStackExample = ref(`/* Modern system font stack */
 body {
