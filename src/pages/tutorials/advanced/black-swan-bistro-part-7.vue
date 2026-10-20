@@ -31,6 +31,7 @@ usePageSections([
   { id: 'intro', title: 'Introduction' },
   { id: 'audit-mindset', title: 'Audit Mindset' },
   { id: 'audit-record', title: 'Audit Record' },
+  { id: 'worked-finding', title: 'Worked Finding' },
   { id: 'evidence-areas', title: 'Evidence Areas' },
   { id: 'severity', title: 'Severity' },
   { id: 'checkpoint', title: 'Checkpoint' },
@@ -62,10 +63,19 @@ const guidedPracticeSteps = [
   {
     title: 'Test three viewport sizes',
     instructions:
-      '<p>Check mobile, tablet, and desktop widths. Watch for horizontal scrolling, cramped text, cropped images, hidden navigation, buttons that are hard to tap, or layout shifts while assets load.</p>',
+      '<p>Check mobile, tablet, and desktop widths, for example 390px, 768px, and 1280px. Record the actual dimensions used. Watch for horizontal scrolling, cramped text, cropped images, hidden navigation, buttons that are hard to tap, or layout shifts while assets load.</p>',
     hints: [
       'Use your browser responsive tools, then confirm at least one real narrow browser window if possible.',
       'Do not rewrite the CSS during this pass. Capture the evidence and keep moving.',
+    ],
+  },
+  {
+    title: 'Repeat the keyboard path',
+    instructions:
+      '<p>Reload the home page. Use Tab and Shift+Tab to move through its links, check that you can see focus, and press Enter on the menu link. Record the starting page, link label, destination, and any point where you cannot continue. Repeat on the other pages.</p>',
+    hints: [
+      'A screenshot can show focus, but your notes must describe the sequence you tested.',
+      'Compare your record with the worked finding. Keep expected results separate from observations.',
     ],
   },
   {
@@ -84,7 +94,8 @@ const auditAreas = [
     area: 'Accessibility',
     checks:
       'Headings, landmarks, alt text, keyboard focus, link purpose, contrast, form labels, reduced-motion assumptions.',
-    evidence: 'Keyboard notes, screenshots, accessibility tree or inspector notes.',
+    evidence:
+      'Keyboard notes, screenshots, accessibility tree or inspector notes.',
   },
   {
     area: 'Responsive behaviour',
@@ -96,13 +107,15 @@ const auditAreas = [
     area: 'Performance',
     checks:
       'Large images, render-blocking assets, unnecessary JavaScript, layout shift, slow first view, caching clues.',
-    evidence: 'Network panel notes, file sizes, Lighthouse or PageSpeed notes if used.',
+    evidence:
+      'Network panel notes, file sizes, Lighthouse or PageSpeed notes if used.',
   },
   {
     area: 'SEO and content',
     checks:
       'Title, description, one clear H1, useful headings, internal links, image alt text, restaurant details, page intent.',
-    evidence: 'Rendered page notes, page source where useful, metadata screenshots.',
+    evidence:
+      'Rendered page notes, page source where useful, metadata screenshots.',
   },
   {
     area: 'Links and forms',
@@ -114,7 +127,8 @@ const auditAreas = [
     area: 'Maintainability',
     checks:
       'Repeated content, unclear file names, fragile CSS, hard-coded values, comments that no longer match the site.',
-    evidence: 'File path, selector, duplicated text, reason it may slow future changes.',
+    evidence:
+      'File path, selector, duplicated text, reason it may slow future changes.',
   },
 ];
 
@@ -182,13 +196,13 @@ const closureTakeaways = [
 
       <p class="subtitle is-5">
         Inspect the deployed Bistro before changing code, then record evidence
-        that can guide calm, professional improvements.
+        that helps you decide what to improve next.
       </p>
 
       <AnticipatorySet
         title="Pause Before You Fix"
         icon="fas fa-search"
-        :hook="`<p>The Bistro is live. That is exciting, but it also changes the job. You are no longer only building pages; you are caring for a public website.</p><p>A professional first step is not to start changing colours, moving sections, or chasing every warning. It is to audit the live site, record evidence, and decide what deserves attention.</p>`"
+        :hook="`<p>Your Bistro now has a public URL. A customer might open it on a phone, follow a menu link, or use a keyboard to reach the contact page.</p><p>Check those tasks before editing again. Record what happens so you can explain which changes would help visitors and which parts already work.</p>`"
         :reflection-prompts="[
           'What could be different on the live URL compared with your local files?',
           'Which problems would matter most to a restaurant customer trying to read the menu or make contact?',
@@ -206,7 +220,7 @@ const closureTakeaways = [
           'Separate observations, likely causes, and proposed fixes',
           'Prepare a shortlist of findings for Part 8',
         ]"
-        purpose="An audit is a thinking tool. It slows the work down just enough to protect users, avoid unnecessary changes, and make improvement decisions easier to defend."
+        purpose="An audit gives you a record of how the deployed site behaves. Use it to choose improvements and preserve the parts that already work."
         :prerequisites="[
           {
             topic: 'Black Swan Bistro Part 6: Deploy the Site',
@@ -226,9 +240,9 @@ const closureTakeaways = [
       <section id="audit-mindset">
         <h2 class="title is-3">The Audit Mindset</h2>
         <p>
-          An audit is not a redesign session. It is a structured look at how
-          the current site behaves for real visitors, search engines, browsers,
-          and future maintainers. The main question is:
+          An audit is a structured look at how the current site behaves for real
+          visitors, search engines, browsers, and future maintainers. The main
+          question is:
           <strong>what can we prove from the live site?</strong>
         </p>
 
@@ -313,15 +327,98 @@ const closureTakeaways = [
               </tr>
               <tr>
                 <td><strong>Evidence</strong></td>
-                <td>Screenshot name, viewport, tool note, console message, or URL.</td>
+                <td>
+                  Screenshot name, viewport, tool note, console message, or URL.
+                </td>
               </tr>
               <tr>
                 <td><strong>Next action</strong></td>
-                <td>Retest, investigate, improve, monitor, or leave unchanged.</td>
+                <td>
+                  Retest, investigate, improve, monitor, or leave unchanged.
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section id="worked-finding">
+        <h2 class="title is-3">Worked example: a menu link opens Contact</h2>
+        <p>
+          This is a hypothetical practice example, not a reported fault in the
+          published Bistro. Suppose the home-page footer has a link labelled
+          Menu that opens Contact. The header Menu link still works.
+        </p>
+        <ol class="procedure-list">
+          <li>
+            Open the deployed home page at 390 × 844. Record its full URL,
+            browser version, date, and deployed commit if known.
+          </li>
+          <li>
+            Use Tab to reach the footer Menu link and press Enter. Write down
+            the destination URL and the Contact heading you see. Repeat with a
+            mouse.
+          </li>
+          <li>
+            Return home and follow the header Menu link. Confirm that it opens
+            the menu. This tells you whether another route to the task works.
+          </li>
+          <li>
+            Save the before evidence as
+            <code>F-01-footer-menu-before.png</code> and record the steps above.
+            A screenshot alone cannot show the whole path.
+          </li>
+          <li>
+            Inspect the footer link. If its <code>href</code> points to
+            <code>contact.html</code>, record that separately as evidence of a
+            likely cause. Leave the code unchanged during this audit.
+          </li>
+        </ol>
+        <h3 class="title is-4">Completed finding F-01</h3>
+        <dl>
+          <dt>Location</dt>
+          <dd>Home page, footer Menu link.</dd>
+          <dt>Observation</dt>
+          <dd>
+            At 390 × 844, activating Menu by keyboard or mouse opens Contact.
+            The header Menu link opens the menu.
+          </dd>
+          <dt>Impact</dt>
+          <dd>
+            A customer using the footer must backtrack to find the menu. The
+            task is harder, but another working route exists.
+          </dd>
+          <dt>Evidence</dt>
+          <dd>
+            The recorded home and destination URLs, keyboard steps, before
+            screenshot, and inspected footer href.
+          </dd>
+          <dt>Severity</dt>
+          <dd>
+            Medium in this scenario because the task has a workaround. If the
+            only menu link failed, reassess the impact.
+          </dd>
+          <dt>Next action</dt>
+          <dd>
+            Check the intended destination, then correct the link in Part 8 and
+            repeat the same visitor path.
+          </dd>
+        </dl>
+        <h3 class="title is-4">Record a working result too</h3>
+        <p>
+          Hypothetical finding F-02: on the same home page, Tab and Shift+Tab
+          reach the header links in reading order, focus stays visible, and
+          Enter on Menu opens the menu. Record the tested URL and sequence,
+          attach <code>F-02-header-focus.png</code>, and choose No action.
+          Preserve that behaviour when changing the footer. This result covers
+          the tested header path; it does not establish accessibility across the
+          site.
+        </p>
+        <p>
+          Your findings may be entirely positive. Record the checks and their
+          limits, mark untested areas as pending, and carry forward only genuine
+          candidates for improvement. You do not need to invent a defect.
+        </p>
       </section>
 
       <section id="evidence-areas">
@@ -356,9 +453,8 @@ const closureTakeaways = [
       <section id="severity">
         <h2 class="title is-3">Severity: Impact Before Preference</h2>
         <p>
-          Severity is not how much a finding annoys you. It is a judgement about
-          user impact, business impact, technical risk, and how urgently the
-          issue should be handled.
+          Severity is a judgement about user impact, business impact, technical
+          risk, and how urgently the issue should be handled.
         </p>
 
         <div class="severity-grid">
@@ -418,13 +514,13 @@ const closureTakeaways = [
         <IndependentPractice
           title="Independent Challenge: Produce the Audit Record"
           task-title="Your task"
-          :task="`<p>Complete a live-site audit record for Black Swan Bistro. Your goal is not to find the most problems. Your goal is to produce evidence that another person could understand and retest.</p>`"
+          :task="`<p>Complete a live-site audit record for Black Swan Bistro. Record results that another person can understand and retest, including working behaviour and limits to your checks.</p>`"
           :requirements="[
             'Record the deployed URL, date, browser, and viewport sizes used',
-            'Complete each audit area at least once',
-            'Include at least six findings, with at least one positive finding',
+            'Test each audit area you can, and explain any pending or inapplicable checks',
+            'Record a result for each audit area, including positive results and any untested checks',
             'Mark each finding as high, medium, low, monitor, or no action',
-            'Choose three findings to carry into Part 8',
+            'Carry up to three genuine improvement candidates into Part 8, or explain why no change is needed',
           ]"
           :stretch-goals="[
             'Add named screenshots or short screen recordings as evidence',
@@ -434,15 +530,18 @@ const closureTakeaways = [
           :rubric="[
             {
               criteria: 'Evidence quality',
-              success: 'A reviewer can reproduce or understand each finding from the record.',
+              success:
+                'A reviewer can reproduce or understand each finding from the record.',
             },
             {
               criteria: 'Scope control',
-              success: 'The audit records findings without turning into unplanned coding work.',
+              success:
+                'The audit records findings without turning into unplanned coding work.',
             },
             {
               criteria: 'Prioritisation readiness',
-              success: 'Three candidate findings are clear enough to prioritise in Part 8.',
+              success:
+                'Candidates have enough evidence for Part 8, or the record explains why no change is needed and what remains untested.',
             },
           ]"
         />

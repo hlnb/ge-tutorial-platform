@@ -30,9 +30,11 @@ useTutorialHead({
 usePageSections([
   { id: 'intro', title: 'Introduction' },
   { id: 'prioritise', title: 'Prioritise' },
+  { id: 'worked-priorities', title: 'Worked Priorities' },
   { id: 'choose-work', title: 'Choose Work' },
   { id: 'improvement-log', title: 'Improvement Log' },
   { id: 'make-changes', title: 'Make Changes' },
+  { id: 'worked-change', title: 'Worked Change' },
   { id: 'before-after', title: 'Before and After' },
   { id: 'checkpoint', title: 'Checkpoint' },
   { id: 'guided-practice', title: 'Guided Practice' },
@@ -44,44 +46,46 @@ usePageSections([
 const priorityRows = [
   {
     label: 'Do first',
-    meaning: 'High user impact, clear evidence, manageable change, low regression risk.',
+    meaning:
+      'High user impact, clear evidence, manageable change, low regression risk.',
     example:
       'A mobile navigation link is hard to reach, or an image fails to load on the live menu page.',
   },
   {
     label: 'Plan carefully',
-    meaning: 'Important, but needs design judgement, client approval, or wider retesting.',
+    meaning:
+      'Important, but needs design judgement, client approval, or wider retesting.',
     example:
       'Reworking the menu page hierarchy or replacing several large images at once.',
   },
   {
     label: 'Quick polish',
-    meaning: 'Low risk and easy to fix, but not more important than user-blocking issues.',
-    example:
-      'A small spacing inconsistency or a clearer footer link label.',
+    meaning:
+      'Low risk and easy to fix, but not more important than user-blocking issues.',
+    example: 'A small spacing inconsistency or a clearer footer link label.',
   },
   {
     label: 'Monitor or defer',
-    meaning: 'Not enough evidence, low impact, or outside the current project scope.',
-    example:
-      'A cosmetic preference that would trigger a broad redesign.',
+    meaning:
+      'Not enough evidence, low impact, or outside the current project scope.',
+    example: 'A cosmetic preference that would trigger a broad redesign.',
   },
 ];
 
 const guidedPracticeSteps = [
   {
-    title: 'Select three findings from Part 7',
+    title: 'Review the candidates from Part 7',
     instructions:
-      '<p>Choose one finding that affects visitors, one finding that affects site quality or maintainability, and one smaller polish item. Copy their evidence into the improvement log.</p>',
+      '<p>Review up to three genuine candidates and copy their evidence into the improvement log. Choose by visitor impact, not by a quota of different issue types. If no change is justified, record that decision and use the separate practice exercise to rehearse a fix.</p>',
     hints: [
-      'If all your findings are cosmetic, return to the audit record and retest mobile, keyboard, links, and Console output.',
+      'Check that mobile, keyboard, links, and Console checks have results. A tested site may need no changes; an untested area is still pending.',
       'Do not choose more work than you can test properly.',
     ],
   },
   {
     title: 'Score impact, effort, confidence, and risk',
     instructions:
-      '<p>For each finding, score impact, effort, confidence in the evidence, and regression risk. Use the score to decide what to do now, not to pretend the decision is mathematical.</p>',
+      '<p>For each finding, score impact, effort, confidence in the evidence, and regression risk. Use the worked scoring anchors to explain what to do now. Keep the scores separate and write a reason for the decision.</p>',
     hints: [
       'High impact plus low effort is usually a good first improvement.',
       'High risk does not mean never. It means plan the change and test more carefully.',
@@ -101,13 +105,32 @@ const guidedPracticeSteps = [
     instructions:
       '<p>Add the before evidence, changed files, test steps, after evidence, and remaining risk to the improvement log. The log should explain the decision to someone who did not watch you code.</p>',
     hints: [
-      'If the after test is only visual, say that. If you also tested keyboard, mobile, Network, or Lighthouse, record those checks.',
+      'Retest each changed behaviour with a suitable method. For a link change, repeat the keyboard and mouse path; a screenshot alone does not test the destination.',
       'If something improved but another risk remains, write that down.',
+    ],
+  },
+  {
+    title: 'Commit and record release status',
+    instructions:
+      '<p>Review the diff and the test results, then commit the focused change with a message that names its purpose. Record the commit ID. If you deploy, repeat the relevant checks on the public URL and record the deployed version. Otherwise mark the result locally verified, deployment pending.</p>',
+    hints: [
+      'Use the worked Git example and stage only files belonging to the improvement.',
+      'For the no-change route, draft a commit message for the practice fix and keep it separate from your real audit.',
     ],
   },
 ];
 
 const checkpointQuestions = [
+  {
+    question: 'What if your audit finds no change worth making?',
+    answer:
+      'Record the tested areas, supporting evidence, and coverage limits. Leave the real site unchanged and use the separately labelled practice exercise to rehearse a correction.',
+  },
+  {
+    question: 'Local tests passed, but the deployed footer link still opens Contact. Is the improvement complete?',
+    answer:
+      'No. Record the failed production check, confirm which version was deployed, and investigate the destination on the public URL. Local success does not verify the deployed behaviour.',
+  },
   {
     question:
       'Why should Part 8 start from the Part 7 audit record instead of a fresh list of ideas?',
@@ -115,7 +138,8 @@ const checkpointQuestions = [
       'The audit record keeps the work evidence-based. It helps you choose improvements that solve observed problems rather than preferences invented after the fact.',
   },
   {
-    question: 'What is the risk of fixing five unrelated findings in one change?',
+    question:
+      'What is the risk of fixing five unrelated findings in one change?',
     answer:
       'It becomes harder to test, review, explain, or undo the work. A regression may be difficult to trace back to one cause.',
   },
@@ -130,7 +154,7 @@ const closureTakeaways = [
   'Prioritisation connects audit evidence to responsible action.',
   'Impact, effort, confidence, and regression risk are better guides than personal preference.',
   'Small focused changes are easier to test, review, and explain.',
-  'Before-and-after evidence is part of the work, not an optional extra.',
+  'Every completed improvement needs comparable before-and-after evidence.',
   'A good improvement log helps future you understand the decision.',
 ];
 </script>
@@ -177,7 +201,7 @@ const closureTakeaways = [
       <AnticipatorySet
         title="Not Every Finding Becomes Today's Work"
         icon="fas fa-list-check"
-        :hook="`<p>A useful audit often creates more findings than you can responsibly fix at once. That is normal. Professional improvement is not about touching everything; it is about choosing the next valuable change and proving it helped.</p><p>In this lesson, your audit record becomes an improvement plan. You will choose a few findings, make focused changes, retest, and write down what changed.</p>`"
+        :hook="`<p>A useful audit often creates more findings than you can responsibly fix at once. That is normal. Choose a change that helps visitors, then test whether it worked.</p><p>In this lesson, your audit record becomes an improvement plan. You will choose a few findings, make focused changes, retest, and write down what changed.</p>`"
         :reflection-prompts="[
           'Which audit finding would make the biggest difference to a visitor?',
           'Which finding is easy to fix but not very important?',
@@ -195,7 +219,7 @@ const closureTakeaways = [
           'Use Git commit messages to explain purposeful improvements',
           'Identify remaining risk and future work honestly',
         ]"
-        purpose="Prioritisation turns a list of findings into maintainable work. The aim is not to do everything; it is to improve the Bistro in a way that is useful, testable, and easy to explain."
+        purpose="Prioritisation helps you choose work you can finish and test. Record why each change is worth doing now and what you will leave for later."
         :prerequisites="[
           {
             topic: 'Black Swan Bistro Part 7: Audit the Live Website',
@@ -233,7 +257,10 @@ const closureTakeaways = [
           </div>
           <div class="box">
             <h3 class="title is-5">Confidence</h3>
-            <p>Is the evidence strong enough, or does the finding need another test first?</p>
+            <p>
+              Is the evidence strong enough, or does the finding need another
+              test first?
+            </p>
           </div>
           <div class="box">
             <h3 class="title is-5">Risk</h3>
@@ -245,6 +272,111 @@ const closureTakeaways = [
           Scores can help, but they do not replace judgement. If two findings
           have similar scores, choose the one that has clearer evidence and a
           cleaner test path.
+        </p>
+      </section>
+
+      <section id="worked-priorities">
+        <h2 class="title is-3">Worked example: choose what to do first</h2>
+        <p>
+          Use these anchors for a 1-5 score. Values 2 and 4 sit between the
+          descriptions. These are discussion aids, not measurements to add into
+          a total. High effort and risk count against an easy change; high
+          impact and confidence support it.
+        </p>
+        <div class="table-container">
+          <table class="table is-bordered">
+            <caption>
+              Scoring anchors for this improvement pass
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Criterion</th>
+                <th scope="col">1</th>
+                <th scope="col">3</th>
+                <th scope="col">5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Impact</th>
+                <td>Minor cosmetic issue</td>
+                <td>A task is harder but has a workaround</td>
+                <td>A key task is blocked or users are excluded</td>
+              </tr>
+              <tr>
+                <th scope="row">Effort</th>
+                <td>One small edit and a short retest</td>
+                <td>Several related edits and checks</td>
+                <td>Broad work beyond this session</td>
+              </tr>
+              <tr>
+                <th scope="row">Confidence</th>
+                <td>An untested suspicion</td>
+                <td>Observed once; more checking needed</td>
+                <td>Repeatable result and supporting evidence</td>
+              </tr>
+              <tr>
+                <th scope="row">Regression risk</th>
+                <td>Isolated change with a clear test</td>
+                <td>Shared code affects several pages</td>
+                <td>Wide impact with poorly understood dependencies</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          The following findings are hypothetical. F-01 is the footer link
+          example from Part 7; F-03 and F-04 are additional practice candidates.
+          Keep these examples separate from observations about your own site.
+        </p>
+        <div class="table-container">
+          <table class="table is-bordered">
+            <caption>
+              Example decisions; scores are impact / effort / confidence / risk
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Finding</th>
+                <th scope="col">Scores</th>
+                <th scope="col">Decision and reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">F-01: footer Menu opens Contact</th>
+                <td>3 / 1 / 5 / 1</td>
+                <td>
+                  Do first. Reproduced by keyboard and mouse; one destination
+                  change has a clear retest.
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  F-03: opening hours repeated across four files
+                </th>
+                <td>2 / 3 / 5 / 3</td>
+                <td>
+                  Plan. All copies currently agree; a shared source needs checks
+                  on every affected page.
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">F-04: footer spacing feels uneven</th>
+                <td>1 / 1 / 2 / 2</td>
+                <td>
+                  Defer. No overlap or blocked task was observed. Check other
+                  widths before changing shared CSS.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Choose F-01 for this pass. F-03 can wait while the hours remain
+          correct, and F-04 needs a clearer reason to change. A severe issue
+          still needs attention when its fix is difficult: investigate or
+          escalate it rather than allowing a high effort score to hide the
+          problem.
         </p>
       </section>
 
@@ -273,9 +405,11 @@ const closureTakeaways = [
 
         <div class="notification is-warning is-light">
           <p>
-            <strong>Scope guard:</strong> for this lesson, choose two or three
-            improvements. At least one should improve a real visitor outcome.
-            At least one should include a clear retest.
+            <strong>Scope guard:</strong> choose up to three justified
+            improvements for this lesson. One well-tested change is enough.
+            Retest every completed improvement. If no change is justified,
+            document that decision and complete the separate practice exercise
+            below.
           </p>
         </div>
       </section>
@@ -346,6 +480,125 @@ const closureTakeaways = [
         </p>
       </section>
 
+      <section id="worked-change">
+        <h2 class="title is-3">Worked example: fix and verify F-01</h2>
+        <p>
+          This continues the hypothetical footer finding. In this example the
+          source is a static <code>index.html</code>, and
+          <code>menu.html</code> is in the same folder. Find the equivalent
+          source in your own project; a Vue project may use
+          <code>RouterLink</code> and a route such as <code>/menu</code>.
+          Confirm the route before editing.
+        </p>
+        <h3 class="title is-4">
+          Capture the baseline, then change the destination
+        </h3>
+        <p>
+          Keep the Part 7 before evidence. Confirm the intended menu page
+          exists, then change only the footer link destination. Leave the
+          working header and shared styles alone.
+        </p>
+        <pre><code>&lt;!-- Before: Menu opens the wrong page --&gt;
+&lt;a href="contact.html"&gt;Menu&lt;/a&gt;
+
+&lt;!-- After: use the confirmed menu destination --&gt;
+&lt;a href="menu.html"&gt;Menu&lt;/a&gt;</code></pre>
+        <h3 class="title is-4">Repeat the visitor task</h3>
+        <ol class="procedure-list">
+          <li>
+            Open the changed site locally. At the same 390 × 844 viewport, Tab
+            to the footer Menu link and press Enter. Check the URL and menu
+            content, then use Back and repeat with a mouse.
+          </li>
+          <li>
+            Confirm focus is still visible. Repeat the header Menu path from
+            F-02, test the footer link at desktop width, and check other footers
+            if they share the changed source.
+          </li>
+          <li>
+            Reload the destination and check Console and Network for new errors
+            or failed requests. Run the existing build or validation commands
+            for your project. A successful build alone does not test the link.
+          </li>
+          <li>
+            Save the after screenshot and test notes with the same browser,
+            viewport, and link path as before. Record any different conditions.
+          </li>
+        </ol>
+        <h3 class="title is-4">Completed practice log entry</h3>
+        <p>
+          These are example results for the scenario, not measurements from the
+          live Bistro. Replace them with your own results when doing real work.
+        </p>
+        <dl>
+          <dt>Finding and reason</dt>
+          <dd>
+            F-01: correct the footer route so a customer can reach the menu.
+          </dd>
+          <dt>Change and files</dt>
+          <dd>
+            Change the footer href in <code>index.html</code> from Contact to
+            Menu.
+          </dd>
+          <dt>Before evidence</dt>
+          <dd>
+            <code>F-01-footer-menu-before.png</code> and the Part 7 keyboard and
+            mouse steps show Contact opening.
+          </dd>
+          <dt>Test steps</dt>
+          <dd>
+            Repeat the four checks above; record actual desktop dimensions and
+            command outcomes.
+          </dd>
+          <dt>After evidence</dt>
+          <dd>
+            <code>F-01-footer-menu-after-local.png</code> and notes show Menu
+            opening by keyboard and mouse. Header navigation and focus still
+            work in the tested paths.
+          </dd>
+          <dt>Result and limits</dt>
+          <dd>
+            Locally verified in the example. Deployment pending; mobile device
+            testing and other untested paths remain unverified.
+          </dd>
+          <dt>Commit message</dt>
+          <dd><code>Fix home footer Menu link destination</code></dd>
+        </dl>
+        <h3 class="title is-4">Review and commit the change</h3>
+        <p>
+          In this static example, review the diff, stage the changed file,
+          inspect what is staged, then commit after the relevant checks pass.
+          Substitute your actual file path. Keep unrelated work out of the
+          commit and record the resulting commit ID in the log.
+        </p>
+        <pre><code>git diff -- index.html
+git add -- index.html
+git diff --cached
+git commit -m "Fix home footer Menu link destination"
+git rev-parse --short HEAD</code></pre>
+        <p>
+          Follow your Part 6 deployment method when you are ready to publish.
+          After deploying, repeat the affected checks on the public URL and
+          record the deployed commit, date, and result. Until then, label the
+          improvement locally verified, deployment pending. If a check fails,
+          record the failure and fix it before claiming the improvement is
+          complete.
+        </p>
+        <h3 class="title is-4">Practice when your audit needs no changes</h3>
+        <p>
+          Keep the real site unchanged. In a separate practice folder, create
+          <code>index.html</code>, <code>menu.html</code>, and
+          <code>contact.html</code> as simple valid HTML documents with distinct
+          titles and H1 headings. Put the before link in the home-page footer.
+          Open the home page locally, reproduce the wrong destination, apply the
+          fix, and repeat the keyboard and mouse checks. Commit the exercise in
+          its own practice repository, or draft the commit message if you are
+          only rehearsing. Label the log Practice only; do not deploy it or
+          merge its invented finding into your real audit. This exercise tests a
+          link correction, not the hosting behaviour of your deployed site.
+        </p>
+      </section>
+
       <section id="before-after">
         <h2 class="title is-3">Before and After Evidence</h2>
         <p>
@@ -370,18 +623,30 @@ const closureTakeaways = [
               </tr>
               <tr>
                 <td>Keyboard or accessibility</td>
-                <td>Tab order note, focus screenshot, inspector note, or screen reader observation.</td>
-                <td>Repeated keyboard path or accessibility check with the result recorded.</td>
+                <td>
+                  Tab order note, focus screenshot, inspector note, or screen
+                  reader observation.
+                </td>
+                <td>
+                  Repeated keyboard path or accessibility check with the result
+                  recorded.
+                </td>
               </tr>
               <tr>
                 <td>Performance</td>
                 <td>Network file size, image dimensions, or measured issue.</td>
-                <td>Reduced file size, correct dimensions, or repeated measurement.</td>
+                <td>
+                  Reduced file size, correct dimensions, or repeated
+                  measurement.
+                </td>
               </tr>
               <tr>
                 <td>Content or SEO</td>
                 <td>Current title, heading, page copy, link, or metadata.</td>
-                <td>Updated rendered page and source or metadata check where relevant.</td>
+                <td>
+                  Updated rendered page and source or metadata check where
+                  relevant.
+                </td>
               </tr>
             </tbody>
           </table>
@@ -407,7 +672,7 @@ const closureTakeaways = [
           description="Use the improvement log to move from evidence to a focused change."
           :steps="guidedPracticeSteps"
           :success-criteria="[
-            'Each selected improvement links back to a Part 7 finding',
+            'Each real improvement links to a Part 7 finding; practice findings stay separately labelled',
             'The chosen work is small enough to test properly',
             'Changed files are recorded',
             'Before-and-after evidence uses comparable conditions',
@@ -420,31 +685,35 @@ const closureTakeaways = [
         <IndependentPractice
           title="Independent Challenge: Complete the Improvement Pass"
           task-title="Your task"
-          :task="`<p>Complete a focused improvement pass for the live Black Swan Bistro site. Use your audit record, choose two or three improvements, make the changes, retest, and finish the improvement log.</p>`"
+          :task="`<p>Complete a focused improvement pass for the live Black Swan Bistro site. Use your audit record to choose up to three justified improvements, make the changes, retest each one, and finish the improvement log. If none is justified, document the evidence and untested areas, then complete the separate practice exercise.</p>`"
           :requirements="[
-            'Prioritise at least three audit findings before editing',
-            'Complete two or three focused improvements',
+            'Review the available audit candidates before editing and explain your decisions',
+            'Complete up to three justified improvements, or document no change needed and complete the labelled practice exercise',
             'Record before evidence and after evidence for each completed improvement',
-            'Run the relevant local checks for the changed files',
+            'Run the relevant local checks for every change; after deployment, repeat the affected checks on the public URL',
+            'Commit each completed real improvement with a clear message and record its ID; for practice-only work, a drafted message is sufficient',
+            'Record release status as locally verified, deployment pending, or verified on the deployed version',
             'Write a short summary of what remains deferred and why',
           ]"
           :stretch-goals="[
-            'Create one Git commit per improvement type with clear messages',
             'Ask another learner to review the improvement log before deployment',
-            'Retest the deployed site after publishing the improvements',
+            'Have another learner reproduce a completed test from your notes',
           ]"
           :rubric="[
             {
               criteria: 'Prioritisation',
-              success: 'The chosen improvements are justified by audit evidence and visitor impact.',
+              success:
+                'The chosen improvements are justified by audit evidence and visitor impact.',
             },
             {
               criteria: 'Implementation',
-              success: 'Changes are focused, readable, and do not introduce unrelated redesign work.',
+              success:
+                'Changes are focused, readable, and do not introduce unrelated redesign work.',
             },
             {
               criteria: 'Verification',
-              success: 'Before-and-after evidence shows what was tested and what changed.',
+              success:
+                'Before-and-after evidence shows what was tested and what changed.',
             },
           ]"
         />
@@ -453,9 +722,10 @@ const closureTakeaways = [
       <section id="recap">
         <h2 class="title is-3">Recap</h2>
         <p>
-          You have moved from audit evidence to deliberate improvement. The
-          important habit is the loop: choose with evidence, change with scope,
-          test with comparable conditions, and record what remains.
+          You have moved from audit evidence to deliberate improvement. Choose a
+          finding, make a focused change, and repeat the relevant tests. Record
+          the result and any remaining uncertainty. If no change was needed,
+          keep that decision alongside your separate practice log.
         </p>
       </section>
 
@@ -489,7 +759,7 @@ const closureTakeaways = [
               ],
             },
           ]"
-          next-steps="<p>Continue to Part 9, where the Bistro receives a realistic client change request. You will update the live project without drifting into unnecessary redesign.</p>"
+          next-steps="<p>Part 9 is planned to cover a client change request and is currently under construction. Keep your audit record, improvement log, commit IDs, and release status ready for that lesson. For now, revisit any deferred findings that need more evidence.</p>"
         />
       </section>
 
