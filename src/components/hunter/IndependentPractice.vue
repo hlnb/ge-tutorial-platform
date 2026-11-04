@@ -1,15 +1,15 @@
 <template>
 	<div class="box practice-independent">
-		<h3><i :class="iconClass"></i> {{ title }}</h3>
+		<component :is="titleHeading" class="practice-title"><i :class="iconClass"></i> {{ title }}</component>
 		<p v-if="description">{{ description }}</p>
 		
 		<div class="challenge-box">
-			<h4>{{ taskTitle }}</h4>
+			<component :is="taskHeading" class="task-heading">{{ taskTitle }}</component>
 			<div v-html="task"></div>
 			
 			<!-- Requirements -->
 			<div v-if="requirements && requirements.length > 0" class="requirements mt-3">
-				<h5>{{ requirementsTitle }}</h5>
+				<component :is="requirementsHeading" class="requirements-heading">{{ requirementsTitle }}</component>
 				<ul>
 					<li v-for="(requirement, index) in requirements" :key="index">
 						{{ requirement }}
@@ -61,6 +61,18 @@ const props = defineProps({
 	title: {
 		type: String,
 		default: 'Independent Challenge'
+	},
+	titleHeading: {
+		type: String,
+		default: 'h3'
+	},
+	taskHeading: {
+		type: String,
+		default: 'h4'
+	},
+	requirementsHeading: {
+		type: String,
+		default: 'h5'
 	},
 	icon: {
 		type: String,
@@ -124,7 +136,7 @@ const iconClass = computed(() => (props.icon.includes('fa-') ? props.icon : 'fas
 	margin: 2rem 0;
 }
 
-.practice-independent h3 {
+.practice-independent .practice-title {
 	color: #991b1b;
 	margin-bottom: 1rem;
 	font-size: 1.5rem;
@@ -144,13 +156,14 @@ const iconClass = computed(() => (props.icon.includes('fa-') ? props.icon : 'fas
 	border: 1px solid #fecaca;
 }
 
-.challenge-box h4 {
+.challenge-box .task-heading {
 	color: #991b1b;
 	margin-bottom: 0.75rem;
 	font-size: 1.25rem;
 	font-weight: bold;
 }
 
+.challenge-box .requirements-heading,
 .challenge-box h5 {
 	color: #991b1b;
 	margin-bottom: 0.5rem;

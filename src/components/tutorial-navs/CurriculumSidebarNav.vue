@@ -44,7 +44,7 @@
       <router-link v-if="!navigation.project" to="/projects/black-swan-bistro">
         Black Swan Bistro Project
       </router-link>
-      <router-link to="/tutorials">Full Curriculum</router-link>
+      <router-link to="/tutorials">Tutorials</router-link>
       <router-link v-if="navigation.project" to="/projects"
         >All Projects</router-link
       >

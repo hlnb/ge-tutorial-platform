@@ -53,13 +53,13 @@ The old Part 7 concept was too broad. It has been split into three focused proje
 |---|---|---|---|
 | Part 7 | `/tutorials/advanced/black-swan-bistro-part-7` | Scaffold | Audit the deployed site before changing code. |
 | Part 8 | `/tutorials/advanced/black-swan-bistro-part-8` | Scaffold | Prioritise audit findings and make deliberate improvements. |
-| Part 9 | `/tutorials/advanced/black-swan-bistro-part-9` | Scaffold | Respond to a client change, test, commit, deploy, and document. |
+| Part 9 | `/tutorials/advanced/black-swan-bistro-part-9` | Authored | Clarify a client request, plan and test updates, preview for approval, publish, and hand over. |
 
 Part 9 client request:
 
 - Sunday dinner opening
-- New dessert: Wattleseed Creme Brulee, $16, with wattleseed custard, caramelised sugar, and native berry compote
-- Mothers Day lunch promotion
+- New dessert: Wattleseed Crème Brûlée, $16, with wattleseed custard, caramelised sugar, and a shortbread biscuit
+- Mother’s Day lunch promotion with preview approval before publication
 
 ## SEO and Analytics Sub-pathway
 

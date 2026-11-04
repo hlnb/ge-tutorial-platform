@@ -88,3 +88,11 @@ In the browser, check a Getting Started lesson, a Design to Code lesson, a
 deployment lesson, and a Bistro part. Expand a roadmap stage using Enter, verify
 the active link, and repeat in the mobile drawer. Check the Bistro project overview
 also lists every part, with Part 9 marked Coming soon until its status changes.
+
+## Black Swan Bistro Part 9 content checks
+
+After `npm run build`, run `node --test scripts/test-bistro-part-9.js` to check
+the generated lesson, approved scenario details, downloadable worksheets,
+canonical URL, educational schema, section links, and sitemap inclusion. Also run
+`node --test scripts/test-sidebar-navigation.js` for project sequence checks.
+These checks do not replace desktop/mobile visual review or keyboard testing.

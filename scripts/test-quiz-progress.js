@@ -27,7 +27,7 @@ function synthetic(context, exports) {
 
 async function createProgress({ signedIn = false, readFails = false, writeFails = false, initial = null } = {}) {
   let stored = initial ? JSON.stringify(initial) : null;
-  let remote = initial ? structuredClone(initial) : null;
+  let remote = initial ? globalThis.structuredClone(initial) : null;
   let writes = 0;
   const context = vm.createContext({
     window: { localStorage: {
@@ -47,7 +47,7 @@ async function createProgress({ signedIn = false, readFails = false, writeFails 
       doc: (_db, collection, id) => { assert.equal(collection, 'progress'); assert.equal(id, 'test-user'); return {}; },
       getDoc: async () => {
         if (readFails) throw new Error('read failed');
-        return { exists: () => remote !== null, data: () => structuredClone(remote) };
+        return { exists: () => remote !== null, data: () => globalThis.structuredClone(remote) };
       },
       setDoc: async (_ref, value) => {
         if (writeFails) throw new Error('write failed');

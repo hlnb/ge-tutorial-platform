@@ -759,7 +759,7 @@ git rev-parse --short HEAD</code></pre>
               ],
             },
           ]"
-          next-steps="<p>Part 9 is planned to cover a client change request and is currently under construction. Keep your audit record, improvement log, commit IDs, and release status ready for that lesson. For now, revisit any deferred findings that need more evidence.</p>"
+          next-steps="<p>Continue to Part 9: Responding to a Client Change Request. Keep your audit record, improvement log, commit IDs, and release status ready as you plan, test, and prepare client updates for approval.</p>"
         />
       </section>
 

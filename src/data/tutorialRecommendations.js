@@ -1912,6 +1912,40 @@ const legacyTutorialEditorialContent = {
         },
       ],
     },
+    'black-swan-bistro-part-9': {
+      resources: [
+        {
+          title: 'MDN Web Docs: Learn web development',
+          url: 'https://developer.mozilla.org/en-US/docs/Learn_web_development',
+          description: 'Practical guidance on HTML, CSS and JavaScript.',
+        },
+        {
+          title: 'Pro Git',
+          url: 'https://git-scm.com/book/en/v2',
+          description: 'Branches, commits and collaborative version control.',
+        },
+        {
+          title: 'web.dev: Learn Accessibility',
+          url: 'https://web.dev/learn/accessibility',
+          description: 'Techniques for making websites easier for everyone to use.',
+        },
+        {
+          title: 'Chrome Lighthouse documentation',
+          url: 'https://developer.chrome.com/docs/lighthouse/',
+          description: 'Audit accessibility, performance and other quality measures.',
+        },
+        {
+          title: 'Vercel deployment environments',
+          url: 'https://vercel.com/docs/deployments/environments',
+          description: 'Review changes in preview before production publication.',
+        },
+        {
+          title: 'Netlify Deploy Previews',
+          url: 'https://docs.netlify.com/deploy/deploy-types/deploy-previews/',
+          description: 'Review proposed changes separately from the live site.',
+        },
+      ],
+    },
   },
   'git-basics': {
     install: {

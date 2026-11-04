@@ -218,7 +218,7 @@ All 5 tutorials completed May 2026. Closes ICTWEB526 (Diploma).
 | BSB Part 6 | `advanced/black-swan-bistro-part-6.vue` | ✅ Complete |
 | BSB Part 7: Audit the Live Website | `advanced/black-swan-bistro-part-7.vue` | 🔵 Scaffold — needs authored audit lesson |
 | BSB Part 8: Prioritise and Improve | `advanced/black-swan-bistro-part-8.vue` | 🔵 Scaffold — needs authored project lesson |
-| BSB Part 9: Respond to a Client Change | `advanced/black-swan-bistro-part-9.vue` | 🔵 Scaffold — needs authored project lesson |
+| BSB Part 9: Responding to a Client Change Request | `advanced/black-swan-bistro-part-9.vue` | Authored — client workflow, four worksheets, preview approval, release and handover |
 
 ---
 

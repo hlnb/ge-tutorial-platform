@@ -22,8 +22,7 @@
 
     <h1 class="title is-1">Black Swan Bistro</h1>
     <p class="subtitle is-4">
-      Follow one restaurant website across the full curriculum so each new
-      concept lands inside a real build.
+     Follow the development of a restaurant website throughout your learning journey, applying each new concept to a real-world project as your skills grow.
     </p>
 
     <section id="overview" class="box">

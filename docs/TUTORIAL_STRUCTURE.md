@@ -69,6 +69,14 @@ Current reality:
 - some pages are more fully built out than others
 - some intermediate/advanced pages are still lighter or stub-like
 
+## Independent Practice Headings
+
+`IndependentPractice.vue` defaults to an H3 title, H4 task heading, and H5
+requirements heading. When a lesson needs a different hierarchy, set the
+`title-heading`, `task-heading`, and `requirements-heading` props to the
+appropriate HTML heading tags. Choose levels that follow the surrounding page
+structure; the component's visual styling remains the same.
+
 ## Assessment Pattern
 
 The current learner-facing assessment wrapper is:

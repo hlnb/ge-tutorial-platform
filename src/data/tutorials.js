@@ -3847,30 +3847,30 @@ const tutorialRecords = [
   },
   {
     id: 'bsb-part-9',
-    title: 'Black Swan Bistro — Part 9 (Respond to a Client Change)',
+    title: 'Black Swan Bistro — Part 9 (Responding to a Client Change Request)',
     slug: 'advanced/black-swan-bistro-part-9',
 
     publishDate: '2026-03-24',
     summary:
-      'Maintain the live Bistro site when the client requests Sunday dinner opening, a Wattleseed Creme Brulee dessert, and a Mothers Day lunch promotion.',
-    level: 'advanced',
-    levelTitle: 'Advanced',
-    levelDescription: 'Deployment, domains, and long-term site care.',
+      'Maintain the live Bistro site when the client requests Sunday dinner opening, a Wattleseed Crème Brûlée dessert, and a Mother’s Day lunch promotion.',
+    level: 'intermediate',
+    levelTitle: 'Intermediate',
+    levelDescription: 'Apply existing web development skills to a client maintenance request.',
     pathways: ['deployment', 'professional-practice'],
     stage: 8.4,
     difficulty: 'medium',
-    estimatedTime: '45 min',
+    estimatedTime: '2–3 hours',
     tags: ['client-change', 'git', 'deployment', 'maintenance'],
     featured: false,
-    comingSoon: true,
+    comingSoon: false,
     isProject: true,
     project: 'black-swan-bistro',
     projectPart: 9,
-    projectTitle: 'Respond to a Client Change',
+    projectTitle: 'Responding to a Client Change Request',
     badge: 'Project',
     topic: 'project',
     learningStage: 'become-independent',
-    contentStatus: 'scaffold',
+    contentStatus: 'complete',
     prerequisites: ['bsb-part-8', 'git-workflow', 'bsb-part-6'],
     appliedConcepts: [
       'git-workflow',
@@ -5599,7 +5599,7 @@ export const projects = [
     id: 'black-swan-bistro',
     title: 'Black Swan Bistro Website',
     description:
-      'Build a complete restaurant website, starting with a single page and progressing to a fully deployed, multi-page site. This hands-on project brings together the skills you develop throughout your learning journey.'
+      'Build a complete restaurant website, starting with a single page and progressing to a fully deployed, multi-page site. This hands-on project brings together the skills you develop throughout your learning journey.',
     totalParts: 9,
     icon: 'fas fa-utensils',
     color: '#363636', // dark/charcoal
