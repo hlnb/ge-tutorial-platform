@@ -5,7 +5,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import path from 'path';
 import fs from 'fs';
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
 	base: '/',
 	ssgOptions: {
 		dirStyle: 'nested',
@@ -55,6 +55,7 @@ export default defineConfig({
 	],
 	resolve: {
 		alias: {
+			...(isSsrBuild ? { '@/utils/sanitizeHtml': path.resolve(__dirname, 'src/utils/sanitizeHtml.server.js') } : {}),
 			'@': path.resolve(__dirname, './src'),
 			'@vueuse/head': '@unhead/vue',
 		},
@@ -114,4 +115,4 @@ export default defineConfig({
 	preview: {
 		port: 5173,
 	},
-});
+}));

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import CodeMirror from '@/components/CodeMirror.vue';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 const props = defineProps({
 	title: {
@@ -38,15 +39,10 @@ const switchTab = (tab) => {
 	activeTab.value = tab;
 };
 
-// Create a style element with the solution CSS
-const previewStyle = computed(
-	() => `
-	<style>
-		${solutionCode.value}
-	</style>
-	${props.previewHtml}
-`,
-);
+const previewDocument = computed(() => {
+	const css = solutionCode.value.replace(/<\/style/gi, '<\\/style');
+	return `<style>${css}</style>${sanitizeHtml(props.previewHtml)}`;
+});
 </script>
 
 <template>
@@ -90,12 +86,12 @@ const previewStyle = computed(
 
 				<!-- Preview Tab -->
 				<div v-if="activeTab === 'preview'" class="preview-container">
-					<div class="solution-preview" v-html="previewStyle"></div>
+					<iframe class="solution-preview" title="Solution preview" sandbox :srcdoc="previewDocument"></iframe>
 				</div>
 
 				<!-- Explanation Tab -->
 				<div v-if="activeTab === 'explanation'" class="explanation-content">
-					<div class="content" v-html="explanation"></div>
+					<div class="content" v-html="sanitizeHtml(explanation)"></div>
 				</div>
 			</div>
 		</div>
@@ -137,12 +133,10 @@ const previewStyle = computed(
 }
 
 .solution-preview {
-	height: 100%;
-}
-
-.solution-preview :deep(*) {
-	/* Allow styling of preview content */
-	all: revert;
+	display: block;
+	width: 100%;
+	min-height: 300px;
+	border: 0;
 }
 
 .explanation-content {

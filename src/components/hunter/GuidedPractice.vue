@@ -6,7 +6,7 @@
 		<div class="steps">
 			<div v-for="(step, index) in steps" :key="index" class="step-item">
 				<h4>{{ step.title || `Step ${index + 1}` }}</h4>
-				<div v-html="step.instructions"></div>
+				<div v-html="sanitizeHtml(step.instructions)"></div>
 				
 				<!-- Hints -->
 				<div v-if="step.hints && step.hints.length > 0" class="hint-box">
@@ -39,6 +39,7 @@
 
 <script setup>
 import { computed } from 'vue';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 const props = defineProps({
 	title: {

@@ -10,6 +10,7 @@ import TutorialRecommendations from "@/components/TutorialRecommendations.vue";
 import { usePageSections } from "@/composables/usePageSections";
 import { useTutorialHead } from "@/composables/useTutorialHead";
 import { computed } from "vue";
+import { sanitizeHtml } from "@/utils/sanitizeHtml";
 
 const props = defineProps({
   lesson: {
@@ -172,7 +173,7 @@ const relatedLinks = [
     >
       <h2 class="title is-3">{{ section.title }}</h2>
       <!-- Lesson content comes from the local curriculum data module. -->
-      <div v-html="section.body"></div>
+      <div v-html="sanitizeHtml(section.body)"></div>
     </section>
 
     <CheckpointBox

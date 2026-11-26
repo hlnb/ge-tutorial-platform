@@ -5,7 +5,7 @@
 		
 		<div class="challenge-box">
 			<component :is="taskHeading" class="task-heading">{{ taskTitle }}</component>
-			<div v-html="task"></div>
+			<div v-html="sanitizeHtml(task)"></div>
 			
 			<!-- Requirements -->
 			<div v-if="requirements && requirements.length > 0" class="requirements mt-3">
@@ -56,6 +56,7 @@
 
 <script setup>
 import { computed } from 'vue';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 const props = defineProps({
 	title: {

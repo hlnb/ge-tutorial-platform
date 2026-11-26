@@ -2,7 +2,7 @@
 	<section class="anticipatory-set">
 		<div class="box engagement-hook">
 			<h3><i :class="iconClass"></i> {{ title }}</h3>
-			<div v-html="hook"></div>
+			<div v-html="sanitizeHtml(hook)"></div>
 			
 			<div v-if="reflectionPrompts && reflectionPrompts.length > 0" class="reflection-prompt">
 				<strong>{{ reflectionTitle }}:</strong>
@@ -17,6 +17,7 @@
 
 <script setup>
 import { computed } from 'vue';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 const props = defineProps({
 	title: {

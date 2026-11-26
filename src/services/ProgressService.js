@@ -352,7 +352,10 @@ export async function syncProgressOnLogin() {
 				quizResults: data.quizResults || {},
 			};
 		}
-	} catch {}
+	} catch (error) {
+		console.error('Error reading progress for login sync:', error);
+		return;
+	}
 	const merged = mergeProgress(local, remote);
 	try {
 		const docRef = doc(db, 'progress', userId);

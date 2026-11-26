@@ -38,7 +38,7 @@
 								{{ ' ' }}{{ prompt.title }}
 							</strong>
 						</p>
-						<div v-if="prompt.content" v-html="prompt.content"></div>
+						<div v-if="prompt.content" v-html="sanitizeHtml(prompt.content)"></div>
 						<ul v-if="prompt.questions && prompt.questions.length > 0">
 							<li v-for="(question, qIndex) in prompt.questions" :key="qIndex">
 								{{ question }}
@@ -52,19 +52,21 @@
 			<!-- Real World Application -->
 			<div v-if="realWorldApplication" class="question-card mt-4">
 				<p><strong><i class="fas fa-globe"></i> Real-World Test:</strong></p>
-				<div v-html="realWorldApplication"></div>
+				<div v-html="sanitizeHtml(realWorldApplication)"></div>
 			</div>
 
 			<!-- Next Steps -->
 			<div v-if="nextSteps" class="question-card mt-4">
 				<p><strong><i class="fas fa-bullseye"></i> Looking Ahead:</strong></p>
-				<div v-html="nextSteps"></div>
+				<div v-html="sanitizeHtml(nextSteps)"></div>
 			</div>
 		</div>
 	</section>
 </template>
 
 <script setup>
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
+
 const isFontAwesomeIcon = (icon) => typeof icon === 'string' && icon.includes('fa-');
 
 defineProps({
